@@ -47,6 +47,8 @@ namespace io.github.vrchatapi.Client
         /// <param name="response">The RestSharp response object</param>
         partial void InterceptResponse(IRestRequest request, IRestResponse response);
 
+        public CookieContainer CookieContainer { get; set; } = new CookieContainer();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
         /// with default configuration.
@@ -55,6 +57,9 @@ namespace io.github.vrchatapi.Client
         {
             Configuration = io.github.vrchatapi.Client.Configuration.Default;
             RestClient = new RestClient("https://api.vrchat.cloud/api/1");
+
+            this.RestClient.CookieContainer = CookieContainer;
+
         }
 
         /// <summary>
@@ -67,6 +72,9 @@ namespace io.github.vrchatapi.Client
             Configuration = config ?? io.github.vrchatapi.Client.Configuration.Default;
 
             RestClient = new RestClient(Configuration.BasePath);
+
+            this.RestClient.CookieContainer = CookieContainer;
+
         }
 
         /// <summary>
@@ -80,6 +88,9 @@ namespace io.github.vrchatapi.Client
                 throw new ArgumentException("basePath cannot be empty");
 
             RestClient = new RestClient(basePath);
+
+            this.RestClient.CookieContainer = CookieContainer;
+
             Configuration = Client.Configuration.Default;
         }
 
