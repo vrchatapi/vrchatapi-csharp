@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **FallbackAvatar** | **string** |  | 
 **CurrentAvatar** | **string** |  | 
 **CurrentAvatarAssetUrl** | **string** |  | 
-**AccountDeletionDate** | **DateTime** |  | [optional] 
+**AccountDeletionDate** | **DateTime?** |  | [optional] 
 **AcceptedTOSVersion** | **decimal** |  | 
 **SteamId** | **string** |  | 
 **SteamDetails** | **Object** |  | 
@@ -48,9 +48,9 @@ Name | Type | Description | Notes
 **DateJoined** | **DateTime** |  | [readonly] 
 **IsFriend** | **bool** |  | [default to false]
 **FriendKey** | **string** |  | 
-**OnlineFriends** | **List&lt;string&gt;** |  | 
-**ActiveFriends** | **List&lt;string&gt;** |  | 
-**OfflineFriends** | **List&lt;string&gt;** |  | 
+**OnlineFriends** | **List&lt;string&gt;** |  | [optional] 
+**ActiveFriends** | **List&lt;string&gt;** |  | [optional] 
+**OfflineFriends** | **List&lt;string&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

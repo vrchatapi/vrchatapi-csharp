@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **Heat** | **decimal** |  | [readonly] [default to 0M]
 **Id** | **string** |  | 
 **ImageUrl** | **string** |  | 
-**Instances** | **List&lt;Object&gt;** |  | [optional] 
+**Instances** | **List&lt;List&lt;Object&gt;&gt;** |  | [optional] 
 **LabsPublicationDate** | **string** |  | 
 **Name** | **string** |  | 
 **Namespace** | **string** |  | 

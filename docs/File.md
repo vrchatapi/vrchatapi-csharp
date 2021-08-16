@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
+**Id** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **OwnerId** | **string** |  | [readonly] 
 **MimeType** | **MIMEType** |  | 

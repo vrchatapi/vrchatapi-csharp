@@ -14,11 +14,11 @@ Name | Type | Description | Notes
 **ThumbnailImageUrl** | **string** |  | 
 **ReleaseStatus** | **string** |  | 
 **Organization** | **string** |  | 
-**Tags** | **List&lt;Object&gt;** |  | 
+**Tags** | **List&lt;string&gt;** |  | 
 **Favorites** | **decimal** |  | 
-**CreatedAt** | **string** |  | 
-**UpdatedAt** | **string** |  | 
-**PublicationDate** | **string** |  | 
+**CreatedAt** | **DateTime** |  | 
+**UpdatedAt** | **DateTime** |  | 
+**PublicationDate** | **string** |  | [readonly] 
 **LabsPublicationDate** | **string** |  | 
 **UnityPackages** | [**List&lt;LimitedUnityPackage&gt;**](LimitedUnityPackage.md) |  | 
 **Popularity** | **decimal** |  | 

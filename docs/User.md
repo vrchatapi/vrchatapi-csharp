@@ -19,16 +19,16 @@ Name | Type | Description | Notes
 **State** | **UserState** |  | 
 **Tags** | **List&lt;string&gt;** |  | 
 **DeveloperType** | **DeveloperType** |  | 
-**LastLogin** | **DateTime** |  | 
+**LastLogin** | **string** |  | 
 **LastPlatform** | **Platform** |  | 
 **AllowAvatarCopying** | **bool** |  | 
 **Status** | **UserStatus** |  | 
 **DateJoined** | **DateTime** |  | [readonly] 
 **IsFriend** | **bool** |  | 
 **FriendKey** | **string** |  | 
-**WorldId** | **string** |  | [optional] 
-**InstanceId** | **string** |  | [optional] 
-**Location** | **string** |  | [optional] 
+**WorldId** | **string** |  | 
+**InstanceId** | **string** |  | 
+**Location** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

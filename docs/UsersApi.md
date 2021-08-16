@@ -360,6 +360,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Error response when trying to search list of users with an invalid request. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#)
