@@ -31,8 +31,6 @@ namespace Example
     {
         public static async void Main()
         {
-            // Configure API URL
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
             Configuration.Default.Username = VRCUsername;
             Configuration.Default.Password = VRCPassword;
@@ -40,8 +38,8 @@ namespace Example
             try
             {
                 // Calling "GetConfig" will fetch the API key needed for further requests.
-                SystemApi api = new SystemApi();
-                var config = await api.GetConfigAsync();
+                SystemApi systemApi = new SystemApi();
+                var config = await systemApi.GetConfigAsync();
                 Console.WriteLine($"Received config {config.ClientApiKey}.");
 
                 // Calling "GetCurrentUser" will log you in.
