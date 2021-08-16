@@ -19,17 +19,23 @@ As stated, this documentation was not created with the help of the official VRCh
 ## Getting Started
 
 ```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
 using io.github.vrchatapi.Api;
 using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Example
 {
-    public class Example
+    class Program
     {
-        public static async void Main()
+        static void Main(string[] args)
+        {
+            MainAsync().Wait();
+            Console.ReadKey();
+        }
+
+        static async Task MainAsync()
         {
             // Configure API key authorization: apiKeyCookie
             Configuration.Default.Username = VRCUsername;
@@ -38,8 +44,8 @@ namespace Example
             try
             {
                 // Calling "GetConfig" will fetch the API key needed for further requests.
-                SystemApi systemApi = new SystemApi();
-                var config = await systemApi.GetConfigAsync();
+                SystemApi api = new SystemApi();
+                var config = await api.GetConfigAsync();
                 Console.WriteLine($"Received config {config.ClientApiKey}.");
 
                 // Calling "GetCurrentUser" will log you in.
@@ -57,11 +63,10 @@ namespace Example
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling API: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling API: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
-
         }
     }
 }
