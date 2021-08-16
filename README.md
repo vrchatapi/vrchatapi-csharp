@@ -29,31 +29,37 @@ namespace Example
 {
     public class Example
     {
-        public static void Main()
+        public static async void Main()
         {
-
+            // Configure API URL
             Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
-            // Configure API key authorization: authCookie
-            Configuration.Default.ApiKey.Add("auth", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("auth", "Bearer");
-
-            var apiInstance = new AuthenticationApi(Configuration.Default);
-            var userId = userId_example;  // string | 
+            Configuration.Default.Username = VRCUsername;
+            Configuration.Default.Password = VRCPassword;
 
             try
             {
-                // Delete User
-                CurrentUser result = apiInstance.DeleteUserById(userId);
-                Debug.WriteLine(result);
+                // Calling "GetConfig" will fetch the API key needed for further requests.
+                SystemApi api = new SystemApi();
+                var config = await api.GetConfigAsync();
+                Console.WriteLine($"Received config {config.ClientApiKey}.");
+
+                // Calling "GetCurrentUser" will log you in.
+                AuthenticationApi authApi = new AuthenticationApi();
+                var user = await authApi.GetCurrentUserAsync();
+                Console.WriteLine($"Logged in user {user.DisplayName}, Current Avatar {user.CurrentAvatar}");
+
+                UsersApi userApi = new UsersApi();
+                var getUser = await userApi.GetUserAsync(user.Id);
+                Console.WriteLine($"Found user {getUser.DisplayName}, joined {getUser.DateJoined}");
+
+                WorldsApi worldApi = new WorldsApi();
+                var world = await worldApi.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
+                Console.WriteLine($"Found world {world.Name}, visits: {world.Visits}");
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.DeleteUserById: " + e.Message );
+                Debug.Print("Exception when calling API: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
