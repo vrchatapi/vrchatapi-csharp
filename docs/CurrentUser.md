@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **StatusHistory** | **List&lt;string&gt;** |  | 
 **StatusFirstTime** | **bool** |  | 
 **Friends** | **List&lt;string&gt;** |  | 
-**FriendGroupNames** | **List&lt;string&gt;** |  | 
+**FriendGroupNames** | **List&lt;string&gt;** | Always empty array. | 
 **CurrentAvatarImageUrl** | **string** |  | 
 **CurrentAvatarThumbnailImageUrl** | **string** |  | 
 **FallbackAvatar** | **string** |  | 

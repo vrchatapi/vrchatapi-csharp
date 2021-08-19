@@ -6,12 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**AssetUrl** | **string** |  | 
-**AssetUrlObject** | **Object** |  | 
-**PluginUrl** | **string** |  | 
-**PluginUrlObject** | **Object** |  | 
-**UnityVersion** | **string** |  | 
-**UnitySortNumber** | **decimal** |  | 
+**AssetUrl** | **string** |  | [optional] 
+**AssetUrlObject** | **Object** |  | [optional] 
+**PluginUrl** | **string** |  | [optional] 
+**PluginUrlObject** | **Object** |  | [optional] 
+**UnityVersion** | **string** |  | [default to "5.3.4p1"]
+**UnitySortNumber** | **decimal** |  | [optional] 
 **AssetVersion** | **decimal** |  | 
 **Platform** | **Platform** |  | 
 **CreatedAt** | **DateTime** |  | 

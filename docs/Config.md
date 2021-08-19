@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | **string** | VRChat&#39;s office address | [readonly] 
-**Announcements** | [**List&lt;ConfigAnnouncements&gt;**](ConfigAnnouncements.md) | PSA, Public Announcements | [readonly] 
+**Announcements** | [**List&lt;ConfigAnnouncements&gt;**](ConfigAnnouncements.md) | Public Announcements | [readonly] 
 **ApiKey** | **string** | apiKey to be used for all other requests | [readonly] 
 **AppName** | **string** | Game name | [readonly] [default to "VrChat"]
 **BuildVersionTag** | **string** | Build tag of the API server | [readonly] 

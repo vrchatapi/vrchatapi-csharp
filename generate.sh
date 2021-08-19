@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm src docs -rf
+
 openapi-generator-cli generate \
 -g csharp \
 --additional-properties=packageName=io.github.vrchatapi \
@@ -10,7 +12,6 @@ openapi-generator-cli generate \
 --http-user-agent="vrchatapi-csharp"
 
 # Enable global cookie storage
-sed -i '/partial void InterceptResponse(IRestRequest request, IRestResponse response);/a \\n        public CookieContainer CookieContainer { get; set; } = new CookieContainer();' ./src/io.github.vrchatapi/Client/ApiClient.cs
-sed -i '/RestClient = new RestClient/a \\n            this.RestClient.CookieContainer = CookieContainer;\n' ./src/io.github.vrchatapi/Client/ApiClient.cs
+sed -i '/RestClient = new RestClient/a \\n            this.RestClient.CookieContainer = new CookieContainer();\n' ./src/io.github.vrchatapi/Client/ApiClient.cs
 
 ./build.bat
