@@ -66,36 +66,20 @@ namespace io.github.vrchatapi.Test
 
 
         /// <summary>
-        /// Test the property 'AssetUrl'
+        /// Test the property 'DisplayName'
         /// </summary>
         [Test]
-        public void AssetUrlTest()
+        public void DisplayNameTest()
         {
-            // TODO unit test for the property 'AssetUrl'
+            // TODO unit test for the property 'DisplayName'
         }
         /// <summary>
-        /// Test the property 'Id'
+        /// Test the property 'Visibility'
         /// </summary>
         [Test]
-        public void IdTest()
+        public void VisibilityTest()
         {
-            // TODO unit test for the property 'Id'
-        }
-        /// <summary>
-        /// Test the property 'Name'
-        /// </summary>
-        [Test]
-        public void NameTest()
-        {
-            // TODO unit test for the property 'Name'
-        }
-        /// <summary>
-        /// Test the property 'Description'
-        /// </summary>
-        [Test]
-        public void DescriptionTest()
-        {
-            // TODO unit test for the property 'Description'
+            // TODO unit test for the property 'Visibility'
         }
         /// <summary>
         /// Test the property 'Tags'
@@ -104,38 +88,6 @@ namespace io.github.vrchatapi.Test
         public void TagsTest()
         {
             // TODO unit test for the property 'Tags'
-        }
-        /// <summary>
-        /// Test the property 'ImageUrl'
-        /// </summary>
-        [Test]
-        public void ImageUrlTest()
-        {
-            // TODO unit test for the property 'ImageUrl'
-        }
-        /// <summary>
-        /// Test the property 'ReleaseStatus'
-        /// </summary>
-        [Test]
-        public void ReleaseStatusTest()
-        {
-            // TODO unit test for the property 'ReleaseStatus'
-        }
-        /// <summary>
-        /// Test the property 'Version'
-        /// </summary>
-        [Test]
-        public void VersionTest()
-        {
-            // TODO unit test for the property 'Version'
-        }
-        /// <summary>
-        /// Test the property 'UnityPackageUrl'
-        /// </summary>
-        [Test]
-        public void UnityPackageUrlTest()
-        {
-            // TODO unit test for the property 'UnityPackageUrl'
         }
 
     }

@@ -31,16 +31,6 @@ namespace io.github.vrchatapi.Model
     public partial class InlineObject5 :  IEquatable<InlineObject5>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Platform
-        /// </summary>
-        [DataMember(Name="platform", EmitDefaultValue=false)]
-        public Platform? Platform { get; set; }
-        /// <summary>
-        /// Gets or Sets ReleaseStatus
-        /// </summary>
-        [DataMember(Name="releaseStatus", EmitDefaultValue=false)]
-        public ReleaseStatus? ReleaseStatus { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="InlineObject5" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -48,152 +38,54 @@ namespace io.github.vrchatapi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineObject5" /> class.
         /// </summary>
-        /// <param name="assetUrl">assetUrl (required).</param>
-        /// <param name="assetVersion">assetVersion.</param>
-        /// <param name="authorName">authorName.</param>
-        /// <param name="capacity">capacity (default to 16).</param>
-        /// <param name="description">description.</param>
-        /// <param name="id">id.</param>
-        /// <param name="imageUrl">imageUrl (required).</param>
-        /// <param name="name">name (required).</param>
-        /// <param name="platform">platform.</param>
-        /// <param name="releaseStatus">releaseStatus.</param>
-        /// <param name="tags">tags.</param>
-        /// <param name="unityPackageUrl">unityPackageUrl.</param>
-        /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
-        public InlineObject5(string assetUrl = default(string), string assetVersion = default(string), string authorName = default(string), int capacity = 16, string description = default(string), string id = default(string), string imageUrl = default(string), string name = default(string), Platform? platform = default(Platform?), ReleaseStatus? releaseStatus = default(ReleaseStatus?), List<string> tags = default(List<string>), string unityPackageUrl = default(string), string unityVersion = "5.3.4p1")
+        /// <param name="etags">Array of ETags uploaded..</param>
+        /// <param name="nextPartNumber">Always a zero in string form, despite how many parts uploaded. (required) (default to &quot;0&quot;).</param>
+        /// <param name="maxParts">Always a zero in string form, despite how many parts uploaded. (required) (default to &quot;0&quot;).</param>
+        public InlineObject5(List<string> etags = default(List<string>), string nextPartNumber = "0", string maxParts = "0")
         {
-            // to ensure "assetUrl" is required (not null)
-            if (assetUrl == null)
+            // to ensure "nextPartNumber" is required (not null)
+            if (nextPartNumber == null)
             {
-                throw new InvalidDataException("assetUrl is a required property for InlineObject5 and cannot be null");
+                throw new InvalidDataException("nextPartNumber is a required property for InlineObject5 and cannot be null");
             }
             else
             {
-                this.AssetUrl = assetUrl;
+                this.NextPartNumber = nextPartNumber;
             }
 
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
+            // to ensure "maxParts" is required (not null)
+            if (maxParts == null)
             {
-                throw new InvalidDataException("imageUrl is a required property for InlineObject5 and cannot be null");
+                throw new InvalidDataException("maxParts is a required property for InlineObject5 and cannot be null");
             }
             else
             {
-                this.ImageUrl = imageUrl;
+                this.MaxParts = maxParts;
             }
 
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new InvalidDataException("name is a required property for InlineObject5 and cannot be null");
-            }
-            else
-            {
-                this.Name = name;
-            }
-
-            this.AssetVersion = assetVersion;
-            this.AuthorName = authorName;
-            // use default value if no "capacity" provided
-            if (capacity == null)
-            {
-                this.Capacity = 16;
-            }
-            else
-            {
-                this.Capacity = capacity;
-            }
-            this.Description = description;
-            this.Id = id;
-            this.Platform = platform;
-            this.ReleaseStatus = releaseStatus;
-            this.Tags = tags;
-            this.UnityPackageUrl = unityPackageUrl;
-            // use default value if no "unityVersion" provided
-            if (unityVersion == null)
-            {
-                this.UnityVersion = "5.3.4p1";
-            }
-            else
-            {
-                this.UnityVersion = unityVersion;
-            }
+            this.Etags = etags;
         }
 
         /// <summary>
-        /// Gets or Sets AssetUrl
+        /// Array of ETags uploaded.
         /// </summary>
-        [DataMember(Name="assetUrl", EmitDefaultValue=true)]
-        public string AssetUrl { get; set; }
+        /// <value>Array of ETags uploaded.</value>
+        [DataMember(Name="etags", EmitDefaultValue=false)]
+        public List<string> Etags { get; set; }
 
         /// <summary>
-        /// Gets or Sets AssetVersion
+        /// Always a zero in string form, despite how many parts uploaded.
         /// </summary>
-        [DataMember(Name="assetVersion", EmitDefaultValue=false)]
-        public string AssetVersion { get; set; }
+        /// <value>Always a zero in string form, despite how many parts uploaded.</value>
+        [DataMember(Name="nextPartNumber", EmitDefaultValue=true)]
+        public string NextPartNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets AuthorId
+        /// Always a zero in string form, despite how many parts uploaded.
         /// </summary>
-        [DataMember(Name="authorId", EmitDefaultValue=false)]
-        public string AuthorId { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets AuthorName
-        /// </summary>
-        [DataMember(Name="authorName", EmitDefaultValue=false)]
-        public string AuthorName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Capacity
-        /// </summary>
-        [DataMember(Name="capacity", EmitDefaultValue=false)]
-        public int Capacity { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Description
-        /// </summary>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ImageUrl
-        /// </summary>
-        [DataMember(Name="imageUrl", EmitDefaultValue=true)]
-        public string ImageUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=true)]
-        public string Name { get; set; }
-
-
-
-        /// <summary>
-        /// Gets or Sets Tags
-        /// </summary>
-        [DataMember(Name="tags", EmitDefaultValue=false)]
-        public List<string> Tags { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UnityPackageUrl
-        /// </summary>
-        [DataMember(Name="unityPackageUrl", EmitDefaultValue=false)]
-        public string UnityPackageUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UnityVersion
-        /// </summary>
-        [DataMember(Name="unityVersion", EmitDefaultValue=false)]
-        public string UnityVersion { get; set; }
+        /// <value>Always a zero in string form, despite how many parts uploaded.</value>
+        [DataMember(Name="maxParts", EmitDefaultValue=true)]
+        public string MaxParts { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -203,20 +95,9 @@ namespace io.github.vrchatapi.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineObject5 {\n");
-            sb.Append("  AssetUrl: ").Append(AssetUrl).Append("\n");
-            sb.Append("  AssetVersion: ").Append(AssetVersion).Append("\n");
-            sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
-            sb.Append("  AuthorName: ").Append(AuthorName).Append("\n");
-            sb.Append("  Capacity: ").Append(Capacity).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Platform: ").Append(Platform).Append("\n");
-            sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  UnityPackageUrl: ").Append(UnityPackageUrl).Append("\n");
-            sb.Append("  UnityVersion: ").Append(UnityVersion).Append("\n");
+            sb.Append("  Etags: ").Append(Etags).Append("\n");
+            sb.Append("  NextPartNumber: ").Append(NextPartNumber).Append("\n");
+            sb.Append("  MaxParts: ").Append(MaxParts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -252,75 +133,20 @@ namespace io.github.vrchatapi.Model
 
             return 
                 (
-                    this.AssetUrl == input.AssetUrl ||
-                    (this.AssetUrl != null &&
-                    this.AssetUrl.Equals(input.AssetUrl))
+                    this.Etags == input.Etags ||
+                    this.Etags != null &&
+                    input.Etags != null &&
+                    this.Etags.SequenceEqual(input.Etags)
                 ) && 
                 (
-                    this.AssetVersion == input.AssetVersion ||
-                    (this.AssetVersion != null &&
-                    this.AssetVersion.Equals(input.AssetVersion))
+                    this.NextPartNumber == input.NextPartNumber ||
+                    (this.NextPartNumber != null &&
+                    this.NextPartNumber.Equals(input.NextPartNumber))
                 ) && 
                 (
-                    this.AuthorId == input.AuthorId ||
-                    (this.AuthorId != null &&
-                    this.AuthorId.Equals(input.AuthorId))
-                ) && 
-                (
-                    this.AuthorName == input.AuthorName ||
-                    (this.AuthorName != null &&
-                    this.AuthorName.Equals(input.AuthorName))
-                ) && 
-                (
-                    this.Capacity == input.Capacity ||
-                    (this.Capacity != null &&
-                    this.Capacity.Equals(input.Capacity))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Platform == input.Platform ||
-                    (this.Platform != null &&
-                    this.Platform.Equals(input.Platform))
-                ) && 
-                (
-                    this.ReleaseStatus == input.ReleaseStatus ||
-                    (this.ReleaseStatus != null &&
-                    this.ReleaseStatus.Equals(input.ReleaseStatus))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.UnityPackageUrl == input.UnityPackageUrl ||
-                    (this.UnityPackageUrl != null &&
-                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
-                ) && 
-                (
-                    this.UnityVersion == input.UnityVersion ||
-                    (this.UnityVersion != null &&
-                    this.UnityVersion.Equals(input.UnityVersion))
+                    this.MaxParts == input.MaxParts ||
+                    (this.MaxParts != null &&
+                    this.MaxParts.Equals(input.MaxParts))
                 );
         }
 
@@ -333,34 +159,12 @@ namespace io.github.vrchatapi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AssetUrl != null)
-                    hashCode = hashCode * 59 + this.AssetUrl.GetHashCode();
-                if (this.AssetVersion != null)
-                    hashCode = hashCode * 59 + this.AssetVersion.GetHashCode();
-                if (this.AuthorId != null)
-                    hashCode = hashCode * 59 + this.AuthorId.GetHashCode();
-                if (this.AuthorName != null)
-                    hashCode = hashCode * 59 + this.AuthorName.GetHashCode();
-                if (this.Capacity != null)
-                    hashCode = hashCode * 59 + this.Capacity.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.ImageUrl != null)
-                    hashCode = hashCode * 59 + this.ImageUrl.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Platform != null)
-                    hashCode = hashCode * 59 + this.Platform.GetHashCode();
-                if (this.ReleaseStatus != null)
-                    hashCode = hashCode * 59 + this.ReleaseStatus.GetHashCode();
-                if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
-                if (this.UnityPackageUrl != null)
-                    hashCode = hashCode * 59 + this.UnityPackageUrl.GetHashCode();
-                if (this.UnityVersion != null)
-                    hashCode = hashCode * 59 + this.UnityVersion.GetHashCode();
+                if (this.Etags != null)
+                    hashCode = hashCode * 59 + this.Etags.GetHashCode();
+                if (this.NextPartNumber != null)
+                    hashCode = hashCode * 59 + this.NextPartNumber.GetHashCode();
+                if (this.MaxParts != null)
+                    hashCode = hashCode * 59 + this.MaxParts.GetHashCode();
                 return hashCode;
             }
         }
@@ -373,77 +177,45 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
-            // AssetUrl (string) minLength
-            if(this.AssetUrl != null && this.AssetUrl.Length < 1)
+ 
+            // NextPartNumber (string) maxLength
+            if(this.NextPartNumber != null && this.NextPartNumber.Length > 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPartNumber, length must be less than 1.", new [] { "NextPartNumber" });
+            }
+
+            // NextPartNumber (string) minLength
+            if(this.NextPartNumber != null && this.NextPartNumber.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPartNumber, length must be greater than 1.", new [] { "NextPartNumber" });
             }
  
-
-            // AssetVersion (string) minLength
-            if(this.AssetVersion != null && this.AssetVersion.Length < 1)
+            // NextPartNumber (string) pattern
+            Regex regexNextPartNumber = new Regex(@"0", RegexOptions.CultureInvariant);
+            if (false == regexNextPartNumber.Match(this.NextPartNumber).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetVersion, length must be greater than 1.", new [] { "AssetVersion" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPartNumber, must match a pattern of " + regexNextPartNumber, new [] { "NextPartNumber" });
+            }
+
+            // MaxParts (string) maxLength
+            if(this.MaxParts != null && this.MaxParts.Length > 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxParts, length must be less than 1.", new [] { "MaxParts" });
+            }
+
+            // MaxParts (string) minLength
+            if(this.MaxParts != null && this.MaxParts.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxParts, length must be greater than 1.", new [] { "MaxParts" });
             }
  
-
-            // AuthorName (string) minLength
-            if(this.AuthorName != null && this.AuthorName.Length < 1)
+            // MaxParts (string) pattern
+            Regex regexMaxParts = new Regex(@"0", RegexOptions.CultureInvariant);
+            if (false == regexMaxParts.Match(this.MaxParts).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
-            }
- 
-
- 
-            // Capacity (int) maximum
-            if(this.Capacity > (int)40)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value less than or equal to 40.", new [] { "Capacity" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxParts, must match a pattern of " + regexMaxParts, new [] { "MaxParts" });
             }
 
-            // Capacity (int) minimum
-            if(this.Capacity < (int)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value greater than or equal to 1.", new [] { "Capacity" });
-            }
-
-
- 
-            // Id (string) pattern
-            Regex regexId = new Regex(@"(^$|offline|(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
-            if (false == regexId.Match(this.Id).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must match a pattern of " + regexId, new [] { "Id" });
-            }
-
-
-            // ImageUrl (string) minLength
-            if(this.ImageUrl != null && this.ImageUrl.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
-            }
- 
-
-            // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
-            }
- 
-
-            // UnityPackageUrl (string) minLength
-            if(this.UnityPackageUrl != null && this.UnityPackageUrl.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityPackageUrl, length must be greater than 1.", new [] { "UnityPackageUrl" });
-            }
- 
-
-            // UnityVersion (string) minLength
-            if(this.UnityVersion != null && this.UnityVersion.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
-            }
- 
             yield break;
         }
     }

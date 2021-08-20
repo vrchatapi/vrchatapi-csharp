@@ -81,7 +81,7 @@ Contact: me@ruby.js.org
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\io.github.vrchatapi\io.github.vrchatapi.csproj">
-          <Project>{29AE314C-C88E-4EE1-9FC9-30325BF214DC}</Project>
+          <Project>{E0B56103-B6A7-490D-AB4C-B25DA83C2DBC}</Project>
           <Name>io.github.vrchatapi</Name>
       </ProjectReference>
   </ItemGroup>

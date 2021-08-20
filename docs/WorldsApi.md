@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## CreateWorld
 
-> World CreateWorld (InlineObject5 inlineObject5 = null)
+> World CreateWorld (InlineObject6 inlineObject6 = null)
 
 Create World
 
@@ -45,12 +45,12 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
             var apiInstance = new WorldsApi(Configuration.Default);
-            var inlineObject5 = new InlineObject5(); // InlineObject5 |  (optional) 
+            var inlineObject6 = new InlineObject6(); // InlineObject6 |  (optional) 
 
             try
             {
                 // Create World
-                World result = apiInstance.CreateWorld(inlineObject5);
+                World result = apiInstance.CreateWorld(inlineObject6);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -69,7 +69,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+ **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | [optional] 
 
 ### Return type
 
@@ -1138,7 +1138,7 @@ void (empty response body)
 
 ## UpdateWorld
 
-> World UpdateWorld (string worldId, InlineObject6 inlineObject6 = null)
+> World UpdateWorld (string worldId, InlineObject7 inlineObject7 = null)
 
 Update World
 
@@ -1171,12 +1171,12 @@ namespace Example
 
             var apiInstance = new WorldsApi(Configuration.Default);
             var worldId = worldId_example;  // string | 
-            var inlineObject6 = new InlineObject6(); // InlineObject6 |  (optional) 
+            var inlineObject7 = new InlineObject7(); // InlineObject7 |  (optional) 
 
             try
             {
                 // Update World
-                World result = apiInstance.UpdateWorld(worldId, inlineObject6);
+                World result = apiInstance.UpdateWorld(worldId, inlineObject7);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1196,7 +1196,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **worldId** | **string**|  | 
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | [optional] 
+ **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | [optional] 
 
 ### Return type
 

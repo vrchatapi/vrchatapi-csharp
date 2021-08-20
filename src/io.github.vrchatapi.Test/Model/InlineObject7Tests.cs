@@ -66,20 +66,92 @@ namespace io.github.vrchatapi.Test
 
 
         /// <summary>
-        /// Test the property 'Type'
+        /// Test the property 'AssetUrl'
         /// </summary>
         [Test]
-        public void TypeTest()
+        public void AssetUrlTest()
         {
-            // TODO unit test for the property 'Type'
+            // TODO unit test for the property 'AssetUrl'
         }
         /// <summary>
-        /// Test the property 'FavoriteId'
+        /// Test the property 'AssetVersion'
         /// </summary>
         [Test]
-        public void FavoriteIdTest()
+        public void AssetVersionTest()
         {
-            // TODO unit test for the property 'FavoriteId'
+            // TODO unit test for the property 'AssetVersion'
+        }
+        /// <summary>
+        /// Test the property 'AuthorId'
+        /// </summary>
+        [Test]
+        public void AuthorIdTest()
+        {
+            // TODO unit test for the property 'AuthorId'
+        }
+        /// <summary>
+        /// Test the property 'AuthorName'
+        /// </summary>
+        [Test]
+        public void AuthorNameTest()
+        {
+            // TODO unit test for the property 'AuthorName'
+        }
+        /// <summary>
+        /// Test the property 'Capacity'
+        /// </summary>
+        [Test]
+        public void CapacityTest()
+        {
+            // TODO unit test for the property 'Capacity'
+        }
+        /// <summary>
+        /// Test the property 'Description'
+        /// </summary>
+        [Test]
+        public void DescriptionTest()
+        {
+            // TODO unit test for the property 'Description'
+        }
+        /// <summary>
+        /// Test the property 'Id'
+        /// </summary>
+        [Test]
+        public void IdTest()
+        {
+            // TODO unit test for the property 'Id'
+        }
+        /// <summary>
+        /// Test the property 'ImageUrl'
+        /// </summary>
+        [Test]
+        public void ImageUrlTest()
+        {
+            // TODO unit test for the property 'ImageUrl'
+        }
+        /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Test]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
+        }
+        /// <summary>
+        /// Test the property 'Platform'
+        /// </summary>
+        [Test]
+        public void PlatformTest()
+        {
+            // TODO unit test for the property 'Platform'
+        }
+        /// <summary>
+        /// Test the property 'ReleaseStatus'
+        /// </summary>
+        [Test]
+        public void ReleaseStatusTest()
+        {
+            // TODO unit test for the property 'ReleaseStatus'
         }
         /// <summary>
         /// Test the property 'Tags'
@@ -88,6 +160,22 @@ namespace io.github.vrchatapi.Test
         public void TagsTest()
         {
             // TODO unit test for the property 'Tags'
+        }
+        /// <summary>
+        /// Test the property 'UnityPackageUrl'
+        /// </summary>
+        [Test]
+        public void UnityPackageUrlTest()
+        {
+            // TODO unit test for the property 'UnityPackageUrl'
+        }
+        /// <summary>
+        /// Test the property 'UnityVersion'
+        /// </summary>
+        [Test]
+        public void UnityVersionTest()
+        {
+            // TODO unit test for the property 'UnityVersion'
         }
 
     }

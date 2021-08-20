@@ -54,8 +54,9 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
+        /// <param name="inlineObject4"> (optional)</param>
         /// <returns>File</returns>
-        File CreateFileVersion (string fileId);
+        File CreateFileVersion (string fileId, InlineObject4 inlineObject4 = default(InlineObject4));
 
         /// <summary>
         /// Create File Version
@@ -65,8 +66,9 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
+        /// <param name="inlineObject4"> (optional)</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> CreateFileVersionWithHttpInfo (string fileId);
+        ApiResponse<File> CreateFileVersionWithHttpInfo (string fileId, InlineObject4 inlineObject4 = default(InlineObject4));
         /// <summary>
         /// Delete File
         /// </summary>
@@ -144,9 +146,9 @@ namespace io.github.vrchatapi.Api
         /// <param name="fileId"></param>
         /// <param name="versionId"></param>
         /// <param name="fileType"></param>
-        /// <param name="inlineObject4"> (optional)</param>
+        /// <param name="inlineObject5"> (optional)</param>
         /// <returns>File</returns>
-        File FinishFileDataUpload (string fileId, int versionId, string fileType, InlineObject4 inlineObject4 = default(InlineObject4));
+        File FinishFileDataUpload (string fileId, int versionId, string fileType, InlineObject5 inlineObject5 = default(InlineObject5));
 
         /// <summary>
         /// Finish FileData Upload
@@ -158,9 +160,9 @@ namespace io.github.vrchatapi.Api
         /// <param name="fileId"></param>
         /// <param name="versionId"></param>
         /// <param name="fileType"></param>
-        /// <param name="inlineObject4"> (optional)</param>
+        /// <param name="inlineObject5"> (optional)</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> FinishFileDataUploadWithHttpInfo (string fileId, int versionId, string fileType, InlineObject4 inlineObject4 = default(InlineObject4));
+        ApiResponse<File> FinishFileDataUploadWithHttpInfo (string fileId, int versionId, string fileType, InlineObject5 inlineObject5 = default(InlineObject5));
         /// <summary>
         /// Show File
         /// </summary>
@@ -294,9 +296,10 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
+        /// <param name="inlineObject4"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> CreateFileVersionAsync (string fileId, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<File> CreateFileVersionAsync (string fileId, InlineObject4 inlineObject4 = default(InlineObject4), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create File Version
@@ -306,9 +309,10 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
+        /// <param name="inlineObject4"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> CreateFileVersionWithHttpInfoAsync (string fileId, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> CreateFileVersionWithHttpInfoAsync (string fileId, InlineObject4 inlineObject4 = default(InlineObject4), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete File
         /// </summary>
@@ -392,10 +396,10 @@ namespace io.github.vrchatapi.Api
         /// <param name="fileId"></param>
         /// <param name="versionId"></param>
         /// <param name="fileType"></param>
-        /// <param name="inlineObject4"> (optional)</param>
+        /// <param name="inlineObject5"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> FinishFileDataUploadAsync (string fileId, int versionId, string fileType, InlineObject4 inlineObject4 = default(InlineObject4), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<File> FinishFileDataUploadAsync (string fileId, int versionId, string fileType, InlineObject5 inlineObject5 = default(InlineObject5), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Finish FileData Upload
@@ -407,10 +411,10 @@ namespace io.github.vrchatapi.Api
         /// <param name="fileId"></param>
         /// <param name="versionId"></param>
         /// <param name="fileType"></param>
-        /// <param name="inlineObject4"> (optional)</param>
+        /// <param name="inlineObject5"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync (string fileId, int versionId, string fileType, InlineObject4 inlineObject4 = default(InlineObject4), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync (string fileId, int versionId, string fileType, InlineObject5 inlineObject5 = default(InlineObject5), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Show File
         /// </summary>
@@ -784,10 +788,11 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
+        /// <param name="inlineObject4"> (optional)</param>
         /// <returns>File</returns>
-        public File CreateFileVersion (string fileId)
+        public File CreateFileVersion (string fileId, InlineObject4 inlineObject4 = default(InlineObject4))
         {
-             ApiResponse<File> localVarResponse = CreateFileVersionWithHttpInfo(fileId);
+             ApiResponse<File> localVarResponse = CreateFileVersionWithHttpInfo(fileId, inlineObject4);
              return localVarResponse.Data;
         }
 
@@ -796,8 +801,9 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
+        /// <param name="inlineObject4"> (optional)</param>
         /// <returns>ApiResponse of File</returns>
-        public ApiResponse<File> CreateFileVersionWithHttpInfo (string fileId)
+        public ApiResponse<File> CreateFileVersionWithHttpInfo (string fileId, InlineObject4 inlineObject4 = default(InlineObject4))
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -813,6 +819,7 @@ namespace io.github.vrchatapi.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -825,6 +832,14 @@ namespace io.github.vrchatapi.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (fileId != null) localVarPathParams.Add("fileId", this.Configuration.ApiClient.ParameterToString(fileId)); // path parameter
+            if (inlineObject4 != null && inlineObject4.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject4); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inlineObject4; // byte array
+            }
 
             // authentication (apiKeyCookie) required
             // authentication (authCookie) required
@@ -852,11 +867,12 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
+        /// <param name="inlineObject4"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> CreateFileVersionAsync (string fileId, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<File> CreateFileVersionAsync (string fileId, InlineObject4 inlineObject4 = default(InlineObject4), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<File> localVarResponse = await CreateFileVersionWithHttpInfoAsync(fileId, cancellationToken);
+             ApiResponse<File> localVarResponse = await CreateFileVersionWithHttpInfoAsync(fileId, inlineObject4, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -866,9 +882,10 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
+        /// <param name="inlineObject4"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<File>> CreateFileVersionWithHttpInfoAsync (string fileId, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<File>> CreateFileVersionWithHttpInfoAsync (string fileId, InlineObject4 inlineObject4 = default(InlineObject4), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -884,6 +901,7 @@ namespace io.github.vrchatapi.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -896,6 +914,14 @@ namespace io.github.vrchatapi.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (fileId != null) localVarPathParams.Add("fileId", this.Configuration.ApiClient.ParameterToString(fileId)); // path parameter
+            if (inlineObject4 != null && inlineObject4.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject4); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inlineObject4; // byte array
+            }
 
             // authentication (apiKeyCookie) required
             // authentication (authCookie) required
@@ -1362,11 +1388,11 @@ namespace io.github.vrchatapi.Api
         /// <param name="fileId"></param>
         /// <param name="versionId"></param>
         /// <param name="fileType"></param>
-        /// <param name="inlineObject4"> (optional)</param>
+        /// <param name="inlineObject5"> (optional)</param>
         /// <returns>File</returns>
-        public File FinishFileDataUpload (string fileId, int versionId, string fileType, InlineObject4 inlineObject4 = default(InlineObject4))
+        public File FinishFileDataUpload (string fileId, int versionId, string fileType, InlineObject5 inlineObject5 = default(InlineObject5))
         {
-             ApiResponse<File> localVarResponse = FinishFileDataUploadWithHttpInfo(fileId, versionId, fileType, inlineObject4);
+             ApiResponse<File> localVarResponse = FinishFileDataUploadWithHttpInfo(fileId, versionId, fileType, inlineObject5);
              return localVarResponse.Data;
         }
 
@@ -1377,9 +1403,9 @@ namespace io.github.vrchatapi.Api
         /// <param name="fileId"></param>
         /// <param name="versionId"></param>
         /// <param name="fileType"></param>
-        /// <param name="inlineObject4"> (optional)</param>
+        /// <param name="inlineObject5"> (optional)</param>
         /// <returns>ApiResponse of File</returns>
-        public ApiResponse<File> FinishFileDataUploadWithHttpInfo (string fileId, int versionId, string fileType, InlineObject4 inlineObject4 = default(InlineObject4))
+        public ApiResponse<File> FinishFileDataUploadWithHttpInfo (string fileId, int versionId, string fileType, InlineObject5 inlineObject5 = default(InlineObject5))
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -1416,13 +1442,13 @@ namespace io.github.vrchatapi.Api
             if (fileId != null) localVarPathParams.Add("fileId", this.Configuration.ApiClient.ParameterToString(fileId)); // path parameter
             if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
             if (fileType != null) localVarPathParams.Add("fileType", this.Configuration.ApiClient.ParameterToString(fileType)); // path parameter
-            if (inlineObject4 != null && inlineObject4.GetType() != typeof(byte[]))
+            if (inlineObject5 != null && inlineObject5.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject4); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject5); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject4; // byte array
+                localVarPostBody = inlineObject5; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -1453,12 +1479,12 @@ namespace io.github.vrchatapi.Api
         /// <param name="fileId"></param>
         /// <param name="versionId"></param>
         /// <param name="fileType"></param>
-        /// <param name="inlineObject4"> (optional)</param>
+        /// <param name="inlineObject5"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> FinishFileDataUploadAsync (string fileId, int versionId, string fileType, InlineObject4 inlineObject4 = default(InlineObject4), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<File> FinishFileDataUploadAsync (string fileId, int versionId, string fileType, InlineObject5 inlineObject5 = default(InlineObject5), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<File> localVarResponse = await FinishFileDataUploadWithHttpInfoAsync(fileId, versionId, fileType, inlineObject4, cancellationToken);
+             ApiResponse<File> localVarResponse = await FinishFileDataUploadWithHttpInfoAsync(fileId, versionId, fileType, inlineObject5, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1470,10 +1496,10 @@ namespace io.github.vrchatapi.Api
         /// <param name="fileId"></param>
         /// <param name="versionId"></param>
         /// <param name="fileType"></param>
-        /// <param name="inlineObject4"> (optional)</param>
+        /// <param name="inlineObject5"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync (string fileId, int versionId, string fileType, InlineObject4 inlineObject4 = default(InlineObject4), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync (string fileId, int versionId, string fileType, InlineObject5 inlineObject5 = default(InlineObject5), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -1510,13 +1536,13 @@ namespace io.github.vrchatapi.Api
             if (fileId != null) localVarPathParams.Add("fileId", this.Configuration.ApiClient.ParameterToString(fileId)); // path parameter
             if (versionId != null) localVarPathParams.Add("versionId", this.Configuration.ApiClient.ParameterToString(versionId)); // path parameter
             if (fileType != null) localVarPathParams.Add("fileType", this.Configuration.ApiClient.ParameterToString(fileType)); // path parameter
-            if (inlineObject4 != null && inlineObject4.GetType() != typeof(byte[]))
+            if (inlineObject5 != null && inlineObject5.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject4); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject5); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject4; // byte array
+                localVarPostBody = inlineObject5; // byte array
             }
 
             // authentication (apiKeyCookie) required

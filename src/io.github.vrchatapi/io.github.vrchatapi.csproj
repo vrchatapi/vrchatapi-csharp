@@ -12,7 +12,7 @@ Contact: me@ruby.js.org
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{29AE314C-C88E-4EE1-9FC9-30325BF214DC}</ProjectGuid>
+    <ProjectGuid>{E0B56103-B6A7-490D-AB4C-B25DA83C2DBC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>io.github.vrchatapi</RootNamespace>

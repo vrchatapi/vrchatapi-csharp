@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ## CreateFileVersion
 
-> File CreateFileVersion (string fileId)
+> File CreateFileVersion (string fileId, InlineObject4 inlineObject4 = null)
 
 Create File Version
 
@@ -137,11 +137,12 @@ namespace Example
 
             var apiInstance = new FilesApi(Configuration.Default);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | 
+            var inlineObject4 = new InlineObject4(); // InlineObject4 |  (optional) 
 
             try
             {
                 // Create File Version
-                File result = apiInstance.CreateFileVersion(fileId);
+                File result = apiInstance.CreateFileVersion(fileId, inlineObject4);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -161,6 +162,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fileId** | **string**|  | 
+ **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
 
 ### Return type
 
@@ -172,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -450,7 +452,7 @@ void (empty response body)
 
 ## FinishFileDataUpload
 
-> File FinishFileDataUpload (string fileId, int versionId, string fileType, InlineObject4 inlineObject4 = null)
+> File FinishFileDataUpload (string fileId, int versionId, string fileType, InlineObject5 inlineObject5 = null)
 
 Finish FileData Upload
 
@@ -485,12 +487,12 @@ namespace Example
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | 
             var versionId = 1;  // int | 
             var fileType = file;  // string | 
-            var inlineObject4 = new InlineObject4(); // InlineObject4 |  (optional) 
+            var inlineObject5 = new InlineObject5(); // InlineObject5 |  (optional) 
 
             try
             {
                 // Finish FileData Upload
-                File result = apiInstance.FinishFileDataUpload(fileId, versionId, fileType, inlineObject4);
+                File result = apiInstance.FinishFileDataUpload(fileId, versionId, fileType, inlineObject5);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -512,7 +514,7 @@ Name | Type | Description  | Notes
  **fileId** | **string**|  | 
  **versionId** | **int**|  | 
  **fileType** | **string**|  | 
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
+ **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
 
 ### Return type
 

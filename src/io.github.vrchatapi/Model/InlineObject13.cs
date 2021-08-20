@@ -25,10 +25,10 @@ using OpenAPIDateConverter = io.github.vrchatapi.Client.OpenAPIDateConverter;
 namespace io.github.vrchatapi.Model
 {
     /// <summary>
-    /// InlineObject12
+    /// InlineObject13
     /// </summary>
     [DataContract]
-    public partial class InlineObject12 :  IEquatable<InlineObject12>, IValidatableObject
+    public partial class InlineObject13 :  IEquatable<InlineObject13>, IValidatableObject
     {
         /// <summary>
         /// Gets or Sets Type
@@ -36,20 +36,20 @@ namespace io.github.vrchatapi.Model
         [DataMember(Name="type", EmitDefaultValue=true)]
         public PlayerModerationType Type { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject12" /> class.
+        /// Initializes a new instance of the <see cref="InlineObject13" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InlineObject12() { }
+        protected InlineObject13() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject12" /> class.
+        /// Initializes a new instance of the <see cref="InlineObject13" /> class.
         /// </summary>
         /// <param name="type">type (required).</param>
-        public InlineObject12(PlayerModerationType type = default(PlayerModerationType))
+        public InlineObject13(PlayerModerationType type = default(PlayerModerationType))
         {
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new InvalidDataException("type is a required property for InlineObject12 and cannot be null");
+                throw new InvalidDataException("type is a required property for InlineObject13 and cannot be null");
             }
             else
             {
@@ -61,7 +61,7 @@ namespace io.github.vrchatapi.Model
         /// <summary>
         /// Gets or Sets Moderated
         /// </summary>
-        [DataMember(Name="moderated", EmitDefaultValue=true)]
+        [DataMember(Name="moderated", EmitDefaultValue=false)]
         public string Moderated { get; private set; }
 
 
@@ -72,7 +72,7 @@ namespace io.github.vrchatapi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineObject12 {\n");
+            sb.Append("class InlineObject13 {\n");
             sb.Append("  Moderated: ").Append(Moderated).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
@@ -95,15 +95,15 @@ namespace io.github.vrchatapi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineObject12);
+            return this.Equals(input as InlineObject13);
         }
 
         /// <summary>
-        /// Returns true if InlineObject12 instances are equal
+        /// Returns true if InlineObject13 instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineObject12 to be compared</param>
+        /// <param name="input">Instance of InlineObject13 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineObject12 input)
+        public bool Equals(InlineObject13 input)
         {
             if (input == null)
                 return false;

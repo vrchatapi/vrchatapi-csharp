@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssetUrl** | **string** |  | [optional] 
+**AssetUrl** | **string** |  | 
 **AssetVersion** | **string** |  | [optional] 
 **AuthorId** | **string** |  | [optional] [readonly] 
 **AuthorName** | **string** |  | [optional] 
 **Capacity** | **int** |  | [optional] [default to 16]
 **Description** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] 
-**ImageUrl** | **string** |  | [optional] 
-**Name** | **string** |  | [optional] 
+**ImageUrl** | **string** |  | 
+**Name** | **string** |  | 
 **Platform** | **Platform** |  | [optional] 
 **ReleaseStatus** | **ReleaseStatus** |  | [optional] 
 **Tags** | **List&lt;string&gt;** |  | [optional] 

@@ -70,8 +70,8 @@ namespace io.github.vrchatapi.Test
         public void AddFavoriteTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //InlineObject7 inlineObject7 = null;
-            //var response = instance.AddFavorite(inlineObject7);
+            //InlineObject8 inlineObject8 = null;
+            //var response = instance.AddFavorite(inlineObject8);
             //Assert.IsInstanceOf(typeof(Favorite), response, "response is Favorite");
         }
         
@@ -166,8 +166,8 @@ namespace io.github.vrchatapi.Test
             //string favoriteGroupType = null;
             //string favoriteGroupName = null;
             //string userId = null;
-            //InlineObject8 inlineObject8 = null;
-            //instance.UpdateFavoriteGroup(favoriteGroupType, favoriteGroupName, userId, inlineObject8);
+            //InlineObject9 inlineObject9 = null;
+            //instance.UpdateFavoriteGroup(favoriteGroupType, favoriteGroupName, userId, inlineObject9);
             
         }
         

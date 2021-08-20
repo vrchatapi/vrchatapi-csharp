@@ -32,9 +32,9 @@ namespace io.github.vrchatapi.Api
         /// Create an avatar. It&#39;s possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject9"> (optional)</param>
+        /// <param name="inlineObject10"> (optional)</param>
         /// <returns>Avatar</returns>
-        Avatar CreateAvatar (InlineObject9 inlineObject9 = default(InlineObject9));
+        Avatar CreateAvatar (InlineObject10 inlineObject10 = default(InlineObject10));
 
         /// <summary>
         /// Create Avatar
@@ -43,9 +43,9 @@ namespace io.github.vrchatapi.Api
         /// Create an avatar. It&#39;s possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject9"> (optional)</param>
+        /// <param name="inlineObject10"> (optional)</param>
         /// <returns>ApiResponse of Avatar</returns>
-        ApiResponse<Avatar> CreateAvatarWithHttpInfo (InlineObject9 inlineObject9 = default(InlineObject9));
+        ApiResponse<Avatar> CreateAvatarWithHttpInfo (InlineObject10 inlineObject10 = default(InlineObject10));
         /// <summary>
         /// Delete Avatar
         /// </summary>
@@ -207,9 +207,9 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId"></param>
-        /// <param name="inlineObject10"> (optional)</param>
+        /// <param name="inlineObject11"> (optional)</param>
         /// <returns>Avatar</returns>
-        Avatar UpdateAvatar (string avatarId, InlineObject10 inlineObject10 = default(InlineObject10));
+        Avatar UpdateAvatar (string avatarId, InlineObject11 inlineObject11 = default(InlineObject11));
 
         /// <summary>
         /// Update Avatar
@@ -219,9 +219,9 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId"></param>
-        /// <param name="inlineObject10"> (optional)</param>
+        /// <param name="inlineObject11"> (optional)</param>
         /// <returns>ApiResponse of Avatar</returns>
-        ApiResponse<Avatar> UpdateAvatarWithHttpInfo (string avatarId, InlineObject10 inlineObject10 = default(InlineObject10));
+        ApiResponse<Avatar> UpdateAvatarWithHttpInfo (string avatarId, InlineObject11 inlineObject11 = default(InlineObject11));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -231,10 +231,10 @@ namespace io.github.vrchatapi.Api
         /// Create an avatar. It&#39;s possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject9"> (optional)</param>
+        /// <param name="inlineObject10"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Avatar</returns>
-        System.Threading.Tasks.Task<Avatar> CreateAvatarAsync (InlineObject9 inlineObject9 = default(InlineObject9), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<Avatar> CreateAvatarAsync (InlineObject10 inlineObject10 = default(InlineObject10), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create Avatar
@@ -243,10 +243,10 @@ namespace io.github.vrchatapi.Api
         /// Create an avatar. It&#39;s possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject9"> (optional)</param>
+        /// <param name="inlineObject10"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Avatar>> CreateAvatarWithHttpInfoAsync (InlineObject9 inlineObject9 = default(InlineObject9), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Avatar>> CreateAvatarWithHttpInfoAsync (InlineObject10 inlineObject10 = default(InlineObject10), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete Avatar
         /// </summary>
@@ -418,10 +418,10 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId"></param>
-        /// <param name="inlineObject10"> (optional)</param>
+        /// <param name="inlineObject11"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Avatar</returns>
-        System.Threading.Tasks.Task<Avatar> UpdateAvatarAsync (string avatarId, InlineObject10 inlineObject10 = default(InlineObject10), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<Avatar> UpdateAvatarAsync (string avatarId, InlineObject11 inlineObject11 = default(InlineObject11), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update Avatar
@@ -431,10 +431,10 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId"></param>
-        /// <param name="inlineObject10"> (optional)</param>
+        /// <param name="inlineObject11"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Avatar>> UpdateAvatarWithHttpInfoAsync (string avatarId, InlineObject10 inlineObject10 = default(InlineObject10), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Avatar>> UpdateAvatarWithHttpInfoAsync (string avatarId, InlineObject11 inlineObject11 = default(InlineObject11), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -550,11 +550,11 @@ namespace io.github.vrchatapi.Api
         /// Create Avatar Create an avatar. It&#39;s possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject9"> (optional)</param>
+        /// <param name="inlineObject10"> (optional)</param>
         /// <returns>Avatar</returns>
-        public Avatar CreateAvatar (InlineObject9 inlineObject9 = default(InlineObject9))
+        public Avatar CreateAvatar (InlineObject10 inlineObject10 = default(InlineObject10))
         {
-             ApiResponse<Avatar> localVarResponse = CreateAvatarWithHttpInfo(inlineObject9);
+             ApiResponse<Avatar> localVarResponse = CreateAvatarWithHttpInfo(inlineObject10);
              return localVarResponse.Data;
         }
 
@@ -562,9 +562,9 @@ namespace io.github.vrchatapi.Api
         /// Create Avatar Create an avatar. It&#39;s possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject9"> (optional)</param>
+        /// <param name="inlineObject10"> (optional)</param>
         /// <returns>ApiResponse of Avatar</returns>
-        public ApiResponse<Avatar> CreateAvatarWithHttpInfo (InlineObject9 inlineObject9 = default(InlineObject9))
+        public ApiResponse<Avatar> CreateAvatarWithHttpInfo (InlineObject10 inlineObject10 = default(InlineObject10))
         {
 
             var localVarPath = "/avatars";
@@ -589,13 +589,13 @@ namespace io.github.vrchatapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inlineObject9 != null && inlineObject9.GetType() != typeof(byte[]))
+            if (inlineObject10 != null && inlineObject10.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject9); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject10); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject9; // byte array
+                localVarPostBody = inlineObject10; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -623,12 +623,12 @@ namespace io.github.vrchatapi.Api
         /// Create Avatar Create an avatar. It&#39;s possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject9"> (optional)</param>
+        /// <param name="inlineObject10"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Avatar</returns>
-        public async System.Threading.Tasks.Task<Avatar> CreateAvatarAsync (InlineObject9 inlineObject9 = default(InlineObject9), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<Avatar> CreateAvatarAsync (InlineObject10 inlineObject10 = default(InlineObject10), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Avatar> localVarResponse = await CreateAvatarWithHttpInfoAsync(inlineObject9, cancellationToken);
+             ApiResponse<Avatar> localVarResponse = await CreateAvatarWithHttpInfoAsync(inlineObject10, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -637,10 +637,10 @@ namespace io.github.vrchatapi.Api
         /// Create Avatar Create an avatar. It&#39;s possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject9"> (optional)</param>
+        /// <param name="inlineObject10"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Avatar>> CreateAvatarWithHttpInfoAsync (InlineObject9 inlineObject9 = default(InlineObject9), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Avatar>> CreateAvatarWithHttpInfoAsync (InlineObject10 inlineObject10 = default(InlineObject10), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/avatars";
@@ -665,13 +665,13 @@ namespace io.github.vrchatapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inlineObject9 != null && inlineObject9.GetType() != typeof(byte[]))
+            if (inlineObject10 != null && inlineObject10.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject9); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject10); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject9; // byte array
+                localVarPostBody = inlineObject10; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -1525,11 +1525,11 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId"></param>
-        /// <param name="inlineObject10"> (optional)</param>
+        /// <param name="inlineObject11"> (optional)</param>
         /// <returns>Avatar</returns>
-        public Avatar UpdateAvatar (string avatarId, InlineObject10 inlineObject10 = default(InlineObject10))
+        public Avatar UpdateAvatar (string avatarId, InlineObject11 inlineObject11 = default(InlineObject11))
         {
-             ApiResponse<Avatar> localVarResponse = UpdateAvatarWithHttpInfo(avatarId, inlineObject10);
+             ApiResponse<Avatar> localVarResponse = UpdateAvatarWithHttpInfo(avatarId, inlineObject11);
              return localVarResponse.Data;
         }
 
@@ -1538,9 +1538,9 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId"></param>
-        /// <param name="inlineObject10"> (optional)</param>
+        /// <param name="inlineObject11"> (optional)</param>
         /// <returns>ApiResponse of Avatar</returns>
-        public ApiResponse<Avatar> UpdateAvatarWithHttpInfo (string avatarId, InlineObject10 inlineObject10 = default(InlineObject10))
+        public ApiResponse<Avatar> UpdateAvatarWithHttpInfo (string avatarId, InlineObject11 inlineObject11 = default(InlineObject11))
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
@@ -1569,13 +1569,13 @@ namespace io.github.vrchatapi.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (avatarId != null) localVarPathParams.Add("avatarId", this.Configuration.ApiClient.ParameterToString(avatarId)); // path parameter
-            if (inlineObject10 != null && inlineObject10.GetType() != typeof(byte[]))
+            if (inlineObject11 != null && inlineObject11.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject10); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject11); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject10; // byte array
+                localVarPostBody = inlineObject11; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -1604,12 +1604,12 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId"></param>
-        /// <param name="inlineObject10"> (optional)</param>
+        /// <param name="inlineObject11"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Avatar</returns>
-        public async System.Threading.Tasks.Task<Avatar> UpdateAvatarAsync (string avatarId, InlineObject10 inlineObject10 = default(InlineObject10), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<Avatar> UpdateAvatarAsync (string avatarId, InlineObject11 inlineObject11 = default(InlineObject11), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Avatar> localVarResponse = await UpdateAvatarWithHttpInfoAsync(avatarId, inlineObject10, cancellationToken);
+             ApiResponse<Avatar> localVarResponse = await UpdateAvatarWithHttpInfoAsync(avatarId, inlineObject11, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1619,10 +1619,10 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId"></param>
-        /// <param name="inlineObject10"> (optional)</param>
+        /// <param name="inlineObject11"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Avatar>> UpdateAvatarWithHttpInfoAsync (string avatarId, InlineObject10 inlineObject10 = default(InlineObject10), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Avatar>> UpdateAvatarWithHttpInfoAsync (string avatarId, InlineObject11 inlineObject11 = default(InlineObject11), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
@@ -1651,13 +1651,13 @@ namespace io.github.vrchatapi.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (avatarId != null) localVarPathParams.Add("avatarId", this.Configuration.ApiClient.ParameterToString(avatarId)); // path parameter
-            if (inlineObject10 != null && inlineObject10.GetType() != typeof(byte[]))
+            if (inlineObject11 != null && inlineObject11.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject10); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject11); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject10; // byte array
+                localVarPostBody = inlineObject11; // byte array
             }
 
             // authentication (apiKeyCookie) required

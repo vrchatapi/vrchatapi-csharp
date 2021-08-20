@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 ## ModerateUser
 
-> PlayerModeration ModerateUser (InlineObject11 inlineObject11 = null)
+> PlayerModeration ModerateUser (InlineObject12 inlineObject12 = null)
 
 Moderate User
 
@@ -391,12 +391,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PlayermoderationApi(Configuration.Default);
-            var inlineObject11 = new InlineObject11(); // InlineObject11 |  (optional) 
+            var inlineObject12 = new InlineObject12(); // InlineObject12 |  (optional) 
 
             try
             {
                 // Moderate User
-                PlayerModeration result = apiInstance.ModerateUser(inlineObject11);
+                PlayerModeration result = apiInstance.ModerateUser(inlineObject12);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -415,7 +415,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  | [optional] 
+ **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  | [optional] 
 
 ### Return type
 
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 ## UnmoderateUser
 
-> Error UnmoderateUser (InlineObject12 inlineObject12 = null)
+> Error UnmoderateUser (InlineObject13 inlineObject13 = null)
 
 Unmoderate User
 
@@ -477,12 +477,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PlayermoderationApi(Configuration.Default);
-            var inlineObject12 = new InlineObject12(); // InlineObject12 |  (optional) 
+            var inlineObject13 = new InlineObject13(); // InlineObject13 |  (optional) 
 
             try
             {
                 // Unmoderate User
-                Error result = apiInstance.UnmoderateUser(inlineObject12);
+                Error result = apiInstance.UnmoderateUser(inlineObject13);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -501,7 +501,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  | [optional] 
+ **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  | [optional] 
 
 ### Return type
 

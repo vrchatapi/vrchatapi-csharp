@@ -1,11 +1,11 @@
 
-# io.github.vrchatapi.Model.InlineObject12
+# io.github.vrchatapi.Model.InlineObject13
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Moderated** | **string** |  | [readonly] 
+**Moderated** | **string** |  | [optional] [readonly] 
 **Type** | **PlayerModerationType** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

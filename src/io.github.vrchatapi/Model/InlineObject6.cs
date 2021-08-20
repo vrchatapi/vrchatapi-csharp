@@ -43,14 +43,19 @@ namespace io.github.vrchatapi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineObject6" /> class.
         /// </summary>
-        /// <param name="assetUrl">assetUrl.</param>
+        [JsonConstructorAttribute]
+        protected InlineObject6() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineObject6" /> class.
+        /// </summary>
+        /// <param name="assetUrl">assetUrl (required).</param>
         /// <param name="assetVersion">assetVersion.</param>
         /// <param name="authorName">authorName.</param>
         /// <param name="capacity">capacity (default to 16).</param>
         /// <param name="description">description.</param>
         /// <param name="id">id.</param>
-        /// <param name="imageUrl">imageUrl.</param>
-        /// <param name="name">name.</param>
+        /// <param name="imageUrl">imageUrl (required).</param>
+        /// <param name="name">name (required).</param>
         /// <param name="platform">platform.</param>
         /// <param name="releaseStatus">releaseStatus.</param>
         /// <param name="tags">tags.</param>
@@ -58,7 +63,36 @@ namespace io.github.vrchatapi.Model
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
         public InlineObject6(string assetUrl = default(string), string assetVersion = default(string), string authorName = default(string), int capacity = 16, string description = default(string), string id = default(string), string imageUrl = default(string), string name = default(string), Platform? platform = default(Platform?), ReleaseStatus? releaseStatus = default(ReleaseStatus?), List<string> tags = default(List<string>), string unityPackageUrl = default(string), string unityVersion = "5.3.4p1")
         {
-            this.AssetUrl = assetUrl;
+            // to ensure "assetUrl" is required (not null)
+            if (assetUrl == null)
+            {
+                throw new InvalidDataException("assetUrl is a required property for InlineObject6 and cannot be null");
+            }
+            else
+            {
+                this.AssetUrl = assetUrl;
+            }
+
+            // to ensure "imageUrl" is required (not null)
+            if (imageUrl == null)
+            {
+                throw new InvalidDataException("imageUrl is a required property for InlineObject6 and cannot be null");
+            }
+            else
+            {
+                this.ImageUrl = imageUrl;
+            }
+
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new InvalidDataException("name is a required property for InlineObject6 and cannot be null");
+            }
+            else
+            {
+                this.Name = name;
+            }
+
             this.AssetVersion = assetVersion;
             this.AuthorName = authorName;
             // use default value if no "capacity" provided
@@ -72,8 +106,6 @@ namespace io.github.vrchatapi.Model
             }
             this.Description = description;
             this.Id = id;
-            this.ImageUrl = imageUrl;
-            this.Name = name;
             this.Platform = platform;
             this.ReleaseStatus = releaseStatus;
             this.Tags = tags;
@@ -92,7 +124,7 @@ namespace io.github.vrchatapi.Model
         /// <summary>
         /// Gets or Sets AssetUrl
         /// </summary>
-        [DataMember(Name="assetUrl", EmitDefaultValue=false)]
+        [DataMember(Name="assetUrl", EmitDefaultValue=true)]
         public string AssetUrl { get; set; }
 
         /// <summary>
@@ -134,13 +166,13 @@ namespace io.github.vrchatapi.Model
         /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
-        [DataMember(Name="imageUrl", EmitDefaultValue=false)]
+        [DataMember(Name="imageUrl", EmitDefaultValue=true)]
         public string ImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
 

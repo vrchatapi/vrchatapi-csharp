@@ -31,114 +31,36 @@ namespace io.github.vrchatapi.Model
     public partial class InlineObject9 :  IEquatable<InlineObject9>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ReleaseStatus
+        /// Gets or Sets Visibility
         /// </summary>
-        [DataMember(Name="releaseStatus", EmitDefaultValue=false)]
-        public ReleaseStatus? ReleaseStatus { get; set; }
+        [DataMember(Name="visibility", EmitDefaultValue=false)]
+        public FavoriteGroupVisibility? Visibility { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineObject9" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InlineObject9() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject9" /> class.
-        /// </summary>
-        /// <param name="assetUrl">assetUrl.</param>
-        /// <param name="id">id.</param>
-        /// <param name="name">name (required).</param>
-        /// <param name="description">description.</param>
-        /// <param name="tags">tags.</param>
-        /// <param name="imageUrl">imageUrl (required).</param>
-        /// <param name="releaseStatus">releaseStatus.</param>
-        /// <param name="version">version (default to 1M).</param>
-        /// <param name="unityPackageUrl">unityPackageUrl.</param>
-        public InlineObject9(string assetUrl = default(string), string id = default(string), string name = default(string), string description = default(string), List<string> tags = default(List<string>), string imageUrl = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), decimal version = 1M, string unityPackageUrl = default(string))
+        /// <param name="displayName">displayName.</param>
+        /// <param name="visibility">visibility.</param>
+        /// <param name="tags">Tags on FavoriteGroups are believed to do nothing..</param>
+        public InlineObject9(string displayName = default(string), FavoriteGroupVisibility? visibility = default(FavoriteGroupVisibility?), List<string> tags = default(List<string>))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new InvalidDataException("name is a required property for InlineObject9 and cannot be null");
-            }
-            else
-            {
-                this.Name = name;
-            }
-
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new InvalidDataException("imageUrl is a required property for InlineObject9 and cannot be null");
-            }
-            else
-            {
-                this.ImageUrl = imageUrl;
-            }
-
-            this.AssetUrl = assetUrl;
-            this.Id = id;
-            this.Description = description;
+            this.DisplayName = displayName;
+            this.Visibility = visibility;
             this.Tags = tags;
-            this.ReleaseStatus = releaseStatus;
-            // use default value if no "version" provided
-            if (version == null)
-            {
-                this.Version = 1M;
-            }
-            else
-            {
-                this.Version = version;
-            }
-            this.UnityPackageUrl = unityPackageUrl;
         }
 
         /// <summary>
-        /// Gets or Sets AssetUrl
+        /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name="assetUrl", EmitDefaultValue=false)]
-        public string AssetUrl { get; set; }
+        [DataMember(Name="displayName", EmitDefaultValue=false)]
+        public string DisplayName { get; set; }
+
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Tags on FavoriteGroups are believed to do nothing.
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=true)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Description
-        /// </summary>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Tags
-        /// </summary>
+        /// <value>Tags on FavoriteGroups are believed to do nothing.</value>
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ImageUrl
-        /// </summary>
-        [DataMember(Name="imageUrl", EmitDefaultValue=true)]
-        public string ImageUrl { get; set; }
-
-
-        /// <summary>
-        /// Gets or Sets Version
-        /// </summary>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public decimal Version { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UnityPackageUrl
-        /// </summary>
-        [DataMember(Name="unityPackageUrl", EmitDefaultValue=false)]
-        public string UnityPackageUrl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -148,15 +70,9 @@ namespace io.github.vrchatapi.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineObject9 {\n");
-            sb.Append("  AssetUrl: ").Append(AssetUrl).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
-            sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
-            sb.Append("  UnityPackageUrl: ").Append(UnityPackageUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,50 +108,20 @@ namespace io.github.vrchatapi.Model
 
             return 
                 (
-                    this.AssetUrl == input.AssetUrl ||
-                    (this.AssetUrl != null &&
-                    this.AssetUrl.Equals(input.AssetUrl))
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Visibility == input.Visibility ||
+                    (this.Visibility != null &&
+                    this.Visibility.Equals(input.Visibility))
                 ) && 
                 (
                     this.Tags == input.Tags ||
                     this.Tags != null &&
                     input.Tags != null &&
                     this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.ReleaseStatus == input.ReleaseStatus ||
-                    (this.ReleaseStatus != null &&
-                    this.ReleaseStatus.Equals(input.ReleaseStatus))
-                ) && 
-                (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
-                ) && 
-                (
-                    this.UnityPackageUrl == input.UnityPackageUrl ||
-                    (this.UnityPackageUrl != null &&
-                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
                 );
         }
 
@@ -248,24 +134,12 @@ namespace io.github.vrchatapi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AssetUrl != null)
-                    hashCode = hashCode * 59 + this.AssetUrl.GetHashCode();
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.DisplayName != null)
+                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
+                if (this.Visibility != null)
+                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
-                if (this.ImageUrl != null)
-                    hashCode = hashCode * 59 + this.ImageUrl.GetHashCode();
-                if (this.ReleaseStatus != null)
-                    hashCode = hashCode * 59 + this.ReleaseStatus.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
-                if (this.UnityPackageUrl != null)
-                    hashCode = hashCode * 59 + this.UnityPackageUrl.GetHashCode();
                 return hashCode;
             }
         }
@@ -277,44 +151,6 @@ namespace io.github.vrchatapi.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-
- 
-            // Id (string) pattern
-            Regex regexId = new Regex(@"avtr_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
-            if (false == regexId.Match(this.Id).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must match a pattern of " + regexId, new [] { "Id" });
-            }
-
-
-            // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
-            }
- 
-
-            // Description (string) minLength
-            if(this.Description != null && this.Description.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
-            }
- 
-
-            // ImageUrl (string) minLength
-            if(this.ImageUrl != null && this.ImageUrl.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
-            }
- 
-
- 
-            // Version (decimal) minimum
-            if(this.Version < (decimal)0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 0.", new [] { "Version" });
-            }
-
             yield break;
         }
     }

@@ -70,8 +70,8 @@ namespace io.github.vrchatapi.Test
         public void CreateWorldTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //InlineObject5 inlineObject5 = null;
-            //var response = instance.CreateWorld(inlineObject5);
+            //InlineObject6 inlineObject6 = null;
+            //var response = instance.CreateWorld(inlineObject6);
             //Assert.IsInstanceOf(typeof(World), response, "response is World");
         }
         
@@ -264,8 +264,8 @@ namespace io.github.vrchatapi.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string worldId = null;
-            //InlineObject6 inlineObject6 = null;
-            //var response = instance.UpdateWorld(worldId, inlineObject6);
+            //InlineObject7 inlineObject7 = null;
+            //var response = instance.UpdateWorld(worldId, inlineObject7);
             //Assert.IsInstanceOf(typeof(World), response, "response is World");
         }
         

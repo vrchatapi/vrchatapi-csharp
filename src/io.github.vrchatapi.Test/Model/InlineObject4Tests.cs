@@ -66,28 +66,36 @@ namespace io.github.vrchatapi.Test
 
 
         /// <summary>
-        /// Test the property 'Etags'
+        /// Test the property 'SignatureMd5'
         /// </summary>
         [Test]
-        public void EtagsTest()
+        public void SignatureMd5Test()
         {
-            // TODO unit test for the property 'Etags'
+            // TODO unit test for the property 'SignatureMd5'
         }
         /// <summary>
-        /// Test the property 'NextPartNumber'
+        /// Test the property 'SignatureSizeInBytes'
         /// </summary>
         [Test]
-        public void NextPartNumberTest()
+        public void SignatureSizeInBytesTest()
         {
-            // TODO unit test for the property 'NextPartNumber'
+            // TODO unit test for the property 'SignatureSizeInBytes'
         }
         /// <summary>
-        /// Test the property 'MaxParts'
+        /// Test the property 'FileMd5'
         /// </summary>
         [Test]
-        public void MaxPartsTest()
+        public void FileMd5Test()
         {
-            // TODO unit test for the property 'MaxParts'
+            // TODO unit test for the property 'FileMd5'
+        }
+        /// <summary>
+        /// Test the property 'FileSizeInBytes'
+        /// </summary>
+        [Test]
+        public void FileSizeInBytesTest()
+        {
+            // TODO unit test for the property 'FileSizeInBytes'
         }
 
     }

@@ -5,15 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssetUrl** | **string** |  | [optional] 
-**Id** | **string** |  | [optional] 
-**Name** | **string** |  | 
-**Description** | **string** |  | [optional] 
-**Tags** | **List&lt;string&gt;** |  | [optional] 
-**ImageUrl** | **string** |  | 
-**ReleaseStatus** | **ReleaseStatus** |  | [optional] 
-**Version** | **decimal** |  | [optional] [default to 1M]
-**UnityPackageUrl** | **string** |  | [optional] 
+**DisplayName** | **string** |  | [optional] 
+**Visibility** | **FavoriteGroupVisibility** |  | [optional] 
+**Tags** | **List&lt;string&gt;** | Tags on FavoriteGroups are believed to do nothing. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

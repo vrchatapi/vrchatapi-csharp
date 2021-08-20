@@ -118,8 +118,8 @@ namespace io.github.vrchatapi.Test
         public void ModerateUserTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //InlineObject11 inlineObject11 = null;
-            //var response = instance.ModerateUser(inlineObject11);
+            //InlineObject12 inlineObject12 = null;
+            //var response = instance.ModerateUser(inlineObject12);
             //Assert.IsInstanceOf(typeof(PlayerModeration), response, "response is PlayerModeration");
         }
         
@@ -130,8 +130,8 @@ namespace io.github.vrchatapi.Test
         public void UnmoderateUserTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //InlineObject12 inlineObject12 = null;
-            //var response = instance.UnmoderateUser(inlineObject12);
+            //InlineObject13 inlineObject13 = null;
+            //var response = instance.UnmoderateUser(inlineObject13);
             //Assert.IsInstanceOf(typeof(Error), response, "response is Error");
         }
         

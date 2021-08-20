@@ -83,7 +83,8 @@ namespace io.github.vrchatapi.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string fileId = null;
-            //var response = instance.CreateFileVersion(fileId);
+            //InlineObject4 inlineObject4 = null;
+            //var response = instance.CreateFileVersion(fileId, inlineObject4);
             //Assert.IsInstanceOf(typeof(File), response, "response is File");
         }
         
@@ -135,8 +136,8 @@ namespace io.github.vrchatapi.Test
             //string fileId = null;
             //int versionId = null;
             //string fileType = null;
-            //InlineObject4 inlineObject4 = null;
-            //var response = instance.FinishFileDataUpload(fileId, versionId, fileType, inlineObject4);
+            //InlineObject5 inlineObject5 = null;
+            //var response = instance.FinishFileDataUpload(fileId, versionId, fileType, inlineObject5);
             //Assert.IsInstanceOf(typeof(File), response, "response is File");
         }
         

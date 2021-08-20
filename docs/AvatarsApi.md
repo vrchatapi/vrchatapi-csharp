@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## CreateAvatar
 
-> Avatar CreateAvatar (InlineObject9 inlineObject9 = null)
+> Avatar CreateAvatar (InlineObject10 inlineObject10 = null)
 
 Create Avatar
 
@@ -48,12 +48,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AvatarsApi(Configuration.Default);
-            var inlineObject9 = new InlineObject9(); // InlineObject9 |  (optional) 
+            var inlineObject10 = new InlineObject10(); // InlineObject10 |  (optional) 
 
             try
             {
                 // Create Avatar
-                Avatar result = apiInstance.CreateAvatar(inlineObject9);
+                Avatar result = apiInstance.CreateAvatar(inlineObject10);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -72,7 +72,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | [optional] 
+ **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | [optional] 
 
 ### Return type
 
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 
 ## UpdateAvatar
 
-> Avatar UpdateAvatar (string avatarId, InlineObject10 inlineObject10 = null)
+> Avatar UpdateAvatar (string avatarId, InlineObject11 inlineObject11 = null)
 
 Update Avatar
 
@@ -615,12 +615,12 @@ namespace Example
 
             var apiInstance = new AvatarsApi(Configuration.Default);
             var avatarId = avatarId_example;  // string | 
-            var inlineObject10 = new InlineObject10(); // InlineObject10 |  (optional) 
+            var inlineObject11 = new InlineObject11(); // InlineObject11 |  (optional) 
 
             try
             {
                 // Update Avatar
-                Avatar result = apiInstance.UpdateAvatar(avatarId, inlineObject10);
+                Avatar result = apiInstance.UpdateAvatar(avatarId, inlineObject11);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -640,7 +640,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avatarId** | **string**|  | 
- **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | [optional] 
+ **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  | [optional] 
 
 ### Return type
 

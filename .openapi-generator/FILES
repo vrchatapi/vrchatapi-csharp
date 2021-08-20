@@ -31,6 +31,7 @@ docs/InlineObject1.md
 docs/InlineObject10.md
 docs/InlineObject11.md
 docs/InlineObject12.md
+docs/InlineObject13.md
 docs/InlineObject2.md
 docs/InlineObject3.md
 docs/InlineObject4.md
@@ -106,6 +107,7 @@ src/io.github.vrchatapi.Test/Model/FileVersionTests.cs
 src/io.github.vrchatapi.Test/Model/InlineObject10Tests.cs
 src/io.github.vrchatapi.Test/Model/InlineObject11Tests.cs
 src/io.github.vrchatapi.Test/Model/InlineObject12Tests.cs
+src/io.github.vrchatapi.Test/Model/InlineObject13Tests.cs
 src/io.github.vrchatapi.Test/Model/InlineObject1Tests.cs
 src/io.github.vrchatapi.Test/Model/InlineObject2Tests.cs
 src/io.github.vrchatapi.Test/Model/InlineObject3Tests.cs
@@ -189,6 +191,7 @@ src/io.github.vrchatapi/Model/InlineObject1.cs
 src/io.github.vrchatapi/Model/InlineObject10.cs
 src/io.github.vrchatapi/Model/InlineObject11.cs
 src/io.github.vrchatapi/Model/InlineObject12.cs
+src/io.github.vrchatapi/Model/InlineObject13.cs
 src/io.github.vrchatapi/Model/InlineObject2.cs
 src/io.github.vrchatapi/Model/InlineObject3.cs
 src/io.github.vrchatapi/Model/InlineObject4.cs

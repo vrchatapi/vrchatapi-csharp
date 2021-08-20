@@ -38,23 +38,46 @@ namespace io.github.vrchatapi.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineObject10" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected InlineObject10() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineObject10" /> class.
+        /// </summary>
         /// <param name="assetUrl">assetUrl.</param>
         /// <param name="id">id.</param>
-        /// <param name="name">name.</param>
+        /// <param name="name">name (required).</param>
         /// <param name="description">description.</param>
         /// <param name="tags">tags.</param>
-        /// <param name="imageUrl">imageUrl.</param>
+        /// <param name="imageUrl">imageUrl (required).</param>
         /// <param name="releaseStatus">releaseStatus.</param>
         /// <param name="version">version (default to 1M).</param>
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         public InlineObject10(string assetUrl = default(string), string id = default(string), string name = default(string), string description = default(string), List<string> tags = default(List<string>), string imageUrl = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), decimal version = 1M, string unityPackageUrl = default(string))
         {
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new InvalidDataException("name is a required property for InlineObject10 and cannot be null");
+            }
+            else
+            {
+                this.Name = name;
+            }
+
+            // to ensure "imageUrl" is required (not null)
+            if (imageUrl == null)
+            {
+                throw new InvalidDataException("imageUrl is a required property for InlineObject10 and cannot be null");
+            }
+            else
+            {
+                this.ImageUrl = imageUrl;
+            }
+
             this.AssetUrl = assetUrl;
             this.Id = id;
-            this.Name = name;
             this.Description = description;
             this.Tags = tags;
-            this.ImageUrl = imageUrl;
             this.ReleaseStatus = releaseStatus;
             // use default value if no "version" provided
             if (version == null)
@@ -83,7 +106,7 @@ namespace io.github.vrchatapi.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -101,7 +124,7 @@ namespace io.github.vrchatapi.Model
         /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
-        [DataMember(Name="imageUrl", EmitDefaultValue=false)]
+        [DataMember(Name="imageUrl", EmitDefaultValue=true)]
         public string ImageUrl { get; set; }
 
 

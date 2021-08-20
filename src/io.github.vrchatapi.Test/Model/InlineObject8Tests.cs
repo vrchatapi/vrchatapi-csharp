@@ -66,20 +66,20 @@ namespace io.github.vrchatapi.Test
 
 
         /// <summary>
-        /// Test the property 'DisplayName'
+        /// Test the property 'Type'
         /// </summary>
         [Test]
-        public void DisplayNameTest()
+        public void TypeTest()
         {
-            // TODO unit test for the property 'DisplayName'
+            // TODO unit test for the property 'Type'
         }
         /// <summary>
-        /// Test the property 'Visibility'
+        /// Test the property 'FavoriteId'
         /// </summary>
         [Test]
-        public void VisibilityTest()
+        public void FavoriteIdTest()
         {
-            // TODO unit test for the property 'Visibility'
+            // TODO unit test for the property 'FavoriteId'
         }
         /// <summary>
         /// Test the property 'Tags'

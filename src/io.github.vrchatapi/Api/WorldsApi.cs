@@ -32,9 +32,9 @@ namespace io.github.vrchatapi.Api
         /// Create a new world. This endpoint requires &#x60;assetUrl&#x60; to be a valid File object with &#x60;.vrcw&#x60; file extension, and &#x60;imageUrl&#x60; to be a valid File object with an image file extension.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject5"> (optional)</param>
+        /// <param name="inlineObject6"> (optional)</param>
         /// <returns>World</returns>
-        World CreateWorld (InlineObject5 inlineObject5 = default(InlineObject5));
+        World CreateWorld (InlineObject6 inlineObject6 = default(InlineObject6));
 
         /// <summary>
         /// Create World
@@ -43,9 +43,9 @@ namespace io.github.vrchatapi.Api
         /// Create a new world. This endpoint requires &#x60;assetUrl&#x60; to be a valid File object with &#x60;.vrcw&#x60; file extension, and &#x60;imageUrl&#x60; to be a valid File object with an image file extension.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject5"> (optional)</param>
+        /// <param name="inlineObject6"> (optional)</param>
         /// <returns>ApiResponse of World</returns>
-        ApiResponse<World> CreateWorldWithHttpInfo (InlineObject5 inlineObject5 = default(InlineObject5));
+        ApiResponse<World> CreateWorldWithHttpInfo (InlineObject6 inlineObject6 = default(InlineObject6));
         /// <summary>
         /// Delete World
         /// </summary>
@@ -383,9 +383,9 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
-        /// <param name="inlineObject6"> (optional)</param>
+        /// <param name="inlineObject7"> (optional)</param>
         /// <returns>World</returns>
-        World UpdateWorld (string worldId, InlineObject6 inlineObject6 = default(InlineObject6));
+        World UpdateWorld (string worldId, InlineObject7 inlineObject7 = default(InlineObject7));
 
         /// <summary>
         /// Update World
@@ -395,9 +395,9 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
-        /// <param name="inlineObject6"> (optional)</param>
+        /// <param name="inlineObject7"> (optional)</param>
         /// <returns>ApiResponse of World</returns>
-        ApiResponse<World> UpdateWorldWithHttpInfo (string worldId, InlineObject6 inlineObject6 = default(InlineObject6));
+        ApiResponse<World> UpdateWorldWithHttpInfo (string worldId, InlineObject7 inlineObject7 = default(InlineObject7));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -407,10 +407,10 @@ namespace io.github.vrchatapi.Api
         /// Create a new world. This endpoint requires &#x60;assetUrl&#x60; to be a valid File object with &#x60;.vrcw&#x60; file extension, and &#x60;imageUrl&#x60; to be a valid File object with an image file extension.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject5"> (optional)</param>
+        /// <param name="inlineObject6"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of World</returns>
-        System.Threading.Tasks.Task<World> CreateWorldAsync (InlineObject5 inlineObject5 = default(InlineObject5), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<World> CreateWorldAsync (InlineObject6 inlineObject6 = default(InlineObject6), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create World
@@ -419,10 +419,10 @@ namespace io.github.vrchatapi.Api
         /// Create a new world. This endpoint requires &#x60;assetUrl&#x60; to be a valid File object with &#x60;.vrcw&#x60; file extension, and &#x60;imageUrl&#x60; to be a valid File object with an image file extension.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject5"> (optional)</param>
+        /// <param name="inlineObject6"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (World)</returns>
-        System.Threading.Tasks.Task<ApiResponse<World>> CreateWorldWithHttpInfoAsync (InlineObject5 inlineObject5 = default(InlineObject5), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<World>> CreateWorldWithHttpInfoAsync (InlineObject6 inlineObject6 = default(InlineObject6), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete World
         /// </summary>
@@ -782,10 +782,10 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
-        /// <param name="inlineObject6"> (optional)</param>
+        /// <param name="inlineObject7"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of World</returns>
-        System.Threading.Tasks.Task<World> UpdateWorldAsync (string worldId, InlineObject6 inlineObject6 = default(InlineObject6), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<World> UpdateWorldAsync (string worldId, InlineObject7 inlineObject7 = default(InlineObject7), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update World
@@ -795,10 +795,10 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
-        /// <param name="inlineObject6"> (optional)</param>
+        /// <param name="inlineObject7"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (World)</returns>
-        System.Threading.Tasks.Task<ApiResponse<World>> UpdateWorldWithHttpInfoAsync (string worldId, InlineObject6 inlineObject6 = default(InlineObject6), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<World>> UpdateWorldWithHttpInfoAsync (string worldId, InlineObject7 inlineObject7 = default(InlineObject7), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -914,11 +914,11 @@ namespace io.github.vrchatapi.Api
         /// Create World Create a new world. This endpoint requires &#x60;assetUrl&#x60; to be a valid File object with &#x60;.vrcw&#x60; file extension, and &#x60;imageUrl&#x60; to be a valid File object with an image file extension.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject5"> (optional)</param>
+        /// <param name="inlineObject6"> (optional)</param>
         /// <returns>World</returns>
-        public World CreateWorld (InlineObject5 inlineObject5 = default(InlineObject5))
+        public World CreateWorld (InlineObject6 inlineObject6 = default(InlineObject6))
         {
-             ApiResponse<World> localVarResponse = CreateWorldWithHttpInfo(inlineObject5);
+             ApiResponse<World> localVarResponse = CreateWorldWithHttpInfo(inlineObject6);
              return localVarResponse.Data;
         }
 
@@ -926,9 +926,9 @@ namespace io.github.vrchatapi.Api
         /// Create World Create a new world. This endpoint requires &#x60;assetUrl&#x60; to be a valid File object with &#x60;.vrcw&#x60; file extension, and &#x60;imageUrl&#x60; to be a valid File object with an image file extension.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject5"> (optional)</param>
+        /// <param name="inlineObject6"> (optional)</param>
         /// <returns>ApiResponse of World</returns>
-        public ApiResponse<World> CreateWorldWithHttpInfo (InlineObject5 inlineObject5 = default(InlineObject5))
+        public ApiResponse<World> CreateWorldWithHttpInfo (InlineObject6 inlineObject6 = default(InlineObject6))
         {
 
             var localVarPath = "/worlds";
@@ -953,13 +953,13 @@ namespace io.github.vrchatapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inlineObject5 != null && inlineObject5.GetType() != typeof(byte[]))
+            if (inlineObject6 != null && inlineObject6.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject5); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject6); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject5; // byte array
+                localVarPostBody = inlineObject6; // byte array
             }
 
 
@@ -985,12 +985,12 @@ namespace io.github.vrchatapi.Api
         /// Create World Create a new world. This endpoint requires &#x60;assetUrl&#x60; to be a valid File object with &#x60;.vrcw&#x60; file extension, and &#x60;imageUrl&#x60; to be a valid File object with an image file extension.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject5"> (optional)</param>
+        /// <param name="inlineObject6"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of World</returns>
-        public async System.Threading.Tasks.Task<World> CreateWorldAsync (InlineObject5 inlineObject5 = default(InlineObject5), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<World> CreateWorldAsync (InlineObject6 inlineObject6 = default(InlineObject6), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<World> localVarResponse = await CreateWorldWithHttpInfoAsync(inlineObject5, cancellationToken);
+             ApiResponse<World> localVarResponse = await CreateWorldWithHttpInfoAsync(inlineObject6, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -999,10 +999,10 @@ namespace io.github.vrchatapi.Api
         /// Create World Create a new world. This endpoint requires &#x60;assetUrl&#x60; to be a valid File object with &#x60;.vrcw&#x60; file extension, and &#x60;imageUrl&#x60; to be a valid File object with an image file extension.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject5"> (optional)</param>
+        /// <param name="inlineObject6"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (World)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<World>> CreateWorldWithHttpInfoAsync (InlineObject5 inlineObject5 = default(InlineObject5), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<World>> CreateWorldWithHttpInfoAsync (InlineObject6 inlineObject6 = default(InlineObject6), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/worlds";
@@ -1027,13 +1027,13 @@ namespace io.github.vrchatapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inlineObject5 != null && inlineObject5.GetType() != typeof(byte[]))
+            if (inlineObject6 != null && inlineObject6.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject5); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject6); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject5; // byte array
+                localVarPostBody = inlineObject6; // byte array
             }
 
 
@@ -2855,11 +2855,11 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
-        /// <param name="inlineObject6"> (optional)</param>
+        /// <param name="inlineObject7"> (optional)</param>
         /// <returns>World</returns>
-        public World UpdateWorld (string worldId, InlineObject6 inlineObject6 = default(InlineObject6))
+        public World UpdateWorld (string worldId, InlineObject7 inlineObject7 = default(InlineObject7))
         {
-             ApiResponse<World> localVarResponse = UpdateWorldWithHttpInfo(worldId, inlineObject6);
+             ApiResponse<World> localVarResponse = UpdateWorldWithHttpInfo(worldId, inlineObject7);
              return localVarResponse.Data;
         }
 
@@ -2868,9 +2868,9 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
-        /// <param name="inlineObject6"> (optional)</param>
+        /// <param name="inlineObject7"> (optional)</param>
         /// <returns>ApiResponse of World</returns>
-        public ApiResponse<World> UpdateWorldWithHttpInfo (string worldId, InlineObject6 inlineObject6 = default(InlineObject6))
+        public ApiResponse<World> UpdateWorldWithHttpInfo (string worldId, InlineObject7 inlineObject7 = default(InlineObject7))
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
@@ -2899,13 +2899,13 @@ namespace io.github.vrchatapi.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (worldId != null) localVarPathParams.Add("worldId", this.Configuration.ApiClient.ParameterToString(worldId)); // path parameter
-            if (inlineObject6 != null && inlineObject6.GetType() != typeof(byte[]))
+            if (inlineObject7 != null && inlineObject7.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject6); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject7); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject6; // byte array
+                localVarPostBody = inlineObject7; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -2934,12 +2934,12 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
-        /// <param name="inlineObject6"> (optional)</param>
+        /// <param name="inlineObject7"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of World</returns>
-        public async System.Threading.Tasks.Task<World> UpdateWorldAsync (string worldId, InlineObject6 inlineObject6 = default(InlineObject6), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<World> UpdateWorldAsync (string worldId, InlineObject7 inlineObject7 = default(InlineObject7), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<World> localVarResponse = await UpdateWorldWithHttpInfoAsync(worldId, inlineObject6, cancellationToken);
+             ApiResponse<World> localVarResponse = await UpdateWorldWithHttpInfoAsync(worldId, inlineObject7, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2949,10 +2949,10 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
-        /// <param name="inlineObject6"> (optional)</param>
+        /// <param name="inlineObject7"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (World)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<World>> UpdateWorldWithHttpInfoAsync (string worldId, InlineObject6 inlineObject6 = default(InlineObject6), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<World>> UpdateWorldWithHttpInfoAsync (string worldId, InlineObject7 inlineObject7 = default(InlineObject7), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
@@ -2981,13 +2981,13 @@ namespace io.github.vrchatapi.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (worldId != null) localVarPathParams.Add("worldId", this.Configuration.ApiClient.ParameterToString(worldId)); // path parameter
-            if (inlineObject6 != null && inlineObject6.GetType() != typeof(byte[]))
+            if (inlineObject7 != null && inlineObject7.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject6); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject7); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject6; // byte array
+                localVarPostBody = inlineObject7; // byte array
             }
 
             // authentication (apiKeyCookie) required

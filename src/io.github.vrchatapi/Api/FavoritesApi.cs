@@ -32,9 +32,9 @@ namespace io.github.vrchatapi.Api
         /// Add a new favorite.  Friend groups are named &#x60;group_0&#x60; through &#x60;group_3&#x60;. Avatar and World groups are named &#x60;avatars1&#x60; to &#x60;avatar4&#x60; and &#x60;worlds1&#x60; to &#x60;worlds4&#x60;.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject7"> (optional)</param>
+        /// <param name="inlineObject8"> (optional)</param>
         /// <returns>Favorite</returns>
-        Favorite AddFavorite (InlineObject7 inlineObject7 = default(InlineObject7));
+        Favorite AddFavorite (InlineObject8 inlineObject8 = default(InlineObject8));
 
         /// <summary>
         /// Add Favorite
@@ -43,9 +43,9 @@ namespace io.github.vrchatapi.Api
         /// Add a new favorite.  Friend groups are named &#x60;group_0&#x60; through &#x60;group_3&#x60;. Avatar and World groups are named &#x60;avatars1&#x60; to &#x60;avatar4&#x60; and &#x60;worlds1&#x60; to &#x60;worlds4&#x60;.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject7"> (optional)</param>
+        /// <param name="inlineObject8"> (optional)</param>
         /// <returns>ApiResponse of Favorite</returns>
-        ApiResponse<Favorite> AddFavoriteWithHttpInfo (InlineObject7 inlineObject7 = default(InlineObject7));
+        ApiResponse<Favorite> AddFavoriteWithHttpInfo (InlineObject8 inlineObject8 = default(InlineObject8));
         /// <summary>
         /// Clear Favorite Group
         /// </summary>
@@ -200,9 +200,9 @@ namespace io.github.vrchatapi.Api
         /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
         /// <param name="favoriteGroupName"></param>
         /// <param name="userId"></param>
-        /// <param name="inlineObject8"> (optional)</param>
+        /// <param name="inlineObject9"> (optional)</param>
         /// <returns></returns>
-        void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject8 inlineObject8 = default(InlineObject8));
+        void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = default(InlineObject9));
 
         /// <summary>
         /// Update Favorite Group
@@ -214,9 +214,9 @@ namespace io.github.vrchatapi.Api
         /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
         /// <param name="favoriteGroupName"></param>
         /// <param name="userId"></param>
-        /// <param name="inlineObject8"> (optional)</param>
+        /// <param name="inlineObject9"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateFavoriteGroupWithHttpInfo (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject8 inlineObject8 = default(InlineObject8));
+        ApiResponse<Object> UpdateFavoriteGroupWithHttpInfo (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = default(InlineObject9));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -226,10 +226,10 @@ namespace io.github.vrchatapi.Api
         /// Add a new favorite.  Friend groups are named &#x60;group_0&#x60; through &#x60;group_3&#x60;. Avatar and World groups are named &#x60;avatars1&#x60; to &#x60;avatar4&#x60; and &#x60;worlds1&#x60; to &#x60;worlds4&#x60;.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject7"> (optional)</param>
+        /// <param name="inlineObject8"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Favorite</returns>
-        System.Threading.Tasks.Task<Favorite> AddFavoriteAsync (InlineObject7 inlineObject7 = default(InlineObject7), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<Favorite> AddFavoriteAsync (InlineObject8 inlineObject8 = default(InlineObject8), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Add Favorite
@@ -238,10 +238,10 @@ namespace io.github.vrchatapi.Api
         /// Add a new favorite.  Friend groups are named &#x60;group_0&#x60; through &#x60;group_3&#x60;. Avatar and World groups are named &#x60;avatars1&#x60; to &#x60;avatar4&#x60; and &#x60;worlds1&#x60; to &#x60;worlds4&#x60;.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject7"> (optional)</param>
+        /// <param name="inlineObject8"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Favorite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Favorite>> AddFavoriteWithHttpInfoAsync (InlineObject7 inlineObject7 = default(InlineObject7), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Favorite>> AddFavoriteWithHttpInfoAsync (InlineObject8 inlineObject8 = default(InlineObject8), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Clear Favorite Group
         /// </summary>
@@ -408,10 +408,10 @@ namespace io.github.vrchatapi.Api
         /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
         /// <param name="favoriteGroupName"></param>
         /// <param name="userId"></param>
-        /// <param name="inlineObject8"> (optional)</param>
+        /// <param name="inlineObject9"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateFavoriteGroupAsync (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject8 inlineObject8 = default(InlineObject8), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task UpdateFavoriteGroupAsync (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = default(InlineObject9), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update Favorite Group
@@ -423,10 +423,10 @@ namespace io.github.vrchatapi.Api
         /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
         /// <param name="favoriteGroupName"></param>
         /// <param name="userId"></param>
-        /// <param name="inlineObject8"> (optional)</param>
+        /// <param name="inlineObject9"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateFavoriteGroupWithHttpInfoAsync (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject8 inlineObject8 = default(InlineObject8), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateFavoriteGroupWithHttpInfoAsync (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = default(InlineObject9), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -542,11 +542,11 @@ namespace io.github.vrchatapi.Api
         /// Add Favorite Add a new favorite.  Friend groups are named &#x60;group_0&#x60; through &#x60;group_3&#x60;. Avatar and World groups are named &#x60;avatars1&#x60; to &#x60;avatar4&#x60; and &#x60;worlds1&#x60; to &#x60;worlds4&#x60;.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject7"> (optional)</param>
+        /// <param name="inlineObject8"> (optional)</param>
         /// <returns>Favorite</returns>
-        public Favorite AddFavorite (InlineObject7 inlineObject7 = default(InlineObject7))
+        public Favorite AddFavorite (InlineObject8 inlineObject8 = default(InlineObject8))
         {
-             ApiResponse<Favorite> localVarResponse = AddFavoriteWithHttpInfo(inlineObject7);
+             ApiResponse<Favorite> localVarResponse = AddFavoriteWithHttpInfo(inlineObject8);
              return localVarResponse.Data;
         }
 
@@ -554,9 +554,9 @@ namespace io.github.vrchatapi.Api
         /// Add Favorite Add a new favorite.  Friend groups are named &#x60;group_0&#x60; through &#x60;group_3&#x60;. Avatar and World groups are named &#x60;avatars1&#x60; to &#x60;avatar4&#x60; and &#x60;worlds1&#x60; to &#x60;worlds4&#x60;.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject7"> (optional)</param>
+        /// <param name="inlineObject8"> (optional)</param>
         /// <returns>ApiResponse of Favorite</returns>
-        public ApiResponse<Favorite> AddFavoriteWithHttpInfo (InlineObject7 inlineObject7 = default(InlineObject7))
+        public ApiResponse<Favorite> AddFavoriteWithHttpInfo (InlineObject8 inlineObject8 = default(InlineObject8))
         {
 
             var localVarPath = "/favorites";
@@ -581,13 +581,13 @@ namespace io.github.vrchatapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inlineObject7 != null && inlineObject7.GetType() != typeof(byte[]))
+            if (inlineObject8 != null && inlineObject8.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject7); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject8); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject7; // byte array
+                localVarPostBody = inlineObject8; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -615,12 +615,12 @@ namespace io.github.vrchatapi.Api
         /// Add Favorite Add a new favorite.  Friend groups are named &#x60;group_0&#x60; through &#x60;group_3&#x60;. Avatar and World groups are named &#x60;avatars1&#x60; to &#x60;avatar4&#x60; and &#x60;worlds1&#x60; to &#x60;worlds4&#x60;.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject7"> (optional)</param>
+        /// <param name="inlineObject8"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Favorite</returns>
-        public async System.Threading.Tasks.Task<Favorite> AddFavoriteAsync (InlineObject7 inlineObject7 = default(InlineObject7), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<Favorite> AddFavoriteAsync (InlineObject8 inlineObject8 = default(InlineObject8), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Favorite> localVarResponse = await AddFavoriteWithHttpInfoAsync(inlineObject7, cancellationToken);
+             ApiResponse<Favorite> localVarResponse = await AddFavoriteWithHttpInfoAsync(inlineObject8, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -629,10 +629,10 @@ namespace io.github.vrchatapi.Api
         /// Add Favorite Add a new favorite.  Friend groups are named &#x60;group_0&#x60; through &#x60;group_3&#x60;. Avatar and World groups are named &#x60;avatars1&#x60; to &#x60;avatar4&#x60; and &#x60;worlds1&#x60; to &#x60;worlds4&#x60;.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject7"> (optional)</param>
+        /// <param name="inlineObject8"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Favorite)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Favorite>> AddFavoriteWithHttpInfoAsync (InlineObject7 inlineObject7 = default(InlineObject7), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Favorite>> AddFavoriteWithHttpInfoAsync (InlineObject8 inlineObject8 = default(InlineObject8), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/favorites";
@@ -657,13 +657,13 @@ namespace io.github.vrchatapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inlineObject7 != null && inlineObject7.GetType() != typeof(byte[]))
+            if (inlineObject8 != null && inlineObject8.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject7); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject8); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject7; // byte array
+                localVarPostBody = inlineObject8; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -1594,11 +1594,11 @@ namespace io.github.vrchatapi.Api
         /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
         /// <param name="favoriteGroupName"></param>
         /// <param name="userId"></param>
-        /// <param name="inlineObject8"> (optional)</param>
+        /// <param name="inlineObject9"> (optional)</param>
         /// <returns></returns>
-        public void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject8 inlineObject8 = default(InlineObject8))
+        public void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = default(InlineObject9))
         {
-             UpdateFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId, inlineObject8);
+             UpdateFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId, inlineObject9);
         }
 
         /// <summary>
@@ -1608,9 +1608,9 @@ namespace io.github.vrchatapi.Api
         /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
         /// <param name="favoriteGroupName"></param>
         /// <param name="userId"></param>
-        /// <param name="inlineObject8"> (optional)</param>
+        /// <param name="inlineObject9"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateFavoriteGroupWithHttpInfo (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject8 inlineObject8 = default(InlineObject8))
+        public ApiResponse<Object> UpdateFavoriteGroupWithHttpInfo (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = default(InlineObject9))
         {
             // verify the required parameter 'favoriteGroupType' is set
             if (favoriteGroupType == null)
@@ -1646,13 +1646,13 @@ namespace io.github.vrchatapi.Api
             if (favoriteGroupType != null) localVarPathParams.Add("favoriteGroupType", this.Configuration.ApiClient.ParameterToString(favoriteGroupType)); // path parameter
             if (favoriteGroupName != null) localVarPathParams.Add("favoriteGroupName", this.Configuration.ApiClient.ParameterToString(favoriteGroupName)); // path parameter
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (inlineObject8 != null && inlineObject8.GetType() != typeof(byte[]))
+            if (inlineObject9 != null && inlineObject9.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject8); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject9); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject8; // byte array
+                localVarPostBody = inlineObject9; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -1683,12 +1683,12 @@ namespace io.github.vrchatapi.Api
         /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
         /// <param name="favoriteGroupName"></param>
         /// <param name="userId"></param>
-        /// <param name="inlineObject8"> (optional)</param>
+        /// <param name="inlineObject9"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateFavoriteGroupAsync (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject8 inlineObject8 = default(InlineObject8), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task UpdateFavoriteGroupAsync (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = default(InlineObject9), CancellationToken cancellationToken = default(CancellationToken))
         {
-             await UpdateFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, inlineObject8, cancellationToken);
+             await UpdateFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, inlineObject9, cancellationToken);
 
         }
 
@@ -1699,10 +1699,10 @@ namespace io.github.vrchatapi.Api
         /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
         /// <param name="favoriteGroupName"></param>
         /// <param name="userId"></param>
-        /// <param name="inlineObject8"> (optional)</param>
+        /// <param name="inlineObject9"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateFavoriteGroupWithHttpInfoAsync (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject8 inlineObject8 = default(InlineObject8), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateFavoriteGroupWithHttpInfoAsync (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = default(InlineObject9), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'favoriteGroupType' is set
             if (favoriteGroupType == null)
@@ -1738,13 +1738,13 @@ namespace io.github.vrchatapi.Api
             if (favoriteGroupType != null) localVarPathParams.Add("favoriteGroupType", this.Configuration.ApiClient.ParameterToString(favoriteGroupType)); // path parameter
             if (favoriteGroupName != null) localVarPathParams.Add("favoriteGroupName", this.Configuration.ApiClient.ParameterToString(favoriteGroupName)); // path parameter
             if (userId != null) localVarPathParams.Add("userId", this.Configuration.ApiClient.ParameterToString(userId)); // path parameter
-            if (inlineObject8 != null && inlineObject8.GetType() != typeof(byte[]))
+            if (inlineObject9 != null && inlineObject9.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject8); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject9); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject8; // byte array
+                localVarPostBody = inlineObject9; // byte array
             }
 
             // authentication (apiKeyCookie) required

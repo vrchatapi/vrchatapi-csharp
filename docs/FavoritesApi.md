@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## AddFavorite
 
-> Favorite AddFavorite (InlineObject7 inlineObject7 = null)
+> Favorite AddFavorite (InlineObject8 inlineObject8 = null)
 
 Add Favorite
 
@@ -49,12 +49,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FavoritesApi(Configuration.Default);
-            var inlineObject7 = new InlineObject7(); // InlineObject7 |  (optional) 
+            var inlineObject8 = new InlineObject8(); // InlineObject8 |  (optional) 
 
             try
             {
                 // Add Favorite
-                Favorite result = apiInstance.AddFavorite(inlineObject7);
+                Favorite result = apiInstance.AddFavorite(inlineObject8);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -73,7 +73,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | [optional] 
+ **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | [optional] 
 
 ### Return type
 
@@ -638,7 +638,7 @@ Name | Type | Description  | Notes
 
 ## UpdateFavoriteGroup
 
-> void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject8 inlineObject8 = null)
+> void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = null)
 
 Update Favorite Group
 
@@ -673,12 +673,12 @@ namespace Example
             var favoriteGroupType = favoriteGroupType_example;  // string | The type of group to fetch, must be a valid FavoriteType.
             var favoriteGroupName = favoriteGroupName_example;  // string | 
             var userId = userId_example;  // string | 
-            var inlineObject8 = new InlineObject8(); // InlineObject8 |  (optional) 
+            var inlineObject9 = new InlineObject9(); // InlineObject9 |  (optional) 
 
             try
             {
                 // Update Favorite Group
-                apiInstance.UpdateFavoriteGroup(favoriteGroupType, favoriteGroupName, userId, inlineObject8);
+                apiInstance.UpdateFavoriteGroup(favoriteGroupType, favoriteGroupName, userId, inlineObject9);
             }
             catch (ApiException e)
             {
@@ -699,7 +699,7 @@ Name | Type | Description  | Notes
  **favoriteGroupType** | **string**| The type of group to fetch, must be a valid FavoriteType. | 
  **favoriteGroupName** | **string**|  | 
  **userId** | **string**|  | 
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | [optional] 
+ **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | [optional] 
 
 ### Return type
 

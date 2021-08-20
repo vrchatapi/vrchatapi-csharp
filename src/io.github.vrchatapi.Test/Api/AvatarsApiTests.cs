@@ -70,8 +70,8 @@ namespace io.github.vrchatapi.Test
         public void CreateAvatarTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //InlineObject9 inlineObject9 = null;
-            //var response = instance.CreateAvatar(inlineObject9);
+            //InlineObject10 inlineObject10 = null;
+            //var response = instance.CreateAvatar(inlineObject10);
             //Assert.IsInstanceOf(typeof(Avatar), response, "response is Avatar");
         }
         
@@ -167,8 +167,8 @@ namespace io.github.vrchatapi.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string avatarId = null;
-            //InlineObject10 inlineObject10 = null;
-            //var response = instance.UpdateAvatar(avatarId, inlineObject10);
+            //InlineObject11 inlineObject11 = null;
+            //var response = instance.UpdateAvatar(avatarId, inlineObject11);
             //Assert.IsInstanceOf(typeof(Avatar), response, "response is Avatar");
         }
         

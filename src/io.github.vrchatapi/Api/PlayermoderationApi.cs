@@ -116,9 +116,9 @@ namespace io.github.vrchatapi.Api
         /// Moderate a user, e.g. unmute them or show their avatar.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject11"> (optional)</param>
+        /// <param name="inlineObject12"> (optional)</param>
         /// <returns>PlayerModeration</returns>
-        PlayerModeration ModerateUser (InlineObject11 inlineObject11 = default(InlineObject11));
+        PlayerModeration ModerateUser (InlineObject12 inlineObject12 = default(InlineObject12));
 
         /// <summary>
         /// Moderate User
@@ -127,9 +127,9 @@ namespace io.github.vrchatapi.Api
         /// Moderate a user, e.g. unmute them or show their avatar.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject11"> (optional)</param>
+        /// <param name="inlineObject12"> (optional)</param>
         /// <returns>ApiResponse of PlayerModeration</returns>
-        ApiResponse<PlayerModeration> ModerateUserWithHttpInfo (InlineObject11 inlineObject11 = default(InlineObject11));
+        ApiResponse<PlayerModeration> ModerateUserWithHttpInfo (InlineObject12 inlineObject12 = default(InlineObject12));
         /// <summary>
         /// Unmoderate User
         /// </summary>
@@ -137,9 +137,9 @@ namespace io.github.vrchatapi.Api
         /// Removes a player moderation previously added through &#x60;moderateUser&#x60;. E.g if you previuosly have shown their avatar, but now want to reset it to default.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject12"> (optional)</param>
+        /// <param name="inlineObject13"> (optional)</param>
         /// <returns>Error</returns>
-        Error UnmoderateUser (InlineObject12 inlineObject12 = default(InlineObject12));
+        Error UnmoderateUser (InlineObject13 inlineObject13 = default(InlineObject13));
 
         /// <summary>
         /// Unmoderate User
@@ -148,9 +148,9 @@ namespace io.github.vrchatapi.Api
         /// Removes a player moderation previously added through &#x60;moderateUser&#x60;. E.g if you previuosly have shown their avatar, but now want to reset it to default.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject12"> (optional)</param>
+        /// <param name="inlineObject13"> (optional)</param>
         /// <returns>ApiResponse of Error</returns>
-        ApiResponse<Error> UnmoderateUserWithHttpInfo (InlineObject12 inlineObject12 = default(InlineObject12));
+        ApiResponse<Error> UnmoderateUserWithHttpInfo (InlineObject13 inlineObject13 = default(InlineObject13));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -252,10 +252,10 @@ namespace io.github.vrchatapi.Api
         /// Moderate a user, e.g. unmute them or show their avatar.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject11"> (optional)</param>
+        /// <param name="inlineObject12"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PlayerModeration</returns>
-        System.Threading.Tasks.Task<PlayerModeration> ModerateUserAsync (InlineObject11 inlineObject11 = default(InlineObject11), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<PlayerModeration> ModerateUserAsync (InlineObject12 inlineObject12 = default(InlineObject12), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Moderate User
@@ -264,10 +264,10 @@ namespace io.github.vrchatapi.Api
         /// Moderate a user, e.g. unmute them or show their avatar.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject11"> (optional)</param>
+        /// <param name="inlineObject12"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PlayerModeration)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PlayerModeration>> ModerateUserWithHttpInfoAsync (InlineObject11 inlineObject11 = default(InlineObject11), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PlayerModeration>> ModerateUserWithHttpInfoAsync (InlineObject12 inlineObject12 = default(InlineObject12), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Unmoderate User
         /// </summary>
@@ -275,10 +275,10 @@ namespace io.github.vrchatapi.Api
         /// Removes a player moderation previously added through &#x60;moderateUser&#x60;. E.g if you previuosly have shown their avatar, but now want to reset it to default.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject12"> (optional)</param>
+        /// <param name="inlineObject13"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Error</returns>
-        System.Threading.Tasks.Task<Error> UnmoderateUserAsync (InlineObject12 inlineObject12 = default(InlineObject12), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<Error> UnmoderateUserAsync (InlineObject13 inlineObject13 = default(InlineObject13), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Unmoderate User
@@ -287,10 +287,10 @@ namespace io.github.vrchatapi.Api
         /// Removes a player moderation previously added through &#x60;moderateUser&#x60;. E.g if you previuosly have shown their avatar, but now want to reset it to default.
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject12"> (optional)</param>
+        /// <param name="inlineObject13"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Error)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Error>> UnmoderateUserWithHttpInfoAsync (InlineObject12 inlineObject12 = default(InlineObject12), CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Error>> UnmoderateUserWithHttpInfoAsync (InlineObject13 inlineObject13 = default(InlineObject13), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -950,11 +950,11 @@ namespace io.github.vrchatapi.Api
         /// Moderate User Moderate a user, e.g. unmute them or show their avatar.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject11"> (optional)</param>
+        /// <param name="inlineObject12"> (optional)</param>
         /// <returns>PlayerModeration</returns>
-        public PlayerModeration ModerateUser (InlineObject11 inlineObject11 = default(InlineObject11))
+        public PlayerModeration ModerateUser (InlineObject12 inlineObject12 = default(InlineObject12))
         {
-             ApiResponse<PlayerModeration> localVarResponse = ModerateUserWithHttpInfo(inlineObject11);
+             ApiResponse<PlayerModeration> localVarResponse = ModerateUserWithHttpInfo(inlineObject12);
              return localVarResponse.Data;
         }
 
@@ -962,9 +962,9 @@ namespace io.github.vrchatapi.Api
         /// Moderate User Moderate a user, e.g. unmute them or show their avatar.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject11"> (optional)</param>
+        /// <param name="inlineObject12"> (optional)</param>
         /// <returns>ApiResponse of PlayerModeration</returns>
-        public ApiResponse<PlayerModeration> ModerateUserWithHttpInfo (InlineObject11 inlineObject11 = default(InlineObject11))
+        public ApiResponse<PlayerModeration> ModerateUserWithHttpInfo (InlineObject12 inlineObject12 = default(InlineObject12))
         {
 
             var localVarPath = "/auth/user/playermoderations";
@@ -989,13 +989,13 @@ namespace io.github.vrchatapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inlineObject11 != null && inlineObject11.GetType() != typeof(byte[]))
+            if (inlineObject12 != null && inlineObject12.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject11); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject12); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject11; // byte array
+                localVarPostBody = inlineObject12; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -1023,12 +1023,12 @@ namespace io.github.vrchatapi.Api
         /// Moderate User Moderate a user, e.g. unmute them or show their avatar.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject11"> (optional)</param>
+        /// <param name="inlineObject12"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PlayerModeration</returns>
-        public async System.Threading.Tasks.Task<PlayerModeration> ModerateUserAsync (InlineObject11 inlineObject11 = default(InlineObject11), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<PlayerModeration> ModerateUserAsync (InlineObject12 inlineObject12 = default(InlineObject12), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<PlayerModeration> localVarResponse = await ModerateUserWithHttpInfoAsync(inlineObject11, cancellationToken);
+             ApiResponse<PlayerModeration> localVarResponse = await ModerateUserWithHttpInfoAsync(inlineObject12, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1037,10 +1037,10 @@ namespace io.github.vrchatapi.Api
         /// Moderate User Moderate a user, e.g. unmute them or show their avatar.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject11"> (optional)</param>
+        /// <param name="inlineObject12"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PlayerModeration)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PlayerModeration>> ModerateUserWithHttpInfoAsync (InlineObject11 inlineObject11 = default(InlineObject11), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<PlayerModeration>> ModerateUserWithHttpInfoAsync (InlineObject12 inlineObject12 = default(InlineObject12), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/auth/user/playermoderations";
@@ -1065,13 +1065,13 @@ namespace io.github.vrchatapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inlineObject11 != null && inlineObject11.GetType() != typeof(byte[]))
+            if (inlineObject12 != null && inlineObject12.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject11); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject12); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject11; // byte array
+                localVarPostBody = inlineObject12; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -1099,11 +1099,11 @@ namespace io.github.vrchatapi.Api
         /// Unmoderate User Removes a player moderation previously added through &#x60;moderateUser&#x60;. E.g if you previuosly have shown their avatar, but now want to reset it to default.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject12"> (optional)</param>
+        /// <param name="inlineObject13"> (optional)</param>
         /// <returns>Error</returns>
-        public Error UnmoderateUser (InlineObject12 inlineObject12 = default(InlineObject12))
+        public Error UnmoderateUser (InlineObject13 inlineObject13 = default(InlineObject13))
         {
-             ApiResponse<Error> localVarResponse = UnmoderateUserWithHttpInfo(inlineObject12);
+             ApiResponse<Error> localVarResponse = UnmoderateUserWithHttpInfo(inlineObject13);
              return localVarResponse.Data;
         }
 
@@ -1111,9 +1111,9 @@ namespace io.github.vrchatapi.Api
         /// Unmoderate User Removes a player moderation previously added through &#x60;moderateUser&#x60;. E.g if you previuosly have shown their avatar, but now want to reset it to default.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject12"> (optional)</param>
+        /// <param name="inlineObject13"> (optional)</param>
         /// <returns>ApiResponse of Error</returns>
-        public ApiResponse<Error> UnmoderateUserWithHttpInfo (InlineObject12 inlineObject12 = default(InlineObject12))
+        public ApiResponse<Error> UnmoderateUserWithHttpInfo (InlineObject13 inlineObject13 = default(InlineObject13))
         {
 
             var localVarPath = "/auth/user/unplayermoderate";
@@ -1138,13 +1138,13 @@ namespace io.github.vrchatapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inlineObject12 != null && inlineObject12.GetType() != typeof(byte[]))
+            if (inlineObject13 != null && inlineObject13.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject12); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject13); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject12; // byte array
+                localVarPostBody = inlineObject13; // byte array
             }
 
             // authentication (apiKeyCookie) required
@@ -1172,12 +1172,12 @@ namespace io.github.vrchatapi.Api
         /// Unmoderate User Removes a player moderation previously added through &#x60;moderateUser&#x60;. E.g if you previuosly have shown their avatar, but now want to reset it to default.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject12"> (optional)</param>
+        /// <param name="inlineObject13"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Error</returns>
-        public async System.Threading.Tasks.Task<Error> UnmoderateUserAsync (InlineObject12 inlineObject12 = default(InlineObject12), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<Error> UnmoderateUserAsync (InlineObject13 inlineObject13 = default(InlineObject13), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Error> localVarResponse = await UnmoderateUserWithHttpInfoAsync(inlineObject12, cancellationToken);
+             ApiResponse<Error> localVarResponse = await UnmoderateUserWithHttpInfoAsync(inlineObject13, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1186,10 +1186,10 @@ namespace io.github.vrchatapi.Api
         /// Unmoderate User Removes a player moderation previously added through &#x60;moderateUser&#x60;. E.g if you previuosly have shown their avatar, but now want to reset it to default.
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inlineObject12"> (optional)</param>
+        /// <param name="inlineObject13"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Error)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Error>> UnmoderateUserWithHttpInfoAsync (InlineObject12 inlineObject12 = default(InlineObject12), CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<Error>> UnmoderateUserWithHttpInfoAsync (InlineObject13 inlineObject13 = default(InlineObject13), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/auth/user/unplayermoderate";
@@ -1214,13 +1214,13 @@ namespace io.github.vrchatapi.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inlineObject12 != null && inlineObject12.GetType() != typeof(byte[]))
+            if (inlineObject13 != null && inlineObject13.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject12); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(inlineObject13); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = inlineObject12; // byte array
+                localVarPostBody = inlineObject13; // byte array
             }
 
             // authentication (apiKeyCookie) required

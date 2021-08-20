@@ -31,35 +31,68 @@ namespace io.github.vrchatapi.Model
     public partial class InlineObject8 :  IEquatable<InlineObject8>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Visibility
+        /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name="visibility", EmitDefaultValue=false)]
-        public FavoriteGroupVisibility? Visibility { get; set; }
+        [DataMember(Name="type", EmitDefaultValue=true)]
+        public FavoriteType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineObject8" /> class.
         /// </summary>
-        /// <param name="displayName">displayName.</param>
-        /// <param name="visibility">visibility.</param>
-        /// <param name="tags">Tags on FavoriteGroups are believed to do nothing..</param>
-        public InlineObject8(string displayName = default(string), FavoriteGroupVisibility? visibility = default(FavoriteGroupVisibility?), List<string> tags = default(List<string>))
+        [JsonConstructorAttribute]
+        protected InlineObject8() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineObject8" /> class.
+        /// </summary>
+        /// <param name="type">type (required).</param>
+        /// <param name="favoriteId">Must be either AvatarID, WorldID or UserID. (required).</param>
+        /// <param name="tags">Tags indicate which group this favorite belongs to. Adding multiple groups makes it show up in all. Removing it from one in that case removes it from all. (required).</param>
+        public InlineObject8(FavoriteType type = default(FavoriteType), string favoriteId = default(string), List<string> tags = default(List<string>))
         {
-            this.DisplayName = displayName;
-            this.Visibility = visibility;
-            this.Tags = tags;
+            // to ensure "type" is required (not null)
+            if (type == null)
+            {
+                throw new InvalidDataException("type is a required property for InlineObject8 and cannot be null");
+            }
+            else
+            {
+                this.Type = type;
+            }
+
+            // to ensure "favoriteId" is required (not null)
+            if (favoriteId == null)
+            {
+                throw new InvalidDataException("favoriteId is a required property for InlineObject8 and cannot be null");
+            }
+            else
+            {
+                this.FavoriteId = favoriteId;
+            }
+
+            // to ensure "tags" is required (not null)
+            if (tags == null)
+            {
+                throw new InvalidDataException("tags is a required property for InlineObject8 and cannot be null");
+            }
+            else
+            {
+                this.Tags = tags;
+            }
+
         }
 
-        /// <summary>
-        /// Gets or Sets DisplayName
-        /// </summary>
-        [DataMember(Name="displayName", EmitDefaultValue=false)]
-        public string DisplayName { get; set; }
-
 
         /// <summary>
-        /// Tags on FavoriteGroups are believed to do nothing.
+        /// Must be either AvatarID, WorldID or UserID.
         /// </summary>
-        /// <value>Tags on FavoriteGroups are believed to do nothing.</value>
-        [DataMember(Name="tags", EmitDefaultValue=false)]
+        /// <value>Must be either AvatarID, WorldID or UserID.</value>
+        [DataMember(Name="favoriteId", EmitDefaultValue=true)]
+        public string FavoriteId { get; set; }
+
+        /// <summary>
+        /// Tags indicate which group this favorite belongs to. Adding multiple groups makes it show up in all. Removing it from one in that case removes it from all.
+        /// </summary>
+        /// <value>Tags indicate which group this favorite belongs to. Adding multiple groups makes it show up in all. Removing it from one in that case removes it from all.</value>
+        [DataMember(Name="tags", EmitDefaultValue=true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -70,8 +103,8 @@ namespace io.github.vrchatapi.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineObject8 {\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Visibility: ").Append(Visibility).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  FavoriteId: ").Append(FavoriteId).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -108,14 +141,14 @@ namespace io.github.vrchatapi.Model
 
             return 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Visibility == input.Visibility ||
-                    (this.Visibility != null &&
-                    this.Visibility.Equals(input.Visibility))
+                    this.FavoriteId == input.FavoriteId ||
+                    (this.FavoriteId != null &&
+                    this.FavoriteId.Equals(input.FavoriteId))
                 ) && 
                 (
                     this.Tags == input.Tags ||
@@ -134,10 +167,10 @@ namespace io.github.vrchatapi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DisplayName != null)
-                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
-                if (this.Visibility != null)
-                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.FavoriteId != null)
+                    hashCode = hashCode * 59 + this.FavoriteId.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 return hashCode;
