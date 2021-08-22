@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **UnitySortNumber** | **decimal** |  | [optional] 
 **AssetVersion** | **decimal** |  | 
 **Platform** | **Platform** |  | 
-**CreatedAt** | **DateTime** |  | 
+**CreatedAt** | **DateTime** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

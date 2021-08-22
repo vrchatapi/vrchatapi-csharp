@@ -24,3 +24,5 @@
 
 README.md
 io.github.vrchatapi.sln
+src/io.github.vrchatapi/io.github.vrchatapi.csproj
+src/io.github.vrchatapi.Test/io.github.vrchatapi.Test.csproj

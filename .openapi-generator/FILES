@@ -146,7 +146,6 @@ src/io.github.vrchatapi.Test/Model/UserStateTests.cs
 src/io.github.vrchatapi.Test/Model/UserStatusTests.cs
 src/io.github.vrchatapi.Test/Model/UserTests.cs
 src/io.github.vrchatapi.Test/Model/WorldTests.cs
-src/io.github.vrchatapi.Test/io.github.vrchatapi.Test.csproj
 src/io.github.vrchatapi.Test/packages.config
 src/io.github.vrchatapi/Api/AuthenticationApi.cs
 src/io.github.vrchatapi/Api/AvatarsApi.cs
@@ -229,6 +228,5 @@ src/io.github.vrchatapi/Model/UserState.cs
 src/io.github.vrchatapi/Model/UserStatus.cs
 src/io.github.vrchatapi/Model/World.cs
 src/io.github.vrchatapi/Properties/AssemblyInfo.cs
-src/io.github.vrchatapi/io.github.vrchatapi.csproj
 src/io.github.vrchatapi/io.github.vrchatapi.nuspec
 src/io.github.vrchatapi/packages.config

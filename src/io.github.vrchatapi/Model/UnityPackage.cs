@@ -52,7 +52,7 @@ namespace io.github.vrchatapi.Model
         /// <param name="unitySortNumber">unitySortNumber.</param>
         /// <param name="assetVersion">assetVersion (required).</param>
         /// <param name="platform">platform (required).</param>
-        /// <param name="createdAt">createdAt (required).</param>
+        /// <param name="createdAt">createdAt.</param>
         public UnityPackage(string id = default(string), string assetUrl = default(string), Object assetUrlObject = default(Object), string pluginUrl = default(string), Object pluginUrlObject = default(Object), string unityVersion = "5.3.4p1", decimal unitySortNumber = default(decimal), decimal assetVersion = default(decimal), Platform platform = default(Platform), DateTime createdAt = default(DateTime))
         {
             // to ensure "id" is required (not null)
@@ -95,21 +95,12 @@ namespace io.github.vrchatapi.Model
                 this.Platform = platform;
             }
 
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new InvalidDataException("createdAt is a required property for UnityPackage and cannot be null");
-            }
-            else
-            {
-                this.CreatedAt = createdAt;
-            }
-
             this.AssetUrl = assetUrl;
             this.AssetUrlObject = assetUrlObject;
             this.PluginUrl = pluginUrl;
             this.PluginUrlObject = pluginUrlObject;
             this.UnitySortNumber = unitySortNumber;
+            this.CreatedAt = createdAt;
         }
 
         /// <summary>
@@ -164,7 +155,7 @@ namespace io.github.vrchatapi.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name="created_at", EmitDefaultValue=true)]
+        [DataMember(Name="created_at", EmitDefaultValue=false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
