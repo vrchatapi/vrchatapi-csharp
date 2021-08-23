@@ -4,7 +4,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteUserById**](AuthenticationApi.md#deleteuserbyid) | **PUT** /user/{userId}/delete | Delete User
+[**DeleteUser**](AuthenticationApi.md#deleteuser) | **PUT** /user/{userId}/delete | Delete User
 [**GetCurrentUser**](AuthenticationApi.md#getcurrentuser) | **GET** /auth/user | Login and/or Get Current User Info
 [**Logout**](AuthenticationApi.md#logout) | **PUT** /logout | Logout
 [**Verify2FA**](AuthenticationApi.md#verify2fa) | **POST** /auth/twofactorauth/totp/verify | Verify 2FA code
@@ -13,9 +13,9 @@ Method | HTTP request | Description
 
 
 
-## DeleteUserById
+## DeleteUser
 
-> CurrentUser DeleteUserById (string userId)
+> CurrentUser DeleteUser (string userId)
 
 Delete User
 
@@ -32,7 +32,7 @@ using io.github.vrchatapi.Model;
 
 namespace Example
 {
-    public class DeleteUserByIdExample
+    public class DeleteUserExample
     {
         public static void Main()
         {
@@ -52,12 +52,12 @@ namespace Example
             try
             {
                 // Delete User
-                CurrentUser result = apiInstance.DeleteUserById(userId);
+                CurrentUser result = apiInstance.DeleteUser(userId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.DeleteUserById: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.DeleteUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
