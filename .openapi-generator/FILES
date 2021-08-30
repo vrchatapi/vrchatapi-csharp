@@ -48,7 +48,7 @@ docs/InlineResponse2004.md
 docs/InlineResponse2005.md
 docs/InlineResponse2006.md
 docs/InlineResponse2007.md
-docs/InlineResponse401.md
+docs/InlineResponse403.md
 docs/Instance.md
 docs/InstancePlatforms.md
 docs/LimitedUnityPackage.md
@@ -58,6 +58,9 @@ docs/MIMEType.md
 docs/Notification.md
 docs/NotificationType.md
 docs/NotificationsApi.md
+docs/PastDisplayName.md
+docs/Permission.md
+docs/PermissionsApi.md
 docs/Platform.md
 docs/PlayerModeration.md
 docs/PlayerModerationType.md
@@ -81,6 +84,7 @@ src/io.github.vrchatapi.Test/Api/FavoritesApiTests.cs
 src/io.github.vrchatapi.Test/Api/FilesApiTests.cs
 src/io.github.vrchatapi.Test/Api/FriendsApiTests.cs
 src/io.github.vrchatapi.Test/Api/NotificationsApiTests.cs
+src/io.github.vrchatapi.Test/Api/PermissionsApiTests.cs
 src/io.github.vrchatapi.Test/Api/PlayermoderationApiTests.cs
 src/io.github.vrchatapi.Test/Api/SystemApiTests.cs
 src/io.github.vrchatapi.Test/Api/UsersApiTests.cs
@@ -126,7 +130,7 @@ src/io.github.vrchatapi.Test/Model/InlineResponse2005Tests.cs
 src/io.github.vrchatapi.Test/Model/InlineResponse2006Tests.cs
 src/io.github.vrchatapi.Test/Model/InlineResponse2007Tests.cs
 src/io.github.vrchatapi.Test/Model/InlineResponse200Tests.cs
-src/io.github.vrchatapi.Test/Model/InlineResponse401Tests.cs
+src/io.github.vrchatapi.Test/Model/InlineResponse403Tests.cs
 src/io.github.vrchatapi.Test/Model/InstancePlatformsTests.cs
 src/io.github.vrchatapi.Test/Model/InstanceTests.cs
 src/io.github.vrchatapi.Test/Model/LimitedUnityPackageTests.cs
@@ -135,6 +139,8 @@ src/io.github.vrchatapi.Test/Model/LimitedWorldTests.cs
 src/io.github.vrchatapi.Test/Model/MIMETypeTests.cs
 src/io.github.vrchatapi.Test/Model/NotificationTests.cs
 src/io.github.vrchatapi.Test/Model/NotificationTypeTests.cs
+src/io.github.vrchatapi.Test/Model/PastDisplayNameTests.cs
+src/io.github.vrchatapi.Test/Model/PermissionTests.cs
 src/io.github.vrchatapi.Test/Model/PlatformTests.cs
 src/io.github.vrchatapi.Test/Model/PlayerModerationTests.cs
 src/io.github.vrchatapi.Test/Model/PlayerModerationTypeTests.cs
@@ -153,6 +159,7 @@ src/io.github.vrchatapi/Api/FavoritesApi.cs
 src/io.github.vrchatapi/Api/FilesApi.cs
 src/io.github.vrchatapi/Api/FriendsApi.cs
 src/io.github.vrchatapi/Api/NotificationsApi.cs
+src/io.github.vrchatapi/Api/PermissionsApi.cs
 src/io.github.vrchatapi/Api/PlayermoderationApi.cs
 src/io.github.vrchatapi/Api/SystemApi.cs
 src/io.github.vrchatapi/Api/UsersApi.cs
@@ -207,7 +214,7 @@ src/io.github.vrchatapi/Model/InlineResponse2004.cs
 src/io.github.vrchatapi/Model/InlineResponse2005.cs
 src/io.github.vrchatapi/Model/InlineResponse2006.cs
 src/io.github.vrchatapi/Model/InlineResponse2007.cs
-src/io.github.vrchatapi/Model/InlineResponse401.cs
+src/io.github.vrchatapi/Model/InlineResponse403.cs
 src/io.github.vrchatapi/Model/Instance.cs
 src/io.github.vrchatapi/Model/InstancePlatforms.cs
 src/io.github.vrchatapi/Model/LimitedUnityPackage.cs
@@ -216,6 +223,8 @@ src/io.github.vrchatapi/Model/LimitedWorld.cs
 src/io.github.vrchatapi/Model/MIMEType.cs
 src/io.github.vrchatapi/Model/Notification.cs
 src/io.github.vrchatapi/Model/NotificationType.cs
+src/io.github.vrchatapi/Model/PastDisplayName.cs
+src/io.github.vrchatapi/Model/Permission.cs
 src/io.github.vrchatapi/Model/Platform.cs
 src/io.github.vrchatapi/Model/PlayerModeration.cs
 src/io.github.vrchatapi/Model/PlayerModerationType.cs

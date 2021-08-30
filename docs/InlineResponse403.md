@@ -1,5 +1,5 @@
 
-# io.github.vrchatapi.Model.InlineResponse401
+# io.github.vrchatapi.Model.InlineResponse403
 
 ## Properties
 

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **BioLinks** | **List&lt;string&gt;** |  | 
 **ProfilePicOverride** | **string** |  | 
 **StatusDescription** | **string** |  | 
-**PastDisplayNames** | **List&lt;string&gt;** |  | 
+**PastDisplayNames** | [**List&lt;PastDisplayName&gt;**](PastDisplayName.md) |  | 
 **HasEmail** | **bool** |  | 
 **HasPendingEmail** | **bool** |  | 
 **ObfuscatedEmail** | **string** |  | 
