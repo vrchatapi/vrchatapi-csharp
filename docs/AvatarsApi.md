@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ## GetFavoritedAvatars
 
-> void GetFavoritedAvatars (string featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
+> List&lt;Avatar&gt; GetFavoritedAvatars (string featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
 
 List Favorited Avatars
 
@@ -325,7 +325,8 @@ namespace Example
             try
             {
                 // List Favorited Avatars
-                apiInstance.GetFavoritedAvatars(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
+                List<Avatar> result = apiInstance.GetFavoritedAvatars(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
+                Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
@@ -359,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**List&lt;Avatar&gt;**](Avatar.md)
 
 ### Authorization
 
@@ -374,8 +375,9 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Returns a list of Avatar objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **403** | Error response when trying to see favourited avatars of another user without sufficient admin permissions. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AssetUrl** | **string** |  | 
 **AssetUrlObject** | **Object** |  | 
-**AuthorId** | **string** |  | [readonly] 
+**AuthorId** | **string** |  | 
 **AuthorName** | **string** |  | [readonly] 
 **Capacity** | **decimal** |  | [readonly] 
 **CreatedAt** | **DateTime** |  | [readonly] 

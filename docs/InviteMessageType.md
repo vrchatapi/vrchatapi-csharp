@@ -1,11 +1,10 @@
 
-# io.github.vrchatapi.Model.InlineResponse2007
+# io.github.vrchatapi.Model.InviteMessageType
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CanPubilsh** | **bool** |  | [readonly] [default to true]
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -25,97 +25,142 @@ using OpenAPIDateConverter = io.github.vrchatapi.Client.OpenAPIDateConverter;
 namespace io.github.vrchatapi.Model
 {
     /// <summary>
-    /// InlineObject11
+    /// InviteMessage
     /// </summary>
     [DataContract]
-    public partial class InlineObject11 :  IEquatable<InlineObject11>, IValidatableObject
+    public partial class InviteMessage :  IEquatable<InviteMessage>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets ReleaseStatus
+        /// Gets or Sets MessageType
         /// </summary>
-        [DataMember(Name="releaseStatus", EmitDefaultValue=false)]
-        public ReleaseStatus? ReleaseStatus { get; set; }
+        [DataMember(Name="messageType", EmitDefaultValue=true)]
+        public InviteMessageType MessageType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineObject11" /> class.
+        /// Initializes a new instance of the <see cref="InviteMessage" /> class.
         /// </summary>
-        /// <param name="assetUrl">assetUrl.</param>
-        /// <param name="id">id.</param>
-        /// <param name="name">name.</param>
-        /// <param name="description">description.</param>
-        /// <param name="tags">tags.</param>
-        /// <param name="imageUrl">imageUrl.</param>
-        /// <param name="releaseStatus">releaseStatus.</param>
-        /// <param name="version">version (default to 1M).</param>
-        /// <param name="unityPackageUrl">unityPackageUrl.</param>
-        public InlineObject11(string assetUrl = default(string), string id = default(string), string name = default(string), string description = default(string), List<string> tags = default(List<string>), string imageUrl = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), decimal version = 1M, string unityPackageUrl = default(string))
+        [JsonConstructorAttribute]
+        protected InviteMessage() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InviteMessage" /> class.
+        /// </summary>
+        /// <param name="id">id (required).</param>
+        /// <param name="slot">slot (required).</param>
+        /// <param name="message">message (required).</param>
+        /// <param name="messageType">messageType (required).</param>
+        /// <param name="updatedAt">updatedAt (required).</param>
+        /// <param name="remainingCooldownMinutes">Changes to 60 when updated, although probably server-side configurable. (required) (default to 0).</param>
+        /// <param name="canBeUpdated">canBeUpdated (required) (default to true).</param>
+        public InviteMessage(string id = default(string), int slot = default(int), string message = default(string), InviteMessageType messageType = default(InviteMessageType), DateTime updatedAt = default(DateTime), int remainingCooldownMinutes = 0, bool canBeUpdated = true)
         {
-            this.AssetUrl = assetUrl;
-            this.Id = id;
-            this.Name = name;
-            this.Description = description;
-            this.Tags = tags;
-            this.ImageUrl = imageUrl;
-            this.ReleaseStatus = releaseStatus;
-            // use default value if no "version" provided
-            if (version == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                this.Version = 1M;
+                throw new InvalidDataException("id is a required property for InviteMessage and cannot be null");
             }
             else
             {
-                this.Version = version;
+                this.Id = id;
             }
-            this.UnityPackageUrl = unityPackageUrl;
-        }
 
-        /// <summary>
-        /// Gets or Sets AssetUrl
-        /// </summary>
-        [DataMember(Name="assetUrl", EmitDefaultValue=false)]
-        public string AssetUrl { get; set; }
+            // to ensure "slot" is required (not null)
+            if (slot == null)
+            {
+                throw new InvalidDataException("slot is a required property for InviteMessage and cannot be null");
+            }
+            else
+            {
+                this.Slot = slot;
+            }
+
+            // to ensure "message" is required (not null)
+            if (message == null)
+            {
+                throw new InvalidDataException("message is a required property for InviteMessage and cannot be null");
+            }
+            else
+            {
+                this.Message = message;
+            }
+
+            // to ensure "messageType" is required (not null)
+            if (messageType == null)
+            {
+                throw new InvalidDataException("messageType is a required property for InviteMessage and cannot be null");
+            }
+            else
+            {
+                this.MessageType = messageType;
+            }
+
+            // to ensure "updatedAt" is required (not null)
+            if (updatedAt == null)
+            {
+                throw new InvalidDataException("updatedAt is a required property for InviteMessage and cannot be null");
+            }
+            else
+            {
+                this.UpdatedAt = updatedAt;
+            }
+
+            // to ensure "remainingCooldownMinutes" is required (not null)
+            if (remainingCooldownMinutes == null)
+            {
+                throw new InvalidDataException("remainingCooldownMinutes is a required property for InviteMessage and cannot be null");
+            }
+            else
+            {
+                this.RemainingCooldownMinutes = remainingCooldownMinutes;
+            }
+
+            // to ensure "canBeUpdated" is required (not null)
+            if (canBeUpdated == null)
+            {
+                throw new InvalidDataException("canBeUpdated is a required property for InviteMessage and cannot be null");
+            }
+            else
+            {
+                this.CanBeUpdated = canBeUpdated;
+            }
+
+        }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets Slot
         /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
+        [DataMember(Name="slot", EmitDefaultValue=true)]
+        public int Slot { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Tags
-        /// </summary>
-        [DataMember(Name="tags", EmitDefaultValue=false)]
-        public List<string> Tags { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ImageUrl
-        /// </summary>
-        [DataMember(Name="imageUrl", EmitDefaultValue=false)]
-        public string ImageUrl { get; set; }
+        [DataMember(Name="message", EmitDefaultValue=true)]
+        public string Message { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets Version
+        /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public decimal Version { get; set; }
+        [DataMember(Name="updatedAt", EmitDefaultValue=true)]
+        public DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnityPackageUrl
+        /// Changes to 60 when updated, although probably server-side configurable.
         /// </summary>
-        [DataMember(Name="unityPackageUrl", EmitDefaultValue=false)]
-        public string UnityPackageUrl { get; set; }
+        /// <value>Changes to 60 when updated, although probably server-side configurable.</value>
+        [DataMember(Name="remainingCooldownMinutes", EmitDefaultValue=true)]
+        public int RemainingCooldownMinutes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CanBeUpdated
+        /// </summary>
+        [DataMember(Name="canBeUpdated", EmitDefaultValue=true)]
+        public bool CanBeUpdated { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,16 +169,14 @@ namespace io.github.vrchatapi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineObject11 {\n");
-            sb.Append("  AssetUrl: ").Append(AssetUrl).Append("\n");
+            sb.Append("class InviteMessage {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
-            sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
-            sb.Append("  UnityPackageUrl: ").Append(UnityPackageUrl).Append("\n");
+            sb.Append("  Slot: ").Append(Slot).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  MessageType: ").Append(MessageType).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  RemainingCooldownMinutes: ").Append(RemainingCooldownMinutes).Append("\n");
+            sb.Append("  CanBeUpdated: ").Append(CanBeUpdated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -154,65 +197,54 @@ namespace io.github.vrchatapi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineObject11);
+            return this.Equals(input as InviteMessage);
         }
 
         /// <summary>
-        /// Returns true if InlineObject11 instances are equal
+        /// Returns true if InviteMessage instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineObject11 to be compared</param>
+        /// <param name="input">Instance of InviteMessage to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineObject11 input)
+        public bool Equals(InviteMessage input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.AssetUrl == input.AssetUrl ||
-                    (this.AssetUrl != null &&
-                    this.AssetUrl.Equals(input.AssetUrl))
-                ) && 
-                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Slot == input.Slot ||
+                    (this.Slot != null &&
+                    this.Slot.Equals(input.Slot))
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 ) && 
                 (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
+                    this.MessageType == input.MessageType ||
+                    (this.MessageType != null &&
+                    this.MessageType.Equals(input.MessageType))
                 ) && 
                 (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
                 ) && 
                 (
-                    this.ReleaseStatus == input.ReleaseStatus ||
-                    (this.ReleaseStatus != null &&
-                    this.ReleaseStatus.Equals(input.ReleaseStatus))
+                    this.RemainingCooldownMinutes == input.RemainingCooldownMinutes ||
+                    (this.RemainingCooldownMinutes != null &&
+                    this.RemainingCooldownMinutes.Equals(input.RemainingCooldownMinutes))
                 ) && 
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
-                ) && 
-                (
-                    this.UnityPackageUrl == input.UnityPackageUrl ||
-                    (this.UnityPackageUrl != null &&
-                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
+                    this.CanBeUpdated == input.CanBeUpdated ||
+                    (this.CanBeUpdated != null &&
+                    this.CanBeUpdated.Equals(input.CanBeUpdated))
                 );
         }
 
@@ -225,24 +257,20 @@ namespace io.github.vrchatapi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AssetUrl != null)
-                    hashCode = hashCode * 59 + this.AssetUrl.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
-                if (this.ImageUrl != null)
-                    hashCode = hashCode * 59 + this.ImageUrl.GetHashCode();
-                if (this.ReleaseStatus != null)
-                    hashCode = hashCode * 59 + this.ReleaseStatus.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
-                if (this.UnityPackageUrl != null)
-                    hashCode = hashCode * 59 + this.UnityPackageUrl.GetHashCode();
+                if (this.Slot != null)
+                    hashCode = hashCode * 59 + this.Slot.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.MessageType != null)
+                    hashCode = hashCode * 59 + this.MessageType.GetHashCode();
+                if (this.UpdatedAt != null)
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
+                if (this.RemainingCooldownMinutes != null)
+                    hashCode = hashCode * 59 + this.RemainingCooldownMinutes.GetHashCode();
+                if (this.CanBeUpdated != null)
+                    hashCode = hashCode * 59 + this.CanBeUpdated.GetHashCode();
                 return hashCode;
             }
         }
@@ -257,39 +285,33 @@ namespace io.github.vrchatapi.Model
 
  
             // Id (string) pattern
-            Regex regexId = new Regex(@"avtr_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
+            Regex regexId = new Regex(@"(default|invm_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must match a pattern of " + regexId, new [] { "Id" });
             }
 
 
-            // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
-            }
  
-
-            // Description (string) minLength
-            if(this.Description != null && this.Description.Length < 1)
+            // Slot (int) minimum
+            if(this.Slot < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Slot, must be a value greater than or equal to 0.", new [] { "Slot" });
             }
- 
 
-            // ImageUrl (string) minLength
-            if(this.ImageUrl != null && this.ImageUrl.Length < 1)
+
+            // Message (string) minLength
+            if(this.Message != null && this.Message.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
             }
  
 
  
-            // Version (decimal) minimum
-            if(this.Version < (decimal)0)
+            // RemainingCooldownMinutes (int) minimum
+            if(this.RemainingCooldownMinutes < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 0.", new [] { "Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RemainingCooldownMinutes, must be a value greater than or equal to 0.", new [] { "RemainingCooldownMinutes" });
             }
 
             yield break;

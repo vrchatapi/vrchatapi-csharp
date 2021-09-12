@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Moderated** | **string** |  | [optional] [readonly] 
+**Moderated** | **string** |  | [optional] 
 **Type** | **PlayerModerationType** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

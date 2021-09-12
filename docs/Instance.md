@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **NUsers** | **decimal** |  | 
 **Name** | **string** |  | 
 **Nonce** | **string** |  | [optional] 
-**OwnerId** | **string** |  | [readonly] 
+**OwnerId** | **string** |  | 
 **Permanent** | **bool** |  | [default to false]
 **PhotonRegion** | **string** |  | 
 **Platforms** | [**InstancePlatforms**](InstancePlatforms.md) |  | 

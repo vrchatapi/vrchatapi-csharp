@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [readonly] 
+**Id** | **string** |  | 
 **Type** | **FavoriteType** |  | 
 **FavoriteId** | **string** | MUST be either AvatarID, UserID or WorldID. | 
 **Tags** | **List&lt;string&gt;** |  | 

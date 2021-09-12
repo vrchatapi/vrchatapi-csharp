@@ -5,9 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IsFriend** | **bool** |  | [default to false]
-**OutgoingRequest** | **bool** |  | [default to false]
-**IncomingRequest** | **bool** |  | [default to false]
+**UploadId** | **string** |  | [readonly] 
+**FileName** | **string** |  | [readonly] 
+**NextPartNumber** | **decimal** |  | [readonly] 
+**MaxParts** | **decimal** |  | [readonly] 
+**Parts** | **List&lt;Object&gt;** |  | [readonly] 
+**Etags** | **List&lt;Object&gt;** | Unknown | [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

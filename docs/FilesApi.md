@@ -629,7 +629,7 @@ Name | Type | Description  | Notes
 
 ## GetFileDataUploadStatus
 
-> InlineResponse2004 GetFileDataUploadStatus (string fileId, int versionId, string fileType)
+> InlineResponse2003 GetFileDataUploadStatus (string fileId, int versionId, string fileType)
 
 Check FileData Upload Status
 
@@ -668,7 +668,7 @@ namespace Example
             try
             {
                 // Check FileData Upload Status
-                InlineResponse2004 result = apiInstance.GetFileDataUploadStatus(fileId, versionId, fileType);
+                InlineResponse2003 result = apiInstance.GetFileDataUploadStatus(fileId, versionId, fileType);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -809,7 +809,7 @@ Name | Type | Description  | Notes
 
 ## StartFileDataUpload
 
-> InlineResponse2005 StartFileDataUpload (string fileId, int versionId, string fileType, int partNumber)
+> InlineResponse2004 StartFileDataUpload (string fileId, int versionId, string fileType, int partNumber)
 
 Start FileData Upload
 
@@ -849,7 +849,7 @@ namespace Example
             try
             {
                 // Start FileData Upload
-                InlineResponse2005 result = apiInstance.StartFileDataUpload(fileId, versionId, fileType, partNumber);
+                InlineResponse2004 result = apiInstance.StartFileDataUpload(fileId, versionId, fileType, partNumber);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -875,7 +875,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

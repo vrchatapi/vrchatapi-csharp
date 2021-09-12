@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Type** | **PlayerModerationType** |  | 
-**SourceUserId** | **string** |  | [readonly] 
+**SourceUserId** | **string** |  | 
 **SourceDisplayName** | **string** |  | 
-**TargetUserId** | **string** |  | [readonly] 
+**TargetUserId** | **string** |  | 
 **TargetDisplayName** | **string** |  | 
 **Created** | **DateTime** |  | 
 

@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Returns a list of LimitedWorld objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
-| **403** | Error response when trying to see favourites of another user without sufficient admin permissions. |  -  |
+| **403** | Error response when trying to see favourited worlds of another user without sufficient admin permissions. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -506,7 +506,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Returns a list of LimitedWorld objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
-| **403** | Error response when trying to accept a see recently visited worlds of another user without sufficient admin permissions. |  -  |
+| **403** | Error response when trying to see recently visited worlds of another user without sufficient admin permissions. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -681,7 +681,7 @@ Name | Type | Description  | Notes
 
 ## GetWorldMetadata
 
-> InlineResponse2006 GetWorldMetadata (string worldId)
+> InlineResponse2005 GetWorldMetadata (string worldId)
 
 Get World Metadata
 
@@ -718,7 +718,7 @@ namespace Example
             try
             {
                 // Get World Metadata
-                InlineResponse2006 result = apiInstance.GetWorldMetadata(worldId);
+                InlineResponse2005 result = apiInstance.GetWorldMetadata(worldId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -767,7 +767,7 @@ Name | Type | Description  | Notes
 
 ## GetWorldPublishStatus
 
-> InlineResponse2007 GetWorldPublishStatus (string worldId)
+> InlineResponse2006 GetWorldPublishStatus (string worldId)
 
 Get World Publish Status
 
@@ -804,7 +804,7 @@ namespace Example
             try
             {
                 // Get World Publish Status
-                InlineResponse2007 result = apiInstance.GetWorldPublishStatus(worldId);
+                InlineResponse2006 result = apiInstance.GetWorldPublishStatus(worldId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -827,7 +827,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 

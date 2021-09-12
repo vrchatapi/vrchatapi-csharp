@@ -97,7 +97,7 @@ This endpoint does not need any parameter.
 
 ## DeletePlayerModeration
 
-> Error DeletePlayerModeration (string playerModerationId)
+> Success DeletePlayerModeration (string playerModerationId)
 
 Delete Player Moderation
 
@@ -134,7 +134,7 @@ namespace Example
             try
             {
                 // Delete Player Moderation
-                Error result = apiInstance.DeletePlayerModeration(playerModerationId);
+                Success result = apiInstance.DeletePlayerModeration(playerModerationId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Error**](Error.md)
+[**Success**](Success.md)
 
 ### Authorization
 
@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 ## UnmoderateUser
 
-> Error UnmoderateUser (InlineObject13 inlineObject13 = null)
+> Success UnmoderateUser (InlineObject13 inlineObject13 = null)
 
 Unmoderate User
 
@@ -482,7 +482,7 @@ namespace Example
             try
             {
                 // Unmoderate User
-                Error result = apiInstance.UnmoderateUser(inlineObject13);
+                Success result = apiInstance.UnmoderateUser(inlineObject13);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Error**](Error.md)
+[**Success**](Success.md)
 
 ### Authorization
 

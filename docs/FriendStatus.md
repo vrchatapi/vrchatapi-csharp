@@ -1,11 +1,13 @@
 
-# io.github.vrchatapi.Model.InlineResponse403
+# io.github.vrchatapi.Model.FriendStatus
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Error** | [**Error**](Error.md) |  | 
+**IsFriend** | **bool** |  | [default to false]
+**OutgoingRequest** | **bool** |  | [default to false]
+**IncomingRequest** | **bool** |  | [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ## GetFriendStatus
 
-> InlineResponse2003 GetFriendStatus (string userId)
+> FriendStatus GetFriendStatus (string userId)
 
 Check Friend Status
 
@@ -225,7 +225,7 @@ namespace Example
             try
             {
                 // Check Friend Status
-                InlineResponse2003 result = apiInstance.GetFriendStatus(userId);
+                FriendStatus result = apiInstance.GetFriendStatus(userId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**FriendStatus**](FriendStatus.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Friend Status |  -  |
+| **200** | Returns a users Friend Status. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#)

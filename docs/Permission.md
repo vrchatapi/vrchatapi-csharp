@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**OwnerId** | **string** |  | [readonly] 
+**OwnerId** | **string** |  | 
 **Name** | **string** |  | 
 **Data** | **Object** |  | [optional] 
 

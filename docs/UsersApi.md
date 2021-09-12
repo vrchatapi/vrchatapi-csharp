@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetUser**](UsersApi.md#getuser) | **GET** /users/{userId} | Get User by ID
 [**GetUserByName**](UsersApi.md#getuserbyname) | **GET** /users/{username}/name | Get User by Username
-[**SearchActiveUsers**](UsersApi.md#searchactiveusers) | **GET** /users/active | Search Active Users
 [**SearchUsers**](UsersApi.md#searchusers) | **GET** /users | Search All Users
 [**UpdateUser**](UsersApi.md#updateuser) | **PUT** /users/{userId} | Update User Info
 
@@ -177,98 +176,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SearchActiveUsers
-
-> List&lt;LimitedUser&gt; SearchActiveUsers (string search, string developerType = null, int? offset = null, int? n = null)
-
-Search Active Users
-
-Search and list any Active users by text query.  **Has been locked down and now always respond with \"Invalid Admin Credentials\".**
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
-
-namespace Example
-{
-    public class SearchActiveUsersExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
-            // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
-
-            var apiInstance = new UsersApi(Configuration.Default);
-            var search = search_example;  // string | Username to search for
-            var developerType = developerType_example;  // string | Active user by developer type, none for normal users and internal for moderators (optional) 
-            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
-
-            try
-            {
-                // Search Active Users
-                List<LimitedUser> result = apiInstance.SearchActiveUsers(search, developerType, offset, n);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling UsersApi.SearchActiveUsers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **search** | **string**| Username to search for | 
- **developerType** | **string**| Active user by developer type, none for normal users and internal for moderators | [optional] 
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
-
-### Return type
-
-[**List&lt;LimitedUser&gt;**](LimitedUser.md)
-
-### Authorization
-
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Error response due to missing Administrator credentials. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

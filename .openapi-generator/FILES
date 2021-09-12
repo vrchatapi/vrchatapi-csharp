@@ -25,6 +25,7 @@ docs/FileData.md
 docs/FileStatus.md
 docs/FileVersion.md
 docs/FilesApi.md
+docs/FriendStatus.md
 docs/FriendsApi.md
 docs/InlineObject.md
 docs/InlineObject1.md
@@ -47,10 +48,12 @@ docs/InlineResponse2003.md
 docs/InlineResponse2004.md
 docs/InlineResponse2005.md
 docs/InlineResponse2006.md
-docs/InlineResponse2007.md
-docs/InlineResponse403.md
+docs/InlineResponse400.md
 docs/Instance.md
 docs/InstancePlatforms.md
+docs/InviteApi.md
+docs/InviteMessage.md
+docs/InviteMessageType.md
 docs/LimitedUnityPackage.md
 docs/LimitedUser.md
 docs/LimitedWorld.md
@@ -61,7 +64,6 @@ docs/NotificationsApi.md
 docs/PastDisplayName.md
 docs/Permission.md
 docs/PermissionsApi.md
-docs/Platform.md
 docs/PlayerModeration.md
 docs/PlayerModerationType.md
 docs/PlayermoderationApi.md
@@ -83,6 +85,7 @@ src/io.github.vrchatapi/Api/AvatarsApi.cs
 src/io.github.vrchatapi/Api/FavoritesApi.cs
 src/io.github.vrchatapi/Api/FilesApi.cs
 src/io.github.vrchatapi/Api/FriendsApi.cs
+src/io.github.vrchatapi/Api/InviteApi.cs
 src/io.github.vrchatapi/Api/NotificationsApi.cs
 src/io.github.vrchatapi/Api/PermissionsApi.cs
 src/io.github.vrchatapi/Api/PlayermoderationApi.cs
@@ -117,6 +120,7 @@ src/io.github.vrchatapi/Model/File.cs
 src/io.github.vrchatapi/Model/FileData.cs
 src/io.github.vrchatapi/Model/FileStatus.cs
 src/io.github.vrchatapi/Model/FileVersion.cs
+src/io.github.vrchatapi/Model/FriendStatus.cs
 src/io.github.vrchatapi/Model/InlineObject.cs
 src/io.github.vrchatapi/Model/InlineObject1.cs
 src/io.github.vrchatapi/Model/InlineObject10.cs
@@ -138,10 +142,11 @@ src/io.github.vrchatapi/Model/InlineResponse2003.cs
 src/io.github.vrchatapi/Model/InlineResponse2004.cs
 src/io.github.vrchatapi/Model/InlineResponse2005.cs
 src/io.github.vrchatapi/Model/InlineResponse2006.cs
-src/io.github.vrchatapi/Model/InlineResponse2007.cs
-src/io.github.vrchatapi/Model/InlineResponse403.cs
+src/io.github.vrchatapi/Model/InlineResponse400.cs
 src/io.github.vrchatapi/Model/Instance.cs
 src/io.github.vrchatapi/Model/InstancePlatforms.cs
+src/io.github.vrchatapi/Model/InviteMessage.cs
+src/io.github.vrchatapi/Model/InviteMessageType.cs
 src/io.github.vrchatapi/Model/LimitedUnityPackage.cs
 src/io.github.vrchatapi/Model/LimitedUser.cs
 src/io.github.vrchatapi/Model/LimitedWorld.cs
@@ -150,7 +155,6 @@ src/io.github.vrchatapi/Model/Notification.cs
 src/io.github.vrchatapi/Model/NotificationType.cs
 src/io.github.vrchatapi/Model/PastDisplayName.cs
 src/io.github.vrchatapi/Model/Permission.cs
-src/io.github.vrchatapi/Model/Platform.cs
 src/io.github.vrchatapi/Model/PlayerModeration.cs
 src/io.github.vrchatapi/Model/PlayerModerationType.cs
 src/io.github.vrchatapi/Model/ReleaseStatus.cs

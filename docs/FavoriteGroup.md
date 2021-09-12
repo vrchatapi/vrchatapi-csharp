@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [readonly] 
-**OwnerId** | **string** |  | [readonly] 
+**Id** | **string** |  | 
+**OwnerId** | **string** |  | 
 **OwnerDisplayName** | **string** |  | 
 **Name** | **string** |  | 
 **DisplayName** | **string** |  | 

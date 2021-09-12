@@ -1,27 +1,26 @@
-# io.github.vrchatapi.Api.FavoritesApi
+# io.github.vrchatapi.Api.InviteApi
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddFavorite**](FavoritesApi.md#addfavorite) | **POST** /favorites | Add Favorite
-[**ClearFavoriteGroup**](FavoritesApi.md#clearfavoritegroup) | **DELETE** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Clear Favorite Group
-[**GetFavorite**](FavoritesApi.md#getfavorite) | **GET** /favorites/{favoriteId} | Show Favorite
-[**GetFavoriteGroup**](FavoritesApi.md#getfavoritegroup) | **GET** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Show Favorite Group
-[**GetFavoriteGroups**](FavoritesApi.md#getfavoritegroups) | **GET** /favorite/groups | List Favorite Groups
-[**GetFavorites**](FavoritesApi.md#getfavorites) | **GET** /favorites | List Favorites
-[**RemoveFavorite**](FavoritesApi.md#removefavorite) | **DELETE** /favorites/{favoriteId} | Remove Favorite
-[**UpdateFavoriteGroup**](FavoritesApi.md#updatefavoritegroup) | **PUT** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Update Favorite Group
+[**GetInviteMessage**](InviteApi.md#getinvitemessage) | **GET** /message/{userId}/message/{messageId} | Get Invite Messages
+[**GetInviteMessages**](InviteApi.md#getinvitemessages) | **GET** /message/{userId}/message | List Invite Messages
+[**InviteUser**](InviteApi.md#inviteuser) | **POST** /invite/{userId} | Invite User
+[**RequestInvite**](InviteApi.md#requestinvite) | **POST** /requestInvite/{userId} | Request Invite
+[**ResetInviteMessage**](InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/message/{messageId} | Reset Invite Message
+[**RespondInvite**](InviteApi.md#respondinvite) | **POST** /invite/{notificationId}/response | Respond Invite
+[**UpdateInviteMessage**](InviteApi.md#updateinvitemessage) | **PUT** /message/{userId}/message/{messageId} | Update Invite Message
 
 
 
-## AddFavorite
+## GetInviteMessage
 
-> Favorite AddFavorite (InlineObject8 inlineObject8 = null)
+> InviteMessage GetInviteMessage (string userId, int messageId)
 
-Add Favorite
+Get Invite Messages
 
-Add a new favorite.  Friend groups are named `group_0` through `group_3`. Avatar and World groups are named `avatars1` to `avatar4` and `worlds1` to `worlds4`.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
+Returns a single Invite Message. This returns the exact same information but less than `getInviteMessages`. Admin Credentials are required to view messages of other users!
 
 ### Example
 
@@ -34,7 +33,7 @@ using io.github.vrchatapi.Model;
 
 namespace Example
 {
-    public class AddFavoriteExample
+    public class GetInviteMessageExample
     {
         public static void Main()
         {
@@ -48,18 +47,19 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
-            var inlineObject8 = new InlineObject8(); // InlineObject8 |  (optional) 
+            var apiInstance = new InviteApi(Configuration.Default);
+            var userId = userId_example;  // string | 
+            var messageId = 56;  // int | 
 
             try
             {
-                // Add Favorite
-                Favorite result = apiInstance.AddFavorite(inlineObject8);
+                // Get Invite Messages
+                InviteMessage result = apiInstance.GetInviteMessage(userId, messageId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling FavoritesApi.AddFavorite: " + e.Message );
+                Debug.Print("Exception when calling InviteApi.GetInviteMessage: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -73,11 +73,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | [optional] 
+ **userId** | **string**|  | 
+ **messageId** | **int**|  | 
 
 ### Return type
 
-[**Favorite**](Favorite.md)
+[**InviteMessage**](InviteMessage.md)
 
 ### Authorization
 
@@ -85,16 +86,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a single Favorite object. |  -  |
-| **400** | Error response when trying favorite someone or something when already having it/them favorited. |  -  |
-| **403** | Error response when trying favorite someone whom you are not friends with. |  -  |
+| **200** | Returns a single InviteMessage object. |  -  |
+| **400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+| **401** | Error response due to missing authorization to perform that action. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -102,13 +103,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ClearFavoriteGroup
+## GetInviteMessages
 
-> Success ClearFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId)
+> List&lt;InviteMessage&gt; GetInviteMessages (string userId)
 
-Clear Favorite Group
+List Invite Messages
 
-Clear ALL contents of a specific favorite group.
+Returns a list of all that users Invite Messages. Admin Credentials are required to view messages of other users!
 
 ### Example
 
@@ -121,7 +122,7 @@ using io.github.vrchatapi.Model;
 
 namespace Example
 {
-    public class ClearFavoriteGroupExample
+    public class GetInviteMessagesExample
     {
         public static void Main()
         {
@@ -135,20 +136,18 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
-            var favoriteGroupType = favoriteGroupType_example;  // string | The type of group to fetch, must be a valid FavoriteType.
-            var favoriteGroupName = favoriteGroupName_example;  // string | 
+            var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
 
             try
             {
-                // Clear Favorite Group
-                Success result = apiInstance.ClearFavoriteGroup(favoriteGroupType, favoriteGroupName, userId);
+                // List Invite Messages
+                List<InviteMessage> result = apiInstance.GetInviteMessages(userId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling FavoritesApi.ClearFavoriteGroup: " + e.Message );
+                Debug.Print("Exception when calling InviteApi.GetInviteMessages: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -162,13 +161,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **favoriteGroupType** | **string**| The type of group to fetch, must be a valid FavoriteType. | 
- **favoriteGroupName** | **string**|  | 
  **userId** | **string**|  | 
 
 ### Return type
 
-[**Success**](Success.md)
+[**List&lt;InviteMessage&gt;**](InviteMessage.md)
 
 ### Authorization
 
@@ -183,7 +180,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success response after clearing a favorite group. |  -  |
+| **200** | Returns a list of InviteMessage objects. |  -  |
+| **400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+| **401** | Error response due to missing authorization to perform that action. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -191,13 +190,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetFavorite
+## InviteUser
 
-> Favorite GetFavorite (string favoriteId)
+> Notification InviteUser (string userId)
 
-Show Favorite
+Invite User
 
-Return information about a specific Favorite.
+Sends an invite to a user. Returns the Notification of type `invite` that was sent.
 
 ### Example
 
@@ -210,7 +209,7 @@ using io.github.vrchatapi.Model;
 
 namespace Example
 {
-    public class GetFavoriteExample
+    public class InviteUserExample
     {
         public static void Main()
         {
@@ -224,107 +223,18 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
-            var favoriteId = favoriteId_example;  // string | 
-
-            try
-            {
-                // Show Favorite
-                Favorite result = apiInstance.GetFavorite(favoriteId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling FavoritesApi.GetFavorite: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **favoriteId** | **string**|  | 
-
-### Return type
-
-[**Favorite**](Favorite.md)
-
-### Authorization
-
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns a single Favorite object. |  -  |
-| **401** | Error response due to missing apiKey or auth cookie. |  -  |
-| **404** | Error response when trying to show information about a non-existent favorite. |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetFavoriteGroup
-
-> FavoriteGroup GetFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId)
-
-Show Favorite Group
-
-Fetch information about a specific favorite group.
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
-
-namespace Example
-{
-    public class GetFavoriteGroupExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
-            // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
-
-            var apiInstance = new FavoritesApi(Configuration.Default);
-            var favoriteGroupType = favoriteGroupType_example;  // string | The type of group to fetch, must be a valid FavoriteType.
-            var favoriteGroupName = favoriteGroupName_example;  // string | 
+            var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
 
             try
             {
-                // Show Favorite Group
-                FavoriteGroup result = apiInstance.GetFavoriteGroup(favoriteGroupType, favoriteGroupName, userId);
+                // Invite User
+                Notification result = apiInstance.InviteUser(userId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling FavoritesApi.GetFavoriteGroup: " + e.Message );
+                Debug.Print("Exception when calling InviteApi.InviteUser: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -338,13 +248,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **favoriteGroupType** | **string**| The type of group to fetch, must be a valid FavoriteType. | 
- **favoriteGroupName** | **string**|  | 
  **userId** | **string**|  | 
 
 ### Return type
 
-[**FavoriteGroup**](FavoriteGroup.md)
+[**Notification**](Notification.md)
 
 ### Authorization
 
@@ -359,7 +267,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a single FavoriteGroup object. |  -  |
+| **200** | Returns a single Notifcation object. |  -  |
+| **403** | Error response when trying to invite someome whom you are not friends with. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -367,13 +276,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetFavoriteGroups
+## RequestInvite
 
-> List&lt;FavoriteGroup&gt; GetFavoriteGroups (int? n = null, int? offset = null, string ownerId = null)
+> Notification RequestInvite (string userId)
 
-List Favorite Groups
+Request Invite
 
-Return a list of favorite groups owned by a user. Returns the same information as `getFavoriteGroups`.
+Requests an invite from a user. Returns the Notification of type `requestInvite` that was sent.
 
 ### Example
 
@@ -386,7 +295,7 @@ using io.github.vrchatapi.Model;
 
 namespace Example
 {
-    public class GetFavoriteGroupsExample
+    public class RequestInviteExample
     {
         public static void Main()
         {
@@ -400,289 +309,18 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(Configuration.Default);
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
-            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var ownerId = ownerId_example;  // string | The owner of whoms favorite groups to return. Must be a UserID. (optional) 
-
-            try
-            {
-                // List Favorite Groups
-                List<FavoriteGroup> result = apiInstance.GetFavoriteGroups(n, offset, ownerId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling FavoritesApi.GetFavoriteGroups: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **ownerId** | **string**| The owner of whoms favorite groups to return. Must be a UserID. | [optional] 
-
-### Return type
-
-[**List&lt;FavoriteGroup&gt;**](FavoriteGroup.md)
-
-### Authorization
-
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns a list of FavoriteGroup objects. |  -  |
-| **401** | Error response due to missing apiKey or auth cookie. |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetFavorites
-
-> List&lt;Favorite&gt; GetFavorites (int? n = null, int? offset = null, string type = null, string tag = null)
-
-List Favorites
-
-Returns a list of favorites.
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
-
-namespace Example
-{
-    public class GetFavoritesExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
-            // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
-
-            var apiInstance = new FavoritesApi(Configuration.Default);
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
-            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var type = type_example;  // string | The type of favorites to return, FavoriteType. (optional) 
-            var tag = tag_example;  // string | Tags to include (comma-separated). (optional) 
-
-            try
-            {
-                // List Favorites
-                List<Favorite> result = apiInstance.GetFavorites(n, offset, type, tag);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling FavoritesApi.GetFavorites: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **type** | **string**| The type of favorites to return, FavoriteType. | [optional] 
- **tag** | **string**| Tags to include (comma-separated). | [optional] 
-
-### Return type
-
-[**List&lt;Favorite&gt;**](Favorite.md)
-
-### Authorization
-
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns a list of Favorite objects. |  -  |
-| **401** | Error response due to missing apiKey or auth cookie. |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## RemoveFavorite
-
-> Success RemoveFavorite (string favoriteId)
-
-Remove Favorite
-
-Remove a favorite from your favorites list.
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
-
-namespace Example
-{
-    public class RemoveFavoriteExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
-            // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
-
-            var apiInstance = new FavoritesApi(Configuration.Default);
-            var favoriteId = favoriteId_example;  // string | 
-
-            try
-            {
-                // Remove Favorite
-                Success result = apiInstance.RemoveFavorite(favoriteId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling FavoritesApi.RemoveFavorite: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **favoriteId** | **string**|  | 
-
-### Return type
-
-[**Success**](Success.md)
-
-### Authorization
-
-[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success response after removing a favorite. |  -  |
-| **401** | Error response due to missing apiKey or auth cookie. |  -  |
-| **404** | Error response when trying to show information about a non-existent favorite. |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UpdateFavoriteGroup
-
-> void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = null)
-
-Update Favorite Group
-
-Update information about a specific favorite group.
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
-
-namespace Example
-{
-    public class UpdateFavoriteGroupExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
-            // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
-
-            var apiInstance = new FavoritesApi(Configuration.Default);
-            var favoriteGroupType = favoriteGroupType_example;  // string | The type of group to fetch, must be a valid FavoriteType.
-            var favoriteGroupName = favoriteGroupName_example;  // string | 
+            var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
-            var inlineObject9 = new InlineObject9(); // InlineObject9 |  (optional) 
 
             try
             {
-                // Update Favorite Group
-                apiInstance.UpdateFavoriteGroup(favoriteGroupType, favoriteGroupName, userId, inlineObject9);
+                // Request Invite
+                Notification result = apiInstance.RequestInvite(userId);
+                Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling FavoritesApi.UpdateFavoriteGroup: " + e.Message );
+                Debug.Print("Exception when calling InviteApi.RequestInvite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -696,14 +334,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **favoriteGroupType** | **string**| The type of group to fetch, must be a valid FavoriteType. | 
- **favoriteGroupName** | **string**|  | 
  **userId** | **string**|  | 
- **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**Notification**](Notification.md)
 
 ### Authorization
 
@@ -711,14 +346,281 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: Not defined
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Returns a single Notifcation object. |  -  |
+| **403** | Error response when trying to invite someome whom you are not friends with. |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ResetInviteMessage
+
+> List&lt;InviteMessage&gt; ResetInviteMessage (string userId, int messageId)
+
+Reset Invite Message
+
+Resets a single Invite Message back to it's original message, and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Resetting a message respects the rate-limit, but resetting it does not set the rate-limit to 60 like when editing it. It is possible to edit it right after resetting it. Trying to edit a message before the cooldown timer expires results in a 429 Too Fast Error.
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using io.github.vrchatapi.Api;
+using io.github.vrchatapi.Client;
+using io.github.vrchatapi.Model;
+
+namespace Example
+{
+    public class ResetInviteMessageExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: apiKeyCookie
+            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // Configure API key authorization: authCookie
+            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new InviteApi(Configuration.Default);
+            var userId = userId_example;  // string | 
+            var messageId = 56;  // int | 
+
+            try
+            {
+                // Reset Invite Message
+                List<InviteMessage> result = apiInstance.ResetInviteMessage(userId, messageId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling InviteApi.ResetInviteMessage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**|  | 
+ **messageId** | **int**|  | 
+
+### Return type
+
+[**List&lt;InviteMessage&gt;**](InviteMessage.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of InviteMessage objects. |  -  |
+| **400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+| **401** | Error response due to missing authorization to perform that action. |  -  |
+| **429** | Error response when trying to update an Invite Message before the cooldown has expired. |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RespondInvite
+
+> Notification RespondInvite (string notificationId)
+
+Respond Invite
+
+Sends a world invite to a user.
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using io.github.vrchatapi.Api;
+using io.github.vrchatapi.Client;
+using io.github.vrchatapi.Model;
+
+namespace Example
+{
+    public class RespondInviteExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: apiKeyCookie
+            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // Configure API key authorization: authCookie
+            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new InviteApi(Configuration.Default);
+            var notificationId = notificationId_example;  // string | 
+
+            try
+            {
+                // Respond Invite
+                Notification result = apiInstance.RespondInvite(notificationId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling InviteApi.RespondInvite: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notificationId** | **string**|  | 
+
+### Return type
+
+[**Notification**](Notification.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single Notifcation object. |  -  |
+| **400** | Error response when trying to respond to an invite and something went wrong. |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateInviteMessage
+
+> List&lt;InviteMessage&gt; UpdateInviteMessage (string userId, int messageId)
+
+Update Invite Message
+
+Updates a single Invite Message and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Updating a message automatically sets the cooldown timer to 60 minutes. Trying to edit a message before the cooldown timer expires results in a 429 Too Fast Error.
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using io.github.vrchatapi.Api;
+using io.github.vrchatapi.Client;
+using io.github.vrchatapi.Model;
+
+namespace Example
+{
+    public class UpdateInviteMessageExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: apiKeyCookie
+            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // Configure API key authorization: authCookie
+            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new InviteApi(Configuration.Default);
+            var userId = userId_example;  // string | 
+            var messageId = 56;  // int | 
+
+            try
+            {
+                // Update Invite Message
+                List<InviteMessage> result = apiInstance.UpdateInviteMessage(userId, messageId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling InviteApi.UpdateInviteMessage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**|  | 
+ **messageId** | **int**|  | 
+
+### Return type
+
+[**List&lt;InviteMessage&gt;**](InviteMessage.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of InviteMessage objects. |  -  |
+| **400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+| **401** | Error response due to missing authorization to perform that action. |  -  |
+| **429** | Error response when trying to update an Invite Message before the cooldown has expired. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

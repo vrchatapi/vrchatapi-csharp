@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [readonly] 
+**Id** | **string** |  | 
 **Name** | **string** |  | 
-**OwnerId** | **string** |  | [readonly] 
+**OwnerId** | **string** |  | 
 **MimeType** | **MIMEType** |  | 
 **Extension** | **string** |  | 
 **Tags** | **List&lt;string&gt;** |  | 
