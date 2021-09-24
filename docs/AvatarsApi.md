@@ -422,7 +422,7 @@ namespace Example
             var featured = featured_example;  // string | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var user = user_example;  // string | Set to `me` for searching own avatars. (optional) 
-            var userId = userId_example;  // string | Filter by author UserID (optional) 
+            var userId = userId_example;  // string | Filter by UserID. (optional) 
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
             var order = descending;  // string |  (optional)  (default to descending)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
  **featured** | **string**| Filters on featured results. | [optional] 
  **sort** | **string**|  | [optional] [default to popularity]
  **user** | **string**| Set to &#x60;me&#x60; for searching own avatars. | [optional] 
- **userId** | **string**| Filter by author UserID | [optional] 
+ **userId** | **string**| Filter by UserID. | [optional] 
  **n** | **int?**| The number of objects to return. | [optional] [default to 60]
  **order** | **string**|  | [optional] [default to descending]
  **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 

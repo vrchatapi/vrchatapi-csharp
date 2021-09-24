@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **StatusDescription** | **string** |  | 
 **CurrentAvatarImageUrl** | **string** |  | 
 **CurrentAvatarThumbnailImageUrl** | **string** |  | 
-**FallbackAvatar** | **string** |  | 
 **State** | **UserState** |  | 
 **Tags** | **List&lt;string&gt;** |  | 
 **DeveloperType** | **DeveloperType** |  | 

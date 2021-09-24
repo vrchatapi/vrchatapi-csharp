@@ -25,38 +25,115 @@ using OpenAPIDateConverter = io.github.vrchatapi.Client.OpenAPIDateConverter;
 namespace io.github.vrchatapi.Model
 {
     /// <summary>
-    /// Used to identify which API deployment cluster is currently responding.  &#x60;blue&#x60; and &#x60;green&#x60; are used by Production. &#x60;grape&#x60;and &#x60;cherry&#x60; are used during Development.  [Blue Green Deployment by Martin Fowler](https://martinfowler.com/bliki/BlueGreenDeployment.html)
+    /// Status object representing if a queried user by username or userId exists or not. This model is primarily used by the &#x60;/auth/exists&#x60; endpoint, which in turn is used during registration. Please see the documentation on that endpoint for more information on usage.
     /// </summary>
-    /// <value>Used to identify which API deployment cluster is currently responding.  &#x60;blue&#x60; and &#x60;green&#x60; are used by Production. &#x60;grape&#x60;and &#x60;cherry&#x60; are used during Development.  [Blue Green Deployment by Martin Fowler](https://martinfowler.com/bliki/BlueGreenDeployment.html)</value>
-    
-    [JsonConverter(typeof(StringEnumConverter))]
-    
-    public enum DeploymentGroup
+    [DataContract]
+    public partial class UserExists :  IEquatable<UserExists>, IValidatableObject
     {
         /// <summary>
-        /// Enum Blue for value: blue
+        /// Initializes a new instance of the <see cref="UserExists" /> class.
         /// </summary>
-        [EnumMember(Value = "blue")]
-        Blue = 1,
+        [JsonConstructorAttribute]
+        protected UserExists() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserExists" /> class.
+        /// </summary>
+        /// <param name="userExists">Status if a user exist with that username or userId. (required) (default to false).</param>
+        public UserExists(bool userExists = false)
+        {
+            // to ensure "userExists" is required (not null)
+            if (userExists == null)
+            {
+                throw new InvalidDataException("userExists is a required property for UserExists and cannot be null");
+            }
+            else
+            {
+                this._UserExists = userExists;
+            }
+
+        }
 
         /// <summary>
-        /// Enum Green for value: green
+        /// Status if a user exist with that username or userId.
         /// </summary>
-        [EnumMember(Value = "green")]
-        Green = 2,
+        /// <value>Status if a user exist with that username or userId.</value>
+        [DataMember(Name="userExists", EmitDefaultValue=true)]
+        public bool _UserExists { get; set; }
 
         /// <summary>
-        /// Enum Grape for value: grape
+        /// Returns the string presentation of the object
         /// </summary>
-        [EnumMember(Value = "grape")]
-        Grape = 3,
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class UserExists {\n");
+            sb.Append("  _UserExists: ").Append(_UserExists).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
 
         /// <summary>
-        /// Enum Cherry for value: cherry
+        /// Returns the JSON string presentation of the object
         /// </summary>
-        [EnumMember(Value = "cherry")]
-        Cherry = 4
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
 
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UserExists);
+        }
+
+        /// <summary>
+        /// Returns true if UserExists instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UserExists to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UserExists input)
+        {
+            if (input == null)
+                return false;
+
+            return 
+                (
+                    this._UserExists == input._UserExists ||
+                    (this._UserExists != null &&
+                    this._UserExists.Equals(input._UserExists))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this._UserExists != null)
+                    hashCode = hashCode * 59 + this._UserExists.GetHashCode();
+                return hashCode;
+            }
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
     }
 
 }

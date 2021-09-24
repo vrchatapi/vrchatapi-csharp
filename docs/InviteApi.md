@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ## InviteUser
 
-> Notification InviteUser (string userId)
+> Notification InviteUser (string userId, InviteRequest inviteRequest = null)
 
 Invite User
 
@@ -225,11 +225,12 @@ namespace Example
 
             var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
+            var inviteRequest = new InviteRequest(); // InviteRequest | Instance ID when inviting a user. (optional) 
 
             try
             {
                 // Invite User
-                Notification result = apiInstance.InviteUser(userId);
+                Notification result = apiInstance.InviteUser(userId, inviteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -249,6 +250,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
+ **inviteRequest** | [**InviteRequest**](InviteRequest.md)| Instance ID when inviting a user. | [optional] 
 
 ### Return type
 
@@ -260,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -454,7 +456,7 @@ Name | Type | Description  | Notes
 
 ## RespondInvite
 
-> Notification RespondInvite (string notificationId)
+> Notification RespondInvite (string notificationId, InviteResponse inviteResponse = null)
 
 Respond Invite
 
@@ -487,11 +489,12 @@ namespace Example
 
             var apiInstance = new InviteApi(Configuration.Default);
             var notificationId = notificationId_example;  // string | 
+            var inviteResponse = new InviteResponse(); // InviteResponse | Instance ID when inviting a user. (optional) 
 
             try
             {
                 // Respond Invite
-                Notification result = apiInstance.RespondInvite(notificationId);
+                Notification result = apiInstance.RespondInvite(notificationId, inviteResponse);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -511,6 +514,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notificationId** | **string**|  | 
+ **inviteResponse** | [**InviteResponse**](InviteResponse.md)| Instance ID when inviting a user. | [optional] 
 
 ### Return type
 
@@ -522,7 +526,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
