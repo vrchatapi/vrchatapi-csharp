@@ -1,8 +1,10 @@
 #!/bin/bash
 
+npm install @openapitools/openapi-generator-cli
+
 rm src docs -rf
 
-openapi-generator-cli generate \
+./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
 -g csharp \
 --additional-properties=packageName=io.github.vrchatapi \
 --git-user-id=vrchatapi \
@@ -18,4 +20,4 @@ cp io.github.vrchatapi.csproj-template src/io.github.vrchatapi/io.github.vrchata
 # Enable global cookie storage
 sed -i '/RestClient = new RestClient/a \\n            this.RestClient.CookieContainer = new CookieContainer();\n' ./src/io.github.vrchatapi/Client/ApiClient.cs
 
-./build.bat
+bash ./build.sh

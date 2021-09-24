@@ -1,0 +1,41 @@
+#on:
+#  repository_dispatch:
+#    types: [spec_release]
+on: push
+
+name: Generate VRChat API SDK
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    name: Generate VRChat API SDK
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - uses: actions/checkout@v2
+      - name: 'Cache node_modules'
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-v16-${{ hashFiles('**/generate.sh') }}
+          restore-keys: |
+            ${{ runner.os }}-node-v16
+      - name: Install OpenAPI Generator CLI
+        run: npm install @openapitools/openapi-generator-cli
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+      - name: Generate SDK Client
+        run: bash ./generate.sh
+      - name: Check version number
+        run: |
+          echo "spec_version=$(grep "version of the OpenAPI document" src/io.github.vrchatapi/Model/User.cs | cut -d " " -f 9)" >> $GITHUB_ENV
+      - name: Print version number
+        run: echo ${{ env.spec_version }}
+      - name: Deploy SDK back into main branch
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: main
+          folder: .
+          commit-message: "Upgrade C# SDK to spec ${{ env.spec_version }}"
