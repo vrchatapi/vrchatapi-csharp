@@ -54,6 +54,8 @@ docs/InstancePlatforms.md
 docs/InviteApi.md
 docs/InviteMessage.md
 docs/InviteMessageType.md
+docs/InviteRequest.md
+docs/InviteResponse.md
 docs/LimitedUnityPackage.md
 docs/LimitedUser.md
 docs/LimitedWorld.md
@@ -73,6 +75,7 @@ docs/Success.md
 docs/SystemApi.md
 docs/UnityPackage.md
 docs/User.md
+docs/UserExists.md
 docs/UserState.md
 docs/UserStatus.md
 docs/UsersApi.md
@@ -147,6 +150,8 @@ src/io.github.vrchatapi/Model/Instance.cs
 src/io.github.vrchatapi/Model/InstancePlatforms.cs
 src/io.github.vrchatapi/Model/InviteMessage.cs
 src/io.github.vrchatapi/Model/InviteMessageType.cs
+src/io.github.vrchatapi/Model/InviteRequest.cs
+src/io.github.vrchatapi/Model/InviteResponse.cs
 src/io.github.vrchatapi/Model/LimitedUnityPackage.cs
 src/io.github.vrchatapi/Model/LimitedUser.cs
 src/io.github.vrchatapi/Model/LimitedWorld.cs
@@ -162,6 +167,7 @@ src/io.github.vrchatapi/Model/Response.cs
 src/io.github.vrchatapi/Model/Success.cs
 src/io.github.vrchatapi/Model/UnityPackage.cs
 src/io.github.vrchatapi/Model/User.cs
+src/io.github.vrchatapi/Model/UserExists.cs
 src/io.github.vrchatapi/Model/UserState.cs
 src/io.github.vrchatapi/Model/UserStatus.cs
 src/io.github.vrchatapi/Model/World.cs

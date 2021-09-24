@@ -25,38 +25,123 @@ using OpenAPIDateConverter = io.github.vrchatapi.Client.OpenAPIDateConverter;
 namespace io.github.vrchatapi.Model
 {
     /// <summary>
-    /// Used to identify which API deployment cluster is currently responding.  &#x60;blue&#x60; and &#x60;green&#x60; are used by Production. &#x60;grape&#x60;and &#x60;cherry&#x60; are used during Development.  [Blue Green Deployment by Martin Fowler](https://martinfowler.com/bliki/BlueGreenDeployment.html)
+    /// InviteRequest
     /// </summary>
-    /// <value>Used to identify which API deployment cluster is currently responding.  &#x60;blue&#x60; and &#x60;green&#x60; are used by Production. &#x60;grape&#x60;and &#x60;cherry&#x60; are used during Development.  [Blue Green Deployment by Martin Fowler](https://martinfowler.com/bliki/BlueGreenDeployment.html)</value>
-    
-    [JsonConverter(typeof(StringEnumConverter))]
-    
-    public enum DeploymentGroup
+    [DataContract]
+    public partial class InviteRequest :  IEquatable<InviteRequest>, IValidatableObject
     {
         /// <summary>
-        /// Enum Blue for value: blue
+        /// Initializes a new instance of the <see cref="InviteRequest" /> class.
         /// </summary>
-        [EnumMember(Value = "blue")]
-        Blue = 1,
+        [JsonConstructorAttribute]
+        protected InviteRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InviteRequest" /> class.
+        /// </summary>
+        /// <param name="instanceId">instanceId (required).</param>
+        public InviteRequest(string instanceId = default(string))
+        {
+            // to ensure "instanceId" is required (not null)
+            if (instanceId == null)
+            {
+                throw new InvalidDataException("instanceId is a required property for InviteRequest and cannot be null");
+            }
+            else
+            {
+                this.InstanceId = instanceId;
+            }
+
+        }
 
         /// <summary>
-        /// Enum Green for value: green
+        /// Gets or Sets InstanceId
         /// </summary>
-        [EnumMember(Value = "green")]
-        Green = 2,
+        [DataMember(Name="instanceId", EmitDefaultValue=true)]
+        public string InstanceId { get; set; }
 
         /// <summary>
-        /// Enum Grape for value: grape
+        /// Returns the string presentation of the object
         /// </summary>
-        [EnumMember(Value = "grape")]
-        Grape = 3,
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class InviteRequest {\n");
+            sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
 
         /// <summary>
-        /// Enum Cherry for value: cherry
+        /// Returns the JSON string presentation of the object
         /// </summary>
-        [EnumMember(Value = "cherry")]
-        Cherry = 4
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
 
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InviteRequest);
+        }
+
+        /// <summary>
+        /// Returns true if InviteRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InviteRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InviteRequest input)
+        {
+            if (input == null)
+                return false;
+
+            return 
+                (
+                    this.InstanceId == input.InstanceId ||
+                    (this.InstanceId != null &&
+                    this.InstanceId.Equals(input.InstanceId))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.InstanceId != null)
+                    hashCode = hashCode * 59 + this.InstanceId.GetHashCode();
+                return hashCode;
+            }
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+
+ 
+            // InstanceId (string) pattern
+            Regex regexInstanceId = new Regex(@"(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}:(\\d+)(~region\\(([\\w]+)\\))?(~([\\w]+)\\(usr_([\\w-]+)\\)((\\~canRequestInvite)?)(~region\\(([\\w].+)\\))?~nonce\\((.+)\\))?", RegexOptions.CultureInvariant);
+            if (false == regexInstanceId.Match(this.InstanceId).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstanceId, must match a pattern of " + regexInstanceId, new [] { "InstanceId" });
+            }
+
+            yield break;
+        }
     }
 
 }

@@ -25,38 +25,128 @@ using OpenAPIDateConverter = io.github.vrchatapi.Client.OpenAPIDateConverter;
 namespace io.github.vrchatapi.Model
 {
     /// <summary>
-    /// Used to identify which API deployment cluster is currently responding.  &#x60;blue&#x60; and &#x60;green&#x60; are used by Production. &#x60;grape&#x60;and &#x60;cherry&#x60; are used during Development.  [Blue Green Deployment by Martin Fowler](https://martinfowler.com/bliki/BlueGreenDeployment.html)
+    /// InviteResponse
     /// </summary>
-    /// <value>Used to identify which API deployment cluster is currently responding.  &#x60;blue&#x60; and &#x60;green&#x60; are used by Production. &#x60;grape&#x60;and &#x60;cherry&#x60; are used during Development.  [Blue Green Deployment by Martin Fowler](https://martinfowler.com/bliki/BlueGreenDeployment.html)</value>
-    
-    [JsonConverter(typeof(StringEnumConverter))]
-    
-    public enum DeploymentGroup
+    [DataContract]
+    public partial class InviteResponse :  IEquatable<InviteResponse>, IValidatableObject
     {
         /// <summary>
-        /// Enum Blue for value: blue
+        /// Initializes a new instance of the <see cref="InviteResponse" /> class.
         /// </summary>
-        [EnumMember(Value = "blue")]
-        Blue = 1,
+        [JsonConstructorAttribute]
+        protected InviteResponse() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InviteResponse" /> class.
+        /// </summary>
+        /// <param name="responseSlot">responseSlot (required).</param>
+        public InviteResponse(int responseSlot = default(int))
+        {
+            // to ensure "responseSlot" is required (not null)
+            if (responseSlot == null)
+            {
+                throw new InvalidDataException("responseSlot is a required property for InviteResponse and cannot be null");
+            }
+            else
+            {
+                this.ResponseSlot = responseSlot;
+            }
+
+        }
 
         /// <summary>
-        /// Enum Green for value: green
+        /// Gets or Sets ResponseSlot
         /// </summary>
-        [EnumMember(Value = "green")]
-        Green = 2,
+        [DataMember(Name="responseSlot", EmitDefaultValue=true)]
+        public int ResponseSlot { get; set; }
 
         /// <summary>
-        /// Enum Grape for value: grape
+        /// Returns the string presentation of the object
         /// </summary>
-        [EnumMember(Value = "grape")]
-        Grape = 3,
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class InviteResponse {\n");
+            sb.Append("  ResponseSlot: ").Append(ResponseSlot).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
 
         /// <summary>
-        /// Enum Cherry for value: cherry
+        /// Returns the JSON string presentation of the object
         /// </summary>
-        [EnumMember(Value = "cherry")]
-        Cherry = 4
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
 
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InviteResponse);
+        }
+
+        /// <summary>
+        /// Returns true if InviteResponse instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InviteResponse to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InviteResponse input)
+        {
+            if (input == null)
+                return false;
+
+            return 
+                (
+                    this.ResponseSlot == input.ResponseSlot ||
+                    (this.ResponseSlot != null &&
+                    this.ResponseSlot.Equals(input.ResponseSlot))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.ResponseSlot != null)
+                    hashCode = hashCode * 59 + this.ResponseSlot.GetHashCode();
+                return hashCode;
+            }
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+
+ 
+            // ResponseSlot (int) maximum
+            if(this.ResponseSlot > (int)11)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseSlot, must be a value less than or equal to 11.", new [] { "ResponseSlot" });
+            }
+
+            // ResponseSlot (int) minimum
+            if(this.ResponseSlot < (int)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseSlot, must be a value greater than or equal to 0.", new [] { "ResponseSlot" });
+            }
+
+            yield break;
+        }
     }
 
 }

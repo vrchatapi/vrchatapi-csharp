@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **FriendGroupNames** | **List&lt;string&gt;** | Always empty array. | 
 **CurrentAvatarImageUrl** | **string** |  | 
 **CurrentAvatarThumbnailImageUrl** | **string** |  | 
-**FallbackAvatar** | **string** |  | 
+**FallbackAvatar** | **string** |  | [optional] 
 **CurrentAvatar** | **string** |  | 
 **CurrentAvatarAssetUrl** | **string** |  | 
 **AccountDeletionDate** | **DateTime?** |  | [optional] 
