@@ -20,4 +20,9 @@ cp io.github.vrchatapi.csproj-template src/io.github.vrchatapi/io.github.vrchata
 # Enable global cookie storage
 sed -i '/RestClient = new RestClient/a \\n            this.RestClient.CookieContainer = new CookieContainer();\n' ./src/io.github.vrchatapi/Client/ApiClient.cs
 
+# Remove messily pasted markdown at top of every file
+for i in src/io.github.vrchatapi/*/*.cs; do
+    sed -i '/VRChat API Banner/d' $i
+done
+
 bash ./build.sh
