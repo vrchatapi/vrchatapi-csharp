@@ -5,52 +5,52 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**Username** | **string** |  | 
-**DisplayName** | **string** |  | 
-**UserIcon** | **string** |  | 
+**AcceptedTOSVersion** | **int** |  | 
+**AccountDeletionDate** | **DateTime?** |  | [optional] 
+**ActiveFriends** | **List&lt;string&gt;** |  | [optional] 
+**AllowAvatarCopying** | **bool** |  | 
 **Bio** | **string** |  | 
 **BioLinks** | **List&lt;string&gt;** |  | 
-**ProfilePicOverride** | **string** |  | 
-**StatusDescription** | **string** |  | 
-**PastDisplayNames** | [**List&lt;PastDisplayName&gt;**](PastDisplayName.md) |  | 
-**HasEmail** | **bool** |  | 
-**HasPendingEmail** | **bool** |  | 
-**ObfuscatedEmail** | **string** |  | 
-**ObfuscatedPendingEmail** | **string** |  | 
-**EmailVerified** | **bool** |  | 
-**HasBirthday** | **bool** |  | 
-**Unsubscribe** | **bool** |  | 
-**StatusHistory** | **List&lt;string&gt;** |  | 
-**StatusFirstTime** | **bool** |  | 
-**Friends** | **List&lt;string&gt;** |  | 
-**FriendGroupNames** | **List&lt;string&gt;** | Always empty array. | 
-**CurrentAvatarImageUrl** | **string** |  | 
-**CurrentAvatarThumbnailImageUrl** | **string** |  | 
-**FallbackAvatar** | **string** |  | [optional] 
 **CurrentAvatar** | **string** |  | 
 **CurrentAvatarAssetUrl** | **string** |  | 
-**AccountDeletionDate** | **DateTime?** |  | [optional] 
-**AcceptedTOSVersion** | **decimal** |  | 
-**SteamId** | **string** |  | 
-**SteamDetails** | **Object** |  | 
-**OculusId** | **string** |  | 
-**HasLoggedInFromClient** | **bool** |  | 
-**HomeLocation** | **string** |  | 
-**TwoFactorAuthEnabled** | **bool** |  | 
-**State** | **UserState** |  | 
-**Tags** | **List&lt;string&gt;** |  | 
+**CurrentAvatarImageUrl** | **string** |  | 
+**CurrentAvatarThumbnailImageUrl** | **string** |  | 
+**DateJoined** | **DateTime** |  | 
 **DeveloperType** | **DeveloperType** |  | 
+**DisplayName** | **string** |  | 
+**EmailVerified** | **bool** |  | 
+**FallbackAvatar** | **string** |  | [optional] 
+**FriendGroupNames** | **List&lt;string&gt;** | Always empty array. | 
+**FriendKey** | **string** |  | 
+**Friends** | **List&lt;string&gt;** |  | 
+**HasBirthday** | **bool** |  | 
+**HasEmail** | **bool** |  | 
+**HasLoggedInFromClient** | **bool** |  | 
+**HasPendingEmail** | **bool** |  | 
+**HomeLocation** | **string** |  | 
+**Id** | **string** |  | 
+**IsFriend** | **bool** |  | [default to false]
 **LastLogin** | **DateTime** |  | 
 **LastPlatform** | **string** | This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
-**AllowAvatarCopying** | **bool** |  | 
-**Status** | **UserStatus** |  | 
-**DateJoined** | **DateTime** |  | [readonly] 
-**IsFriend** | **bool** |  | [default to false]
-**FriendKey** | **string** |  | 
-**OnlineFriends** | **List&lt;string&gt;** |  | [optional] 
-**ActiveFriends** | **List&lt;string&gt;** |  | [optional] 
+**ObfuscatedEmail** | **string** |  | 
+**ObfuscatedPendingEmail** | **string** |  | 
+**OculusId** | **string** |  | 
 **OfflineFriends** | **List&lt;string&gt;** |  | [optional] 
+**OnlineFriends** | **List&lt;string&gt;** |  | [optional] 
+**PastDisplayNames** | [**List&lt;PastDisplayName&gt;**](PastDisplayName.md) |  | 
+**ProfilePicOverride** | **string** |  | 
+**State** | **UserState** |  | 
+**Status** | **UserStatus** |  | 
+**StatusDescription** | **string** |  | 
+**StatusFirstTime** | **bool** |  | 
+**StatusHistory** | **List&lt;string&gt;** |  | 
+**SteamDetails** | **Object** |  | 
+**SteamId** | **string** |  | 
+**Tags** | **List&lt;string&gt;** |  | 
+**TwoFactorAuthEnabled** | **bool** |  | 
+**Unsubscribe** | **bool** |  | 
+**UserIcon** | **string** |  | 
+**Username** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

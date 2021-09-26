@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FileName** | **string** |  | 
-**Url** | **string** |  | 
-**Md5** | **string** |  | 
-**SizeInBytes** | **decimal** |  | 
-**Status** | **FileStatus** |  | 
 **Category** | **string** |  | [readonly] 
+**FileName** | **string** |  | 
+**Md5** | **string** |  | 
+**SizeInBytes** | **int** |  | 
+**Status** | **FileStatus** |  | 
 **UploadId** | **string** |  | [default to ""]
+**Url** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

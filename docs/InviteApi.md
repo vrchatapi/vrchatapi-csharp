@@ -4,23 +4,23 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetInviteMessage**](InviteApi.md#getinvitemessage) | **GET** /message/{userId}/message/{messageId} | Get Invite Messages
-[**GetInviteMessages**](InviteApi.md#getinvitemessages) | **GET** /message/{userId}/message | List Invite Messages
+[**GetInviteMessage**](InviteApi.md#getinvitemessage) | **GET** /message/{userId}/{messageType}/{messageId} | Get Invite Messages
+[**GetInviteMessages**](InviteApi.md#getinvitemessages) | **GET** /message/{userId}/{messageType} | List Invite Messages
 [**InviteUser**](InviteApi.md#inviteuser) | **POST** /invite/{userId} | Invite User
 [**RequestInvite**](InviteApi.md#requestinvite) | **POST** /requestInvite/{userId} | Request Invite
-[**ResetInviteMessage**](InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/message/{messageId} | Reset Invite Message
+[**ResetInviteMessage**](InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/{messageType}/{messageId} | Reset Invite Message
 [**RespondInvite**](InviteApi.md#respondinvite) | **POST** /invite/{notificationId}/response | Respond Invite
-[**UpdateInviteMessage**](InviteApi.md#updateinvitemessage) | **PUT** /message/{userId}/message/{messageId} | Update Invite Message
+[**UpdateInviteMessage**](InviteApi.md#updateinvitemessage) | **PUT** /message/{userId}/{messageType}/{messageId} | Update Invite Message
 
 
 
 ## GetInviteMessage
 
-> InviteMessage GetInviteMessage (string userId, int messageId)
+> InviteMessage GetInviteMessage (string userId, string messageType, int messageId)
 
 Get Invite Messages
 
-Returns a single Invite Message. This returns the exact same information but less than `getInviteMessages`. Admin Credentials are required to view messages of other users!
+Returns a single Invite Message. This returns the exact same information but less than `getInviteMessages`. Admin Credentials are required to view messages of other users!  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
 
 ### Example
 
@@ -49,12 +49,13 @@ namespace Example
 
             var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
+            var messageType = messageType_example;  // string | 
             var messageId = 56;  // int | 
 
             try
             {
                 // Get Invite Messages
-                InviteMessage result = apiInstance.GetInviteMessage(userId, messageId);
+                InviteMessage result = apiInstance.GetInviteMessage(userId, messageType, messageId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -74,6 +75,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
+ **messageType** | **string**|  | 
  **messageId** | **int**|  | 
 
 ### Return type
@@ -105,11 +107,11 @@ Name | Type | Description  | Notes
 
 ## GetInviteMessages
 
-> List&lt;InviteMessage&gt; GetInviteMessages (string userId)
+> List&lt;InviteMessage&gt; GetInviteMessages (string userId, string messageType)
 
 List Invite Messages
 
-Returns a list of all that users Invite Messages. Admin Credentials are required to view messages of other users!
+Returns a list of all the users Invite Messages. Admin Credentials are required to view messages of other users!  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
 
 ### Example
 
@@ -138,11 +140,12 @@ namespace Example
 
             var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
+            var messageType = messageType_example;  // string | 
 
             try
             {
                 // List Invite Messages
-                List<InviteMessage> result = apiInstance.GetInviteMessages(userId);
+                List<InviteMessage> result = apiInstance.GetInviteMessages(userId, messageType);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -162,6 +165,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
+ **messageType** | **string**|  | 
 
 ### Return type
 
@@ -366,11 +370,11 @@ Name | Type | Description  | Notes
 
 ## ResetInviteMessage
 
-> List&lt;InviteMessage&gt; ResetInviteMessage (string userId, int messageId)
+> List&lt;InviteMessage&gt; ResetInviteMessage (string userId, string messageType, int messageId)
 
 Reset Invite Message
 
-Resets a single Invite Message back to it's original message, and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Resetting a message respects the rate-limit, but resetting it does not set the rate-limit to 60 like when editing it. It is possible to edit it right after resetting it. Trying to edit a message before the cooldown timer expires results in a 429 Too Fast Error.
+Resets a single Invite Message back to it's original message, and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Resetting a message respects the rate-limit, but resetting it does not set the rate-limit to 60 like when editing it. It is possible to edit it right after resetting it. Trying to edit a message before the cooldown timer expires results in a 429 Too Fast Error.  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
 
 ### Example
 
@@ -399,12 +403,13 @@ namespace Example
 
             var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
+            var messageType = messageType_example;  // string | 
             var messageId = 56;  // int | 
 
             try
             {
                 // Reset Invite Message
-                List<InviteMessage> result = apiInstance.ResetInviteMessage(userId, messageId);
+                List<InviteMessage> result = apiInstance.ResetInviteMessage(userId, messageType, messageId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -424,6 +429,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
+ **messageType** | **string**|  | 
  **messageId** | **int**|  | 
 
 ### Return type
@@ -544,11 +550,11 @@ Name | Type | Description  | Notes
 
 ## UpdateInviteMessage
 
-> List&lt;InviteMessage&gt; UpdateInviteMessage (string userId, int messageId)
+> List&lt;InviteMessage&gt; UpdateInviteMessage (string userId, string messageType, int messageId)
 
 Update Invite Message
 
-Updates a single Invite Message and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Updating a message automatically sets the cooldown timer to 60 minutes. Trying to edit a message before the cooldown timer expires results in a 429 Too Fast Error.
+Updates a single Invite Message and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Updating a message automatically sets the cooldown timer to 60 minutes. Trying to edit a message before the cooldown timer expires results in a 429 Too Fast Error.  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
 
 ### Example
 
@@ -577,12 +583,13 @@ namespace Example
 
             var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
+            var messageType = messageType_example;  // string | 
             var messageId = 56;  // int | 
 
             try
             {
                 // Update Invite Message
-                List<InviteMessage> result = apiInstance.UpdateInviteMessage(userId, messageId);
+                List<InviteMessage> result = apiInstance.UpdateInviteMessage(userId, messageType, messageId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -602,6 +609,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
+ **messageType** | **string**|  | 
  **messageId** | **int**|  | 
 
 ### Return type

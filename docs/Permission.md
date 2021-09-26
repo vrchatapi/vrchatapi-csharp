@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**OwnerId** | **string** |  | 
-**Name** | **string** |  | 
 **Data** | **Object** |  | [optional] 
+**Id** | **string** |  | 
+**Name** | **string** |  | 
+**OwnerId** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

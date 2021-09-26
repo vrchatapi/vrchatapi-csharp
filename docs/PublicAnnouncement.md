@@ -1,12 +1,12 @@
 
-# io.github.vrchatapi.Model.ConfigAnnouncements
+# io.github.vrchatapi.Model.PublicAnnouncement
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Announcement name | [readonly] 
-**Text** | **string** | Announcement text | [readonly] 
+**Name** | **string** | Announcement name | 
+**Text** | **string** | Announcement text | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

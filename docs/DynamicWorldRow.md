@@ -1,18 +1,17 @@
 
-# io.github.vrchatapi.Model.FavoriteGroup
+# io.github.vrchatapi.Model.DynamicWorldRow
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DisplayName** | **string** |  | 
-**Id** | **string** |  | 
+**Index** | **int** |  | 
 **Name** | **string** |  | 
-**OwnerDisplayName** | **string** |  | 
-**OwnerId** | **string** |  | 
-**Tags** | **List&lt;string&gt;** |  | 
-**Type** | **FavoriteType** |  | 
-**Visibility** | **FavoriteGroupVisibility** |  | 
+**Platform** | **string** |  | 
+**SortHeading** | **string** |  | 
+**SortOrder** | **string** |  | 
+**SortOwnership** | **string** |  | 
+**Tag** | **string** | Tag to filter worlds for this row. Not always present. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

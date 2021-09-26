@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**Type** | **PlayerModerationType** |  | 
-**SourceUserId** | **string** |  | 
-**SourceDisplayName** | **string** |  | 
-**TargetUserId** | **string** |  | 
-**TargetDisplayName** | **string** |  | 
 **Created** | **DateTime** |  | 
+**Id** | **string** |  | 
+**SourceDisplayName** | **string** |  | 
+**SourceUserId** | **string** |  | 
+**TargetDisplayName** | **string** |  | 
+**TargetUserId** | **string** |  | 
+**Type** | **PlayerModerationType** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

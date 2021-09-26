@@ -5,29 +5,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**Username** | **string** |  | 
-**DisplayName** | **string** |  | 
-**UserIcon** | **string** |  | 
+**AllowAvatarCopying** | **bool** |  | 
 **Bio** | **string** |  | 
 **BioLinks** | **List&lt;string&gt;** |  | 
-**ProfilePicOverride** | **string** |  | 
-**StatusDescription** | **string** |  | 
 **CurrentAvatarImageUrl** | **string** |  | 
 **CurrentAvatarThumbnailImageUrl** | **string** |  | 
-**State** | **UserState** |  | 
-**Tags** | **List&lt;string&gt;** |  | 
+**DateJoined** | **DateTime** |  | [readonly] 
 **DeveloperType** | **DeveloperType** |  | 
+**DisplayName** | **string** |  | 
+**FriendKey** | **string** |  | 
+**Id** | **string** |  | 
+**InstanceId** | **string** |  | 
+**IsFriend** | **bool** |  | 
 **LastLogin** | **string** |  | 
 **LastPlatform** | **string** | This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
-**AllowAvatarCopying** | **bool** |  | 
-**Status** | **UserStatus** |  | 
-**DateJoined** | **DateTime** |  | [readonly] 
-**IsFriend** | **bool** |  | 
-**FriendKey** | **string** |  | 
-**WorldId** | **string** |  | 
-**InstanceId** | **string** |  | 
 **Location** | **string** |  | 
+**ProfilePicOverride** | **string** |  | 
+**State** | **UserState** |  | 
+**Status** | **UserStatus** |  | 
+**StatusDescription** | **string** |  | 
+**Tags** | **List&lt;string&gt;** |  | 
+**UserIcon** | **string** |  | 
+**Username** | **string** |  | 
+**WorldId** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

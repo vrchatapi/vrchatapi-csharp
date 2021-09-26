@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Active** | **bool** |  | [default to true]
 **CanRequestInvite** | **bool** |  | [default to true]
-**Capacity** | **decimal** |  | 
-**ClientNumber** | **string** |  | 
+**Capacity** | **int** |  | 
+**ClientNumber** | **int** |  | 
 **Full** | **bool** |  | [default to false]
 **Id** | **string** |  | 
 **InstanceId** | **string** |  | 
 **Location** | **string** |  | 
-**NUsers** | **decimal** |  | 
+**NUsers** | **int** |  | 
 **Name** | **string** |  | 
 **Nonce** | **string** |  | [optional] 
 **OwnerId** | **string** |  | 

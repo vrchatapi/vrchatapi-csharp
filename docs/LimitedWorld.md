@@ -5,25 +5,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**Name** | **string** |  | 
 **AuthorId** | **string** |  | 
 **AuthorName** | **string** |  | 
-**Capacity** | **decimal** |  | 
-**ImageUrl** | **string** |  | 
-**ThumbnailImageUrl** | **string** |  | 
-**ReleaseStatus** | **string** |  | 
-**Organization** | **string** |  | 
-**Tags** | **List&lt;string&gt;** |  | 
-**Favorites** | **decimal** |  | 
+**Capacity** | **int** |  | 
 **CreatedAt** | **DateTime** |  | 
-**UpdatedAt** | **DateTime** |  | 
-**PublicationDate** | **string** |  | [readonly] 
+**Favorites** | **int** |  | [default to 0]
+**Heat** | **int** |  | [default to 0]
+**Id** | **string** |  | 
+**ImageUrl** | **string** |  | 
 **LabsPublicationDate** | **string** |  | 
+**Name** | **string** |  | 
+**Occupants** | **int** |  | [default to 0]
+**Organization** | **string** |  | [default to "vrchat"]
+**Popularity** | **int** |  | [default to 0]
+**PublicationDate** | **DateTime** |  | 
+**ReleaseStatus** | **ReleaseStatus** |  | 
+**Tags** | **List&lt;string&gt;** |  | 
+**ThumbnailImageUrl** | **string** |  | 
 **UnityPackages** | [**List&lt;LimitedUnityPackage&gt;**](LimitedUnityPackage.md) |  | 
-**Popularity** | **decimal** |  | 
-**Heat** | **decimal** |  | 
-**Occupants** | **decimal** |  | 
+**UpdatedAt** | **DateTime** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

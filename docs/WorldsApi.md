@@ -226,7 +226,7 @@ namespace Example
             var search = search_example;  // string | Filters by world name. (optional) 
             var tag = tag_example;  // string | Tags to include (comma-separated). (optional) 
             var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = hidden;  // string | Filter by ReleaseStatus. (optional)  (default to hidden)
+            var releaseStatus = releaseStatus_example;  // string | Filter by ReleaseStatus. (optional)  (default to public)
             var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
             var minUnityVersion = minUnityVersion_example;  // string | The minimum Unity version supported by the asset. (optional) 
             var platform = platform_example;  // string | The platform the asset supports. (optional) 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
  **search** | **string**| Filters by world name. | [optional] 
  **tag** | **string**| Tags to include (comma-separated). | [optional] 
  **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
- **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to hidden]
+ **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to public]
  **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
  **minUnityVersion** | **string**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **string**| The platform the asset supports. | [optional] 
@@ -334,7 +334,7 @@ namespace Example
             var search = search_example;  // string | Filters by world name. (optional) 
             var tag = tag_example;  // string | Tags to include (comma-separated). (optional) 
             var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = hidden;  // string | Filter by ReleaseStatus. (optional)  (default to hidden)
+            var releaseStatus = releaseStatus_example;  // string | Filter by ReleaseStatus. (optional)  (default to public)
             var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
             var minUnityVersion = minUnityVersion_example;  // string | The minimum Unity version supported by the asset. (optional) 
             var platform = platform_example;  // string | The platform the asset supports. (optional) 
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
  **search** | **string**| Filters by world name. | [optional] 
  **tag** | **string**| Tags to include (comma-separated). | [optional] 
  **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
- **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to hidden]
+ **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to public]
  **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
  **minUnityVersion** | **string**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **string**| The platform the asset supports. | [optional] 
@@ -445,7 +445,7 @@ namespace Example
             var search = search_example;  // string | Filters by world name. (optional) 
             var tag = tag_example;  // string | Tags to include (comma-separated). (optional) 
             var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = hidden;  // string | Filter by ReleaseStatus. (optional)  (default to hidden)
+            var releaseStatus = releaseStatus_example;  // string | Filter by ReleaseStatus. (optional)  (default to public)
             var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
             var minUnityVersion = minUnityVersion_example;  // string | The minimum Unity version supported by the asset. (optional) 
             var platform = platform_example;  // string | The platform the asset supports. (optional) 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
  **search** | **string**| Filters by world name. | [optional] 
  **tag** | **string**| Tags to include (comma-separated). | [optional] 
  **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
- **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to hidden]
+ **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to public]
  **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
  **minUnityVersion** | **string**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **string**| The platform the asset supports. | [optional] 
@@ -987,7 +987,7 @@ namespace Example
             var search = search_example;  // string | Filters by world name. (optional) 
             var tag = tag_example;  // string | Tags to include (comma-separated). (optional) 
             var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = hidden;  // string | Filter by ReleaseStatus. (optional)  (default to hidden)
+            var releaseStatus = releaseStatus_example;  // string | Filter by ReleaseStatus. (optional)  (default to public)
             var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
             var minUnityVersion = minUnityVersion_example;  // string | The minimum Unity version supported by the asset. (optional) 
             var platform = platform_example;  // string | The platform the asset supports. (optional) 
@@ -1024,7 +1024,7 @@ Name | Type | Description  | Notes
  **search** | **string**| Filters by world name. | [optional] 
  **tag** | **string**| Tags to include (comma-separated). | [optional] 
  **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
- **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to hidden]
+ **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to public]
  **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
  **minUnityVersion** | **string**| The minimum Unity version supported by the asset. | [optional] 
  **platform** | **string**| The platform the asset supports. | [optional] 

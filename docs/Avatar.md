@@ -18,11 +18,11 @@ Name | Type | Description | Notes
 **ReleaseStatus** | **ReleaseStatus** |  | 
 **Tags** | **List&lt;string&gt;** |  | 
 **ThumbnailImageUrl** | **string** |  | 
-**UnityPackages** | [**List&lt;UnityPackage&gt;**](UnityPackage.md) |  | 
 **UnityPackageUrl** | **string** |  | 
 **UnityPackageUrlObject** | [**AvatarUnityPackageUrlObject**](AvatarUnityPackageUrlObject.md) |  | 
+**UnityPackages** | [**List&lt;UnityPackage&gt;**](UnityPackage.md) |  | 
 **UpdatedAt** | **DateTime** |  | 
-**Version** | **decimal** |  | [readonly] [default to 0M]
+**Version** | **int** |  | [readonly] [default to 0]
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

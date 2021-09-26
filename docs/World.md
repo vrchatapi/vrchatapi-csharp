@@ -8,26 +8,26 @@ Name | Type | Description | Notes
 **AssetUrl** | **string** |  | 
 **AssetUrlObject** | **Object** |  | 
 **AuthorId** | **string** |  | 
-**AuthorName** | **string** |  | [readonly] 
-**Capacity** | **decimal** |  | [readonly] 
-**CreatedAt** | **DateTime** |  | [readonly] 
+**AuthorName** | **string** |  | 
+**Capacity** | **int** |  | 
+**CreatedAt** | **DateTime** |  | 
 **Description** | **string** |  | 
-**Favorites** | **decimal** |  | [optional] [readonly] [default to 0M]
+**Favorites** | **int** |  | [optional] [default to 0]
 **Featured** | **bool** |  | [default to false]
-**Heat** | **decimal** |  | [readonly] [default to 0M]
+**Heat** | **int** |  | [default to 0]
 **Id** | **string** |  | 
 **ImageUrl** | **string** |  | 
 **Instances** | **List&lt;List&lt;Object&gt;&gt;** |  | [optional] 
 **LabsPublicationDate** | **string** |  | 
 **Name** | **string** |  | 
 **Namespace** | **string** |  | 
-**Occupants** | **decimal** |  | [optional] [readonly] [default to 0M]
+**Occupants** | **int** |  | [optional] [default to 0]
 **Organization** | **string** |  | [default to "vrchat"]
 **PluginUrlObject** | **Object** |  | 
-**Popularity** | **decimal** |  | [readonly] [default to 0M]
+**Popularity** | **int** |  | [default to 0]
 **PreviewYoutubeId** | **string** |  | [optional] 
-**PrivateOccupants** | **decimal** |  | [optional] [readonly] [default to 0M]
-**PublicOccupants** | **decimal** |  | [optional] [readonly] [default to 0M]
+**PrivateOccupants** | **int** |  | [optional] [default to 0]
+**PublicOccupants** | **int** |  | [optional] [default to 0]
 **PublicationDate** | **DateTime** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
 **Tags** | **List&lt;string&gt;** |  | 
@@ -35,8 +35,8 @@ Name | Type | Description | Notes
 **UnityPackageUrlObject** | **Object** |  | 
 **UnityPackages** | [**List&lt;UnityPackage&gt;**](UnityPackage.md) |  | 
 **UpdatedAt** | **DateTime** |  | 
-**Version** | **decimal** |  | [default to 0M]
-**Visits** | **decimal** |  | [readonly] [default to 0M]
+**Version** | **int** |  | [default to 0]
+**Visits** | **int** |  | [default to 0]
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

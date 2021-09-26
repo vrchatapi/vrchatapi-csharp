@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Extension** | **string** |  | 
 **Id** | **string** |  | 
+**MimeType** | **MIMEType** |  | 
 **Name** | **string** |  | 
 **OwnerId** | **string** |  | 
-**MimeType** | **MIMEType** |  | 
-**Extension** | **string** |  | 
 **Tags** | **List&lt;string&gt;** |  | 
 **Versions** | [**List&lt;FileVersion&gt;**](FileVersion.md) |  | 
 
