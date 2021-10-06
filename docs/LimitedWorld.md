@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Occupants** | **int** |  | [default to 0]
 **Organization** | **string** |  | [default to "vrchat"]
 **Popularity** | **int** |  | [default to 0]
-**PublicationDate** | **DateTime** |  | 
+**PublicationDate** | **string** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
 **Tags** | **List&lt;string&gt;** |  | 
 **ThumbnailImageUrl** | **string** |  | 

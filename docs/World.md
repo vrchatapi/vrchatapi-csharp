@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **PreviewYoutubeId** | **string** |  | [optional] 
 **PrivateOccupants** | **int** |  | [optional] [default to 0]
 **PublicOccupants** | **int** |  | [optional] [default to 0]
-**PublicationDate** | **DateTime** |  | 
+**PublicationDate** | **string** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
 **Tags** | **List&lt;string&gt;** |  | 
 **ThumbnailImageUrl** | **string** |  | 
