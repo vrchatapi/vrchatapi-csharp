@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Active** | **bool** |  | [default to true]
 **CanRequestInvite** | **bool** |  | [default to true]
 **Capacity** | **int** |  | 
-**ClientNumber** | **int** |  | 
+**ClientNumber** | **string** |  | 
 **Full** | **bool** |  | [default to false]
 **Id** | **string** |  | 
 **InstanceId** | **string** |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **NUsers** | **int** |  | 
 **Name** | **string** |  | 
 **Nonce** | **string** |  | [optional] 
-**OwnerId** | **string** |  | 
+**OwnerId** | **string** |  | [optional] 
 **Permanent** | **bool** |  | [default to false]
 **PhotonRegion** | **string** |  | 
 **Platforms** | [**InstancePlatforms**](InstancePlatforms.md) |  | 
