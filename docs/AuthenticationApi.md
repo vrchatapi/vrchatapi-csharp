@@ -353,7 +353,7 @@ This endpoint does not need any parameter.
 
 ## Verify2FA
 
-> InlineResponse2001 Verify2FA (InlineObject inlineObject = null)
+> Verify2FAResult Verify2FA (TwoFactorAuthCode twoFactorAuthCode = null)
 
 Verify 2FA code
 
@@ -381,12 +381,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AuthenticationApi(Configuration.Default);
-            var inlineObject = new InlineObject(); // InlineObject |  (optional) 
+            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode |  (optional) 
 
             try
             {
                 // Verify 2FA code
-                InlineResponse2001 result = apiInstance.Verify2FA(inlineObject);
+                Verify2FAResult result = apiInstance.Verify2FA(twoFactorAuthCode);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -405,11 +405,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**Verify2FAResult**](Verify2FAResult.md)
 
 ### Authorization
 
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 
 ## VerifyAuthToken
 
-> InlineResponse200 VerifyAuthToken ()
+> VerifyAuthTokenResult VerifyAuthToken ()
 
 Verify Auth Token
 
@@ -467,7 +467,7 @@ namespace Example
             try
             {
                 // Verify Auth Token
-                InlineResponse200 result = apiInstance.VerifyAuthToken();
+                VerifyAuthTokenResult result = apiInstance.VerifyAuthToken();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -487,7 +487,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**VerifyAuthTokenResult**](VerifyAuthTokenResult.md)
 
 ### Authorization
 
@@ -502,7 +502,7 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Returns wether a provided auth token is valid or not. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#)
@@ -513,7 +513,7 @@ This endpoint does not need any parameter.
 
 ## VerifyRecoveryCode
 
-> InlineResponse2001 VerifyRecoveryCode (InlineObject1 inlineObject1 = null)
+> Verify2FAResult VerifyRecoveryCode (TwoFactorAuthCode twoFactorAuthCode = null)
 
 Verify 2FA code with Recovery code
 
@@ -541,12 +541,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AuthenticationApi(Configuration.Default);
-            var inlineObject1 = new InlineObject1(); // InlineObject1 |  (optional) 
+            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode |  (optional) 
 
             try
             {
                 // Verify 2FA code with Recovery code
-                InlineResponse2001 result = apiInstance.VerifyRecoveryCode(inlineObject1);
+                Verify2FAResult result = apiInstance.VerifyRecoveryCode(twoFactorAuthCode);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -565,11 +565,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
+ **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md)|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**Verify2FAResult**](Verify2FAResult.md)
 
 ### Authorization
 

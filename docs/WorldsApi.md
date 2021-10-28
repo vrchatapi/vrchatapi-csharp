@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## CreateWorld
 
-> World CreateWorld (InlineObject6 inlineObject6 = null)
+> World CreateWorld (CreateWorldRequest createWorldRequest = null)
 
 Create World
 
@@ -45,12 +45,12 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
             var apiInstance = new WorldsApi(Configuration.Default);
-            var inlineObject6 = new InlineObject6(); // InlineObject6 |  (optional) 
+            var createWorldRequest = new CreateWorldRequest(); // CreateWorldRequest |  (optional) 
 
             try
             {
                 // Create World
-                World result = apiInstance.CreateWorld(inlineObject6);
+                World result = apiInstance.CreateWorld(createWorldRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -69,7 +69,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject6** | [**InlineObject6**](InlineObject6.md)|  | [optional] 
+ **createWorldRequest** | [**CreateWorldRequest**](CreateWorldRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -686,7 +686,7 @@ Name | Type | Description  | Notes
 
 ## GetWorldMetadata
 
-> InlineResponse2005 GetWorldMetadata (string worldId)
+> WorldMetadata GetWorldMetadata (string worldId)
 
 Get World Metadata
 
@@ -723,7 +723,7 @@ namespace Example
             try
             {
                 // Get World Metadata
-                InlineResponse2005 result = apiInstance.GetWorldMetadata(worldId);
+                WorldMetadata result = apiInstance.GetWorldMetadata(worldId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -746,7 +746,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**WorldMetadata**](WorldMetadata.md)
 
 ### Authorization
 
@@ -772,7 +772,7 @@ Name | Type | Description  | Notes
 
 ## GetWorldPublishStatus
 
-> InlineResponse2006 GetWorldPublishStatus (string worldId)
+> WorldPublishStatus GetWorldPublishStatus (string worldId)
 
 Get World Publish Status
 
@@ -809,7 +809,7 @@ namespace Example
             try
             {
                 // Get World Publish Status
-                InlineResponse2006 result = apiInstance.GetWorldPublishStatus(worldId);
+                WorldPublishStatus result = apiInstance.GetWorldPublishStatus(worldId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**WorldPublishStatus**](WorldPublishStatus.md)
 
 ### Authorization
 
@@ -847,7 +847,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Returns a single WorldPublishStatus object. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
@@ -1143,7 +1143,7 @@ void (empty response body)
 
 ## UpdateWorld
 
-> World UpdateWorld (string worldId, InlineObject7 inlineObject7 = null)
+> World UpdateWorld (string worldId, UpdateWorldRequest updateWorldRequest = null)
 
 Update World
 
@@ -1176,12 +1176,12 @@ namespace Example
 
             var apiInstance = new WorldsApi(Configuration.Default);
             var worldId = worldId_example;  // string | 
-            var inlineObject7 = new InlineObject7(); // InlineObject7 |  (optional) 
+            var updateWorldRequest = new UpdateWorldRequest(); // UpdateWorldRequest |  (optional) 
 
             try
             {
                 // Update World
-                World result = apiInstance.UpdateWorld(worldId, inlineObject7);
+                World result = apiInstance.UpdateWorld(worldId, updateWorldRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1201,7 +1201,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **worldId** | **string**|  | 
- **inlineObject7** | [**InlineObject7**](InlineObject7.md)|  | [optional] 
+ **updateWorldRequest** | [**UpdateWorldRequest**](UpdateWorldRequest.md)|  | [optional] 
 
 ### Return type
 

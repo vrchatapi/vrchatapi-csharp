@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Category** | **string** |  | [readonly] 
+**Category** | **string** |  | [readonly] [default to CategoryEnum.Queued]
 **FileName** | **string** |  | 
 **Md5** | **string** |  | 
 **SizeInBytes** | **int** |  | 

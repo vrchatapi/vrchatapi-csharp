@@ -17,11 +17,11 @@ Method | HTTP request | Description
 
 ## AddFavorite
 
-> Favorite AddFavorite (InlineObject8 inlineObject8 = null)
+> Favorite AddFavorite (AddFavoriteRequest addFavoriteRequest = null)
 
 Add Favorite
 
-Add a new favorite.  Friend groups are named `group_0` through `group_3`. Avatar and World groups are named `avatars1` to `avatar4` and `worlds1` to `worlds4`.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
+Add a new favorite.  Friend groups are named `group_0` through `group_3`. Avatar and World groups are named `avatars1` to `avatars4` and `worlds1` to `worlds4`.  You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
 
 ### Example
 
@@ -49,12 +49,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FavoritesApi(Configuration.Default);
-            var inlineObject8 = new InlineObject8(); // InlineObject8 |  (optional) 
+            var addFavoriteRequest = new AddFavoriteRequest(); // AddFavoriteRequest |  (optional) 
 
             try
             {
                 // Add Favorite
-                Favorite result = apiInstance.AddFavorite(inlineObject8);
+                Favorite result = apiInstance.AddFavorite(addFavoriteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -73,7 +73,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject8** | [**InlineObject8**](InlineObject8.md)|  | [optional] 
+ **addFavoriteRequest** | [**AddFavoriteRequest**](AddFavoriteRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -638,7 +638,7 @@ Name | Type | Description  | Notes
 
 ## UpdateFavoriteGroup
 
-> void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, InlineObject9 inlineObject9 = null)
+> void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest updateFavoriteGroupRequest = null)
 
 Update Favorite Group
 
@@ -673,12 +673,12 @@ namespace Example
             var favoriteGroupType = favoriteGroupType_example;  // string | The type of group to fetch, must be a valid FavoriteType.
             var favoriteGroupName = favoriteGroupName_example;  // string | 
             var userId = userId_example;  // string | 
-            var inlineObject9 = new InlineObject9(); // InlineObject9 |  (optional) 
+            var updateFavoriteGroupRequest = new UpdateFavoriteGroupRequest(); // UpdateFavoriteGroupRequest |  (optional) 
 
             try
             {
                 // Update Favorite Group
-                apiInstance.UpdateFavoriteGroup(favoriteGroupType, favoriteGroupName, userId, inlineObject9);
+                apiInstance.UpdateFavoriteGroup(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest);
             }
             catch (ApiException e)
             {
@@ -699,7 +699,7 @@ Name | Type | Description  | Notes
  **favoriteGroupType** | **string**| The type of group to fetch, must be a valid FavoriteType. | 
  **favoriteGroupName** | **string**|  | 
  **userId** | **string**|  | 
- **inlineObject9** | [**InlineObject9**](InlineObject9.md)|  | [optional] 
+ **updateFavoriteGroupRequest** | [**UpdateFavoriteGroupRequest**](UpdateFavoriteGroupRequest.md)|  | [optional] 
 
 ### Return type
 

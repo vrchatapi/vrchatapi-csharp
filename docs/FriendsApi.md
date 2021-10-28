@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Returns a list of LimitedUser objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#)

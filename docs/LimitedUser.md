@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **Tags** | **List&lt;string&gt;** | &lt;- Always empty. | 
 **UserIcon** | **string** |  | 
 **Username** | **string** |  | 
+**Location** | **string** |  | [optional] 
+**FriendKey** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

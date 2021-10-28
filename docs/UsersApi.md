@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Returns a single User object. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#)
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Returns a single User object. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#)
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Returns a list of LimitedUser objects. |  -  |
 | **400** | Error response when trying to search list of users with an invalid request. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ## UpdateUser
 
-> CurrentUser UpdateUser (string userId, InlineObject2 inlineObject2 = null)
+> CurrentUser UpdateUser (string userId, UpdateUserRequest updateUserRequest = null)
 
 Update User Info
 
@@ -311,12 +311,12 @@ namespace Example
 
             var apiInstance = new UsersApi(Configuration.Default);
             var userId = userId_example;  // string | 
-            var inlineObject2 = new InlineObject2(); // InlineObject2 |  (optional) 
+            var updateUserRequest = new UpdateUserRequest(); // UpdateUserRequest |  (optional) 
 
             try
             {
                 // Update User Info
-                CurrentUser result = apiInstance.UpdateUser(userId, inlineObject2);
+                CurrentUser result = apiInstance.UpdateUser(userId, updateUserRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -336,7 +336,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
+ **updateUserRequest** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Returns a single CurrentUser object. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

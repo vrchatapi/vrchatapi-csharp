@@ -229,7 +229,7 @@ namespace Example
 
             var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
-            var inviteRequest = new InviteRequest(); // InviteRequest | Instance ID when inviting a user. (optional) 
+            var inviteRequest = new InviteRequest(); // InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional) 
 
             try
             {
@@ -254,7 +254,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
- **inviteRequest** | [**InviteRequest**](InviteRequest.md)| Instance ID when inviting a user. | [optional] 
+ **inviteRequest** | [**InviteRequest**](InviteRequest.md)| Slot number of the Invite Message to use when inviting a user. | [optional] 
 
 ### Return type
 
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 Respond Invite
 
-Sends a world invite to a user.
+Respond to an invite request by sending a world invite to the requesting user. `:notificationId` is the ID of the requesting notification.
 
 ### Example
 

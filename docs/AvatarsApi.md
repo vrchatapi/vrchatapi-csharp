@@ -10,13 +10,14 @@ Method | HTTP request | Description
 [**GetFavoritedAvatars**](AvatarsApi.md#getfavoritedavatars) | **GET** /avatars/favorites | List Favorited Avatars
 [**SearchAvatars**](AvatarsApi.md#searchavatars) | **GET** /avatars | Search Avatars
 [**SelectAvatar**](AvatarsApi.md#selectavatar) | **PUT** /avatars/{avatarId}/select | Select Avatar
+[**SelectFallbackAvatar**](AvatarsApi.md#selectfallbackavatar) | **PUT** /avatars/{avatarId}/selectFallback | Select Fallback Avatar
 [**UpdateAvatar**](AvatarsApi.md#updateavatar) | **PUT** /avatars/{avatarId} | Update Avatar
 
 
 
 ## CreateAvatar
 
-> Avatar CreateAvatar (InlineObject10 inlineObject10 = null)
+> Avatar CreateAvatar (CreateAvatarRequest createAvatarRequest = null)
 
 Create Avatar
 
@@ -48,12 +49,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AvatarsApi(Configuration.Default);
-            var inlineObject10 = new InlineObject10(); // InlineObject10 |  (optional) 
+            var createAvatarRequest = new CreateAvatarRequest(); // CreateAvatarRequest |  (optional) 
 
             try
             {
                 // Create Avatar
-                Avatar result = apiInstance.CreateAvatar(inlineObject10);
+                Avatar result = apiInstance.CreateAvatar(createAvatarRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -72,7 +73,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject10** | [**InlineObject10**](InlineObject10.md)|  | [optional] 
+ **createAvatarRequest** | [**CreateAvatarRequest**](CreateAvatarRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -582,9 +583,97 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## SelectFallbackAvatar
+
+> CurrentUser SelectFallbackAvatar (string avatarId)
+
+Select Fallback Avatar
+
+Switches into that avatar as your fallback avatar.
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using io.github.vrchatapi.Api;
+using io.github.vrchatapi.Client;
+using io.github.vrchatapi.Model;
+
+namespace Example
+{
+    public class SelectFallbackAvatarExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: apiKeyCookie
+            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // Configure API key authorization: authCookie
+            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AvatarsApi(Configuration.Default);
+            var avatarId = avatarId_example;  // string | 
+
+            try
+            {
+                // Select Fallback Avatar
+                CurrentUser result = apiInstance.SelectFallbackAvatar(avatarId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling AvatarsApi.SelectFallbackAvatar: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **avatarId** | **string**|  | 
+
+### Return type
+
+[**CurrentUser**](CurrentUser.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single CurrentUser object. |  -  |
+| **401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **403** | Error response when trying to select a fallback avatar that is missing the fallback tag. |  -  |
+| **404** | Error response when trying to show information about a non-existent avatar. |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateAvatar
 
-> Avatar UpdateAvatar (string avatarId, InlineObject11 inlineObject11 = null)
+> Avatar UpdateAvatar (string avatarId, UpdateAvatarRequest updateAvatarRequest = null)
 
 Update Avatar
 
@@ -617,12 +706,12 @@ namespace Example
 
             var apiInstance = new AvatarsApi(Configuration.Default);
             var avatarId = avatarId_example;  // string | 
-            var inlineObject11 = new InlineObject11(); // InlineObject11 |  (optional) 
+            var updateAvatarRequest = new UpdateAvatarRequest(); // UpdateAvatarRequest |  (optional) 
 
             try
             {
                 // Update Avatar
-                Avatar result = apiInstance.UpdateAvatar(avatarId, inlineObject11);
+                Avatar result = apiInstance.UpdateAvatar(avatarId, updateAvatarRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -642,7 +731,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **avatarId** | **string**|  | 
- **inlineObject11** | [**InlineObject11**](InlineObject11.md)|  | [optional] 
+ **updateAvatarRequest** | [**UpdateAvatarRequest**](UpdateAvatarRequest.md)|  | [optional] 
 
 ### Return type
 

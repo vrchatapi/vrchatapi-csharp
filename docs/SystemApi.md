@@ -4,11 +4,11 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCSS**](SystemApi.md#getcss) | **GET** /css/app.js | Download Frontend CSS
+[**GetCSS**](SystemApi.md#getcss) | **GET** /css/app.js | Download CSS
 [**GetConfig**](SystemApi.md#getconfig) | **GET** /config | Fetch API Config
 [**GetCurrentOnlineUsers**](SystemApi.md#getcurrentonlineusers) | **GET** /visits | Current Online Users
 [**GetHealth**](SystemApi.md#gethealth) | **GET** /health | Check API Health
-[**GetJavaScript**](SystemApi.md#getjavascript) | **GET** /js/app.js | Download Frontend JavaScript
+[**GetJavaScript**](SystemApi.md#getjavascript) | **GET** /js/app.js | Download JavaScript
 [**GetSystemTime**](SystemApi.md#getsystemtime) | **GET** /time | Current System Time
 
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 > string GetCSS (string variant = null, string branch = null)
 
-Download Frontend CSS
+Download CSS
 
 Fetches the CSS code to the frontend React website.
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // Download Frontend CSS
+                // Download CSS
                 string result = apiInstance.GetCSS(variant, branch);
                 Debug.WriteLine(result);
             }
@@ -156,7 +156,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * Set-Cookie -  <br>  |
+| **200** | Returns the API&#39;s config. |  * Set-Cookie -  <br>  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -238,7 +238,7 @@ No authorization required
 
 ## GetHealth
 
-> InlineResponse2002 GetHealth ()
+> APIHealth GetHealth ()
 
 Check API Health
 
@@ -265,7 +265,7 @@ namespace Example
             try
             {
                 // Check API Health
-                InlineResponse2002 result = apiInstance.GetHealth();
+                APIHealth result = apiInstance.GetHealth();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -285,7 +285,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**APIHealth**](APIHealth.md)
 
 ### Authorization
 
@@ -300,7 +300,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | API&#39;s Health |  -  |
+| **200** | Returns the API&#39;s health. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -312,7 +312,7 @@ No authorization required
 
 > string GetJavaScript (string variant = null, string branch = null)
 
-Download Frontend JavaScript
+Download JavaScript
 
 Fetches the JavaScript code to the frontend React website.
 
@@ -338,7 +338,7 @@ namespace Example
 
             try
             {
-                // Download Frontend JavaScript
+                // Download JavaScript
                 string result = apiInstance.GetJavaScript(variant, branch);
                 Debug.WriteLine(result);
             }

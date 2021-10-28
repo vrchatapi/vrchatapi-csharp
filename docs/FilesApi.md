@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## CreateFile
 
-> File CreateFile (InlineObject3 inlineObject3 = null)
+> File CreateFile (CreateFileRequest createFileRequest = null)
 
 Create File
 
@@ -51,12 +51,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FilesApi(Configuration.Default);
-            var inlineObject3 = new InlineObject3(); // InlineObject3 |  (optional) 
+            var createFileRequest = new CreateFileRequest(); // CreateFileRequest |  (optional) 
 
             try
             {
                 // Create File
-                File result = apiInstance.CreateFile(inlineObject3);
+                File result = apiInstance.CreateFile(createFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -75,7 +75,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
+ **createFileRequest** | [**CreateFileRequest**](CreateFileRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ## CreateFileVersion
 
-> File CreateFileVersion (string fileId, InlineObject4 inlineObject4 = null)
+> File CreateFileVersion (string fileId, CreateFileVersionRequest createFileVersionRequest = null)
 
 Create File Version
 
@@ -137,12 +137,12 @@ namespace Example
 
             var apiInstance = new FilesApi(Configuration.Default);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | 
-            var inlineObject4 = new InlineObject4(); // InlineObject4 |  (optional) 
+            var createFileVersionRequest = new CreateFileVersionRequest(); // CreateFileVersionRequest |  (optional) 
 
             try
             {
                 // Create File Version
-                File result = apiInstance.CreateFileVersion(fileId, inlineObject4);
+                File result = apiInstance.CreateFileVersion(fileId, createFileVersionRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -162,7 +162,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fileId** | **string**|  | 
- **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
+ **createFileVersionRequest** | [**CreateFileVersionRequest**](CreateFileVersionRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -452,7 +452,7 @@ void (empty response body)
 
 ## FinishFileDataUpload
 
-> File FinishFileDataUpload (string fileId, int versionId, string fileType, InlineObject5 inlineObject5 = null)
+> File FinishFileDataUpload (string fileId, int versionId, string fileType, FinishFileDataUploadRequest finishFileDataUploadRequest = null)
 
 Finish FileData Upload
 
@@ -487,12 +487,12 @@ namespace Example
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | 
             var versionId = 1;  // int | 
             var fileType = file;  // string | 
-            var inlineObject5 = new InlineObject5(); // InlineObject5 |  (optional) 
+            var finishFileDataUploadRequest = new FinishFileDataUploadRequest(); // FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional) 
 
             try
             {
                 // Finish FileData Upload
-                File result = apiInstance.FinishFileDataUpload(fileId, versionId, fileType, inlineObject5);
+                File result = apiInstance.FinishFileDataUpload(fileId, versionId, fileType, finishFileDataUploadRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -514,7 +514,7 @@ Name | Type | Description  | Notes
  **fileId** | **string**|  | 
  **versionId** | **int**|  | 
  **fileType** | **string**|  | 
- **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
+ **finishFileDataUploadRequest** | [**FinishFileDataUploadRequest**](FinishFileDataUploadRequest.md)| Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional] 
 
 ### Return type
 
@@ -629,7 +629,7 @@ Name | Type | Description  | Notes
 
 ## GetFileDataUploadStatus
 
-> InlineResponse2003 GetFileDataUploadStatus (string fileId, int versionId, string fileType)
+> FileVersionUploadStatus GetFileDataUploadStatus (string fileId, int versionId, string fileType)
 
 Check FileData Upload Status
 
@@ -668,7 +668,7 @@ namespace Example
             try
             {
                 // Check FileData Upload Status
-                InlineResponse2003 result = apiInstance.GetFileDataUploadStatus(fileId, versionId, fileType);
+                FileVersionUploadStatus result = apiInstance.GetFileDataUploadStatus(fileId, versionId, fileType);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**FileVersionUploadStatus**](FileVersionUploadStatus.md)
 
 ### Authorization
 
@@ -809,7 +809,7 @@ Name | Type | Description  | Notes
 
 ## StartFileDataUpload
 
-> InlineResponse2004 StartFileDataUpload (string fileId, int versionId, string fileType, int partNumber)
+> FileUploadURL StartFileDataUpload (string fileId, int versionId, string fileType, int partNumber)
 
 Start FileData Upload
 
@@ -849,7 +849,7 @@ namespace Example
             try
             {
                 // Start FileData Upload
-                InlineResponse2004 result = apiInstance.StartFileDataUpload(fileId, versionId, fileType, partNumber);
+                FileUploadURL result = apiInstance.StartFileDataUpload(fileId, versionId, fileType, partNumber);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -875,7 +875,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**FileUploadURL**](FileUploadURL.md)
 
 ### Authorization
 

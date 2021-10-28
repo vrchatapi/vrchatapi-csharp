@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 ## ModerateUser
 
-> PlayerModeration ModerateUser (InlineObject12 inlineObject12 = null)
+> PlayerModeration ModerateUser (ModerateUserRequest moderateUserRequest = null)
 
 Moderate User
 
@@ -391,12 +391,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PlayermoderationApi(Configuration.Default);
-            var inlineObject12 = new InlineObject12(); // InlineObject12 |  (optional) 
+            var moderateUserRequest = new ModerateUserRequest(); // ModerateUserRequest |  (optional) 
 
             try
             {
                 // Moderate User
-                PlayerModeration result = apiInstance.ModerateUser(inlineObject12);
+                PlayerModeration result = apiInstance.ModerateUser(moderateUserRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -415,7 +415,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject12** | [**InlineObject12**](InlineObject12.md)|  | [optional] 
+ **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -445,11 +445,11 @@ Name | Type | Description  | Notes
 
 ## UnmoderateUser
 
-> Success UnmoderateUser (InlineObject13 inlineObject13 = null)
+> Success UnmoderateUser (ModerateUserRequest moderateUserRequest = null)
 
 Unmoderate User
 
-Removes a player moderation previously added through `moderateUser`. E.g if you previuosly have shown their avatar, but now want to reset it to default.
+Removes a player moderation previously added through `moderateUser`. E.g if you previously have shown their avatar, but now want to reset it to default.
 
 ### Example
 
@@ -477,12 +477,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PlayermoderationApi(Configuration.Default);
-            var inlineObject13 = new InlineObject13(); // InlineObject13 |  (optional) 
+            var moderateUserRequest = new ModerateUserRequest(); // ModerateUserRequest |  (optional) 
 
             try
             {
                 // Unmoderate User
-                Success result = apiInstance.UnmoderateUser(inlineObject13);
+                Success result = apiInstance.UnmoderateUser(moderateUserRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -501,7 +501,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject13** | [**InlineObject13**](InlineObject13.md)|  | [optional] 
+ **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional] 
 
 ### Return type
 

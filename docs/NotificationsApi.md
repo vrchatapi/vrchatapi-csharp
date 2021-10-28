@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**ClearNotifications**](NotificationsApi.md#clearnotifications) | **PUT** /auth/user/notifications/clear | Clear All Notifications
 [**DeleteNotification**](NotificationsApi.md#deletenotification) | **PUT** /auth/user/notifications/{notificationId}/hide | Delete Notification
 [**GetNotifications**](NotificationsApi.md#getnotifications) | **GET** /auth/user/notifications | List Notifications
-[**MarkNotificationAsRead**](NotificationsApi.md#marknotificationasread) | **PUT** /auth/user/notifications/{notificationId}/see | Mark As Read
+[**MarkNotificationAsRead**](NotificationsApi.md#marknotificationasread) | **PUT** /auth/user/notifications/{notificationId}/see | Mark Notification As Read
 
 
 
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 > Notification MarkNotificationAsRead (string notificationId)
 
-Mark As Read
+Mark Notification As Read
 
 Mark a notification as seen.
 
@@ -401,7 +401,7 @@ namespace Example
 
             try
             {
-                // Mark As Read
+                // Mark Notification As Read
                 Notification result = apiInstance.MarkNotificationAsRead(notificationId);
                 Debug.WriteLine(result);
             }
