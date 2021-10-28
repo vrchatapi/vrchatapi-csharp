@@ -78,7 +78,7 @@ namespace io.github.vrchatapi.Model
             }
             else
             {
-                this.Version = version;
+                this._Version = version;
             }
 
             // use default value if no "deleted" provided
@@ -132,7 +132,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Incremental version counter, can only be increased.</value>
         [DataMember(Name="version", EmitDefaultValue=true)]
-        public int Version { get; set; }
+        public int _Version { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -148,7 +148,7 @@ namespace io.github.vrchatapi.Model
             sb.Append("  File: ").Append(File).Append("\n");
             sb.Append("  Signature: ").Append(Signature).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -214,9 +214,9 @@ namespace io.github.vrchatapi.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
                 );
         }
 
@@ -241,8 +241,8 @@ namespace io.github.vrchatapi.Model
                     hashCode = hashCode * 59 + this.Signature.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this._Version != null)
+                    hashCode = hashCode * 59 + this._Version.GetHashCode();
                 return hashCode;
             }
         }
@@ -255,11 +255,11 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
- 
-            // Version (int) minimum
-            if(this.Version < (int)0)
+
+            // _Version (int) minimum
+            if(this._Version < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 0.", new [] { "Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
             }
 
             yield break;

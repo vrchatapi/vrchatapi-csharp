@@ -216,7 +216,7 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag">Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. (optional)</param>
-        /// <param name="userId">UserID, will always generate a 500 permission error. (optional)</param>
+        /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>List&lt;File&gt;</returns>
@@ -230,7 +230,7 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag">Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. (optional)</param>
-        /// <param name="userId">UserID, will always generate a 500 permission error. (optional)</param>
+        /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>ApiResponse of List&lt;File&gt;</returns>
@@ -472,7 +472,7 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag">Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. (optional)</param>
-        /// <param name="userId">UserID, will always generate a 500 permission error. (optional)</param>
+        /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -487,7 +487,7 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag">Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. (optional)</param>
-        /// <param name="userId">UserID, will always generate a 500 permission error. (optional)</param>
+        /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -1872,7 +1872,7 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag">Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. (optional)</param>
-        /// <param name="userId">UserID, will always generate a 500 permission error. (optional)</param>
+        /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>List&lt;File&gt;</returns>
@@ -1887,7 +1887,7 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag">Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. (optional)</param>
-        /// <param name="userId">UserID, will always generate a 500 permission error. (optional)</param>
+        /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>ApiResponse of List&lt;File&gt;</returns>
@@ -1946,7 +1946,7 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag">Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. (optional)</param>
-        /// <param name="userId">UserID, will always generate a 500 permission error. (optional)</param>
+        /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
@@ -1963,7 +1963,7 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag">Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. (optional)</param>
-        /// <param name="userId">UserID, will always generate a 500 permission error. (optional)</param>
+        /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>

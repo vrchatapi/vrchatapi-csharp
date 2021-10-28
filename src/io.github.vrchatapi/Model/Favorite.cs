@@ -208,7 +208,7 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
- 
+
             // Id (string) pattern
             Regex regexId = new Regex(@"fvrt_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)

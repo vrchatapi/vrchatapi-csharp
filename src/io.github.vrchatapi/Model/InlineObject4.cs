@@ -193,14 +193,14 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SignatureMd5, length must be greater than 1.", new [] { "SignatureMd5" });
             }
- 
+
 
             // FileMd5 (string) minLength
             if(this.FileMd5 != null && this.FileMd5.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileMd5, length must be greater than 1.", new [] { "FileMd5" });
             }
- 
+
             yield break;
         }
     }

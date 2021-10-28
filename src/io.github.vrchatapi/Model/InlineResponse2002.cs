@@ -186,14 +186,14 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerName, length must be greater than 1.", new [] { "ServerName" });
             }
- 
+
 
             // BuildVersionTag (string) minLength
             if(this.BuildVersionTag != null && this.BuildVersionTag.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BuildVersionTag, length must be greater than 1.", new [] { "BuildVersionTag" });
             }
- 
+
             yield break;
         }
     }

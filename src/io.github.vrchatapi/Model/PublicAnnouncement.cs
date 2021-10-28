@@ -163,14 +163,14 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
- 
+
 
             // Text (string) minLength
             if(this.Text != null && this.Text.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Text, length must be greater than 1.", new [] { "Text" });
             }
- 
+
             yield break;
         }
     }

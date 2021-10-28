@@ -588,9 +588,9 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
- 
 
- 
+
+
             // Capacity (int) minimum
             if(this.Capacity < (int)0)
             {
@@ -598,7 +598,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // Favorites (int) minimum
             if(this.Favorites < (int)0)
             {
@@ -606,7 +606,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // Heat (int) minimum
             if(this.Heat < (int)0)
             {
@@ -614,7 +614,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // Id (string) pattern
             Regex regexId = new Regex(@"(^$|offline|(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
@@ -628,23 +628,23 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
- 
+
 
             // LabsPublicationDate (string) minLength
             if(this.LabsPublicationDate != null && this.LabsPublicationDate.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LabsPublicationDate, length must be greater than 1.", new [] { "LabsPublicationDate" });
             }
- 
+
 
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
- 
 
- 
+
+
             // Occupants (int) minimum
             if(this.Occupants < (int)0)
             {
@@ -657,9 +657,9 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Organization, length must be greater than 1.", new [] { "Organization" });
             }
- 
 
- 
+
+
             // Popularity (int) minimum
             if(this.Popularity < (int)0)
             {
@@ -672,16 +672,16 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicationDate, length must be greater than 1.", new [] { "PublicationDate" });
             }
- 
+
 
             // ThumbnailImageUrl (string) minLength
             if(this.ThumbnailImageUrl != null && this.ThumbnailImageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
             }
- 
 
- 
+
+
             yield break;
         }
     }

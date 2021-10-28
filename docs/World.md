@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **UnityPackageUrlObject** | **Object** |  | 
 **UnityPackages** | [**List&lt;UnityPackage&gt;**](UnityPackage.md) |  | 
 **UpdatedAt** | **DateTime** |  | 
-**Version** | **int** |  | [default to 0]
+**_Version** | **int** |  | [default to 0]
 **Visits** | **int** |  | [default to 0]
 
 [[Back to Model list]](../README.md#documentation-for-models)

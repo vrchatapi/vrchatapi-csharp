@@ -161,7 +161,7 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Token, length must be greater than 1.", new [] { "Token" });
             }
- 
+
             yield break;
         }
     }

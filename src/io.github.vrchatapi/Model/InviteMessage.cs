@@ -282,7 +282,7 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
- 
+
             // Id (string) pattern
             Regex regexId = new Regex(@"(default|invm_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
@@ -296,9 +296,9 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
             }
- 
 
- 
+
+
             // RemainingCooldownMinutes (int) minimum
             if(this.RemainingCooldownMinutes < (int)0)
             {
@@ -306,7 +306,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // Slot (int) maximum
             if(this.Slot > (int)11)
             {

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **UnityPackageUrlObject** | [**AvatarUnityPackageUrlObject**](AvatarUnityPackageUrlObject.md) |  | 
 **UnityPackages** | [**List&lt;UnityPackage&gt;**](UnityPackage.md) |  | 
 **UpdatedAt** | **DateTime** |  | 
-**Version** | **int** |  | [readonly] [default to 0]
+**_Version** | **int** |  | [readonly] [default to 0]
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

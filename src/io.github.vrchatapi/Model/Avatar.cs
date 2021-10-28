@@ -278,6 +278,7 @@ namespace io.github.vrchatapi.Model
         /// Gets or Sets UnityPackageUrlObject
         /// </summary>
         [DataMember(Name="unityPackageUrlObject", EmitDefaultValue=true)]
+        [Obsolete]
         public AvatarUnityPackageUrlObject UnityPackageUrlObject { get; set; }
 
         /// <summary>
@@ -293,10 +294,10 @@ namespace io.github.vrchatapi.Model
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Version
+        /// Gets or Sets _Version
         /// </summary>
         [DataMember(Name="version", EmitDefaultValue=true)]
-        public int Version { get; private set; }
+        public int _Version { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -323,7 +324,7 @@ namespace io.github.vrchatapi.Model
             sb.Append("  UnityPackageUrlObject: ").Append(UnityPackageUrlObject).Append("\n");
             sb.Append("  UnityPackages: ").Append(UnityPackages).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -446,9 +447,9 @@ namespace io.github.vrchatapi.Model
                     this.UpdatedAt.Equals(input.UpdatedAt))
                 ) && 
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
                 );
         }
 
@@ -495,8 +496,8 @@ namespace io.github.vrchatapi.Model
                     hashCode = hashCode * 59 + this.UnityPackages.GetHashCode();
                 if (this.UpdatedAt != null)
                     hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this._Version != null)
+                    hashCode = hashCode * 59 + this._Version.GetHashCode();
                 return hashCode;
             }
         }
@@ -514,23 +515,23 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
             }
- 
+
 
             // AuthorName (string) minLength
             if(this.AuthorName != null && this.AuthorName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
- 
+
 
             // Description (string) minLength
             if(this.Description != null && this.Description.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
- 
 
- 
+
+
             // Id (string) pattern
             Regex regexId = new Regex(@"avtr_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
@@ -544,29 +545,29 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
- 
+
 
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
- 
+
 
             // ThumbnailImageUrl (string) minLength
             if(this.ThumbnailImageUrl != null && this.ThumbnailImageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
             }
- 
 
- 
 
- 
-            // Version (int) minimum
-            if(this.Version < (int)0)
+
+
+
+            // _Version (int) minimum
+            if(this._Version < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 0.", new [] { "Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
             }
 
             yield break;

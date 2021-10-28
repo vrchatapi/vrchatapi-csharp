@@ -203,14 +203,14 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
             }
- 
+
 
             // Extension (string) minLength
             if(this.Extension != null && this.Extension.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Extension, length must be greater than 1.", new [] { "Extension" });
             }
- 
+
             yield break;
         }
     }

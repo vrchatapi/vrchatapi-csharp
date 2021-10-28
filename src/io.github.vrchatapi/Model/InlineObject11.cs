@@ -58,11 +58,11 @@ namespace io.github.vrchatapi.Model
             // use default value if no "version" provided
             if (version == null)
             {
-                this.Version = 1M;
+                this._Version = 1M;
             }
             else
             {
-                this.Version = version;
+                this._Version = version;
             }
             this.UnityPackageUrl = unityPackageUrl;
         }
@@ -105,10 +105,10 @@ namespace io.github.vrchatapi.Model
 
 
         /// <summary>
-        /// Gets or Sets Version
+        /// Gets or Sets _Version
         /// </summary>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public decimal Version { get; set; }
+        public decimal _Version { get; set; }
 
         /// <summary>
         /// Gets or Sets UnityPackageUrl
@@ -131,7 +131,7 @@ namespace io.github.vrchatapi.Model
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
             sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  UnityPackageUrl: ").Append(UnityPackageUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -204,9 +204,9 @@ namespace io.github.vrchatapi.Model
                     this.ReleaseStatus.Equals(input.ReleaseStatus))
                 ) && 
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
                 ) && 
                 (
                     this.UnityPackageUrl == input.UnityPackageUrl ||
@@ -238,8 +238,8 @@ namespace io.github.vrchatapi.Model
                     hashCode = hashCode * 59 + this.ImageUrl.GetHashCode();
                 if (this.ReleaseStatus != null)
                     hashCode = hashCode * 59 + this.ReleaseStatus.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this._Version != null)
+                    hashCode = hashCode * 59 + this._Version.GetHashCode();
                 if (this.UnityPackageUrl != null)
                     hashCode = hashCode * 59 + this.UnityPackageUrl.GetHashCode();
                 return hashCode;
@@ -254,7 +254,7 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
- 
+
             // Id (string) pattern
             Regex regexId = new Regex(@"avtr_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
@@ -268,27 +268,27 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
- 
+
 
             // Description (string) minLength
             if(this.Description != null && this.Description.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
- 
+
 
             // ImageUrl (string) minLength
             if(this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
- 
 
- 
-            // Version (decimal) minimum
-            if(this.Version < (decimal)0)
+
+
+            // _Version (decimal) minimum
+            if(this._Version < (decimal)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 0.", new [] { "Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
             }
 
             yield break;

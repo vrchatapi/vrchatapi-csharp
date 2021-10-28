@@ -366,6 +366,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Always empty on non-existing instances, and non-present on existing instances.</value>
         [DataMember(Name="users", EmitDefaultValue=false)]
+        [Obsolete]
         public List<Object> Users { get; set; }
 
         /// <summary>
@@ -373,6 +374,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Only present on non-existing instances, and only contains a very small subject of World object. Use World API instead.</value>
         [DataMember(Name="world", EmitDefaultValue=false)]
+        [Obsolete]
         public Object World { get; set; }
 
         /// <summary>
@@ -624,7 +626,7 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
- 
+
             // Capacity (int) maximum
             if(this.Capacity > (int)40)
             {
@@ -643,9 +645,9 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientNumber, length must be greater than 1.", new [] { "ClientNumber" });
             }
- 
 
- 
+
+
             // Id (string) pattern
             Regex regexId = new Regex(@"(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}:(\\d+)(~region\\(([\\w]+)\\))?(~([\\w]+)\\(usr_([\\w-]+)\\)((\\~canRequestInvite)?)(~region\\(([\\w].+)\\))?~nonce\\((.+)\\))?", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
@@ -659,16 +661,16 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstanceId, length must be greater than 1.", new [] { "InstanceId" });
             }
- 
+
 
             // Location (string) minLength
             if(this.Location != null && this.Location.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Location, length must be greater than 1.", new [] { "Location" });
             }
- 
 
- 
+
+
             // NUsers (int) minimum
             if(this.NUsers < (int)0)
             {
@@ -681,44 +683,44 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
- 
+
 
             // Nonce (string) minLength
             if(this.Nonce != null && this.Nonce.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Nonce, length must be greater than 1.", new [] { "Nonce" });
             }
- 
+
 
             // PhotonRegion (string) minLength
             if(this.PhotonRegion != null && this.PhotonRegion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PhotonRegion, length must be greater than 1.", new [] { "PhotonRegion" });
             }
- 
+
 
             // Region (string) minLength
             if(this.Region != null && this.Region.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Region, length must be greater than 1.", new [] { "Region" });
             }
- 
+
 
             // ShortName (string) minLength
             if(this.ShortName != null && this.ShortName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortName, length must be greater than 1.", new [] { "ShortName" });
             }
- 
+
 
             // Type (string) minLength
             if(this.Type != null && this.Type.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
- 
 
- 
+
+
             // WorldId (string) pattern
             Regex regexWorldId = new Regex(@"(^$|offline|(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexWorldId.Match(this.WorldId).Success)

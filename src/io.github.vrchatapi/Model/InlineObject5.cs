@@ -77,6 +77,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Always a zero in string form, despite how many parts uploaded.</value>
         [DataMember(Name="nextPartNumber", EmitDefaultValue=true)]
+        [Obsolete]
         public string NextPartNumber { get; set; }
 
         /// <summary>
@@ -84,6 +85,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Always a zero in string form, despite how many parts uploaded.</value>
         [DataMember(Name="maxParts", EmitDefaultValue=true)]
+        [Obsolete]
         public string MaxParts { get; set; }
 
         /// <summary>
@@ -176,7 +178,7 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
- 
+
             // NextPartNumber (string) maxLength
             if(this.NextPartNumber != null && this.NextPartNumber.Length > 1)
             {
@@ -188,7 +190,7 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPartNumber, length must be greater than 1.", new [] { "NextPartNumber" });
             }
- 
+
             // NextPartNumber (string) pattern
             Regex regexNextPartNumber = new Regex(@"0", RegexOptions.CultureInvariant);
             if (false == regexNextPartNumber.Match(this.NextPartNumber).Success)
@@ -207,7 +209,7 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxParts, length must be greater than 1.", new [] { "MaxParts" });
             }
- 
+
             // MaxParts (string) pattern
             Regex regexMaxParts = new Regex(@"0", RegexOptions.CultureInvariant);
             if (false == regexMaxParts.Match(this.MaxParts).Success)

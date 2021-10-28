@@ -308,9 +308,9 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
             }
- 
 
- 
+
+
             // AssetVersion (int) minimum
             if(this.AssetVersion < (int)0)
             {
@@ -318,7 +318,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // Id (string) pattern
             Regex regexId = new Regex(@"(unp)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
@@ -327,7 +327,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // UnitySortNumber (int) minimum
             if(this.UnitySortNumber < (int)0)
             {
@@ -340,7 +340,7 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }
- 
+
             yield break;
         }
     }

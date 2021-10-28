@@ -252,6 +252,7 @@ namespace io.github.vrchatapi.Api
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
         /// <returns>InlineResponse2005</returns>
+        [Obsolete]
         InlineResponse2005 GetWorldMetadata (string worldId);
 
         /// <summary>
@@ -263,6 +264,7 @@ namespace io.github.vrchatapi.Api
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
+        [Obsolete]
         ApiResponse<InlineResponse2005> GetWorldMetadataWithHttpInfo (string worldId);
         /// <summary>
         /// Get World Publish Status
@@ -642,6 +644,7 @@ namespace io.github.vrchatapi.Api
         /// <param name="worldId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of InlineResponse2005</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<InlineResponse2005> GetWorldMetadataAsync (string worldId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -654,6 +657,7 @@ namespace io.github.vrchatapi.Api
         /// <param name="worldId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetWorldMetadataWithHttpInfoAsync (string worldId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get World Publish Status
@@ -2094,6 +2098,7 @@ namespace io.github.vrchatapi.Api
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
         /// <returns>InlineResponse2005</returns>
+        [Obsolete]
         public InlineResponse2005 GetWorldMetadata (string worldId)
         {
              ApiResponse<InlineResponse2005> localVarResponse = GetWorldMetadataWithHttpInfo(worldId);
@@ -2106,6 +2111,7 @@ namespace io.github.vrchatapi.Api
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId"></param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
+        [Obsolete]
         public ApiResponse<InlineResponse2005> GetWorldMetadataWithHttpInfo (string worldId)
         {
             // verify the required parameter 'worldId' is set
@@ -2163,6 +2169,7 @@ namespace io.github.vrchatapi.Api
         /// <param name="worldId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of InlineResponse2005</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<InlineResponse2005> GetWorldMetadataAsync (string worldId, CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<InlineResponse2005> localVarResponse = await GetWorldMetadataWithHttpInfoAsync(worldId, cancellationToken);
@@ -2177,6 +2184,7 @@ namespace io.github.vrchatapi.Api
         /// <param name="worldId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetWorldMetadataWithHttpInfoAsync (string worldId, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'worldId' is set

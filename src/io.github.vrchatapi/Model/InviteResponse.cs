@@ -131,7 +131,7 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
- 
+
             // ResponseSlot (int) maximum
             if(this.ResponseSlot > (int)11)
             {

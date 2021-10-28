@@ -380,23 +380,23 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
             }
- 
+
 
             // AssetVersion (string) minLength
             if(this.AssetVersion != null && this.AssetVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetVersion, length must be greater than 1.", new [] { "AssetVersion" });
             }
- 
+
 
             // AuthorName (string) minLength
             if(this.AuthorName != null && this.AuthorName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
- 
 
- 
+
+
             // Capacity (int) maximum
             if(this.Capacity > (int)40)
             {
@@ -410,7 +410,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // Id (string) pattern
             Regex regexId = new Regex(@"(^$|offline|(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
@@ -424,28 +424,28 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
- 
+
 
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
- 
+
 
             // UnityPackageUrl (string) minLength
             if(this.UnityPackageUrl != null && this.UnityPackageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityPackageUrl, length must be greater than 1.", new [] { "UnityPackageUrl" });
             }
- 
+
 
             // UnityVersion (string) minLength
             if(this.UnityVersion != null && this.UnityVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }
- 
+
             yield break;
         }
     }

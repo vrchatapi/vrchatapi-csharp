@@ -93,6 +93,7 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>InlineResponse2002</returns>
+        [Obsolete]
         InlineResponse2002 GetHealth ();
 
         /// <summary>
@@ -103,6 +104,7 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of InlineResponse2002</returns>
+        [Obsolete]
         ApiResponse<InlineResponse2002> GetHealthWithHttpInfo ();
         /// <summary>
         /// Download Frontend JavaScript
@@ -224,6 +226,7 @@ namespace io.github.vrchatapi.Api
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of InlineResponse2002</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<InlineResponse2002> GetHealthAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -235,6 +238,7 @@ namespace io.github.vrchatapi.Api
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetHealthWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Download Frontend JavaScript
@@ -781,6 +785,7 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>InlineResponse2002</returns>
+        [Obsolete]
         public InlineResponse2002 GetHealth ()
         {
              ApiResponse<InlineResponse2002> localVarResponse = GetHealthWithHttpInfo();
@@ -792,6 +797,7 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of InlineResponse2002</returns>
+        [Obsolete]
         public ApiResponse<InlineResponse2002> GetHealthWithHttpInfo ()
         {
 
@@ -842,6 +848,7 @@ namespace io.github.vrchatapi.Api
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of InlineResponse2002</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<InlineResponse2002> GetHealthAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
              ApiResponse<InlineResponse2002> localVarResponse = await GetHealthWithHttpInfoAsync(cancellationToken);
@@ -855,6 +862,7 @@ namespace io.github.vrchatapi.Api
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetHealthWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
 

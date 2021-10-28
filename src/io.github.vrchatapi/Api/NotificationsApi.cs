@@ -93,7 +93,7 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Only send notifications of this type (can use &#x60;all&#x60; for all). (optional)</param>
-        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional)</param>
+        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional) (deprecated)</param>
         /// <param name="hidden">Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
@@ -109,7 +109,7 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Only send notifications of this type (can use &#x60;all&#x60; for all). (optional)</param>
-        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional)</param>
+        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional) (deprecated)</param>
         /// <param name="hidden">Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
@@ -214,7 +214,7 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Only send notifications of this type (can use &#x60;all&#x60; for all). (optional)</param>
-        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional)</param>
+        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional) (deprecated)</param>
         /// <param name="hidden">Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
@@ -231,7 +231,7 @@ namespace io.github.vrchatapi.Api
         /// </remarks>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Only send notifications of this type (can use &#x60;all&#x60; for all). (optional)</param>
-        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional)</param>
+        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional) (deprecated)</param>
         /// <param name="hidden">Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
@@ -783,7 +783,7 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Only send notifications of this type (can use &#x60;all&#x60; for all). (optional)</param>
-        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional)</param>
+        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional) (deprecated)</param>
         /// <param name="hidden">Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
@@ -800,7 +800,7 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Only send notifications of this type (can use &#x60;all&#x60; for all). (optional)</param>
-        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional)</param>
+        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional) (deprecated)</param>
         /// <param name="hidden">Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
@@ -863,7 +863,7 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Only send notifications of this type (can use &#x60;all&#x60; for all). (optional)</param>
-        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional)</param>
+        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional) (deprecated)</param>
         /// <param name="hidden">Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
@@ -882,7 +882,7 @@ namespace io.github.vrchatapi.Api
         /// </summary>
         /// <exception cref="io.github.vrchatapi.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Only send notifications of this type (can use &#x60;all&#x60; for all). (optional)</param>
-        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional)</param>
+        /// <param name="sent">Return notifications sent by the user. Must be false or omitted. (optional) (deprecated)</param>
         /// <param name="hidden">Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>

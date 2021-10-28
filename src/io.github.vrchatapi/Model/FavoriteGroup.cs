@@ -312,9 +312,9 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
- 
 
- 
+
+
             // Id (string) pattern
             Regex regexId = new Regex(@"fvgrp_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
@@ -328,14 +328,14 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
- 
+
 
             // OwnerDisplayName (string) minLength
             if(this.OwnerDisplayName != null && this.OwnerDisplayName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OwnerDisplayName, length must be greater than 1.", new [] { "OwnerDisplayName" });
             }
- 
+
             yield break;
         }
     }

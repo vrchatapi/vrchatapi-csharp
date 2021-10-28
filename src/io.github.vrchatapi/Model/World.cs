@@ -323,7 +323,7 @@ namespace io.github.vrchatapi.Model
             }
             else
             {
-                this.Version = version;
+                this._Version = version;
             }
 
             // to ensure "visits" is required (not null)
@@ -552,10 +552,10 @@ namespace io.github.vrchatapi.Model
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Version
+        /// Gets or Sets _Version
         /// </summary>
         [DataMember(Name="version", EmitDefaultValue=true)]
-        public int Version { get; set; }
+        public int _Version { get; set; }
 
         /// <summary>
         /// Gets or Sets Visits
@@ -601,7 +601,7 @@ namespace io.github.vrchatapi.Model
             sb.Append("  UnityPackageUrlObject: ").Append(UnityPackageUrlObject).Append("\n");
             sb.Append("  UnityPackages: ").Append(UnityPackages).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Visits: ").Append(Visits).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -791,9 +791,9 @@ namespace io.github.vrchatapi.Model
                     this.UpdatedAt.Equals(input.UpdatedAt))
                 ) && 
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
                 ) && 
                 (
                     this.Visits == input.Visits ||
@@ -871,8 +871,8 @@ namespace io.github.vrchatapi.Model
                     hashCode = hashCode * 59 + this.UnityPackages.GetHashCode();
                 if (this.UpdatedAt != null)
                     hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this._Version != null)
+                    hashCode = hashCode * 59 + this._Version.GetHashCode();
                 if (this.Visits != null)
                     hashCode = hashCode * 59 + this.Visits.GetHashCode();
                 return hashCode;
@@ -892,16 +892,16 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
             }
- 
+
 
             // AuthorName (string) minLength
             if(this.AuthorName != null && this.AuthorName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
- 
 
- 
+
+
             // Capacity (int) minimum
             if(this.Capacity < (int)0)
             {
@@ -914,9 +914,9 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
- 
 
- 
+
+
             // Favorites (int) minimum
             if(this.Favorites < (int)0)
             {
@@ -924,7 +924,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // Heat (int) minimum
             if(this.Heat < (int)0)
             {
@@ -932,7 +932,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // Id (string) pattern
             Regex regexId = new Regex(@"(^$|offline|(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
@@ -946,23 +946,23 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
- 
+
 
             // LabsPublicationDate (string) minLength
             if(this.LabsPublicationDate != null && this.LabsPublicationDate.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LabsPublicationDate, length must be greater than 1.", new [] { "LabsPublicationDate" });
             }
- 
+
 
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
- 
 
- 
+
+
             // Occupants (int) minimum
             if(this.Occupants < (int)0)
             {
@@ -975,9 +975,9 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Organization, length must be greater than 1.", new [] { "Organization" });
             }
- 
 
- 
+
+
             // Popularity (int) minimum
             if(this.Popularity < (int)0)
             {
@@ -985,7 +985,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // PrivateOccupants (int) minimum
             if(this.PrivateOccupants < (int)0)
             {
@@ -993,7 +993,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // PublicOccupants (int) minimum
             if(this.PublicOccupants < (int)0)
             {
@@ -1006,26 +1006,26 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicationDate, length must be greater than 1.", new [] { "PublicationDate" });
             }
- 
+
 
             // ThumbnailImageUrl (string) minLength
             if(this.ThumbnailImageUrl != null && this.ThumbnailImageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
             }
- 
 
- 
 
- 
-            // Version (int) minimum
-            if(this.Version < (int)0)
+
+
+
+            // _Version (int) minimum
+            if(this._Version < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 0.", new [] { "Version" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
             }
 
 
- 
+
             // Visits (int) minimum
             if(this.Visits < (int)0)
             {

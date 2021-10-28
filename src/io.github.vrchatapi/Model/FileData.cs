@@ -301,23 +301,23 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Category, length must be greater than 1.", new [] { "Category" });
             }
- 
+
 
             // FileName (string) minLength
             if(this.FileName != null && this.FileName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileName, length must be greater than 1.", new [] { "FileName" });
             }
- 
+
 
             // Md5 (string) minLength
             if(this.Md5 != null && this.Md5.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Md5, length must be greater than 0.", new [] { "Md5" });
             }
- 
 
- 
+
+
             // SizeInBytes (int) minimum
             if(this.SizeInBytes < (int)0)
             {
@@ -330,14 +330,14 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UploadId, length must be greater than 0.", new [] { "UploadId" });
             }
- 
+
 
             // Url (string) minLength
             if(this.Url != null && this.Url.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
             }
- 
+
             yield break;
         }
     }

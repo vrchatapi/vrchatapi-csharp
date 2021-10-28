@@ -152,9 +152,9 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
             }
- 
 
- 
+
+
             // StatusCode (int) minimum
             if(this.StatusCode < (int)100)
             {

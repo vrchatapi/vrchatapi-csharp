@@ -79,6 +79,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Download link for legacy SDK2</value>
         [DataMember(Name="sdk2", EmitDefaultValue=true)]
+        [Obsolete]
         public string Sdk2 { get; set; }
 
         /// <summary>
@@ -189,21 +190,21 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk2, length must be greater than 1.", new [] { "Sdk2" });
             }
- 
+
 
             // Sdk3Avatars (string) minLength
             if(this.Sdk3Avatars != null && this.Sdk3Avatars.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk3Avatars, length must be greater than 1.", new [] { "Sdk3Avatars" });
             }
- 
+
 
             // Sdk3Worlds (string) minLength
             if(this.Sdk3Worlds != null && this.Sdk3Worlds.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk3Worlds, length must be greater than 1.", new [] { "Sdk3Worlds" });
             }
- 
+
             yield break;
         }
     }

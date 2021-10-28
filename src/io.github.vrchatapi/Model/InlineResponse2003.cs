@@ -194,16 +194,16 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UploadId, length must be greater than 1.", new [] { "UploadId" });
             }
- 
+
 
             // FileName (string) minLength
             if(this.FileName != null && this.FileName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileName, length must be greater than 1.", new [] { "FileName" });
             }
- 
 
- 
+
+
             // NextPartNumber (decimal) minimum
             if(this.NextPartNumber < (decimal)0)
             {
@@ -211,7 +211,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // MaxParts (decimal) minimum
             if(this.MaxParts < (decimal)1)
             {
@@ -219,9 +219,9 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
 
- 
+
+
             yield break;
         }
     }

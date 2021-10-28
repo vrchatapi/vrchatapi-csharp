@@ -610,6 +610,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Always empty array.</value>
         [DataMember(Name="friendGroupNames", EmitDefaultValue=true)]
+        [Obsolete]
         public List<string> FriendGroupNames { get; set; }
 
         /// <summary>
@@ -1225,7 +1226,7 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
- 
+
             // AcceptedTOSVersion (int) minimum
             if(this.AcceptedTOSVersion < (int)0)
             {
@@ -1233,7 +1234,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // CurrentAvatar (string) pattern
             Regex regexCurrentAvatar = new Regex(@"avtr_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
             if (false == regexCurrentAvatar.Match(this.CurrentAvatar).Success)
@@ -1242,7 +1243,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // FallbackAvatar (string) pattern
             Regex regexFallbackAvatar = new Regex(@"avtr_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
             if (false == regexFallbackAvatar.Match(this.FallbackAvatar).Success)
@@ -1251,7 +1252,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // HomeLocation (string) pattern
             Regex regexHomeLocation = new Regex(@"(^$|offline|(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexHomeLocation.Match(this.HomeLocation).Success)

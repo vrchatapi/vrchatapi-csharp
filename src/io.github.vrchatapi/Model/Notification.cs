@@ -312,14 +312,14 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
- 
+
 
             // SenderUsername (string) minLength
             if(this.SenderUsername != null && this.SenderUsername.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SenderUsername, length must be greater than 1.", new [] { "SenderUsername" });
             }
- 
+
             yield break;
         }
     }

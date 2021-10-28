@@ -966,6 +966,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Game name</value>
         [DataMember(Name="appName", EmitDefaultValue=true)]
+        [Obsolete]
         public string AppName { get; set; }
 
         /// <summary>
@@ -1043,6 +1044,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Version number for game development build</value>
         [DataMember(Name="devAppVersionStandalone", EmitDefaultValue=true)]
+        [Obsolete]
         public string DevAppVersionStandalone { get; set; }
 
         /// <summary>
@@ -1050,6 +1052,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Developer Download link</value>
         [DataMember(Name="devDownloadLinkWindows", EmitDefaultValue=true)]
+        [Obsolete]
         public string DevDownloadLinkWindows { get; set; }
 
         /// <summary>
@@ -1057,6 +1060,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Link to download the development SDK, use downloadUrls instead</value>
         [DataMember(Name="devSdkUrl", EmitDefaultValue=true)]
+        [Obsolete]
         public string DevSdkUrl { get; set; }
 
         /// <summary>
@@ -1064,6 +1068,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Version of the development SDK</value>
         [DataMember(Name="devSdkVersion", EmitDefaultValue=true)]
+        [Obsolete]
         public string DevSdkVersion { get; set; }
 
         /// <summary>
@@ -1071,6 +1076,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Version number for server development build</value>
         [DataMember(Name="devServerVersionStandalone", EmitDefaultValue=true)]
+        [Obsolete]
         public string DevServerVersionStandalone { get; set; }
 
         /// <summary>
@@ -1169,6 +1175,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Toggles if 2FA should be disabled.</value>
         [DataMember(Name="disableTwoFactorAuth", EmitDefaultValue=true)]
+        [Obsolete]
         public bool DisableTwoFactorAuth { get; set; }
 
         /// <summary>
@@ -1216,6 +1223,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Unknown</value>
         [DataMember(Name="gearDemoRoomId", EmitDefaultValue=true)]
+        [Obsolete]
         public string GearDemoRoomId { get; set; }
 
         /// <summary>
@@ -1249,6 +1257,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>MOTD</value>
         [DataMember(Name="messageOfTheDay", EmitDefaultValue=true)]
+        [Obsolete]
         public string MessageOfTheDay { get; set; }
 
         /// <summary>
@@ -1284,6 +1293,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Version number for game release build</value>
         [DataMember(Name="releaseAppVersionStandalone", EmitDefaultValue=true)]
+        [Obsolete]
         public string ReleaseAppVersionStandalone { get; set; }
 
         /// <summary>
@@ -1291,6 +1301,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Link to download the release SDK</value>
         [DataMember(Name="releaseSdkUrl", EmitDefaultValue=true)]
+        [Obsolete]
         public string ReleaseSdkUrl { get; set; }
 
         /// <summary>
@@ -1298,6 +1309,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Version of the release SDK</value>
         [DataMember(Name="releaseSdkVersion", EmitDefaultValue=true)]
+        [Obsolete]
         public string ReleaseSdkVersion { get; set; }
 
         /// <summary>
@@ -1305,6 +1317,7 @@ namespace io.github.vrchatapi.Model
         /// </summary>
         /// <value>Version number for server release build</value>
         [DataMember(Name="releaseServerVersionStandalone", EmitDefaultValue=true)]
+        [Obsolete]
         public string ReleaseServerVersionStandalone { get; set; }
 
         /// <summary>
@@ -2187,53 +2200,53 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address, length must be greater than 1.", new [] { "Address" });
             }
- 
 
- 
+
+
 
             // ApiKey (string) minLength
             if(this.ApiKey != null && this.ApiKey.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApiKey, length must be greater than 1.", new [] { "ApiKey" });
             }
- 
+
 
             // AppName (string) minLength
             if(this.AppName != null && this.AppName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AppName, length must be greater than 1.", new [] { "AppName" });
             }
- 
+
 
             // BuildVersionTag (string) minLength
             if(this.BuildVersionTag != null && this.BuildVersionTag.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BuildVersionTag, length must be greater than 1.", new [] { "BuildVersionTag" });
             }
- 
+
 
             // ClientApiKey (string) minLength
             if(this.ClientApiKey != null && this.ClientApiKey.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientApiKey, length must be greater than 1.", new [] { "ClientApiKey" });
             }
- 
+
 
             // ContactEmail (string) minLength
             if(this.ContactEmail != null && this.ContactEmail.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContactEmail, length must be greater than 1.", new [] { "ContactEmail" });
             }
- 
+
 
             // CopyrightEmail (string) minLength
             if(this.CopyrightEmail != null && this.CopyrightEmail.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CopyrightEmail, length must be greater than 1.", new [] { "CopyrightEmail" });
             }
- 
 
- 
+
+
             // CurrentTOSVersion (int) minimum
             if(this.CurrentTOSVersion < (int)0)
             {
@@ -2241,7 +2254,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // DefaultAvatar (string) pattern
             Regex regexDefaultAvatar = new Regex(@"avtr_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
             if (false == regexDefaultAvatar.Match(this.DefaultAvatar).Success)
@@ -2255,53 +2268,53 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevAppVersionStandalone, length must be greater than 1.", new [] { "DevAppVersionStandalone" });
             }
- 
+
 
             // DevDownloadLinkWindows (string) minLength
             if(this.DevDownloadLinkWindows != null && this.DevDownloadLinkWindows.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevDownloadLinkWindows, length must be greater than 1.", new [] { "DevDownloadLinkWindows" });
             }
- 
+
 
             // DevSdkUrl (string) minLength
             if(this.DevSdkUrl != null && this.DevSdkUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevSdkUrl, length must be greater than 1.", new [] { "DevSdkUrl" });
             }
- 
+
 
             // DevSdkVersion (string) minLength
             if(this.DevSdkVersion != null && this.DevSdkVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevSdkVersion, length must be greater than 1.", new [] { "DevSdkVersion" });
             }
- 
+
 
             // DevServerVersionStandalone (string) minLength
             if(this.DevServerVersionStandalone != null && this.DevServerVersionStandalone.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevServerVersionStandalone, length must be greater than 1.", new [] { "DevServerVersionStandalone" });
             }
- 
+
 
             // DownloadLinkWindows (string) minLength
             if(this.DownloadLinkWindows != null && this.DownloadLinkWindows.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DownloadLinkWindows, length must be greater than 1.", new [] { "DownloadLinkWindows" });
             }
- 
 
- 
+
+
 
             // GearDemoRoomId (string) minLength
             if(this.GearDemoRoomId != null && this.GearDemoRoomId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GearDemoRoomId, length must be greater than 1.", new [] { "GearDemoRoomId" });
             }
- 
 
- 
+
+
             // HomeWorldId (string) pattern
             Regex regexHomeWorldId = new Regex(@"(^$|offline|(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexHomeWorldId.Match(this.HomeWorldId).Success)
@@ -2315,9 +2328,9 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HomepageRedirectTarget, length must be greater than 1.", new [] { "HomepageRedirectTarget" });
             }
- 
 
- 
+
+
             // HubWorldId (string) pattern
             Regex regexHubWorldId = new Regex(@"(^$|offline|(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexHubWorldId.Match(this.HubWorldId).Success)
@@ -2331,107 +2344,107 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for JobsEmail, length must be greater than 1.", new [] { "JobsEmail" });
             }
- 
+
 
             // MessageOfTheDay (string) minLength
             if(this.MessageOfTheDay != null && this.MessageOfTheDay.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MessageOfTheDay, length must be greater than 1.", new [] { "MessageOfTheDay" });
             }
- 
+
 
             // ModerationEmail (string) minLength
             if(this.ModerationEmail != null && this.ModerationEmail.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModerationEmail, length must be greater than 1.", new [] { "ModerationEmail" });
             }
- 
+
 
             // NotAllowedToSelectAvatarInPrivateWorldMessage (string) minLength
             if(this.NotAllowedToSelectAvatarInPrivateWorldMessage != null && this.NotAllowedToSelectAvatarInPrivateWorldMessage.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAllowedToSelectAvatarInPrivateWorldMessage, length must be greater than 1.", new [] { "NotAllowedToSelectAvatarInPrivateWorldMessage" });
             }
- 
+
 
             // Plugin (string) minLength
             if(this.Plugin != null && this.Plugin.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Plugin, length must be greater than 1.", new [] { "Plugin" });
             }
- 
+
 
             // ReleaseAppVersionStandalone (string) minLength
             if(this.ReleaseAppVersionStandalone != null && this.ReleaseAppVersionStandalone.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseAppVersionStandalone, length must be greater than 1.", new [] { "ReleaseAppVersionStandalone" });
             }
- 
+
 
             // ReleaseSdkUrl (string) minLength
             if(this.ReleaseSdkUrl != null && this.ReleaseSdkUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseSdkUrl, length must be greater than 1.", new [] { "ReleaseSdkUrl" });
             }
- 
+
 
             // ReleaseSdkVersion (string) minLength
             if(this.ReleaseSdkVersion != null && this.ReleaseSdkVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseSdkVersion, length must be greater than 1.", new [] { "ReleaseSdkVersion" });
             }
- 
+
 
             // ReleaseServerVersionStandalone (string) minLength
             if(this.ReleaseServerVersionStandalone != null && this.ReleaseServerVersionStandalone.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseServerVersionStandalone, length must be greater than 1.", new [] { "ReleaseServerVersionStandalone" });
             }
- 
+
 
             // SdkDeveloperFaqUrl (string) minLength
             if(this.SdkDeveloperFaqUrl != null && this.SdkDeveloperFaqUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkDeveloperFaqUrl, length must be greater than 1.", new [] { "SdkDeveloperFaqUrl" });
             }
- 
+
 
             // SdkDiscordUrl (string) minLength
             if(this.SdkDiscordUrl != null && this.SdkDiscordUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkDiscordUrl, length must be greater than 1.", new [] { "SdkDiscordUrl" });
             }
- 
+
 
             // SdkNotAllowedToPublishMessage (string) minLength
             if(this.SdkNotAllowedToPublishMessage != null && this.SdkNotAllowedToPublishMessage.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkNotAllowedToPublishMessage, length must be greater than 1.", new [] { "SdkNotAllowedToPublishMessage" });
             }
- 
+
 
             // SdkUnityVersion (string) minLength
             if(this.SdkUnityVersion != null && this.SdkUnityVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkUnityVersion, length must be greater than 1.", new [] { "SdkUnityVersion" });
             }
- 
+
 
             // ServerName (string) minLength
             if(this.ServerName != null && this.ServerName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerName, length must be greater than 1.", new [] { "ServerName" });
             }
- 
+
 
             // SupportEmail (string) minLength
             if(this.SupportEmail != null && this.SupportEmail.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SupportEmail, length must be greater than 1.", new [] { "SupportEmail" });
             }
- 
 
- 
+
+
             // TimeOutWorldId (string) pattern
             Regex regexTimeOutWorldId = new Regex(@"(^$|offline|(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexTimeOutWorldId.Match(this.TimeOutWorldId).Success)
@@ -2440,7 +2453,7 @@ namespace io.github.vrchatapi.Model
             }
 
 
- 
+
             // TutorialWorldId (string) pattern
             Regex regexTutorialWorldId = new Regex(@"(^$|offline|(wrld|wld)_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12})", RegexOptions.CultureInvariant);
             if (false == regexTutorialWorldId.Match(this.TutorialWorldId).Success)
@@ -2454,21 +2467,21 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ViveWindowsUrl, length must be greater than 1.", new [] { "ViveWindowsUrl" });
             }
- 
+
 
             // YoutubedlHash (string) minLength
             if(this.YoutubedlHash != null && this.YoutubedlHash.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for YoutubedlHash, length must be greater than 1.", new [] { "YoutubedlHash" });
             }
- 
+
 
             // YoutubedlVersion (string) minLength
             if(this.YoutubedlVersion != null && this.YoutubedlVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for YoutubedlVersion, length must be greater than 1.", new [] { "YoutubedlVersion" });
             }
- 
+
             yield break;
         }
     }

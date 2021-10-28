@@ -281,7 +281,7 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
- 
+
             // Id (string) pattern
             Regex regexId = new Regex(@"pmod_[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}", RegexOptions.CultureInvariant);
             if (false == regexId.Match(this.Id).Success)
@@ -295,14 +295,14 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceDisplayName, length must be greater than 1.", new [] { "SourceDisplayName" });
             }
- 
+
 
             // TargetDisplayName (string) minLength
             if(this.TargetDisplayName != null && this.TargetDisplayName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TargetDisplayName, length must be greater than 1.", new [] { "TargetDisplayName" });
             }
- 
+
             yield break;
         }
     }

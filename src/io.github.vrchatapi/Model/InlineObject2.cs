@@ -254,14 +254,14 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bio, length must be greater than 0.", new [] { "Bio" });
             }
- 
+
 
             // UserIcon (string) minLength
             if(this.UserIcon != null && this.UserIcon.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserIcon, length must be greater than 0.", new [] { "UserIcon" });
             }
- 
+
             yield break;
         }
     }

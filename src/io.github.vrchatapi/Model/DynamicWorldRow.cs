@@ -273,7 +273,7 @@ namespace io.github.vrchatapi.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
- 
+
             // Index (int) minimum
             if(this.Index < (int)0)
             {
@@ -286,42 +286,42 @@ namespace io.github.vrchatapi.Model
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
- 
+
 
             // Platform (string) minLength
             if(this.Platform != null && this.Platform.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Platform, length must be greater than 1.", new [] { "Platform" });
             }
- 
+
 
             // SortHeading (string) minLength
             if(this.SortHeading != null && this.SortHeading.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SortHeading, length must be greater than 1.", new [] { "SortHeading" });
             }
- 
+
 
             // SortOrder (string) minLength
             if(this.SortOrder != null && this.SortOrder.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SortOrder, length must be greater than 1.", new [] { "SortOrder" });
             }
- 
+
 
             // SortOwnership (string) minLength
             if(this.SortOwnership != null && this.SortOwnership.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SortOwnership, length must be greater than 1.", new [] { "SortOwnership" });
             }
- 
+
 
             // Tag (string) minLength
             if(this.Tag != null && this.Tag.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tag, length must be greater than 1.", new [] { "Tag" });
             }
- 
+
             yield break;
         }
     }
