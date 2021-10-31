@@ -24,39 +24,39 @@ using OpenAPIDateConverter = io.github.vrchatapi.Client.OpenAPIDateConverter;
 namespace io.github.vrchatapi.Model
 {
     /// <summary>
-    /// FileUploadURL
+    /// UpdateInviteMessageRequest
     /// </summary>
     [DataContract]
-    public partial class FileUploadURL :  IEquatable<FileUploadURL>, IValidatableObject
+    public partial class UpdateInviteMessageRequest :  IEquatable<UpdateInviteMessageRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileUploadURL" /> class.
+        /// Initializes a new instance of the <see cref="UpdateInviteMessageRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FileUploadURL() { }
+        protected UpdateInviteMessageRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileUploadURL" /> class.
+        /// Initializes a new instance of the <see cref="UpdateInviteMessageRequest" /> class.
         /// </summary>
-        /// <param name="url">url (required).</param>
-        public FileUploadURL(string url = default(string))
+        /// <param name="message">message (required).</param>
+        public UpdateInviteMessageRequest(string message = default(string))
         {
-            // to ensure "url" is required (not null)
-            if (url == null)
+            // to ensure "message" is required (not null)
+            if (message == null)
             {
-                throw new InvalidDataException("url is a required property for FileUploadURL and cannot be null");
+                throw new InvalidDataException("message is a required property for UpdateInviteMessageRequest and cannot be null");
             }
             else
             {
-                this.Url = url;
+                this.Message = message;
             }
 
         }
 
         /// <summary>
-        /// Gets or Sets Url
+        /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name="url", EmitDefaultValue=true)]
-        public string Url { get; set; }
+        [DataMember(Name="message", EmitDefaultValue=true)]
+        public string Message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +65,8 @@ namespace io.github.vrchatapi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FileUploadURL {\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("class UpdateInviteMessageRequest {\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,24 +87,24 @@ namespace io.github.vrchatapi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FileUploadURL);
+            return this.Equals(input as UpdateInviteMessageRequest);
         }
 
         /// <summary>
-        /// Returns true if FileUploadURL instances are equal
+        /// Returns true if UpdateInviteMessageRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of FileUploadURL to be compared</param>
+        /// <param name="input">Instance of UpdateInviteMessageRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FileUploadURL input)
+        public bool Equals(UpdateInviteMessageRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 );
         }
 
@@ -117,8 +117,8 @@ namespace io.github.vrchatapi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 return hashCode;
             }
         }
@@ -130,13 +130,6 @@ namespace io.github.vrchatapi.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-
-            // Url (string) minLength
-            if(this.Url != null && this.Url.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
-            }
-
             yield break;
         }
     }

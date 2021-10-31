@@ -4,21 +4,21 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetInviteMessage**](InviteApi.md#getinvitemessage) | **GET** /message/{userId}/{messageType}/{messageId} | Get Invite Messages
+[**GetInviteMessage**](InviteApi.md#getinvitemessage) | **GET** /message/{userId}/{messageType}/{slot} | Get Invite Message
 [**GetInviteMessages**](InviteApi.md#getinvitemessages) | **GET** /message/{userId}/{messageType} | List Invite Messages
 [**InviteUser**](InviteApi.md#inviteuser) | **POST** /invite/{userId} | Invite User
 [**RequestInvite**](InviteApi.md#requestinvite) | **POST** /requestInvite/{userId} | Request Invite
-[**ResetInviteMessage**](InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/{messageType}/{messageId} | Reset Invite Message
+[**ResetInviteMessage**](InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/{messageType}/{slot} | Reset Invite Message
 [**RespondInvite**](InviteApi.md#respondinvite) | **POST** /invite/{notificationId}/response | Respond Invite
-[**UpdateInviteMessage**](InviteApi.md#updateinvitemessage) | **PUT** /message/{userId}/{messageType}/{messageId} | Update Invite Message
+[**UpdateInviteMessage**](InviteApi.md#updateinvitemessage) | **PUT** /message/{userId}/{messageType}/{slot} | Update Invite Message
 
 
 
 ## GetInviteMessage
 
-> InviteMessage GetInviteMessage (string userId, string messageType, int messageId)
+> InviteMessage GetInviteMessage (string userId, string messageType, int slot)
 
-Get Invite Messages
+Get Invite Message
 
 Returns a single Invite Message. This returns the exact same information but less than `getInviteMessages`. Admin Credentials are required to view messages of other users!  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
 
@@ -50,12 +50,12 @@ namespace Example
             var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
             var messageType = messageType_example;  // string | 
-            var messageId = 56;  // int | 
+            var slot = 56;  // int | 
 
             try
             {
-                // Get Invite Messages
-                InviteMessage result = apiInstance.GetInviteMessage(userId, messageType, messageId);
+                // Get Invite Message
+                InviteMessage result = apiInstance.GetInviteMessage(userId, messageType, slot);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **messageType** | **string**|  | 
- **messageId** | **int**|  | 
+ **slot** | **int**|  | 
 
 ### Return type
 
@@ -96,8 +96,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a single InviteMessage object. |  -  |
-| **400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+| **400** | Error response when trying to get an Invite Message with a negative slot number. |  -  |
 | **401** | Error response due to missing authorization to perform that action. |  -  |
+| **404** | Error response when trying to get an Invite Message with a too high slot number. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -185,7 +186,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of InviteMessage objects. |  -  |
-| **400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+| **400** | Error response when trying to update an Invite Message with an invalid slot number. |  -  |
 | **401** | Error response due to missing authorization to perform that action. |  -  |
 
 [[Back to top]](#)
@@ -370,11 +371,11 @@ Name | Type | Description  | Notes
 
 ## ResetInviteMessage
 
-> List&lt;InviteMessage&gt; ResetInviteMessage (string userId, string messageType, int messageId)
+> List&lt;InviteMessage&gt; ResetInviteMessage (string userId, string messageType, int slot)
 
 Reset Invite Message
 
-Resets a single Invite Message back to it's original message, and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Resetting a message respects the rate-limit, but resetting it does not set the rate-limit to 60 like when editing it. It is possible to edit it right after resetting it. Trying to edit a message before the cooldown timer expires results in a 429 Too Fast Error.  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
+Resets a single Invite Message back to it's original message, and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Resetting a message respects the rate-limit, so it is not possible to reset within the 60 minutes countdown. Resetting it does however not set the rate-limit to 60 like when editing it. It is possible to edit it right after resetting it. Trying to edit a message before the cooldown timer expires results in a 429 \"Too Fast Error\".  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite  The DELETE endpoint does not have/require any request body.
 
 ### Example
 
@@ -404,12 +405,12 @@ namespace Example
             var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
             var messageType = messageType_example;  // string | 
-            var messageId = 56;  // int | 
+            var slot = 56;  // int | 
 
             try
             {
                 // Reset Invite Message
-                List<InviteMessage> result = apiInstance.ResetInviteMessage(userId, messageType, messageId);
+                List<InviteMessage> result = apiInstance.ResetInviteMessage(userId, messageType, slot);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -430,7 +431,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **messageType** | **string**|  | 
- **messageId** | **int**|  | 
+ **slot** | **int**|  | 
 
 ### Return type
 
@@ -450,8 +451,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of InviteMessage objects. |  -  |
-| **400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+| **400** | Error response when trying to update an Invite Message with an invalid slot number. |  -  |
 | **401** | Error response due to missing authorization to perform that action. |  -  |
+| **404** | Error response when trying to reset an Invite Message whos slot doesn&#39;t exist. |  -  |
 | **429** | Error response when trying to update an Invite Message before the cooldown has expired. |  -  |
 
 [[Back to top]](#)
@@ -550,11 +552,11 @@ Name | Type | Description  | Notes
 
 ## UpdateInviteMessage
 
-> List&lt;InviteMessage&gt; UpdateInviteMessage (string userId, string messageType, int messageId)
+> List&lt;InviteMessage&gt; UpdateInviteMessage (string userId, string messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = null)
 
 Update Invite Message
 
-Updates a single Invite Message and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Updating a message automatically sets the cooldown timer to 60 minutes. Trying to edit a message before the cooldown timer expires results in a 429 Too Fast Error.  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
+Updates a single Invite Message and then returns a list of all of them. Admin Credentials are required to update messages of other users!  Updating a message automatically sets the cooldown timer to 60 minutes. Trying to edit a message before the cooldown timer expires results in a 429 \"Too Fast Error\".  Message type refers to a different collection of messages, used during different types of responses.  * `message` = Message during a normal invite * `response` = Message when replying to a message * `request` = Message when requesting an invite * `requestResponse` = Message when replying to a request for invite
 
 ### Example
 
@@ -584,12 +586,13 @@ namespace Example
             var apiInstance = new InviteApi(Configuration.Default);
             var userId = userId_example;  // string | 
             var messageType = messageType_example;  // string | 
-            var messageId = 56;  // int | 
+            var slot = 56;  // int | 
+            var updateInviteMessageRequest = new UpdateInviteMessageRequest(); // UpdateInviteMessageRequest | Message of what to set the invite message to. (optional) 
 
             try
             {
                 // Update Invite Message
-                List<InviteMessage> result = apiInstance.UpdateInviteMessage(userId, messageType, messageId);
+                List<InviteMessage> result = apiInstance.UpdateInviteMessage(userId, messageType, slot, updateInviteMessageRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -610,7 +613,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
  **messageType** | **string**|  | 
- **messageId** | **int**|  | 
+ **slot** | **int**|  | 
+ **updateInviteMessageRequest** | [**UpdateInviteMessageRequest**](UpdateInviteMessageRequest.md)| Message of what to set the invite message to. | [optional] 
 
 ### Return type
 
@@ -622,7 +626,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -630,7 +634,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of InviteMessage objects. |  -  |
-| **400** | Error response when trying to update an Invite Message with invalid slot number. |  -  |
+| **400** | Error response when trying to update an Invite Message with an invalid slot number. |  -  |
 | **401** | Error response due to missing authorization to perform that action. |  -  |
 | **429** | Error response when trying to update an Invite Message before the cooldown has expired. |  -  |
 

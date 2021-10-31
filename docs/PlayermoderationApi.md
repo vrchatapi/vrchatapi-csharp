@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## ClearAllPlayerModerations
 
-> Error ClearAllPlayerModerations ()
+> Success ClearAllPlayerModerations ()
 
 Clear All Player Moderations
 
@@ -51,7 +51,7 @@ namespace Example
             try
             {
                 // Clear All Player Moderations
-                Error result = apiInstance.ClearAllPlayerModerations();
+                Success result = apiInstance.ClearAllPlayerModerations();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -71,7 +71,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Error**](Error.md)
+[**Success**](Success.md)
 
 ### Authorization
 

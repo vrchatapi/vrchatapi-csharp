@@ -24,39 +24,39 @@ using OpenAPIDateConverter = io.github.vrchatapi.Client.OpenAPIDateConverter;
 namespace io.github.vrchatapi.Model
 {
     /// <summary>
-    /// FileUploadURL
+    /// InlineResponse404
     /// </summary>
     [DataContract]
-    public partial class FileUploadURL :  IEquatable<FileUploadURL>, IValidatableObject
+    public partial class InlineResponse404 :  IEquatable<InlineResponse404>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileUploadURL" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse404" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FileUploadURL() { }
+        protected InlineResponse404() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileUploadURL" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse404" /> class.
         /// </summary>
-        /// <param name="url">url (required).</param>
-        public FileUploadURL(string url = default(string))
+        /// <param name="error">error (required).</param>
+        public InlineResponse404(Error error = default(Error))
         {
-            // to ensure "url" is required (not null)
-            if (url == null)
+            // to ensure "error" is required (not null)
+            if (error == null)
             {
-                throw new InvalidDataException("url is a required property for FileUploadURL and cannot be null");
+                throw new InvalidDataException("error is a required property for InlineResponse404 and cannot be null");
             }
             else
             {
-                this.Url = url;
+                this.Error = error;
             }
 
         }
 
         /// <summary>
-        /// Gets or Sets Url
+        /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name="url", EmitDefaultValue=true)]
-        public string Url { get; set; }
+        [DataMember(Name="error", EmitDefaultValue=true)]
+        public Error Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +65,8 @@ namespace io.github.vrchatapi.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FileUploadURL {\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("class InlineResponse404 {\n");
+            sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,24 +87,24 @@ namespace io.github.vrchatapi.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FileUploadURL);
+            return this.Equals(input as InlineResponse404);
         }
 
         /// <summary>
-        /// Returns true if FileUploadURL instances are equal
+        /// Returns true if InlineResponse404 instances are equal
         /// </summary>
-        /// <param name="input">Instance of FileUploadURL to be compared</param>
+        /// <param name="input">Instance of InlineResponse404 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FileUploadURL input)
+        public bool Equals(InlineResponse404 input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
                 );
         }
 
@@ -117,8 +117,8 @@ namespace io.github.vrchatapi.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                if (this.Error != null)
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
                 return hashCode;
             }
         }
@@ -130,13 +130,6 @@ namespace io.github.vrchatapi.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-
-            // Url (string) minLength
-            if(this.Url != null && this.Url.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
-            }
-
             yield break;
         }
     }

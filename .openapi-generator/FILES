@@ -35,8 +35,10 @@ docs/FilesApi.md
 docs/FinishFileDataUploadRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
+docs/InlineResponse404.md
 docs/Instance.md
 docs/InstancePlatforms.md
+docs/InstancesApi.md
 docs/InviteApi.md
 docs/InviteMessage.md
 docs/InviteMessageType.md
@@ -65,6 +67,7 @@ docs/TwoFactorAuthCode.md
 docs/UnityPackage.md
 docs/UpdateAvatarRequest.md
 docs/UpdateFavoriteGroupRequest.md
+docs/UpdateInviteMessageRequest.md
 docs/UpdateUserRequest.md
 docs/UpdateWorldRequest.md
 docs/User.md
@@ -85,6 +88,7 @@ src/io.github.vrchatapi/Api/AvatarsApi.cs
 src/io.github.vrchatapi/Api/FavoritesApi.cs
 src/io.github.vrchatapi/Api/FilesApi.cs
 src/io.github.vrchatapi/Api/FriendsApi.cs
+src/io.github.vrchatapi/Api/InstancesApi.cs
 src/io.github.vrchatapi/Api/InviteApi.cs
 src/io.github.vrchatapi/Api/NotificationsApi.cs
 src/io.github.vrchatapi/Api/PermissionsApi.cs
@@ -129,6 +133,7 @@ src/io.github.vrchatapi/Model/FileVersion.cs
 src/io.github.vrchatapi/Model/FileVersionUploadStatus.cs
 src/io.github.vrchatapi/Model/FinishFileDataUploadRequest.cs
 src/io.github.vrchatapi/Model/FriendStatus.cs
+src/io.github.vrchatapi/Model/InlineResponse404.cs
 src/io.github.vrchatapi/Model/Instance.cs
 src/io.github.vrchatapi/Model/InstancePlatforms.cs
 src/io.github.vrchatapi/Model/InviteMessage.cs
@@ -154,6 +159,7 @@ src/io.github.vrchatapi/Model/TwoFactorAuthCode.cs
 src/io.github.vrchatapi/Model/UnityPackage.cs
 src/io.github.vrchatapi/Model/UpdateAvatarRequest.cs
 src/io.github.vrchatapi/Model/UpdateFavoriteGroupRequest.cs
+src/io.github.vrchatapi/Model/UpdateInviteMessageRequest.cs
 src/io.github.vrchatapi/Model/UpdateUserRequest.cs
 src/io.github.vrchatapi/Model/UpdateWorldRequest.cs
 src/io.github.vrchatapi/Model/User.cs
