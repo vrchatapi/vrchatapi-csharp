@@ -1,11 +1,14 @@
 
-# io.github.vrchatapi.Model.InlineResponse404
+# io.github.vrchatapi.Model.LicenseGroup
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Error** | [**Error**](Error.md) |  | 
+**Id** | **string** |  | 
+**Name** | **string** |  | 
+**Description** | **string** |  | 
+**Licenses** | [**List&lt;License&gt;**](License.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
