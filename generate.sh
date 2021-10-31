@@ -10,7 +10,7 @@ rm src docs -rf
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-csharp \
 -o . \
--i https://vrchatapi.github.io/specification/openapi.yaml \
+-i https://raw.githubusercontent.com/vrchatapi/specification/gh-pages/openapi.yaml \
 --http-user-agent="vrchatapi-csharp"
 
 rmdir src/io.github.vrchatapi.Test/
