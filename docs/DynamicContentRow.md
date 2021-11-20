@@ -1,17 +1,18 @@
 
-# io.github.vrchatapi.Model.DynamicWorldRow
+# io.github.vrchatapi.Model.DynamicContentRow
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Index** | **int** |  | 
+**Index** | **int** |  | [optional] 
 **Name** | **string** |  | 
-**Platform** | **string** |  | 
+**Platform** | **string** | Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers. | 
 **SortHeading** | **string** |  | 
 **SortOrder** | **string** |  | 
 **SortOwnership** | **string** |  | 
-**Tag** | **string** | Tag to filter worlds for this row. Not always present. | [optional] 
+**Tag** | **string** | Tag to filter content for this row. | [optional] 
+**Type** | **string** | Type is not present if it is a world. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

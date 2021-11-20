@@ -18,7 +18,7 @@ docs/CurrentUser.md
 docs/DeploymentGroup.md
 docs/DeveloperType.md
 docs/DownloadURLList.md
-docs/DynamicWorldRow.md
+docs/DynamicContentRow.md
 docs/EconomyApi.md
 docs/Error.md
 docs/Favorite.md
@@ -36,6 +36,11 @@ docs/FilesApi.md
 docs/FinishFileDataUploadRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
+docs/InfoPush.md
+docs/InfoPushData.md
+docs/InfoPushDataArticle.md
+docs/InfoPushDataArticleContent.md
+docs/InfoPushDataClickable.md
 docs/Instance.md
 docs/InstancePlatforms.md
 docs/InstancesApi.md
@@ -132,7 +137,7 @@ src/io.github.vrchatapi/Model/CurrentUser.cs
 src/io.github.vrchatapi/Model/DeploymentGroup.cs
 src/io.github.vrchatapi/Model/DeveloperType.cs
 src/io.github.vrchatapi/Model/DownloadURLList.cs
-src/io.github.vrchatapi/Model/DynamicWorldRow.cs
+src/io.github.vrchatapi/Model/DynamicContentRow.cs
 src/io.github.vrchatapi/Model/Error.cs
 src/io.github.vrchatapi/Model/Favorite.cs
 src/io.github.vrchatapi/Model/FavoriteGroup.cs
@@ -146,6 +151,11 @@ src/io.github.vrchatapi/Model/FileVersion.cs
 src/io.github.vrchatapi/Model/FileVersionUploadStatus.cs
 src/io.github.vrchatapi/Model/FinishFileDataUploadRequest.cs
 src/io.github.vrchatapi/Model/FriendStatus.cs
+src/io.github.vrchatapi/Model/InfoPush.cs
+src/io.github.vrchatapi/Model/InfoPushData.cs
+src/io.github.vrchatapi/Model/InfoPushDataArticle.cs
+src/io.github.vrchatapi/Model/InfoPushDataArticleContent.cs
+src/io.github.vrchatapi/Model/InfoPushDataClickable.cs
 src/io.github.vrchatapi/Model/Instance.cs
 src/io.github.vrchatapi/Model/InstancePlatforms.cs
 src/io.github.vrchatapi/Model/InviteMessage.cs

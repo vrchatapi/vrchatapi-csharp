@@ -45,7 +45,7 @@ Name | Type | Description | Notes
 **DisableUpgradeAccount** | **bool** | Toggles if account upgrading \&quot;linking with Steam/Oculus\&quot; should be disabled. | [default to false]
 **DownloadLinkWindows** | **string** | Download link for game on the Oculus Rift website. | 
 **DownloadUrls** | [**DownloadURLList**](DownloadURLList.md) |  | 
-**DynamicWorldRows** | [**List&lt;DynamicWorldRow&gt;**](DynamicWorldRow.md) | Array of DynamicWorldRow objects, used by the game to display the list of world rows | 
+**DynamicWorldRows** | [**List&lt;DynamicContentRow&gt;**](DynamicContentRow.md) | Array of DynamicWorldRow objects, used by the game to display the list of world rows | 
 **Events** | [**APIEventConfig**](APIEventConfig.md) |  | 
 **GearDemoRoomId** | **string** | Unknown | 
 **HomeWorldId** | **string** |  | 

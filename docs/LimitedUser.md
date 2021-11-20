@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bio** | **string** |  | [optional] 
-**CurrentAvatarImageUrl** | **string** |  | 
-**CurrentAvatarThumbnailImageUrl** | **string** |  | 
+**CurrentAvatarImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
+**CurrentAvatarThumbnailImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
 **DeveloperType** | **DeveloperType** |  | 
 **DisplayName** | **string** |  | 
 **FallbackAvatar** | **string** |  | 

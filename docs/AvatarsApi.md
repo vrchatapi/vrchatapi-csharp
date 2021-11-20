@@ -315,7 +315,7 @@ namespace Example
             var order = descending;  // string |  (optional)  (default to descending)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var search = search_example;  // string | Filters by world name. (optional) 
-            var tag = tag_example;  // string | Tags to include (comma-separated). (optional) 
+            var tag = tag_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
             var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
             var releaseStatus = releaseStatus_example;  // string | Filter by ReleaseStatus. (optional)  (default to public)
             var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
  **order** | **string**|  | [optional] [default to descending]
  **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **search** | **string**| Filters by world name. | [optional] 
- **tag** | **string**| Tags to include (comma-separated). | [optional] 
+ **tag** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
  **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
  **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to public]
  **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
@@ -427,7 +427,7 @@ namespace Example
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
             var order = descending;  // string |  (optional)  (default to descending)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var tag = tag_example;  // string | Tags to include (comma-separated). (optional) 
+            var tag = tag_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
             var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
             var releaseStatus = releaseStatus_example;  // string | Filter by ReleaseStatus. (optional)  (default to public)
             var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
  **n** | **int?**| The number of objects to return. | [optional] [default to 60]
  **order** | **string**|  | [optional] [default to descending]
  **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **tag** | **string**| Tags to include (comma-separated). | [optional] 
+ **tag** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
  **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
  **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to public]
  **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 

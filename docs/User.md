@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **AllowAvatarCopying** | **bool** |  | 
 **Bio** | **string** |  | 
 **BioLinks** | **List&lt;string&gt;** |  | 
-**CurrentAvatarImageUrl** | **string** |  | 
-**CurrentAvatarThumbnailImageUrl** | **string** |  | 
+**CurrentAvatarImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
+**CurrentAvatarThumbnailImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
 **DateJoined** | **DateTime** |  | [readonly] 
 **DeveloperType** | **DeveloperType** |  | 
 **DisplayName** | **string** |  | 

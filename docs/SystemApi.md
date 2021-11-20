@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetConfig**](SystemApi.md#getconfig) | **GET** /config | Fetch API Config
 [**GetCurrentOnlineUsers**](SystemApi.md#getcurrentonlineusers) | **GET** /visits | Current Online Users
 [**GetHealth**](SystemApi.md#gethealth) | **GET** /health | Check API Health
+[**GetInfoPush**](SystemApi.md#getinfopush) | **GET** /infoPush | Show Information Notices
 [**GetJavaScript**](SystemApi.md#getjavascript) | **GET** /js/app.js | Download JavaScript
 [**GetSystemTime**](SystemApi.md#getsystemtime) | **GET** /time | Current System Time
 
@@ -301,6 +302,84 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns the API&#39;s health. |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInfoPush
+
+> List&lt;InfoPush&gt; GetInfoPush (string require = null, string include = null)
+
+Show Information Notices
+
+IPS (Info Push System) is a system for VRChat to push out dynamic information to the client. This is primarily used by the Quick-Menu info banners, but can also be used to e.g. alert you to update your game to the latest version.  `include` is used to query what Information Pushes should be included in the response. If include is missing or empty, then no notices will normally be returned. This is an \"any of\" search.  `require` is used to limit what Information Pushes should be included in the response. This is usually used in combination with `include`, and is an \"all of\" search.
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using io.github.vrchatapi.Api;
+using io.github.vrchatapi.Client;
+using io.github.vrchatapi.Model;
+
+namespace Example
+{
+    public class GetInfoPushExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new SystemApi(Configuration.Default);
+            var require = require_example;  // string | Tags to include (comma-separated). All of the tags needs to be present. (optional) 
+            var include = include_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+
+            try
+            {
+                // Show Information Notices
+                List<InfoPush> result = apiInstance.GetInfoPush(require, include);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling SystemApi.GetInfoPush: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **require** | **string**| Tags to include (comma-separated). All of the tags needs to be present. | [optional] 
+ **include** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
+
+### Return type
+
+[**List&lt;InfoPush&gt;**](InfoPush.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of InfoPush objects. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

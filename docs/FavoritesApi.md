@@ -494,7 +494,7 @@ namespace Example
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var type = type_example;  // string | The type of favorites to return, FavoriteType. (optional) 
-            var tag = tag_example;  // string | Tags to include (comma-separated). (optional) 
+            var tag = tag_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
 
             try
             {
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
  **n** | **int?**| The number of objects to return. | [optional] [default to 60]
  **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
  **type** | **string**| The type of favorites to return, FavoriteType. | [optional] 
- **tag** | **string**| Tags to include (comma-separated). | [optional] 
+ **tag** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
 
 ### Return type
 

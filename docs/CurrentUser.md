@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **BioLinks** | **List&lt;string&gt;** |  | 
 **CurrentAvatar** | **string** |  | 
 **CurrentAvatarAssetUrl** | **string** |  | 
-**CurrentAvatarImageUrl** | **string** |  | 
-**CurrentAvatarThumbnailImageUrl** | **string** |  | 
+**CurrentAvatarImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
+**CurrentAvatarThumbnailImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
 **DateJoined** | **DateTime** |  | 
 **DeveloperType** | **DeveloperType** |  | 
 **DisplayName** | **string** |  | 
