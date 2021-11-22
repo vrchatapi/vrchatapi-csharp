@@ -24,5 +24,6 @@ sed -i '/RestClient = new RestClient/a \\n            this.RestClient.CookieCont
 for i in src/io.github.vrchatapi/*/*.cs; do
     sed -i '/VRChat API Banner/d' $i
 done
+sed -i '/VRChat API Banner/d' src/io.github.vrchatapi/io.github.vrchatapi.csproj
 
 bash ./build.sh
