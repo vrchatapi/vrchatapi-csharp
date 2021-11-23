@@ -11,9 +11,8 @@ Method | HTTP request | Description
 [**Unfriend**](FriendsApi.md#unfriend) | **DELETE** /auth/user/friends/{userId} | Unfriend
 
 
-
-## DeleteFriendRequest
-
+<a name="deletefriendrequest"></a>
+# **DeleteFriendRequest**
 > Success DeleteFriendRequest (string userId)
 
 Delete Friend Request
@@ -21,7 +20,6 @@ Delete Friend Request
 Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the `deleteNotification` endpoint instead.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,17 +33,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FriendsApi(Configuration.Default);
+            var apiInstance = new FriendsApi(config);
             var userId = userId_example;  // string | 
 
             try
@@ -54,7 +53,7 @@ namespace Example
                 Success result = apiInstance.DeleteFriendRequest(userId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FriendsApi.DeleteFriendRequest: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -66,7 +65,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -82,8 +80,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -93,14 +91,10 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to delete a non-existent friend-request. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## Friend
-
+<a name="friend"></a>
+# **Friend**
 > Notification Friend (string userId)
 
 Send Friend Request
@@ -108,7 +102,6 @@ Send Friend Request
 Send a friend request to another user.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -122,17 +115,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FriendsApi(Configuration.Default);
+            var apiInstance = new FriendsApi(config);
             var userId = userId_example;  // string | 
 
             try
@@ -141,7 +135,7 @@ namespace Example
                 Notification result = apiInstance.Friend(userId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FriendsApi.Friend: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -153,7 +147,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -169,8 +162,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -180,14 +173,10 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to send a friend request to a user which doesn&#39;t exist. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetFriendStatus
-
+<a name="getfriendstatus"></a>
+# **GetFriendStatus**
 > FriendStatus GetFriendStatus (string userId)
 
 Check Friend Status
@@ -195,7 +184,6 @@ Check Friend Status
 Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming `Notification` of type `friendRequest`, and then accepting that notification.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -209,17 +197,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FriendsApi(Configuration.Default);
+            var apiInstance = new FriendsApi(config);
             var userId = userId_example;  // string | 
 
             try
@@ -228,7 +217,7 @@ namespace Example
                 FriendStatus result = apiInstance.GetFriendStatus(userId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FriendsApi.GetFriendStatus: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -240,7 +229,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -256,8 +244,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -266,14 +254,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a users Friend Status. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetFriends
-
+<a name="getfriends"></a>
+# **GetFriends**
 > List&lt;LimitedUser&gt; GetFriends (int? offset = null, int? n = null, bool? offline = null)
 
 List Friends
@@ -281,7 +265,6 @@ List Friends
 List information about friends.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -295,17 +278,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FriendsApi(Configuration.Default);
+            var apiInstance = new FriendsApi(config);
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
             var offline = true;  // bool? | Returns *only* offline users if true, returns only online and active users if false (optional) 
@@ -316,7 +300,7 @@ namespace Example
                 List<LimitedUser> result = apiInstance.GetFriends(offset, n, offline);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FriendsApi.GetFriends: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -328,7 +312,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -346,8 +329,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -356,14 +339,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a list of LimitedUser objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## Unfriend
-
+<a name="unfriend"></a>
+# **Unfriend**
 > Success Unfriend (string userId)
 
 Unfriend
@@ -371,7 +350,6 @@ Unfriend
 Unfriend a user by ID.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -385,17 +363,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FriendsApi(Configuration.Default);
+            var apiInstance = new FriendsApi(config);
             var userId = userId_example;  // string | 
 
             try
@@ -404,7 +383,7 @@ namespace Example
                 Success result = apiInstance.Unfriend(userId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling FriendsApi.Unfriend: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -416,7 +395,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -432,8 +410,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -443,8 +421,5 @@ Name | Type | Description  | Notes
 | **400** | Error response when trying to unfriend someone who is not a friend. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

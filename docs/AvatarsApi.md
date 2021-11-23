@@ -14,9 +14,8 @@ Method | HTTP request | Description
 [**UpdateAvatar**](AvatarsApi.md#updateavatar) | **PUT** /avatars/{avatarId} | Update Avatar
 
 
-
-## CreateAvatar
-
+<a name="createavatar"></a>
+# **CreateAvatar**
 > Avatar CreateAvatar (CreateAvatarRequest createAvatarRequest = null)
 
 Create Avatar
@@ -24,7 +23,6 @@ Create Avatar
 Create an avatar. It's possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -38,17 +36,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(Configuration.Default);
+            var apiInstance = new AvatarsApi(config);
             var createAvatarRequest = new CreateAvatarRequest(); // CreateAvatarRequest |  (optional) 
 
             try
@@ -57,7 +56,7 @@ namespace Example
                 Avatar result = apiInstance.CreateAvatar(createAvatarRequest);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling AvatarsApi.CreateAvatar: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -69,7 +68,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -85,8 +83,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -95,14 +93,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a single Avatar object. |  -  |
 | **401** | Error response when set featured to true without being an admin. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeleteAvatar
-
+<a name="deleteavatar"></a>
+# **DeleteAvatar**
 > Avatar DeleteAvatar (string avatarId)
 
 Delete Avatar
@@ -110,7 +104,6 @@ Delete Avatar
 Delete an avatar. Notice an avatar is never fully \"deleted\", only its ReleaseStatus is set to \"hidden\" and the linked Files are deleted. The AvatarID is permanently reserved.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -124,17 +117,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(Configuration.Default);
+            var apiInstance = new AvatarsApi(config);
             var avatarId = avatarId_example;  // string | 
 
             try
@@ -143,7 +137,7 @@ namespace Example
                 Avatar result = apiInstance.DeleteAvatar(avatarId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling AvatarsApi.DeleteAvatar: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -155,7 +149,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -171,8 +164,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -182,14 +175,10 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent avatar. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetAvatar
-
+<a name="getavatar"></a>
+# **GetAvatar**
 > Avatar GetAvatar (string avatarId)
 
 Get Avatar
@@ -197,7 +186,6 @@ Get Avatar
 Get information about a specific Avatar.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -211,17 +199,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(Configuration.Default);
+            var apiInstance = new AvatarsApi(config);
             var avatarId = avatarId_example;  // string | 
 
             try
@@ -230,7 +219,7 @@ namespace Example
                 Avatar result = apiInstance.GetAvatar(avatarId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling AvatarsApi.GetAvatar: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -242,7 +231,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -258,8 +246,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -269,14 +257,10 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent avatar. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetFavoritedAvatars
-
+<a name="getfavoritedavatars"></a>
+# **GetFavoritedAvatars**
 > List&lt;Avatar&gt; GetFavoritedAvatars (string featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
 
 List Favorited Avatars
@@ -284,7 +268,6 @@ List Favorited Avatars
 Search and list favorited avatars by query filters.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -298,17 +281,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(Configuration.Default);
+            var apiInstance = new AvatarsApi(config);
             var featured = featured_example;  // string | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
@@ -329,7 +313,7 @@ namespace Example
                 List<Avatar> result = apiInstance.GetFavoritedAvatars(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling AvatarsApi.GetFavoritedAvatars: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -341,7 +325,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -369,8 +352,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -380,14 +363,10 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **403** | Error response when trying to see favourited avatars of another user without sufficient admin permissions. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## SearchAvatars
-
+<a name="searchavatars"></a>
+# **SearchAvatars**
 > List&lt;Avatar&gt; SearchAvatars (string featured = null, string sort = null, string user = null, string userId = null, int? n = null, string order = null, int? offset = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
 
 Search Avatars
@@ -395,7 +374,6 @@ Search Avatars
 Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -409,17 +387,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(Configuration.Default);
+            var apiInstance = new AvatarsApi(config);
             var featured = featured_example;  // string | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var user = user_example;  // string | Set to `me` for searching own avatars. (optional) 
@@ -440,7 +419,7 @@ namespace Example
                 List<Avatar> result = apiInstance.SearchAvatars(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling AvatarsApi.SearchAvatars: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -452,7 +431,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -480,8 +458,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -490,14 +468,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a list of Avatar objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## SelectAvatar
-
+<a name="selectavatar"></a>
+# **SelectAvatar**
 > CurrentUser SelectAvatar (string avatarId)
 
 Select Avatar
@@ -505,7 +479,6 @@ Select Avatar
 Switches into that avatar.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -519,17 +492,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(Configuration.Default);
+            var apiInstance = new AvatarsApi(config);
             var avatarId = avatarId_example;  // string | 
 
             try
@@ -538,7 +512,7 @@ namespace Example
                 CurrentUser result = apiInstance.SelectAvatar(avatarId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling AvatarsApi.SelectAvatar: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -550,7 +524,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -566,8 +539,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -577,14 +550,10 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent avatar. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## SelectFallbackAvatar
-
+<a name="selectfallbackavatar"></a>
+# **SelectFallbackAvatar**
 > CurrentUser SelectFallbackAvatar (string avatarId)
 
 Select Fallback Avatar
@@ -592,7 +561,6 @@ Select Fallback Avatar
 Switches into that avatar as your fallback avatar.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -606,17 +574,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(Configuration.Default);
+            var apiInstance = new AvatarsApi(config);
             var avatarId = avatarId_example;  // string | 
 
             try
@@ -625,7 +594,7 @@ namespace Example
                 CurrentUser result = apiInstance.SelectFallbackAvatar(avatarId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling AvatarsApi.SelectFallbackAvatar: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -637,7 +606,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -653,8 +621,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -665,14 +633,10 @@ Name | Type | Description  | Notes
 | **403** | Error response when trying to select a fallback avatar that is missing the fallback tag. |  -  |
 | **404** | Error response when trying to show information about a non-existent avatar. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpdateAvatar
-
+<a name="updateavatar"></a>
+# **UpdateAvatar**
 > Avatar UpdateAvatar (string avatarId, UpdateAvatarRequest updateAvatarRequest = null)
 
 Update Avatar
@@ -680,7 +644,6 @@ Update Avatar
 Update information about a specific avatar.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -694,17 +657,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(Configuration.Default);
+            var apiInstance = new AvatarsApi(config);
             var avatarId = avatarId_example;  // string | 
             var updateAvatarRequest = new UpdateAvatarRequest(); // UpdateAvatarRequest |  (optional) 
 
@@ -714,7 +678,7 @@ namespace Example
                 Avatar result = apiInstance.UpdateAvatar(avatarId, updateAvatarRequest);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling AvatarsApi.UpdateAvatar: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -726,7 +690,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -743,8 +706,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -754,8 +717,5 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent avatar. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

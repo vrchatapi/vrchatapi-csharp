@@ -19,9 +19,8 @@ Method | HTTP request | Description
 [**UpdateWorld**](WorldsApi.md#updateworld) | **PUT** /worlds/{worldId} | Update World
 
 
-
-## CreateWorld
-
+<a name="createworld"></a>
+# **CreateWorld**
 > World CreateWorld (CreateWorldRequest createWorldRequest = null)
 
 Create World
@@ -29,7 +28,6 @@ Create World
 Create a new world. This endpoint requires `assetUrl` to be a valid File object with `.vrcw` file extension, and `imageUrl` to be a valid File object with an image file extension.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -43,8 +41,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new WorldsApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new WorldsApi(config);
             var createWorldRequest = new CreateWorldRequest(); // CreateWorldRequest |  (optional) 
 
             try
@@ -53,7 +52,7 @@ namespace Example
                 World result = apiInstance.CreateWorld(createWorldRequest);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.CreateWorld: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -65,7 +64,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -81,8 +79,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -92,14 +90,10 @@ No authorization required
 | **400** | Error response when trying create a world without having the neccesary Trust rank yet. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## DeleteWorld
-
+<a name="deleteworld"></a>
+# **DeleteWorld**
 > void DeleteWorld (string worldId)
 
 Delete World
@@ -107,7 +101,6 @@ Delete World
 Delete a world. Notice a world is never fully \"deleted\", only its ReleaseStatus is set to \"hidden\" and the linked Files are deleted. The WorldID is permanently reserved.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -121,17 +114,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var worldId = worldId_example;  // string | 
 
             try
@@ -139,7 +133,7 @@ namespace Example
                 // Delete World
                 apiInstance.DeleteWorld(worldId);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.DeleteWorld: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -151,7 +145,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -167,8 +160,8 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -178,14 +171,10 @@ void (empty response body)
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetActiveWorlds
-
+<a name="getactiveworlds"></a>
+# **GetActiveWorlds**
 > List&lt;LimitedWorld&gt; GetActiveWorlds (string featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
 
 List Active Worlds
@@ -193,7 +182,6 @@ List Active Worlds
 Search and list currently Active worlds by query filters.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -207,17 +195,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var featured = featured_example;  // string | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
@@ -237,7 +226,7 @@ namespace Example
                 List<LimitedWorld> result = apiInstance.GetActiveWorlds(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.GetActiveWorlds: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -249,7 +238,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -276,8 +264,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -286,14 +274,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a list of LimitedWorld objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetFavoritedWorlds
-
+<a name="getfavoritedworlds"></a>
+# **GetFavoritedWorlds**
 > List&lt;LimitedWorld&gt; GetFavoritedWorlds (string featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
 
 List Favorited Worlds
@@ -301,7 +285,6 @@ List Favorited Worlds
 Search and list favorited worlds by query filters.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -315,17 +298,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var featured = featured_example;  // string | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
@@ -346,7 +330,7 @@ namespace Example
                 List<LimitedWorld> result = apiInstance.GetFavoritedWorlds(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.GetFavoritedWorlds: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -358,7 +342,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -386,8 +369,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -397,14 +380,10 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **403** | Error response when trying to see favourited worlds of another user without sufficient admin permissions. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetRecentWorlds
-
+<a name="getrecentworlds"></a>
+# **GetRecentWorlds**
 > List&lt;LimitedWorld&gt; GetRecentWorlds (string featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
 
 List Recent Worlds
@@ -412,7 +391,6 @@ List Recent Worlds
 Search and list recently visited worlds by query filters.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -426,17 +404,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var featured = featured_example;  // string | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
@@ -457,7 +436,7 @@ namespace Example
                 List<LimitedWorld> result = apiInstance.GetRecentWorlds(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.GetRecentWorlds: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -469,7 +448,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -497,8 +475,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -508,14 +486,10 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **403** | Error response when trying to see recently visited worlds of another user without sufficient admin permissions. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetWorld
-
+<a name="getworld"></a>
+# **GetWorld**
 > World GetWorld (string worldId)
 
 Get World by ID
@@ -523,7 +497,6 @@ Get World by ID
 Get information about a specific World.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -537,13 +510,14 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var worldId = worldId_example;  // string | 
 
             try
@@ -552,7 +526,7 @@ namespace Example
                 World result = apiInstance.GetWorld(worldId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.GetWorld: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -564,7 +538,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -580,8 +553,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -590,14 +563,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a single World object. |  -  |
 | **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetWorldInstance
-
+<a name="getworldinstance"></a>
+# **GetWorldInstance**
 > Instance GetWorldInstance (string worldId, string instanceId)
 
 Get World Instance
@@ -605,7 +574,6 @@ Get World Instance
 Returns a worlds instance.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -619,17 +587,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var worldId = worldId_example;  // string | 
             var instanceId = instanceId_example;  // string | 
 
@@ -639,7 +608,7 @@ namespace Example
                 Instance result = apiInstance.GetWorldInstance(worldId, instanceId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.GetWorldInstance: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -651,7 +620,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -668,8 +636,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -678,14 +646,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a single Instance object. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetWorldMetadata
-
+<a name="getworldmetadata"></a>
+# **GetWorldMetadata**
 > WorldMetadata GetWorldMetadata (string worldId)
 
 Get World Metadata
@@ -693,7 +657,6 @@ Get World Metadata
 Return a worlds custom metadata. This is currently believed to be unused. Metadata can be set with `updateWorld` and can be any arbitrary object.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -707,17 +670,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var worldId = worldId_example;  // string | 
 
             try
@@ -726,7 +690,7 @@ namespace Example
                 WorldMetadata result = apiInstance.GetWorldMetadata(worldId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.GetWorldMetadata: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -738,7 +702,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -754,8 +717,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -764,14 +727,10 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetWorldPublishStatus
-
+<a name="getworldpublishstatus"></a>
+# **GetWorldPublishStatus**
 > WorldPublishStatus GetWorldPublishStatus (string worldId)
 
 Get World Publish Status
@@ -779,7 +738,6 @@ Get World Publish Status
 Returns a worlds publish status.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -793,17 +751,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var worldId = worldId_example;  // string | 
 
             try
@@ -812,7 +771,7 @@ namespace Example
                 WorldPublishStatus result = apiInstance.GetWorldPublishStatus(worldId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.GetWorldPublishStatus: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -824,7 +783,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -840,8 +798,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -851,14 +809,10 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## PublishWorld
-
+<a name="publishworld"></a>
+# **PublishWorld**
 > void PublishWorld (string worldId)
 
 Publish World
@@ -866,7 +820,6 @@ Publish World
 Publish a world. You can only publish one world per week.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -880,17 +833,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var worldId = worldId_example;  // string | 
 
             try
@@ -898,7 +852,7 @@ namespace Example
                 // Publish World
                 apiInstance.PublishWorld(worldId);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.PublishWorld: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -910,7 +864,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -926,8 +879,8 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -937,14 +890,10 @@ void (empty response body)
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## SearchWorlds
-
+<a name="searchworlds"></a>
+# **SearchWorlds**
 > List&lt;LimitedWorld&gt; SearchWorlds (string featured = null, string sort = null, string user = null, string userId = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
 
 Search All Worlds
@@ -952,7 +901,6 @@ Search All Worlds
 Search and list any worlds by query filters.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -966,17 +914,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var featured = featured_example;  // string | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var user = user_example;  // string | Set to `me` for searching own worlds. (optional) 
@@ -998,7 +947,7 @@ namespace Example
                 List<LimitedWorld> result = apiInstance.SearchWorlds(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.SearchWorlds: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1010,7 +959,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1039,8 +987,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1049,14 +997,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a list of LimitedWorld objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UnpublishWorld
-
+<a name="unpublishworld"></a>
+# **UnpublishWorld**
 > void UnpublishWorld (string worldId)
 
 Unpublish World
@@ -1064,7 +1008,6 @@ Unpublish World
 Unpublish a world.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1078,17 +1021,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var worldId = worldId_example;  // string | 
 
             try
@@ -1096,7 +1040,7 @@ namespace Example
                 // Unpublish World
                 apiInstance.UnpublishWorld(worldId);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.UnpublishWorld: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1108,7 +1052,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1124,8 +1067,8 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1135,14 +1078,10 @@ void (empty response body)
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## UpdateWorld
-
+<a name="updateworld"></a>
+# **UpdateWorld**
 > World UpdateWorld (string worldId, UpdateWorldRequest updateWorldRequest = null)
 
 Update World
@@ -1150,7 +1089,6 @@ Update World
 Update information about a specific World.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -1164,17 +1102,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(Configuration.Default);
+            var apiInstance = new WorldsApi(config);
             var worldId = worldId_example;  // string | 
             var updateWorldRequest = new UpdateWorldRequest(); // UpdateWorldRequest |  (optional) 
 
@@ -1184,7 +1123,7 @@ namespace Example
                 World result = apiInstance.UpdateWorld(worldId, updateWorldRequest);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling WorldsApi.UpdateWorld: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -1196,7 +1135,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1213,8 +1151,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -1224,8 +1162,5 @@ Name | Type | Description  | Notes
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent world. Sometimes returns with &#x60;model &lt;worldId&gt; not found&#x60; instead of &#x60;World &lt;worldId not found&#x60;. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

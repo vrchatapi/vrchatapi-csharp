@@ -11,9 +11,8 @@ Method | HTTP request | Description
 [**GetSubscriptions**](EconomyApi.md#getsubscriptions) | **GET** /subscriptions | List Subscriptions
 
 
-
-## GetCurrentSubscriptions
-
+<a name="getcurrentsubscriptions"></a>
+# **GetCurrentSubscriptions**
 > List&lt;UserSubscription&gt; GetCurrentSubscriptions ()
 
 Get Current Subscriptions
@@ -21,7 +20,6 @@ Get Current Subscriptions
 Get a list of all current user subscriptions.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,17 +33,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new EconomyApi(Configuration.Default);
+            var apiInstance = new EconomyApi(config);
 
             try
             {
@@ -53,7 +52,7 @@ namespace Example
                 List<UserSubscription> result = apiInstance.GetCurrentSubscriptions();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling EconomyApi.GetCurrentSubscriptions: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -65,7 +64,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -78,8 +76,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -88,14 +86,10 @@ This endpoint does not need any parameter.
 | **200** | Returns a list of UserSubscription objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetLicenseGroup
-
+<a name="getlicensegroup"></a>
+# **GetLicenseGroup**
 > LicenseGroup GetLicenseGroup (string licenseGroupId)
 
 Get License Group
@@ -103,7 +97,6 @@ Get License Group
 Get a single License Group by given ID.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -117,17 +110,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new EconomyApi(Configuration.Default);
+            var apiInstance = new EconomyApi(config);
             var licenseGroupId = licenseGroupId_example;  // string | 
 
             try
@@ -136,7 +130,7 @@ namespace Example
                 LicenseGroup result = apiInstance.GetLicenseGroup(licenseGroupId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling EconomyApi.GetLicenseGroup: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -148,7 +142,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -164,8 +157,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -174,14 +167,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a single LicenseGroup object. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetSteamTransaction
-
+<a name="getsteamtransaction"></a>
+# **GetSteamTransaction**
 > Transaction GetSteamTransaction (string transactionId)
 
 Get Steam Transaction
@@ -189,7 +178,6 @@ Get Steam Transaction
 Get a single Steam transactions by ID. This returns the exact same information as `getSteamTransactions`, so no point in using this endpoint.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -203,17 +191,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new EconomyApi(Configuration.Default);
+            var apiInstance = new EconomyApi(config);
             var transactionId = transactionId_example;  // string | 
 
             try
@@ -222,7 +211,7 @@ namespace Example
                 Transaction result = apiInstance.GetSteamTransaction(transactionId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling EconomyApi.GetSteamTransaction: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -234,7 +223,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -250,8 +238,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -260,14 +248,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a single Transaction object. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetSteamTransactions
-
+<a name="getsteamtransactions"></a>
+# **GetSteamTransactions**
 > List&lt;Transaction&gt; GetSteamTransactions ()
 
 List Steam Transactions
@@ -275,7 +259,6 @@ List Steam Transactions
 Get all own Steam transactions.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -289,17 +272,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new EconomyApi(Configuration.Default);
+            var apiInstance = new EconomyApi(config);
 
             try
             {
@@ -307,7 +291,7 @@ namespace Example
                 List<Transaction> result = apiInstance.GetSteamTransactions();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling EconomyApi.GetSteamTransactions: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -319,7 +303,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -332,8 +315,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -342,14 +325,10 @@ This endpoint does not need any parameter.
 | **200** | Returns a list of Transaction objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetSubscriptions
-
+<a name="getsubscriptions"></a>
+# **GetSubscriptions**
 > List&lt;Subscription&gt; GetSubscriptions ()
 
 List Subscriptions
@@ -357,7 +336,6 @@ List Subscriptions
 List all existing Subscriptions. For example, \"vrchatplus-monthly\" and \"vrchatplus-yearly\".
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -371,17 +349,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new EconomyApi(Configuration.Default);
+            var apiInstance = new EconomyApi(config);
 
             try
             {
@@ -389,7 +368,7 @@ namespace Example
                 List<Subscription> result = apiInstance.GetSubscriptions();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling EconomyApi.GetSubscriptions: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -401,7 +380,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -414,8 +392,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -424,8 +402,5 @@ This endpoint does not need any parameter.
 | **200** | Returns a list of Subscription objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

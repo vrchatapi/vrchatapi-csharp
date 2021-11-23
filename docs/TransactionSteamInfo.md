@@ -1,4 +1,3 @@
-
 # io.github.vrchatapi.Model.TransactionSteamInfo
 
 ## Properties
@@ -11,7 +10,5 @@ Name | Type | Description | Notes
 **SteamUrl** | **string** | Empty | 
 **TransId** | **string** | Steam Transaction ID, NOT the same as VRChat TransactionID | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

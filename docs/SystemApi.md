@@ -13,9 +13,8 @@ Method | HTTP request | Description
 [**GetSystemTime**](SystemApi.md#getsystemtime) | **GET** /time | Current System Time
 
 
-
-## GetCSS
-
+<a name="getcss"></a>
+# **GetCSS**
 > string GetCSS (string variant = null, string branch = null)
 
 Download CSS
@@ -23,7 +22,6 @@ Download CSS
 Fetches the CSS code to the frontend React website.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -37,8 +35,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new SystemApi(config);
             var variant = variant_example;  // string | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)  (default to public)
             var branch = branch_example;  // string | Specifies which git branch the site should load frontend source code from. (optional)  (default to "main")
 
@@ -48,7 +47,7 @@ namespace Example
                 string result = apiInstance.GetCSS(variant, branch);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling SystemApi.GetCSS: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -60,7 +59,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -77,8 +75,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/css, application/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/css, application/json
 
 
 ### HTTP response details
@@ -87,14 +85,10 @@ No authorization required
 | **200** | **Note:** VRChat uses 302 Redirect to Cloudfront. The implementing library **must** support and follow redirects natively. |  -  |
 | **400** | Error response when trying to download non-public and non-main JavaScript or CSS without Admin Credentials. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetConfig
-
+<a name="getconfig"></a>
+# **GetConfig**
 > APIConfig GetConfig ()
 
 Fetch API Config
@@ -102,7 +96,6 @@ Fetch API Config
 API config contains configuration that the clients needs to work properly.  Currently the most important value here is `clientApiKey` which is used for all other API endpoints.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -116,8 +109,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new SystemApi(config);
 
             try
             {
@@ -125,7 +119,7 @@ namespace Example
                 APIConfig result = apiInstance.GetConfig();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling SystemApi.GetConfig: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -137,7 +131,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -150,8 +143,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -159,14 +152,10 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Returns the API&#39;s config. |  * Set-Cookie -  <br>  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetCurrentOnlineUsers
-
+<a name="getcurrentonlineusers"></a>
+# **GetCurrentOnlineUsers**
 > int GetCurrentOnlineUsers ()
 
 Current Online Users
@@ -174,7 +163,6 @@ Current Online Users
 Returns the current number of online users.  **NOTE:** The response type is not a JSON object, but a simple JSON integer.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -188,8 +176,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new SystemApi(config);
 
             try
             {
@@ -197,7 +186,7 @@ namespace Example
                 int result = apiInstance.GetCurrentOnlineUsers();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling SystemApi.GetCurrentOnlineUsers: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -209,7 +198,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -222,8 +210,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -231,14 +219,10 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetHealth
-
+<a name="gethealth"></a>
+# **GetHealth**
 > APIHealth GetHealth ()
 
 Check API Health
@@ -246,7 +230,6 @@ Check API Health
 ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -260,8 +243,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new SystemApi(config);
 
             try
             {
@@ -269,7 +253,7 @@ namespace Example
                 APIHealth result = apiInstance.GetHealth();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling SystemApi.GetHealth: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -281,7 +265,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -294,8 +277,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -303,14 +286,10 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Returns the API&#39;s health. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetInfoPush
-
+<a name="getinfopush"></a>
+# **GetInfoPush**
 > List&lt;InfoPush&gt; GetInfoPush (string require = null, string include = null)
 
 Show Information Notices
@@ -318,7 +297,6 @@ Show Information Notices
 IPS (Info Push System) is a system for VRChat to push out dynamic information to the client. This is primarily used by the Quick-Menu info banners, but can also be used to e.g. alert you to update your game to the latest version.  `include` is used to query what Information Pushes should be included in the response. If include is missing or empty, then no notices will normally be returned. This is an \"any of\" search.  `require` is used to limit what Information Pushes should be included in the response. This is usually used in combination with `include`, and is an \"all of\" search.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -332,8 +310,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new SystemApi(config);
             var require = require_example;  // string | Tags to include (comma-separated). All of the tags needs to be present. (optional) 
             var include = include_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
 
@@ -343,7 +322,7 @@ namespace Example
                 List<InfoPush> result = apiInstance.GetInfoPush(require, include);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling SystemApi.GetInfoPush: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -355,7 +334,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -372,8 +350,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -381,14 +359,10 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Returns a list of InfoPush objects. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetJavaScript
-
+<a name="getjavascript"></a>
+# **GetJavaScript**
 > string GetJavaScript (string variant = null, string branch = null)
 
 Download JavaScript
@@ -396,7 +370,6 @@ Download JavaScript
 Fetches the JavaScript code to the frontend React website.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -410,8 +383,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new SystemApi(config);
             var variant = variant_example;  // string | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)  (default to public)
             var branch = branch_example;  // string | Specifies which git branch the site should load frontend source code from. (optional)  (default to "main")
 
@@ -421,7 +395,7 @@ namespace Example
                 string result = apiInstance.GetJavaScript(variant, branch);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling SystemApi.GetJavaScript: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -433,7 +407,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -450,8 +423,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/javascript, application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/javascript, application/json
 
 
 ### HTTP response details
@@ -460,14 +433,10 @@ No authorization required
 | **200** | **Note:** VRChat uses 302 Redirect to Cloudfront. The implementing library **must** support and follow redirects natively. |  -  |
 | **400** | Error response when trying to download non-public and non-main JavaScript or CSS without Admin Credentials. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetSystemTime
-
+<a name="getsystemtime"></a>
+# **GetSystemTime**
 > DateTime GetSystemTime ()
 
 Current System Time
@@ -475,7 +444,6 @@ Current System Time
 Returns the current time of the API server.  **NOTE:** The response type is not a JSON object, but a simple JSON string.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -489,8 +457,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(Configuration.Default);
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new SystemApi(config);
 
             try
             {
@@ -498,7 +467,7 @@ namespace Example
                 DateTime result = apiInstance.GetSystemTime();
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling SystemApi.GetSystemTime: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -510,7 +479,6 @@ namespace Example
 ```
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -523,8 +491,8 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -532,8 +500,5 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

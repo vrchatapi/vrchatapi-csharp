@@ -1,4 +1,3 @@
-
 # io.github.vrchatapi.Model.License
 
 ## Properties
@@ -10,7 +9,5 @@ Name | Type | Description | Notes
 **ForName** | **string** |  | 
 **ForAction** | **LicenseAction** |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

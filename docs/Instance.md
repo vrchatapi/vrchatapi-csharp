@@ -1,4 +1,3 @@
-
 # io.github.vrchatapi.Model.Instance
 
 ## Properties
@@ -28,7 +27,5 @@ Name | Type | Description | Notes
 **World** | **Object** | Only present on non-existing instances, and only contains a very small subject of World object. Use World API instead. | [optional] 
 **WorldId** | **string** |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

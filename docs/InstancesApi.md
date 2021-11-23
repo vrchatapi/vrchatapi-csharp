@@ -9,9 +9,8 @@ Method | HTTP request | Description
 [**SendSelfInvite**](InstancesApi.md#sendselfinvite) | **POST** /instances/{worldId}:{instanceId}/invite | Send Self Invite
 
 
-
-## GetInstance
-
+<a name="getinstance"></a>
+# **GetInstance**
 > Instance GetInstance (string worldId, string instanceId)
 
 Get Instance
@@ -19,7 +18,6 @@ Get Instance
 Returns an instance.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,17 +31,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InstancesApi(Configuration.Default);
+            var apiInstance = new InstancesApi(config);
             var worldId = worldId_example;  // string | 
             var instanceId = instanceId_example;  // string | 
 
@@ -53,7 +52,7 @@ namespace Example
                 Instance result = apiInstance.GetInstance(worldId, instanceId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling InstancesApi.GetInstance: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -65,7 +64,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -82,8 +80,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -92,14 +90,10 @@ Name | Type | Description  | Notes
 | **200** | Returns a single Instance object. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetShortName
-
+<a name="getshortname"></a>
+# **GetShortName**
 > string GetShortName (string worldId, string instanceId)
 
 Get Instance Short Name
@@ -107,7 +101,6 @@ Get Instance Short Name
 Returns an instance short name.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -121,17 +114,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InstancesApi(Configuration.Default);
+            var apiInstance = new InstancesApi(config);
             var worldId = worldId_example;  // string | 
             var instanceId = instanceId_example;  // string | 
 
@@ -141,7 +135,7 @@ namespace Example
                 string result = apiInstance.GetShortName(worldId, instanceId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling InstancesApi.GetShortName: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -153,7 +147,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -170,8 +163,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json
 
 
 ### HTTP response details
@@ -180,14 +173,10 @@ Name | Type | Description  | Notes
 | **200** | Returns an instance short name. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## SendSelfInvite
-
+<a name="sendselfinvite"></a>
+# **SendSelfInvite**
 > Success SendSelfInvite (string worldId, string instanceId)
 
 Send Self Invite
@@ -195,7 +184,6 @@ Send Self Invite
 Sends an invite to the instance to yourself.
 
 ### Example
-
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -209,17 +197,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.AddApiKey("apiKey", "YOUR_API_KEY");
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("apiKey", "Bearer");
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
             // Configure API key authorization: authCookie
-            Configuration.Default.AddApiKey("auth", "YOUR_API_KEY");
+            config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("auth", "Bearer");
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InstancesApi(Configuration.Default);
+            var apiInstance = new InstancesApi(config);
             var worldId = worldId_example;  // string | 
             var instanceId = instanceId_example;  // string | 
 
@@ -229,7 +218,7 @@ namespace Example
                 Success result = apiInstance.SendSelfInvite(worldId, instanceId);
                 Debug.WriteLine(result);
             }
-            catch (ApiException e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling InstancesApi.SendSelfInvite: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
@@ -241,7 +230,6 @@ namespace Example
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -258,8 +246,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -268,8 +256,5 @@ Name | Type | Description  | Notes
 | **200** | Success response after sending an invite to yourself to the instance. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

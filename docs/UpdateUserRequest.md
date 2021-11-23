@@ -1,4 +1,3 @@
-
 # io.github.vrchatapi.Model.UpdateUserRequest
 
 ## Properties
@@ -15,7 +14,5 @@ Name | Type | Description | Notes
 **BioLinks** | **List&lt;string&gt;** |  | [optional] 
 **UserIcon** | **string** | MUST be a valid VRChat /file/ url. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,77 +1,129 @@
 # io.github.vrchatapi - the C# library for the VRChat API Documentation
 
-![VRChat API Banner](https://raw.githubusercontent.com/vrchatapi/vrchatapi.github.io/master/assets/apibanner.png)
+![VRChat API Banner](https://vrchatapi.github.io/assets/img/api_banner_1500x400.png)
 
-# VRChat API Documentation
-This project is an [OPEN Open Source Project](https://openopensource.org)
+# Welcome to the VRChat API
 
-Individuals making significant and valuable contributions are given
-commit-access to the project to contribute as they see fit. This project
-is more like an open wiki than a standard guarded open source project.
+Before we begin, we would like to state this is a **COMMUNITY DRIVEN PROJECT**.
+This means that everything you read on here was written by the community itself and is **not** officially supported by VRChat.
+The documentation is provided \"AS IS\", and any action you take towards VRChat is completely your own responsibility.
 
-## Disclaimer
+The documentation and additional libraries SHALL ONLY be used for applications interacting with VRChat's API in accordance
+with their [Terms of Service](https://hello.vrchat.com/legal) and [Community Guidelines](https://hello.vrchat.com/community-guidelines), and MUST NOT be used for modifying the client, \"avatar ripping\", or other illegal activities.
+Malicious usage or spamming the API may result in account termination.
+Certain parts of the API are also more sensitive than others, for example moderation, so please tread extra carefully and read the warnings when present.
 
-This is the official response of the VRChat Team (from Tupper more specifically) on the usage of the VRChat API.
+![Tupper Policy on API](https://i.imgur.com/yLlW7Ok.png)
 
-> **Use of the API using applications other than the approved methods (website, VRChat application) are not officially supported. You may use the API for your own application, but keep these guidelines in mind:**
-> * We do not provide documentation or support for the API.
-> * Do not make queries to the API more than once per 60 seconds.
-> * Abuse of the API may result in account termination.
-> * Access to API endpoints may break at any given time, with no warning.
+Finally, use of the API using applications other than the approved methods (website, VRChat application, Unity SDK) is not officially supported.
+VRChat provides no guarantee or support for external applications using the API. Access to API endpoints may break **at any time, without notice**.
+Therefore, please **do not ping** VRChat Staff in the VRChat Discord if you are having API problems, as they do not provide API support.
+We will make a best effort in keeping this documentation and associated language libraries up to date, but things might be outdated or missing.
+If you find that something is no longer valid, please contact us on Discord or [create an issue](https://github.com/vrchatapi/specification/issues) and tell us so we can fix it.
 
-As stated, this documentation was not created with the help of the official VRChat team. Therefore this documentation is not an official documentation of the VRChat API and may not be always up to date with the latest versions. If you find that a page or endpoint is not longer valid please create an issue and tell us so we can fix it.
+# Getting Started
 
-## Get in touch with us!
+The VRChat API can be used to programmatically retrieve or update information regarding your profile, friends, avatars, worlds and more.
+The API consists of two parts, \"Photon\" which is only used in-game, and the \"Web API\" which is used by both the game and the website.
+This documentation focuses only on the Web API.
 
-[https://discord.gg/qjZE9C9fkB#vrchat-api](https://discord.gg/qjZE9C9fkB)
+The API is designed around the REST ideology, providing semi-simple and usually predictable URIs to access and modify objects.
+Requests support standard HTTP methods like GET, PUT, POST, and DELETE and standard status codes.
+Response bodies are always UTF-8 encoded JSON objects, unless explicitly documented otherwise.
+
+<div class=\"callout callout-error\">
+  <strong>🛑 Warning! Do not touch Photon!</strong><br>
+  Photon is only used by the in-game client and should <b>not</b> be touched. Doing so may result in permanent account termination.
+</div>
+
+<div class=\"callout callout-info\">
+  <strong>ℹ️ API Key and Authentication</strong><br>
+  The API Key has always been the same and is currently <code>JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26</code>.
+  Read <a href=\"#tag- -authentication\">Authentication</a> for how to log in.
+</div>
+
+# Using the API
+
+For simply exploring what the API can do it is strongly recommended to download [Insomnia](https://insomnia.rest/download), a free and open-source
+API client that's great for sending requests to the API in an orderly fashion.
+Insomnia allows you to send data in the format that's required for VRChat's API.
+It is also possible to try out the API in your browser, by first logging in at [vrchat.com/home](https://vrchat.com/home/) and then going to
+[vrchat.com/api/1/auth/user](https://vrchat.com/api/1/auth/user), but the information will be much harder to work with.
+
+For more permanent operation such as software development it is instead recommended to use one of the existing language SDKs.
+This community project maintains API libraries in several languages, which allows you to interact with the API with simple function calls
+rather than having to implement the HTTP protocol yourself. Most of these libraries are automatically generated from the API specification,
+sometimes with additional helpful wrapper code to make usage easier. This allows them to be almost automatically updated and expanded upon
+as soon as a new feature is introduced in the specification itself. The libraries can be found on [GitHub](https://github.com/vrchatapi) or following:
+
+* [NodeJS (JavaScript)](https://www.npmjs.com/package/vrchat)
+* [Dart](https://pub.dev/packages/vrchat_dart)
+* [Rust](https://crates.io/crates/vrchatapi)
+* [C#](https://github.com/vrchatapi/vrchatapi-csharp)
+* [Python](https://github.com/vrchatapi/VRChatPython)
+
+# Pagination
+
+Most endpoints enforce pagination, meaning they will only return 10 entries by default, and never more than 100.<br>
+Using both the limit and offset parameters allows you to easily paginate through a large number of objects.
+
+| Query Parameter | Type | Description |
+| - -- -- -- -- -|- -|- -- -- -- |
+| `n` | integer  | The number of objects to return. This value often defaults to 10. Highest limit is always 100.|
+| `offset` | integer  | A zero-based offset from the default object sorting.|
+
+If a request returns fewer objects than the `limit` parameter, there are no more items available to return.
+
+# Contribution
+
+Do you want to get involved in the documentation effort? Do you want to help improve one of the language API libraries?
+This project is an [OPEN Open Source Project](https://openopensource.org)! This means that individuals making significant and valuable contributions are given
+commit-access to the project. It also means we are very open and welcoming of new people making contributions, unlike some more guarded open-source projects.
+
+[![Discord](https://img.shields.io/static/v1?label=vrchatapi&message=discord&color=blueviolet&style=for-the-badge)](https://discord.gg/qjZE9C9fkB)
 
 This C# SDK is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: 1.0.1
+- API version: 1.5.3
 - SDK version: 1.0.0
-- Build package: org.openapitools.codegen.languages.CSharpClientCodegen
+- Build package: org.openapitools.codegen.languages.CSharpNetCoreClientCodegen
     For more information, please visit [https://github.com/VRChatAPI](https://github.com/VRChatAPI)
 
+<a name="frameworks-supported"></a>
 ## Frameworks supported
 
-
-- .NET 4.0 or later
-- Windows Phone 7.1 (Mango)
-
+<a name="dependencies"></a>
 ## Dependencies
 
-
-- [RestSharp](https://www.nuget.org/packages/RestSharp) - 105.1.0 or later
-- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 7.0.0 or later
-- [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.2.0 or later
+- [RestSharp](https://www.nuget.org/packages/RestSharp) - 106.11.7 or later
+- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 12.0.3 or later
+- [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.8.0 or later
+- [System.ComponentModel.Annotations](https://www.nuget.org/packages/System.ComponentModel.Annotations) - 5.0.0 or later
 
 The DLLs included in the package may not be the latest version. We recommend using [NuGet](https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
-
 ```
 Install-Package RestSharp
 Install-Package Newtonsoft.Json
 Install-Package JsonSubTypes
+Install-Package System.ComponentModel.Annotations
 ```
 
-NOTE: RestSharp versions greater than 105.1.0 have a bug which causes file uploads to fail. See [RestSharp#742](https://github.com/restsharp/RestSharp/issues/742)
+NOTE: RestSharp versions greater than 105.1.0 have a bug which causes file uploads to fail. See [RestSharp#742](https://github.com/restsharp/RestSharp/issues/742).
+NOTE: RestSharp for .Net Core creates a new socket for each api call, which can lead to a socket exhaustion problem. See [RestSharp#1406](https://github.com/restsharp/RestSharp/issues/1406).
 
+<a name="installation"></a>
 ## Installation
-
 Run the following command to generate the DLL
-
 - [Mac/Linux] `/bin/sh build.sh`
 - [Windows] `build.bat`
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
-
 ```csharp
 using io.github.vrchatapi.Api;
 using io.github.vrchatapi.Client;
 using io.github.vrchatapi.Model;
-
 ```
-
-
+<a name="packaging"></a>
 ## Packaging
 
 A `.nuspec` is included with the project. You can follow the Nuget quickstart to [create](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#create-the-package) and [publish](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#publish-the-package) packages.
@@ -84,7 +136,18 @@ nuget pack -Build -OutputDirectory out io.github.vrchatapi.csproj
 
 Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
 
+<a name="usage"></a>
+## Usage
 
+To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`
+```csharp
+Configuration c = new Configuration();
+System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
+webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
+c.Proxy = webProxy;
+```
+
+<a name="getting-started"></a>
 ## Getting Started
 
 ```csharp
@@ -101,28 +164,28 @@ namespace Example
         public static void Main()
         {
 
-            Configuration.Default.BasePath = "https://api.vrchat.cloud/api/1";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
             // Configure API key authorization: apiKeyCookie
-            Configuration.Default.ApiKey.Add("apiKey", "YOUR_API_KEY");
+            config.ApiKey.Add("apiKey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apiKey", "Bearer");
-            // Configure API key authorization: authCookie
-            Configuration.Default.ApiKey.Add("auth", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("auth", "Bearer");
+            // config.ApiKeyPrefix.Add("apiKey", "Bearer");
 
-            var apiInstance = new AuthenticationApi(Configuration.Default);
-            var userId = userId_example;  // string | 
+            var apiInstance = new AuthenticationApi(config);
+            var email = email_example;  // string | Filter by email. (optional) 
+            var displayName = displayName_example;  // string | Filter by displayName. (optional) 
+            var userId = userId_example;  // string | Filter by UserID. (optional) 
+            var excludeUserId = excludeUserId_example;  // string | Exclude by UserID. (optional) 
 
             try
             {
-                // Delete User
-                CurrentUser result = apiInstance.DeleteUserById(userId);
+                // Check User Exists
+                UserExists result = apiInstance.CheckUserExists(email, displayName, userId, excludeUserId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.DeleteUserById: " + e.Message );
+                Debug.Print("Exception when calling AuthenticationApi.CheckUserExists: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -132,18 +195,41 @@ namespace Example
 }
 ```
 
+<a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationApi* | [**DeleteUserById**](docs/AuthenticationApi.md#deleteuserbyid) | **PUT** /user/{userId}/delete | Delete User
+*AuthenticationApi* | [**CheckUserExists**](docs/AuthenticationApi.md#checkuserexists) | **GET** /auth/exists | Check User Exists
+*AuthenticationApi* | [**DeleteUser**](docs/AuthenticationApi.md#deleteuser) | **PUT** /user/{userId}/delete | Delete User
 *AuthenticationApi* | [**GetCurrentUser**](docs/AuthenticationApi.md#getcurrentuser) | **GET** /auth/user | Login and/or Get Current User Info
 *AuthenticationApi* | [**Logout**](docs/AuthenticationApi.md#logout) | **PUT** /logout | Logout
 *AuthenticationApi* | [**Verify2FA**](docs/AuthenticationApi.md#verify2fa) | **POST** /auth/twofactorauth/totp/verify | Verify 2FA code
 *AuthenticationApi* | [**VerifyAuthToken**](docs/AuthenticationApi.md#verifyauthtoken) | **GET** /auth | Verify Auth Token
 *AuthenticationApi* | [**VerifyRecoveryCode**](docs/AuthenticationApi.md#verifyrecoverycode) | **POST** /auth/twofactorauth/otp/verify | Verify 2FA code with Recovery code
+*AvatarsApi* | [**CreateAvatar**](docs/AvatarsApi.md#createavatar) | **POST** /avatars | Create Avatar
+*AvatarsApi* | [**DeleteAvatar**](docs/AvatarsApi.md#deleteavatar) | **DELETE** /avatars/{avatarId} | Delete Avatar
+*AvatarsApi* | [**GetAvatar**](docs/AvatarsApi.md#getavatar) | **GET** /avatars/{avatarId} | Get Avatar
+*AvatarsApi* | [**GetFavoritedAvatars**](docs/AvatarsApi.md#getfavoritedavatars) | **GET** /avatars/favorites | List Favorited Avatars
+*AvatarsApi* | [**SearchAvatars**](docs/AvatarsApi.md#searchavatars) | **GET** /avatars | Search Avatars
+*AvatarsApi* | [**SelectAvatar**](docs/AvatarsApi.md#selectavatar) | **PUT** /avatars/{avatarId}/select | Select Avatar
+*AvatarsApi* | [**SelectFallbackAvatar**](docs/AvatarsApi.md#selectfallbackavatar) | **PUT** /avatars/{avatarId}/selectFallback | Select Fallback Avatar
+*AvatarsApi* | [**UpdateAvatar**](docs/AvatarsApi.md#updateavatar) | **PUT** /avatars/{avatarId} | Update Avatar
+*EconomyApi* | [**GetCurrentSubscriptions**](docs/EconomyApi.md#getcurrentsubscriptions) | **GET** /auth/user/subscription | Get Current Subscriptions
+*EconomyApi* | [**GetLicenseGroup**](docs/EconomyApi.md#getlicensegroup) | **GET** /licenseGroups/{licenseGroupId} | Get License Group
+*EconomyApi* | [**GetSteamTransaction**](docs/EconomyApi.md#getsteamtransaction) | **GET** /Steam/transactions/{transactionId} | Get Steam Transaction
+*EconomyApi* | [**GetSteamTransactions**](docs/EconomyApi.md#getsteamtransactions) | **GET** /Steam/transactions | List Steam Transactions
+*EconomyApi* | [**GetSubscriptions**](docs/EconomyApi.md#getsubscriptions) | **GET** /subscriptions | List Subscriptions
+*FavoritesApi* | [**AddFavorite**](docs/FavoritesApi.md#addfavorite) | **POST** /favorites | Add Favorite
+*FavoritesApi* | [**ClearFavoriteGroup**](docs/FavoritesApi.md#clearfavoritegroup) | **DELETE** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Clear Favorite Group
+*FavoritesApi* | [**GetFavorite**](docs/FavoritesApi.md#getfavorite) | **GET** /favorites/{favoriteId} | Show Favorite
+*FavoritesApi* | [**GetFavoriteGroup**](docs/FavoritesApi.md#getfavoritegroup) | **GET** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Show Favorite Group
+*FavoritesApi* | [**GetFavoriteGroups**](docs/FavoritesApi.md#getfavoritegroups) | **GET** /favorite/groups | List Favorite Groups
+*FavoritesApi* | [**GetFavorites**](docs/FavoritesApi.md#getfavorites) | **GET** /favorites | List Favorites
+*FavoritesApi* | [**RemoveFavorite**](docs/FavoritesApi.md#removefavorite) | **DELETE** /favorites/{favoriteId} | Remove Favorite
+*FavoritesApi* | [**UpdateFavoriteGroup**](docs/FavoritesApi.md#updatefavoritegroup) | **PUT** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Update Favorite Group
 *FilesApi* | [**CreateFile**](docs/FilesApi.md#createfile) | **POST** /file | Create File
 *FilesApi* | [**CreateFileVersion**](docs/FilesApi.md#createfileversion) | **POST** /file/{fileId} | Create File Version
 *FilesApi* | [**DeleteFile**](docs/FilesApi.md#deletefile) | **DELETE** /file/{fileId} | Delete File
@@ -159,18 +245,38 @@ Class | Method | HTTP request | Description
 *FriendsApi* | [**GetFriendStatus**](docs/FriendsApi.md#getfriendstatus) | **GET** /user/{userId}/friendStatus | Check Friend Status
 *FriendsApi* | [**GetFriends**](docs/FriendsApi.md#getfriends) | **GET** /auth/user/friends | List Friends
 *FriendsApi* | [**Unfriend**](docs/FriendsApi.md#unfriend) | **DELETE** /auth/user/friends/{userId} | Unfriend
+*InstancesApi* | [**GetInstance**](docs/InstancesApi.md#getinstance) | **GET** /instances/{worldId}:{instanceId} | Get Instance
+*InstancesApi* | [**GetShortName**](docs/InstancesApi.md#getshortname) | **GET** /instances/{worldId}:{instanceId}/shortName | Get Instance Short Name
+*InstancesApi* | [**SendSelfInvite**](docs/InstancesApi.md#sendselfinvite) | **POST** /instances/{worldId}:{instanceId}/invite | Send Self Invite
+*InviteApi* | [**GetInviteMessage**](docs/InviteApi.md#getinvitemessage) | **GET** /message/{userId}/{messageType}/{slot} | Get Invite Message
+*InviteApi* | [**GetInviteMessages**](docs/InviteApi.md#getinvitemessages) | **GET** /message/{userId}/{messageType} | List Invite Messages
+*InviteApi* | [**InviteUser**](docs/InviteApi.md#inviteuser) | **POST** /invite/{userId} | Invite User
+*InviteApi* | [**RequestInvite**](docs/InviteApi.md#requestinvite) | **POST** /requestInvite/{userId} | Request Invite
+*InviteApi* | [**ResetInviteMessage**](docs/InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/{messageType}/{slot} | Reset Invite Message
+*InviteApi* | [**RespondInvite**](docs/InviteApi.md#respondinvite) | **POST** /invite/{notificationId}/response | Respond Invite
+*InviteApi* | [**UpdateInviteMessage**](docs/InviteApi.md#updateinvitemessage) | **PUT** /message/{userId}/{messageType}/{slot} | Update Invite Message
 *NotificationsApi* | [**AcceptFriendRequest**](docs/NotificationsApi.md#acceptfriendrequest) | **PUT** /auth/user/notifications/{notificationId}/accept | Accept Friend Request
 *NotificationsApi* | [**ClearNotifications**](docs/NotificationsApi.md#clearnotifications) | **PUT** /auth/user/notifications/clear | Clear All Notifications
 *NotificationsApi* | [**DeleteNotification**](docs/NotificationsApi.md#deletenotification) | **PUT** /auth/user/notifications/{notificationId}/hide | Delete Notification
 *NotificationsApi* | [**GetNotifications**](docs/NotificationsApi.md#getnotifications) | **GET** /auth/user/notifications | List Notifications
-*NotificationsApi* | [**MarkNotificationAsRead**](docs/NotificationsApi.md#marknotificationasread) | **PUT** /auth/user/notifications/{notificationId}/see | Mark As Read
+*NotificationsApi* | [**MarkNotificationAsRead**](docs/NotificationsApi.md#marknotificationasread) | **PUT** /auth/user/notifications/{notificationId}/see | Mark Notification As Read
+*PermissionsApi* | [**GetAssignedPermissions**](docs/PermissionsApi.md#getassignedpermissions) | **GET** /auth/permissions | Get Assigned Permissions
+*PermissionsApi* | [**GetPermission**](docs/PermissionsApi.md#getpermission) | **GET** /permissions/{permissionId} | Get Permission
+*PlayermoderationApi* | [**ClearAllPlayerModerations**](docs/PlayermoderationApi.md#clearallplayermoderations) | **DELETE** /auth/user/playermoderations | Clear All Player Moderations
+*PlayermoderationApi* | [**DeletePlayerModeration**](docs/PlayermoderationApi.md#deleteplayermoderation) | **DELETE** /auth/user/playermoderations/{playerModerationId} | Delete Player Moderation
+*PlayermoderationApi* | [**GetPlayerModeration**](docs/PlayermoderationApi.md#getplayermoderation) | **GET** /auth/user/playermoderations/{playerModerationId} | Get Player Moderation
+*PlayermoderationApi* | [**GetPlayerModerations**](docs/PlayermoderationApi.md#getplayermoderations) | **GET** /auth/user/playermoderations | Search Player Moderations
+*PlayermoderationApi* | [**ModerateUser**](docs/PlayermoderationApi.md#moderateuser) | **POST** /auth/user/playermoderations | Moderate User
+*PlayermoderationApi* | [**UnmoderateUser**](docs/PlayermoderationApi.md#unmoderateuser) | **PUT** /auth/user/unplayermoderate | Unmoderate User
+*SystemApi* | [**GetCSS**](docs/SystemApi.md#getcss) | **GET** /css/app.css | Download CSS
 *SystemApi* | [**GetConfig**](docs/SystemApi.md#getconfig) | **GET** /config | Fetch API Config
 *SystemApi* | [**GetCurrentOnlineUsers**](docs/SystemApi.md#getcurrentonlineusers) | **GET** /visits | Current Online Users
 *SystemApi* | [**GetHealth**](docs/SystemApi.md#gethealth) | **GET** /health | Check API Health
+*SystemApi* | [**GetInfoPush**](docs/SystemApi.md#getinfopush) | **GET** /infoPush | Show Information Notices
+*SystemApi* | [**GetJavaScript**](docs/SystemApi.md#getjavascript) | **GET** /js/app.js | Download JavaScript
 *SystemApi* | [**GetSystemTime**](docs/SystemApi.md#getsystemtime) | **GET** /time | Current System Time
 *UsersApi* | [**GetUser**](docs/UsersApi.md#getuser) | **GET** /users/{userId} | Get User by ID
 *UsersApi* | [**GetUserByName**](docs/UsersApi.md#getuserbyname) | **GET** /users/{username}/name | Get User by Username
-*UsersApi* | [**SearchActiveUsers**](docs/UsersApi.md#searchactiveusers) | **GET** /users/active | Search Active Users
 *UsersApi* | [**SearchUsers**](docs/UsersApi.md#searchusers) | **GET** /users | Search All Users
 *UsersApi* | [**UpdateUser**](docs/UsersApi.md#updateuser) | **PUT** /users/{userId} | Update User Info
 *WorldsApi* | [**CreateWorld**](docs/WorldsApi.md#createworld) | **POST** /worlds | Create World
@@ -179,99 +285,135 @@ Class | Method | HTTP request | Description
 *WorldsApi* | [**GetFavoritedWorlds**](docs/WorldsApi.md#getfavoritedworlds) | **GET** /worlds/favorites | List Favorited Worlds
 *WorldsApi* | [**GetRecentWorlds**](docs/WorldsApi.md#getrecentworlds) | **GET** /worlds/recent | List Recent Worlds
 *WorldsApi* | [**GetWorld**](docs/WorldsApi.md#getworld) | **GET** /worlds/{worldId} | Get World by ID
+*WorldsApi* | [**GetWorldInstance**](docs/WorldsApi.md#getworldinstance) | **GET** /worlds/{worldId}/{instanceId} | Get World Instance
 *WorldsApi* | [**GetWorldMetadata**](docs/WorldsApi.md#getworldmetadata) | **GET** /worlds/{worldId}/metadata | Get World Metadata
-*WorldsApi* | [**GetWorldPublish**](docs/WorldsApi.md#getworldpublish) | **GET** /worlds/{worldId}/publish | Get World Publish Status
-*WorldsApi* | [**PublishWorld**](docs/WorldsApi.md#publishworld) | **PUT** /worlds/{worldId}/publish | 
+*WorldsApi* | [**GetWorldPublishStatus**](docs/WorldsApi.md#getworldpublishstatus) | **GET** /worlds/{worldId}/publish | Get World Publish Status
+*WorldsApi* | [**PublishWorld**](docs/WorldsApi.md#publishworld) | **PUT** /worlds/{worldId}/publish | Publish World
 *WorldsApi* | [**SearchWorlds**](docs/WorldsApi.md#searchworlds) | **GET** /worlds | Search All Worlds
-*WorldsApi* | [**UnpublishWorld**](docs/WorldsApi.md#unpublishworld) | **DELETE** /worlds/{worldId}/publish | 
+*WorldsApi* | [**UnpublishWorld**](docs/WorldsApi.md#unpublishworld) | **DELETE** /worlds/{worldId}/publish | Unpublish World
 *WorldsApi* | [**UpdateWorld**](docs/WorldsApi.md#updateworld) | **PUT** /worlds/{worldId} | Update World
 
 
+<a name="documentation-for-models"></a>
 ## Documentation for Models
 
- - [Model.Config](docs/Config.md)
- - [Model.ConfigAnnouncements](docs/ConfigAnnouncements.md)
- - [Model.ConfigDownloadUrls](docs/ConfigDownloadUrls.md)
- - [Model.ConfigDynamicWorldRows](docs/ConfigDynamicWorldRows.md)
- - [Model.ConfigEvents](docs/ConfigEvents.md)
+ - [Model.APIConfig](docs/APIConfig.md)
+ - [Model.APIEventConfig](docs/APIEventConfig.md)
+ - [Model.APIHealth](docs/APIHealth.md)
+ - [Model.AddFavoriteRequest](docs/AddFavoriteRequest.md)
+ - [Model.Avatar](docs/Avatar.md)
+ - [Model.AvatarUnityPackageUrlObject](docs/AvatarUnityPackageUrlObject.md)
+ - [Model.CreateAvatarRequest](docs/CreateAvatarRequest.md)
+ - [Model.CreateFileRequest](docs/CreateFileRequest.md)
+ - [Model.CreateFileVersionRequest](docs/CreateFileVersionRequest.md)
+ - [Model.CreateWorldRequest](docs/CreateWorldRequest.md)
  - [Model.CurrentUser](docs/CurrentUser.md)
  - [Model.DeploymentGroup](docs/DeploymentGroup.md)
  - [Model.DeveloperType](docs/DeveloperType.md)
+ - [Model.DownloadURLList](docs/DownloadURLList.md)
+ - [Model.DynamicContentRow](docs/DynamicContentRow.md)
  - [Model.Error](docs/Error.md)
+ - [Model.Favorite](docs/Favorite.md)
+ - [Model.FavoriteGroup](docs/FavoriteGroup.md)
+ - [Model.FavoriteGroupVisibility](docs/FavoriteGroupVisibility.md)
+ - [Model.FavoriteType](docs/FavoriteType.md)
  - [Model.File](docs/File.md)
  - [Model.FileData](docs/FileData.md)
  - [Model.FileStatus](docs/FileStatus.md)
+ - [Model.FileUploadURL](docs/FileUploadURL.md)
  - [Model.FileVersion](docs/FileVersion.md)
- - [Model.InlineObject](docs/InlineObject.md)
- - [Model.InlineObject1](docs/InlineObject1.md)
- - [Model.InlineObject2](docs/InlineObject2.md)
- - [Model.InlineObject3](docs/InlineObject3.md)
- - [Model.InlineObject4](docs/InlineObject4.md)
- - [Model.InlineObject5](docs/InlineObject5.md)
- - [Model.InlineObject6](docs/InlineObject6.md)
- - [Model.InlineResponse200](docs/InlineResponse200.md)
- - [Model.InlineResponse2001](docs/InlineResponse2001.md)
- - [Model.InlineResponse2002](docs/InlineResponse2002.md)
- - [Model.InlineResponse2003](docs/InlineResponse2003.md)
- - [Model.InlineResponse2004](docs/InlineResponse2004.md)
- - [Model.InlineResponse2005](docs/InlineResponse2005.md)
- - [Model.InlineResponse2006](docs/InlineResponse2006.md)
- - [Model.InlineResponse2007](docs/InlineResponse2007.md)
- - [Model.InlineResponse401](docs/InlineResponse401.md)
+ - [Model.FileVersionUploadStatus](docs/FileVersionUploadStatus.md)
+ - [Model.FinishFileDataUploadRequest](docs/FinishFileDataUploadRequest.md)
+ - [Model.FriendStatus](docs/FriendStatus.md)
+ - [Model.InfoPush](docs/InfoPush.md)
+ - [Model.InfoPushData](docs/InfoPushData.md)
+ - [Model.InfoPushDataArticle](docs/InfoPushDataArticle.md)
+ - [Model.InfoPushDataArticleContent](docs/InfoPushDataArticleContent.md)
+ - [Model.InfoPushDataClickable](docs/InfoPushDataClickable.md)
+ - [Model.Instance](docs/Instance.md)
+ - [Model.InstancePlatforms](docs/InstancePlatforms.md)
+ - [Model.InviteMessage](docs/InviteMessage.md)
+ - [Model.InviteMessageType](docs/InviteMessageType.md)
+ - [Model.InviteRequest](docs/InviteRequest.md)
+ - [Model.InviteResponse](docs/InviteResponse.md)
+ - [Model.License](docs/License.md)
+ - [Model.LicenseAction](docs/LicenseAction.md)
+ - [Model.LicenseGroup](docs/LicenseGroup.md)
+ - [Model.LicenseType](docs/LicenseType.md)
  - [Model.LimitedUnityPackage](docs/LimitedUnityPackage.md)
  - [Model.LimitedUser](docs/LimitedUser.md)
  - [Model.LimitedWorld](docs/LimitedWorld.md)
  - [Model.MIMEType](docs/MIMEType.md)
+ - [Model.ModerateUserRequest](docs/ModerateUserRequest.md)
  - [Model.Notification](docs/Notification.md)
  - [Model.NotificationType](docs/NotificationType.md)
- - [Model.Platform](docs/Platform.md)
+ - [Model.PastDisplayName](docs/PastDisplayName.md)
+ - [Model.Permission](docs/Permission.md)
+ - [Model.PlayerModeration](docs/PlayerModeration.md)
+ - [Model.PlayerModerationType](docs/PlayerModerationType.md)
+ - [Model.PublicAnnouncement](docs/PublicAnnouncement.md)
  - [Model.ReleaseStatus](docs/ReleaseStatus.md)
  - [Model.Response](docs/Response.md)
+ - [Model.Subscription](docs/Subscription.md)
+ - [Model.SubscriptionPeriod](docs/SubscriptionPeriod.md)
  - [Model.Success](docs/Success.md)
+ - [Model.Transaction](docs/Transaction.md)
+ - [Model.TransactionAgreement](docs/TransactionAgreement.md)
+ - [Model.TransactionStatus](docs/TransactionStatus.md)
+ - [Model.TransactionSteamInfo](docs/TransactionSteamInfo.md)
+ - [Model.TransactionSteamWalletInfo](docs/TransactionSteamWalletInfo.md)
+ - [Model.TwoFactorAuthCode](docs/TwoFactorAuthCode.md)
  - [Model.UnityPackage](docs/UnityPackage.md)
+ - [Model.UpdateAvatarRequest](docs/UpdateAvatarRequest.md)
+ - [Model.UpdateFavoriteGroupRequest](docs/UpdateFavoriteGroupRequest.md)
+ - [Model.UpdateInviteMessageRequest](docs/UpdateInviteMessageRequest.md)
+ - [Model.UpdateUserRequest](docs/UpdateUserRequest.md)
+ - [Model.UpdateWorldRequest](docs/UpdateWorldRequest.md)
  - [Model.User](docs/User.md)
+ - [Model.UserExists](docs/UserExists.md)
  - [Model.UserState](docs/UserState.md)
  - [Model.UserStatus](docs/UserStatus.md)
+ - [Model.UserSubscription](docs/UserSubscription.md)
+ - [Model.Verify2FAResult](docs/Verify2FAResult.md)
+ - [Model.VerifyAuthTokenResult](docs/VerifyAuthTokenResult.md)
  - [Model.World](docs/World.md)
+ - [Model.WorldMetadata](docs/WorldMetadata.md)
+ - [Model.WorldPublishStatus](docs/WorldPublishStatus.md)
 
 
+<a name="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-
+<a name="apiKeyCookie"></a>
 ### apiKeyCookie
 
 - **Type**: API key
-
 - **API key parameter name**: apiKey
 - **Location**: 
 
-
+<a name="apiKeyQuery"></a>
 ### apiKeyQuery
 
 - **Type**: API key
-
 - **API key parameter name**: apiKey
 - **Location**: URL query string
 
-
+<a name="authCookie"></a>
 ### authCookie
 
 - **Type**: API key
-
 - **API key parameter name**: auth
 - **Location**: 
 
-
+<a name="authHeader"></a>
 ### authHeader
-
 
 - **Type**: HTTP basic authentication
 
-
+<a name="twoFactorAuthCookie"></a>
 ### twoFactorAuthCookie
 
 - **Type**: API key
-
 - **API key parameter name**: twoFactorAuth
 - **Location**: 
 

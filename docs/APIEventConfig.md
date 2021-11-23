@@ -1,4 +1,3 @@
-
 # io.github.vrchatapi.Model.APIEventConfig
 
 ## Properties
@@ -16,7 +15,5 @@ Name | Type | Description | Notes
 **SlowUpdateFactorThreshold** | **int** | Unknown | 
 **ViewSegmentLength** | **int** | Unknown | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,4 +1,3 @@
-
 # io.github.vrchatapi.Model.CreateAvatarRequest
 
 ## Properties
@@ -15,7 +14,5 @@ Name | Type | Description | Notes
 **_Version** | **decimal** |  | [optional] [default to 1M]
 **UnityPackageUrl** | **string** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
