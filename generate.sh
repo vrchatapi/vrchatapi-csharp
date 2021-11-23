@@ -30,6 +30,11 @@ sed -i 's/OpenAPI Library/VRChat API Library for C# Core 5.0/' src/VRChat.API/VR
 sed -i 's/A library generated from a OpenAPI doc/VRChat API Library for C# Core 5.0/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/No Copyright/Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors./' src/VRChat.API/VRChat.API.csproj
 sed -i 's/OpenAPI/VRChat API Docs Community/' src/VRChat.API/VRChat.API.csproj
+sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
+
+# Add README.md to fields
+sed -i '/PackageTags/a <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj
+sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\/..\/README.md" Pack="true" PackagePath="\\"/>' src/VRChat.API/VRChat.API.csproj
 
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do

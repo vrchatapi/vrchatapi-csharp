@@ -50,17 +50,6 @@ jobs:
           PROJECT_FILE_PATH: src/VRChat.API/VRChat.API.csproj
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: VRChat.API
-          # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
-          # VERSION_FILE_PATH: Directory.Build.props
-          # Regex pattern to extract version info in a capturing group
-          # VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
-          # Useful with external providers like Nerdbank.GitVersioning, ignores VERSION_FILE_PATH & VERSION_REGEX
-          #VERSION_STATIC: ${{ env.spec_version }}
-          VERSION_STATIC: 1.0.1
-          # Flag to toggle git tagging, enabled by default
-          # TAG_COMMIT: true
-          # Format of the git tag, [*] gets replaced with actual version
-          # TAG_FORMAT: v*
           # API key to authenticate with NuGet server
           NUGET_KEY: ${{secrets.NUGET_KEY}}
           # NuGet server uri hosting the packages, defaults to https://api.nuget.org
