@@ -19,11 +19,12 @@ As stated, this documentation was not created with the help of the official VRCh
 ## Getting Started
 
 ```csharp
-using VRChat.API.Api;
-using VRChat.API.Client;
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {

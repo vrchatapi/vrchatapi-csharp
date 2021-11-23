@@ -2,11 +2,11 @@
 
 npm install @openapitools/openapi-generator-cli
 
-rm src docs -rf
+rm src docs *.nupkg *.snupkg -rf
 
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
 -g csharp-netcore \
---additional-properties=packageName=VRChat.API,targetFramework=net5.0 \
+--additional-properties=packageName=VRChat.API,packageTags=vrchat,,targetFramework=net5.0,licenseId=MIT \
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-csharp \
 -o . \
@@ -15,10 +15,9 @@ rm src docs -rf
 
 rmdir src/VRChat.API.Test/
 
-#cp VRChat.API.csproj-template src/VRChat.API/VRChat.API.csproj
-
 # Enable global cookie storage
-#sed -i '/RestClient = new RestClient/a \\n            this.RestClient.CookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
+sed -i '/RestClient client = new RestClient/a \            client.CookieContainer = cookieContainer;\n' ./src/VRChat.API/Client/ApiClient.cs
+sed -i '/private readonly string _baseUrl/a \        private readonly CookieContainer cookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
 
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
