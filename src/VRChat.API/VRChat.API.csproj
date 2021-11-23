@@ -6,13 +6,13 @@
     <AssemblyName>VRChat.API</AssemblyName>
     <PackageId>VRChat.API</PackageId>
     <OutputType>Library</OutputType>
-    <Authors>OpenAPI</Authors>
-    <Company>OpenAPI</Company>
-    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
-    <Description>A library generated from a OpenAPI doc</Description>
-    <Copyright>No Copyright</Copyright>
+    <Authors>VRChat API Docs Community</Authors>
+    <Company>VRChat API Docs Community</Company>
+    <AssemblyTitle>VRChat API Library for C# Core 5.0</AssemblyTitle>
+    <Description>VRChat API Library for C# Core 5.0</Description>
+    <Copyright>Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors.</Copyright>
     <RootNamespace>VRChat.API</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>1.5.3</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\VRChat.API.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>
