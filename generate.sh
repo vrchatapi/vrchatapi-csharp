@@ -25,4 +25,4 @@ for i in src/io.github.vrchatapi/*/*.cs; do
     sed -i '/VRChat API Banner/d' $i
 done
 
-bash ./build.sh
+#bash ./build.sh
