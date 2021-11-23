@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Api.SystemApi
+# VRChat.API.Api.SystemApi
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
@@ -25,9 +25,9 @@ Fetches the CSS code to the frontend React website.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -99,9 +99,9 @@ API config contains configuration that the clients needs to work properly.  Curr
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -166,9 +166,9 @@ Returns the current number of online users.  **NOTE:** The response type is not 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -233,9 +233,9 @@ Check API Health
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -300,9 +300,9 @@ IPS (Info Push System) is a system for VRChat to push out dynamic information to
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -373,9 +373,9 @@ Fetches the JavaScript code to the frontend React website.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -447,9 +447,9 @@ Returns the current time of the API server.  **NOTE:** The response type is not 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {

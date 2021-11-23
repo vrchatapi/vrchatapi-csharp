@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.AvatarUnityPackageUrlObject
+# VRChat.API.Model.AvatarUnityPackageUrlObject
 **Deprecation:** `Object` has unknown usage/fields, and is always empty. Use normal `Url` field instead.
 
 ## Properties

@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.UpdateInviteMessageRequest
+# VRChat.API.Model.UpdateInviteMessageRequest
 
 ## Properties
 

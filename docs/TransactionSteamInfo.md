@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.TransactionSteamInfo
+# VRChat.API.Model.TransactionSteamInfo
 
 ## Properties
 

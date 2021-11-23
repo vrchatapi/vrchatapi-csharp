@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.MIMEType
+# VRChat.API.Model.MIMEType
 
 ## Properties
 

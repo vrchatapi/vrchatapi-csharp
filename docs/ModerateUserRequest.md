@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.ModerateUserRequest
+# VRChat.API.Model.ModerateUserRequest
 
 ## Properties
 

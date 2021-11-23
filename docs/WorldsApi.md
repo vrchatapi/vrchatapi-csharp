@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Api.WorldsApi
+# VRChat.API.Api.WorldsApi
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
@@ -31,9 +31,9 @@ Create a new world. This endpoint requires `assetUrl` to be a valid File object 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -104,9 +104,9 @@ Delete a world. Notice a world is never fully \"deleted\", only its ReleaseStatu
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -185,9 +185,9 @@ Search and list currently Active worlds by query filters.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -288,9 +288,9 @@ Search and list favorited worlds by query filters.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -394,9 +394,9 @@ Search and list recently visited worlds by query filters.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -500,9 +500,9 @@ Get information about a specific World.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -577,9 +577,9 @@ Returns a worlds instance.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -660,9 +660,9 @@ Return a worlds custom metadata. This is currently believed to be unused. Metada
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -741,9 +741,9 @@ Returns a worlds publish status.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -823,9 +823,9 @@ Publish a world. You can only publish one world per week.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -904,9 +904,9 @@ Search and list any worlds by query filters.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -1011,9 +1011,9 @@ Unpublish a world.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -1092,9 +1092,9 @@ Update information about a specific World.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {

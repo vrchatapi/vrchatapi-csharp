@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.PlayerModeration
+# VRChat.API.Model.PlayerModeration
 
 ## Properties
 

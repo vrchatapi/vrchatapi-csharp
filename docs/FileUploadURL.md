@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.FileUploadURL
+# VRChat.API.Model.FileUploadURL
 
 ## Properties
 

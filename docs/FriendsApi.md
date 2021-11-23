@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Api.FriendsApi
+# VRChat.API.Api.FriendsApi
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
@@ -23,9 +23,9 @@ Deletes an outgoing pending friend request to another user. To delete an incomin
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -105,9 +105,9 @@ Send a friend request to another user.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -187,9 +187,9 @@ Retrieve if the user is currently a friend with a given user, if they have an ou
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -268,9 +268,9 @@ List information about friends.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -353,9 +353,9 @@ Unfriend a user by ID.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {

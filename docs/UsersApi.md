@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Api.UsersApi
+# VRChat.API.Api.UsersApi
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
@@ -22,9 +22,9 @@ Get public user information about a specific user using their ID.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -103,9 +103,9 @@ Get public user information about a specific user using their name.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -184,9 +184,9 @@ Search and list any users by text query
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -272,9 +272,9 @@ Update a users information such as the email and birthday.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {

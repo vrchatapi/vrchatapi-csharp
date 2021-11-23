@@ -23,5 +23,5 @@
 #!docs/README.md
 
 README.md
-io.github.vrchatapi.sln
-src/io.github.vrchatapi.Test/
+VRChat.API.sln
+src/VRChat.API.Test/

@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.TwoFactorAuthCode
+# VRChat.API.Model.TwoFactorAuthCode
 
 ## Properties
 

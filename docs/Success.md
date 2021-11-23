@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.Success
+# VRChat.API.Model.Success
 
 ## Properties
 

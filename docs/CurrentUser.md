@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.CurrentUser
+# VRChat.API.Model.CurrentUser
 
 ## Properties
 

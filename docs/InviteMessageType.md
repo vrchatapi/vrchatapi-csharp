@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.InviteMessageType
+# VRChat.API.Model.InviteMessageType
 
 ## Properties
 

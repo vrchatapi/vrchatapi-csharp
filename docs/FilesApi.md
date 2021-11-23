@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Api.FilesApi
+# VRChat.API.Api.FilesApi
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
@@ -28,9 +28,9 @@ Creates a new File object
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -108,9 +108,9 @@ Creates a new FileVersion. Once a Version has been created, proceed to the `/fil
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -190,9 +190,9 @@ Deletes a File object.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -271,9 +271,9 @@ Delete a specific version of a file. You can only delete the latest version.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -355,9 +355,9 @@ Downloads the file with the provided version number.  **Version Note:** Version 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -436,9 +436,9 @@ Finish an upload of a FileData. This will mark it as \"complete\". After uploadi
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -522,9 +522,9 @@ Shows general information about the \"File\" object. Each File can have several 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -603,9 +603,9 @@ Retrieves the upload status for file upload. Can currently only be accessed when
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -687,9 +687,9 @@ Returns a list of files
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -773,9 +773,9 @@ Starts an upload of a specific FilePart. This endpoint will return an AWS URL wh
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {

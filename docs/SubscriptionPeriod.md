@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.SubscriptionPeriod
+# VRChat.API.Model.SubscriptionPeriod
 
 ## Properties
 

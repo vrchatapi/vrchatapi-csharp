@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.UserStatus
+# VRChat.API.Model.UserStatus
 Defines the User's current status, for example \"ask me\", \"join me\" or \"offline. This status is a combined indicator of their online activity and privacy preference.
 
 ## Properties

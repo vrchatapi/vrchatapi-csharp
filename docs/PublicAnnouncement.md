@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.PublicAnnouncement
+# VRChat.API.Model.PublicAnnouncement
 Public Announcement
 
 ## Properties

@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.APIHealth
+# VRChat.API.Model.APIHealth
 
 ## Properties
 

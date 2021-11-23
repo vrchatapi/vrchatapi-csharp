@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.InstancePlatforms
+# VRChat.API.Model.InstancePlatforms
 
 ## Properties
 

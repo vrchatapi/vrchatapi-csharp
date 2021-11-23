@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.UpdateFavoriteGroupRequest
+# VRChat.API.Model.UpdateFavoriteGroupRequest
 
 ## Properties
 

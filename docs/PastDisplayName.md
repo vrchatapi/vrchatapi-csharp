@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.PastDisplayName
+# VRChat.API.Model.PastDisplayName
 
 ## Properties
 

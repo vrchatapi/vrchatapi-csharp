@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.VerifyAuthTokenResult
+# VRChat.API.Model.VerifyAuthTokenResult
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.UpdateAvatarRequest
+# VRChat.API.Model.UpdateAvatarRequest
 
 ## Properties
 

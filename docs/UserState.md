@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.UserState
+# VRChat.API.Model.UserState
 * \"online\" User is online in VRChat * \"active\" User is online, but not in VRChat * \"offline\" User is offline  Always offline when returned through `getCurrentUser` (/auth/user).
 
 ## Properties

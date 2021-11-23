@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.Verify2FAResult
+# VRChat.API.Model.Verify2FAResult
 
 ## Properties
 

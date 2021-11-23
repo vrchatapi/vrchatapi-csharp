@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.Subscription
+# VRChat.API.Model.Subscription
 
 ## Properties
 

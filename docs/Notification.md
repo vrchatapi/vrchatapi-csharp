@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.Notification
+# VRChat.API.Model.Notification
 
 ## Properties
 

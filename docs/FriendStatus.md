@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.FriendStatus
+# VRChat.API.Model.FriendStatus
 
 ## Properties
 

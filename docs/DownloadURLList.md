@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.DownloadURLList
+# VRChat.API.Model.DownloadURLList
 Download links for various development assets.
 
 ## Properties

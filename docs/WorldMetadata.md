@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.WorldMetadata
+# VRChat.API.Model.WorldMetadata
 
 ## Properties
 

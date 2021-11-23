@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.TransactionStatus
+# VRChat.API.Model.TransactionStatus
 
 ## Properties
 

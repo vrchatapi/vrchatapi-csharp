@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.LicenseType
+# VRChat.API.Model.LicenseType
 
 ## Properties
 

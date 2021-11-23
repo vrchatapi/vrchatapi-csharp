@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.DynamicContentRow
+# VRChat.API.Model.DynamicContentRow
 
 ## Properties
 

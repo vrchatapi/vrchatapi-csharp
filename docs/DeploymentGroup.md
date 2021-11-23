@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.DeploymentGroup
+# VRChat.API.Model.DeploymentGroup
 Used to identify which API deployment cluster is currently responding.  `blue` and `green` are used by Production. `grape`and `cherry` are used during Development.  [Blue Green Deployment by Martin Fowler](https://martinfowler.com/bliki/BlueGreenDeployment.html)
 
 ## Properties

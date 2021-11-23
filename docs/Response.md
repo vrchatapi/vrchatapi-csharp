@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.Response
+# VRChat.API.Model.Response
 
 ## Properties
 

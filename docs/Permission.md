@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.Permission
+# VRChat.API.Model.Permission
 
 ## Properties
 

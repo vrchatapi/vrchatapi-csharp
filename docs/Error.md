@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.Error
+# VRChat.API.Model.Error
 
 ## Properties
 

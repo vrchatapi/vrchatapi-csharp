@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.FavoriteType
+# VRChat.API.Model.FavoriteType
 
 ## Properties
 

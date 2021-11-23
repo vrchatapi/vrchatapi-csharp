@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.LimitedUnityPackage
+# VRChat.API.Model.LimitedUnityPackage
 
 ## Properties
 

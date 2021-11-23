@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.DeveloperType
+# VRChat.API.Model.DeveloperType
 \"none\" User is a normal user \"trusted\" Unknown \"internal\" Is a VRChat Developer \"moderator\" Is a VRChat Moderator  Staff can hide their developerType at will.
 
 ## Properties

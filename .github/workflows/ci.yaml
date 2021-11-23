@@ -34,7 +34,7 @@ jobs:
         run: bash ./generate.sh
       - name: Check version number
         run: |
-          echo "spec_version=$(grep "version of the OpenAPI document" src/io.github.vrchatapi/Model/User.cs | cut -d " " -f 9)" >> $GITHUB_ENV
+          echo "spec_version=$(grep "version of the OpenAPI document" src/VRChat.API/Model/User.cs | cut -d " " -f 9)" >> $GITHUB_ENV
       - name: Print version number
         run: echo ${{ env.spec_version }}
       - name: Deploy SDK back into main branch
@@ -47,7 +47,7 @@ jobs:
         uses: rohith/publish-nuget@v2
         with:
           # Filepath of the project to be packaged, relative to root of repository
-          PROJECT_FILE_PATH: src/io.github.vrchatapi/io.github.vrchatapi.csproj
+          PROJECT_FILE_PATH: src/VRChat.API/VRChat.API.csproj
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: VRChat.API
           # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH

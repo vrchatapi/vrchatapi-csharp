@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Api.PermissionsApi
+# VRChat.API.Api.PermissionsApi
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
@@ -20,9 +20,9 @@ Returns a list of all permissions currently granted by the user. Permissions are
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {
@@ -97,9 +97,9 @@ Returns a single permission. This endpoint is pretty useless, as it returns the 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
-using io.github.vrchatapi.Model;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace Example
 {

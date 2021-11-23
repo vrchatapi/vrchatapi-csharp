@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.CreateWorldRequest
+# VRChat.API.Model.CreateWorldRequest
 
 ## Properties
 

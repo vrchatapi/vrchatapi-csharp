@@ -6,22 +6,22 @@ rm src docs -rf
 
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
 -g csharp-netcore \
---additional-properties=packageName=io.github.vrchatapi,targetFramework=net5.0 \
+--additional-properties=packageName=VRChat.API,targetFramework=net5.0 \
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-csharp \
 -o . \
 -i https://raw.githubusercontent.com/vrchatapi/specification/gh-pages/openapi.yaml \
 --http-user-agent="vrchatapi-csharp"
 
-rmdir src/io.github.vrchatapi.Test/
+rmdir src/VRChat.API.Test/
 
-#cp io.github.vrchatapi.csproj-template src/io.github.vrchatapi/io.github.vrchatapi.csproj
+#cp VRChat.API.csproj-template src/VRChat.API/VRChat.API.csproj
 
 # Enable global cookie storage
-#sed -i '/RestClient = new RestClient/a \\n            this.RestClient.CookieContainer = new CookieContainer();\n' ./src/io.github.vrchatapi/Client/ApiClient.cs
+#sed -i '/RestClient = new RestClient/a \\n            this.RestClient.CookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
 
 # Remove messily pasted markdown at top of every file
-for i in src/io.github.vrchatapi/*/*.cs; do
+for i in src/VRChat.API/*/*.cs; do
     sed -i '/VRChat API Banner/d' $i
 done
 

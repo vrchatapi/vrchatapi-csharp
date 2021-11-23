@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.CreateFileVersionRequest
+# VRChat.API.Model.CreateFileVersionRequest
 
 ## Properties
 

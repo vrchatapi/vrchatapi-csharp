@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.LimitedUser
+# VRChat.API.Model.LimitedUser
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.InfoPushDataArticle
+# VRChat.API.Model.InfoPushDataArticle
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.InfoPushDataClickable
+# VRChat.API.Model.InfoPushDataClickable
 
 ## Properties
 

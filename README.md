@@ -19,8 +19,8 @@ As stated, this documentation was not created with the help of the official VRCh
 ## Getting Started
 
 ```csharp
-using io.github.vrchatapi.Api;
-using io.github.vrchatapi.Client;
+using VRChat.API.Api;
+using VRChat.API.Client;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;

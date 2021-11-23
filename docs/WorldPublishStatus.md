@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.WorldPublishStatus
+# VRChat.API.Model.WorldPublishStatus
 
 ## Properties
 

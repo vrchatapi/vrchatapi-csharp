@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.APIConfig
+# VRChat.API.Model.APIConfig
 
 ## Properties
 

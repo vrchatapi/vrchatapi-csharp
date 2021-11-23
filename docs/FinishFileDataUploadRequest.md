@@ -1,4 +1,4 @@
-# io.github.vrchatapi.Model.FinishFileDataUploadRequest
+# VRChat.API.Model.FinishFileDataUploadRequest
 
 ## Properties
 
