@@ -164,7 +164,7 @@ namespace VRChat.API.Client
     public partial class ApiClient : ISynchronousClient, IAsynchronousClient
     {
         private readonly string _baseUrl;
-        public readonly CookieContainer CookieContainer = new CookieContainer();
+        public static readonly CookieContainer CookieContainer = new CookieContainer();
 
 
         /// <summary>

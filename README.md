@@ -63,11 +63,8 @@ namespace Example
                 CurrentUser user = await AuthApi.GetCurrentUserAsync();
                 Console.WriteLine($"Logged in user {user.DisplayName}, Current Avatar {user.CurrentAvatar}");
 
-                Console.WriteLine("a");
                 UsersApi UserApi = new UsersApi(Config);
-                Console.WriteLine("b");
                 User getUser = await UserApi.GetUserAsync(user.Id);
-                Console.WriteLine("c");
                 Console.WriteLine($"Found user {getUser.DisplayName}, joined {getUser.DateJoined}");
 
                 WorldsApi WorldApi = new WorldsApi(Config);
