@@ -33,7 +33,7 @@ Install-Package VRChat.API -Version 1.5.3
 The following example code authenticates you with the API, fetches your join-date, and prints the name of a world.
 
 ```csharp
-using System.Collections.Generic;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using VRChat.API.Api;
@@ -52,22 +52,23 @@ namespace Example
 
         static async Task MainAsync()
         {
-            // Configure API key authorization: apiKeyCookie
-            Configuration.Default.Username = VRCUsername;
-            Configuration.Default.Password = VRCPassword;
+            // Configure API login credentials
+            Configuration config = new Configuration();
+            config.Username = "username";
+            config.Password = "password";
 
             try
             {
                 // Calling "GetCurrentUser" will log you in.
-                AuthenticationApi authApi = new AuthenticationApi();
+                AuthenticationApi authApi = new AuthenticationApi(config);
                 var user = await authApi.GetCurrentUserAsync();
                 Console.WriteLine($"Logged in user {user.DisplayName}, Current Avatar {user.CurrentAvatar}");
 
-                UsersApi userApi = new UsersApi();
+                UsersApi userApi = new UsersApi(config);
                 var getUser = await userApi.GetUserAsync(user.Id);
                 Console.WriteLine($"Found user {getUser.DisplayName}, joined {getUser.DateJoined}");
 
-                WorldsApi worldApi = new WorldsApi();
+                WorldsApi worldApi = new WorldsApi(config);
                 var world = await worldApi.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
                 Console.WriteLine($"Found world {world.Name}, visits: {world.Visits}");
             }
