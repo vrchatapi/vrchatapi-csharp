@@ -1,11 +1,9 @@
-# VRChat.API.Model.WorldMetadata
+# VRChat.API.Model.InstanceType
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
-**Metadata** | **Object** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -26,28 +26,34 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Defines FavoriteType
+    /// Defines InstanceType
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum FavoriteType
+    public enum InstanceType
     {
         /// <summary>
-        /// Enum World for value: world
+        /// Enum Public for value: public
         /// </summary>
-        [EnumMember(Value = "world")]
-        World = 1,
+        [EnumMember(Value = "public")]
+        Public = 1,
 
         /// <summary>
-        /// Enum Friend for value: friend
+        /// Enum Hidden for value: hidden
         /// </summary>
-        [EnumMember(Value = "friend")]
-        Friend = 2,
+        [EnumMember(Value = "hidden")]
+        Hidden = 2,
 
         /// <summary>
-        /// Enum Avatar for value: avatar
+        /// Enum Friends for value: friends
         /// </summary>
-        [EnumMember(Value = "avatar")]
-        Avatar = 3
+        [EnumMember(Value = "friends")]
+        Friends = 3,
+
+        /// <summary>
+        /// Enum Private for value: private
+        /// </summary>
+        [EnumMember(Value = "private")]
+        Private = 4
 
     }
 

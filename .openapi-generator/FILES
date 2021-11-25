@@ -41,6 +41,7 @@ docs/InfoPushDataArticleContent.md
 docs/InfoPushDataClickable.md
 docs/Instance.md
 docs/InstancePlatforms.md
+docs/InstanceType.md
 docs/InstancesApi.md
 docs/InviteApi.md
 docs/InviteMessage.md
@@ -66,6 +67,7 @@ docs/PlayerModeration.md
 docs/PlayerModerationType.md
 docs/PlayermoderationApi.md
 docs/PublicAnnouncement.md
+docs/Region.md
 docs/ReleaseStatus.md
 docs/Response.md
 docs/Subscription.md
@@ -163,6 +165,7 @@ src/VRChat.API/Model/InfoPushDataArticleContent.cs
 src/VRChat.API/Model/InfoPushDataClickable.cs
 src/VRChat.API/Model/Instance.cs
 src/VRChat.API/Model/InstancePlatforms.cs
+src/VRChat.API/Model/InstanceType.cs
 src/VRChat.API/Model/InviteMessage.cs
 src/VRChat.API/Model/InviteMessageType.cs
 src/VRChat.API/Model/InviteRequest.cs
@@ -183,6 +186,7 @@ src/VRChat.API/Model/Permission.cs
 src/VRChat.API/Model/PlayerModeration.cs
 src/VRChat.API/Model/PlayerModerationType.cs
 src/VRChat.API/Model/PublicAnnouncement.cs
+src/VRChat.API/Model/Region.cs
 src/VRChat.API/Model/ReleaseStatus.cs
 src/VRChat.API/Model/Response.cs
 src/VRChat.API/Model/Subscription.cs
