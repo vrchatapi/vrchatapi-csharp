@@ -28,7 +28,6 @@ dotnet add package VRChat.API --version 1.5.3
 Install-Package VRChat.API -Version 1.5.3
 ```
 
-<a name="getting-started"></a>
 ## Getting Started
 
 The following example code authenticates you with the API, fetches your join-date, and prints the name of a world.
@@ -91,7 +90,6 @@ webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
 c.Proxy = webProxy;
 ```
 
-<a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
@@ -190,7 +188,6 @@ Class | Method | HTTP request | Description
 *WorldsApi* | [**UpdateWorld**](docs/WorldsApi.md#updateworld) | **PUT** /worlds/{worldId} | Update World
 
 
-<a name="documentation-for-models"></a>
 ## Documentation for Models
 
  - [Model.APIConfig](docs/APIConfig.md)
