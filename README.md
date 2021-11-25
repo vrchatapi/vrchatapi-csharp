@@ -1,4 +1,4 @@
-![](https://github.com/vrchatapi/vrchatapi.github.io/blob/main/static/assets/img/lang/lang_csharp_banner_1500x300.png?raw=true)
+![](https://raw.githubusercontent.com/vrchatapi/vrchatapi.github.io/main/static/assets/img/lang/lang_csharp_banner_1500x300.png)
 
 # VRChat API Library for C#
 
