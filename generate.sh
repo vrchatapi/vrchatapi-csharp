@@ -22,8 +22,8 @@ rm openapi.yaml
 rmdir src/VRChat.API.Test/
 
 # Enable global cookie storage
-sed -i '/RestClient client = new RestClient/a \            client.CookieContainer = cookieContainer;\n' ./src/VRChat.API/Client/ApiClient.cs
-sed -i '/private readonly string _baseUrl/a \        private readonly CookieContainer cookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
+sed -i '/RestClient client = new RestClient/a \            client.CookieContainer = CookieContainer;\n' ./src/VRChat.API/Client/ApiClient.cs
+sed -i '/private readonly string _baseUrl/a \        public readonly CookieContainer CookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
 
 # Fix fields in csproj
 sed -i 's/OpenAPI Library/VRChat API Library for C# Core 5.0/' src/VRChat.API/VRChat.API.csproj
