@@ -33,53 +33,33 @@ Install-Package VRChat.API -Version <LATEST_VERSION>
 The following example code authenticates you with the API, fetches your join-date, and prints the name of a world.
 
 ```csharp
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
 
-namespace Example
+Configuration config = new Configuration();
+config.Username = "username";
+config.Password = "password";
+
+try
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            MainAsync().Wait();
-            Console.ReadKey();
-        }
+    AuthenticationApi authApi = new AuthenticationApi(config);
+    var user = await authApi.GetCurrentUserAsync();
+    Console.WriteLine("Logged in as {0}, Current Avatar {1}", user.DisplayName, user.CurrentAvatar);
 
-        static async Task MainAsync()
-        {
-            // Configure API login credentials
-            Configuration config = new Configuration();
-            config.Username = "username";
-            config.Password = "password";
+    UsersApi userApi = new UsersApi(config);
+    var user = await userApi.GetUserAsync(user.Id);
+    Console.WriteLine("Found user {0}, joined {1}", user.DisplayName, user.DateJoined);
 
-            try
-            {
-                // Calling "GetCurrentUser" will log you in.
-                AuthenticationApi authApi = new AuthenticationApi(config);
-                var user = await authApi.GetCurrentUserAsync();
-                Console.WriteLine($"Logged in user {user.DisplayName}, Current Avatar {user.CurrentAvatar}");
-
-                UsersApi userApi = new UsersApi(config);
-                var getUser = await userApi.GetUserAsync(user.Id);
-                Console.WriteLine($"Found user {getUser.DisplayName}, joined {getUser.DateJoined}");
-
-                WorldsApi worldApi = new WorldsApi(config);
-                var world = await worldApi.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
-                Console.WriteLine($"Found world {world.Name}, visits: {world.Visits}");
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling API: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
+    WorldsApi worldApi = new WorldsApi(config);
+    var world = await worldApi.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
+    Console.WriteLine("Found world {0}, visits: {1}", world.Name, world.Visits);
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling API: {0}", e.Message);
+    Console.WriteLine("Status Code: {0}", e.ErrorCode);
+    Console.WriteLine(e.ToString());
 }
 ```
 
