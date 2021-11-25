@@ -10,7 +10,7 @@ SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
 
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
 -g csharp-netcore \
---additional-properties=packageName=VRChat.API,packageTags=vrchat,packageVersion=$SPEC_VERSION,targetFramework=net5.0,licenseId=MIT \
+--additional-properties=packageName=VRChat.API,packageTags=vrchat,packageVersion=$SPEC_VERSION,targetFramework=netstandard2.0,licenseId=MIT \
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-csharp \
 -o . \
@@ -26,8 +26,8 @@ sed -i '/RestClient client = new RestClient/a \            client.CookieContaine
 sed -i '/private readonly string _baseUrl/a \        public readonly CookieContainer CookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
 
 # Fix fields in csproj
-sed -i 's/OpenAPI Library/VRChat API Library for C# Core 5.0/' src/VRChat.API/VRChat.API.csproj
-sed -i 's/A library generated from a OpenAPI doc/VRChat API Library for C# Core 5.0/' src/VRChat.API/VRChat.API.csproj
+sed -i 's/OpenAPI Library/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj
+sed -i 's/A library generated from a OpenAPI doc/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/No Copyright/Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors./' src/VRChat.API/VRChat.API.csproj
 sed -i 's/OpenAPI/VRChat API Docs Community/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
