@@ -22,10 +22,10 @@ Install with NuGet:
 
 ```bash
 # With .NET CLI
-dotnet add package VRChat.API --version 1.5.3
+dotnet add package VRChat.API --version <LATEST_VERSION>
 
 # Or with Package Manager
-Install-Package VRChat.API -Version 1.5.3
+Install-Package VRChat.API -Version <LATEST_VERSION>
 ```
 
 ## Getting Started
