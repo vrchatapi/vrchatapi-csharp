@@ -46,31 +46,33 @@ namespace Example
     {
         static void Main(string[] args)
         {
-            MainAsync().Wait();
-            Console.ReadKey();
+            MainAsync().GetAwaiter().GetResult();
         }
 
         static async Task MainAsync()
         {
             // Configure API login credentials
-            Configuration config = new Configuration();
-            config.Username = "username";
-            config.Password = "password";
+            Configuration Config = new Configuration();
+            Config.Username = "username";
+            Config.Password = "password";
 
             try
             {
                 // Calling "GetCurrentUser" will log you in.
-                AuthenticationApi authApi = new AuthenticationApi(config);
-                var user = await authApi.GetCurrentUserAsync();
+                AuthenticationApi AuthApi = new AuthenticationApi(Config);
+                CurrentUser user = await AuthApi.GetCurrentUserAsync();
                 Console.WriteLine($"Logged in user {user.DisplayName}, Current Avatar {user.CurrentAvatar}");
 
-                UsersApi userApi = new UsersApi(config);
-                var getUser = await userApi.GetUserAsync(user.Id);
+                Console.WriteLine("a");
+                UsersApi UserApi = new UsersApi(Config);
+                Console.WriteLine("b");
+                User getUser = await UserApi.GetUserAsync(user.Id);
+                Console.WriteLine("c");
                 Console.WriteLine($"Found user {getUser.DisplayName}, joined {getUser.DateJoined}");
 
-                WorldsApi worldApi = new WorldsApi(config);
-                var world = await worldApi.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
-                Console.WriteLine($"Found world {world.Name}, visits: {world.Visits}");
+                WorldsApi WorldApi = new WorldsApi(Config);
+                World World = await WorldApi.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
+                Console.WriteLine($"Found world {World.Name}, visits: {World.Visits}");
             }
             catch (ApiException e)
             {
@@ -81,14 +83,6 @@ namespace Example
         }
     }
 }
-```
-
-To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`
-```csharp
-Configuration c = new Configuration();
-System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
-webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
-c.Proxy = webProxy;
 ```
 
 ## Documentation for API Endpoints
