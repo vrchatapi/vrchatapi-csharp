@@ -164,7 +164,7 @@ namespace VRChat.API.Client
     public partial class ApiClient : ISynchronousClient, IAsynchronousClient
     {
         private readonly string _baseUrl;
-        private readonly CookieContainer cookieContainer = new CookieContainer();
+        public readonly CookieContainer CookieContainer = new CookieContainer();
 
 
         /// <summary>
@@ -432,7 +432,7 @@ namespace VRChat.API.Client
         private ApiResponse<T> Exec<T>(RestRequest req, IReadableConfiguration configuration)
         {
             RestClient client = new RestClient(_baseUrl);
-            client.CookieContainer = cookieContainer;
+            client.CookieContainer = CookieContainer;
 
 
             client.ClearHandlers();
@@ -553,7 +553,7 @@ namespace VRChat.API.Client
         private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             RestClient client = new RestClient(_baseUrl);
-            client.CookieContainer = cookieContainer;
+            client.CookieContainer = CookieContainer;
 
 
             client.ClearHandlers();
