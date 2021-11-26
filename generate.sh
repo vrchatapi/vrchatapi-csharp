@@ -23,7 +23,7 @@ rmdir src/VRChat.API.Test/
 
 # Enable global cookie storage
 sed -i '/RestClient client = new RestClient/a \            client.CookieContainer = CookieContainer;\n' ./src/VRChat.API/Client/ApiClient.cs
-sed -i '/readonly string _baseUrl/a \        public readonly CookieContainer CookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
+sed -i '/readonly string _baseUrl/a \        public static readonly CookieContainer CookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
 
 # Fix fields in csproj
 sed -i 's/OpenAPI Library/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj
