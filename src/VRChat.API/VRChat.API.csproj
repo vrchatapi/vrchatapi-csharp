@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>VRChat.API</AssemblyName>
     <PackageId>VRChat.API</PackageId>
     <OutputType>Library</OutputType>
     <Authors>VRChat API Docs Community</Authors>
     <Company>VRChat API Docs Community</Company>
-    <AssemblyTitle>VRChat API Library for C# Core 5.0</AssemblyTitle>
-    <Description>VRChat API Library for C# Core 5.0</Description>
+    <AssemblyTitle>VRChat API Library for .NET</AssemblyTitle>
+    <Description>VRChat API Library for .NET</Description>
     <Copyright>Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors.</Copyright>
     <RootNamespace>VRChat.API</RootNamespace>
     <Version>1.6.1</Version>
