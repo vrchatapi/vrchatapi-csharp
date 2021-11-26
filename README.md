@@ -33,27 +33,33 @@ Install-Package VRChat.API -Version <LATEST_VERSION>
 The following example code authenticates you with the API, fetches your join-date, and prints the name of a world.
 
 ```csharp
+using System;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
 
-Configuration config = new Configuration();
-config.Username = "username";
-config.Password = "password";
+
+// Authentication credentials
+Configuration Config = new Configuration();
+Config.Username = "username";
+Config.Password = "password";
+
+// Create instances of API's we'll need
+AuthenticationApi authApi = new AuthenticationApi(Config);
+UsersApi userApi = new UsersApi(Config);
+WorldsApi worldApi = new WorldsApi(Config);
 
 try
 {
-    AuthenticationApi authApi = new AuthenticationApi(config);
-    var user = await authApi.GetCurrentUserAsync();
-    Console.WriteLine("Logged in as {0}, Current Avatar {1}", user.DisplayName, user.CurrentAvatar);
+    // Calling "GetCurrentUser(Async)" logs you in if you are not already logged in.
+    CurrentUser CurrentUser = await authApi.GetCurrentUserAsync();
+    Console.WriteLine("Logged in as {0}, Current Avatar {1}", CurrentUser.DisplayName, CurrentUser.CurrentAvatar);
 
-    UsersApi userApi = new UsersApi(config);
-    var user = await userApi.GetUserAsync(user.Id);
-    Console.WriteLine("Found user {0}, joined {1}", user.DisplayName, user.DateJoined);
+    User OtherUser = await userApi.GetUserAsync("usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469");
+    Console.WriteLine("Found user {0}, joined {1}", OtherUser.DisplayName, OtherUser.DateJoined);
 
-    WorldsApi worldApi = new WorldsApi(config);
-    var world = await worldApi.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
-    Console.WriteLine("Found world {0}, visits: {1}", world.Name, world.Visits);
+    World World = await worldApi.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
+    Console.WriteLine("Found world {0}, visits: {1}", World.Name, World.Visits);
 }
 catch (ApiException e)
 {
@@ -61,14 +67,6 @@ catch (ApiException e)
     Console.WriteLine("Status Code: {0}", e.ErrorCode);
     Console.WriteLine(e.ToString());
 }
-```
-
-To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`
-```csharp
-Configuration c = new Configuration();
-System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
-webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
-c.Proxy = webProxy;
 ```
 
 ## Documentation for API Endpoints
