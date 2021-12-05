@@ -544,6 +544,7 @@ namespace VRChat.API.Client
                     };
 
                     result.Cookies.Add(cookie);
+                    client.CookieContainer.Add(cookie);
                 }
             }
             return result;
@@ -658,6 +659,7 @@ namespace VRChat.API.Client
                     };
 
                     result.Cookies.Add(cookie);
+                    client.CookieContainer.Add(cookie);
                 }
             }
             return result;
