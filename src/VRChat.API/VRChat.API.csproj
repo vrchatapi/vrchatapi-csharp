@@ -12,14 +12,14 @@
     <Description>VRChat API Library for .NET</Description>
     <Copyright>Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors.</Copyright>
     <RootNamespace>VRChat.API</RootNamespace>
-    <Version>1.6.4-rc1</Version>
+    <Version>1.6.5</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\VRChat.API.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
     <PackageTags>vrchat</PackageTags>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>docs\README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,7 +28,7 @@
     <PackageReference Include="RestSharp" Version="106.11.7" />
     <PackageReference Include="Polly" Version="7.2.1" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <None Include="../../README.md" Pack="true" PackagePath=""/>
+    <None Include="../../README.md" Pack="true" PackagePath="docs\"/>
   </ItemGroup>
 
 </Project>
