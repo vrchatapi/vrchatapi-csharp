@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 <a name="requestinvite"></a>
 # **RequestInvite**
-> Notification RequestInvite (string userId)
+> Notification RequestInvite (string userId, RequestInviteRequest requestInviteRequest = null)
 
 Request Invite
 
@@ -302,11 +302,12 @@ namespace Example
 
             var apiInstance = new InviteApi(config);
             var userId = userId_example;  // string | 
+            var requestInviteRequest = new RequestInviteRequest(); // RequestInviteRequest | Slot number of the Request Message to use when request an invite. (optional) 
 
             try
             {
                 // Request Invite
-                Notification result = apiInstance.RequestInvite(userId);
+                Notification result = apiInstance.RequestInvite(userId, requestInviteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -325,6 +326,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**|  | 
+ **requestInviteRequest** | [**RequestInviteRequest**](RequestInviteRequest.md)| Slot number of the Request Message to use when request an invite. | [optional] 
 
 ### Return type
 
@@ -336,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -471,7 +473,7 @@ namespace Example
 
             var apiInstance = new InviteApi(config);
             var notificationId = notificationId_example;  // string | 
-            var inviteResponse = new InviteResponse(); // InviteResponse | Instance ID when inviting a user. (optional) 
+            var inviteResponse = new InviteResponse(); // InviteResponse | Slot number of the Response Message to use when responding to a user. (optional) 
 
             try
             {
@@ -495,7 +497,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notificationId** | **string**|  | 
- **inviteResponse** | [**InviteResponse**](InviteResponse.md)| Instance ID when inviting a user. | [optional] 
+ **inviteResponse** | [**InviteResponse**](InviteResponse.md)| Slot number of the Response Message to use when responding to a user. | [optional] 
 
 ### Return type
 

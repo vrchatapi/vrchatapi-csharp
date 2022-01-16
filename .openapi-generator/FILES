@@ -69,6 +69,7 @@ docs/PlayermoderationApi.md
 docs/PublicAnnouncement.md
 docs/Region.md
 docs/ReleaseStatus.md
+docs/RequestInviteRequest.md
 docs/Response.md
 docs/Subscription.md
 docs/SubscriptionPeriod.md
@@ -188,6 +189,7 @@ src/VRChat.API/Model/PlayerModerationType.cs
 src/VRChat.API/Model/PublicAnnouncement.cs
 src/VRChat.API/Model/Region.cs
 src/VRChat.API/Model/ReleaseStatus.cs
+src/VRChat.API/Model/RequestInviteRequest.cs
 src/VRChat.API/Model/Response.cs
 src/VRChat.API/Model/Subscription.cs
 src/VRChat.API/Model/SubscriptionPeriod.cs

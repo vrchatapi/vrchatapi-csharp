@@ -26,25 +26,25 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Error
+    /// RequestInviteRequest
     /// </summary>
-    [DataContract(Name = "Error")]
-    public partial class Error : IEquatable<Error>, IValidatableObject
+    [DataContract(Name = "RequestInviteRequest")]
+    public partial class RequestInviteRequest : IEquatable<RequestInviteRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Error" /> class.
+        /// Initializes a new instance of the <see cref="RequestInviteRequest" /> class.
         /// </summary>
-        /// <param name="error">error.</param>
-        public Error(Response error = default(Response))
+        /// <param name="messageSlot">messageSlot.</param>
+        public RequestInviteRequest(int messageSlot = default(int))
         {
-            this._Error = error;
+            this.MessageSlot = messageSlot;
         }
 
         /// <summary>
-        /// Gets or Sets _Error
+        /// Gets or Sets MessageSlot
         /// </summary>
-        [DataMember(Name = "error", EmitDefaultValue = false)]
-        public Response _Error { get; set; }
+        [DataMember(Name = "messageSlot", EmitDefaultValue = false)]
+        public int MessageSlot { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +53,8 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Error {\n");
-            sb.Append("  _Error: ").Append(_Error).Append("\n");
+            sb.Append("class RequestInviteRequest {\n");
+            sb.Append("  MessageSlot: ").Append(MessageSlot).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,24 +75,23 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Error);
+            return this.Equals(input as RequestInviteRequest);
         }
 
         /// <summary>
-        /// Returns true if Error instances are equal
+        /// Returns true if RequestInviteRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of Error to be compared</param>
+        /// <param name="input">Instance of RequestInviteRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Error input)
+        public bool Equals(RequestInviteRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this._Error == input._Error ||
-                    (this._Error != null &&
-                    this._Error.Equals(input._Error))
+                    this.MessageSlot == input.MessageSlot ||
+                    this.MessageSlot.Equals(input.MessageSlot)
                 );
         }
 
@@ -105,8 +104,7 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Error != null)
-                    hashCode = hashCode * 59 + this._Error.GetHashCode();
+                hashCode = hashCode * 59 + this.MessageSlot.GetHashCode();
                 return hashCode;
             }
         }
@@ -118,6 +116,18 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
+            // MessageSlot (int) maximum
+            if(this.MessageSlot > (int)11)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MessageSlot, must be a value less than or equal to 11.", new [] { "MessageSlot" });
+            }
+
+            // MessageSlot (int) minimum
+            if(this.MessageSlot < (int)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MessageSlot, must be a value greater than or equal to 0.", new [] { "MessageSlot" });
+            }
+
             yield break;
         }
     }
