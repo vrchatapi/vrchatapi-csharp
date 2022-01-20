@@ -763,7 +763,7 @@ Name | Type | Description  | Notes
 
 <a name="startfiledataupload"></a>
 # **StartFileDataUpload**
-> FileUploadURL StartFileDataUpload (string fileId, int versionId, string fileType, int partNumber)
+> FileUploadURL StartFileDataUpload (string fileId, int versionId, string fileType, int? partNumber = null)
 
 Start FileData Upload
 
@@ -798,7 +798,7 @@ namespace Example
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | 
             var versionId = 1;  // int | 
             var fileType = file;  // string | 
-            var partNumber = 1;  // int | 
+            var partNumber = 1;  // int? |  (optional) 
 
             try
             {
@@ -824,7 +824,7 @@ Name | Type | Description  | Notes
  **fileId** | **string**|  | 
  **versionId** | **int**|  | 
  **fileType** | **string**|  | 
- **partNumber** | **int**|  | 
+ **partNumber** | **int?**|  | [optional] 
 
 ### Return type
 
