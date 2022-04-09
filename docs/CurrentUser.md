@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **SteamId** | **string** |  | 
 **Tags** | **List&lt;string&gt;** |  | 
 **TwoFactorAuthEnabled** | **bool** |  | 
+**TwoFactorAuthEnabledDate** | **DateTime** |  | 
 **Unsubscribe** | **bool** |  | 
 **UserIcon** | **string** |  | 
 **Username** | **string** |  | 
