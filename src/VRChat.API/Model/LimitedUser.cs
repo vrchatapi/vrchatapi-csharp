@@ -52,6 +52,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="LimitedUser" /> class.
         /// </summary>
         /// <param name="bio">bio.</param>
+        /// <param name="bioLinks">bioLinks (required).</param>
         /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
         /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
         /// <param name="developerType">developerType (required).</param>
@@ -68,8 +69,14 @@ namespace VRChat.API.Model
         /// <param name="username">username (required).</param>
         /// <param name="location">location.</param>
         /// <param name="friendKey">friendKey.</param>
-        public LimitedUser(string bio = default(string), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), DeveloperType developerType = default(DeveloperType), string displayName = default(string), string fallbackAvatar = default(string), string id = default(string), bool isFriend = default(bool), string lastPlatform = default(string), string profilePicOverride = default(string), UserStatus status = default(UserStatus), string statusDescription = default(string), List<string> tags = default(List<string>), string userIcon = default(string), string username = default(string), string location = default(string), string friendKey = default(string))
+        public LimitedUser(string bio = default(string), List<string> bioLinks = default(List<string>), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), DeveloperType developerType = default(DeveloperType), string displayName = default(string), string fallbackAvatar = default(string), string id = default(string), bool isFriend = default(bool), string lastPlatform = default(string), string profilePicOverride = default(string), UserStatus status = default(UserStatus), string statusDescription = default(string), List<string> tags = default(List<string>), string userIcon = default(string), string username = default(string), string location = default(string), string friendKey = default(string))
         {
+            // to ensure "bioLinks" is required (not null)
+            if (bioLinks == null)
+            {
+                throw new ArgumentNullException("bioLinks is a required property for CurrentUser and cannot be null");
+            }
+            this.BioLinks = bioLinks;
             // to ensure "currentAvatarImageUrl" is required (not null)
             if (currentAvatarImageUrl == null) {
                 throw new ArgumentNullException("currentAvatarImageUrl is a required property for LimitedUser and cannot be null");
@@ -138,6 +145,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "bio", EmitDefaultValue = false)]
         public string Bio { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BioLinks
+        /// </summary>
+        [DataMember(Name = "bioLinks", IsRequired = true, EmitDefaultValue = false)]
+        public List<string> BioLinks { get; set; }
 
         /// <summary>
         /// When profilePicOverride is not empty, use it instead.
