@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 <a name="getfavoritedavatars"></a>
 # **GetFavoritedAvatars**
-> List&lt;Avatar&gt; GetFavoritedAvatars (string featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
+> List&lt;Avatar&gt; GetFavoritedAvatars (bool? featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
 
 List Favorited Avatars
 
@@ -293,7 +293,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AvatarsApi(config);
-            var featured = featured_example;  // string | Filters on featured results. (optional) 
+            var featured = true;  // bool? | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
             var order = descending;  // string |  (optional)  (default to descending)
@@ -328,7 +328,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featured** | **string**| Filters on featured results. | [optional] 
+ **featured** | **bool?**| Filters on featured results. | [optional] 
  **sort** | **string**|  | [optional] [default to popularity]
  **n** | **int?**| The number of objects to return. | [optional] [default to 60]
  **order** | **string**|  | [optional] [default to descending]
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 <a name="searchavatars"></a>
 # **SearchAvatars**
-> List&lt;Avatar&gt; SearchAvatars (string featured = null, string sort = null, string user = null, string userId = null, int? n = null, string order = null, int? offset = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
+> List&lt;Avatar&gt; SearchAvatars (bool? featured = null, string sort = null, string user = null, string userId = null, int? n = null, string order = null, int? offset = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
 
 Search Avatars
 
@@ -399,7 +399,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AvatarsApi(config);
-            var featured = featured_example;  // string | Filters on featured results. (optional) 
+            var featured = true;  // bool? | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var user = user_example;  // string | Set to `me` for searching own avatars. (optional) 
             var userId = userId_example;  // string | Filter by UserID. (optional) 
@@ -434,7 +434,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featured** | **string**| Filters on featured results. | [optional] 
+ **featured** | **bool?**| Filters on featured results. | [optional] 
  **sort** | **string**|  | [optional] [default to popularity]
  **user** | **string**| Set to &#x60;me&#x60; for searching own avatars. | [optional] 
  **userId** | **string**| Filter by UserID. | [optional] 

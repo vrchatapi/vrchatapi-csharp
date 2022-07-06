@@ -175,7 +175,7 @@ void (empty response body)
 
 <a name="getactiveworlds"></a>
 # **GetActiveWorlds**
-> List&lt;LimitedWorld&gt; GetActiveWorlds (string featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
+> List&lt;LimitedWorld&gt; GetActiveWorlds (bool? featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
 
 List Active Worlds
 
@@ -207,7 +207,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var featured = featured_example;  // string | Filters on featured results. (optional) 
+            var featured = true;  // bool? | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
             var order = descending;  // string |  (optional)  (default to descending)
@@ -241,7 +241,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featured** | **string**| Filters on featured results. | [optional] 
+ **featured** | **bool?**| Filters on featured results. | [optional] 
  **sort** | **string**|  | [optional] [default to popularity]
  **n** | **int?**| The number of objects to return. | [optional] [default to 60]
  **order** | **string**|  | [optional] [default to descending]
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 <a name="getfavoritedworlds"></a>
 # **GetFavoritedWorlds**
-> List&lt;LimitedWorld&gt; GetFavoritedWorlds (string featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
+> List&lt;LimitedWorld&gt; GetFavoritedWorlds (bool? featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
 
 List Favorited Worlds
 
@@ -310,7 +310,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var featured = featured_example;  // string | Filters on featured results. (optional) 
+            var featured = true;  // bool? | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
             var order = descending;  // string |  (optional)  (default to descending)
@@ -345,7 +345,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featured** | **string**| Filters on featured results. | [optional] 
+ **featured** | **bool?**| Filters on featured results. | [optional] 
  **sort** | **string**|  | [optional] [default to popularity]
  **n** | **int?**| The number of objects to return. | [optional] [default to 60]
  **order** | **string**|  | [optional] [default to descending]
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 <a name="getrecentworlds"></a>
 # **GetRecentWorlds**
-> List&lt;LimitedWorld&gt; GetRecentWorlds (string featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
+> List&lt;LimitedWorld&gt; GetRecentWorlds (bool? featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
 
 List Recent Worlds
 
@@ -416,7 +416,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var featured = featured_example;  // string | Filters on featured results. (optional) 
+            var featured = true;  // bool? | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
             var order = descending;  // string |  (optional)  (default to descending)
@@ -451,7 +451,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featured** | **string**| Filters on featured results. | [optional] 
+ **featured** | **bool?**| Filters on featured results. | [optional] 
  **sort** | **string**|  | [optional] [default to popularity]
  **n** | **int?**| The number of objects to return. | [optional] [default to 60]
  **order** | **string**|  | [optional] [default to descending]
@@ -894,7 +894,7 @@ void (empty response body)
 
 <a name="searchworlds"></a>
 # **SearchWorlds**
-> List&lt;LimitedWorld&gt; SearchWorlds (string featured = null, string sort = null, string user = null, string userId = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
+> List&lt;LimitedWorld&gt; SearchWorlds (bool? featured = null, string sort = null, string user = null, string userId = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
 
 Search All Worlds
 
@@ -926,7 +926,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var featured = featured_example;  // string | Filters on featured results. (optional) 
+            var featured = true;  // bool? | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
             var user = user_example;  // string | Set to `me` for searching own worlds. (optional) 
             var userId = userId_example;  // string | Filter by UserID. (optional) 
@@ -962,7 +962,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **featured** | **string**| Filters on featured results. | [optional] 
+ **featured** | **bool?**| Filters on featured results. | [optional] 
  **sort** | **string**|  | [optional] [default to popularity]
  **user** | **string**| Set to &#x60;me&#x60; for searching own worlds. | [optional] 
  **userId** | **string**| Filter by UserID. | [optional] 
