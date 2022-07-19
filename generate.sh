@@ -35,7 +35,7 @@ sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 
 # Add README.md to fields
 sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj
-sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\/README.md" Pack="true" PackagePath="\\"/>' src/VRChat.API/VRChat.API.csproj
+sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\/..\/README.md" Pack="true" PackagePath="\\"/>' src/VRChat.API/VRChat.API.csproj
 
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
