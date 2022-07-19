@@ -19,7 +19,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
     <PackageTags>vrchat</PackageTags>
-    <PackageReadmeFile>docs\README.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
