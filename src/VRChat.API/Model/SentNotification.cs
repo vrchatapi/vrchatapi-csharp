@@ -26,10 +26,10 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Notification
+    /// SentNotification
     /// </summary>
-    [DataContract(Name = "Notification")]
-    public partial class Notification : IEquatable<Notification>, IValidatableObject
+    [DataContract(Name = "SentNotification")]
+    public partial class SentNotification : IEquatable<SentNotification>, IValidatableObject
     {
 
         /// <summary>
@@ -38,48 +38,52 @@ namespace VRChat.API.Model
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public NotificationType Type { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Notification" /> class.
+        /// Initializes a new instance of the <see cref="SentNotification" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Notification() { }
+        protected SentNotification() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Notification" /> class.
+        /// Initializes a new instance of the <see cref="SentNotification" /> class.
         /// </summary>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="details">**NOTICE:** This is not a JSON object, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType. (required) (default to &quot;{}&quot;).</param>
         /// <param name="id">id (required).</param>
         /// <param name="message">message (required).</param>
-        /// <param name="seen">seen (required) (default to false).</param>
+        /// <param name="recieverUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="senderUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="senderUsername">senderUsername (required).</param>
         /// <param name="type">type (required).</param>
-        public Notification(DateTime createdAt = default(DateTime), string details = "{}", string id = default(string), string message = default(string), bool seen = false, string senderUserId = default(string), string senderUsername = default(string), NotificationType type = default(NotificationType))
+        public SentNotification(DateTime createdAt = default(DateTime), string details = "{}", string id = default(string), string message = default(string), string recieverUserId = default(string), string senderUserId = default(string), string senderUsername = default(string), NotificationType type = default(NotificationType))
         {
             this.CreatedAt = createdAt;
             // to ensure "details" is required (not null)
             if (details == null) {
-                throw new ArgumentNullException("details is a required property for Notification and cannot be null");
+                throw new ArgumentNullException("details is a required property for SentNotification and cannot be null");
             }
             this.Details = details;
             // to ensure "id" is required (not null)
             if (id == null) {
-                throw new ArgumentNullException("id is a required property for Notification and cannot be null");
+                throw new ArgumentNullException("id is a required property for SentNotification and cannot be null");
             }
             this.Id = id;
             // to ensure "message" is required (not null)
             if (message == null) {
-                throw new ArgumentNullException("message is a required property for Notification and cannot be null");
+                throw new ArgumentNullException("message is a required property for SentNotification and cannot be null");
             }
             this.Message = message;
-            this.Seen = seen;
+            // to ensure "recieverUserId" is required (not null)
+            if (recieverUserId == null) {
+                throw new ArgumentNullException("recieverUserId is a required property for SentNotification and cannot be null");
+            }
+            this.RecieverUserId = recieverUserId;
             // to ensure "senderUserId" is required (not null)
             if (senderUserId == null) {
-                throw new ArgumentNullException("senderUserId is a required property for Notification and cannot be null");
+                throw new ArgumentNullException("senderUserId is a required property for SentNotification and cannot be null");
             }
             this.SenderUserId = senderUserId;
             // to ensure "senderUsername" is required (not null)
             if (senderUsername == null) {
-                throw new ArgumentNullException("senderUsername is a required property for Notification and cannot be null");
+                throw new ArgumentNullException("senderUsername is a required property for SentNotification and cannot be null");
             }
             this.SenderUsername = senderUsername;
             this.Type = type;
@@ -111,10 +115,11 @@ namespace VRChat.API.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets Seen
+        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
-        [DataMember(Name = "seen", IsRequired = true, EmitDefaultValue = true)]
-        public bool Seen { get; set; }
+        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        [DataMember(Name = "recieverUserId", IsRequired = true, EmitDefaultValue = false)]
+        public string RecieverUserId { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -136,12 +141,12 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Notification {\n");
+            sb.Append("class SentNotification {\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  Seen: ").Append(Seen).Append("\n");
+            sb.Append("  RecieverUserId: ").Append(RecieverUserId).Append("\n");
             sb.Append("  SenderUserId: ").Append(SenderUserId).Append("\n");
             sb.Append("  SenderUsername: ").Append(SenderUsername).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -165,15 +170,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Notification);
+            return this.Equals(input as SentNotification);
         }
 
         /// <summary>
-        /// Returns true if Notification instances are equal
+        /// Returns true if SentNotification instances are equal
         /// </summary>
-        /// <param name="input">Instance of Notification to be compared</param>
+        /// <param name="input">Instance of SentNotification to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Notification input)
+        public bool Equals(SentNotification input)
         {
             if (input == null)
                 return false;
@@ -200,8 +205,9 @@ namespace VRChat.API.Model
                     this.Message.Equals(input.Message))
                 ) && 
                 (
-                    this.Seen == input.Seen ||
-                    this.Seen.Equals(input.Seen)
+                    this.RecieverUserId == input.RecieverUserId ||
+                    (this.RecieverUserId != null &&
+                    this.RecieverUserId.Equals(input.RecieverUserId))
                 ) && 
                 (
                     this.SenderUserId == input.SenderUserId ||
@@ -236,7 +242,8 @@ namespace VRChat.API.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Message != null)
                     hashCode = hashCode * 59 + this.Message.GetHashCode();
-                hashCode = hashCode * 59 + this.Seen.GetHashCode();
+                if (this.RecieverUserId != null)
+                    hashCode = hashCode * 59 + this.RecieverUserId.GetHashCode();
                 if (this.SenderUserId != null)
                     hashCode = hashCode * 59 + this.SenderUserId.GetHashCode();
                 if (this.SenderUsername != null)

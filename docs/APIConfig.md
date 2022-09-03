@@ -82,8 +82,8 @@ Name | Type | Description | Notes
 **ViveWindowsUrl** | **string** | Download link for game on the Steam website. | 
 **WhiteListedAssetUrls** | **List&lt;string&gt;** | List of allowed URLs that are allowed to host avatar assets | 
 **WorldUpdatePeriod** | **int** | Unknown | 
-**YoutubedlHash** | **string** | Currently used youtube-dl.exe hash in SHA-256-delimited format | 
-**YoutubedlVersion** | **string** | Currently used youtube-dl.exe version | 
+**PlayerUrlResolverHash** | **string** | Currently used youtube-dl.exe hash in SHA-256-delimited format | 
+**PlayerUrlResolverVersion** | **string** | Currently used youtube-dl.exe version | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

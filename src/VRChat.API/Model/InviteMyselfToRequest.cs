@@ -26,46 +26,35 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// FriendStatus
+    /// InviteMyselfToRequest
     /// </summary>
-    [DataContract(Name = "FriendStatus")]
-    public partial class FriendStatus : IEquatable<FriendStatus>, IValidatableObject
+    [DataContract(Name = "InviteMyselfToRequest")]
+    public partial class InviteMyselfToRequest : IEquatable<InviteMyselfToRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FriendStatus" /> class.
+        /// Initializes a new instance of the <see cref="InviteMyselfToRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FriendStatus() { }
+        protected InviteMyselfToRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FriendStatus" /> class.
+        /// Initializes a new instance of the <see cref="InviteMyselfToRequest" /> class.
         /// </summary>
-        /// <param name="incomingRequest">incomingRequest (required) (default to false).</param>
-        /// <param name="isFriend">isFriend (required) (default to false).</param>
-        /// <param name="outgoingRequest">outgoingRequest (required) (default to false).</param>
-        public FriendStatus(bool incomingRequest = false, bool isFriend = false, bool outgoingRequest = false)
+        /// <param name="shortName">Short Name of the Instance; can be retrieved from the Get Instance Short Name endpoint. (required).</param>
+        public InviteMyselfToRequest(string shortName = default(string))
         {
-            this.IncomingRequest = incomingRequest;
-            this.IsFriend = isFriend;
-            this.OutgoingRequest = outgoingRequest;
+            // to ensure "shortName" is required (not null)
+            if (shortName == null) {
+                throw new ArgumentNullException("shortName is a required property for InviteMyselfToRequest and cannot be null");
+            }
+            this.ShortName = shortName;
         }
 
         /// <summary>
-        /// Gets or Sets IncomingRequest
+        /// Short Name of the Instance; can be retrieved from the Get Instance Short Name endpoint.
         /// </summary>
-        [DataMember(Name = "incomingRequest", IsRequired = true, EmitDefaultValue = true)]
-        public bool IncomingRequest { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsFriend
-        /// </summary>
-        [DataMember(Name = "isFriend", IsRequired = true, EmitDefaultValue = true)]
-        public bool IsFriend { get; set; }
-
-        /// <summary>
-        /// Gets or Sets OutgoingRequest
-        /// </summary>
-        [DataMember(Name = "outgoingRequest", IsRequired = true, EmitDefaultValue = true)]
-        public bool OutgoingRequest { get; set; }
+        /// <value>Short Name of the Instance; can be retrieved from the Get Instance Short Name endpoint.</value>
+        [DataMember(Name = "shortName", IsRequired = true, EmitDefaultValue = false)]
+        public string ShortName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,10 +63,8 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FriendStatus {\n");
-            sb.Append("  IncomingRequest: ").Append(IncomingRequest).Append("\n");
-            sb.Append("  IsFriend: ").Append(IsFriend).Append("\n");
-            sb.Append("  OutgoingRequest: ").Append(OutgoingRequest).Append("\n");
+            sb.Append("class InviteMyselfToRequest {\n");
+            sb.Append("  ShortName: ").Append(ShortName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,31 +85,24 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FriendStatus);
+            return this.Equals(input as InviteMyselfToRequest);
         }
 
         /// <summary>
-        /// Returns true if FriendStatus instances are equal
+        /// Returns true if InviteMyselfToRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of FriendStatus to be compared</param>
+        /// <param name="input">Instance of InviteMyselfToRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FriendStatus input)
+        public bool Equals(InviteMyselfToRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.IncomingRequest == input.IncomingRequest ||
-                    this.IncomingRequest.Equals(input.IncomingRequest)
-                ) && 
-                (
-                    this.IsFriend == input.IsFriend ||
-                    this.IsFriend.Equals(input.IsFriend)
-                ) && 
-                (
-                    this.OutgoingRequest == input.OutgoingRequest ||
-                    this.OutgoingRequest.Equals(input.OutgoingRequest)
+                    this.ShortName == input.ShortName ||
+                    (this.ShortName != null &&
+                    this.ShortName.Equals(input.ShortName))
                 );
         }
 
@@ -135,9 +115,8 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IncomingRequest.GetHashCode();
-                hashCode = hashCode * 59 + this.IsFriend.GetHashCode();
-                hashCode = hashCode * 59 + this.OutgoingRequest.GetHashCode();
+                if (this.ShortName != null)
+                    hashCode = hashCode * 59 + this.ShortName.GetHashCode();
                 return hashCode;
             }
         }

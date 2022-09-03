@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetInviteMessage**](InviteApi.md#getinvitemessage) | **GET** /message/{userId}/{messageType}/{slot} | Get Invite Message
 [**GetInviteMessages**](InviteApi.md#getinvitemessages) | **GET** /message/{userId}/{messageType} | List Invite Messages
+[**InviteMyselfTo**](InviteApi.md#invitemyselfto) | **POST** /invite/myself/to/{worldId}:{instanceId} | Invite Myself To Instance
 [**InviteUser**](InviteApi.md#inviteuser) | **POST** /invite/{userId} | Invite User
 [**RequestInvite**](InviteApi.md#requestinvite) | **POST** /requestInvite/{userId} | Request Invite
 [**ResetInviteMessage**](InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/{messageType}/{slot} | Reset Invite Message
@@ -184,9 +185,95 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="invitemyselfto"></a>
+# **InviteMyselfTo**
+> SentNotification InviteMyselfTo (string worldId, string instanceId, InviteMyselfToRequest inviteMyselfToRequest = null)
+
+Invite Myself To Instance
+
+Sends self an invite to an instance
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class InviteMyselfToExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: apiKeyCookie
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new InviteApi(config);
+            var worldId = worldId_example;  // string | 
+            var instanceId = instanceId_example;  // string | 
+            var inviteMyselfToRequest = new InviteMyselfToRequest(); // InviteMyselfToRequest |  (optional) 
+
+            try
+            {
+                // Invite Myself To Instance
+                SentNotification result = apiInstance.InviteMyselfTo(worldId, instanceId, inviteMyselfToRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InviteApi.InviteMyselfTo: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **worldId** | **string**|  | 
+ **instanceId** | **string**|  | 
+ **inviteMyselfToRequest** | [**InviteMyselfToRequest**](InviteMyselfToRequest.md)|  | [optional] 
+
+### Return type
+
+[**SentNotification**](SentNotification.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single SentNotifcation object. |  -  |
+| **401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **404** | Error response due to non existant instance |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="inviteuser"></a>
 # **InviteUser**
-> Notification InviteUser (string userId, InviteRequest inviteRequest = null)
+> SentNotification InviteUser (string userId, InviteRequest inviteRequest = null)
 
 Invite User
 
@@ -224,7 +311,7 @@ namespace Example
             try
             {
                 // Invite User
-                Notification result = apiInstance.InviteUser(userId, inviteRequest);
+                SentNotification result = apiInstance.InviteUser(userId, inviteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -247,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Notification**](Notification.md)
+[**SentNotification**](SentNotification.md)
 
 ### Authorization
 
@@ -262,7 +349,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a single Notifcation object. |  -  |
+| **200** | Returns a single SentNotifcation object. |  -  |
 | **403** | Error response when trying to invite someome whom you are not friends with. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
