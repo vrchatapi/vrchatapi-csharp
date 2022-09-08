@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 <a name="invitemyselfto"></a>
 # **InviteMyselfTo**
-> SentNotification InviteMyselfTo (string worldId, string instanceId, InviteMyselfToRequest inviteMyselfToRequest = null)
+> SentNotification InviteMyselfTo (string worldId, string instanceId)
 
 Invite Myself To Instance
 
@@ -221,12 +221,11 @@ namespace Example
             var apiInstance = new InviteApi(config);
             var worldId = worldId_example;  // string | 
             var instanceId = instanceId_example;  // string | 
-            var inviteMyselfToRequest = new InviteMyselfToRequest(); // InviteMyselfToRequest |  (optional) 
 
             try
             {
                 // Invite Myself To Instance
-                SentNotification result = apiInstance.InviteMyselfTo(worldId, instanceId, inviteMyselfToRequest);
+                SentNotification result = apiInstance.InviteMyselfTo(worldId, instanceId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -246,7 +245,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **worldId** | **string**|  | 
  **instanceId** | **string**|  | 
- **inviteMyselfToRequest** | [**InviteMyselfToRequest**](InviteMyselfToRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -258,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

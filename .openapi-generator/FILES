@@ -41,12 +41,12 @@ docs/InfoPushDataArticleContent.md
 docs/InfoPushDataClickable.md
 docs/Instance.md
 docs/InstancePlatforms.md
+docs/InstanceShortNameResponse.md
 docs/InstanceType.md
 docs/InstancesApi.md
 docs/InviteApi.md
 docs/InviteMessage.md
 docs/InviteMessageType.md
-docs/InviteMyselfToRequest.md
 docs/InviteRequest.md
 docs/InviteResponse.md
 docs/License.md
@@ -168,10 +168,10 @@ src/VRChat.API/Model/InfoPushDataArticleContent.cs
 src/VRChat.API/Model/InfoPushDataClickable.cs
 src/VRChat.API/Model/Instance.cs
 src/VRChat.API/Model/InstancePlatforms.cs
+src/VRChat.API/Model/InstanceShortNameResponse.cs
 src/VRChat.API/Model/InstanceType.cs
 src/VRChat.API/Model/InviteMessage.cs
 src/VRChat.API/Model/InviteMessageType.cs
-src/VRChat.API/Model/InviteMyselfToRequest.cs
 src/VRChat.API/Model/InviteRequest.cs
 src/VRChat.API/Model/InviteResponse.cs
 src/VRChat.API/Model/License.cs

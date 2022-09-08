@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 <a name="getshortname"></a>
 # **GetShortName**
-> string GetShortName (string worldId, string instanceId)
+> InstanceShortNameResponse GetShortName (string worldId, string instanceId)
 
 Get Instance Short Name
 
@@ -215,7 +215,7 @@ namespace Example
             try
             {
                 // Get Instance Short Name
-                string result = apiInstance.GetShortName(worldId, instanceId);
+                InstanceShortNameResponse result = apiInstance.GetShortName(worldId, instanceId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**InstanceShortNameResponse**](InstanceShortNameResponse.md)
 
 ### Authorization
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns an instance short name. |  -  |
+| **200** | Returns an instance secureName and/or shortName. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
