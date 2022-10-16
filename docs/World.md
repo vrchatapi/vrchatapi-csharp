@@ -14,16 +14,16 @@ Name | Type | Description | Notes
 **Heat** | **int** |  | [default to 0]
 **Id** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **ImageUrl** | **string** |  | 
-**Instances** | **List&lt;List&lt;Object&gt;&gt;** |  | [optional] 
+**Instances** | **List&lt;List&lt;Object&gt;&gt;** | Will always be an empty list when unauthenticated. | [optional] 
 **LabsPublicationDate** | **string** |  | 
 **Name** | **string** |  | 
 **Namespace** | **string** |  | 
-**Occupants** | **int** |  | [optional] [default to 0]
+**Occupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional] [default to 0]
 **Organization** | **string** |  | [default to "vrchat"]
 **Popularity** | **int** |  | [default to 0]
 **PreviewYoutubeId** | **string** |  | [optional] 
-**PrivateOccupants** | **int** |  | [optional] [default to 0]
-**PublicOccupants** | **int** |  | [optional] [default to 0]
+**PrivateOccupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional] [default to 0]
+**PublicOccupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional] [default to 0]
 **PublicationDate** | **string** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
 **Tags** | **List&lt;string&gt;** |  | 
