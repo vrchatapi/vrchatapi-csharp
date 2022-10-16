@@ -285,7 +285,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new NotificationsApi(config);
-            var type = all;  // string | Only send notifications of this type (can use `all` for all). (optional) 
+            var type = all;  // string | Only send notifications of this type (can use `all` for all). This parameter no longer does anything, and is deprecated. (optional) 
             var sent = true;  // bool? | Return notifications sent by the user. Must be false or omitted. (optional) 
             var hidden = true;  // bool? | Whether to return hidden or non-hidden notifications. True only allowed on type `friendRequest`. (optional) 
             var after = five_minutes_ago;  // string | Only return notifications sent after this Date. Ignored if type is `friendRequest`. (optional) 
@@ -313,7 +313,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **string**| Only send notifications of this type (can use &#x60;all&#x60; for all). | [optional] 
+ **type** | **string**| Only send notifications of this type (can use &#x60;all&#x60; for all). This parameter no longer does anything, and is deprecated. | [optional] 
  **sent** | **bool?**| Return notifications sent by the user. Must be false or omitted. | [optional] 
  **hidden** | **bool?**| Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. | [optional] 
  **after** | **string**| Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. | [optional] 
