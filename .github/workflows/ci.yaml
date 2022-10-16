@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Generate VRChat API SDK
     steps:
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: 'Cache node_modules'
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.os }}-node-v16-${{ hashFiles('**/generate.sh') }}
@@ -26,8 +26,8 @@ jobs:
       - name: Set OpenAPI Generator version
         run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 5.3.0
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1.0.5
-      - uses: actions/setup-dotnet@v1
+        uses: NuGet/setup-nuget@v1.1.1
+      - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '5.0.x'
       - name: Generate SDK Client
@@ -40,7 +40,7 @@ jobs:
       - name: Print version number
         run: echo ${{ env.spec_version }}
       - name: Deploy SDK back into main branch
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        uses: JamesIves/github-pages-deploy-action@4.4.1
         with:
           branch: main
           folder: .
