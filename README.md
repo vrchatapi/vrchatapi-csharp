@@ -119,10 +119,12 @@ Class | Method | HTTP request | Description
 *FriendsApi* | [**GetFriends**](docs/FriendsApi.md#getfriends) | **GET** /auth/user/friends | List Friends
 *FriendsApi* | [**Unfriend**](docs/FriendsApi.md#unfriend) | **DELETE** /auth/user/friends/{userId} | Unfriend
 *InstancesApi* | [**GetInstance**](docs/InstancesApi.md#getinstance) | **GET** /instances/{worldId}:{instanceId} | Get Instance
+*InstancesApi* | [**GetInstanceByShortName**](docs/InstancesApi.md#getinstancebyshortname) | **GET** /instances/s/{shortName} | Get Instance By Short Name
 *InstancesApi* | [**GetShortName**](docs/InstancesApi.md#getshortname) | **GET** /instances/{worldId}:{instanceId}/shortName | Get Instance Short Name
 *InstancesApi* | [**SendSelfInvite**](docs/InstancesApi.md#sendselfinvite) | **POST** /instances/{worldId}:{instanceId}/invite | Send Self Invite
 *InviteApi* | [**GetInviteMessage**](docs/InviteApi.md#getinvitemessage) | **GET** /message/{userId}/{messageType}/{slot} | Get Invite Message
 *InviteApi* | [**GetInviteMessages**](docs/InviteApi.md#getinvitemessages) | **GET** /message/{userId}/{messageType} | List Invite Messages
+*InviteApi* | [**InviteMyselfTo**](docs/InviteApi.md#invitemyselfto) | **POST** /invite/myself/to/{worldId}:{instanceId} | Invite Myself To Instance
 *InviteApi* | [**InviteUser**](docs/InviteApi.md#inviteuser) | **POST** /invite/{userId} | Invite User
 *InviteApi* | [**RequestInvite**](docs/InviteApi.md#requestinvite) | **POST** /requestInvite/{userId} | Request Invite
 *InviteApi* | [**ResetInviteMessage**](docs/InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/{messageType}/{slot} | Reset Invite Message
@@ -204,6 +206,8 @@ Class | Method | HTTP request | Description
  - [Model.InfoPushDataClickable](docs/InfoPushDataClickable.md)
  - [Model.Instance](docs/Instance.md)
  - [Model.InstancePlatforms](docs/InstancePlatforms.md)
+ - [Model.InstanceShortNameResponse](docs/InstanceShortNameResponse.md)
+ - [Model.InstanceType](docs/InstanceType.md)
  - [Model.InviteMessage](docs/InviteMessage.md)
  - [Model.InviteMessageType](docs/InviteMessageType.md)
  - [Model.InviteRequest](docs/InviteRequest.md)
@@ -224,8 +228,11 @@ Class | Method | HTTP request | Description
  - [Model.PlayerModeration](docs/PlayerModeration.md)
  - [Model.PlayerModerationType](docs/PlayerModerationType.md)
  - [Model.PublicAnnouncement](docs/PublicAnnouncement.md)
+ - [Model.Region](docs/Region.md)
  - [Model.ReleaseStatus](docs/ReleaseStatus.md)
+ - [Model.RequestInviteRequest](docs/RequestInviteRequest.md)
  - [Model.Response](docs/Response.md)
+ - [Model.SentNotification](docs/SentNotification.md)
  - [Model.Subscription](docs/Subscription.md)
  - [Model.SubscriptionPeriod](docs/SubscriptionPeriod.md)
  - [Model.Success](docs/Success.md)

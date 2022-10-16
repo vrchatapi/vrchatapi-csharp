@@ -32,6 +32,8 @@ jobs:
           dotnet-version: '5.0.x'
       - name: Generate SDK Client
         run: bash ./generate.sh
+      - name: Copy README.md into src/
+        run: cp README.md src/
       - name: Check version number
         run: |
           echo "spec_version=$(grep "version of the OpenAPI document" src/VRChat.API/Model/User.cs | cut -d " " -f 9)" >> $GITHUB_ENV
