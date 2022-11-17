@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**DeleteAvatar**](AvatarsApi.md#deleteavatar) | **DELETE** /avatars/{avatarId} | Delete Avatar
 [**GetAvatar**](AvatarsApi.md#getavatar) | **GET** /avatars/{avatarId} | Get Avatar
 [**GetFavoritedAvatars**](AvatarsApi.md#getfavoritedavatars) | **GET** /avatars/favorites | List Favorited Avatars
+[**GetOwnAvatar**](AvatarsApi.md#getownavatar) | **GET** /users/{userId}/avatar | Get Own Avatar
 [**SearchAvatars**](AvatarsApi.md#searchavatars) | **GET** /avatars | Search Avatars
 [**SelectAvatar**](AvatarsApi.md#selectavatar) | **PUT** /avatars/{avatarId}/select | Select Avatar
 [**SelectFallbackAvatar**](AvatarsApi.md#selectfallbackavatar) | **PUT** /avatars/{avatarId}/selectFallback | Select Fallback Avatar
@@ -362,6 +363,88 @@ Name | Type | Description  | Notes
 | **200** | Returns a list of Avatar objects. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **403** | Error response when trying to see favourited avatars of another user without sufficient admin permissions. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getownavatar"></a>
+# **GetOwnAvatar**
+> Avatar GetOwnAvatar (string userId)
+
+Get Own Avatar
+
+Get the current avatar for the user. This will return an error for any other user than the one logged in.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetOwnAvatarExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: apiKeyCookie
+            config.AddApiKey("apiKey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("apiKey", "Bearer");
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AvatarsApi(config);
+            var userId = userId_example;  // string | 
+
+            try
+            {
+                // Get Own Avatar
+                Avatar result = apiInstance.GetOwnAvatar(userId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AvatarsApi.GetOwnAvatar: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**|  | 
+
+### Return type
+
+[**Avatar**](Avatar.md)
+
+### Authorization
+
+[apiKeyCookie](../README.md#apiKeyCookie), [authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single Avatar object. |  -  |
+| **401** | Error response due to missing apiKey or auth cookie. |  -  |
+| **403** | Error response when trying to see another users current avatar without sufficient admin permissions. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
