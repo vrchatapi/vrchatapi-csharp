@@ -43,7 +43,8 @@ namespace VRChat.API.Model
         public BanGroupMemberRequest(string userId = default(string))
         {
             // to ensure "userId" is required (not null)
-            if (userId == null) {
+            if (userId == null)
+            {
                 throw new ArgumentNullException("userId is a required property for BanGroupMemberRequest and cannot be null");
             }
             this.UserId = userId;
@@ -53,7 +54,7 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public string UserId { get; set; }
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BanGroupMemberRequest {\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("}\n");
@@ -96,8 +97,9 @@ namespace VRChat.API.Model
         public bool Equals(BanGroupMemberRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UserId == input.UserId ||
@@ -116,7 +118,9 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.UserId != null)
-                    hashCode = hashCode * 59 + this.UserId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
+                }
                 return hashCode;
             }
         }

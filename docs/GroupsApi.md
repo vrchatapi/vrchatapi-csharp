@@ -2,45 +2,44 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**AddGroupGalleryImage**](GroupsApi.md#addgroupgalleryimage) | **POST** /groups/{groupId}/galleries/{groupGalleryId}/images | Add Group Gallery Image
-[**AddGroupMemberRole**](GroupsApi.md#addgroupmemberrole) | **PUT** /groups/{groupId}/members/{userId}/roles/{groupRoleId} | Add Role to GroupMember
-[**BanGroupMember**](GroupsApi.md#bangroupmember) | **POST** /groups/{groupId}/bans | Ban Group Member
-[**CancelGroupRequest**](GroupsApi.md#cancelgrouprequest) | **DELETE** /groups/{groupId}/requests | Cancel Group Join Request
-[**CreateGroup**](GroupsApi.md#creategroup) | **POST** /groups | Create Group
-[**CreateGroupAnnouncement**](GroupsApi.md#creategroupannouncement) | **POST** /groups/{groupId}/announcement | Create Group Announcement
-[**CreateGroupGallery**](GroupsApi.md#creategroupgallery) | **POST** /groups/{groupId}/galleries | Create Group Gallery
-[**CreateGroupInvite**](GroupsApi.md#creategroupinvite) | **POST** /groups/{groupId}/invites | Invite User to Group
-[**CreateGroupRole**](GroupsApi.md#creategrouprole) | **POST** /groups/{groupId}/roles | Create GroupRole
-[**DeleteGroup**](GroupsApi.md#deletegroup) | **DELETE** /groups/{groupId} | Delete Group
-[**DeleteGroupAnnouncement**](GroupsApi.md#deletegroupannouncement) | **DELETE** /groups/{groupId}/announcement | Delete Group Announcement
-[**DeleteGroupGallery**](GroupsApi.md#deletegroupgallery) | **DELETE** /groups/{groupId}/galleries/{groupGalleryId} | Delete Group Gallery
-[**DeleteGroupGalleryImage**](GroupsApi.md#deletegroupgalleryimage) | **DELETE** /groups/{groupId}/galleries/{groupGalleryId}/images/{groupGalleryImageId} | Delete Group Gallery Image
-[**DeleteGroupInvite**](GroupsApi.md#deletegroupinvite) | **DELETE** /groups/{groupId}/invites/{userId} | Delete User Invite
-[**DeleteGroupRole**](GroupsApi.md#deletegrouprole) | **DELETE** /groups/{groupId}/roles/{groupRoleId} | Delete Group Role
-[**GetGroup**](GroupsApi.md#getgroup) | **GET** /groups/{groupId} | Get Group by ID
-[**GetGroupAnnouncements**](GroupsApi.md#getgroupannouncements) | **GET** /groups/{groupId}/announcement | Get Group Announcement
-[**GetGroupAuditLogs**](GroupsApi.md#getgroupauditlogs) | **GET** /groups/{groupId}/auditLogs | Get Group Audit Logs
-[**GetGroupBans**](GroupsApi.md#getgroupbans) | **GET** /groups/{groupId}/bans | Get Group Bans
-[**GetGroupGalleryImages**](GroupsApi.md#getgroupgalleryimages) | **GET** /groups/{groupId}/galleries/{groupGalleryId} | Get Group Gallery Images
-[**GetGroupInvites**](GroupsApi.md#getgroupinvites) | **GET** /groups/{groupId}/invites | Get Group Invites Sent
-[**GetGroupMember**](GroupsApi.md#getgroupmember) | **GET** /groups/{groupId}/members/{userId} | Get Group Member
-[**GetGroupMembers**](GroupsApi.md#getgroupmembers) | **GET** /groups/{groupId}/members | List Group Members
-[**GetGroupPermissions**](GroupsApi.md#getgrouppermissions) | **GET** /groups/{groupId}/permissions | List Group Permissions
-[**GetGroupRequests**](GroupsApi.md#getgrouprequests) | **GET** /groups/{groupId}/requests | Get Group Join Requests
-[**GetGroupRoles**](GroupsApi.md#getgrouproles) | **GET** /groups/{groupId}/roles | Get Group Roles
-[**JoinGroup**](GroupsApi.md#joingroup) | **POST** /groups/{groupId}/join | Join Group
-[**KickGroupMember**](GroupsApi.md#kickgroupmember) | **DELETE** /groups/{groupId}/members/{userId} | Kick Group Member
-[**LeaveGroup**](GroupsApi.md#leavegroup) | **POST** /groups/{groupId}/leave | Leave Group
-[**RemoveGroupMemberRole**](GroupsApi.md#removegroupmemberrole) | **DELETE** /groups/{groupId}/members/{userId}/roles/{groupRoleId} | Remove Role from GroupMember
-[**RespondGroupJoinRequest**](GroupsApi.md#respondgroupjoinrequest) | **PUT** /groups/{groupId}/requests/{userId} | Respond Group Join request
-[**UnbanGroupMember**](GroupsApi.md#unbangroupmember) | **DELETE** /groups/{groupId}/bans/{userId} | Unban Group Member
-[**UpdateGroup**](GroupsApi.md#updategroup) | **PUT** /groups/{groupId} | Update Group
-[**UpdateGroupGallery**](GroupsApi.md#updategroupgallery) | **PUT** /groups/{groupId}/galleries/{groupGalleryId} | Update Group Gallery
-[**UpdateGroupMember**](GroupsApi.md#updategroupmember) | **PUT** /groups/{groupId}/members/{userId} | Update Group Member
-[**UpdateGroupRole**](GroupsApi.md#updategrouprole) | **PUT** /groups/{groupId}/roles/{groupRoleId} | Update Group Role
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**AddGroupGalleryImage**](GroupsApi.md#addgroupgalleryimage) | **POST** /groups/{groupId}/galleries/{groupGalleryId}/images | Add Group Gallery Image |
+| [**AddGroupMemberRole**](GroupsApi.md#addgroupmemberrole) | **PUT** /groups/{groupId}/members/{userId}/roles/{groupRoleId} | Add Role to GroupMember |
+| [**BanGroupMember**](GroupsApi.md#bangroupmember) | **POST** /groups/{groupId}/bans | Ban Group Member |
+| [**CancelGroupRequest**](GroupsApi.md#cancelgrouprequest) | **DELETE** /groups/{groupId}/requests | Cancel Group Join Request |
+| [**CreateGroup**](GroupsApi.md#creategroup) | **POST** /groups | Create Group |
+| [**CreateGroupAnnouncement**](GroupsApi.md#creategroupannouncement) | **POST** /groups/{groupId}/announcement | Create Group Announcement |
+| [**CreateGroupGallery**](GroupsApi.md#creategroupgallery) | **POST** /groups/{groupId}/galleries | Create Group Gallery |
+| [**CreateGroupInvite**](GroupsApi.md#creategroupinvite) | **POST** /groups/{groupId}/invites | Invite User to Group |
+| [**CreateGroupRole**](GroupsApi.md#creategrouprole) | **POST** /groups/{groupId}/roles | Create GroupRole |
+| [**DeleteGroup**](GroupsApi.md#deletegroup) | **DELETE** /groups/{groupId} | Delete Group |
+| [**DeleteGroupAnnouncement**](GroupsApi.md#deletegroupannouncement) | **DELETE** /groups/{groupId}/announcement | Delete Group Announcement |
+| [**DeleteGroupGallery**](GroupsApi.md#deletegroupgallery) | **DELETE** /groups/{groupId}/galleries/{groupGalleryId} | Delete Group Gallery |
+| [**DeleteGroupGalleryImage**](GroupsApi.md#deletegroupgalleryimage) | **DELETE** /groups/{groupId}/galleries/{groupGalleryId}/images/{groupGalleryImageId} | Delete Group Gallery Image |
+| [**DeleteGroupInvite**](GroupsApi.md#deletegroupinvite) | **DELETE** /groups/{groupId}/invites/{userId} | Delete User Invite |
+| [**DeleteGroupRole**](GroupsApi.md#deletegrouprole) | **DELETE** /groups/{groupId}/roles/{groupRoleId} | Delete Group Role |
+| [**GetGroup**](GroupsApi.md#getgroup) | **GET** /groups/{groupId} | Get Group by ID |
+| [**GetGroupAnnouncements**](GroupsApi.md#getgroupannouncements) | **GET** /groups/{groupId}/announcement | Get Group Announcement |
+| [**GetGroupAuditLogs**](GroupsApi.md#getgroupauditlogs) | **GET** /groups/{groupId}/auditLogs | Get Group Audit Logs |
+| [**GetGroupBans**](GroupsApi.md#getgroupbans) | **GET** /groups/{groupId}/bans | Get Group Bans |
+| [**GetGroupGalleryImages**](GroupsApi.md#getgroupgalleryimages) | **GET** /groups/{groupId}/galleries/{groupGalleryId} | Get Group Gallery Images |
+| [**GetGroupInvites**](GroupsApi.md#getgroupinvites) | **GET** /groups/{groupId}/invites | Get Group Invites Sent |
+| [**GetGroupMember**](GroupsApi.md#getgroupmember) | **GET** /groups/{groupId}/members/{userId} | Get Group Member |
+| [**GetGroupMembers**](GroupsApi.md#getgroupmembers) | **GET** /groups/{groupId}/members | List Group Members |
+| [**GetGroupPermissions**](GroupsApi.md#getgrouppermissions) | **GET** /groups/{groupId}/permissions | List Group Permissions |
+| [**GetGroupRequests**](GroupsApi.md#getgrouprequests) | **GET** /groups/{groupId}/requests | Get Group Join Requests |
+| [**GetGroupRoles**](GroupsApi.md#getgrouproles) | **GET** /groups/{groupId}/roles | Get Group Roles |
+| [**JoinGroup**](GroupsApi.md#joingroup) | **POST** /groups/{groupId}/join | Join Group |
+| [**KickGroupMember**](GroupsApi.md#kickgroupmember) | **DELETE** /groups/{groupId}/members/{userId} | Kick Group Member |
+| [**LeaveGroup**](GroupsApi.md#leavegroup) | **POST** /groups/{groupId}/leave | Leave Group |
+| [**RemoveGroupMemberRole**](GroupsApi.md#removegroupmemberrole) | **DELETE** /groups/{groupId}/members/{userId}/roles/{groupRoleId} | Remove Role from GroupMember |
+| [**RespondGroupJoinRequest**](GroupsApi.md#respondgroupjoinrequest) | **PUT** /groups/{groupId}/requests/{userId} | Respond Group Join request |
+| [**UnbanGroupMember**](GroupsApi.md#unbangroupmember) | **DELETE** /groups/{groupId}/bans/{userId} | Unban Group Member |
+| [**UpdateGroup**](GroupsApi.md#updategroup) | **PUT** /groups/{groupId} | Update Group |
+| [**UpdateGroupGallery**](GroupsApi.md#updategroupgallery) | **PUT** /groups/{groupId}/galleries/{groupGalleryId} | Update Group Gallery |
+| [**UpdateGroupMember**](GroupsApi.md#updategroupmember) | **PUT** /groups/{groupId}/members/{userId} | Update Group Member |
+| [**UpdateGroupRole**](GroupsApi.md#updategrouprole) | **PUT** /groups/{groupId}/roles/{groupRoleId} | Update Group Role |
 
 <a name="addgroupgalleryimage"></a>
 # **AddGroupGalleryImage**
@@ -88,8 +87,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.AddGroupGalleryImage: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.AddGroupGalleryImage: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -97,13 +96,33 @@ namespace Example
 }
 ```
 
+#### Using the AddGroupGalleryImageWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Group Gallery Image
+    ApiResponse<GroupGalleryImage> response = apiInstance.AddGroupGalleryImageWithHttpInfo(groupId, groupGalleryId, addGroupGalleryImageRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.AddGroupGalleryImageWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **groupGalleryId** | **string**| Must be a valid group gallery ID. | 
- **addGroupGalleryImageRequest** | [**AddGroupGalleryImageRequest**](AddGroupGalleryImageRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **groupGalleryId** | **string** | Must be a valid group gallery ID. |  |
+| **addGroupGalleryImageRequest** | [**AddGroupGalleryImageRequest**](AddGroupGalleryImageRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -163,7 +182,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
             var groupRoleId = grol_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group role ID.
 
             try
@@ -174,8 +193,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.AddGroupMemberRole: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.AddGroupMemberRole: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -183,13 +202,33 @@ namespace Example
 }
 ```
 
+#### Using the AddGroupMemberRoleWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Role to GroupMember
+    ApiResponse<List<string>> response = apiInstance.AddGroupMemberRoleWithHttpInfo(groupId, userId, groupRoleId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.AddGroupMemberRoleWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **userId** | **string**| Must be a valid user ID. | 
- **groupRoleId** | **string**| Must be a valid group role ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
+| **groupRoleId** | **string** | Must be a valid group role ID. |  |
 
 ### Return type
 
@@ -259,8 +298,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.BanGroupMember: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.BanGroupMember: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -268,12 +307,32 @@ namespace Example
 }
 ```
 
+#### Using the BanGroupMemberWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Ban Group Member
+    ApiResponse<GroupMember> response = apiInstance.BanGroupMemberWithHttpInfo(groupId, banGroupMemberRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.BanGroupMemberWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **banGroupMemberRequest** | [**BanGroupMemberRequest**](BanGroupMemberRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **banGroupMemberRequest** | [**BanGroupMemberRequest**](BanGroupMemberRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -341,8 +400,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.CancelGroupRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.CancelGroupRequest: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -350,11 +409,28 @@ namespace Example
 }
 ```
 
+#### Using the CancelGroupRequestWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Cancel Group Join Request
+    apiInstance.CancelGroupRequestWithHttpInfo(groupId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.CancelGroupRequestWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
 
 ### Return type
 
@@ -424,8 +500,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.CreateGroup: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.CreateGroup: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -433,11 +509,31 @@ namespace Example
 }
 ```
 
+#### Using the CreateGroupWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create Group
+    ApiResponse<Group> response = apiInstance.CreateGroupWithHttpInfo(createGroupRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.CreateGroupWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createGroupRequest** | [**CreateGroupRequest**](CreateGroupRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createGroupRequest** | [**CreateGroupRequest**](CreateGroupRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -506,8 +602,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.CreateGroupAnnouncement: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.CreateGroupAnnouncement: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -515,12 +611,32 @@ namespace Example
 }
 ```
 
+#### Using the CreateGroupAnnouncementWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create Group Announcement
+    ApiResponse<GroupAnnouncement> response = apiInstance.CreateGroupAnnouncementWithHttpInfo(groupId, createGroupAnnouncementRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.CreateGroupAnnouncementWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **createGroupAnnouncementRequest** | [**CreateGroupAnnouncementRequest**](CreateGroupAnnouncementRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **createGroupAnnouncementRequest** | [**CreateGroupAnnouncementRequest**](CreateGroupAnnouncementRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -590,8 +706,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.CreateGroupGallery: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.CreateGroupGallery: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -599,12 +715,32 @@ namespace Example
 }
 ```
 
+#### Using the CreateGroupGalleryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create Group Gallery
+    ApiResponse<GroupGallery> response = apiInstance.CreateGroupGalleryWithHttpInfo(groupId, createGroupGalleryRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.CreateGroupGalleryWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **createGroupGalleryRequest** | [**CreateGroupGalleryRequest**](CreateGroupGalleryRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **createGroupGalleryRequest** | [**CreateGroupGalleryRequest**](CreateGroupGalleryRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -673,8 +809,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.CreateGroupInvite: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.CreateGroupInvite: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -682,12 +818,29 @@ namespace Example
 }
 ```
 
+#### Using the CreateGroupInviteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Invite User to Group
+    apiInstance.CreateGroupInviteWithHttpInfo(groupId, createGroupInviteRequest);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.CreateGroupInviteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **createGroupInviteRequest** | [**CreateGroupInviteRequest**](CreateGroupInviteRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **createGroupInviteRequest** | [**CreateGroupInviteRequest**](CreateGroupInviteRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -758,8 +911,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.CreateGroupRole: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.CreateGroupRole: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -767,12 +920,32 @@ namespace Example
 }
 ```
 
+#### Using the CreateGroupRoleWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create GroupRole
+    ApiResponse<GroupRole> response = apiInstance.CreateGroupRoleWithHttpInfo(groupId, createGroupRoleRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.CreateGroupRoleWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **createGroupRoleRequest** | [**CreateGroupRoleRequest**](CreateGroupRoleRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **createGroupRoleRequest** | [**CreateGroupRoleRequest**](CreateGroupRoleRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -841,8 +1014,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.DeleteGroup: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.DeleteGroup: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -850,11 +1023,31 @@ namespace Example
 }
 ```
 
+#### Using the DeleteGroupWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Group
+    ApiResponse<Success> response = apiInstance.DeleteGroupWithHttpInfo(groupId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.DeleteGroupWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
 
 ### Return type
 
@@ -923,8 +1116,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.DeleteGroupAnnouncement: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.DeleteGroupAnnouncement: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -932,11 +1125,31 @@ namespace Example
 }
 ```
 
+#### Using the DeleteGroupAnnouncementWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Group Announcement
+    ApiResponse<Success> response = apiInstance.DeleteGroupAnnouncementWithHttpInfo(groupId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.DeleteGroupAnnouncementWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
 
 ### Return type
 
@@ -1006,8 +1219,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.DeleteGroupGallery: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.DeleteGroupGallery: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1015,12 +1228,32 @@ namespace Example
 }
 ```
 
+#### Using the DeleteGroupGalleryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Group Gallery
+    ApiResponse<Success> response = apiInstance.DeleteGroupGalleryWithHttpInfo(groupId, groupGalleryId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.DeleteGroupGalleryWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **groupGalleryId** | **string**| Must be a valid group gallery ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **groupGalleryId** | **string** | Must be a valid group gallery ID. |  |
 
 ### Return type
 
@@ -1091,8 +1324,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.DeleteGroupGalleryImage: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.DeleteGroupGalleryImage: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1100,13 +1333,33 @@ namespace Example
 }
 ```
 
+#### Using the DeleteGroupGalleryImageWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Group Gallery Image
+    ApiResponse<Success> response = apiInstance.DeleteGroupGalleryImageWithHttpInfo(groupId, groupGalleryId, groupGalleryImageId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.DeleteGroupGalleryImageWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **groupGalleryId** | **string**| Must be a valid group gallery ID. | 
- **groupGalleryImageId** | **string**| Must be a valid group gallery image ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **groupGalleryId** | **string** | Must be a valid group gallery ID. |  |
+| **groupGalleryImageId** | **string** | Must be a valid group gallery image ID. |  |
 
 ### Return type
 
@@ -1167,7 +1420,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
             {
@@ -1176,8 +1429,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.DeleteGroupInvite: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.DeleteGroupInvite: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1185,12 +1438,29 @@ namespace Example
 }
 ```
 
+#### Using the DeleteGroupInviteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete User Invite
+    apiInstance.DeleteGroupInviteWithHttpInfo(groupId, userId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.DeleteGroupInviteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **userId** | **string**| Must be a valid user ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
 
 ### Return type
 
@@ -1259,8 +1529,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.DeleteGroupRole: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.DeleteGroupRole: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1268,12 +1538,32 @@ namespace Example
 }
 ```
 
+#### Using the DeleteGroupRoleWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Group Role
+    ApiResponse<List<GroupRole>> response = apiInstance.DeleteGroupRoleWithHttpInfo(groupId, groupRoleId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.DeleteGroupRoleWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **groupRoleId** | **string**| Must be a valid group role ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **groupRoleId** | **string** | Must be a valid group role ID. |  |
 
 ### Return type
 
@@ -1343,8 +1633,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroup: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroup: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1352,12 +1642,32 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group by ID
+    ApiResponse<Group> response = apiInstance.GetGroupWithHttpInfo(groupId, includeRoles);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **includeRoles** | **bool?**| Include roles for the Group object. Defaults to false. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **includeRoles** | **bool?** | Include roles for the Group object. Defaults to false. | [optional]  |
 
 ### Return type
 
@@ -1426,8 +1736,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupAnnouncements: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroupAnnouncements: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1435,11 +1745,31 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupAnnouncementsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group Announcement
+    ApiResponse<GroupAnnouncement> response = apiInstance.GetGroupAnnouncementsWithHttpInfo(groupId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupAnnouncementsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
 
 ### Return type
 
@@ -1499,10 +1829,10 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | The start date of the search range. (optional) 
-            var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | The end date of the search range. (optional) 
+            var startDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | The start date of the search range. (optional) 
+            var endDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | The end date of the search range. (optional) 
 
             try
             {
@@ -1512,8 +1842,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupAuditLogs: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroupAuditLogs: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1521,15 +1851,35 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupAuditLogsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group Audit Logs
+    ApiResponse<PaginatedGroupAuditLogEntryList> response = apiInstance.GetGroupAuditLogsWithHttpInfo(groupId, n, offset, startDate, endDate);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupAuditLogsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **startDate** | **DateTime?**| The start date of the search range. | [optional] 
- **endDate** | **DateTime?**| The end date of the search range. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **startDate** | **DateTime?** | The start date of the search range. | [optional]  |
+| **endDate** | **DateTime?** | The end date of the search range. | [optional]  |
 
 ### Return type
 
@@ -1589,7 +1939,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
             try
@@ -1600,8 +1950,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupBans: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroupBans: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1609,13 +1959,33 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupBansWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group Bans
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupBansWithHttpInfo(groupId, n, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupBansWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
 ### Return type
 
@@ -1676,7 +2046,7 @@ namespace Example
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var groupGalleryId = ggal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group gallery ID.
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var approved = true;  // bool? | If specified, only returns images that have been approved or not approved. (optional) 
 
@@ -1688,8 +2058,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupGalleryImages: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroupGalleryImages: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1697,15 +2067,35 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupGalleryImagesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group Gallery Images
+    ApiResponse<List<GroupGalleryImage>> response = apiInstance.GetGroupGalleryImagesWithHttpInfo(groupId, groupGalleryId, n, offset, approved);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupGalleryImagesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **groupGalleryId** | **string**| Must be a valid group gallery ID. | 
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **approved** | **bool?**| If specified, only returns images that have been approved or not approved. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **groupGalleryId** | **string** | Must be a valid group gallery ID. |  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **approved** | **bool?** | If specified, only returns images that have been approved or not approved. | [optional]  |
 
 ### Return type
 
@@ -1774,8 +2164,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupInvites: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroupInvites: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1783,11 +2173,31 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupInvitesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group Invites Sent
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupInvitesWithHttpInfo(groupId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupInvitesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
 
 ### Return type
 
@@ -1848,7 +2258,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
             {
@@ -1858,8 +2268,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupMember: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroupMember: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1867,12 +2277,32 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupMemberWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group Member
+    ApiResponse<GroupLimitedMember> response = apiInstance.GetGroupMemberWithHttpInfo(groupId, userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupMemberWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **userId** | **string**| Must be a valid user ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
 
 ### Return type
 
@@ -1932,7 +2362,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
             try
@@ -1943,8 +2373,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupMembers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroupMembers: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1952,13 +2382,33 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupMembersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Group Members
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupMembersWithHttpInfo(groupId, n, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupMembersWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
 ### Return type
 
@@ -2028,8 +2478,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupPermissions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroupPermissions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2037,11 +2487,31 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupPermissionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Group Permissions
+    ApiResponse<List<GroupPermission>> response = apiInstance.GetGroupPermissionsWithHttpInfo(groupId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupPermissionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
 
 ### Return type
 
@@ -2111,8 +2581,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupRequests: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroupRequests: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2120,11 +2590,31 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupRequestsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group Join Requests
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupRequestsWithHttpInfo(groupId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupRequestsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
 
 ### Return type
 
@@ -2193,8 +2683,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupRoles: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.GetGroupRoles: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2202,11 +2692,31 @@ namespace Example
 }
 ```
 
+#### Using the GetGroupRolesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group Roles
+    ApiResponse<List<GroupRole>> response = apiInstance.GetGroupRolesWithHttpInfo(groupId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupRolesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
 
 ### Return type
 
@@ -2275,8 +2785,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.JoinGroup: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.JoinGroup: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2284,11 +2794,31 @@ namespace Example
 }
 ```
 
+#### Using the JoinGroupWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Join Group
+    ApiResponse<Group> response = apiInstance.JoinGroupWithHttpInfo(groupId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.JoinGroupWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
 
 ### Return type
 
@@ -2349,7 +2879,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
             {
@@ -2358,8 +2888,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.KickGroupMember: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.KickGroupMember: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2367,12 +2897,29 @@ namespace Example
 }
 ```
 
+#### Using the KickGroupMemberWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Kick Group Member
+    apiInstance.KickGroupMemberWithHttpInfo(groupId, userId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.KickGroupMemberWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **userId** | **string**| Must be a valid user ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
 
 ### Return type
 
@@ -2441,8 +2988,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.LeaveGroup: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.LeaveGroup: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2450,11 +2997,28 @@ namespace Example
 }
 ```
 
+#### Using the LeaveGroupWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Leave Group
+    apiInstance.LeaveGroupWithHttpInfo(groupId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.LeaveGroupWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
 
 ### Return type
 
@@ -2514,7 +3078,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
             var groupRoleId = grol_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group role ID.
 
             try
@@ -2525,8 +3089,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.RemoveGroupMemberRole: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.RemoveGroupMemberRole: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2534,13 +3098,33 @@ namespace Example
 }
 ```
 
+#### Using the RemoveGroupMemberRoleWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Remove Role from GroupMember
+    ApiResponse<List<string>> response = apiInstance.RemoveGroupMemberRoleWithHttpInfo(groupId, userId, groupRoleId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.RemoveGroupMemberRoleWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **userId** | **string**| Must be a valid user ID. | 
- **groupRoleId** | **string**| Must be a valid group role ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
+| **groupRoleId** | **string** | Must be a valid group role ID. |  |
 
 ### Return type
 
@@ -2600,7 +3184,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
             var respondGroupJoinRequest = new RespondGroupJoinRequest(); // RespondGroupJoinRequest |  (optional) 
 
             try
@@ -2610,8 +3194,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.RespondGroupJoinRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.RespondGroupJoinRequest: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2619,13 +3203,30 @@ namespace Example
 }
 ```
 
+#### Using the RespondGroupJoinRequestWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Respond Group Join request
+    apiInstance.RespondGroupJoinRequestWithHttpInfo(groupId, userId, respondGroupJoinRequest);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.RespondGroupJoinRequestWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **userId** | **string**| Must be a valid user ID. | 
- **respondGroupJoinRequest** | [**RespondGroupJoinRequest**](RespondGroupJoinRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
+| **respondGroupJoinRequest** | [**RespondGroupJoinRequest**](RespondGroupJoinRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -2685,7 +3286,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
             {
@@ -2695,8 +3296,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.UnbanGroupMember: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.UnbanGroupMember: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2704,12 +3305,32 @@ namespace Example
 }
 ```
 
+#### Using the UnbanGroupMemberWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Unban Group Member
+    ApiResponse<GroupMember> response = apiInstance.UnbanGroupMemberWithHttpInfo(groupId, userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.UnbanGroupMemberWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **userId** | **string**| Must be a valid user ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
 
 ### Return type
 
@@ -2779,8 +3400,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.UpdateGroup: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.UpdateGroup: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2788,12 +3409,32 @@ namespace Example
 }
 ```
 
+#### Using the UpdateGroupWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Group
+    ApiResponse<Group> response = apiInstance.UpdateGroupWithHttpInfo(groupId, updateGroupRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.UpdateGroupWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **updateGroupRequest** | [**UpdateGroupRequest**](UpdateGroupRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **updateGroupRequest** | [**UpdateGroupRequest**](UpdateGroupRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -2864,8 +3505,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.UpdateGroupGallery: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.UpdateGroupGallery: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2873,13 +3514,33 @@ namespace Example
 }
 ```
 
+#### Using the UpdateGroupGalleryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Group Gallery
+    ApiResponse<GroupGallery> response = apiInstance.UpdateGroupGalleryWithHttpInfo(groupId, groupGalleryId, updateGroupGalleryRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.UpdateGroupGalleryWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **groupGalleryId** | **string**| Must be a valid group gallery ID. | 
- **updateGroupGalleryRequest** | [**UpdateGroupGalleryRequest**](UpdateGroupGalleryRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **groupGalleryId** | **string** | Must be a valid group gallery ID. |  |
+| **updateGroupGalleryRequest** | [**UpdateGroupGalleryRequest**](UpdateGroupGalleryRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -2939,7 +3600,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
             var updateGroupMemberRequest = new UpdateGroupMemberRequest(); // UpdateGroupMemberRequest |  (optional) 
 
             try
@@ -2950,8 +3611,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.UpdateGroupMember: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.UpdateGroupMember: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -2959,13 +3620,33 @@ namespace Example
 }
 ```
 
+#### Using the UpdateGroupMemberWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Group Member
+    ApiResponse<GroupLimitedMember> response = apiInstance.UpdateGroupMemberWithHttpInfo(groupId, userId, updateGroupMemberRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.UpdateGroupMemberWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **userId** | **string**| Must be a valid user ID. | 
- **updateGroupMemberRequest** | [**UpdateGroupMemberRequest**](UpdateGroupMemberRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
+| **updateGroupMemberRequest** | [**UpdateGroupMemberRequest**](UpdateGroupMemberRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -3036,8 +3717,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.UpdateGroupRole: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling GroupsApi.UpdateGroupRole: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -3045,13 +3726,33 @@ namespace Example
 }
 ```
 
+#### Using the UpdateGroupRoleWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Group Role
+    ApiResponse<List<GroupRole>> response = apiInstance.UpdateGroupRoleWithHttpInfo(groupId, groupRoleId, updateGroupRoleRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.UpdateGroupRoleWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Must be a valid group ID. | 
- **groupRoleId** | **string**| Must be a valid group role ID. | 
- **updateGroupRoleRequest** | [**UpdateGroupRoleRequest**](UpdateGroupRoleRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **groupRoleId** | **string** | Must be a valid group role ID. |  |
+| **updateGroupRoleRequest** | [**UpdateGroupRoleRequest**](UpdateGroupRoleRequest.md) |  | [optional]  |
 
 ### Return type
 

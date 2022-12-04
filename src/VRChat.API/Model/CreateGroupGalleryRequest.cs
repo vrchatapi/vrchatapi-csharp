@@ -42,14 +42,15 @@ namespace VRChat.API.Model
         /// <param name="name">Name of the gallery. (required).</param>
         /// <param name="description">Description of the gallery..</param>
         /// <param name="membersOnly">Whether the gallery is members only. (default to false).</param>
-        /// <param name="roleIdsToView">roleIdsToView.</param>
-        /// <param name="roleIdsToSubmit">roleIdsToSubmit.</param>
-        /// <param name="roleIdsToAutoApprove">roleIdsToAutoApprove.</param>
-        /// <param name="roleIdsToManage">roleIdsToManage.</param>
+        /// <param name="roleIdsToView"> .</param>
+        /// <param name="roleIdsToSubmit"> .</param>
+        /// <param name="roleIdsToAutoApprove"> .</param>
+        /// <param name="roleIdsToManage"> .</param>
         public CreateGroupGalleryRequest(string name = default(string), string description = default(string), bool membersOnly = false, List<string> roleIdsToView = default(List<string>), List<string> roleIdsToSubmit = default(List<string>), List<string> roleIdsToAutoApprove = default(List<string>), List<string> roleIdsToManage = default(List<string>))
         {
             // to ensure "name" is required (not null)
-            if (name == null) {
+            if (name == null)
+            {
                 throw new ArgumentNullException("name is a required property for CreateGroupGalleryRequest and cannot be null");
             }
             this.Name = name;
@@ -65,7 +66,7 @@ namespace VRChat.API.Model
         /// Name of the gallery.
         /// </summary>
         /// <value>Name of the gallery.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -83,26 +84,30 @@ namespace VRChat.API.Model
         public bool MembersOnly { get; set; }
 
         /// <summary>
-        /// Gets or Sets RoleIdsToView
+        ///  
         /// </summary>
+        /// <value> </value>
         [DataMember(Name = "roleIdsToView", EmitDefaultValue = true)]
         public List<string> RoleIdsToView { get; set; }
 
         /// <summary>
-        /// Gets or Sets RoleIdsToSubmit
+        ///  
         /// </summary>
+        /// <value> </value>
         [DataMember(Name = "roleIdsToSubmit", EmitDefaultValue = true)]
         public List<string> RoleIdsToSubmit { get; set; }
 
         /// <summary>
-        /// Gets or Sets RoleIdsToAutoApprove
+        ///  
         /// </summary>
+        /// <value> </value>
         [DataMember(Name = "roleIdsToAutoApprove", EmitDefaultValue = true)]
         public List<string> RoleIdsToAutoApprove { get; set; }
 
         /// <summary>
-        /// Gets or Sets RoleIdsToManage
+        ///  
         /// </summary>
+        /// <value> </value>
         [DataMember(Name = "roleIdsToManage", EmitDefaultValue = true)]
         public List<string> RoleIdsToManage { get; set; }
 
@@ -112,7 +117,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CreateGroupGalleryRequest {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -152,8 +157,9 @@ namespace VRChat.API.Model
         public bool Equals(CreateGroupGalleryRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -205,18 +211,30 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.MembersOnly.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MembersOnly.GetHashCode();
                 if (this.RoleIdsToView != null)
-                    hashCode = hashCode * 59 + this.RoleIdsToView.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RoleIdsToView.GetHashCode();
+                }
                 if (this.RoleIdsToSubmit != null)
-                    hashCode = hashCode * 59 + this.RoleIdsToSubmit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RoleIdsToSubmit.GetHashCode();
+                }
                 if (this.RoleIdsToAutoApprove != null)
-                    hashCode = hashCode * 59 + this.RoleIdsToAutoApprove.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RoleIdsToAutoApprove.GetHashCode();
+                }
                 if (this.RoleIdsToManage != null)
-                    hashCode = hashCode * 59 + this.RoleIdsToManage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RoleIdsToManage.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -229,13 +247,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 1)
+            if (this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Description (string) minLength
-            if(this.Description != null && this.Description.Length < 0)
+            if (this.Description != null && this.Description.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }

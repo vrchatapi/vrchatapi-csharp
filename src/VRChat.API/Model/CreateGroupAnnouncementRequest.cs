@@ -46,7 +46,8 @@ namespace VRChat.API.Model
         public CreateGroupAnnouncementRequest(string title = default(string), string text = default(string), string imageId = default(string), bool sendNotification = false)
         {
             // to ensure "title" is required (not null)
-            if (title == null) {
+            if (title == null)
+            {
                 throw new ArgumentNullException("title is a required property for CreateGroupAnnouncementRequest and cannot be null");
             }
             this.Title = title;
@@ -59,7 +60,7 @@ namespace VRChat.API.Model
         /// Announcement title
         /// </summary>
         /// <value>Announcement title</value>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -88,7 +89,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CreateGroupAnnouncementRequest {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
@@ -125,8 +126,9 @@ namespace VRChat.API.Model
         public bool Equals(CreateGroupAnnouncementRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Title == input.Title ||
@@ -159,12 +161,18 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
                 if (this.ImageId != null)
-                    hashCode = hashCode * 59 + this.ImageId.GetHashCode();
-                hashCode = hashCode * 59 + this.SendNotification.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SendNotification.GetHashCode();
                 return hashCode;
             }
         }
@@ -177,13 +185,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Title (string) minLength
-            if(this.Title != null && this.Title.Length < 1)
+            if (this.Title != null && this.Title.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             // Text (string) minLength
-            if(this.Text != null && this.Text.Length < 1)
+            if (this.Text != null && this.Text.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Text, length must be greater than 1.", new [] { "Text" });
             }

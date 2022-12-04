@@ -43,7 +43,8 @@ namespace VRChat.API.Model
         public AddGroupGalleryImageRequest(string fileId = default(string))
         {
             // to ensure "fileId" is required (not null)
-            if (fileId == null) {
+            if (fileId == null)
+            {
                 throw new ArgumentNullException("fileId is a required property for AddGroupGalleryImageRequest and cannot be null");
             }
             this.FileId = fileId;
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets FileId
         /// </summary>
-        [DataMember(Name = "fileId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "fileId", IsRequired = true, EmitDefaultValue = true)]
         public string FileId { get; set; }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AddGroupGalleryImageRequest {\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("}\n");
@@ -95,8 +96,9 @@ namespace VRChat.API.Model
         public bool Equals(AddGroupGalleryImageRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FileId == input.FileId ||
@@ -115,7 +117,9 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.FileId != null)
-                    hashCode = hashCode * 59 + this.FileId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FileId.GetHashCode();
+                }
                 return hashCode;
             }
         }

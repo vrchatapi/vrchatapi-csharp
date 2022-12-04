@@ -140,7 +140,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class GroupRole {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
@@ -185,8 +185,9 @@ namespace VRChat.API.Model
         public bool Equals(GroupRole input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -256,24 +257,38 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.GroupId != null)
-                    hashCode = hashCode * 59 + this.GroupId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.IsSelfAssignable.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsSelfAssignable.GetHashCode();
                 if (this.Permissions != null)
-                    hashCode = hashCode * 59 + this.Permissions.GetHashCode();
-                hashCode = hashCode * 59 + this.IsManagementRole.GetHashCode();
-                hashCode = hashCode * 59 + this.RequiresTwoFactor.GetHashCode();
-                hashCode = hashCode * 59 + this.RequiresPurchase.GetHashCode();
-                hashCode = hashCode * 59 + this.Order.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsManagementRole.GetHashCode();
+                hashCode = (hashCode * 59) + this.RequiresTwoFactor.GetHashCode();
+                hashCode = (hashCode * 59) + this.RequiresPurchase.GetHashCode();
+                hashCode = (hashCode * 59) + this.Order.GetHashCode();
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.UpdatedAt != null)
-                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
                 return hashCode;
             }
         }

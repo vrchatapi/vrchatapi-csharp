@@ -2,13 +2,12 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**GetInstance**](InstancesApi.md#getinstance) | **GET** /instances/{worldId}:{instanceId} | Get Instance
-[**GetInstanceByShortName**](InstancesApi.md#getinstancebyshortname) | **GET** /instances/s/{shortName} | Get Instance By Short Name
-[**GetShortName**](InstancesApi.md#getshortname) | **GET** /instances/{worldId}:{instanceId}/shortName | Get Instance Short Name
-[**SendSelfInvite**](InstancesApi.md#sendselfinvite) | **POST** /instances/{worldId}:{instanceId}/invite | Send Self Invite
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**GetInstance**](InstancesApi.md#getinstance) | **GET** /instances/{worldId}:{instanceId} | Get Instance |
+| [**GetInstanceByShortName**](InstancesApi.md#getinstancebyshortname) | **GET** /instances/s/{shortName} | Get Instance By Short Name |
+| [**GetShortName**](InstancesApi.md#getshortname) | **GET** /instances/{worldId}:{instanceId}/shortName | Get Instance Short Name |
+| [**SendSelfInvite**](InstancesApi.md#sendselfinvite) | **POST** /instances/{worldId}:{instanceId}/invite | Send Self Invite |
 
 <a name="getinstance"></a>
 # **GetInstance**
@@ -44,8 +43,8 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InstancesApi(config);
-            var worldId = worldId_example;  // string | Must be a valid world ID.
-            var instanceId = instanceId_example;  // string | Must be a valid instance ID.
+            var worldId = "worldId_example";  // string | Must be a valid world ID.
+            var instanceId = "instanceId_example";  // string | Must be a valid instance ID.
 
             try
             {
@@ -55,8 +54,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstancesApi.GetInstance: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstancesApi.GetInstance: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -64,12 +63,32 @@ namespace Example
 }
 ```
 
+#### Using the GetInstanceWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Instance
+    ApiResponse<Instance> response = apiInstance.GetInstanceWithHttpInfo(worldId, instanceId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstancesApi.GetInstanceWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**| Must be a valid world ID. | 
- **instanceId** | **string**| Must be a valid instance ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** | Must be a valid world ID. |  |
+| **instanceId** | **string** | Must be a valid instance ID. |  |
 
 ### Return type
 
@@ -127,7 +146,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InstancesApi(config);
-            var shortName = shortName_example;  // string | Must be a valid instance short name.
+            var shortName = "shortName_example";  // string | Must be a valid instance short name.
 
             try
             {
@@ -137,8 +156,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstancesApi.GetInstanceByShortName: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstancesApi.GetInstanceByShortName: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -146,11 +165,31 @@ namespace Example
 }
 ```
 
+#### Using the GetInstanceByShortNameWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Instance By Short Name
+    ApiResponse<Instance> response = apiInstance.GetInstanceByShortNameWithHttpInfo(shortName);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstancesApi.GetInstanceByShortNameWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **shortName** | **string**| Must be a valid instance short name. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **shortName** | **string** | Must be a valid instance short name. |  |
 
 ### Return type
 
@@ -209,8 +248,8 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InstancesApi(config);
-            var worldId = worldId_example;  // string | Must be a valid world ID.
-            var instanceId = instanceId_example;  // string | Must be a valid instance ID.
+            var worldId = "worldId_example";  // string | Must be a valid world ID.
+            var instanceId = "instanceId_example";  // string | Must be a valid instance ID.
 
             try
             {
@@ -220,8 +259,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstancesApi.GetShortName: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstancesApi.GetShortName: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -229,12 +268,32 @@ namespace Example
 }
 ```
 
+#### Using the GetShortNameWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Instance Short Name
+    ApiResponse<InstanceShortNameResponse> response = apiInstance.GetShortNameWithHttpInfo(worldId, instanceId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstancesApi.GetShortNameWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**| Must be a valid world ID. | 
- **instanceId** | **string**| Must be a valid instance ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** | Must be a valid world ID. |  |
+| **instanceId** | **string** | Must be a valid instance ID. |  |
 
 ### Return type
 
@@ -292,8 +351,8 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InstancesApi(config);
-            var worldId = worldId_example;  // string | Must be a valid world ID.
-            var instanceId = instanceId_example;  // string | Must be a valid instance ID.
+            var worldId = "worldId_example";  // string | Must be a valid world ID.
+            var instanceId = "instanceId_example";  // string | Must be a valid instance ID.
 
             try
             {
@@ -303,8 +362,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InstancesApi.SendSelfInvite: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling InstancesApi.SendSelfInvite: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -312,12 +371,32 @@ namespace Example
 }
 ```
 
+#### Using the SendSelfInviteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Send Self Invite
+    ApiResponse<Success> response = apiInstance.SendSelfInviteWithHttpInfo(worldId, instanceId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstancesApi.SendSelfInviteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**| Must be a valid world ID. | 
- **instanceId** | **string**| Must be a valid instance ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** | Must be a valid world ID. |  |
+| **instanceId** | **string** | Must be a valid instance ID. |  |
 
 ### Return type
 

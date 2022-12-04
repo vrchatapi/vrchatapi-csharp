@@ -89,7 +89,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class GroupPermission {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
@@ -127,8 +127,9 @@ namespace VRChat.API.Model
         public bool Equals(GroupPermission input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -165,13 +166,19 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.DisplayName != null)
-                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
                 if (this.Help != null)
-                    hashCode = hashCode * 59 + this.Help.GetHashCode();
-                hashCode = hashCode * 59 + this.IsManagementPermission.GetHashCode();
-                hashCode = hashCode * 59 + this.AllowedToAdd.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Help.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsManagementPermission.GetHashCode();
+                hashCode = (hashCode * 59) + this.AllowedToAdd.GetHashCode();
                 return hashCode;
             }
         }

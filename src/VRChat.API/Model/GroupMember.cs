@@ -153,7 +153,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class GroupMember {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
@@ -199,8 +199,9 @@ namespace VRChat.API.Model
         public bool Equals(GroupMember input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -278,29 +279,51 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.GroupId != null)
-                    hashCode = hashCode * 59 + this.GroupId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
                 if (this.UserId != null)
-                    hashCode = hashCode * 59 + this.UserId.GetHashCode();
-                hashCode = hashCode * 59 + this.IsRepresenting.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsRepresenting.GetHashCode();
                 if (this.User != null)
-                    hashCode = hashCode * 59 + this.User.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.User.GetHashCode();
+                }
                 if (this.RoleIds != null)
-                    hashCode = hashCode * 59 + this.RoleIds.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
+                }
                 if (this.JoinedAt != null)
-                    hashCode = hashCode * 59 + this.JoinedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JoinedAt.GetHashCode();
+                }
                 if (this.MembershipStatus != null)
-                    hashCode = hashCode * 59 + this.MembershipStatus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MembershipStatus.GetHashCode();
+                }
                 if (this.Visibility != null)
-                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
-                hashCode = hashCode * 59 + this.IsSubscribedToAnnouncements.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsSubscribedToAnnouncements.GetHashCode();
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.BannedAt != null)
-                    hashCode = hashCode * 59 + this.BannedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BannedAt.GetHashCode();
+                }
                 if (this.ManagerNotes != null)
-                    hashCode = hashCode * 59 + this.ManagerNotes.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ManagerNotes.GetHashCode();
+                }
                 return hashCode;
             }
         }

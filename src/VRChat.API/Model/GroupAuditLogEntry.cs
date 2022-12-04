@@ -122,7 +122,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class GroupAuditLogEntry {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
@@ -164,8 +164,9 @@ namespace VRChat.API.Model
         public bool Equals(GroupAuditLogEntry input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -224,23 +225,41 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.GroupId != null)
-                    hashCode = hashCode * 59 + this.GroupId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
                 if (this.ActorId != null)
-                    hashCode = hashCode * 59 + this.ActorId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ActorId.GetHashCode();
+                }
                 if (this.ActorDisplayname != null)
-                    hashCode = hashCode * 59 + this.ActorDisplayname.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ActorDisplayname.GetHashCode();
+                }
                 if (this.TargetId != null)
-                    hashCode = hashCode * 59 + this.TargetId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TargetId.GetHashCode();
+                }
                 if (this.EventType != null)
-                    hashCode = hashCode * 59 + this.EventType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EventType.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 return hashCode;
             }
         }

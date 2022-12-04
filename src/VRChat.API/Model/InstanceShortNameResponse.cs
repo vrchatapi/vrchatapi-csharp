@@ -44,7 +44,8 @@ namespace VRChat.API.Model
         public InstanceShortNameResponse(string secureName = default(string), string shortName = default(string))
         {
             // to ensure "secureName" is required (not null)
-            if (secureName == null) {
+            if (secureName == null)
+            {
                 throw new ArgumentNullException("secureName is a required property for InstanceShortNameResponse and cannot be null");
             }
             this.SecureName = secureName;
@@ -54,7 +55,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SecureName
         /// </summary>
-        [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = true)]
         public string SecureName { get; set; }
 
         /// <summary>
@@ -69,7 +70,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InstanceShortNameResponse {\n");
             sb.Append("  SecureName: ").Append(SecureName).Append("\n");
             sb.Append("  ShortName: ").Append(ShortName).Append("\n");
@@ -104,8 +105,9 @@ namespace VRChat.API.Model
         public bool Equals(InstanceShortNameResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SecureName == input.SecureName ||
@@ -129,9 +131,13 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.SecureName != null)
-                    hashCode = hashCode * 59 + this.SecureName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecureName.GetHashCode();
+                }
                 if (this.ShortName != null)
-                    hashCode = hashCode * 59 + this.ShortName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -144,13 +150,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // SecureName (string) minLength
-            if(this.SecureName != null && this.SecureName.Length < 1)
+            if (this.SecureName != null && this.SecureName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecureName, length must be greater than 1.", new [] { "SecureName" });
             }
 
             // ShortName (string) minLength
-            if(this.ShortName != null && this.ShortName.Length < 1)
+            if (this.ShortName != null && this.ShortName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortName, length must be greater than 1.", new [] { "ShortName" });
             }

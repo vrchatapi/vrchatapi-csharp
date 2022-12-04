@@ -2,15 +2,14 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**GetUser**](UsersApi.md#getuser) | **GET** /users/{userId} | Get User by ID
-[**GetUserByName**](UsersApi.md#getuserbyname) | **GET** /users/{username}/name | Get User by Username
-[**GetUserGroupRequests**](UsersApi.md#getusergrouprequests) | **GET** /users/{userId}/groups/requested | Get User Group Requests
-[**GetUserGroups**](UsersApi.md#getusergroups) | **GET** /users/{userId}/groups | Get User Groups
-[**SearchUsers**](UsersApi.md#searchusers) | **GET** /users | Search All Users
-[**UpdateUser**](UsersApi.md#updateuser) | **PUT** /users/{userId} | Update User Info
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**GetUser**](UsersApi.md#getuser) | **GET** /users/{userId} | Get User by ID |
+| [**GetUserByName**](UsersApi.md#getuserbyname) | **GET** /users/{username}/name | Get User by Username |
+| [**GetUserGroupRequests**](UsersApi.md#getusergrouprequests) | **GET** /users/{userId}/groups/requested | Get User Group Requests |
+| [**GetUserGroups**](UsersApi.md#getusergroups) | **GET** /users/{userId}/groups | Get User Groups |
+| [**SearchUsers**](UsersApi.md#searchusers) | **GET** /users | Search All Users |
+| [**UpdateUser**](UsersApi.md#updateuser) | **PUT** /users/{userId} | Update User Info |
 
 <a name="getuser"></a>
 # **GetUser**
@@ -46,7 +45,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new UsersApi(config);
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
             {
@@ -56,8 +55,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.GetUser: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling UsersApi.GetUser: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -65,11 +64,31 @@ namespace Example
 }
 ```
 
+#### Using the GetUserWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get User by ID
+    ApiResponse<User> response = apiInstance.GetUserWithHttpInfo(userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.GetUserWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**| Must be a valid user ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
 
 ### Return type
 
@@ -127,7 +146,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new UsersApi(config);
-            var username = username_example;  // string | Username of the user
+            var username = "username_example";  // string | Username of the user
 
             try
             {
@@ -137,8 +156,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.GetUserByName: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling UsersApi.GetUserByName: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -146,11 +165,31 @@ namespace Example
 }
 ```
 
+#### Using the GetUserByNameWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get User by Username
+    ApiResponse<User> response = apiInstance.GetUserByNameWithHttpInfo(username);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.GetUserByNameWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **string**| Username of the user | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **username** | **string** | Username of the user |  |
 
 ### Return type
 
@@ -208,7 +247,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new UsersApi(config);
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
             {
@@ -218,8 +257,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.GetUserGroupRequests: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling UsersApi.GetUserGroupRequests: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -227,11 +266,31 @@ namespace Example
 }
 ```
 
+#### Using the GetUserGroupRequestsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get User Group Requests
+    ApiResponse<List<Group>> response = apiInstance.GetUserGroupRequestsWithHttpInfo(userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.GetUserGroupRequestsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**| Must be a valid user ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
 
 ### Return type
 
@@ -289,7 +348,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new UsersApi(config);
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
             {
@@ -299,8 +358,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.GetUserGroups: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling UsersApi.GetUserGroups: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -308,11 +367,31 @@ namespace Example
 }
 ```
 
+#### Using the GetUserGroupsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get User Groups
+    ApiResponse<List<Group>> response = apiInstance.GetUserGroupsWithHttpInfo(userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.GetUserGroupsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**| Must be a valid user ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
 
 ### Return type
 
@@ -370,9 +449,9 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new UsersApi(config);
-            var search = search_example;  // string | Searches by `displayName`. Will return empty array if search query is empty or missing. (optional) 
-            var developerType = developerType_example;  // string | Active user by developer type, none for normal users and internal for moderators (optional) 
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var search = "search_example";  // string | Searches by `displayName`. Will return empty array if search query is empty or missing. (optional) 
+            var developerType = "developerType_example";  // string | Active user by developer type, none for normal users and internal for moderators (optional) 
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
             try
@@ -383,8 +462,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.SearchUsers: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling UsersApi.SearchUsers: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -392,14 +471,34 @@ namespace Example
 }
 ```
 
+#### Using the SearchUsersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search All Users
+    ApiResponse<List<LimitedUser>> response = apiInstance.SearchUsersWithHttpInfo(search, developerType, n, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.SearchUsersWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **search** | **string**| Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. | [optional] 
- **developerType** | **string**| Active user by developer type, none for normal users and internal for moderators | [optional] 
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **search** | **string** | Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. | [optional]  |
+| **developerType** | **string** | Active user by developer type, none for normal users and internal for moderators | [optional]  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
 ### Return type
 
@@ -458,7 +557,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new UsersApi(config);
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var userId = "userId_example";  // string | Must be a valid user ID.
             var updateUserRequest = new UpdateUserRequest(); // UpdateUserRequest |  (optional) 
 
             try
@@ -469,8 +568,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UsersApi.UpdateUser: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling UsersApi.UpdateUser: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -478,12 +577,32 @@ namespace Example
 }
 ```
 
+#### Using the UpdateUserWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update User Info
+    ApiResponse<CurrentUser> response = apiInstance.UpdateUserWithHttpInfo(userId, updateUserRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.UpdateUserWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **string**| Must be a valid user ID. | 
- **updateUserRequest** | [**UpdateUserRequest**](UpdateUserRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+| **updateUserRequest** | [**UpdateUserRequest**](UpdateUserRequest.md) |  | [optional]  |
 
 ### Return type
 

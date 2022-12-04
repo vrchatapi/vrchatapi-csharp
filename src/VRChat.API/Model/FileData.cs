@@ -61,13 +61,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Category
         /// </summary>
-        [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public CategoryEnum Category { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public FileStatus Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FileData" /> class.
@@ -88,24 +88,28 @@ namespace VRChat.API.Model
         {
             this.Category = category;
             // to ensure "fileName" is required (not null)
-            if (fileName == null) {
+            if (fileName == null)
+            {
                 throw new ArgumentNullException("fileName is a required property for FileData and cannot be null");
             }
             this.FileName = fileName;
             // to ensure "md5" is required (not null)
-            if (md5 == null) {
+            if (md5 == null)
+            {
                 throw new ArgumentNullException("md5 is a required property for FileData and cannot be null");
             }
             this.Md5 = md5;
             this.SizeInBytes = sizeInBytes;
             this.Status = status;
             // to ensure "uploadId" is required (not null)
-            if (uploadId == null) {
+            if (uploadId == null)
+            {
                 throw new ArgumentNullException("uploadId is a required property for FileData and cannot be null");
             }
             this.UploadId = uploadId;
             // to ensure "url" is required (not null)
-            if (url == null) {
+            if (url == null)
+            {
                 throw new ArgumentNullException("url is a required property for FileData and cannot be null");
             }
             this.Url = url;
@@ -114,31 +118,31 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets FileName
         /// </summary>
-        [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Gets or Sets Md5
         /// </summary>
-        [DataMember(Name = "md5", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "md5", IsRequired = true, EmitDefaultValue = true)]
         public string Md5 { get; set; }
 
         /// <summary>
         /// Gets or Sets SizeInBytes
         /// </summary>
-        [DataMember(Name = "sizeInBytes", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "sizeInBytes", IsRequired = true, EmitDefaultValue = true)]
         public int SizeInBytes { get; set; }
 
         /// <summary>
         /// Gets or Sets UploadId
         /// </summary>
-        [DataMember(Name = "uploadId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "uploadId", IsRequired = true, EmitDefaultValue = true)]
         public string UploadId { get; set; }
 
         /// <summary>
         /// Gets or Sets Url
         /// </summary>
-        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
@@ -147,7 +151,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FileData {\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
@@ -187,8 +191,9 @@ namespace VRChat.API.Model
         public bool Equals(FileData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Category == input.Category ||
@@ -233,17 +238,25 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Category.GetHashCode();
+                hashCode = (hashCode * 59) + this.Category.GetHashCode();
                 if (this.FileName != null)
-                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FileName.GetHashCode();
+                }
                 if (this.Md5 != null)
-                    hashCode = hashCode * 59 + this.Md5.GetHashCode();
-                hashCode = hashCode * 59 + this.SizeInBytes.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Md5.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SizeInBytes.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.UploadId != null)
-                    hashCode = hashCode * 59 + this.UploadId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UploadId.GetHashCode();
+                }
                 if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -256,31 +269,31 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // FileName (string) minLength
-            if(this.FileName != null && this.FileName.Length < 1)
+            if (this.FileName != null && this.FileName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileName, length must be greater than 1.", new [] { "FileName" });
             }
 
             // Md5 (string) minLength
-            if(this.Md5 != null && this.Md5.Length < 0)
+            if (this.Md5 != null && this.Md5.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Md5, length must be greater than 0.", new [] { "Md5" });
             }
 
             // SizeInBytes (int) minimum
-            if(this.SizeInBytes < (int)0)
+            if (this.SizeInBytes < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SizeInBytes, must be a value greater than or equal to 0.", new [] { "SizeInBytes" });
             }
 
             // UploadId (string) minLength
-            if(this.UploadId != null && this.UploadId.Length < 0)
+            if (this.UploadId != null && this.UploadId.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UploadId, length must be greater than 0.", new [] { "UploadId" });
             }
 
             // Url (string) minLength
-            if(this.Url != null && this.Url.Length < 1)
+            if (this.Url != null && this.Url.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
             }

@@ -35,19 +35,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DeveloperType
         /// </summary>
-        [DataMember(Name = "developerType", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "developerType", IsRequired = true, EmitDefaultValue = true)]
         public DeveloperType DeveloperType { get; set; }
 
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
         public UserState State { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public UserStatus Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentUser" /> class.
@@ -89,7 +89,7 @@ namespace VRChat.API.Model
         /// <param name="oculusId">oculusId (required).</param>
         /// <param name="offlineFriends">offlineFriends.</param>
         /// <param name="onlineFriends">onlineFriends.</param>
-        /// <param name="pastDisplayNames">pastDisplayNames (required).</param>
+        /// <param name="pastDisplayNames">  (required).</param>
         /// <param name="profilePicOverride">profilePicOverride (required).</param>
         /// <param name="state">state (required).</param>
         /// <param name="status">status (required).</param>
@@ -109,55 +109,65 @@ namespace VRChat.API.Model
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.AllowAvatarCopying = allowAvatarCopying;
             // to ensure "bio" is required (not null)
-            if (bio == null) {
+            if (bio == null)
+            {
                 throw new ArgumentNullException("bio is a required property for CurrentUser and cannot be null");
             }
             this.Bio = bio;
             // to ensure "bioLinks" is required (not null)
-            if (bioLinks == null) {
+            if (bioLinks == null)
+            {
                 throw new ArgumentNullException("bioLinks is a required property for CurrentUser and cannot be null");
             }
             this.BioLinks = bioLinks;
             // to ensure "currentAvatar" is required (not null)
-            if (currentAvatar == null) {
+            if (currentAvatar == null)
+            {
                 throw new ArgumentNullException("currentAvatar is a required property for CurrentUser and cannot be null");
             }
             this.CurrentAvatar = currentAvatar;
             // to ensure "currentAvatarAssetUrl" is required (not null)
-            if (currentAvatarAssetUrl == null) {
+            if (currentAvatarAssetUrl == null)
+            {
                 throw new ArgumentNullException("currentAvatarAssetUrl is a required property for CurrentUser and cannot be null");
             }
             this.CurrentAvatarAssetUrl = currentAvatarAssetUrl;
             // to ensure "currentAvatarImageUrl" is required (not null)
-            if (currentAvatarImageUrl == null) {
+            if (currentAvatarImageUrl == null)
+            {
                 throw new ArgumentNullException("currentAvatarImageUrl is a required property for CurrentUser and cannot be null");
             }
             this.CurrentAvatarImageUrl = currentAvatarImageUrl;
             // to ensure "currentAvatarThumbnailImageUrl" is required (not null)
-            if (currentAvatarThumbnailImageUrl == null) {
+            if (currentAvatarThumbnailImageUrl == null)
+            {
                 throw new ArgumentNullException("currentAvatarThumbnailImageUrl is a required property for CurrentUser and cannot be null");
             }
             this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
             this.DateJoined = dateJoined;
             this.DeveloperType = developerType;
             // to ensure "displayName" is required (not null)
-            if (displayName == null) {
+            if (displayName == null)
+            {
                 throw new ArgumentNullException("displayName is a required property for CurrentUser and cannot be null");
             }
             this.DisplayName = displayName;
             this.EmailVerified = emailVerified;
             // to ensure "friendGroupNames" is required (not null)
-            if (friendGroupNames == null) {
+            if (friendGroupNames == null)
+            {
                 throw new ArgumentNullException("friendGroupNames is a required property for CurrentUser and cannot be null");
             }
             this.FriendGroupNames = friendGroupNames;
             // to ensure "friendKey" is required (not null)
-            if (friendKey == null) {
+            if (friendKey == null)
+            {
                 throw new ArgumentNullException("friendKey is a required property for CurrentUser and cannot be null");
             }
             this.FriendKey = friendKey;
             // to ensure "friends" is required (not null)
-            if (friends == null) {
+            if (friends == null)
+            {
                 throw new ArgumentNullException("friends is a required property for CurrentUser and cannot be null");
             }
             this.Friends = friends;
@@ -166,79 +176,93 @@ namespace VRChat.API.Model
             this.HasLoggedInFromClient = hasLoggedInFromClient;
             this.HasPendingEmail = hasPendingEmail;
             // to ensure "homeLocation" is required (not null)
-            if (homeLocation == null) {
+            if (homeLocation == null)
+            {
                 throw new ArgumentNullException("homeLocation is a required property for CurrentUser and cannot be null");
             }
             this.HomeLocation = homeLocation;
             // to ensure "id" is required (not null)
-            if (id == null) {
+            if (id == null)
+            {
                 throw new ArgumentNullException("id is a required property for CurrentUser and cannot be null");
             }
             this.Id = id;
             this.IsFriend = isFriend;
             this.LastLogin = lastLogin;
             // to ensure "lastPlatform" is required (not null)
-            if (lastPlatform == null) {
+            if (lastPlatform == null)
+            {
                 throw new ArgumentNullException("lastPlatform is a required property for CurrentUser and cannot be null");
             }
             this.LastPlatform = lastPlatform;
             // to ensure "obfuscatedEmail" is required (not null)
-            if (obfuscatedEmail == null) {
+            if (obfuscatedEmail == null)
+            {
                 throw new ArgumentNullException("obfuscatedEmail is a required property for CurrentUser and cannot be null");
             }
             this.ObfuscatedEmail = obfuscatedEmail;
             // to ensure "obfuscatedPendingEmail" is required (not null)
-            if (obfuscatedPendingEmail == null) {
+            if (obfuscatedPendingEmail == null)
+            {
                 throw new ArgumentNullException("obfuscatedPendingEmail is a required property for CurrentUser and cannot be null");
             }
             this.ObfuscatedPendingEmail = obfuscatedPendingEmail;
             // to ensure "oculusId" is required (not null)
-            if (oculusId == null) {
+            if (oculusId == null)
+            {
                 throw new ArgumentNullException("oculusId is a required property for CurrentUser and cannot be null");
             }
             this.OculusId = oculusId;
             // to ensure "pastDisplayNames" is required (not null)
-            if (pastDisplayNames == null) {
+            if (pastDisplayNames == null)
+            {
                 throw new ArgumentNullException("pastDisplayNames is a required property for CurrentUser and cannot be null");
             }
             this.PastDisplayNames = pastDisplayNames;
             // to ensure "profilePicOverride" is required (not null)
-            if (profilePicOverride == null) {
+            if (profilePicOverride == null)
+            {
                 throw new ArgumentNullException("profilePicOverride is a required property for CurrentUser and cannot be null");
             }
             this.ProfilePicOverride = profilePicOverride;
             this.State = state;
             this.Status = status;
             // to ensure "statusDescription" is required (not null)
-            if (statusDescription == null) {
+            if (statusDescription == null)
+            {
                 throw new ArgumentNullException("statusDescription is a required property for CurrentUser and cannot be null");
             }
             this.StatusDescription = statusDescription;
             this.StatusFirstTime = statusFirstTime;
             // to ensure "statusHistory" is required (not null)
-            if (statusHistory == null) {
+            if (statusHistory == null)
+            {
                 throw new ArgumentNullException("statusHistory is a required property for CurrentUser and cannot be null");
             }
             this.StatusHistory = statusHistory;
             // to ensure "steamDetails" is required (not null)
-            if (steamDetails == null) {
+            if (steamDetails == null)
+            {
                 throw new ArgumentNullException("steamDetails is a required property for CurrentUser and cannot be null");
             }
             this.SteamDetails = steamDetails;
             // to ensure "steamId" is required (not null)
-            if (steamId == null) {
+            if (steamId == null)
+            {
                 throw new ArgumentNullException("steamId is a required property for CurrentUser and cannot be null");
             }
             this.SteamId = steamId;
             // to ensure "tags" is required (not null)
-            if (tags == null) {
+            if (tags == null)
+            {
                 throw new ArgumentNullException("tags is a required property for CurrentUser and cannot be null");
             }
             this.Tags = tags;
             this.TwoFactorAuthEnabled = twoFactorAuthEnabled;
             this.Unsubscribe = unsubscribe;
             // to ensure "userIcon" is required (not null)
-            if (userIcon == null) {
+            if (userIcon == null)
+            {
                 throw new ArgumentNullException("userIcon is a required property for CurrentUser and cannot be null");
             }
             this.UserIcon = userIcon;
@@ -254,7 +278,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AcceptedTOSVersion
         /// </summary>
-        [DataMember(Name = "acceptedTOSVersion", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "acceptedTOSVersion", IsRequired = true, EmitDefaultValue = true)]
         public int AcceptedTOSVersion { get; set; }
 
         /// <summary>
@@ -279,52 +303,52 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Bio
         /// </summary>
-        [DataMember(Name = "bio", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "bio", IsRequired = true, EmitDefaultValue = true)]
         public string Bio { get; set; }
 
         /// <summary>
         /// Gets or Sets BioLinks
         /// </summary>
-        [DataMember(Name = "bioLinks", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "bioLinks", IsRequired = true, EmitDefaultValue = true)]
         public List<string> BioLinks { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentAvatar
         /// </summary>
-        [DataMember(Name = "currentAvatar", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "currentAvatar", IsRequired = true, EmitDefaultValue = true)]
         public string CurrentAvatar { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentAvatarAssetUrl
         /// </summary>
-        [DataMember(Name = "currentAvatarAssetUrl", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "currentAvatarAssetUrl", IsRequired = true, EmitDefaultValue = true)]
         public string CurrentAvatarAssetUrl { get; set; }
 
         /// <summary>
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
-        [DataMember(Name = "currentAvatarImageUrl", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "currentAvatarImageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string CurrentAvatarImageUrl { get; set; }
 
         /// <summary>
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
-        [DataMember(Name = "currentAvatarThumbnailImageUrl", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "currentAvatarThumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string CurrentAvatarThumbnailImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets DateJoined
         /// </summary>
-        [DataMember(Name = "date_joined", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "date_joined", IsRequired = true, EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime DateJoined { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -343,20 +367,20 @@ namespace VRChat.API.Model
         /// Always empty array.
         /// </summary>
         /// <value>Always empty array.</value>
-        [DataMember(Name = "friendGroupNames", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "friendGroupNames", IsRequired = true, EmitDefaultValue = true)]
         [Obsolete]
         public List<string> FriendGroupNames { get; set; }
 
         /// <summary>
         /// Gets or Sets FriendKey
         /// </summary>
-        [DataMember(Name = "friendKey", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "friendKey", IsRequired = true, EmitDefaultValue = true)]
         public string FriendKey { get; set; }
 
         /// <summary>
         /// Gets or Sets Friends
         /// </summary>
-        [DataMember(Name = "friends", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "friends", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Friends { get; set; }
 
         /// <summary>
@@ -387,14 +411,14 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "homeLocation", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "homeLocation", IsRequired = true, EmitDefaultValue = true)]
         public string HomeLocation { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -406,32 +430,32 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LastLogin
         /// </summary>
-        [DataMember(Name = "last_login", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "last_login", IsRequired = true, EmitDefaultValue = true)]
         public DateTime LastLogin { get; set; }
 
         /// <summary>
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        [DataMember(Name = "last_platform", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "last_platform", IsRequired = true, EmitDefaultValue = true)]
         public string LastPlatform { get; set; }
 
         /// <summary>
         /// Gets or Sets ObfuscatedEmail
         /// </summary>
-        [DataMember(Name = "obfuscatedEmail", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "obfuscatedEmail", IsRequired = true, EmitDefaultValue = true)]
         public string ObfuscatedEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets ObfuscatedPendingEmail
         /// </summary>
-        [DataMember(Name = "obfuscatedPendingEmail", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "obfuscatedPendingEmail", IsRequired = true, EmitDefaultValue = true)]
         public string ObfuscatedPendingEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets OculusId
         /// </summary>
-        [DataMember(Name = "oculusId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "oculusId", IsRequired = true, EmitDefaultValue = true)]
         public string OculusId { get; set; }
 
         /// <summary>
@@ -447,21 +471,22 @@ namespace VRChat.API.Model
         public List<string> OnlineFriends { get; set; }
 
         /// <summary>
-        /// Gets or Sets PastDisplayNames
+        ///  
         /// </summary>
-        [DataMember(Name = "pastDisplayNames", IsRequired = true, EmitDefaultValue = false)]
+        /// <value> </value>
+        [DataMember(Name = "pastDisplayNames", IsRequired = true, EmitDefaultValue = true)]
         public List<PastDisplayName> PastDisplayNames { get; set; }
 
         /// <summary>
         /// Gets or Sets ProfilePicOverride
         /// </summary>
-        [DataMember(Name = "profilePicOverride", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "profilePicOverride", IsRequired = true, EmitDefaultValue = true)]
         public string ProfilePicOverride { get; set; }
 
         /// <summary>
         /// Gets or Sets StatusDescription
         /// </summary>
-        [DataMember(Name = "statusDescription", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "statusDescription", IsRequired = true, EmitDefaultValue = true)]
         public string StatusDescription { get; set; }
 
         /// <summary>
@@ -473,25 +498,25 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets StatusHistory
         /// </summary>
-        [DataMember(Name = "statusHistory", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "statusHistory", IsRequired = true, EmitDefaultValue = true)]
         public List<string> StatusHistory { get; set; }
 
         /// <summary>
         /// Gets or Sets SteamDetails
         /// </summary>
-        [DataMember(Name = "steamDetails", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "steamDetails", IsRequired = true, EmitDefaultValue = true)]
         public Object SteamDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets SteamId
         /// </summary>
-        [DataMember(Name = "steamId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "steamId", IsRequired = true, EmitDefaultValue = true)]
         public string SteamId { get; set; }
 
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -515,7 +540,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UserIcon
         /// </summary>
-        [DataMember(Name = "userIcon", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "userIcon", IsRequired = true, EmitDefaultValue = true)]
         public string UserIcon { get; set; }
 
         /// <summary>
@@ -532,7 +557,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CurrentUser {\n");
             sb.Append("  AcceptedTOSVersion: ").Append(AcceptedTOSVersion).Append("\n");
             sb.Append("  AccountDeletionDate: ").Append(AccountDeletionDate).Append("\n");
@@ -612,8 +637,9 @@ namespace VRChat.API.Model
         public bool Equals(CurrentUser input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AcceptedTOSVersion == input.AcceptedTOSVersion ||
@@ -856,86 +882,152 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.AcceptedTOSVersion.GetHashCode();
+                hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
                 if (this.AccountDeletionDate != null)
-                    hashCode = hashCode * 59 + this.AccountDeletionDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AccountDeletionDate.GetHashCode();
+                }
                 if (this.ActiveFriends != null)
-                    hashCode = hashCode * 59 + this.ActiveFriends.GetHashCode();
-                hashCode = hashCode * 59 + this.AllowAvatarCopying.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ActiveFriends.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AllowAvatarCopying.GetHashCode();
                 if (this.Bio != null)
-                    hashCode = hashCode * 59 + this.Bio.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Bio.GetHashCode();
+                }
                 if (this.BioLinks != null)
-                    hashCode = hashCode * 59 + this.BioLinks.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
+                }
                 if (this.CurrentAvatar != null)
-                    hashCode = hashCode * 59 + this.CurrentAvatar.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatar.GetHashCode();
+                }
                 if (this.CurrentAvatarAssetUrl != null)
-                    hashCode = hashCode * 59 + this.CurrentAvatarAssetUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarAssetUrl.GetHashCode();
+                }
                 if (this.CurrentAvatarImageUrl != null)
-                    hashCode = hashCode * 59 + this.CurrentAvatarImageUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarImageUrl.GetHashCode();
+                }
                 if (this.CurrentAvatarThumbnailImageUrl != null)
-                    hashCode = hashCode * 59 + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
+                }
                 if (this.DateJoined != null)
-                    hashCode = hashCode * 59 + this.DateJoined.GetHashCode();
-                hashCode = hashCode * 59 + this.DeveloperType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateJoined.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DeveloperType.GetHashCode();
                 if (this.DisplayName != null)
-                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
-                hashCode = hashCode * 59 + this.EmailVerified.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EmailVerified.GetHashCode();
                 if (this.FallbackAvatar != null)
-                    hashCode = hashCode * 59 + this.FallbackAvatar.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FallbackAvatar.GetHashCode();
+                }
                 if (this.FriendGroupNames != null)
-                    hashCode = hashCode * 59 + this.FriendGroupNames.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FriendGroupNames.GetHashCode();
+                }
                 if (this.FriendKey != null)
-                    hashCode = hashCode * 59 + this.FriendKey.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FriendKey.GetHashCode();
+                }
                 if (this.Friends != null)
-                    hashCode = hashCode * 59 + this.Friends.GetHashCode();
-                hashCode = hashCode * 59 + this.HasBirthday.GetHashCode();
-                hashCode = hashCode * 59 + this.HasEmail.GetHashCode();
-                hashCode = hashCode * 59 + this.HasLoggedInFromClient.GetHashCode();
-                hashCode = hashCode * 59 + this.HasPendingEmail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Friends.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.HasBirthday.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasEmail.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasLoggedInFromClient.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasPendingEmail.GetHashCode();
                 if (this.HomeLocation != null)
-                    hashCode = hashCode * 59 + this.HomeLocation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HomeLocation.GetHashCode();
+                }
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                hashCode = hashCode * 59 + this.IsFriend.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsFriend.GetHashCode();
                 if (this.LastLogin != null)
-                    hashCode = hashCode * 59 + this.LastLogin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastLogin.GetHashCode();
+                }
                 if (this.LastPlatform != null)
-                    hashCode = hashCode * 59 + this.LastPlatform.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastPlatform.GetHashCode();
+                }
                 if (this.ObfuscatedEmail != null)
-                    hashCode = hashCode * 59 + this.ObfuscatedEmail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ObfuscatedEmail.GetHashCode();
+                }
                 if (this.ObfuscatedPendingEmail != null)
-                    hashCode = hashCode * 59 + this.ObfuscatedPendingEmail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ObfuscatedPendingEmail.GetHashCode();
+                }
                 if (this.OculusId != null)
-                    hashCode = hashCode * 59 + this.OculusId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OculusId.GetHashCode();
+                }
                 if (this.OfflineFriends != null)
-                    hashCode = hashCode * 59 + this.OfflineFriends.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OfflineFriends.GetHashCode();
+                }
                 if (this.OnlineFriends != null)
-                    hashCode = hashCode * 59 + this.OnlineFriends.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OnlineFriends.GetHashCode();
+                }
                 if (this.PastDisplayNames != null)
-                    hashCode = hashCode * 59 + this.PastDisplayNames.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PastDisplayNames.GetHashCode();
+                }
                 if (this.ProfilePicOverride != null)
-                    hashCode = hashCode * 59 + this.ProfilePicOverride.GetHashCode();
-                hashCode = hashCode * 59 + this.State.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.State.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.StatusDescription != null)
-                    hashCode = hashCode * 59 + this.StatusDescription.GetHashCode();
-                hashCode = hashCode * 59 + this.StatusFirstTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StatusDescription.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.StatusFirstTime.GetHashCode();
                 if (this.StatusHistory != null)
-                    hashCode = hashCode * 59 + this.StatusHistory.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StatusHistory.GetHashCode();
+                }
                 if (this.SteamDetails != null)
-                    hashCode = hashCode * 59 + this.SteamDetails.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SteamDetails.GetHashCode();
+                }
                 if (this.SteamId != null)
-                    hashCode = hashCode * 59 + this.SteamId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SteamId.GetHashCode();
+                }
                 if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
-                hashCode = hashCode * 59 + this.TwoFactorAuthEnabled.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TwoFactorAuthEnabled.GetHashCode();
                 if (this.TwoFactorAuthEnabledDate != null)
-                    hashCode = hashCode * 59 + this.TwoFactorAuthEnabledDate.GetHashCode();
-                hashCode = hashCode * 59 + this.Unsubscribe.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TwoFactorAuthEnabledDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Unsubscribe.GetHashCode();
                 if (this.UserIcon != null)
-                    hashCode = hashCode * 59 + this.UserIcon.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
+                }
                 if (this.Username != null)
-                    hashCode = hashCode * 59 + this.Username.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Username.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -948,7 +1040,7 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // AcceptedTOSVersion (int) minimum
-            if(this.AcceptedTOSVersion < (int)0)
+            if (this.AcceptedTOSVersion < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcceptedTOSVersion, must be a value greater than or equal to 0.", new [] { "AcceptedTOSVersion" });
             }

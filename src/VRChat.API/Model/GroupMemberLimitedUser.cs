@@ -77,7 +77,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class GroupMemberLimitedUser {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
@@ -114,8 +114,9 @@ namespace VRChat.API.Model
         public bool Equals(GroupMemberLimitedUser input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -149,13 +150,21 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.DisplayName != null)
-                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
                 if (this.ThumbnailUrl != null)
-                    hashCode = hashCode * 59 + this.ThumbnailUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ThumbnailUrl.GetHashCode();
+                }
                 if (this.IconUrl != null)
-                    hashCode = hashCode * 59 + this.IconUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
+                }
                 return hashCode;
             }
         }

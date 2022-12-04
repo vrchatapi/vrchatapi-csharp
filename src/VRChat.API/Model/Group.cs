@@ -70,8 +70,8 @@ namespace VRChat.API.Model
         /// <param name="memberCountSyncedAt">memberCountSyncedAt.</param>
         /// <param name="isVerified">isVerified (default to false).</param>
         /// <param name="joinState">joinState.</param>
-        /// <param name="tags">tags.</param>
-        /// <param name="galleries">galleries.</param>
+        /// <param name="tags"> .</param>
+        /// <param name="galleries"> .</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="onlineMemberCount">onlineMemberCount.</param>
         /// <param name="membershipStatus">membershipStatus.</param>
@@ -204,14 +204,16 @@ namespace VRChat.API.Model
         public bool IsVerified { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tags
+        ///  
         /// </summary>
+        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// Gets or Sets Galleries
+        ///  
         /// </summary>
+        /// <value> </value>
         [DataMember(Name = "galleries", EmitDefaultValue = false)]
         public List<GroupGallery> Galleries { get; set; }
 
@@ -246,7 +248,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Group {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -304,8 +306,9 @@ namespace VRChat.API.Model
         public bool Equals(Group input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -443,49 +446,87 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ShortCode != null)
-                    hashCode = hashCode * 59 + this.ShortCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
+                }
                 if (this.Discriminator != null)
-                    hashCode = hashCode * 59 + this.Discriminator.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Discriminator.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.IconUrl != null)
-                    hashCode = hashCode * 59 + this.IconUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
+                }
                 if (this.BannerUrl != null)
-                    hashCode = hashCode * 59 + this.BannerUrl.GetHashCode();
-                hashCode = hashCode * 59 + this.Privacy.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Privacy.GetHashCode();
                 if (this.OwnerId != null)
-                    hashCode = hashCode * 59 + this.OwnerId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
                 if (this.Rules != null)
-                    hashCode = hashCode * 59 + this.Rules.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Rules.GetHashCode();
+                }
                 if (this.Links != null)
-                    hashCode = hashCode * 59 + this.Links.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                }
                 if (this.Languages != null)
-                    hashCode = hashCode * 59 + this.Languages.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Languages.GetHashCode();
+                }
                 if (this.IconId != null)
-                    hashCode = hashCode * 59 + this.IconId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IconId.GetHashCode();
+                }
                 if (this.BannerId != null)
-                    hashCode = hashCode * 59 + this.BannerId.GetHashCode();
-                hashCode = hashCode * 59 + this.MemberCount.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BannerId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MemberCount.GetHashCode();
                 if (this.MemberCountSyncedAt != null)
-                    hashCode = hashCode * 59 + this.MemberCountSyncedAt.GetHashCode();
-                hashCode = hashCode * 59 + this.IsVerified.GetHashCode();
-                hashCode = hashCode * 59 + this.JoinState.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MemberCountSyncedAt.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsVerified.GetHashCode();
+                hashCode = (hashCode * 59) + this.JoinState.GetHashCode();
                 if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
                 if (this.Galleries != null)
-                    hashCode = hashCode * 59 + this.Galleries.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Galleries.GetHashCode();
+                }
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
-                hashCode = hashCode * 59 + this.OnlineMemberCount.GetHashCode();
-                hashCode = hashCode * 59 + this.MembershipStatus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.OnlineMemberCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.MembershipStatus.GetHashCode();
                 if (this.MyMember != null)
-                    hashCode = hashCode * 59 + this.MyMember.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MyMember.GetHashCode();
+                }
                 if (this.Roles != null)
-                    hashCode = hashCode * 59 + this.Roles.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Roles.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -2,14 +2,13 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**AcceptFriendRequest**](NotificationsApi.md#acceptfriendrequest) | **PUT** /auth/user/notifications/{notificationId}/accept | Accept Friend Request
-[**ClearNotifications**](NotificationsApi.md#clearnotifications) | **PUT** /auth/user/notifications/clear | Clear All Notifications
-[**DeleteNotification**](NotificationsApi.md#deletenotification) | **PUT** /auth/user/notifications/{notificationId}/hide | Delete Notification
-[**GetNotifications**](NotificationsApi.md#getnotifications) | **GET** /auth/user/notifications | List Notifications
-[**MarkNotificationAsRead**](NotificationsApi.md#marknotificationasread) | **PUT** /auth/user/notifications/{notificationId}/see | Mark Notification As Read
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**AcceptFriendRequest**](NotificationsApi.md#acceptfriendrequest) | **PUT** /auth/user/notifications/{notificationId}/accept | Accept Friend Request |
+| [**ClearNotifications**](NotificationsApi.md#clearnotifications) | **PUT** /auth/user/notifications/clear | Clear All Notifications |
+| [**DeleteNotification**](NotificationsApi.md#deletenotification) | **PUT** /auth/user/notifications/{notificationId}/hide | Delete Notification |
+| [**GetNotifications**](NotificationsApi.md#getnotifications) | **GET** /auth/user/notifications | List Notifications |
+| [**MarkNotificationAsRead**](NotificationsApi.md#marknotificationasread) | **PUT** /auth/user/notifications/{notificationId}/see | Mark Notification As Read |
 
 <a name="acceptfriendrequest"></a>
 # **AcceptFriendRequest**
@@ -45,7 +44,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new NotificationsApi(config);
-            var notificationId = notificationId_example;  // string | Must be a valid notification ID.
+            var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
 
             try
             {
@@ -55,8 +54,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotificationsApi.AcceptFriendRequest: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling NotificationsApi.AcceptFriendRequest: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -64,11 +63,31 @@ namespace Example
 }
 ```
 
+#### Using the AcceptFriendRequestWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Accept Friend Request
+    ApiResponse<Success> response = apiInstance.AcceptFriendRequestWithHttpInfo(notificationId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling NotificationsApi.AcceptFriendRequestWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **notificationId** | **string**| Must be a valid notification ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **notificationId** | **string** | Must be a valid notification ID. |  |
 
 ### Return type
 
@@ -136,8 +155,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotificationsApi.ClearNotifications: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling NotificationsApi.ClearNotifications: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -145,9 +164,28 @@ namespace Example
 }
 ```
 
+#### Using the ClearNotificationsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Clear All Notifications
+    ApiResponse<Success> response = apiInstance.ClearNotificationsWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling NotificationsApi.ClearNotificationsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**Success**](Success.md)
@@ -204,7 +242,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new NotificationsApi(config);
-            var notificationId = notificationId_example;  // string | Must be a valid notification ID.
+            var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
 
             try
             {
@@ -214,8 +252,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotificationsApi.DeleteNotification: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling NotificationsApi.DeleteNotification: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -223,11 +261,31 @@ namespace Example
 }
 ```
 
+#### Using the DeleteNotificationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Notification
+    ApiResponse<Notification> response = apiInstance.DeleteNotificationWithHttpInfo(notificationId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling NotificationsApi.DeleteNotificationWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **notificationId** | **string**| Must be a valid notification ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **notificationId** | **string** | Must be a valid notification ID. |  |
 
 ### Return type
 
@@ -289,7 +347,7 @@ namespace Example
             var sent = true;  // bool? | Return notifications sent by the user. Must be false or omitted. (optional) 
             var hidden = true;  // bool? | Whether to return hidden or non-hidden notifications. True only allowed on type `friendRequest`. (optional) 
             var after = five_minutes_ago;  // string | Only return notifications sent after this Date. Ignored if type is `friendRequest`. (optional) 
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
             try
@@ -300,8 +358,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotificationsApi.GetNotifications: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling NotificationsApi.GetNotifications: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -309,16 +367,36 @@ namespace Example
 }
 ```
 
+#### Using the GetNotificationsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Notifications
+    ApiResponse<List<Notification>> response = apiInstance.GetNotificationsWithHttpInfo(type, sent, hidden, after, n, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling NotificationsApi.GetNotificationsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **type** | **string**| Only send notifications of this type (can use &#x60;all&#x60; for all). This parameter no longer does anything, and is deprecated. | [optional] 
- **sent** | **bool?**| Return notifications sent by the user. Must be false or omitted. | [optional] 
- **hidden** | **bool?**| Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. | [optional] 
- **after** | **string**| Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. | [optional] 
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **type** | **string** | Only send notifications of this type (can use &#x60;all&#x60; for all). This parameter no longer does anything, and is deprecated. | [optional]  |
+| **sent** | **bool?** | Return notifications sent by the user. Must be false or omitted. | [optional]  |
+| **hidden** | **bool?** | Whether to return hidden or non-hidden notifications. True only allowed on type &#x60;friendRequest&#x60;. | [optional]  |
+| **after** | **string** | Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. | [optional]  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
 ### Return type
 
@@ -376,7 +454,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new NotificationsApi(config);
-            var notificationId = notificationId_example;  // string | Must be a valid notification ID.
+            var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
 
             try
             {
@@ -386,8 +464,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NotificationsApi.MarkNotificationAsRead: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling NotificationsApi.MarkNotificationAsRead: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -395,11 +473,31 @@ namespace Example
 }
 ```
 
+#### Using the MarkNotificationAsReadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Mark Notification As Read
+    ApiResponse<Notification> response = apiInstance.MarkNotificationAsReadWithHttpInfo(notificationId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling NotificationsApi.MarkNotificationAsReadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **notificationId** | **string**| Must be a valid notification ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **notificationId** | **string** | Must be a valid notification ID. |  |
 
 ### Return type
 

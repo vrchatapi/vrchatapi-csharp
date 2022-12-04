@@ -2,11 +2,10 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**GetAssignedPermissions**](PermissionsApi.md#getassignedpermissions) | **GET** /auth/permissions | Get Assigned Permissions
-[**GetPermission**](PermissionsApi.md#getpermission) | **GET** /permissions/{permissionId} | Get Permission
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**GetAssignedPermissions**](PermissionsApi.md#getassignedpermissions) | **GET** /auth/permissions | Get Assigned Permissions |
+| [**GetPermission**](PermissionsApi.md#getpermission) | **GET** /permissions/{permissionId} | Get Permission |
 
 <a name="getassignedpermissions"></a>
 # **GetAssignedPermissions**
@@ -51,8 +50,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PermissionsApi.GetAssignedPermissions: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PermissionsApi.GetAssignedPermissions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -60,9 +59,28 @@ namespace Example
 }
 ```
 
+#### Using the GetAssignedPermissionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Assigned Permissions
+    ApiResponse<List<Permission>> response = apiInstance.GetAssignedPermissionsWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PermissionsApi.GetAssignedPermissionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**List&lt;Permission&gt;**](Permission.md)
@@ -119,7 +137,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PermissionsApi(config);
-            var permissionId = permissionId_example;  // string | Must be a valid permission ID.
+            var permissionId = "permissionId_example";  // string | Must be a valid permission ID.
 
             try
             {
@@ -129,8 +147,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PermissionsApi.GetPermission: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling PermissionsApi.GetPermission: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -138,11 +156,31 @@ namespace Example
 }
 ```
 
+#### Using the GetPermissionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Permission
+    ApiResponse<Permission> response = apiInstance.GetPermissionWithHttpInfo(permissionId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling PermissionsApi.GetPermissionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **permissionId** | **string**| Must be a valid permission ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **permissionId** | **string** | Must be a valid permission ID. |  |
 
 ### Return type
 

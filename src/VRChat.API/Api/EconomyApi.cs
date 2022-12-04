@@ -33,8 +33,9 @@ namespace VRChat.API.Api
         /// Get a list of all current user subscriptions.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;UserSubscription&gt;</returns>
-        List<UserSubscription> GetCurrentSubscriptions();
+        List<UserSubscription> GetCurrentSubscriptions(int operationIndex = 0);
 
         /// <summary>
         /// Get Current Subscriptions
@@ -43,8 +44,9 @@ namespace VRChat.API.Api
         /// Get a list of all current user subscriptions.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;UserSubscription&gt;</returns>
-        ApiResponse<List<UserSubscription>> GetCurrentSubscriptionsWithHttpInfo();
+        ApiResponse<List<UserSubscription>> GetCurrentSubscriptionsWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Get License Group
         /// </summary>
@@ -53,8 +55,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="licenseGroupId">Must be a valid license group ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LicenseGroup</returns>
-        LicenseGroup GetLicenseGroup(string licenseGroupId);
+        LicenseGroup GetLicenseGroup(string licenseGroupId, int operationIndex = 0);
 
         /// <summary>
         /// Get License Group
@@ -64,8 +67,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="licenseGroupId">Must be a valid license group ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LicenseGroup</returns>
-        ApiResponse<LicenseGroup> GetLicenseGroupWithHttpInfo(string licenseGroupId);
+        ApiResponse<LicenseGroup> GetLicenseGroupWithHttpInfo(string licenseGroupId, int operationIndex = 0);
         /// <summary>
         /// Get Steam Transaction
         /// </summary>
@@ -74,9 +78,10 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Transaction</returns>
         [Obsolete]
-        Transaction GetSteamTransaction(string transactionId);
+        Transaction GetSteamTransaction(string transactionId, int operationIndex = 0);
 
         /// <summary>
         /// Get Steam Transaction
@@ -86,9 +91,10 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Transaction</returns>
         [Obsolete]
-        ApiResponse<Transaction> GetSteamTransactionWithHttpInfo(string transactionId);
+        ApiResponse<Transaction> GetSteamTransactionWithHttpInfo(string transactionId, int operationIndex = 0);
         /// <summary>
         /// List Steam Transactions
         /// </summary>
@@ -96,8 +102,9 @@ namespace VRChat.API.Api
         /// Get all own Steam transactions.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Transaction&gt;</returns>
-        List<Transaction> GetSteamTransactions();
+        List<Transaction> GetSteamTransactions(int operationIndex = 0);
 
         /// <summary>
         /// List Steam Transactions
@@ -106,8 +113,9 @@ namespace VRChat.API.Api
         /// Get all own Steam transactions.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Transaction&gt;</returns>
-        ApiResponse<List<Transaction>> GetSteamTransactionsWithHttpInfo();
+        ApiResponse<List<Transaction>> GetSteamTransactionsWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// List Subscriptions
         /// </summary>
@@ -115,8 +123,9 @@ namespace VRChat.API.Api
         /// List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Subscription&gt;</returns>
-        List<Subscription> GetSubscriptions();
+        List<Subscription> GetSubscriptions(int operationIndex = 0);
 
         /// <summary>
         /// List Subscriptions
@@ -125,8 +134,9 @@ namespace VRChat.API.Api
         /// List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        ApiResponse<List<Subscription>> GetSubscriptionsWithHttpInfo();
+        ApiResponse<List<Subscription>> GetSubscriptionsWithHttpInfo(int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -143,9 +153,10 @@ namespace VRChat.API.Api
         /// Get a list of all current user subscriptions.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserSubscription&gt;</returns>
-        System.Threading.Tasks.Task<List<UserSubscription>> GetCurrentSubscriptionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<UserSubscription>> GetCurrentSubscriptionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Current Subscriptions
@@ -154,9 +165,10 @@ namespace VRChat.API.Api
         /// Get a list of all current user subscriptions.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;UserSubscription&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<UserSubscription>>> GetCurrentSubscriptionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<UserSubscription>>> GetCurrentSubscriptionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get License Group
         /// </summary>
@@ -165,9 +177,10 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="licenseGroupId">Must be a valid license group ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LicenseGroup</returns>
-        System.Threading.Tasks.Task<LicenseGroup> GetLicenseGroupAsync(string licenseGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LicenseGroup> GetLicenseGroupAsync(string licenseGroupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get License Group
@@ -177,9 +190,10 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="licenseGroupId">Must be a valid license group ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LicenseGroup)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LicenseGroup>> GetLicenseGroupWithHttpInfoAsync(string licenseGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LicenseGroup>> GetLicenseGroupWithHttpInfoAsync(string licenseGroupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Steam Transaction
         /// </summary>
@@ -188,10 +202,11 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Transaction</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<Transaction> GetSteamTransactionAsync(string transactionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Transaction> GetSteamTransactionAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Steam Transaction
@@ -201,10 +216,11 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<Transaction>> GetSteamTransactionWithHttpInfoAsync(string transactionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Transaction>> GetSteamTransactionWithHttpInfoAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Steam Transactions
         /// </summary>
@@ -212,9 +228,10 @@ namespace VRChat.API.Api
         /// Get all own Steam transactions.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Transaction&gt;</returns>
-        System.Threading.Tasks.Task<List<Transaction>> GetSteamTransactionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Transaction>> GetSteamTransactionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Steam Transactions
@@ -223,9 +240,10 @@ namespace VRChat.API.Api
         /// Get all own Steam transactions.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Transaction&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Transaction>>> GetSteamTransactionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Transaction>>> GetSteamTransactionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Subscriptions
         /// </summary>
@@ -233,9 +251,10 @@ namespace VRChat.API.Api
         /// List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        System.Threading.Tasks.Task<List<Subscription>> GetSubscriptionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Subscription>> GetSubscriptionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Subscriptions
@@ -244,9 +263,10 @@ namespace VRChat.API.Api
         /// List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Subscription&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Subscription>>> GetSubscriptionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Subscription>>> GetSubscriptionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -371,8 +391,9 @@ namespace VRChat.API.Api
         /// Get Current Subscriptions Get a list of all current user subscriptions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;UserSubscription&gt;</returns>
-        public List<UserSubscription> GetCurrentSubscriptions()
+        public List<UserSubscription> GetCurrentSubscriptions(int operationIndex = 0)
         {
             VRChat.API.Client.ApiResponse<List<UserSubscription>> localVarResponse = GetCurrentSubscriptionsWithHttpInfo();
             return localVarResponse.Data;
@@ -382,8 +403,9 @@ namespace VRChat.API.Api
         /// Get Current Subscriptions Get a list of all current user subscriptions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;UserSubscription&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<UserSubscription>> GetCurrentSubscriptionsWithHttpInfo()
+        public VRChat.API.Client.ApiResponse<List<UserSubscription>> GetCurrentSubscriptionsWithHttpInfo(int operationIndex = 0)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -396,11 +418,20 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+
+            localVarRequestOptions.Operation = "EconomyApi.GetCurrentSubscriptions";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -417,11 +448,13 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<UserSubscription>>("/auth/user/subscription", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCurrentSubscriptions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -431,11 +464,12 @@ namespace VRChat.API.Api
         /// Get Current Subscriptions Get a list of all current user subscriptions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserSubscription&gt;</returns>
-        public async System.Threading.Tasks.Task<List<UserSubscription>> GetCurrentSubscriptionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<UserSubscription>> GetCurrentSubscriptionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<List<UserSubscription>> localVarResponse = await GetCurrentSubscriptionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<UserSubscription>> localVarResponse = await GetCurrentSubscriptionsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -443,9 +477,10 @@ namespace VRChat.API.Api
         /// Get Current Subscriptions Get a list of all current user subscriptions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;UserSubscription&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<UserSubscription>>> GetCurrentSubscriptionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<UserSubscription>>> GetCurrentSubscriptionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -458,13 +493,21 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
-
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+
+            localVarRequestOptions.Operation = "EconomyApi.GetCurrentSubscriptions";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -480,13 +523,15 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<UserSubscription>>("/auth/user/subscription", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCurrentSubscriptions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -497,8 +542,9 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="licenseGroupId">Must be a valid license group ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LicenseGroup</returns>
-        public LicenseGroup GetLicenseGroup(string licenseGroupId)
+        public LicenseGroup GetLicenseGroup(string licenseGroupId, int operationIndex = 0)
         {
             VRChat.API.Client.ApiResponse<LicenseGroup> localVarResponse = GetLicenseGroupWithHttpInfo(licenseGroupId);
             return localVarResponse.Data;
@@ -509,12 +555,15 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="licenseGroupId">Must be a valid license group ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LicenseGroup</returns>
-        public VRChat.API.Client.ApiResponse<LicenseGroup> GetLicenseGroupWithHttpInfo(string licenseGroupId)
+        public VRChat.API.Client.ApiResponse<LicenseGroup> GetLicenseGroupWithHttpInfo(string licenseGroupId, int operationIndex = 0)
         {
             // verify the required parameter 'licenseGroupId' is set
             if (licenseGroupId == null)
+            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'licenseGroupId' when calling EconomyApi->GetLicenseGroup");
+            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -527,12 +576,21 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("licenseGroupId", VRChat.API.Client.ClientUtils.ParameterToString(licenseGroupId)); // path parameter
+
+            localVarRequestOptions.Operation = "EconomyApi.GetLicenseGroup";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -549,11 +607,13 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LicenseGroup>("/licenseGroups/{licenseGroupId}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLicenseGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -564,11 +624,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="licenseGroupId">Must be a valid license group ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LicenseGroup</returns>
-        public async System.Threading.Tasks.Task<LicenseGroup> GetLicenseGroupAsync(string licenseGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LicenseGroup> GetLicenseGroupAsync(string licenseGroupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<LicenseGroup> localVarResponse = await GetLicenseGroupWithHttpInfoAsync(licenseGroupId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<LicenseGroup> localVarResponse = await GetLicenseGroupWithHttpInfoAsync(licenseGroupId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -577,13 +638,16 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="licenseGroupId">Must be a valid license group ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LicenseGroup)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<LicenseGroup>> GetLicenseGroupWithHttpInfoAsync(string licenseGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<LicenseGroup>> GetLicenseGroupWithHttpInfoAsync(string licenseGroupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'licenseGroupId' is set
             if (licenseGroupId == null)
+            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'licenseGroupId' when calling EconomyApi->GetLicenseGroup");
+            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -596,14 +660,22 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
-
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("licenseGroupId", VRChat.API.Client.ClientUtils.ParameterToString(licenseGroupId)); // path parameter
+
+            localVarRequestOptions.Operation = "EconomyApi.GetLicenseGroup";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -619,13 +691,15 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<LicenseGroup>("/licenseGroups/{licenseGroupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLicenseGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -636,9 +710,10 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Transaction</returns>
         [Obsolete]
-        public Transaction GetSteamTransaction(string transactionId)
+        public Transaction GetSteamTransaction(string transactionId, int operationIndex = 0)
         {
             VRChat.API.Client.ApiResponse<Transaction> localVarResponse = GetSteamTransactionWithHttpInfo(transactionId);
             return localVarResponse.Data;
@@ -649,13 +724,16 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Transaction</returns>
         [Obsolete]
-        public VRChat.API.Client.ApiResponse<Transaction> GetSteamTransactionWithHttpInfo(string transactionId)
+        public VRChat.API.Client.ApiResponse<Transaction> GetSteamTransactionWithHttpInfo(string transactionId, int operationIndex = 0)
         {
             // verify the required parameter 'transactionId' is set
             if (transactionId == null)
+            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'transactionId' when calling EconomyApi->GetSteamTransaction");
+            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -668,12 +746,21 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("transactionId", VRChat.API.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
+
+            localVarRequestOptions.Operation = "EconomyApi.GetSteamTransaction";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -690,11 +777,13 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Transaction>("/Steam/transactions/{transactionId}", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSteamTransaction", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -705,12 +794,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Transaction</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<Transaction> GetSteamTransactionAsync(string transactionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Transaction> GetSteamTransactionAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Transaction> localVarResponse = await GetSteamTransactionWithHttpInfoAsync(transactionId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Transaction> localVarResponse = await GetSteamTransactionWithHttpInfoAsync(transactionId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -719,14 +809,17 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Transaction>> GetSteamTransactionWithHttpInfoAsync(string transactionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Transaction>> GetSteamTransactionWithHttpInfoAsync(string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'transactionId' is set
             if (transactionId == null)
+            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'transactionId' when calling EconomyApi->GetSteamTransaction");
+            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -739,14 +832,22 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
-
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("transactionId", VRChat.API.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
+
+            localVarRequestOptions.Operation = "EconomyApi.GetSteamTransaction";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -762,13 +863,15 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<Transaction>("/Steam/transactions/{transactionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSteamTransaction", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -778,8 +881,9 @@ namespace VRChat.API.Api
         /// List Steam Transactions Get all own Steam transactions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Transaction&gt;</returns>
-        public List<Transaction> GetSteamTransactions()
+        public List<Transaction> GetSteamTransactions(int operationIndex = 0)
         {
             VRChat.API.Client.ApiResponse<List<Transaction>> localVarResponse = GetSteamTransactionsWithHttpInfo();
             return localVarResponse.Data;
@@ -789,8 +893,9 @@ namespace VRChat.API.Api
         /// List Steam Transactions Get all own Steam transactions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Transaction&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Transaction>> GetSteamTransactionsWithHttpInfo()
+        public VRChat.API.Client.ApiResponse<List<Transaction>> GetSteamTransactionsWithHttpInfo(int operationIndex = 0)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -803,11 +908,20 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+
+            localVarRequestOptions.Operation = "EconomyApi.GetSteamTransactions";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -824,11 +938,13 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<Transaction>>("/Steam/transactions", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSteamTransactions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -838,11 +954,12 @@ namespace VRChat.API.Api
         /// List Steam Transactions Get all own Steam transactions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Transaction&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Transaction>> GetSteamTransactionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Transaction>> GetSteamTransactionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<List<Transaction>> localVarResponse = await GetSteamTransactionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<Transaction>> localVarResponse = await GetSteamTransactionsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -850,9 +967,10 @@ namespace VRChat.API.Api
         /// List Steam Transactions Get all own Steam transactions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Transaction&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Transaction>>> GetSteamTransactionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Transaction>>> GetSteamTransactionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -865,13 +983,21 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
-
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+
+            localVarRequestOptions.Operation = "EconomyApi.GetSteamTransactions";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -887,13 +1013,15 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Transaction>>("/Steam/transactions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSteamTransactions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -903,8 +1031,9 @@ namespace VRChat.API.Api
         /// List Subscriptions List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Subscription&gt;</returns>
-        public List<Subscription> GetSubscriptions()
+        public List<Subscription> GetSubscriptions(int operationIndex = 0)
         {
             VRChat.API.Client.ApiResponse<List<Subscription>> localVarResponse = GetSubscriptionsWithHttpInfo();
             return localVarResponse.Data;
@@ -914,8 +1043,9 @@ namespace VRChat.API.Api
         /// List Subscriptions List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Subscription>> GetSubscriptionsWithHttpInfo()
+        public VRChat.API.Client.ApiResponse<List<Subscription>> GetSubscriptionsWithHttpInfo(int operationIndex = 0)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -928,11 +1058,20 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+
+            localVarRequestOptions.Operation = "EconomyApi.GetSubscriptions";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -949,11 +1088,13 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<Subscription>>("/subscriptions", localVarRequestOptions, this.Configuration);
-
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSubscriptions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -963,11 +1104,12 @@ namespace VRChat.API.Api
         /// List Subscriptions List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Subscription>> GetSubscriptionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Subscription>> GetSubscriptionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<List<Subscription>> localVarResponse = await GetSubscriptionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<Subscription>> localVarResponse = await GetSubscriptionsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -975,9 +1117,10 @@ namespace VRChat.API.Api
         /// List Subscriptions List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Subscription&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Subscription>>> GetSubscriptionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Subscription>>> GetSubscriptionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -990,13 +1133,21 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
-
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+
+            localVarRequestOptions.Operation = "EconomyApi.GetSubscriptions";
+            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1012,13 +1163,15 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Subscription>>("/subscriptions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSubscriptions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

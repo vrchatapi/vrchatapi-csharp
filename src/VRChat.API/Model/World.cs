@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ReleaseStatus
         /// </summary>
-        [DataMember(Name = "releaseStatus", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "releaseStatus", IsRequired = true, EmitDefaultValue = true)]
         public ReleaseStatus ReleaseStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="World" /> class.
@@ -67,7 +67,7 @@ namespace VRChat.API.Model
         /// <param name="publicOccupants">Will always be &#x60;0&#x60; when unauthenticated. (default to 0).</param>
         /// <param name="publicationDate">publicationDate (required).</param>
         /// <param name="releaseStatus">releaseStatus (required).</param>
-        /// <param name="tags">tags (required).</param>
+        /// <param name="tags">  (required).</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
         /// <param name="unityPackages">Empty if unauthenticated. (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
@@ -76,73 +76,86 @@ namespace VRChat.API.Model
         public World(string authorId = default(string), string authorName = default(string), int capacity = default(int), DateTime createdAt = default(DateTime), string description = default(string), int favorites = 0, bool featured = false, int heat = 0, string id = default(string), string imageUrl = default(string), List<List<Object>> instances = default(List<List<Object>>), string labsPublicationDate = default(string), string name = default(string), string _namespace = default(string), int occupants = 0, string organization = "vrchat", int popularity = 0, string previewYoutubeId = default(string), int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default(string), ReleaseStatus releaseStatus = default(ReleaseStatus), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), int version = 0, int visits = 0)
         {
             // to ensure "authorId" is required (not null)
-            if (authorId == null) {
+            if (authorId == null)
+            {
                 throw new ArgumentNullException("authorId is a required property for World and cannot be null");
             }
             this.AuthorId = authorId;
             // to ensure "authorName" is required (not null)
-            if (authorName == null) {
+            if (authorName == null)
+            {
                 throw new ArgumentNullException("authorName is a required property for World and cannot be null");
             }
             this.AuthorName = authorName;
             this.Capacity = capacity;
             this.CreatedAt = createdAt;
             // to ensure "description" is required (not null)
-            if (description == null) {
+            if (description == null)
+            {
                 throw new ArgumentNullException("description is a required property for World and cannot be null");
             }
             this.Description = description;
             this.Featured = featured;
             this.Heat = heat;
             // to ensure "id" is required (not null)
-            if (id == null) {
+            if (id == null)
+            {
                 throw new ArgumentNullException("id is a required property for World and cannot be null");
             }
             this.Id = id;
             // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null) {
+            if (imageUrl == null)
+            {
                 throw new ArgumentNullException("imageUrl is a required property for World and cannot be null");
             }
             this.ImageUrl = imageUrl;
             // to ensure "labsPublicationDate" is required (not null)
-            if (labsPublicationDate == null) {
+            if (labsPublicationDate == null)
+            {
                 throw new ArgumentNullException("labsPublicationDate is a required property for World and cannot be null");
             }
             this.LabsPublicationDate = labsPublicationDate;
             // to ensure "name" is required (not null)
-            if (name == null) {
+            if (name == null)
+            {
                 throw new ArgumentNullException("name is a required property for World and cannot be null");
             }
             this.Name = name;
             // to ensure "_namespace" is required (not null)
-            if (_namespace == null) {
+            if (_namespace == null)
+            {
                 throw new ArgumentNullException("_namespace is a required property for World and cannot be null");
             }
             this.Namespace = _namespace;
             // to ensure "organization" is required (not null)
-            if (organization == null) {
+            if (organization == null)
+            {
                 throw new ArgumentNullException("organization is a required property for World and cannot be null");
             }
             this.Organization = organization;
             this.Popularity = popularity;
             // to ensure "publicationDate" is required (not null)
-            if (publicationDate == null) {
+            if (publicationDate == null)
+            {
                 throw new ArgumentNullException("publicationDate is a required property for World and cannot be null");
             }
             this.PublicationDate = publicationDate;
             this.ReleaseStatus = releaseStatus;
             // to ensure "tags" is required (not null)
-            if (tags == null) {
+            if (tags == null)
+            {
                 throw new ArgumentNullException("tags is a required property for World and cannot be null");
             }
             this.Tags = tags;
             // to ensure "thumbnailImageUrl" is required (not null)
-            if (thumbnailImageUrl == null) {
+            if (thumbnailImageUrl == null)
+            {
                 throw new ArgumentNullException("thumbnailImageUrl is a required property for World and cannot be null");
             }
             this.ThumbnailImageUrl = thumbnailImageUrl;
             // to ensure "unityPackages" is required (not null)
-            if (unityPackages == null) {
+            if (unityPackages == null)
+            {
                 throw new ArgumentNullException("unityPackages is a required property for World and cannot be null");
             }
             this.UnityPackages = unityPackages;
@@ -161,31 +174,31 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorId { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthorName
         /// </summary>
-        [DataMember(Name = "authorName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "authorName", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorName { get; set; }
 
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
-        [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = true)]
         public int Capacity { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -203,20 +216,20 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Heat
         /// </summary>
-        [DataMember(Name = "heat", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "heat", IsRequired = true, EmitDefaultValue = true)]
         public int Heat { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
-        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string ImageUrl { get; set; }
 
         /// <summary>
@@ -229,19 +242,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LabsPublicationDate
         /// </summary>
-        [DataMember(Name = "labsPublicationDate", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "labsPublicationDate", IsRequired = true, EmitDefaultValue = true)]
         public string LabsPublicationDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Namespace
         /// </summary>
-        [DataMember(Name = "namespace", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "namespace", IsRequired = true, EmitDefaultValue = true)]
         public string Namespace { get; set; }
 
         /// <summary>
@@ -254,13 +267,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Organization
         /// </summary>
-        [DataMember(Name = "organization", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "organization", IsRequired = true, EmitDefaultValue = true)]
         public string Organization { get; set; }
 
         /// <summary>
         /// Gets or Sets Popularity
         /// </summary>
-        [DataMember(Name = "popularity", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "popularity", IsRequired = true, EmitDefaultValue = true)]
         public int Popularity { get; set; }
 
         /// <summary>
@@ -286,44 +299,45 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PublicationDate
         /// </summary>
-        [DataMember(Name = "publicationDate", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "publicationDate", IsRequired = true, EmitDefaultValue = true)]
         public string PublicationDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tags
+        ///  
         /// </summary>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = false)]
+        /// <value> </value>
+        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// Gets or Sets ThumbnailImageUrl
         /// </summary>
-        [DataMember(Name = "thumbnailImageUrl", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "thumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string ThumbnailImageUrl { get; set; }
 
         /// <summary>
         /// Empty if unauthenticated.
         /// </summary>
         /// <value>Empty if unauthenticated.</value>
-        [DataMember(Name = "unityPackages", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "unityPackages", IsRequired = true, EmitDefaultValue = true)]
         public List<UnityPackage> UnityPackages { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets _Version
         /// </summary>
-        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int _Version { get; set; }
 
         /// <summary>
         /// Gets or Sets Visits
         /// </summary>
-        [DataMember(Name = "visits", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "visits", IsRequired = true, EmitDefaultValue = true)]
         public int Visits { get; set; }
 
         /// <summary>
@@ -332,7 +346,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class World {\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
             sb.Append("  AuthorName: ").Append(AuthorName).Append("\n");
@@ -393,8 +407,9 @@ namespace VRChat.API.Model
         public bool Equals(World input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AuthorId == input.AuthorId ||
@@ -540,50 +555,84 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.AuthorId != null)
-                    hashCode = hashCode * 59 + this.AuthorId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
                 if (this.AuthorName != null)
-                    hashCode = hashCode * 59 + this.AuthorName.GetHashCode();
-                hashCode = hashCode * 59 + this.Capacity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Capacity.GetHashCode();
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.Favorites.GetHashCode();
-                hashCode = hashCode * 59 + this.Featured.GetHashCode();
-                hashCode = hashCode * 59 + this.Heat.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Favorites.GetHashCode();
+                hashCode = (hashCode * 59) + this.Featured.GetHashCode();
+                hashCode = (hashCode * 59) + this.Heat.GetHashCode();
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.ImageUrl != null)
-                    hashCode = hashCode * 59 + this.ImageUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
                 if (this.Instances != null)
-                    hashCode = hashCode * 59 + this.Instances.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Instances.GetHashCode();
+                }
                 if (this.LabsPublicationDate != null)
-                    hashCode = hashCode * 59 + this.LabsPublicationDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LabsPublicationDate.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Namespace != null)
-                    hashCode = hashCode * 59 + this.Namespace.GetHashCode();
-                hashCode = hashCode * 59 + this.Occupants.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Namespace.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Occupants.GetHashCode();
                 if (this.Organization != null)
-                    hashCode = hashCode * 59 + this.Organization.GetHashCode();
-                hashCode = hashCode * 59 + this.Popularity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Organization.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Popularity.GetHashCode();
                 if (this.PreviewYoutubeId != null)
-                    hashCode = hashCode * 59 + this.PreviewYoutubeId.GetHashCode();
-                hashCode = hashCode * 59 + this.PrivateOccupants.GetHashCode();
-                hashCode = hashCode * 59 + this.PublicOccupants.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PreviewYoutubeId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PrivateOccupants.GetHashCode();
+                hashCode = (hashCode * 59) + this.PublicOccupants.GetHashCode();
                 if (this.PublicationDate != null)
-                    hashCode = hashCode * 59 + this.PublicationDate.GetHashCode();
-                hashCode = hashCode * 59 + this.ReleaseStatus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PublicationDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
                 if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
                 if (this.ThumbnailImageUrl != null)
-                    hashCode = hashCode * 59 + this.ThumbnailImageUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
+                }
                 if (this.UnityPackages != null)
-                    hashCode = hashCode * 59 + this.UnityPackages.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackages.GetHashCode();
+                }
                 if (this.UpdatedAt != null)
-                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
-                hashCode = hashCode * 59 + this._Version.GetHashCode();
-                hashCode = hashCode * 59 + this.Visits.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                hashCode = (hashCode * 59) + this.Visits.GetHashCode();
                 return hashCode;
             }
         }
@@ -596,37 +645,37 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // AuthorName (string) minLength
-            if(this.AuthorName != null && this.AuthorName.Length < 1)
+            if (this.AuthorName != null && this.AuthorName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
 
             // Capacity (int) maximum
-            if(this.Capacity > (int)40)
+            if (this.Capacity > (int)40)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value less than or equal to 40.", new [] { "Capacity" });
             }
 
             // Capacity (int) minimum
-            if(this.Capacity < (int)0)
+            if (this.Capacity < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value greater than or equal to 0.", new [] { "Capacity" });
             }
 
             // Description (string) minLength
-            if(this.Description != null && this.Description.Length < 0)
+            if (this.Description != null && this.Description.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
 
             // Favorites (int) minimum
-            if(this.Favorites < (int)0)
+            if (this.Favorites < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Favorites, must be a value greater than or equal to 0.", new [] { "Favorites" });
             }
 
             // Heat (int) minimum
-            if(this.Heat < (int)0)
+            if (this.Heat < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Heat, must be a value greater than or equal to 0.", new [] { "Heat" });
             }
@@ -639,73 +688,73 @@ namespace VRChat.API.Model
             }
 
             // ImageUrl (string) minLength
-            if(this.ImageUrl != null && this.ImageUrl.Length < 1)
+            if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // LabsPublicationDate (string) minLength
-            if(this.LabsPublicationDate != null && this.LabsPublicationDate.Length < 1)
+            if (this.LabsPublicationDate != null && this.LabsPublicationDate.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LabsPublicationDate, length must be greater than 1.", new [] { "LabsPublicationDate" });
             }
 
             // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 1)
+            if (this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Occupants (int) minimum
-            if(this.Occupants < (int)0)
+            if (this.Occupants < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Occupants, must be a value greater than or equal to 0.", new [] { "Occupants" });
             }
 
             // Organization (string) minLength
-            if(this.Organization != null && this.Organization.Length < 1)
+            if (this.Organization != null && this.Organization.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Organization, length must be greater than 1.", new [] { "Organization" });
             }
 
             // Popularity (int) minimum
-            if(this.Popularity < (int)0)
+            if (this.Popularity < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Popularity, must be a value greater than or equal to 0.", new [] { "Popularity" });
             }
 
             // PrivateOccupants (int) minimum
-            if(this.PrivateOccupants < (int)0)
+            if (this.PrivateOccupants < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrivateOccupants, must be a value greater than or equal to 0.", new [] { "PrivateOccupants" });
             }
 
             // PublicOccupants (int) minimum
-            if(this.PublicOccupants < (int)0)
+            if (this.PublicOccupants < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicOccupants, must be a value greater than or equal to 0.", new [] { "PublicOccupants" });
             }
 
             // PublicationDate (string) minLength
-            if(this.PublicationDate != null && this.PublicationDate.Length < 1)
+            if (this.PublicationDate != null && this.PublicationDate.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicationDate, length must be greater than 1.", new [] { "PublicationDate" });
             }
 
             // ThumbnailImageUrl (string) minLength
-            if(this.ThumbnailImageUrl != null && this.ThumbnailImageUrl.Length < 1)
+            if (this.ThumbnailImageUrl != null && this.ThumbnailImageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
             }
 
             // _Version (int) minimum
-            if(this._Version < (int)0)
+            if (this._Version < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
             }
 
             // Visits (int) minimum
-            if(this.Visits < (int)0)
+            if (this.Visits < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Visits, must be a value greater than or equal to 0.", new [] { "Visits" });
             }

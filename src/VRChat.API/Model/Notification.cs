@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public NotificationType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Notification" /> class.
@@ -58,22 +58,26 @@ namespace VRChat.API.Model
         {
             this.CreatedAt = createdAt;
             // to ensure "details" is required (not null)
-            if (details == null) {
+            if (details == null)
+            {
                 throw new ArgumentNullException("details is a required property for Notification and cannot be null");
             }
             this.Details = details;
             // to ensure "id" is required (not null)
-            if (id == null) {
+            if (id == null)
+            {
                 throw new ArgumentNullException("id is a required property for Notification and cannot be null");
             }
             this.Id = id;
             // to ensure "message" is required (not null)
-            if (message == null) {
+            if (message == null)
+            {
                 throw new ArgumentNullException("message is a required property for Notification and cannot be null");
             }
             this.Message = message;
             // to ensure "senderUserId" is required (not null)
-            if (senderUserId == null) {
+            if (senderUserId == null)
+            {
                 throw new ArgumentNullException("senderUserId is a required property for Notification and cannot be null");
             }
             this.SenderUserId = senderUserId;
@@ -86,26 +90,26 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// **NOTICE:** This is not a JSON object when received from the REST API, but it is when received from the Websocket API. When received from the REST API, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.
         /// </summary>
         /// <value>**NOTICE:** This is not a JSON object when received from the REST API, but it is when received from the Websocket API. When received from the REST API, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.</value>
-        [DataMember(Name = "details", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "details", IsRequired = true, EmitDefaultValue = true)]
         public string Details { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
@@ -126,7 +130,7 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "senderUserId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "senderUserId", IsRequired = true, EmitDefaultValue = true)]
         public string SenderUserId { get; set; }
 
         /// <summary>
@@ -143,7 +147,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Notification {\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
@@ -185,8 +189,9 @@ namespace VRChat.API.Model
         public bool Equals(Notification input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -243,21 +248,35 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.Details != null)
-                    hashCode = hashCode * 59 + this.Details.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
+                }
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                hashCode = hashCode * 59 + this.Seen.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Seen.GetHashCode();
                 if (this.ReceiverUserId != null)
-                    hashCode = hashCode * 59 + this.ReceiverUserId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReceiverUserId.GetHashCode();
+                }
                 if (this.SenderUserId != null)
-                    hashCode = hashCode * 59 + this.SenderUserId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SenderUserId.GetHashCode();
+                }
                 if (this.SenderUsername != null)
-                    hashCode = hashCode * 59 + this.SenderUsername.GetHashCode();
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SenderUsername.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
         }
@@ -270,13 +289,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
-            if(this.Id != null && this.Id.Length < 1)
+            if (this.Id != null && this.Id.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // SenderUsername (string) minLength
-            if(this.SenderUsername != null && this.SenderUsername.Length < 1)
+            if (this.SenderUsername != null && this.SenderUsername.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SenderUsername, length must be greater than 1.", new [] { "SenderUsername" });
             }

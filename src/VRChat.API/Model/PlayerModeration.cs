@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public PlayerModerationType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerModeration" /> class.
@@ -56,27 +56,32 @@ namespace VRChat.API.Model
         {
             this.Created = created;
             // to ensure "id" is required (not null)
-            if (id == null) {
+            if (id == null)
+            {
                 throw new ArgumentNullException("id is a required property for PlayerModeration and cannot be null");
             }
             this.Id = id;
             // to ensure "sourceDisplayName" is required (not null)
-            if (sourceDisplayName == null) {
+            if (sourceDisplayName == null)
+            {
                 throw new ArgumentNullException("sourceDisplayName is a required property for PlayerModeration and cannot be null");
             }
             this.SourceDisplayName = sourceDisplayName;
             // to ensure "sourceUserId" is required (not null)
-            if (sourceUserId == null) {
+            if (sourceUserId == null)
+            {
                 throw new ArgumentNullException("sourceUserId is a required property for PlayerModeration and cannot be null");
             }
             this.SourceUserId = sourceUserId;
             // to ensure "targetDisplayName" is required (not null)
-            if (targetDisplayName == null) {
+            if (targetDisplayName == null)
+            {
                 throw new ArgumentNullException("targetDisplayName is a required property for PlayerModeration and cannot be null");
             }
             this.TargetDisplayName = targetDisplayName;
             // to ensure "targetUserId" is required (not null)
-            if (targetUserId == null) {
+            if (targetUserId == null)
+            {
                 throw new ArgumentNullException("targetUserId is a required property for PlayerModeration and cannot be null");
             }
             this.TargetUserId = targetUserId;
@@ -86,39 +91,39 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets SourceDisplayName
         /// </summary>
-        [DataMember(Name = "sourceDisplayName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "sourceDisplayName", IsRequired = true, EmitDefaultValue = true)]
         public string SourceDisplayName { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "sourceUserId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "sourceUserId", IsRequired = true, EmitDefaultValue = true)]
         public string SourceUserId { get; set; }
 
         /// <summary>
         /// Gets or Sets TargetDisplayName
         /// </summary>
-        [DataMember(Name = "targetDisplayName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "targetDisplayName", IsRequired = true, EmitDefaultValue = true)]
         public string TargetDisplayName { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "targetUserId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "targetUserId", IsRequired = true, EmitDefaultValue = true)]
         public string TargetUserId { get; set; }
 
         /// <summary>
@@ -127,7 +132,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PlayerModeration {\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -167,8 +172,9 @@ namespace VRChat.API.Model
         public bool Equals(PlayerModeration input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Created == input.Created ||
@@ -216,18 +222,30 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Created != null)
-                    hashCode = hashCode * 59 + this.Created.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
+                }
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.SourceDisplayName != null)
-                    hashCode = hashCode * 59 + this.SourceDisplayName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SourceDisplayName.GetHashCode();
+                }
                 if (this.SourceUserId != null)
-                    hashCode = hashCode * 59 + this.SourceUserId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SourceUserId.GetHashCode();
+                }
                 if (this.TargetDisplayName != null)
-                    hashCode = hashCode * 59 + this.TargetDisplayName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TargetDisplayName.GetHashCode();
+                }
                 if (this.TargetUserId != null)
-                    hashCode = hashCode * 59 + this.TargetUserId.GetHashCode();
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TargetUserId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
         }
@@ -247,13 +265,13 @@ namespace VRChat.API.Model
             }
 
             // SourceDisplayName (string) minLength
-            if(this.SourceDisplayName != null && this.SourceDisplayName.Length < 1)
+            if (this.SourceDisplayName != null && this.SourceDisplayName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceDisplayName, length must be greater than 1.", new [] { "SourceDisplayName" });
             }
 
             // TargetDisplayName (string) minLength
-            if(this.TargetDisplayName != null && this.TargetDisplayName.Length < 1)
+            if (this.TargetDisplayName != null && this.TargetDisplayName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TargetDisplayName, length must be greater than 1.", new [] { "TargetDisplayName" });
             }

@@ -56,7 +56,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets StatusCode
         /// </summary>
-        [DataMember(Name = "status_code", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "status_code", IsRequired = true, EmitDefaultValue = true)]
         public int StatusCode { get; set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Response {\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
@@ -100,8 +100,9 @@ namespace VRChat.API.Model
         public bool Equals(Response input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Message == input.Message ||
@@ -124,8 +125,10 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.StatusCode.GetHashCode();
                 return hashCode;
             }
         }
@@ -138,13 +141,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Message (string) minLength
-            if(this.Message != null && this.Message.Length < 1)
+            if (this.Message != null && this.Message.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
             }
 
             // StatusCode (int) minimum
-            if(this.StatusCode < (int)100)
+            if (this.StatusCode < (int)100)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StatusCode, must be a value greater than or equal to 100.", new [] { "StatusCode" });
             }

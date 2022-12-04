@@ -34,7 +34,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaginatedGroupAuditLogEntryList" /> class.
         /// </summary>
-        /// <param name="results">results.</param>
+        /// <param name="results"> .</param>
         /// <param name="totalCount">The total number of results that the query would return if there were no pagination..</param>
         /// <param name="hasNext">Whether there are more results after this page..</param>
         public PaginatedGroupAuditLogEntryList(List<GroupAuditLogEntry> results = default(List<GroupAuditLogEntry>), int totalCount = default(int), bool hasNext = default(bool))
@@ -45,8 +45,9 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets Results
+        ///  
         /// </summary>
+        /// <value> </value>
         [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<GroupAuditLogEntry> Results { get; set; }
 
@@ -70,7 +71,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PaginatedGroupAuditLogEntryList {\n");
             sb.Append("  Results: ").Append(Results).Append("\n");
             sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
@@ -106,8 +107,9 @@ namespace VRChat.API.Model
         public bool Equals(PaginatedGroupAuditLogEntryList input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Results == input.Results ||
@@ -135,9 +137,11 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Results != null)
-                    hashCode = hashCode * 59 + this.Results.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalCount.GetHashCode();
-                hashCode = hashCode * 59 + this.HasNext.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Results.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasNext.GetHashCode();
                 return hashCode;
             }
         }

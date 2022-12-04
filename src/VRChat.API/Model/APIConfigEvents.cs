@@ -67,70 +67,70 @@ namespace VRChat.API.Model
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "distanceClose", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "distanceClose", IsRequired = true, EmitDefaultValue = true)]
         public int DistanceClose { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "distanceFactor", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "distanceFactor", IsRequired = true, EmitDefaultValue = true)]
         public int DistanceFactor { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "distanceFar", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "distanceFar", IsRequired = true, EmitDefaultValue = true)]
         public int DistanceFar { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "groupDistance", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "groupDistance", IsRequired = true, EmitDefaultValue = true)]
         public int GroupDistance { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "maximumBunchSize", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "maximumBunchSize", IsRequired = true, EmitDefaultValue = true)]
         public int MaximumBunchSize { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "notVisibleFactor", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "notVisibleFactor", IsRequired = true, EmitDefaultValue = true)]
         public int NotVisibleFactor { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "playerOrderBucketSize", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "playerOrderBucketSize", IsRequired = true, EmitDefaultValue = true)]
         public int PlayerOrderBucketSize { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "playerOrderFactor", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "playerOrderFactor", IsRequired = true, EmitDefaultValue = true)]
         public int PlayerOrderFactor { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "slowUpdateFactorThreshold", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "slowUpdateFactorThreshold", IsRequired = true, EmitDefaultValue = true)]
         public int SlowUpdateFactorThreshold { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "viewSegmentLength", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "viewSegmentLength", IsRequired = true, EmitDefaultValue = true)]
         public int ViewSegmentLength { get; set; }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class APIConfigEvents {\n");
             sb.Append("  DistanceClose: ").Append(DistanceClose).Append("\n");
             sb.Append("  DistanceFactor: ").Append(DistanceFactor).Append("\n");
@@ -182,8 +182,9 @@ namespace VRChat.API.Model
         public bool Equals(APIConfigEvents input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.DistanceClose == input.DistanceClose ||
@@ -236,16 +237,16 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.DistanceClose.GetHashCode();
-                hashCode = hashCode * 59 + this.DistanceFactor.GetHashCode();
-                hashCode = hashCode * 59 + this.DistanceFar.GetHashCode();
-                hashCode = hashCode * 59 + this.GroupDistance.GetHashCode();
-                hashCode = hashCode * 59 + this.MaximumBunchSize.GetHashCode();
-                hashCode = hashCode * 59 + this.NotVisibleFactor.GetHashCode();
-                hashCode = hashCode * 59 + this.PlayerOrderBucketSize.GetHashCode();
-                hashCode = hashCode * 59 + this.PlayerOrderFactor.GetHashCode();
-                hashCode = hashCode * 59 + this.SlowUpdateFactorThreshold.GetHashCode();
-                hashCode = hashCode * 59 + this.ViewSegmentLength.GetHashCode();
+                hashCode = (hashCode * 59) + this.DistanceClose.GetHashCode();
+                hashCode = (hashCode * 59) + this.DistanceFactor.GetHashCode();
+                hashCode = (hashCode * 59) + this.DistanceFar.GetHashCode();
+                hashCode = (hashCode * 59) + this.GroupDistance.GetHashCode();
+                hashCode = (hashCode * 59) + this.MaximumBunchSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.NotVisibleFactor.GetHashCode();
+                hashCode = (hashCode * 59) + this.PlayerOrderBucketSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.PlayerOrderFactor.GetHashCode();
+                hashCode = (hashCode * 59) + this.SlowUpdateFactorThreshold.GetHashCode();
+                hashCode = (hashCode * 59) + this.ViewSegmentLength.GetHashCode();
                 return hashCode;
             }
         }

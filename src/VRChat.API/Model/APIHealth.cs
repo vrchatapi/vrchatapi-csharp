@@ -46,12 +46,14 @@ namespace VRChat.API.Model
         {
             this.Ok = ok;
             // to ensure "serverName" is required (not null)
-            if (serverName == null) {
+            if (serverName == null)
+            {
                 throw new ArgumentNullException("serverName is a required property for APIHealth and cannot be null");
             }
             this.ServerName = serverName;
             // to ensure "buildVersionTag" is required (not null)
-            if (buildVersionTag == null) {
+            if (buildVersionTag == null)
+            {
                 throw new ArgumentNullException("buildVersionTag is a required property for APIHealth and cannot be null");
             }
             this.BuildVersionTag = buildVersionTag;
@@ -66,13 +68,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ServerName
         /// </summary>
-        [DataMember(Name = "serverName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "serverName", IsRequired = true, EmitDefaultValue = true)]
         public string ServerName { get; set; }
 
         /// <summary>
         /// Gets or Sets BuildVersionTag
         /// </summary>
-        [DataMember(Name = "buildVersionTag", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "buildVersionTag", IsRequired = true, EmitDefaultValue = true)]
         public string BuildVersionTag { get; set; }
 
         /// <summary>
@@ -81,7 +83,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class APIHealth {\n");
             sb.Append("  Ok: ").Append(Ok).Append("\n");
             sb.Append("  ServerName: ").Append(ServerName).Append("\n");
@@ -117,8 +119,9 @@ namespace VRChat.API.Model
         public bool Equals(APIHealth input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ok == input.Ok ||
@@ -145,11 +148,15 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Ok.GetHashCode();
+                hashCode = (hashCode * 59) + this.Ok.GetHashCode();
                 if (this.ServerName != null)
-                    hashCode = hashCode * 59 + this.ServerName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ServerName.GetHashCode();
+                }
                 if (this.BuildVersionTag != null)
-                    hashCode = hashCode * 59 + this.BuildVersionTag.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BuildVersionTag.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -162,13 +169,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // ServerName (string) minLength
-            if(this.ServerName != null && this.ServerName.Length < 1)
+            if (this.ServerName != null && this.ServerName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerName, length must be greater than 1.", new [] { "ServerName" });
             }
 
             // BuildVersionTag (string) minLength
-            if(this.BuildVersionTag != null && this.BuildVersionTag.Length < 1)
+            if (this.BuildVersionTag != null && this.BuildVersionTag.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BuildVersionTag, length must be greater than 1.", new [] { "BuildVersionTag" });
             }

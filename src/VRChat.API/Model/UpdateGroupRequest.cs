@@ -44,22 +44,20 @@ namespace VRChat.API.Model
         /// <param name="shortCode">shortCode.</param>
         /// <param name="description">description.</param>
         /// <param name="joinState">joinState.</param>
-        /// <param name="iconId">iconId (default to &quot;null&quot;).</param>
-        /// <param name="bannerId">bannerId (default to &quot;null&quot;).</param>
+        /// <param name="iconId">iconId.</param>
+        /// <param name="bannerId">bannerId.</param>
         /// <param name="languages">3 letter language code.</param>
         /// <param name="links">links.</param>
         /// <param name="rules">rules.</param>
-        /// <param name="tags">tags.</param>
-        public UpdateGroupRequest(string name = default(string), string shortCode = default(string), string description = default(string), GroupJoinState? joinState = default(GroupJoinState?), string iconId = "null", string bannerId = "null", List<string> languages = default(List<string>), List<string> links = default(List<string>), string rules = default(string), List<string> tags = default(List<string>))
+        /// <param name="tags"> .</param>
+        public UpdateGroupRequest(string name = default(string), string shortCode = default(string), string description = default(string), GroupJoinState? joinState = default(GroupJoinState?), string iconId = default(string), string bannerId = default(string), List<string> languages = default(List<string>), List<string> links = default(List<string>), string rules = default(string), List<string> tags = default(List<string>))
         {
             this.Name = name;
             this.ShortCode = shortCode;
             this.Description = description;
             this.JoinState = joinState;
-            // use default value if no "iconId" provided
-            this.IconId = iconId ?? "null";
-            // use default value if no "bannerId" provided
-            this.BannerId = bannerId ?? "null";
+            this.IconId = iconId;
+            this.BannerId = bannerId;
             this.Languages = languages;
             this.Links = links;
             this.Rules = rules;
@@ -116,8 +114,9 @@ namespace VRChat.API.Model
         public string Rules { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tags
+        ///  
         /// </summary>
+        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
@@ -127,7 +126,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateGroupRequest {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
@@ -170,8 +169,9 @@ namespace VRChat.API.Model
         public bool Equals(UpdateGroupRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -237,24 +237,42 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ShortCode != null)
-                    hashCode = hashCode * 59 + this.ShortCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.JoinState.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.JoinState.GetHashCode();
                 if (this.IconId != null)
-                    hashCode = hashCode * 59 + this.IconId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IconId.GetHashCode();
+                }
                 if (this.BannerId != null)
-                    hashCode = hashCode * 59 + this.BannerId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BannerId.GetHashCode();
+                }
                 if (this.Languages != null)
-                    hashCode = hashCode * 59 + this.Languages.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Languages.GetHashCode();
+                }
                 if (this.Links != null)
-                    hashCode = hashCode * 59 + this.Links.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                }
                 if (this.Rules != null)
-                    hashCode = hashCode * 59 + this.Rules.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Rules.GetHashCode();
+                }
                 if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -267,37 +285,37 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Name (string) maxLength
-            if(this.Name != null && this.Name.Length > 64)
+            if (this.Name != null && this.Name.Length > 64)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 64.", new [] { "Name" });
             }
 
             // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 3)
+            if (this.Name != null && this.Name.Length < 3)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 3.", new [] { "Name" });
             }
 
             // ShortCode (string) maxLength
-            if(this.ShortCode != null && this.ShortCode.Length > 6)
+            if (this.ShortCode != null && this.ShortCode.Length > 6)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be less than 6.", new [] { "ShortCode" });
             }
 
             // ShortCode (string) minLength
-            if(this.ShortCode != null && this.ShortCode.Length < 3)
+            if (this.ShortCode != null && this.ShortCode.Length < 3)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be greater than 3.", new [] { "ShortCode" });
             }
 
             // Description (string) maxLength
-            if(this.Description != null && this.Description.Length > 250)
+            if (this.Description != null && this.Description.Length > 250)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 250.", new [] { "Description" });
             }
 
             // Description (string) minLength
-            if(this.Description != null && this.Description.Length < 0)
+            if (this.Description != null && this.Description.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }

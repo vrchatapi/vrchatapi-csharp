@@ -68,7 +68,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateGroupMemberRequest {\n");
             sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("  IsSubscribedToAnnouncements: ").Append(IsSubscribedToAnnouncements).Append("\n");
@@ -104,8 +104,9 @@ namespace VRChat.API.Model
         public bool Equals(UpdateGroupMemberRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Visibility == input.Visibility ||
@@ -131,10 +132,12 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Visibility.GetHashCode();
-                hashCode = hashCode * 59 + this.IsSubscribedToAnnouncements.GetHashCode();
+                hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsSubscribedToAnnouncements.GetHashCode();
                 if (this.ManagerNotes != null)
-                    hashCode = hashCode * 59 + this.ManagerNotes.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ManagerNotes.GetHashCode();
+                }
                 return hashCode;
             }
         }

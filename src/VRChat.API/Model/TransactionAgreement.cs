@@ -59,55 +59,65 @@ namespace VRChat.API.Model
         public TransactionAgreement(string agreementId = default(string), decimal itemId = default(decimal), string status = default(string), string period = default(string), decimal frequency = default(decimal), string billingType = default(string), string startDate = default(string), string endDate = default(string), decimal recurringAmt = default(decimal), string currency = default(string), string timeCreated = default(string), string nextPayment = default(string), string lastPayment = default(string), decimal lastAmount = default(decimal), decimal lastAmountVat = default(decimal), decimal outstanding = default(decimal), decimal failedAttempts = default(decimal))
         {
             // to ensure "agreementId" is required (not null)
-            if (agreementId == null) {
+            if (agreementId == null)
+            {
                 throw new ArgumentNullException("agreementId is a required property for TransactionAgreement and cannot be null");
             }
             this.AgreementId = agreementId;
             this.ItemId = itemId;
             // to ensure "status" is required (not null)
-            if (status == null) {
+            if (status == null)
+            {
                 throw new ArgumentNullException("status is a required property for TransactionAgreement and cannot be null");
             }
             this.Status = status;
             // to ensure "period" is required (not null)
-            if (period == null) {
+            if (period == null)
+            {
                 throw new ArgumentNullException("period is a required property for TransactionAgreement and cannot be null");
             }
             this.Period = period;
             this.Frequency = frequency;
             // to ensure "billingType" is required (not null)
-            if (billingType == null) {
+            if (billingType == null)
+            {
                 throw new ArgumentNullException("billingType is a required property for TransactionAgreement and cannot be null");
             }
             this.BillingType = billingType;
             // to ensure "startDate" is required (not null)
-            if (startDate == null) {
+            if (startDate == null)
+            {
                 throw new ArgumentNullException("startDate is a required property for TransactionAgreement and cannot be null");
             }
             this.StartDate = startDate;
             // to ensure "endDate" is required (not null)
-            if (endDate == null) {
+            if (endDate == null)
+            {
                 throw new ArgumentNullException("endDate is a required property for TransactionAgreement and cannot be null");
             }
             this.EndDate = endDate;
             this.RecurringAmt = recurringAmt;
             // to ensure "currency" is required (not null)
-            if (currency == null) {
+            if (currency == null)
+            {
                 throw new ArgumentNullException("currency is a required property for TransactionAgreement and cannot be null");
             }
             this.Currency = currency;
             // to ensure "timeCreated" is required (not null)
-            if (timeCreated == null) {
+            if (timeCreated == null)
+            {
                 throw new ArgumentNullException("timeCreated is a required property for TransactionAgreement and cannot be null");
             }
             this.TimeCreated = timeCreated;
             // to ensure "nextPayment" is required (not null)
-            if (nextPayment == null) {
+            if (nextPayment == null)
+            {
                 throw new ArgumentNullException("nextPayment is a required property for TransactionAgreement and cannot be null");
             }
             this.NextPayment = nextPayment;
             // to ensure "lastPayment" is required (not null)
-            if (lastPayment == null) {
+            if (lastPayment == null)
+            {
                 throw new ArgumentNullException("lastPayment is a required property for TransactionAgreement and cannot be null");
             }
             this.LastPayment = lastPayment;
@@ -120,104 +130,104 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AgreementId
         /// </summary>
-        [DataMember(Name = "agreementId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "agreementId", IsRequired = true, EmitDefaultValue = true)]
         public string AgreementId { get; set; }
 
         /// <summary>
         /// Gets or Sets ItemId
         /// </summary>
-        [DataMember(Name = "itemId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "itemId", IsRequired = true, EmitDefaultValue = true)]
         public decimal ItemId { get; set; }
 
         /// <summary>
         /// This is NOT TransactionStatus, but whatever Steam return.
         /// </summary>
         /// <value>This is NOT TransactionStatus, but whatever Steam return.</value>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Period
         /// </summary>
-        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
         public string Period { get; set; }
 
         /// <summary>
         /// Gets or Sets Frequency
         /// </summary>
-        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = true)]
         public decimal Frequency { get; set; }
 
         /// <summary>
         /// Gets or Sets BillingType
         /// </summary>
-        [DataMember(Name = "billingType", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "billingType", IsRequired = true, EmitDefaultValue = true)]
         public string BillingType { get; set; }
 
         /// <summary>
         /// Gets or Sets StartDate
         /// </summary>
-        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
         public string StartDate { get; set; }
 
         /// <summary>
         /// Gets or Sets EndDate
         /// </summary>
-        [DataMember(Name = "endDate", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "endDate", IsRequired = true, EmitDefaultValue = true)]
         public string EndDate { get; set; }
 
         /// <summary>
         /// Gets or Sets RecurringAmt
         /// </summary>
-        [DataMember(Name = "recurringAmt", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "recurringAmt", IsRequired = true, EmitDefaultValue = true)]
         public decimal RecurringAmt { get; set; }
 
         /// <summary>
         /// Gets or Sets Currency
         /// </summary>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Gets or Sets TimeCreated
         /// </summary>
-        [DataMember(Name = "timeCreated", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "timeCreated", IsRequired = true, EmitDefaultValue = true)]
         public string TimeCreated { get; set; }
 
         /// <summary>
         /// Gets or Sets NextPayment
         /// </summary>
-        [DataMember(Name = "nextPayment", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "nextPayment", IsRequired = true, EmitDefaultValue = true)]
         public string NextPayment { get; set; }
 
         /// <summary>
         /// Gets or Sets LastPayment
         /// </summary>
-        [DataMember(Name = "lastPayment", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "lastPayment", IsRequired = true, EmitDefaultValue = true)]
         public string LastPayment { get; set; }
 
         /// <summary>
         /// Gets or Sets LastAmount
         /// </summary>
-        [DataMember(Name = "lastAmount", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "lastAmount", IsRequired = true, EmitDefaultValue = true)]
         public decimal LastAmount { get; set; }
 
         /// <summary>
         /// Gets or Sets LastAmountVat
         /// </summary>
-        [DataMember(Name = "lastAmountVat", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "lastAmountVat", IsRequired = true, EmitDefaultValue = true)]
         public decimal LastAmountVat { get; set; }
 
         /// <summary>
         /// Gets or Sets Outstanding
         /// </summary>
-        [DataMember(Name = "outstanding", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "outstanding", IsRequired = true, EmitDefaultValue = true)]
         public decimal Outstanding { get; set; }
 
         /// <summary>
         /// Gets or Sets FailedAttempts
         /// </summary>
-        [DataMember(Name = "failedAttempts", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "failedAttempts", IsRequired = true, EmitDefaultValue = true)]
         public decimal FailedAttempts { get; set; }
 
         /// <summary>
@@ -226,7 +236,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TransactionAgreement {\n");
             sb.Append("  AgreementId: ").Append(AgreementId).Append("\n");
             sb.Append("  ItemId: ").Append(ItemId).Append("\n");
@@ -276,8 +286,9 @@ namespace VRChat.API.Model
         public bool Equals(TransactionAgreement input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AgreementId == input.AgreementId ||
@@ -369,32 +380,52 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.AgreementId != null)
-                    hashCode = hashCode * 59 + this.AgreementId.GetHashCode();
-                hashCode = hashCode * 59 + this.ItemId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AgreementId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ItemId.GetHashCode();
                 if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Period != null)
-                    hashCode = hashCode * 59 + this.Period.GetHashCode();
-                hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Period.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
                 if (this.BillingType != null)
-                    hashCode = hashCode * 59 + this.BillingType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BillingType.GetHashCode();
+                }
                 if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
                 if (this.EndDate != null)
-                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
-                hashCode = hashCode * 59 + this.RecurringAmt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RecurringAmt.GetHashCode();
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.TimeCreated != null)
-                    hashCode = hashCode * 59 + this.TimeCreated.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TimeCreated.GetHashCode();
+                }
                 if (this.NextPayment != null)
-                    hashCode = hashCode * 59 + this.NextPayment.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NextPayment.GetHashCode();
+                }
                 if (this.LastPayment != null)
-                    hashCode = hashCode * 59 + this.LastPayment.GetHashCode();
-                hashCode = hashCode * 59 + this.LastAmount.GetHashCode();
-                hashCode = hashCode * 59 + this.LastAmountVat.GetHashCode();
-                hashCode = hashCode * 59 + this.Outstanding.GetHashCode();
-                hashCode = hashCode * 59 + this.FailedAttempts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastPayment.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.LastAmount.GetHashCode();
+                hashCode = (hashCode * 59) + this.LastAmountVat.GetHashCode();
+                hashCode = (hashCode * 59) + this.Outstanding.GetHashCode();
+                hashCode = (hashCode * 59) + this.FailedAttempts.GetHashCode();
                 return hashCode;
             }
         }
@@ -407,61 +438,61 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // AgreementId (string) minLength
-            if(this.AgreementId != null && this.AgreementId.Length < 1)
+            if (this.AgreementId != null && this.AgreementId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AgreementId, length must be greater than 1.", new [] { "AgreementId" });
             }
 
             // Status (string) minLength
-            if(this.Status != null && this.Status.Length < 1)
+            if (this.Status != null && this.Status.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be greater than 1.", new [] { "Status" });
             }
 
             // Period (string) minLength
-            if(this.Period != null && this.Period.Length < 1)
+            if (this.Period != null && this.Period.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Period, length must be greater than 1.", new [] { "Period" });
             }
 
             // BillingType (string) minLength
-            if(this.BillingType != null && this.BillingType.Length < 1)
+            if (this.BillingType != null && this.BillingType.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BillingType, length must be greater than 1.", new [] { "BillingType" });
             }
 
             // StartDate (string) minLength
-            if(this.StartDate != null && this.StartDate.Length < 1)
+            if (this.StartDate != null && this.StartDate.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDate, length must be greater than 1.", new [] { "StartDate" });
             }
 
             // EndDate (string) minLength
-            if(this.EndDate != null && this.EndDate.Length < 1)
+            if (this.EndDate != null && this.EndDate.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EndDate, length must be greater than 1.", new [] { "EndDate" });
             }
 
             // Currency (string) minLength
-            if(this.Currency != null && this.Currency.Length < 1)
+            if (this.Currency != null && this.Currency.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
             }
 
             // TimeCreated (string) minLength
-            if(this.TimeCreated != null && this.TimeCreated.Length < 1)
+            if (this.TimeCreated != null && this.TimeCreated.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeCreated, length must be greater than 1.", new [] { "TimeCreated" });
             }
 
             // NextPayment (string) minLength
-            if(this.NextPayment != null && this.NextPayment.Length < 1)
+            if (this.NextPayment != null && this.NextPayment.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPayment, length must be greater than 1.", new [] { "NextPayment" });
             }
 
             // LastPayment (string) minLength
-            if(this.LastPayment != null && this.LastPayment.Length < 1)
+            if (this.LastPayment != null && this.LastPayment.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastPayment, length must be greater than 1.", new [] { "LastPayment" });
             }

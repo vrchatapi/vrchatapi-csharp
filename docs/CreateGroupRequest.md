@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **ShortCode** | **string** |  | 
 **Description** | **string** |  | [optional] 
 **JoinState** | **GroupJoinState** |  | [optional] 
-**IconId** | **string** |  | [optional] [default to "null"]
-**BannerId** | **string** |  | [optional] [default to "null"]
+**IconId** | **string** |  | [optional] 
+**BannerId** | **string** |  | [optional] 
 **Privacy** | **GroupPrivacy** |  | [optional] 
 **RoleTemplate** | **GroupRoleTemplate** |  | 
 

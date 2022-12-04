@@ -2,17 +2,16 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**AddFavorite**](FavoritesApi.md#addfavorite) | **POST** /favorites | Add Favorite
-[**ClearFavoriteGroup**](FavoritesApi.md#clearfavoritegroup) | **DELETE** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Clear Favorite Group
-[**GetFavorite**](FavoritesApi.md#getfavorite) | **GET** /favorites/{favoriteId} | Show Favorite
-[**GetFavoriteGroup**](FavoritesApi.md#getfavoritegroup) | **GET** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Show Favorite Group
-[**GetFavoriteGroups**](FavoritesApi.md#getfavoritegroups) | **GET** /favorite/groups | List Favorite Groups
-[**GetFavorites**](FavoritesApi.md#getfavorites) | **GET** /favorites | List Favorites
-[**RemoveFavorite**](FavoritesApi.md#removefavorite) | **DELETE** /favorites/{favoriteId} | Remove Favorite
-[**UpdateFavoriteGroup**](FavoritesApi.md#updatefavoritegroup) | **PUT** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Update Favorite Group
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**AddFavorite**](FavoritesApi.md#addfavorite) | **POST** /favorites | Add Favorite |
+| [**ClearFavoriteGroup**](FavoritesApi.md#clearfavoritegroup) | **DELETE** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Clear Favorite Group |
+| [**GetFavorite**](FavoritesApi.md#getfavorite) | **GET** /favorites/{favoriteId} | Show Favorite |
+| [**GetFavoriteGroup**](FavoritesApi.md#getfavoritegroup) | **GET** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Show Favorite Group |
+| [**GetFavoriteGroups**](FavoritesApi.md#getfavoritegroups) | **GET** /favorite/groups | List Favorite Groups |
+| [**GetFavorites**](FavoritesApi.md#getfavorites) | **GET** /favorites | List Favorites |
+| [**RemoveFavorite**](FavoritesApi.md#removefavorite) | **DELETE** /favorites/{favoriteId} | Remove Favorite |
+| [**UpdateFavoriteGroup**](FavoritesApi.md#updatefavoritegroup) | **PUT** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Update Favorite Group |
 
 <a name="addfavorite"></a>
 # **AddFavorite**
@@ -58,8 +57,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FavoritesApi.AddFavorite: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FavoritesApi.AddFavorite: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -67,11 +66,31 @@ namespace Example
 }
 ```
 
+#### Using the AddFavoriteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Add Favorite
+    ApiResponse<Favorite> response = apiInstance.AddFavoriteWithHttpInfo(addFavoriteRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FavoritesApi.AddFavoriteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **addFavoriteRequest** | [**AddFavoriteRequest**](AddFavoriteRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **addFavoriteRequest** | [**AddFavoriteRequest**](AddFavoriteRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -130,9 +149,9 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FavoritesApi(config);
-            var favoriteGroupType = favoriteGroupType_example;  // string | The type of group to fetch, must be a valid FavoriteType.
-            var favoriteGroupName = favoriteGroupName_example;  // string | The name of the group to fetch, must be a name of a FavoriteGroup.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var favoriteGroupType = "world";  // string | The type of group to fetch, must be a valid FavoriteType.
+            var favoriteGroupName = "favoriteGroupName_example";  // string | The name of the group to fetch, must be a name of a FavoriteGroup.
+            var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
             {
@@ -142,8 +161,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FavoritesApi.ClearFavoriteGroup: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FavoritesApi.ClearFavoriteGroup: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -151,13 +170,33 @@ namespace Example
 }
 ```
 
+#### Using the ClearFavoriteGroupWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Clear Favorite Group
+    ApiResponse<Success> response = apiInstance.ClearFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FavoritesApi.ClearFavoriteGroupWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **favoriteGroupType** | **string**| The type of group to fetch, must be a valid FavoriteType. | 
- **favoriteGroupName** | **string**| The name of the group to fetch, must be a name of a FavoriteGroup. | 
- **userId** | **string**| Must be a valid user ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **favoriteGroupType** | **string** | The type of group to fetch, must be a valid FavoriteType. |  |
+| **favoriteGroupName** | **string** | The name of the group to fetch, must be a name of a FavoriteGroup. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
 
 ### Return type
 
@@ -214,7 +253,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FavoritesApi(config);
-            var favoriteId = favoriteId_example;  // string | Must be a valid favorite ID.
+            var favoriteId = "favoriteId_example";  // string | Must be a valid favorite ID.
 
             try
             {
@@ -224,8 +263,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FavoritesApi.GetFavorite: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FavoritesApi.GetFavorite: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -233,11 +272,31 @@ namespace Example
 }
 ```
 
+#### Using the GetFavoriteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Show Favorite
+    ApiResponse<Favorite> response = apiInstance.GetFavoriteWithHttpInfo(favoriteId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FavoritesApi.GetFavoriteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **favoriteId** | **string**| Must be a valid favorite ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **favoriteId** | **string** | Must be a valid favorite ID. |  |
 
 ### Return type
 
@@ -296,9 +355,9 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FavoritesApi(config);
-            var favoriteGroupType = favoriteGroupType_example;  // string | The type of group to fetch, must be a valid FavoriteType.
-            var favoriteGroupName = favoriteGroupName_example;  // string | The name of the group to fetch, must be a name of a FavoriteGroup.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var favoriteGroupType = "world";  // string | The type of group to fetch, must be a valid FavoriteType.
+            var favoriteGroupName = "favoriteGroupName_example";  // string | The name of the group to fetch, must be a name of a FavoriteGroup.
+            var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
             {
@@ -308,8 +367,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FavoritesApi.GetFavoriteGroup: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FavoritesApi.GetFavoriteGroup: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -317,13 +376,33 @@ namespace Example
 }
 ```
 
+#### Using the GetFavoriteGroupWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Show Favorite Group
+    ApiResponse<FavoriteGroup> response = apiInstance.GetFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FavoritesApi.GetFavoriteGroupWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **favoriteGroupType** | **string**| The type of group to fetch, must be a valid FavoriteType. | 
- **favoriteGroupName** | **string**| The name of the group to fetch, must be a name of a FavoriteGroup. | 
- **userId** | **string**| Must be a valid user ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **favoriteGroupType** | **string** | The type of group to fetch, must be a valid FavoriteType. |  |
+| **favoriteGroupName** | **string** | The name of the group to fetch, must be a name of a FavoriteGroup. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
 
 ### Return type
 
@@ -380,9 +459,9 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FavoritesApi(config);
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var ownerId = ownerId_example;  // string | The owner of whoms favorite groups to return. Must be a UserID. (optional) 
+            var ownerId = "ownerId_example";  // string | The owner of whoms favorite groups to return. Must be a UserID. (optional) 
 
             try
             {
@@ -392,8 +471,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FavoritesApi.GetFavoriteGroups: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FavoritesApi.GetFavoriteGroups: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -401,13 +480,33 @@ namespace Example
 }
 ```
 
+#### Using the GetFavoriteGroupsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Favorite Groups
+    ApiResponse<List<FavoriteGroup>> response = apiInstance.GetFavoriteGroupsWithHttpInfo(n, offset, ownerId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FavoritesApi.GetFavoriteGroupsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **ownerId** | **string**| The owner of whoms favorite groups to return. Must be a UserID. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **ownerId** | **string** | The owner of whoms favorite groups to return. Must be a UserID. | [optional]  |
 
 ### Return type
 
@@ -465,10 +564,10 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FavoritesApi(config);
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var type = type_example;  // string | The type of favorites to return, FavoriteType. (optional) 
-            var tag = tag_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var type = "type_example";  // string | The type of favorites to return, FavoriteType. (optional) 
+            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
 
             try
             {
@@ -478,8 +577,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FavoritesApi.GetFavorites: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FavoritesApi.GetFavorites: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -487,14 +586,34 @@ namespace Example
 }
 ```
 
+#### Using the GetFavoritesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Favorites
+    ApiResponse<List<Favorite>> response = apiInstance.GetFavoritesWithHttpInfo(n, offset, type, tag);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FavoritesApi.GetFavoritesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **type** | **string**| The type of favorites to return, FavoriteType. | [optional] 
- **tag** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **type** | **string** | The type of favorites to return, FavoriteType. | [optional]  |
+| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
 
 ### Return type
 
@@ -552,7 +671,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FavoritesApi(config);
-            var favoriteId = favoriteId_example;  // string | Must be a valid favorite ID.
+            var favoriteId = "favoriteId_example";  // string | Must be a valid favorite ID.
 
             try
             {
@@ -562,8 +681,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FavoritesApi.RemoveFavorite: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FavoritesApi.RemoveFavorite: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -571,11 +690,31 @@ namespace Example
 }
 ```
 
+#### Using the RemoveFavoriteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Remove Favorite
+    ApiResponse<Success> response = apiInstance.RemoveFavoriteWithHttpInfo(favoriteId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FavoritesApi.RemoveFavoriteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **favoriteId** | **string**| Must be a valid favorite ID. | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **favoriteId** | **string** | Must be a valid favorite ID. |  |
 
 ### Return type
 
@@ -634,9 +773,9 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FavoritesApi(config);
-            var favoriteGroupType = favoriteGroupType_example;  // string | The type of group to fetch, must be a valid FavoriteType.
-            var favoriteGroupName = favoriteGroupName_example;  // string | The name of the group to fetch, must be a name of a FavoriteGroup.
-            var userId = userId_example;  // string | Must be a valid user ID.
+            var favoriteGroupType = "world";  // string | The type of group to fetch, must be a valid FavoriteType.
+            var favoriteGroupName = "favoriteGroupName_example";  // string | The name of the group to fetch, must be a name of a FavoriteGroup.
+            var userId = "userId_example";  // string | Must be a valid user ID.
             var updateFavoriteGroupRequest = new UpdateFavoriteGroupRequest(); // UpdateFavoriteGroupRequest |  (optional) 
 
             try
@@ -646,8 +785,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FavoritesApi.UpdateFavoriteGroup: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FavoritesApi.UpdateFavoriteGroup: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -655,14 +794,31 @@ namespace Example
 }
 ```
 
+#### Using the UpdateFavoriteGroupWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Favorite Group
+    apiInstance.UpdateFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FavoritesApi.UpdateFavoriteGroupWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **favoriteGroupType** | **string**| The type of group to fetch, must be a valid FavoriteType. | 
- **favoriteGroupName** | **string**| The name of the group to fetch, must be a name of a FavoriteGroup. | 
- **userId** | **string**| Must be a valid user ID. | 
- **updateFavoriteGroupRequest** | [**UpdateFavoriteGroupRequest**](UpdateFavoriteGroupRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **favoriteGroupType** | **string** | The type of group to fetch, must be a valid FavoriteType. |  |
+| **favoriteGroupName** | **string** | The name of the group to fetch, must be a name of a FavoriteGroup. |  |
+| **userId** | **string** | Must be a valid user ID. |  |
+| **updateFavoriteGroupRequest** | [**UpdateFavoriteGroupRequest**](UpdateFavoriteGroupRequest.md) |  | [optional]  |
 
 ### Return type
 

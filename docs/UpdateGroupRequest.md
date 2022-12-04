@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **ShortCode** | **string** |  | [optional] 
 **Description** | **string** |  | [optional] 
 **JoinState** | **GroupJoinState** |  | [optional] 
-**IconId** | **string** |  | [optional] [default to "null"]
-**BannerId** | **string** |  | [optional] [default to "null"]
+**IconId** | **string** |  | [optional] 
+**BannerId** | **string** |  | [optional] 
 **Languages** | **List&lt;string&gt;** | 3 letter language code | [optional] 
 **Links** | **List&lt;string&gt;** |  | [optional] 
 **Rules** | **string** |  | [optional] 
-**Tags** | **List&lt;string&gt;** |  | [optional] 
+**Tags** | **List&lt;string&gt;** |   | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

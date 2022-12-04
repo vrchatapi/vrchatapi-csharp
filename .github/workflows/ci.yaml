@@ -24,7 +24,7 @@ jobs:
       - name: Install OpenAPI Generator CLI
         run: npm install @openapitools/openapi-generator-cli
       - name: Set OpenAPI Generator version
-        run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 5.3.0
+        run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 6.2.1
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1.1.1
       - uses: actions/setup-dotnet@v3
@@ -46,7 +46,7 @@ jobs:
           folder: .
           commit-message: "Upgrade C# SDK to spec ${{ env.spec_version }}"
       - name: Publish to NuGet
-        uses: rohith/publish-nuget@v2
+        uses: pairbit/publish-nuget@v2.5.8
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: src/VRChat.API/VRChat.API.csproj
