@@ -44,7 +44,8 @@ namespace VRChat.API.Model
         public PastDisplayName(string displayName = default(string), DateTime updatedAt = default(DateTime))
         {
             // to ensure "displayName" is required (not null)
-            if (displayName == null) {
+            if (displayName == null)
+            {
                 throw new ArgumentNullException("displayName is a required property for PastDisplayName and cannot be null");
             }
             this.DisplayName = displayName;
@@ -54,13 +55,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
@@ -69,7 +70,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PastDisplayName {\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
@@ -104,8 +105,9 @@ namespace VRChat.API.Model
         public bool Equals(PastDisplayName input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -129,9 +131,13 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.DisplayName != null)
-                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
                 if (this.UpdatedAt != null)
-                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -144,7 +150,7 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // DisplayName (string) minLength
-            if(this.DisplayName != null && this.DisplayName.Length < 1)
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }

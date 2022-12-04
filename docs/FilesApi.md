@@ -2,19 +2,18 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**CreateFile**](FilesApi.md#createfile) | **POST** /file | Create File
-[**CreateFileVersion**](FilesApi.md#createfileversion) | **POST** /file/{fileId} | Create File Version
-[**DeleteFile**](FilesApi.md#deletefile) | **DELETE** /file/{fileId} | Delete File
-[**DeleteFileVersion**](FilesApi.md#deletefileversion) | **DELETE** /file/{fileId}/{versionId} | Delete File Version
-[**DownloadFileVersion**](FilesApi.md#downloadfileversion) | **GET** /file/{fileId}/{versionId} | Download File Version
-[**FinishFileDataUpload**](FilesApi.md#finishfiledataupload) | **PUT** /file/{fileId}/{versionId}/{fileType}/finish | Finish FileData Upload
-[**GetFile**](FilesApi.md#getfile) | **GET** /file/{fileId} | Show File
-[**GetFileDataUploadStatus**](FilesApi.md#getfiledatauploadstatus) | **GET** /file/{fileId}/{versionId}/{fileType}/status | Check FileData Upload Status
-[**GetFiles**](FilesApi.md#getfiles) | **GET** /files | List Files
-[**StartFileDataUpload**](FilesApi.md#startfiledataupload) | **PUT** /file/{fileId}/{versionId}/{fileType}/start | Start FileData Upload
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**CreateFile**](FilesApi.md#createfile) | **POST** /file | Create File |
+| [**CreateFileVersion**](FilesApi.md#createfileversion) | **POST** /file/{fileId} | Create File Version |
+| [**DeleteFile**](FilesApi.md#deletefile) | **DELETE** /file/{fileId} | Delete File |
+| [**DeleteFileVersion**](FilesApi.md#deletefileversion) | **DELETE** /file/{fileId}/{versionId} | Delete File Version |
+| [**DownloadFileVersion**](FilesApi.md#downloadfileversion) | **GET** /file/{fileId}/{versionId} | Download File Version |
+| [**FinishFileDataUpload**](FilesApi.md#finishfiledataupload) | **PUT** /file/{fileId}/{versionId}/{fileType}/finish | Finish FileData Upload |
+| [**GetFile**](FilesApi.md#getfile) | **GET** /file/{fileId} | Show File |
+| [**GetFileDataUploadStatus**](FilesApi.md#getfiledatauploadstatus) | **GET** /file/{fileId}/{versionId}/{fileType}/status | Check FileData Upload Status |
+| [**GetFiles**](FilesApi.md#getfiles) | **GET** /files | List Files |
+| [**StartFileDataUpload**](FilesApi.md#startfiledataupload) | **PUT** /file/{fileId}/{versionId}/{fileType}/start | Start FileData Upload |
 
 <a name="createfile"></a>
 # **CreateFile**
@@ -60,8 +59,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.CreateFile: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.CreateFile: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -69,11 +68,31 @@ namespace Example
 }
 ```
 
+#### Using the CreateFileWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create File
+    ApiResponse<File> response = apiInstance.CreateFileWithHttpInfo(createFileRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.CreateFileWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createFileRequest** | [**CreateFileRequest**](CreateFileRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createFileRequest** | [**CreateFileRequest**](CreateFileRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -141,8 +160,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.CreateFileVersion: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.CreateFileVersion: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -150,12 +169,32 @@ namespace Example
 }
 ```
 
+#### Using the CreateFileVersionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create File Version
+    ApiResponse<File> response = apiInstance.CreateFileVersionWithHttpInfo(fileId, createFileVersionRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.CreateFileVersionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **string**|  | 
- **createFileVersionRequest** | [**CreateFileVersionRequest**](CreateFileVersionRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
+| **createFileVersionRequest** | [**CreateFileVersionRequest**](CreateFileVersionRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -222,8 +261,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.DeleteFile: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.DeleteFile: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -231,11 +270,31 @@ namespace Example
 }
 ```
 
+#### Using the DeleteFileWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete File
+    ApiResponse<Success> response = apiInstance.DeleteFileWithHttpInfo(fileId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.DeleteFileWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
 
 ### Return type
 
@@ -304,8 +363,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.DeleteFileVersion: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.DeleteFileVersion: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -313,12 +372,32 @@ namespace Example
 }
 ```
 
+#### Using the DeleteFileVersionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete File Version
+    ApiResponse<File> response = apiInstance.DeleteFileVersionWithHttpInfo(fileId, versionId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.DeleteFileVersionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **string**|  | 
- **versionId** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
+| **versionId** | **int** |  |  |
 
 ### Return type
 
@@ -387,8 +466,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.DownloadFileVersion: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.DownloadFileVersion: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -396,12 +475,29 @@ namespace Example
 }
 ```
 
+#### Using the DownloadFileVersionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Download File Version
+    apiInstance.DownloadFileVersionWithHttpInfo(fileId, versionId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.DownloadFileVersionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **string**|  | 
- **versionId** | **int**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
+| **versionId** | **int** |  |  |
 
 ### Return type
 
@@ -471,8 +567,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.FinishFileDataUpload: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.FinishFileDataUpload: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -480,14 +576,34 @@ namespace Example
 }
 ```
 
+#### Using the FinishFileDataUploadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Finish FileData Upload
+    ApiResponse<File> response = apiInstance.FinishFileDataUploadWithHttpInfo(fileId, versionId, fileType, finishFileDataUploadRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.FinishFileDataUploadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **string**|  | 
- **versionId** | **int**|  | 
- **fileType** | **string**|  | 
- **finishFileDataUploadRequest** | [**FinishFileDataUploadRequest**](FinishFileDataUploadRequest.md)| Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
+| **versionId** | **int** |  |  |
+| **fileType** | **string** |  |  |
+| **finishFileDataUploadRequest** | [**FinishFileDataUploadRequest**](FinishFileDataUploadRequest.md) | Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional]  |
 
 ### Return type
 
@@ -554,8 +670,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.GetFile: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.GetFile: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -563,11 +679,31 @@ namespace Example
 }
 ```
 
+#### Using the GetFileWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Show File
+    ApiResponse<File> response = apiInstance.GetFileWithHttpInfo(fileId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.GetFileWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
 
 ### Return type
 
@@ -637,8 +773,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.GetFileDataUploadStatus: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.GetFileDataUploadStatus: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -646,13 +782,33 @@ namespace Example
 }
 ```
 
+#### Using the GetFileDataUploadStatusWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Check FileData Upload Status
+    ApiResponse<FileVersionUploadStatus> response = apiInstance.GetFileDataUploadStatusWithHttpInfo(fileId, versionId, fileType);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.GetFileDataUploadStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **string**|  | 
- **versionId** | **int**|  | 
- **fileType** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
+| **versionId** | **int** |  |  |
+| **fileType** | **string** |  |  |
 
 ### Return type
 
@@ -709,9 +865,9 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FilesApi(config);
-            var tag = tag_example;  // string | Tag, for example \"icon\" or \"gallery\", not included by default. (optional) 
-            var userId = userId_example;  // string | UserID, will always generate a 500 permission error. (optional) 
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var tag = "tag_example";  // string | Tag, for example \"icon\" or \"gallery\", not included by default. (optional) 
+            var userId = "userId_example";  // string | UserID, will always generate a 500 permission error. (optional) 
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
             try
@@ -722,8 +878,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.GetFiles: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.GetFiles: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -731,14 +887,34 @@ namespace Example
 }
 ```
 
+#### Using the GetFilesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Files
+    ApiResponse<List<File>> response = apiInstance.GetFilesWithHttpInfo(tag, userId, n, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.GetFilesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tag** | **string**| Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. | [optional] 
- **userId** | **string**| UserID, will always generate a 500 permission error. | [optional] 
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tag** | **string** | Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. | [optional]  |
+| **userId** | **string** | UserID, will always generate a 500 permission error. | [optional]  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
 ### Return type
 
@@ -808,8 +984,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FilesApi.StartFileDataUpload: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling FilesApi.StartFileDataUpload: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -817,14 +993,34 @@ namespace Example
 }
 ```
 
+#### Using the StartFileDataUploadWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Start FileData Upload
+    ApiResponse<FileUploadURL> response = apiInstance.StartFileDataUploadWithHttpInfo(fileId, versionId, fileType, partNumber);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.StartFileDataUploadWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fileId** | **string**|  | 
- **versionId** | **int**|  | 
- **fileType** | **string**|  | 
- **partNumber** | **int?**|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** |  |  |
+| **versionId** | **int** |  |  |
+| **fileType** | **string** |  |  |
+| **partNumber** | **int?** |  | [optional]  |
 
 ### Return type
 

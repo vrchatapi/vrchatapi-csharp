@@ -47,27 +47,32 @@ namespace VRChat.API.Model
         public TransactionSteamInfo(TransactionSteamWalletInfo walletInfo = default(TransactionSteamWalletInfo), string steamId = default(string), string orderId = default(string), string steamUrl = default(string), string transId = default(string))
         {
             // to ensure "walletInfo" is required (not null)
-            if (walletInfo == null) {
+            if (walletInfo == null)
+            {
                 throw new ArgumentNullException("walletInfo is a required property for TransactionSteamInfo and cannot be null");
             }
             this.WalletInfo = walletInfo;
             // to ensure "steamId" is required (not null)
-            if (steamId == null) {
+            if (steamId == null)
+            {
                 throw new ArgumentNullException("steamId is a required property for TransactionSteamInfo and cannot be null");
             }
             this.SteamId = steamId;
             // to ensure "orderId" is required (not null)
-            if (orderId == null) {
+            if (orderId == null)
+            {
                 throw new ArgumentNullException("orderId is a required property for TransactionSteamInfo and cannot be null");
             }
             this.OrderId = orderId;
             // to ensure "steamUrl" is required (not null)
-            if (steamUrl == null) {
+            if (steamUrl == null)
+            {
                 throw new ArgumentNullException("steamUrl is a required property for TransactionSteamInfo and cannot be null");
             }
             this.SteamUrl = steamUrl;
             // to ensure "transId" is required (not null)
-            if (transId == null) {
+            if (transId == null)
+            {
                 throw new ArgumentNullException("transId is a required property for TransactionSteamInfo and cannot be null");
             }
             this.TransId = transId;
@@ -76,35 +81,35 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets WalletInfo
         /// </summary>
-        [DataMember(Name = "walletInfo", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "walletInfo", IsRequired = true, EmitDefaultValue = true)]
         public TransactionSteamWalletInfo WalletInfo { get; set; }
 
         /// <summary>
         /// Steam User ID
         /// </summary>
         /// <value>Steam User ID</value>
-        [DataMember(Name = "steamId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "steamId", IsRequired = true, EmitDefaultValue = true)]
         public string SteamId { get; set; }
 
         /// <summary>
         /// Steam Order ID
         /// </summary>
         /// <value>Steam Order ID</value>
-        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "orderId", IsRequired = true, EmitDefaultValue = true)]
         public string OrderId { get; set; }
 
         /// <summary>
         /// Empty
         /// </summary>
         /// <value>Empty</value>
-        [DataMember(Name = "steamUrl", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "steamUrl", IsRequired = true, EmitDefaultValue = true)]
         public string SteamUrl { get; set; }
 
         /// <summary>
         /// Steam Transaction ID, NOT the same as VRChat TransactionID
         /// </summary>
         /// <value>Steam Transaction ID, NOT the same as VRChat TransactionID</value>
-        [DataMember(Name = "transId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "transId", IsRequired = true, EmitDefaultValue = true)]
         public string TransId { get; set; }
 
         /// <summary>
@@ -113,7 +118,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TransactionSteamInfo {\n");
             sb.Append("  WalletInfo: ").Append(WalletInfo).Append("\n");
             sb.Append("  SteamId: ").Append(SteamId).Append("\n");
@@ -151,8 +156,9 @@ namespace VRChat.API.Model
         public bool Equals(TransactionSteamInfo input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.WalletInfo == input.WalletInfo ||
@@ -191,15 +197,25 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.WalletInfo != null)
-                    hashCode = hashCode * 59 + this.WalletInfo.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.WalletInfo.GetHashCode();
+                }
                 if (this.SteamId != null)
-                    hashCode = hashCode * 59 + this.SteamId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SteamId.GetHashCode();
+                }
                 if (this.OrderId != null)
-                    hashCode = hashCode * 59 + this.OrderId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OrderId.GetHashCode();
+                }
                 if (this.SteamUrl != null)
-                    hashCode = hashCode * 59 + this.SteamUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SteamUrl.GetHashCode();
+                }
                 if (this.TransId != null)
-                    hashCode = hashCode * 59 + this.TransId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TransId.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -212,19 +228,19 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // SteamId (string) minLength
-            if(this.SteamId != null && this.SteamId.Length < 1)
+            if (this.SteamId != null && this.SteamId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SteamId, length must be greater than 1.", new [] { "SteamId" });
             }
 
             // OrderId (string) minLength
-            if(this.OrderId != null && this.OrderId.Length < 1)
+            if (this.OrderId != null && this.OrderId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OrderId, length must be greater than 1.", new [] { "OrderId" });
             }
 
             // TransId (string) minLength
-            if(this.TransId != null && this.TransId.Length < 1)
+            if (this.TransId != null && this.TransId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransId, length must be greater than 1.", new [] { "TransId" });
             }

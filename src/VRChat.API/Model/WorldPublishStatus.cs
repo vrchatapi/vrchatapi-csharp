@@ -57,7 +57,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class WorldPublishStatus {\n");
             sb.Append("  CanPubilsh: ").Append(CanPubilsh).Append("\n");
             sb.Append("}\n");
@@ -91,8 +91,9 @@ namespace VRChat.API.Model
         public bool Equals(WorldPublishStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.CanPubilsh == input.CanPubilsh ||
@@ -109,7 +110,7 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.CanPubilsh.GetHashCode();
+                hashCode = (hashCode * 59) + this.CanPubilsh.GetHashCode();
                 return hashCode;
             }
         }

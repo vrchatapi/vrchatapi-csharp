@@ -52,7 +52,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AvatarUnityPackageUrlObject {\n");
             sb.Append("  UnityPackageUrl: ").Append(UnityPackageUrl).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace VRChat.API.Model
         public bool Equals(AvatarUnityPackageUrlObject input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UnityPackageUrl == input.UnityPackageUrl ||
@@ -106,7 +107,9 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.UnityPackageUrl != null)
-                    hashCode = hashCode * 59 + this.UnityPackageUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
+                }
                 return hashCode;
             }
         }

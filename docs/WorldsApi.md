@@ -2,22 +2,21 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**CreateWorld**](WorldsApi.md#createworld) | **POST** /worlds | Create World
-[**DeleteWorld**](WorldsApi.md#deleteworld) | **DELETE** /worlds/{worldId} | Delete World
-[**GetActiveWorlds**](WorldsApi.md#getactiveworlds) | **GET** /worlds/active | List Active Worlds
-[**GetFavoritedWorlds**](WorldsApi.md#getfavoritedworlds) | **GET** /worlds/favorites | List Favorited Worlds
-[**GetRecentWorlds**](WorldsApi.md#getrecentworlds) | **GET** /worlds/recent | List Recent Worlds
-[**GetWorld**](WorldsApi.md#getworld) | **GET** /worlds/{worldId} | Get World by ID
-[**GetWorldInstance**](WorldsApi.md#getworldinstance) | **GET** /worlds/{worldId}/{instanceId} | Get World Instance
-[**GetWorldMetadata**](WorldsApi.md#getworldmetadata) | **GET** /worlds/{worldId}/metadata | Get World Metadata
-[**GetWorldPublishStatus**](WorldsApi.md#getworldpublishstatus) | **GET** /worlds/{worldId}/publish | Get World Publish Status
-[**PublishWorld**](WorldsApi.md#publishworld) | **PUT** /worlds/{worldId}/publish | Publish World
-[**SearchWorlds**](WorldsApi.md#searchworlds) | **GET** /worlds | Search All Worlds
-[**UnpublishWorld**](WorldsApi.md#unpublishworld) | **DELETE** /worlds/{worldId}/publish | Unpublish World
-[**UpdateWorld**](WorldsApi.md#updateworld) | **PUT** /worlds/{worldId} | Update World
-
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**CreateWorld**](WorldsApi.md#createworld) | **POST** /worlds | Create World |
+| [**DeleteWorld**](WorldsApi.md#deleteworld) | **DELETE** /worlds/{worldId} | Delete World |
+| [**GetActiveWorlds**](WorldsApi.md#getactiveworlds) | **GET** /worlds/active | List Active Worlds |
+| [**GetFavoritedWorlds**](WorldsApi.md#getfavoritedworlds) | **GET** /worlds/favorites | List Favorited Worlds |
+| [**GetRecentWorlds**](WorldsApi.md#getrecentworlds) | **GET** /worlds/recent | List Recent Worlds |
+| [**GetWorld**](WorldsApi.md#getworld) | **GET** /worlds/{worldId} | Get World by ID |
+| [**GetWorldInstance**](WorldsApi.md#getworldinstance) | **GET** /worlds/{worldId}/{instanceId} | Get World Instance |
+| [**GetWorldMetadata**](WorldsApi.md#getworldmetadata) | **GET** /worlds/{worldId}/metadata | Get World Metadata |
+| [**GetWorldPublishStatus**](WorldsApi.md#getworldpublishstatus) | **GET** /worlds/{worldId}/publish | Get World Publish Status |
+| [**PublishWorld**](WorldsApi.md#publishworld) | **PUT** /worlds/{worldId}/publish | Publish World |
+| [**SearchWorlds**](WorldsApi.md#searchworlds) | **GET** /worlds | Search All Worlds |
+| [**UnpublishWorld**](WorldsApi.md#unpublishworld) | **DELETE** /worlds/{worldId}/publish | Unpublish World |
+| [**UpdateWorld**](WorldsApi.md#updateworld) | **PUT** /worlds/{worldId} | Update World |
 
 <a name="createworld"></a>
 # **CreateWorld**
@@ -54,8 +53,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.CreateWorld: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.CreateWorld: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -63,11 +62,31 @@ namespace Example
 }
 ```
 
+#### Using the CreateWorldWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create World
+    ApiResponse<World> response = apiInstance.CreateWorldWithHttpInfo(createWorldRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.CreateWorldWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createWorldRequest** | [**CreateWorldRequest**](CreateWorldRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **createWorldRequest** | [**CreateWorldRequest**](CreateWorldRequest.md) |  | [optional]  |
 
 ### Return type
 
@@ -126,7 +145,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var worldId = worldId_example;  // string | 
+            var worldId = "worldId_example";  // string | 
 
             try
             {
@@ -135,8 +154,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.DeleteWorld: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.DeleteWorld: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -144,11 +163,28 @@ namespace Example
 }
 ```
 
+#### Using the DeleteWorldWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete World
+    apiInstance.DeleteWorldWithHttpInfo(worldId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.DeleteWorldWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** |  |  |
 
 ### Return type
 
@@ -209,16 +245,16 @@ namespace Example
             var apiInstance = new WorldsApi(config);
             var featured = true;  // bool? | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var order = descending;  // string |  (optional)  (default to descending)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var search = search_example;  // string | Filters by world name. (optional) 
-            var tag = tag_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = releaseStatus_example;  // string | Filter by ReleaseStatus. (optional)  (default to public)
-            var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = minUnityVersion_example;  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = platform_example;  // string | The platform the asset supports. (optional) 
+            var search = "search_example";  // string | Filters by world name. (optional) 
+            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = "public";  // string | Filter by ReleaseStatus. (optional)  (default to public)
+            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
+            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
 
             try
             {
@@ -228,8 +264,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.GetActiveWorlds: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.GetActiveWorlds: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -237,22 +273,42 @@ namespace Example
 }
 ```
 
+#### Using the GetActiveWorldsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Active Worlds
+    ApiResponse<List<LimitedWorld>> response = apiInstance.GetActiveWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.GetActiveWorldsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **featured** | **bool?**| Filters on featured results. | [optional] 
- **sort** | **string**|  | [optional] [default to popularity]
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **order** | **string**|  | [optional] [default to descending]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **search** | **string**| Filters by world name. | [optional] 
- **tag** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
- **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
- **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to public]
- **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
- **minUnityVersion** | **string**| The minimum Unity version supported by the asset. | [optional] 
- **platform** | **string**| The platform the asset supports. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **featured** | **bool?** | Filters on featured results. | [optional]  |
+| **sort** | **string** |  | [optional] [default to popularity] |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **order** | **string** |  | [optional] [default to descending] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **search** | **string** | Filters by world name. | [optional]  |
+| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
+| **releaseStatus** | **string** | Filter by ReleaseStatus. | [optional] [default to public] |
+| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
+| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
+| **platform** | **string** | The platform the asset supports. | [optional]  |
 
 ### Return type
 
@@ -312,17 +368,17 @@ namespace Example
             var apiInstance = new WorldsApi(config);
             var featured = true;  // bool? | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var order = descending;  // string |  (optional)  (default to descending)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var search = search_example;  // string | Filters by world name. (optional) 
-            var tag = tag_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = releaseStatus_example;  // string | Filter by ReleaseStatus. (optional)  (default to public)
-            var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = minUnityVersion_example;  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = platform_example;  // string | The platform the asset supports. (optional) 
-            var userId = userId_example;  // string | Target user to see information on, admin-only. (optional) 
+            var search = "search_example";  // string | Filters by world name. (optional) 
+            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = "public";  // string | Filter by ReleaseStatus. (optional)  (default to public)
+            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
+            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
+            var userId = "userId_example";  // string | Target user to see information on, admin-only. (optional) 
 
             try
             {
@@ -332,8 +388,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.GetFavoritedWorlds: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.GetFavoritedWorlds: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -341,23 +397,43 @@ namespace Example
 }
 ```
 
+#### Using the GetFavoritedWorldsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Favorited Worlds
+    ApiResponse<List<LimitedWorld>> response = apiInstance.GetFavoritedWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.GetFavoritedWorldsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **featured** | **bool?**| Filters on featured results. | [optional] 
- **sort** | **string**|  | [optional] [default to popularity]
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **order** | **string**|  | [optional] [default to descending]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **search** | **string**| Filters by world name. | [optional] 
- **tag** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
- **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
- **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to public]
- **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
- **minUnityVersion** | **string**| The minimum Unity version supported by the asset. | [optional] 
- **platform** | **string**| The platform the asset supports. | [optional] 
- **userId** | **string**| Target user to see information on, admin-only. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **featured** | **bool?** | Filters on featured results. | [optional]  |
+| **sort** | **string** |  | [optional] [default to popularity] |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **order** | **string** |  | [optional] [default to descending] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **search** | **string** | Filters by world name. | [optional]  |
+| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
+| **releaseStatus** | **string** | Filter by ReleaseStatus. | [optional] [default to public] |
+| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
+| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
+| **platform** | **string** | The platform the asset supports. | [optional]  |
+| **userId** | **string** | Target user to see information on, admin-only. | [optional]  |
 
 ### Return type
 
@@ -418,17 +494,17 @@ namespace Example
             var apiInstance = new WorldsApi(config);
             var featured = true;  // bool? | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var order = descending;  // string |  (optional)  (default to descending)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var search = search_example;  // string | Filters by world name. (optional) 
-            var tag = tag_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = releaseStatus_example;  // string | Filter by ReleaseStatus. (optional)  (default to public)
-            var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = minUnityVersion_example;  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = platform_example;  // string | The platform the asset supports. (optional) 
-            var userId = userId_example;  // string | Target user to see information on, admin-only. (optional) 
+            var search = "search_example";  // string | Filters by world name. (optional) 
+            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = "public";  // string | Filter by ReleaseStatus. (optional)  (default to public)
+            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
+            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
+            var userId = "userId_example";  // string | Target user to see information on, admin-only. (optional) 
 
             try
             {
@@ -438,8 +514,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.GetRecentWorlds: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.GetRecentWorlds: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -447,23 +523,43 @@ namespace Example
 }
 ```
 
+#### Using the GetRecentWorldsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Recent Worlds
+    ApiResponse<List<LimitedWorld>> response = apiInstance.GetRecentWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.GetRecentWorldsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **featured** | **bool?**| Filters on featured results. | [optional] 
- **sort** | **string**|  | [optional] [default to popularity]
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **order** | **string**|  | [optional] [default to descending]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **search** | **string**| Filters by world name. | [optional] 
- **tag** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
- **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
- **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to public]
- **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
- **minUnityVersion** | **string**| The minimum Unity version supported by the asset. | [optional] 
- **platform** | **string**| The platform the asset supports. | [optional] 
- **userId** | **string**| Target user to see information on, admin-only. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **featured** | **bool?** | Filters on featured results. | [optional]  |
+| **sort** | **string** |  | [optional] [default to popularity] |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **order** | **string** |  | [optional] [default to descending] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **search** | **string** | Filters by world name. | [optional]  |
+| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
+| **releaseStatus** | **string** | Filter by ReleaseStatus. | [optional] [default to public] |
+| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
+| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
+| **platform** | **string** | The platform the asset supports. | [optional]  |
+| **userId** | **string** | Target user to see information on, admin-only. | [optional]  |
 
 ### Return type
 
@@ -518,7 +614,7 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var worldId = worldId_example;  // string | 
+            var worldId = "worldId_example";  // string | 
 
             try
             {
@@ -528,8 +624,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.GetWorld: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.GetWorld: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -537,11 +633,31 @@ namespace Example
 }
 ```
 
+#### Using the GetWorldWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get World by ID
+    ApiResponse<World> response = apiInstance.GetWorldWithHttpInfo(worldId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.GetWorldWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** |  |  |
 
 ### Return type
 
@@ -599,8 +715,8 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var worldId = worldId_example;  // string | 
-            var instanceId = instanceId_example;  // string | 
+            var worldId = "worldId_example";  // string | 
+            var instanceId = "instanceId_example";  // string | 
 
             try
             {
@@ -610,8 +726,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.GetWorldInstance: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.GetWorldInstance: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -619,12 +735,32 @@ namespace Example
 }
 ```
 
+#### Using the GetWorldInstanceWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get World Instance
+    ApiResponse<Instance> response = apiInstance.GetWorldInstanceWithHttpInfo(worldId, instanceId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.GetWorldInstanceWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**|  | 
- **instanceId** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** |  |  |
+| **instanceId** | **string** |  |  |
 
 ### Return type
 
@@ -682,7 +818,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var worldId = worldId_example;  // string | 
+            var worldId = "worldId_example";  // string | 
 
             try
             {
@@ -692,8 +828,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.GetWorldMetadata: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.GetWorldMetadata: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -701,11 +837,31 @@ namespace Example
 }
 ```
 
+#### Using the GetWorldMetadataWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get World Metadata
+    ApiResponse<WorldMetadata> response = apiInstance.GetWorldMetadataWithHttpInfo(worldId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.GetWorldMetadataWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** |  |  |
 
 ### Return type
 
@@ -763,7 +919,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var worldId = worldId_example;  // string | 
+            var worldId = "worldId_example";  // string | 
 
             try
             {
@@ -773,8 +929,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.GetWorldPublishStatus: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.GetWorldPublishStatus: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -782,11 +938,31 @@ namespace Example
 }
 ```
 
+#### Using the GetWorldPublishStatusWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get World Publish Status
+    ApiResponse<WorldPublishStatus> response = apiInstance.GetWorldPublishStatusWithHttpInfo(worldId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.GetWorldPublishStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** |  |  |
 
 ### Return type
 
@@ -845,7 +1021,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var worldId = worldId_example;  // string | 
+            var worldId = "worldId_example";  // string | 
 
             try
             {
@@ -854,8 +1030,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.PublishWorld: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.PublishWorld: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -863,11 +1039,28 @@ namespace Example
 }
 ```
 
+#### Using the PublishWorldWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Publish World
+    apiInstance.PublishWorldWithHttpInfo(worldId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.PublishWorldWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** |  |  |
 
 ### Return type
 
@@ -928,18 +1121,18 @@ namespace Example
             var apiInstance = new WorldsApi(config);
             var featured = true;  // bool? | Filters on featured results. (optional) 
             var sort = popularity;  // string |  (optional)  (default to popularity)
-            var user = user_example;  // string | Set to `me` for searching own worlds. (optional) 
-            var userId = userId_example;  // string | Filter by UserID. (optional) 
-            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var user = "me";  // string | Set to `me` for searching own worlds. (optional) 
+            var userId = "userId_example";  // string | Filter by UserID. (optional) 
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var order = descending;  // string |  (optional)  (default to descending)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var search = search_example;  // string | Filters by world name. (optional) 
-            var tag = tag_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = releaseStatus_example;  // string | Filter by ReleaseStatus. (optional)  (default to public)
-            var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = minUnityVersion_example;  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = platform_example;  // string | The platform the asset supports. (optional) 
+            var search = "search_example";  // string | Filters by world name. (optional) 
+            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = "public";  // string | Filter by ReleaseStatus. (optional)  (default to public)
+            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
+            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
 
             try
             {
@@ -949,8 +1142,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.SearchWorlds: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.SearchWorlds: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -958,24 +1151,44 @@ namespace Example
 }
 ```
 
+#### Using the SearchWorldsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search All Worlds
+    ApiResponse<List<LimitedWorld>> response = apiInstance.SearchWorldsWithHttpInfo(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.SearchWorldsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **featured** | **bool?**| Filters on featured results. | [optional] 
- **sort** | **string**|  | [optional] [default to popularity]
- **user** | **string**| Set to &#x60;me&#x60; for searching own worlds. | [optional] 
- **userId** | **string**| Filter by UserID. | [optional] 
- **n** | **int?**| The number of objects to return. | [optional] [default to 60]
- **order** | **string**|  | [optional] [default to descending]
- **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
- **search** | **string**| Filters by world name. | [optional] 
- **tag** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
- **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
- **releaseStatus** | **string**| Filter by ReleaseStatus. | [optional] [default to public]
- **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
- **minUnityVersion** | **string**| The minimum Unity version supported by the asset. | [optional] 
- **platform** | **string**| The platform the asset supports. | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **featured** | **bool?** | Filters on featured results. | [optional]  |
+| **sort** | **string** |  | [optional] [default to popularity] |
+| **user** | **string** | Set to &#x60;me&#x60; for searching own worlds. | [optional]  |
+| **userId** | **string** | Filter by UserID. | [optional]  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **order** | **string** |  | [optional] [default to descending] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **search** | **string** | Filters by world name. | [optional]  |
+| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
+| **releaseStatus** | **string** | Filter by ReleaseStatus. | [optional] [default to public] |
+| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
+| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
+| **platform** | **string** | The platform the asset supports. | [optional]  |
 
 ### Return type
 
@@ -1033,7 +1246,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var worldId = worldId_example;  // string | 
+            var worldId = "worldId_example";  // string | 
 
             try
             {
@@ -1042,8 +1255,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.UnpublishWorld: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.UnpublishWorld: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1051,11 +1264,28 @@ namespace Example
 }
 ```
 
+#### Using the UnpublishWorldWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Unpublish World
+    apiInstance.UnpublishWorldWithHttpInfo(worldId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.UnpublishWorldWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**|  | 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** |  |  |
 
 ### Return type
 
@@ -1114,7 +1344,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new WorldsApi(config);
-            var worldId = worldId_example;  // string | 
+            var worldId = "worldId_example";  // string | 
             var updateWorldRequest = new UpdateWorldRequest(); // UpdateWorldRequest |  (optional) 
 
             try
@@ -1125,8 +1355,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling WorldsApi.UpdateWorld: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print("Exception when calling WorldsApi.UpdateWorld: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -1134,12 +1364,32 @@ namespace Example
 }
 ```
 
+#### Using the UpdateWorldWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update World
+    ApiResponse<World> response = apiInstance.UpdateWorldWithHttpInfo(worldId, updateWorldRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.UpdateWorldWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **worldId** | **string**|  | 
- **updateWorldRequest** | [**UpdateWorldRequest**](UpdateWorldRequest.md)|  | [optional] 
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **worldId** | **string** |  |  |
+| **updateWorldRequest** | [**UpdateWorldRequest**](UpdateWorldRequest.md) |  | [optional]  |
 
 ### Return type
 

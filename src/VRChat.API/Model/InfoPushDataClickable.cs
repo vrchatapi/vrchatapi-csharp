@@ -67,7 +67,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Command
         /// </summary>
-        [DataMember(Name = "command", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "command", IsRequired = true, EmitDefaultValue = true)]
         public CommandEnum Command { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushDataClickable" /> class.
@@ -98,7 +98,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InfoPushDataClickable {\n");
             sb.Append("  Command: ").Append(Command).Append("\n");
             sb.Append("  Parameters: ").Append(Parameters).Append("\n");
@@ -133,8 +133,9 @@ namespace VRChat.API.Model
         public bool Equals(InfoPushDataClickable input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Command == input.Command ||
@@ -157,9 +158,11 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Command.GetHashCode();
+                hashCode = (hashCode * 59) + this.Command.GetHashCode();
                 if (this.Parameters != null)
-                    hashCode = hashCode * 59 + this.Parameters.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Parameters.GetHashCode();
+                }
                 return hashCode;
             }
         }

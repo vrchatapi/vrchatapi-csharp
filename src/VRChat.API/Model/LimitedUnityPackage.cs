@@ -44,12 +44,14 @@ namespace VRChat.API.Model
         public LimitedUnityPackage(string platform = default(string), string unityVersion = default(string))
         {
             // to ensure "platform" is required (not null)
-            if (platform == null) {
+            if (platform == null)
+            {
                 throw new ArgumentNullException("platform is a required property for LimitedUnityPackage and cannot be null");
             }
             this.Platform = platform;
             // to ensure "unityVersion" is required (not null)
-            if (unityVersion == null) {
+            if (unityVersion == null)
+            {
                 throw new ArgumentNullException("unityVersion is a required property for LimitedUnityPackage and cannot be null");
             }
             this.UnityVersion = unityVersion;
@@ -59,13 +61,13 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
-        [DataMember(Name = "unityVersion", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "unityVersion", IsRequired = true, EmitDefaultValue = true)]
         public string UnityVersion { get; set; }
 
         /// <summary>
@@ -74,7 +76,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class LimitedUnityPackage {\n");
             sb.Append("  Platform: ").Append(Platform).Append("\n");
             sb.Append("  UnityVersion: ").Append(UnityVersion).Append("\n");
@@ -109,8 +111,9 @@ namespace VRChat.API.Model
         public bool Equals(LimitedUnityPackage input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Platform == input.Platform ||
@@ -134,9 +137,13 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Platform != null)
-                    hashCode = hashCode * 59 + this.Platform.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                }
                 if (this.UnityVersion != null)
-                    hashCode = hashCode * 59 + this.UnityVersion.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UnityVersion.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -149,7 +156,7 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // UnityVersion (string) minLength
-            if(this.UnityVersion != null && this.UnityVersion.Length < 1)
+            if (this.UnityVersion != null && this.UnityVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }

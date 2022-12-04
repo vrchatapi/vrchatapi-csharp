@@ -43,7 +43,8 @@ namespace VRChat.API.Model
         public TwoFactorAuthCode(string code = default(string))
         {
             // to ensure "code" is required (not null)
-            if (code == null) {
+            if (code == null)
+            {
                 throw new ArgumentNullException("code is a required property for TwoFactorAuthCode and cannot be null");
             }
             this.Code = code;
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TwoFactorAuthCode {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
@@ -95,8 +96,9 @@ namespace VRChat.API.Model
         public bool Equals(TwoFactorAuthCode input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Code == input.Code ||
@@ -115,7 +117,9 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
                 return hashCode;
             }
         }

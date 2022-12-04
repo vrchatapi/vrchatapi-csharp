@@ -50,13 +50,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Android
         /// </summary>
-        [DataMember(Name = "android", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "android", IsRequired = true, EmitDefaultValue = true)]
         public int Android { get; set; }
 
         /// <summary>
         /// Gets or Sets Standalonewindows
         /// </summary>
-        [DataMember(Name = "standalonewindows", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "standalonewindows", IsRequired = true, EmitDefaultValue = true)]
         public int Standalonewindows { get; set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InstancePlatforms {\n");
             sb.Append("  Android: ").Append(Android).Append("\n");
             sb.Append("  Standalonewindows: ").Append(Standalonewindows).Append("\n");
@@ -100,8 +100,9 @@ namespace VRChat.API.Model
         public bool Equals(InstancePlatforms input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Android == input.Android ||
@@ -122,8 +123,8 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Android.GetHashCode();
-                hashCode = hashCode * 59 + this.Standalonewindows.GetHashCode();
+                hashCode = (hashCode * 59) + this.Android.GetHashCode();
+                hashCode = (hashCode * 59) + this.Standalonewindows.GetHashCode();
                 return hashCode;
             }
         }
@@ -136,13 +137,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Android (int) minimum
-            if(this.Android < (int)0)
+            if (this.Android < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Android, must be a value greater than or equal to 0.", new [] { "Android" });
             }
 
             // Standalonewindows (int) minimum
-            if(this.Standalonewindows < (int)0)
+            if (this.Standalonewindows < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Standalonewindows, must be a value greater than or equal to 0.", new [] { "Standalonewindows" });
             }

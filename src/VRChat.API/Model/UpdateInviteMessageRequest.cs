@@ -43,7 +43,8 @@ namespace VRChat.API.Model
         public UpdateInviteMessageRequest(string message = default(string))
         {
             // to ensure "message" is required (not null)
-            if (message == null) {
+            if (message == null)
+            {
                 throw new ArgumentNullException("message is a required property for UpdateInviteMessageRequest and cannot be null");
             }
             this.Message = message;
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateInviteMessageRequest {\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
@@ -95,8 +96,9 @@ namespace VRChat.API.Model
         public bool Equals(UpdateInviteMessageRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Message == input.Message ||
@@ -115,7 +117,9 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -108,7 +108,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InfoPushData {\n");
             sb.Append("  ContentList: ").Append(ContentList).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -149,8 +149,9 @@ namespace VRChat.API.Model
         public bool Equals(InfoPushData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ContentList == input.ContentList ||
@@ -204,21 +205,37 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.ContentList != null)
-                    hashCode = hashCode * 59 + this.ContentList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ContentList.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.ImageUrl != null)
-                    hashCode = hashCode * 59 + this.ImageUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.OnPressed != null)
-                    hashCode = hashCode * 59 + this.OnPressed.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OnPressed.GetHashCode();
+                }
                 if (this.Template != null)
-                    hashCode = hashCode * 59 + this.Template.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Template.GetHashCode();
+                }
                 if (this._Version != null)
-                    hashCode = hashCode * 59 + this._Version.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                }
                 if (this.Article != null)
-                    hashCode = hashCode * 59 + this.Article.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Article.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -231,13 +248,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // ImageUrl (string) minLength
-            if(this.ImageUrl != null && this.ImageUrl.Length < 1)
+            if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // _Version (string) minLength
-            if(this._Version != null && this._Version.Length < 1)
+            if (this._Version != null && this._Version.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be greater than 1.", new [] { "_Version" });
             }

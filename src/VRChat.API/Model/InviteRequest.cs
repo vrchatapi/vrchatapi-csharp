@@ -44,7 +44,8 @@ namespace VRChat.API.Model
         public InviteRequest(string instanceId = default(string), int messageSlot = default(int))
         {
             // to ensure "instanceId" is required (not null)
-            if (instanceId == null) {
+            if (instanceId == null)
+            {
                 throw new ArgumentNullException("instanceId is a required property for InviteRequest and cannot be null");
             }
             this.InstanceId = instanceId;
@@ -55,7 +56,7 @@ namespace VRChat.API.Model
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
-        [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
         public string InstanceId { get; set; }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InviteRequest {\n");
             sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
             sb.Append("  MessageSlot: ").Append(MessageSlot).Append("\n");
@@ -105,8 +106,9 @@ namespace VRChat.API.Model
         public bool Equals(InviteRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.InstanceId == input.InstanceId ||
@@ -129,8 +131,10 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.InstanceId != null)
-                    hashCode = hashCode * 59 + this.InstanceId.GetHashCode();
-                hashCode = hashCode * 59 + this.MessageSlot.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MessageSlot.GetHashCode();
                 return hashCode;
             }
         }
@@ -150,13 +154,13 @@ namespace VRChat.API.Model
             }
 
             // MessageSlot (int) maximum
-            if(this.MessageSlot > (int)11)
+            if (this.MessageSlot > (int)11)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MessageSlot, must be a value less than or equal to 11.", new [] { "MessageSlot" });
             }
 
             // MessageSlot (int) minimum
-            if(this.MessageSlot < (int)0)
+            if (this.MessageSlot < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MessageSlot, must be a value greater than or equal to 0.", new [] { "MessageSlot" });
             }

@@ -44,12 +44,14 @@ namespace VRChat.API.Model
         public PublicAnnouncement(string name = default(string), string text = default(string))
         {
             // to ensure "name" is required (not null)
-            if (name == null) {
+            if (name == null)
+            {
                 throw new ArgumentNullException("name is a required property for PublicAnnouncement and cannot be null");
             }
             this.Name = name;
             // to ensure "text" is required (not null)
-            if (text == null) {
+            if (text == null)
+            {
                 throw new ArgumentNullException("text is a required property for PublicAnnouncement and cannot be null");
             }
             this.Text = text;
@@ -59,14 +61,14 @@ namespace VRChat.API.Model
         /// Announcement name
         /// </summary>
         /// <value>Announcement name</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Announcement text
         /// </summary>
         /// <value>Announcement text</value>
-        [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>
@@ -75,7 +77,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PublicAnnouncement {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
@@ -110,8 +112,9 @@ namespace VRChat.API.Model
         public bool Equals(PublicAnnouncement input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -135,9 +138,13 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -150,13 +157,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 1)
+            if (this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Text (string) minLength
-            if(this.Text != null && this.Text.Length < 1)
+            if (this.Text != null && this.Text.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Text, length must be greater than 1.", new [] { "Text" });
             }

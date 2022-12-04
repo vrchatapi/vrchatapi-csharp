@@ -52,7 +52,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RequestInviteRequest {\n");
             sb.Append("  MessageSlot: ").Append(MessageSlot).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace VRChat.API.Model
         public bool Equals(RequestInviteRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.MessageSlot == input.MessageSlot ||
@@ -104,7 +105,7 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.MessageSlot.GetHashCode();
+                hashCode = (hashCode * 59) + this.MessageSlot.GetHashCode();
                 return hashCode;
             }
         }
@@ -117,13 +118,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // MessageSlot (int) maximum
-            if(this.MessageSlot > (int)11)
+            if (this.MessageSlot > (int)11)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MessageSlot, must be a value less than or equal to 11.", new [] { "MessageSlot" });
             }
 
             // MessageSlot (int) minimum
-            if(this.MessageSlot < (int)0)
+            if (this.MessageSlot < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MessageSlot, must be a value greater than or equal to 0.", new [] { "MessageSlot" });
             }

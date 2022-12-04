@@ -52,7 +52,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InfoPushDataArticle {\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace VRChat.API.Model
         public bool Equals(InfoPushDataArticle input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Content == input.Content ||
@@ -106,7 +107,9 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                }
                 return hashCode;
             }
         }

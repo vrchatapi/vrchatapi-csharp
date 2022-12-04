@@ -43,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="email">email.</param>
         /// <param name="birthday">birthday.</param>
         /// <param name="acceptedTOSVersion">acceptedTOSVersion.</param>
-        /// <param name="tags">tags.</param>
+        /// <param name="tags"> .</param>
         /// <param name="status">status.</param>
         /// <param name="statusDescription">statusDescription.</param>
         /// <param name="bio">bio.</param>
@@ -82,8 +82,9 @@ namespace VRChat.API.Model
         public decimal AcceptedTOSVersion { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tags
+        ///  
         /// </summary>
+        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
@@ -118,7 +119,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateUserRequest {\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Birthday: ").Append(Birthday).Append("\n");
@@ -160,8 +161,9 @@ namespace VRChat.API.Model
         public bool Equals(UpdateUserRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Email == input.Email ||
@@ -220,21 +222,35 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Email != null)
-                    hashCode = hashCode * 59 + this.Email.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                }
                 if (this.Birthday != null)
-                    hashCode = hashCode * 59 + this.Birthday.GetHashCode();
-                hashCode = hashCode * 59 + this.AcceptedTOSVersion.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Birthday.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
                 if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.StatusDescription != null)
-                    hashCode = hashCode * 59 + this.StatusDescription.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StatusDescription.GetHashCode();
+                }
                 if (this.Bio != null)
-                    hashCode = hashCode * 59 + this.Bio.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Bio.GetHashCode();
+                }
                 if (this.BioLinks != null)
-                    hashCode = hashCode * 59 + this.BioLinks.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
+                }
                 if (this.UserIcon != null)
-                    hashCode = hashCode * 59 + this.UserIcon.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -247,13 +263,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Bio (string) minLength
-            if(this.Bio != null && this.Bio.Length < 0)
+            if (this.Bio != null && this.Bio.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bio, length must be greater than 0.", new [] { "Bio" });
             }
 
             // UserIcon (string) minLength
-            if(this.UserIcon != null && this.UserIcon.Length < 0)
+            if (this.UserIcon != null && this.UserIcon.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserIcon, length must be greater than 0.", new [] { "UserIcon" });
             }

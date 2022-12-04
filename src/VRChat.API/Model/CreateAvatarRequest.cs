@@ -49,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="id">id.</param>
         /// <param name="name">name (required).</param>
         /// <param name="description">description.</param>
-        /// <param name="tags">tags.</param>
+        /// <param name="tags"> .</param>
         /// <param name="imageUrl">imageUrl (required).</param>
         /// <param name="releaseStatus">releaseStatus.</param>
         /// <param name="version">version (default to 1M).</param>
@@ -57,12 +57,14 @@ namespace VRChat.API.Model
         public CreateAvatarRequest(string assetUrl = default(string), string id = default(string), string name = default(string), string description = default(string), List<string> tags = default(List<string>), string imageUrl = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), decimal version = 1M, string unityPackageUrl = default(string))
         {
             // to ensure "name" is required (not null)
-            if (name == null) {
+            if (name == null)
+            {
                 throw new ArgumentNullException("name is a required property for CreateAvatarRequest and cannot be null");
             }
             this.Name = name;
             // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null) {
+            if (imageUrl == null)
+            {
                 throw new ArgumentNullException("imageUrl is a required property for CreateAvatarRequest and cannot be null");
             }
             this.ImageUrl = imageUrl;
@@ -90,7 +92,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -100,15 +102,16 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tags
+        ///  
         /// </summary>
+        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
-        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string ImageUrl { get; set; }
 
         /// <summary>
@@ -129,7 +132,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CreateAvatarRequest {\n");
             sb.Append("  AssetUrl: ").Append(AssetUrl).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -171,8 +174,9 @@ namespace VRChat.API.Model
         public bool Equals(CreateAvatarRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AssetUrl == input.AssetUrl ||
@@ -230,21 +234,35 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.AssetUrl != null)
-                    hashCode = hashCode * 59 + this.AssetUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AssetUrl.GetHashCode();
+                }
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
                 if (this.ImageUrl != null)
-                    hashCode = hashCode * 59 + this.ImageUrl.GetHashCode();
-                hashCode = hashCode * 59 + this.ReleaseStatus.GetHashCode();
-                hashCode = hashCode * 59 + this._Version.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
+                hashCode = (hashCode * 59) + this._Version.GetHashCode();
                 if (this.UnityPackageUrl != null)
-                    hashCode = hashCode * 59 + this.UnityPackageUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -264,25 +282,25 @@ namespace VRChat.API.Model
             }
 
             // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 1)
+            if (this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Description (string) minLength
-            if(this.Description != null && this.Description.Length < 1)
+            if (this.Description != null && this.Description.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             // ImageUrl (string) minLength
-            if(this.ImageUrl != null && this.ImageUrl.Length < 1)
+            if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // _Version (decimal) minimum
-            if(this._Version < (decimal)0)
+            if (this._Version < (decimal)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
             }

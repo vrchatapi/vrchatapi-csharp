@@ -45,17 +45,20 @@ namespace VRChat.API.Model
         public DownloadURLList(string sdk2 = default(string), string sdk3Avatars = default(string), string sdk3Worlds = default(string))
         {
             // to ensure "sdk2" is required (not null)
-            if (sdk2 == null) {
+            if (sdk2 == null)
+            {
                 throw new ArgumentNullException("sdk2 is a required property for DownloadURLList and cannot be null");
             }
             this.Sdk2 = sdk2;
             // to ensure "sdk3Avatars" is required (not null)
-            if (sdk3Avatars == null) {
+            if (sdk3Avatars == null)
+            {
                 throw new ArgumentNullException("sdk3Avatars is a required property for DownloadURLList and cannot be null");
             }
             this.Sdk3Avatars = sdk3Avatars;
             // to ensure "sdk3Worlds" is required (not null)
-            if (sdk3Worlds == null) {
+            if (sdk3Worlds == null)
+            {
                 throw new ArgumentNullException("sdk3Worlds is a required property for DownloadURLList and cannot be null");
             }
             this.Sdk3Worlds = sdk3Worlds;
@@ -65,7 +68,7 @@ namespace VRChat.API.Model
         /// Download link for legacy SDK2
         /// </summary>
         /// <value>Download link for legacy SDK2</value>
-        [DataMember(Name = "sdk2", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "sdk2", IsRequired = true, EmitDefaultValue = true)]
         [Obsolete]
         public string Sdk2 { get; set; }
 
@@ -73,14 +76,14 @@ namespace VRChat.API.Model
         /// Download link for SDK3 for Avatars
         /// </summary>
         /// <value>Download link for SDK3 for Avatars</value>
-        [DataMember(Name = "sdk3-avatars", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "sdk3-avatars", IsRequired = true, EmitDefaultValue = true)]
         public string Sdk3Avatars { get; set; }
 
         /// <summary>
         /// Download link for SDK3 for Worlds
         /// </summary>
         /// <value>Download link for SDK3 for Worlds</value>
-        [DataMember(Name = "sdk3-worlds", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "sdk3-worlds", IsRequired = true, EmitDefaultValue = true)]
         public string Sdk3Worlds { get; set; }
 
         /// <summary>
@@ -89,7 +92,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DownloadURLList {\n");
             sb.Append("  Sdk2: ").Append(Sdk2).Append("\n");
             sb.Append("  Sdk3Avatars: ").Append(Sdk3Avatars).Append("\n");
@@ -125,8 +128,9 @@ namespace VRChat.API.Model
         public bool Equals(DownloadURLList input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sdk2 == input.Sdk2 ||
@@ -155,11 +159,17 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Sdk2 != null)
-                    hashCode = hashCode * 59 + this.Sdk2.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sdk2.GetHashCode();
+                }
                 if (this.Sdk3Avatars != null)
-                    hashCode = hashCode * 59 + this.Sdk3Avatars.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sdk3Avatars.GetHashCode();
+                }
                 if (this.Sdk3Worlds != null)
-                    hashCode = hashCode * 59 + this.Sdk3Worlds.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sdk3Worlds.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -172,19 +182,19 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Sdk2 (string) minLength
-            if(this.Sdk2 != null && this.Sdk2.Length < 1)
+            if (this.Sdk2 != null && this.Sdk2.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk2, length must be greater than 1.", new [] { "Sdk2" });
             }
 
             // Sdk3Avatars (string) minLength
-            if(this.Sdk3Avatars != null && this.Sdk3Avatars.Length < 1)
+            if (this.Sdk3Avatars != null && this.Sdk3Avatars.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk3Avatars, length must be greater than 1.", new [] { "Sdk3Avatars" });
             }
 
             // Sdk3Worlds (string) minLength
-            if(this.Sdk3Worlds != null && this.Sdk3Worlds.Length < 1)
+            if (this.Sdk3Worlds != null && this.Sdk3Worlds.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk3Worlds, length must be greater than 1.", new [] { "Sdk3Worlds" });
             }
