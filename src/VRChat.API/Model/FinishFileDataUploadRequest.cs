@@ -45,14 +45,12 @@ namespace VRChat.API.Model
         public FinishFileDataUploadRequest(List<string> etags = default(List<string>), string nextPartNumber = "0", string maxParts = "0")
         {
             // to ensure "nextPartNumber" is required (not null)
-            if (nextPartNumber == null)
-            {
+            if (nextPartNumber == null) {
                 throw new ArgumentNullException("nextPartNumber is a required property for FinishFileDataUploadRequest and cannot be null");
             }
             this.NextPartNumber = nextPartNumber;
             // to ensure "maxParts" is required (not null)
-            if (maxParts == null)
-            {
+            if (maxParts == null) {
                 throw new ArgumentNullException("maxParts is a required property for FinishFileDataUploadRequest and cannot be null");
             }
             this.MaxParts = maxParts;
@@ -70,7 +68,7 @@ namespace VRChat.API.Model
         /// Always a zero in string form, despite how many parts uploaded.
         /// </summary>
         /// <value>Always a zero in string form, despite how many parts uploaded.</value>
-        [DataMember(Name = "nextPartNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nextPartNumber", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string NextPartNumber { get; set; }
 
@@ -78,7 +76,7 @@ namespace VRChat.API.Model
         /// Always a zero in string form, despite how many parts uploaded.
         /// </summary>
         /// <value>Always a zero in string form, despite how many parts uploaded.</value>
-        [DataMember(Name = "maxParts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "maxParts", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string MaxParts { get; set; }
 
@@ -88,7 +86,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class FinishFileDataUploadRequest {\n");
             sb.Append("  Etags: ").Append(Etags).Append("\n");
             sb.Append("  NextPartNumber: ").Append(NextPartNumber).Append("\n");
@@ -124,9 +122,8 @@ namespace VRChat.API.Model
         public bool Equals(FinishFileDataUploadRequest input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Etags == input.Etags ||
@@ -156,17 +153,11 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Etags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Etags.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Etags.GetHashCode();
                 if (this.NextPartNumber != null)
-                {
-                    hashCode = (hashCode * 59) + this.NextPartNumber.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.NextPartNumber.GetHashCode();
                 if (this.MaxParts != null)
-                {
-                    hashCode = (hashCode * 59) + this.MaxParts.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.MaxParts.GetHashCode();
                 return hashCode;
             }
         }
@@ -179,13 +170,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // NextPartNumber (string) maxLength
-            if (this.NextPartNumber != null && this.NextPartNumber.Length > 1)
+            if(this.NextPartNumber != null && this.NextPartNumber.Length > 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPartNumber, length must be less than 1.", new [] { "NextPartNumber" });
             }
 
             // NextPartNumber (string) minLength
-            if (this.NextPartNumber != null && this.NextPartNumber.Length < 1)
+            if(this.NextPartNumber != null && this.NextPartNumber.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPartNumber, length must be greater than 1.", new [] { "NextPartNumber" });
             }
@@ -198,13 +189,13 @@ namespace VRChat.API.Model
             }
 
             // MaxParts (string) maxLength
-            if (this.MaxParts != null && this.MaxParts.Length > 1)
+            if(this.MaxParts != null && this.MaxParts.Length > 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxParts, length must be less than 1.", new [] { "MaxParts" });
             }
 
             // MaxParts (string) minLength
-            if (this.MaxParts != null && this.MaxParts.Length < 1)
+            if(this.MaxParts != null && this.MaxParts.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxParts, length must be greater than 1.", new [] { "MaxParts" });
             }

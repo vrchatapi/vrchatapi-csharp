@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets MessageType
         /// </summary>
-        [DataMember(Name = "messageType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "messageType", IsRequired = true, EmitDefaultValue = false)]
         public InviteMessageType MessageType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InviteMessage" /> class.
@@ -56,14 +56,12 @@ namespace VRChat.API.Model
         {
             this.CanBeUpdated = canBeUpdated;
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
+            if (id == null) {
                 throw new ArgumentNullException("id is a required property for InviteMessage and cannot be null");
             }
             this.Id = id;
             // to ensure "message" is required (not null)
-            if (message == null)
-            {
+            if (message == null) {
                 throw new ArgumentNullException("message is a required property for InviteMessage and cannot be null");
             }
             this.Message = message;
@@ -82,32 +80,32 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
         /// Changes to 60 when updated, although probably server-side configurable.
         /// </summary>
         /// <value>Changes to 60 when updated, although probably server-side configurable.</value>
-        [DataMember(Name = "remainingCooldownMinutes", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "remainingCooldownMinutes", IsRequired = true, EmitDefaultValue = false)]
         public int RemainingCooldownMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets Slot
         /// </summary>
-        [DataMember(Name = "slot", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "slot", IsRequired = true, EmitDefaultValue = false)]
         public int Slot { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
@@ -116,7 +114,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class InviteMessage {\n");
             sb.Append("  CanBeUpdated: ").Append(CanBeUpdated).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -156,9 +154,8 @@ namespace VRChat.API.Model
         public bool Equals(InviteMessage input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.CanBeUpdated == input.CanBeUpdated ||
@@ -202,22 +199,16 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.CanBeUpdated.GetHashCode();
+                hashCode = hashCode * 59 + this.CanBeUpdated.GetHashCode();
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.MessageType.GetHashCode();
-                hashCode = (hashCode * 59) + this.RemainingCooldownMinutes.GetHashCode();
-                hashCode = (hashCode * 59) + this.Slot.GetHashCode();
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                hashCode = hashCode * 59 + this.MessageType.GetHashCode();
+                hashCode = hashCode * 59 + this.RemainingCooldownMinutes.GetHashCode();
+                hashCode = hashCode * 59 + this.Slot.GetHashCode();
                 if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
                 return hashCode;
             }
         }
@@ -237,25 +228,25 @@ namespace VRChat.API.Model
             }
 
             // Message (string) minLength
-            if (this.Message != null && this.Message.Length < 1)
+            if(this.Message != null && this.Message.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
             }
 
             // RemainingCooldownMinutes (int) minimum
-            if (this.RemainingCooldownMinutes < (int)0)
+            if(this.RemainingCooldownMinutes < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RemainingCooldownMinutes, must be a value greater than or equal to 0.", new [] { "RemainingCooldownMinutes" });
             }
 
             // Slot (int) maximum
-            if (this.Slot > (int)11)
+            if(this.Slot > (int)11)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Slot, must be a value less than or equal to 11.", new [] { "Slot" });
             }
 
             // Slot (int) minimum
-            if (this.Slot < (int)0)
+            if(this.Slot < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Slot, must be a value greater than or equal to 0.", new [] { "Slot" });
             }

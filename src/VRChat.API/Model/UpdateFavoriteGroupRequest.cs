@@ -69,7 +69,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class UpdateFavoriteGroupRequest {\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Visibility: ").Append(Visibility).Append("\n");
@@ -105,9 +105,8 @@ namespace VRChat.API.Model
         public bool Equals(UpdateFavoriteGroupRequest input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -136,14 +135,10 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
+                    hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
+                hashCode = hashCode * 59 + this.Visibility.GetHashCode();
                 if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 return hashCode;
             }
         }

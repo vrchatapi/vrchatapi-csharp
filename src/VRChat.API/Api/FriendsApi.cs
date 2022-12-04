@@ -33,10 +33,9 @@ namespace VRChat.API.Api
         /// Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the &#x60;deleteNotification&#x60; endpoint instead.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Success</returns>
-        Success DeleteFriendRequest(string userId, int operationIndex = 0);
+        Success DeleteFriendRequest(string userId);
 
         /// <summary>
         /// Delete Friend Request
@@ -45,10 +44,9 @@ namespace VRChat.API.Api
         /// Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the &#x60;deleteNotification&#x60; endpoint instead.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> DeleteFriendRequestWithHttpInfo(string userId, int operationIndex = 0);
+        ApiResponse<Success> DeleteFriendRequestWithHttpInfo(string userId);
         /// <summary>
         /// Send Friend Request
         /// </summary>
@@ -56,10 +54,9 @@ namespace VRChat.API.Api
         /// Send a friend request to another user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Notification</returns>
-        Notification Friend(string userId, int operationIndex = 0);
+        Notification Friend(string userId);
 
         /// <summary>
         /// Send Friend Request
@@ -68,10 +65,9 @@ namespace VRChat.API.Api
         /// Send a friend request to another user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Notification</returns>
-        ApiResponse<Notification> FriendWithHttpInfo(string userId, int operationIndex = 0);
+        ApiResponse<Notification> FriendWithHttpInfo(string userId);
         /// <summary>
         /// Check Friend Status
         /// </summary>
@@ -79,10 +75,9 @@ namespace VRChat.API.Api
         /// Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming &#x60;Notification&#x60; of type &#x60;friendRequest&#x60;, and then accepting that notification.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>FriendStatus</returns>
-        FriendStatus GetFriendStatus(string userId, int operationIndex = 0);
+        FriendStatus GetFriendStatus(string userId);
 
         /// <summary>
         /// Check Friend Status
@@ -91,10 +86,9 @@ namespace VRChat.API.Api
         /// Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming &#x60;Notification&#x60; of type &#x60;friendRequest&#x60;, and then accepting that notification.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of FriendStatus</returns>
-        ApiResponse<FriendStatus> GetFriendStatusWithHttpInfo(string userId, int operationIndex = 0);
+        ApiResponse<FriendStatus> GetFriendStatusWithHttpInfo(string userId);
         /// <summary>
         /// List Friends
         /// </summary>
@@ -105,9 +99,8 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offline">Returns *only* offline users if true, returns only online and active users if false (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LimitedUser&gt;</returns>
-        List<LimitedUser> GetFriends(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), int operationIndex = 0);
+        List<LimitedUser> GetFriends(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?));
 
         /// <summary>
         /// List Friends
@@ -119,9 +112,8 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offline">Returns *only* offline users if true, returns only online and active users if false (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LimitedUser&gt;</returns>
-        ApiResponse<List<LimitedUser>> GetFriendsWithHttpInfo(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), int operationIndex = 0);
+        ApiResponse<List<LimitedUser>> GetFriendsWithHttpInfo(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?));
         /// <summary>
         /// Unfriend
         /// </summary>
@@ -129,10 +121,9 @@ namespace VRChat.API.Api
         /// Unfriend a user by ID.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Success</returns>
-        Success Unfriend(string userId, int operationIndex = 0);
+        Success Unfriend(string userId);
 
         /// <summary>
         /// Unfriend
@@ -141,10 +132,9 @@ namespace VRChat.API.Api
         /// Unfriend a user by ID.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> UnfriendWithHttpInfo(string userId, int operationIndex = 0);
+        ApiResponse<Success> UnfriendWithHttpInfo(string userId);
         #endregion Synchronous Operations
     }
 
@@ -161,11 +151,10 @@ namespace VRChat.API.Api
         /// Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the &#x60;deleteNotification&#x60; endpoint instead.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> DeleteFriendRequestAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> DeleteFriendRequestAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Friend Request
@@ -174,11 +163,10 @@ namespace VRChat.API.Api
         /// Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the &#x60;deleteNotification&#x60; endpoint instead.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteFriendRequestWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteFriendRequestWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Send Friend Request
         /// </summary>
@@ -186,11 +174,10 @@ namespace VRChat.API.Api
         /// Send a friend request to another user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        System.Threading.Tasks.Task<Notification> FriendAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Notification> FriendAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Friend Request
@@ -199,11 +186,10 @@ namespace VRChat.API.Api
         /// Send a friend request to another user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Notification>> FriendWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Notification>> FriendWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Check Friend Status
         /// </summary>
@@ -211,11 +197,10 @@ namespace VRChat.API.Api
         /// Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming &#x60;Notification&#x60; of type &#x60;friendRequest&#x60;, and then accepting that notification.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FriendStatus</returns>
-        System.Threading.Tasks.Task<FriendStatus> GetFriendStatusAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FriendStatus> GetFriendStatusAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Check Friend Status
@@ -224,11 +209,10 @@ namespace VRChat.API.Api
         /// Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming &#x60;Notification&#x60; of type &#x60;friendRequest&#x60;, and then accepting that notification.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FriendStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FriendStatus>> GetFriendStatusWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FriendStatus>> GetFriendStatusWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Friends
         /// </summary>
@@ -239,10 +223,9 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offline">Returns *only* offline users if true, returns only online and active users if false (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedUser&gt;</returns>
-        System.Threading.Tasks.Task<List<LimitedUser>> GetFriendsAsync(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<LimitedUser>> GetFriendsAsync(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Friends
@@ -254,10 +237,9 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offline">Returns *only* offline users if true, returns only online and active users if false (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedUser&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LimitedUser>>> GetFriendsWithHttpInfoAsync(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<LimitedUser>>> GetFriendsWithHttpInfoAsync(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Unfriend
         /// </summary>
@@ -265,11 +247,10 @@ namespace VRChat.API.Api
         /// Unfriend a user by ID.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> UnfriendAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> UnfriendAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Unfriend
@@ -278,11 +259,10 @@ namespace VRChat.API.Api
         /// Unfriend a user by ID.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> UnfriendWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> UnfriendWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -407,10 +387,9 @@ namespace VRChat.API.Api
         /// Delete Friend Request Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the &#x60;deleteNotification&#x60; endpoint instead.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Success</returns>
-        public Success DeleteFriendRequest(string userId, int operationIndex = 0)
+        public Success DeleteFriendRequest(string userId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteFriendRequestWithHttpInfo(userId);
             return localVarResponse.Data;
@@ -420,16 +399,13 @@ namespace VRChat.API.Api
         /// Delete Friend Request Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the &#x60;deleteNotification&#x60; endpoint instead.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> DeleteFriendRequestWithHttpInfo(string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> DeleteFriendRequestWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling FriendsApi->DeleteFriendRequest");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -442,21 +418,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "FriendsApi.DeleteFriendRequest";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -473,13 +440,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Success>("/user/{userId}/friendRequest", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteFriendRequest", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -489,13 +454,12 @@ namespace VRChat.API.Api
         /// Delete Friend Request Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the &#x60;deleteNotification&#x60; endpoint instead.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> DeleteFriendRequestAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> DeleteFriendRequestAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteFriendRequestWithHttpInfoAsync(userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteFriendRequestWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -503,17 +467,14 @@ namespace VRChat.API.Api
         /// Delete Friend Request Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the &#x60;deleteNotification&#x60; endpoint instead.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteFriendRequestWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteFriendRequestWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling FriendsApi->DeleteFriendRequest");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -526,22 +487,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "FriendsApi.DeleteFriendRequest";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -557,15 +510,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/user/{userId}/friendRequest", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteFriendRequest", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -575,10 +526,9 @@ namespace VRChat.API.Api
         /// Send Friend Request Send a friend request to another user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Notification</returns>
-        public Notification Friend(string userId, int operationIndex = 0)
+        public Notification Friend(string userId)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = FriendWithHttpInfo(userId);
             return localVarResponse.Data;
@@ -588,16 +538,13 @@ namespace VRChat.API.Api
         /// Send Friend Request Send a friend request to another user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Notification</returns>
-        public VRChat.API.Client.ApiResponse<Notification> FriendWithHttpInfo(string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Notification> FriendWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling FriendsApi->Friend");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -610,21 +557,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "FriendsApi.Friend";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -641,13 +579,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Notification>("/user/{userId}/friendRequest", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Friend", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -657,13 +593,12 @@ namespace VRChat.API.Api
         /// Send Friend Request Send a friend request to another user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        public async System.Threading.Tasks.Task<Notification> FriendAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Notification> FriendAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await FriendWithHttpInfoAsync(userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await FriendWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -671,17 +606,14 @@ namespace VRChat.API.Api
         /// Send Friend Request Send a friend request to another user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> FriendWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> FriendWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling FriendsApi->Friend");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -694,22 +626,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "FriendsApi.Friend";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -725,15 +649,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Notification>("/user/{userId}/friendRequest", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Friend", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -743,10 +665,9 @@ namespace VRChat.API.Api
         /// Check Friend Status Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming &#x60;Notification&#x60; of type &#x60;friendRequest&#x60;, and then accepting that notification.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>FriendStatus</returns>
-        public FriendStatus GetFriendStatus(string userId, int operationIndex = 0)
+        public FriendStatus GetFriendStatus(string userId)
         {
             VRChat.API.Client.ApiResponse<FriendStatus> localVarResponse = GetFriendStatusWithHttpInfo(userId);
             return localVarResponse.Data;
@@ -756,16 +677,13 @@ namespace VRChat.API.Api
         /// Check Friend Status Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming &#x60;Notification&#x60; of type &#x60;friendRequest&#x60;, and then accepting that notification.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of FriendStatus</returns>
-        public VRChat.API.Client.ApiResponse<FriendStatus> GetFriendStatusWithHttpInfo(string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<FriendStatus> GetFriendStatusWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling FriendsApi->GetFriendStatus");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -778,21 +696,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "FriendsApi.GetFriendStatus";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -809,13 +718,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<FriendStatus>("/user/{userId}/friendStatus", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFriendStatus", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -825,13 +732,12 @@ namespace VRChat.API.Api
         /// Check Friend Status Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming &#x60;Notification&#x60; of type &#x60;friendRequest&#x60;, and then accepting that notification.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FriendStatus</returns>
-        public async System.Threading.Tasks.Task<FriendStatus> GetFriendStatusAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FriendStatus> GetFriendStatusAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<FriendStatus> localVarResponse = await GetFriendStatusWithHttpInfoAsync(userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<FriendStatus> localVarResponse = await GetFriendStatusWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -839,17 +745,14 @@ namespace VRChat.API.Api
         /// Check Friend Status Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming &#x60;Notification&#x60; of type &#x60;friendRequest&#x60;, and then accepting that notification.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FriendStatus)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FriendStatus>> GetFriendStatusWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FriendStatus>> GetFriendStatusWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling FriendsApi->GetFriendStatus");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -862,22 +765,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "FriendsApi.GetFriendStatus";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -893,15 +788,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<FriendStatus>("/user/{userId}/friendStatus", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFriendStatus", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -914,9 +807,8 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offline">Returns *only* offline users if true, returns only online and active users if false (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LimitedUser&gt;</returns>
-        public List<LimitedUser> GetFriends(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), int operationIndex = 0)
+        public List<LimitedUser> GetFriends(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?))
         {
             VRChat.API.Client.ApiResponse<List<LimitedUser>> localVarResponse = GetFriendsWithHttpInfo(offset, n, offline);
             return localVarResponse.Data;
@@ -929,9 +821,8 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offline">Returns *only* offline users if true, returns only online and active users if false (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LimitedUser&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<LimitedUser>> GetFriendsWithHttpInfo(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<LimitedUser>> GetFriendsWithHttpInfo(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?))
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -944,16 +835,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (offset != null)
             {
@@ -967,9 +852,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offline", offline));
             }
-
-            localVarRequestOptions.Operation = "FriendsApi.GetFriends";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -986,13 +868,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<LimitedUser>>("/auth/user/friends", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFriends", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1005,12 +885,11 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offline">Returns *only* offline users if true, returns only online and active users if false (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedUser&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LimitedUser>> GetFriendsAsync(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<LimitedUser>> GetFriendsAsync(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<List<LimitedUser>> localVarResponse = await GetFriendsWithHttpInfoAsync(offset, n, offline, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<LimitedUser>> localVarResponse = await GetFriendsWithHttpInfoAsync(offset, n, offline, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1021,10 +900,9 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offline">Returns *only* offline users if true, returns only online and active users if false (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedUser&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedUser>>> GetFriendsWithHttpInfoAsync(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedUser>>> GetFriendsWithHttpInfoAsync(int? offset = default(int?), int? n = default(int?), bool? offline = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1037,17 +915,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (offset != null)
             {
@@ -1061,9 +934,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offline", offline));
             }
-
-            localVarRequestOptions.Operation = "FriendsApi.GetFriends";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1079,15 +949,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<LimitedUser>>("/auth/user/friends", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFriends", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1097,10 +965,9 @@ namespace VRChat.API.Api
         /// Unfriend Unfriend a user by ID.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Success</returns>
-        public Success Unfriend(string userId, int operationIndex = 0)
+        public Success Unfriend(string userId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = UnfriendWithHttpInfo(userId);
             return localVarResponse.Data;
@@ -1110,16 +977,13 @@ namespace VRChat.API.Api
         /// Unfriend Unfriend a user by ID.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> UnfriendWithHttpInfo(string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> UnfriendWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling FriendsApi->Unfriend");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1132,21 +996,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "FriendsApi.Unfriend";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1163,13 +1018,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Success>("/auth/user/friends/{userId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Unfriend", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1179,13 +1032,12 @@ namespace VRChat.API.Api
         /// Unfriend Unfriend a user by ID.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> UnfriendAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> UnfriendAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await UnfriendWithHttpInfoAsync(userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await UnfriendWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1193,17 +1045,14 @@ namespace VRChat.API.Api
         /// Unfriend Unfriend a user by ID.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> UnfriendWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> UnfriendWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling FriendsApi->Unfriend");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1216,22 +1065,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "FriendsApi.Unfriend";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1247,15 +1088,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/auth/user/friends/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Unfriend", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

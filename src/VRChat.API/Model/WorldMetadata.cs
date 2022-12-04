@@ -44,14 +44,12 @@ namespace VRChat.API.Model
         public WorldMetadata(string id = default(string), Object metadata = default(Object))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
+            if (id == null) {
                 throw new ArgumentNullException("id is a required property for WorldMetadata and cannot be null");
             }
             this.Id = id;
             // to ensure "metadata" is required (not null)
-            if (metadata == null)
-            {
+            if (metadata == null) {
                 throw new ArgumentNullException("metadata is a required property for WorldMetadata and cannot be null");
             }
             this.Metadata = metadata;
@@ -61,13 +59,13 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
-        [DataMember(Name = "metadata", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "metadata", IsRequired = true, EmitDefaultValue = false)]
         public Object Metadata { get; set; }
 
         /// <summary>
@@ -76,7 +74,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class WorldMetadata {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
@@ -111,9 +109,8 @@ namespace VRChat.API.Model
         public bool Equals(WorldMetadata input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Id == input.Id ||
@@ -137,13 +134,9 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Metadata != null)
-                {
-                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 return hashCode;
             }
         }

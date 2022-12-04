@@ -58,7 +58,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class UserExists {\n");
             sb.Append("  _UserExists: ").Append(_UserExists).Append("\n");
             sb.Append("}\n");
@@ -92,9 +92,8 @@ namespace VRChat.API.Model
         public bool Equals(UserExists input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this._UserExists == input._UserExists ||
@@ -111,7 +110,7 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this._UserExists.GetHashCode();
+                hashCode = hashCode * 59 + this._UserExists.GetHashCode();
                 return hashCode;
             }
         }

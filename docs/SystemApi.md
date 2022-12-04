@@ -2,15 +2,16 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-| Method | HTTP request | Description |
-|--------|--------------|-------------|
-| [**GetCSS**](SystemApi.md#getcss) | **GET** /css/app.css | Download CSS |
-| [**GetConfig**](SystemApi.md#getconfig) | **GET** /config | Fetch API Config |
-| [**GetCurrentOnlineUsers**](SystemApi.md#getcurrentonlineusers) | **GET** /visits | Current Online Users |
-| [**GetHealth**](SystemApi.md#gethealth) | **GET** /health | Check API Health |
-| [**GetInfoPush**](SystemApi.md#getinfopush) | **GET** /infoPush | Show Information Notices |
-| [**GetJavaScript**](SystemApi.md#getjavascript) | **GET** /js/app.js | Download JavaScript |
-| [**GetSystemTime**](SystemApi.md#getsystemtime) | **GET** /time | Current System Time |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**GetCSS**](SystemApi.md#getcss) | **GET** /css/app.css | Download CSS
+[**GetConfig**](SystemApi.md#getconfig) | **GET** /config | Fetch API Config
+[**GetCurrentOnlineUsers**](SystemApi.md#getcurrentonlineusers) | **GET** /visits | Current Online Users
+[**GetHealth**](SystemApi.md#gethealth) | **GET** /health | Check API Health
+[**GetInfoPush**](SystemApi.md#getinfopush) | **GET** /infoPush | Show Information Notices
+[**GetJavaScript**](SystemApi.md#getjavascript) | **GET** /js/app.js | Download JavaScript
+[**GetSystemTime**](SystemApi.md#getsystemtime) | **GET** /time | Current System Time
+
 
 <a name="getcss"></a>
 # **GetCSS**
@@ -37,8 +38,8 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
             var apiInstance = new SystemApi(config);
-            var variant = "public";  // string | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)  (default to public)
-            var branch = "\"main\"";  // string | Specifies which git branch the site should load frontend source code from. (optional)  (default to "main")
+            var variant = variant_example;  // string | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)  (default to public)
+            var branch = branch_example;  // string | Specifies which git branch the site should load frontend source code from. (optional)  (default to "main")
 
             try
             {
@@ -48,8 +49,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetCSS: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling SystemApi.GetCSS: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -57,32 +58,12 @@ namespace Example
 }
 ```
 
-#### Using the GetCSSWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Download CSS
-    ApiResponse<string> response = apiInstance.GetCSSWithHttpInfo(variant, branch);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SystemApi.GetCSSWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **variant** | **string** | Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] [default to public] |
-| **branch** | **string** | Specifies which git branch the site should load frontend source code from. | [optional] [default to &quot;main&quot;] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variant** | **string**| Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] [default to public]
+ **branch** | **string**| Specifies which git branch the site should load frontend source code from. | [optional] [default to &quot;main&quot;]
 
 ### Return type
 
@@ -140,8 +121,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetConfig: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling SystemApi.GetConfig: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -149,28 +130,9 @@ namespace Example
 }
 ```
 
-#### Using the GetConfigWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Fetch API Config
-    ApiResponse<APIConfig> response = apiInstance.GetConfigWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SystemApi.GetConfigWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 This endpoint does not need any parameter.
+
 ### Return type
 
 [**APIConfig**](APIConfig.md)
@@ -226,8 +188,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetCurrentOnlineUsers: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling SystemApi.GetCurrentOnlineUsers: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -235,28 +197,9 @@ namespace Example
 }
 ```
 
-#### Using the GetCurrentOnlineUsersWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Current Online Users
-    ApiResponse<int> response = apiInstance.GetCurrentOnlineUsersWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SystemApi.GetCurrentOnlineUsersWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 This endpoint does not need any parameter.
+
 ### Return type
 
 **int**
@@ -312,8 +255,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetHealth: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling SystemApi.GetHealth: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -321,28 +264,9 @@ namespace Example
 }
 ```
 
-#### Using the GetHealthWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Check API Health
-    ApiResponse<APIHealth> response = apiInstance.GetHealthWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SystemApi.GetHealthWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 This endpoint does not need any parameter.
+
 ### Return type
 
 [**APIHealth**](APIHealth.md)
@@ -389,8 +313,8 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
             var apiInstance = new SystemApi(config);
-            var require = "require_example";  // string | Tags to include (comma-separated). All of the tags needs to be present. (optional) 
-            var include = "include_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var require = require_example;  // string | Tags to include (comma-separated). All of the tags needs to be present. (optional) 
+            var include = include_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
 
             try
             {
@@ -400,8 +324,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetInfoPush: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling SystemApi.GetInfoPush: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -409,32 +333,12 @@ namespace Example
 }
 ```
 
-#### Using the GetInfoPushWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Show Information Notices
-    ApiResponse<List<InfoPush>> response = apiInstance.GetInfoPushWithHttpInfo(require, include);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SystemApi.GetInfoPushWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **require** | **string** | Tags to include (comma-separated). All of the tags needs to be present. | [optional]  |
-| **include** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **require** | **string**| Tags to include (comma-separated). All of the tags needs to be present. | [optional] 
+ **include** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
 
 ### Return type
 
@@ -482,8 +386,8 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
             var apiInstance = new SystemApi(config);
-            var variant = "public";  // string | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)  (default to public)
-            var branch = "\"main\"";  // string | Specifies which git branch the site should load frontend source code from. (optional)  (default to "main")
+            var variant = variant_example;  // string | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)  (default to public)
+            var branch = branch_example;  // string | Specifies which git branch the site should load frontend source code from. (optional)  (default to "main")
 
             try
             {
@@ -493,8 +397,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetJavaScript: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling SystemApi.GetJavaScript: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -502,32 +406,12 @@ namespace Example
 }
 ```
 
-#### Using the GetJavaScriptWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Download JavaScript
-    ApiResponse<string> response = apiInstance.GetJavaScriptWithHttpInfo(variant, branch);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SystemApi.GetJavaScriptWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **variant** | **string** | Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] [default to public] |
-| **branch** | **string** | Specifies which git branch the site should load frontend source code from. | [optional] [default to &quot;main&quot;] |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variant** | **string**| Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. | [optional] [default to public]
+ **branch** | **string**| Specifies which git branch the site should load frontend source code from. | [optional] [default to &quot;main&quot;]
 
 ### Return type
 
@@ -585,8 +469,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetSystemTime: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling SystemApi.GetSystemTime: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -594,28 +478,9 @@ namespace Example
 }
 ```
 
-#### Using the GetSystemTimeWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Current System Time
-    ApiResponse<DateTime> response = apiInstance.GetSystemTimeWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SystemApi.GetSystemTimeWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 This endpoint does not need any parameter.
+
 ### Return type
 
 **DateTime**

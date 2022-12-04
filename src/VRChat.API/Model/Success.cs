@@ -52,7 +52,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class Success {\n");
             sb.Append("  _Success: ").Append(_Success).Append("\n");
             sb.Append("}\n");
@@ -86,9 +86,8 @@ namespace VRChat.API.Model
         public bool Equals(Success input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this._Success == input._Success ||
@@ -107,9 +106,7 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this._Success != null)
-                {
-                    hashCode = (hashCode * 59) + this._Success.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this._Success.GetHashCode();
                 return hashCode;
             }
         }

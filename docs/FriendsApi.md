@@ -2,13 +2,14 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-| Method | HTTP request | Description |
-|--------|--------------|-------------|
-| [**DeleteFriendRequest**](FriendsApi.md#deletefriendrequest) | **DELETE** /user/{userId}/friendRequest | Delete Friend Request |
-| [**Friend**](FriendsApi.md#friend) | **POST** /user/{userId}/friendRequest | Send Friend Request |
-| [**GetFriendStatus**](FriendsApi.md#getfriendstatus) | **GET** /user/{userId}/friendStatus | Check Friend Status |
-| [**GetFriends**](FriendsApi.md#getfriends) | **GET** /auth/user/friends | List Friends |
-| [**Unfriend**](FriendsApi.md#unfriend) | **DELETE** /auth/user/friends/{userId} | Unfriend |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**DeleteFriendRequest**](FriendsApi.md#deletefriendrequest) | **DELETE** /user/{userId}/friendRequest | Delete Friend Request
+[**Friend**](FriendsApi.md#friend) | **POST** /user/{userId}/friendRequest | Send Friend Request
+[**GetFriendStatus**](FriendsApi.md#getfriendstatus) | **GET** /user/{userId}/friendStatus | Check Friend Status
+[**GetFriends**](FriendsApi.md#getfriends) | **GET** /auth/user/friends | List Friends
+[**Unfriend**](FriendsApi.md#unfriend) | **DELETE** /auth/user/friends/{userId} | Unfriend
+
 
 <a name="deletefriendrequest"></a>
 # **DeleteFriendRequest**
@@ -44,7 +45,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FriendsApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = userId_example;  // string | Must be a valid user ID.
 
             try
             {
@@ -54,8 +55,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FriendsApi.DeleteFriendRequest: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling FriendsApi.DeleteFriendRequest: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -63,31 +64,11 @@ namespace Example
 }
 ```
 
-#### Using the DeleteFriendRequestWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Delete Friend Request
-    ApiResponse<Success> response = apiInstance.DeleteFriendRequestWithHttpInfo(userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FriendsApi.DeleteFriendRequestWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
 
 ### Return type
 
@@ -146,7 +127,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FriendsApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = userId_example;  // string | Must be a valid user ID.
 
             try
             {
@@ -156,8 +137,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FriendsApi.Friend: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling FriendsApi.Friend: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -165,31 +146,11 @@ namespace Example
 }
 ```
 
-#### Using the FriendWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Send Friend Request
-    ApiResponse<Notification> response = apiInstance.FriendWithHttpInfo(userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FriendsApi.FriendWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
 
 ### Return type
 
@@ -248,7 +209,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FriendsApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = userId_example;  // string | Must be a valid user ID.
 
             try
             {
@@ -258,8 +219,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FriendsApi.GetFriendStatus: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling FriendsApi.GetFriendStatus: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -267,31 +228,11 @@ namespace Example
 }
 ```
 
-#### Using the GetFriendStatusWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Check Friend Status
-    ApiResponse<FriendStatus> response = apiInstance.GetFriendStatusWithHttpInfo(userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FriendsApi.GetFriendStatusWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
 
 ### Return type
 
@@ -350,7 +291,7 @@ namespace Example
 
             var apiInstance = new FriendsApi(config);
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
             var offline = true;  // bool? | Returns *only* offline users if true, returns only online and active users if false (optional) 
 
             try
@@ -361,8 +302,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FriendsApi.GetFriends: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling FriendsApi.GetFriends: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -370,33 +311,13 @@ namespace Example
 }
 ```
 
-#### Using the GetFriendsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // List Friends
-    ApiResponse<List<LimitedUser>> response = apiInstance.GetFriendsWithHttpInfo(offset, n, offline);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FriendsApi.GetFriendsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
-| **offline** | **bool?** | Returns *only* offline users if true, returns only online and active users if false | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **n** | **int?**| The number of objects to return. | [optional] [default to 60]
+ **offline** | **bool?**| Returns *only* offline users if true, returns only online and active users if false | [optional] 
 
 ### Return type
 
@@ -454,7 +375,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new FriendsApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = userId_example;  // string | Must be a valid user ID.
 
             try
             {
@@ -464,8 +385,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling FriendsApi.Unfriend: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling FriendsApi.Unfriend: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -473,31 +394,11 @@ namespace Example
 }
 ```
 
-#### Using the UnfriendWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Unfriend
-    ApiResponse<Success> response = apiInstance.UnfriendWithHttpInfo(userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FriendsApi.UnfriendWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
 
 ### Return type
 

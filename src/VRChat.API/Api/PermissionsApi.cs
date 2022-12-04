@@ -33,9 +33,8 @@ namespace VRChat.API.Api
         /// Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Permission&gt;</returns>
-        List<Permission> GetAssignedPermissions(int operationIndex = 0);
+        List<Permission> GetAssignedPermissions();
 
         /// <summary>
         /// Get Assigned Permissions
@@ -44,9 +43,8 @@ namespace VRChat.API.Api
         /// Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Permission&gt;</returns>
-        ApiResponse<List<Permission>> GetAssignedPermissionsWithHttpInfo(int operationIndex = 0);
+        ApiResponse<List<Permission>> GetAssignedPermissionsWithHttpInfo();
         /// <summary>
         /// Get Permission
         /// </summary>
@@ -54,10 +52,9 @@ namespace VRChat.API.Api
         /// Returns a single permission. This endpoint is pretty useless, as it returns the exact same information as &#x60;/auth/permissions&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="permissionId">Must be a valid permission ID.</param>
         /// <returns>Permission</returns>
-        Permission GetPermission(string permissionId, int operationIndex = 0);
+        Permission GetPermission(string permissionId);
 
         /// <summary>
         /// Get Permission
@@ -66,10 +63,9 @@ namespace VRChat.API.Api
         /// Returns a single permission. This endpoint is pretty useless, as it returns the exact same information as &#x60;/auth/permissions&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="permissionId">Must be a valid permission ID.</param>
         /// <returns>ApiResponse of Permission</returns>
-        ApiResponse<Permission> GetPermissionWithHttpInfo(string permissionId, int operationIndex = 0);
+        ApiResponse<Permission> GetPermissionWithHttpInfo(string permissionId);
         #endregion Synchronous Operations
     }
 
@@ -86,10 +82,9 @@ namespace VRChat.API.Api
         /// Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Permission&gt;</returns>
-        System.Threading.Tasks.Task<List<Permission>> GetAssignedPermissionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Permission>> GetAssignedPermissionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Assigned Permissions
@@ -98,10 +93,9 @@ namespace VRChat.API.Api
         /// Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Permission&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Permission>>> GetAssignedPermissionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Permission>>> GetAssignedPermissionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Permission
         /// </summary>
@@ -109,11 +103,10 @@ namespace VRChat.API.Api
         /// Returns a single permission. This endpoint is pretty useless, as it returns the exact same information as &#x60;/auth/permissions&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="permissionId">Must be a valid permission ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Permission</returns>
-        System.Threading.Tasks.Task<Permission> GetPermissionAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Permission> GetPermissionAsync(string permissionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Permission
@@ -122,11 +115,10 @@ namespace VRChat.API.Api
         /// Returns a single permission. This endpoint is pretty useless, as it returns the exact same information as &#x60;/auth/permissions&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="permissionId">Must be a valid permission ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Permission)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Permission>> GetPermissionWithHttpInfoAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Permission>> GetPermissionWithHttpInfoAsync(string permissionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -251,9 +243,8 @@ namespace VRChat.API.Api
         /// Get Assigned Permissions Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Permission&gt;</returns>
-        public List<Permission> GetAssignedPermissions(int operationIndex = 0)
+        public List<Permission> GetAssignedPermissions()
         {
             VRChat.API.Client.ApiResponse<List<Permission>> localVarResponse = GetAssignedPermissionsWithHttpInfo();
             return localVarResponse.Data;
@@ -263,9 +254,8 @@ namespace VRChat.API.Api
         /// Get Assigned Permissions Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Permission&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Permission>> GetAssignedPermissionsWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<Permission>> GetAssignedPermissionsWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -278,20 +268,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "PermissionsApi.GetAssignedPermissions";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -308,13 +289,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<Permission>>("/auth/permissions", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAssignedPermissions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -324,12 +303,11 @@ namespace VRChat.API.Api
         /// Get Assigned Permissions Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Permission&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Permission>> GetAssignedPermissionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Permission>> GetAssignedPermissionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<List<Permission>> localVarResponse = await GetAssignedPermissionsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<Permission>> localVarResponse = await GetAssignedPermissionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -337,10 +315,9 @@ namespace VRChat.API.Api
         /// Get Assigned Permissions Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Permission&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Permission>>> GetAssignedPermissionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Permission>>> GetAssignedPermissionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -353,21 +330,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "PermissionsApi.GetAssignedPermissions";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -383,15 +352,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Permission>>("/auth/permissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAssignedPermissions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -401,10 +368,9 @@ namespace VRChat.API.Api
         /// Get Permission Returns a single permission. This endpoint is pretty useless, as it returns the exact same information as &#x60;/auth/permissions&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="permissionId">Must be a valid permission ID.</param>
         /// <returns>Permission</returns>
-        public Permission GetPermission(string permissionId, int operationIndex = 0)
+        public Permission GetPermission(string permissionId)
         {
             VRChat.API.Client.ApiResponse<Permission> localVarResponse = GetPermissionWithHttpInfo(permissionId);
             return localVarResponse.Data;
@@ -414,16 +380,13 @@ namespace VRChat.API.Api
         /// Get Permission Returns a single permission. This endpoint is pretty useless, as it returns the exact same information as &#x60;/auth/permissions&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="permissionId">Must be a valid permission ID.</param>
         /// <returns>ApiResponse of Permission</returns>
-        public VRChat.API.Client.ApiResponse<Permission> GetPermissionWithHttpInfo(string permissionId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Permission> GetPermissionWithHttpInfo(string permissionId)
         {
             // verify the required parameter 'permissionId' is set
             if (permissionId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'permissionId' when calling PermissionsApi->GetPermission");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -436,21 +399,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("permissionId", VRChat.API.Client.ClientUtils.ParameterToString(permissionId)); // path parameter
-
-            localVarRequestOptions.Operation = "PermissionsApi.GetPermission";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -467,13 +421,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Permission>("/permissions/{permissionId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPermission", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -483,13 +435,12 @@ namespace VRChat.API.Api
         /// Get Permission Returns a single permission. This endpoint is pretty useless, as it returns the exact same information as &#x60;/auth/permissions&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="permissionId">Must be a valid permission ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Permission</returns>
-        public async System.Threading.Tasks.Task<Permission> GetPermissionAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Permission> GetPermissionAsync(string permissionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Permission> localVarResponse = await GetPermissionWithHttpInfoAsync(permissionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Permission> localVarResponse = await GetPermissionWithHttpInfoAsync(permissionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -497,17 +448,14 @@ namespace VRChat.API.Api
         /// Get Permission Returns a single permission. This endpoint is pretty useless, as it returns the exact same information as &#x60;/auth/permissions&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="permissionId">Must be a valid permission ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Permission)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Permission>> GetPermissionWithHttpInfoAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Permission>> GetPermissionWithHttpInfoAsync(string permissionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'permissionId' is set
             if (permissionId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'permissionId' when calling PermissionsApi->GetPermission");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -520,22 +468,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("permissionId", VRChat.API.Client.ClientUtils.ParameterToString(permissionId)); // path parameter
-
-            localVarRequestOptions.Operation = "PermissionsApi.GetPermission";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -551,15 +491,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Permission>("/permissions/{permissionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPermission", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

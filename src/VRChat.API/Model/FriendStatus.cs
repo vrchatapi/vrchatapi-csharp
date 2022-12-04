@@ -73,7 +73,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class FriendStatus {\n");
             sb.Append("  IncomingRequest: ").Append(IncomingRequest).Append("\n");
             sb.Append("  IsFriend: ").Append(IsFriend).Append("\n");
@@ -109,9 +109,8 @@ namespace VRChat.API.Model
         public bool Equals(FriendStatus input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.IncomingRequest == input.IncomingRequest ||
@@ -136,9 +135,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.IncomingRequest.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsFriend.GetHashCode();
-                hashCode = (hashCode * 59) + this.OutgoingRequest.GetHashCode();
+                hashCode = hashCode * 59 + this.IncomingRequest.GetHashCode();
+                hashCode = hashCode * 59 + this.IsFriend.GetHashCode();
+                hashCode = hashCode * 59 + this.OutgoingRequest.GetHashCode();
                 return hashCode;
             }
         }

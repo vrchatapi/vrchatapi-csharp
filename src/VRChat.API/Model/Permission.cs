@@ -46,20 +46,17 @@ namespace VRChat.API.Model
         public Permission(string id = default(string), string name = default(string), string ownerId = default(string), Object data = default(Object))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
+            if (id == null) {
                 throw new ArgumentNullException("id is a required property for Permission and cannot be null");
             }
             this.Id = id;
             // to ensure "name" is required (not null)
-            if (name == null)
-            {
+            if (name == null) {
                 throw new ArgumentNullException("name is a required property for Permission and cannot be null");
             }
             this.Name = name;
             // to ensure "ownerId" is required (not null)
-            if (ownerId == null)
-            {
+            if (ownerId == null) {
                 throw new ArgumentNullException("ownerId is a required property for Permission and cannot be null");
             }
             this.OwnerId = ownerId;
@@ -69,20 +66,20 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = false)]
         public string OwnerId { get; set; }
 
         /// <summary>
@@ -97,7 +94,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class Permission {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -134,9 +131,8 @@ namespace VRChat.API.Model
         public bool Equals(Permission input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Id == input.Id ||
@@ -170,21 +166,13 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.OwnerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.OwnerId.GetHashCode();
                 if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }
@@ -204,7 +192,7 @@ namespace VRChat.API.Model
             }
 
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }

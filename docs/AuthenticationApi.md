@@ -2,15 +2,16 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-| Method | HTTP request | Description |
-|--------|--------------|-------------|
-| [**CheckUserExists**](AuthenticationApi.md#checkuserexists) | **GET** /auth/exists | Check User Exists |
-| [**DeleteUser**](AuthenticationApi.md#deleteuser) | **PUT** /user/{userId}/delete | Delete User |
-| [**GetCurrentUser**](AuthenticationApi.md#getcurrentuser) | **GET** /auth/user | Login and/or Get Current User Info |
-| [**Logout**](AuthenticationApi.md#logout) | **PUT** /logout | Logout |
-| [**Verify2FA**](AuthenticationApi.md#verify2fa) | **POST** /auth/twofactorauth/totp/verify | Verify 2FA code |
-| [**VerifyAuthToken**](AuthenticationApi.md#verifyauthtoken) | **GET** /auth | Verify Auth Token |
-| [**VerifyRecoveryCode**](AuthenticationApi.md#verifyrecoverycode) | **POST** /auth/twofactorauth/otp/verify | Verify 2FA code with Recovery code |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**CheckUserExists**](AuthenticationApi.md#checkuserexists) | **GET** /auth/exists | Check User Exists
+[**DeleteUser**](AuthenticationApi.md#deleteuser) | **PUT** /user/{userId}/delete | Delete User
+[**GetCurrentUser**](AuthenticationApi.md#getcurrentuser) | **GET** /auth/user | Login and/or Get Current User Info
+[**Logout**](AuthenticationApi.md#logout) | **PUT** /logout | Logout
+[**Verify2FA**](AuthenticationApi.md#verify2fa) | **POST** /auth/twofactorauth/totp/verify | Verify 2FA code
+[**VerifyAuthToken**](AuthenticationApi.md#verifyauthtoken) | **GET** /auth | Verify Auth Token
+[**VerifyRecoveryCode**](AuthenticationApi.md#verifyrecoverycode) | **POST** /auth/twofactorauth/otp/verify | Verify 2FA code with Recovery code
+
 
 <a name="checkuserexists"></a>
 # **CheckUserExists**
@@ -42,10 +43,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             var apiInstance = new AuthenticationApi(config);
-            var email = "email_example";  // string | Filter by email. (optional) 
-            var displayName = "displayName_example";  // string | Filter by displayName. (optional) 
-            var userId = "userId_example";  // string | Filter by UserID. (optional) 
-            var excludeUserId = "excludeUserId_example";  // string | Exclude by UserID. (optional) 
+            var email = email_example;  // string | Filter by email. (optional) 
+            var displayName = displayName_example;  // string | Filter by displayName. (optional) 
+            var userId = userId_example;  // string | Filter by UserID. (optional) 
+            var excludeUserId = excludeUserId_example;  // string | Exclude by UserID. (optional) 
 
             try
             {
@@ -55,8 +56,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.CheckUserExists: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AuthenticationApi.CheckUserExists: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -64,34 +65,14 @@ namespace Example
 }
 ```
 
-#### Using the CheckUserExistsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Check User Exists
-    ApiResponse<UserExists> response = apiInstance.CheckUserExistsWithHttpInfo(email, displayName, userId, excludeUserId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AuthenticationApi.CheckUserExistsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **email** | **string** | Filter by email. | [optional]  |
-| **displayName** | **string** | Filter by displayName. | [optional]  |
-| **userId** | **string** | Filter by UserID. | [optional]  |
-| **excludeUserId** | **string** | Exclude by UserID. | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **string**| Filter by email. | [optional] 
+ **displayName** | **string**| Filter by displayName. | [optional] 
+ **userId** | **string**| Filter by UserID. | [optional] 
+ **excludeUserId** | **string**| Exclude by UserID. | [optional] 
 
 ### Return type
 
@@ -149,7 +130,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AuthenticationApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = userId_example;  // string | Must be a valid user ID.
 
             try
             {
@@ -159,8 +140,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.DeleteUser: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AuthenticationApi.DeleteUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -168,31 +149,11 @@ namespace Example
 }
 ```
 
-#### Using the DeleteUserWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Delete User
-    ApiResponse<CurrentUser> response = apiInstance.DeleteUserWithHttpInfo(userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AuthenticationApi.DeleteUserWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
 
 ### Return type
 
@@ -262,8 +223,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.GetCurrentUser: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AuthenticationApi.GetCurrentUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -271,28 +232,9 @@ namespace Example
 }
 ```
 
-#### Using the GetCurrentUserWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Login and/or Get Current User Info
-    ApiResponse<CurrentUser> response = apiInstance.GetCurrentUserWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AuthenticationApi.GetCurrentUserWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 This endpoint does not need any parameter.
+
 ### Return type
 
 [**CurrentUser**](CurrentUser.md)
@@ -354,8 +296,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.Logout: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AuthenticationApi.Logout: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -363,28 +305,9 @@ namespace Example
 }
 ```
 
-#### Using the LogoutWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Logout
-    ApiResponse<Success> response = apiInstance.LogoutWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AuthenticationApi.LogoutWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 This endpoint does not need any parameter.
+
 ### Return type
 
 [**Success**](Success.md)
@@ -447,8 +370,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.Verify2FA: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AuthenticationApi.Verify2FA: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -456,31 +379,11 @@ namespace Example
 }
 ```
 
-#### Using the Verify2FAWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Verify 2FA code
-    ApiResponse<Verify2FAResult> response = apiInstance.Verify2FAWithHttpInfo(twoFactorAuthCode);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AuthenticationApi.Verify2FAWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md)|  | [optional] 
 
 ### Return type
 
@@ -543,8 +446,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.VerifyAuthToken: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AuthenticationApi.VerifyAuthToken: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -552,28 +455,9 @@ namespace Example
 }
 ```
 
-#### Using the VerifyAuthTokenWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Verify Auth Token
-    ApiResponse<VerifyAuthTokenResult> response = apiInstance.VerifyAuthTokenWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AuthenticationApi.VerifyAuthTokenWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 This endpoint does not need any parameter.
+
 ### Return type
 
 [**VerifyAuthTokenResult**](VerifyAuthTokenResult.md)
@@ -636,8 +520,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AuthenticationApi.VerifyRecoveryCode: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AuthenticationApi.VerifyRecoveryCode: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -645,31 +529,11 @@ namespace Example
 }
 ```
 
-#### Using the VerifyRecoveryCodeWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Verify 2FA code with Recovery code
-    ApiResponse<Verify2FAResult> response = apiInstance.VerifyRecoveryCodeWithHttpInfo(twoFactorAuthCode);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AuthenticationApi.VerifyRecoveryCodeWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md)|  | [optional] 
 
 ### Return type
 

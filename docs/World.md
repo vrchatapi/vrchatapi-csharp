@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **PublicOccupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional] [default to 0]
 **PublicationDate** | **string** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
-**Tags** | **List&lt;string&gt;** |   | 
+**Tags** | **List&lt;string&gt;** |  | 
 **ThumbnailImageUrl** | **string** |  | 
 **UnityPackages** | [**List&lt;UnityPackage&gt;**](UnityPackage.md) | Empty if unauthenticated. | 
 **UpdatedAt** | **DateTime** |  | 

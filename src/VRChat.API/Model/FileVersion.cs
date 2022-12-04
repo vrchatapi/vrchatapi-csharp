@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
         public FileStatus Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FileVersion" /> class.
@@ -66,7 +66,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace VRChat.API.Model
         /// Incremental version counter, can only be increased.
         /// </summary>
         /// <value>Incremental version counter, can only be increased.</value>
-        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = false)]
         public int _Version { get; set; }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class FileVersion {\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Deleted: ").Append(Deleted).Append("\n");
@@ -147,9 +147,8 @@ namespace VRChat.API.Model
         public bool Equals(FileVersion input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -195,24 +194,16 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                hashCode = hashCode * 59 + this.Deleted.GetHashCode();
                 if (this.Delta != null)
-                {
-                    hashCode = (hashCode * 59) + this.Delta.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Delta.GetHashCode();
                 if (this.File != null)
-                {
-                    hashCode = (hashCode * 59) + this.File.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.File.GetHashCode();
                 if (this.Signature != null)
-                {
-                    hashCode = (hashCode * 59) + this.Signature.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = hashCode * 59 + this.Signature.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = hashCode * 59 + this._Version.GetHashCode();
                 return hashCode;
             }
         }
@@ -225,7 +216,7 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // _Version (int) minimum
-            if (this._Version < (int)0)
+            if(this._Version < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
             }

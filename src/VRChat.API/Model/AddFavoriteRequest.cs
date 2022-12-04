@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public FavoriteType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AddFavoriteRequest" /> class.
@@ -52,14 +52,12 @@ namespace VRChat.API.Model
         {
             this.Type = type;
             // to ensure "favoriteId" is required (not null)
-            if (favoriteId == null)
-            {
+            if (favoriteId == null) {
                 throw new ArgumentNullException("favoriteId is a required property for AddFavoriteRequest and cannot be null");
             }
             this.FavoriteId = favoriteId;
             // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
+            if (tags == null) {
                 throw new ArgumentNullException("tags is a required property for AddFavoriteRequest and cannot be null");
             }
             this.Tags = tags;
@@ -69,14 +67,14 @@ namespace VRChat.API.Model
         /// Must be either AvatarID, WorldID or UserID.
         /// </summary>
         /// <value>Must be either AvatarID, WorldID or UserID.</value>
-        [DataMember(Name = "favoriteId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "favoriteId", IsRequired = true, EmitDefaultValue = false)]
         public string FavoriteId { get; set; }
 
         /// <summary>
         /// Tags indicate which group this favorite belongs to. Adding multiple groups makes it show up in all. Removing it from one in that case removes it from all.
         /// </summary>
         /// <value>Tags indicate which group this favorite belongs to. Adding multiple groups makes it show up in all. Removing it from one in that case removes it from all.</value>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -85,7 +83,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class AddFavoriteRequest {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  FavoriteId: ").Append(FavoriteId).Append("\n");
@@ -121,9 +119,8 @@ namespace VRChat.API.Model
         public bool Equals(AddFavoriteRequest input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Type == input.Type ||
@@ -151,15 +148,11 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.FavoriteId != null)
-                {
-                    hashCode = (hashCode * 59) + this.FavoriteId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.FavoriteId.GetHashCode();
                 if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 return hashCode;
             }
         }

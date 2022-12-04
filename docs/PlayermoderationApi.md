@@ -2,14 +2,15 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-| Method | HTTP request | Description |
-|--------|--------------|-------------|
-| [**ClearAllPlayerModerations**](PlayermoderationApi.md#clearallplayermoderations) | **DELETE** /auth/user/playermoderations | Clear All Player Moderations |
-| [**DeletePlayerModeration**](PlayermoderationApi.md#deleteplayermoderation) | **DELETE** /auth/user/playermoderations/{playerModerationId} | Delete Player Moderation |
-| [**GetPlayerModeration**](PlayermoderationApi.md#getplayermoderation) | **GET** /auth/user/playermoderations/{playerModerationId} | Get Player Moderation |
-| [**GetPlayerModerations**](PlayermoderationApi.md#getplayermoderations) | **GET** /auth/user/playermoderations | Search Player Moderations |
-| [**ModerateUser**](PlayermoderationApi.md#moderateuser) | **POST** /auth/user/playermoderations | Moderate User |
-| [**UnmoderateUser**](PlayermoderationApi.md#unmoderateuser) | **PUT** /auth/user/unplayermoderate | Unmoderate User |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**ClearAllPlayerModerations**](PlayermoderationApi.md#clearallplayermoderations) | **DELETE** /auth/user/playermoderations | Clear All Player Moderations
+[**DeletePlayerModeration**](PlayermoderationApi.md#deleteplayermoderation) | **DELETE** /auth/user/playermoderations/{playerModerationId} | Delete Player Moderation
+[**GetPlayerModeration**](PlayermoderationApi.md#getplayermoderation) | **GET** /auth/user/playermoderations/{playerModerationId} | Get Player Moderation
+[**GetPlayerModerations**](PlayermoderationApi.md#getplayermoderations) | **GET** /auth/user/playermoderations | Search Player Moderations
+[**ModerateUser**](PlayermoderationApi.md#moderateuser) | **POST** /auth/user/playermoderations | Moderate User
+[**UnmoderateUser**](PlayermoderationApi.md#unmoderateuser) | **PUT** /auth/user/unplayermoderate | Unmoderate User
+
 
 <a name="clearallplayermoderations"></a>
 # **ClearAllPlayerModerations**
@@ -54,8 +55,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PlayermoderationApi.ClearAllPlayerModerations: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling PlayermoderationApi.ClearAllPlayerModerations: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -63,28 +64,9 @@ namespace Example
 }
 ```
 
-#### Using the ClearAllPlayerModerationsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Clear All Player Moderations
-    ApiResponse<Success> response = apiInstance.ClearAllPlayerModerationsWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PlayermoderationApi.ClearAllPlayerModerationsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 This endpoint does not need any parameter.
+
 ### Return type
 
 [**Success**](Success.md)
@@ -141,7 +123,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PlayermoderationApi(config);
-            var playerModerationId = "playerModerationId_example";  // string | 
+            var playerModerationId = playerModerationId_example;  // string | Must be a valid `pmod_` ID.
 
             try
             {
@@ -151,8 +133,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PlayermoderationApi.DeletePlayerModeration: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling PlayermoderationApi.DeletePlayerModeration: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -160,31 +142,11 @@ namespace Example
 }
 ```
 
-#### Using the DeletePlayerModerationWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Delete Player Moderation
-    ApiResponse<Success> response = apiInstance.DeletePlayerModerationWithHttpInfo(playerModerationId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PlayermoderationApi.DeletePlayerModerationWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **playerModerationId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playerModerationId** | **string**| Must be a valid &#x60;pmod_&#x60; ID. | 
 
 ### Return type
 
@@ -243,7 +205,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PlayermoderationApi(config);
-            var playerModerationId = "playerModerationId_example";  // string | 
+            var playerModerationId = playerModerationId_example;  // string | Must be a valid `pmod_` ID.
 
             try
             {
@@ -253,8 +215,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PlayermoderationApi.GetPlayerModeration: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling PlayermoderationApi.GetPlayerModeration: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -262,31 +224,11 @@ namespace Example
 }
 ```
 
-#### Using the GetPlayerModerationWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get Player Moderation
-    ApiResponse<PlayerModeration> response = apiInstance.GetPlayerModerationWithHttpInfo(playerModerationId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PlayermoderationApi.GetPlayerModerationWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **playerModerationId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playerModerationId** | **string**| Must be a valid &#x60;pmod_&#x60; ID. | 
 
 ### Return type
 
@@ -345,8 +287,8 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PlayermoderationApi(config);
-            var type = "type_example";  // string | Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional) 
-            var targetUserId = "targetUserId_example";  // string | Must be valid UserID. (optional) 
+            var type = type_example;  // string | Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional) 
+            var targetUserId = targetUserId_example;  // string | Must be valid UserID. (optional) 
 
             try
             {
@@ -356,8 +298,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PlayermoderationApi.GetPlayerModerations: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling PlayermoderationApi.GetPlayerModerations: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -365,32 +307,12 @@ namespace Example
 }
 ```
 
-#### Using the GetPlayerModerationsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Search Player Moderations
-    ApiResponse<List<PlayerModeration>> response = apiInstance.GetPlayerModerationsWithHttpInfo(type, targetUserId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PlayermoderationApi.GetPlayerModerationsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **type** | **string** | Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. | [optional]  |
-| **targetUserId** | **string** | Must be valid UserID. | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | **string**| Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. | [optional] 
+ **targetUserId** | **string**| Must be valid UserID. | [optional] 
 
 ### Return type
 
@@ -458,8 +380,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PlayermoderationApi.ModerateUser: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling PlayermoderationApi.ModerateUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -467,31 +389,11 @@ namespace Example
 }
 ```
 
-#### Using the ModerateUserWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Moderate User
-    ApiResponse<PlayerModeration> response = apiInstance.ModerateUserWithHttpInfo(moderateUserRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PlayermoderationApi.ModerateUserWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md) |  | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -559,8 +461,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PlayermoderationApi.UnmoderateUser: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling PlayermoderationApi.UnmoderateUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -568,31 +470,11 @@ namespace Example
 }
 ```
 
-#### Using the UnmoderateUserWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Unmoderate User
-    ApiResponse<Success> response = apiInstance.UnmoderateUserWithHttpInfo(moderateUserRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PlayermoderationApi.UnmoderateUserWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md) |  | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md)|  | [optional] 
 
 ### Return type
 

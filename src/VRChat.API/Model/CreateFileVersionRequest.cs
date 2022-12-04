@@ -46,8 +46,7 @@ namespace VRChat.API.Model
         public CreateFileVersionRequest(string signatureMd5 = default(string), decimal signatureSizeInBytes = default(decimal), string fileMd5 = default(string), decimal fileSizeInBytes = default(decimal))
         {
             // to ensure "signatureMd5" is required (not null)
-            if (signatureMd5 == null)
-            {
+            if (signatureMd5 == null) {
                 throw new ArgumentNullException("signatureMd5 is a required property for CreateFileVersionRequest and cannot be null");
             }
             this.SignatureMd5 = signatureMd5;
@@ -59,13 +58,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SignatureMd5
         /// </summary>
-        [DataMember(Name = "signatureMd5", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "signatureMd5", IsRequired = true, EmitDefaultValue = false)]
         public string SignatureMd5 { get; set; }
 
         /// <summary>
         /// Gets or Sets SignatureSizeInBytes
         /// </summary>
-        [DataMember(Name = "signatureSizeInBytes", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "signatureSizeInBytes", IsRequired = true, EmitDefaultValue = false)]
         public decimal SignatureSizeInBytes { get; set; }
 
         /// <summary>
@@ -86,7 +85,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class CreateFileVersionRequest {\n");
             sb.Append("  SignatureMd5: ").Append(SignatureMd5).Append("\n");
             sb.Append("  SignatureSizeInBytes: ").Append(SignatureSizeInBytes).Append("\n");
@@ -123,9 +122,8 @@ namespace VRChat.API.Model
         public bool Equals(CreateFileVersionRequest input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.SignatureMd5 == input.SignatureMd5 ||
@@ -157,15 +155,11 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.SignatureMd5 != null)
-                {
-                    hashCode = (hashCode * 59) + this.SignatureMd5.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.SignatureSizeInBytes.GetHashCode();
+                    hashCode = hashCode * 59 + this.SignatureMd5.GetHashCode();
+                hashCode = hashCode * 59 + this.SignatureSizeInBytes.GetHashCode();
                 if (this.FileMd5 != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileMd5.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.FileSizeInBytes.GetHashCode();
+                    hashCode = hashCode * 59 + this.FileMd5.GetHashCode();
+                hashCode = hashCode * 59 + this.FileSizeInBytes.GetHashCode();
                 return hashCode;
             }
         }
@@ -178,13 +172,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // SignatureMd5 (string) minLength
-            if (this.SignatureMd5 != null && this.SignatureMd5.Length < 1)
+            if(this.SignatureMd5 != null && this.SignatureMd5.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SignatureMd5, length must be greater than 1.", new [] { "SignatureMd5" });
             }
 
             // FileMd5 (string) minLength
-            if (this.FileMd5 != null && this.FileMd5.Length < 1)
+            if(this.FileMd5 != null && this.FileMd5.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileMd5, length must be greater than 1.", new [] { "FileMd5" });
             }

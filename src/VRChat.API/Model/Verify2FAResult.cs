@@ -57,7 +57,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class Verify2FAResult {\n");
             sb.Append("  Verified: ").Append(Verified).Append("\n");
             sb.Append("}\n");
@@ -91,9 +91,8 @@ namespace VRChat.API.Model
         public bool Equals(Verify2FAResult input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Verified == input.Verified ||
@@ -110,7 +109,7 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Verified.GetHashCode();
+                hashCode = hashCode * 59 + this.Verified.GetHashCode();
                 return hashCode;
             }
         }

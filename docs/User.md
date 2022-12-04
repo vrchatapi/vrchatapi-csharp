@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **State** | **UserState** |  | 
 **Status** | **UserStatus** |  | 
 **StatusDescription** | **string** |  | 
-**Tags** | **List&lt;string&gt;** |   | 
+**Tags** | **List&lt;string&gt;** |  | 
 **TravelingToInstance** | **string** |  | [optional] 
 **TravelingToLocation** | **string** |  | [optional] 
 **TravelingToWorld** | **string** |  | [optional] 

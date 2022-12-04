@@ -34,9 +34,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Avatar</returns>
-        Avatar CreateAvatar(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), int operationIndex = 0);
+        Avatar CreateAvatar(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest));
 
         /// <summary>
         /// Create Avatar
@@ -46,9 +45,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Avatar</returns>
-        ApiResponse<Avatar> CreateAvatarWithHttpInfo(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), int operationIndex = 0);
+        ApiResponse<Avatar> CreateAvatarWithHttpInfo(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest));
         /// <summary>
         /// Delete Avatar
         /// </summary>
@@ -56,10 +54,9 @@ namespace VRChat.API.Api
         /// Delete an avatar. Notice an avatar is never fully \&quot;deleted\&quot;, only its ReleaseStatus is set to \&quot;hidden\&quot; and the linked Files are deleted. The AvatarID is permanently reserved.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>Avatar</returns>
-        Avatar DeleteAvatar(string avatarId, int operationIndex = 0);
+        Avatar DeleteAvatar(string avatarId);
 
         /// <summary>
         /// Delete Avatar
@@ -68,10 +65,9 @@ namespace VRChat.API.Api
         /// Delete an avatar. Notice an avatar is never fully \&quot;deleted\&quot;, only its ReleaseStatus is set to \&quot;hidden\&quot; and the linked Files are deleted. The AvatarID is permanently reserved.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>ApiResponse of Avatar</returns>
-        ApiResponse<Avatar> DeleteAvatarWithHttpInfo(string avatarId, int operationIndex = 0);
+        ApiResponse<Avatar> DeleteAvatarWithHttpInfo(string avatarId);
         /// <summary>
         /// Get Avatar
         /// </summary>
@@ -79,10 +75,9 @@ namespace VRChat.API.Api
         /// Get information about a specific Avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>Avatar</returns>
-        Avatar GetAvatar(string avatarId, int operationIndex = 0);
+        Avatar GetAvatar(string avatarId);
 
         /// <summary>
         /// Get Avatar
@@ -91,10 +86,9 @@ namespace VRChat.API.Api
         /// Get information about a specific Avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>ApiResponse of Avatar</returns>
-        ApiResponse<Avatar> GetAvatarWithHttpInfo(string avatarId, int operationIndex = 0);
+        ApiResponse<Avatar> GetAvatarWithHttpInfo(string avatarId);
         /// <summary>
         /// List Favorited Avatars
         /// </summary>
@@ -103,21 +97,20 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="search">Filters by world name. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Avatar&gt;</returns>
-        List<Avatar> GetFavoritedAvatars(bool? featured = default(bool?), string sort = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0);
+        List<Avatar> GetFavoritedAvatars(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string));
 
         /// <summary>
         /// List Favorited Avatars
@@ -127,21 +120,20 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="search">Filters by world name. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Avatar&gt;</returns>
-        ApiResponse<List<Avatar>> GetFavoritedAvatarsWithHttpInfo(bool? featured = default(bool?), string sort = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0);
+        ApiResponse<List<Avatar>> GetFavoritedAvatarsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string));
         /// <summary>
         /// Get Own Avatar
         /// </summary>
@@ -149,10 +141,9 @@ namespace VRChat.API.Api
         /// Get the current avatar for the user. This will return an error for any other user than the one logged in.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Avatar</returns>
-        Avatar GetOwnAvatar(string userId, int operationIndex = 0);
+        Avatar GetOwnAvatar(string userId);
 
         /// <summary>
         /// Get Own Avatar
@@ -161,10 +152,9 @@ namespace VRChat.API.Api
         /// Get the current avatar for the user. This will return an error for any other user than the one logged in.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Avatar</returns>
-        ApiResponse<Avatar> GetOwnAvatarWithHttpInfo(string userId, int operationIndex = 0);
+        ApiResponse<Avatar> GetOwnAvatarWithHttpInfo(string userId);
         /// <summary>
         /// Search Avatars
         /// </summary>
@@ -173,21 +163,20 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="user">Set to &#x60;me&#x60; for searching own avatars. (optional)</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Avatar&gt;</returns>
-        List<Avatar> SearchAvatars(bool? featured = default(bool?), string sort = default(string), string user = default(string), string userId = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0);
+        List<Avatar> SearchAvatars(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string));
 
         /// <summary>
         /// Search Avatars
@@ -197,21 +186,20 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="user">Set to &#x60;me&#x60; for searching own avatars. (optional)</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Avatar&gt;</returns>
-        ApiResponse<List<Avatar>> SearchAvatarsWithHttpInfo(bool? featured = default(bool?), string sort = default(string), string user = default(string), string userId = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0);
+        ApiResponse<List<Avatar>> SearchAvatarsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string));
         /// <summary>
         /// Select Avatar
         /// </summary>
@@ -219,10 +207,9 @@ namespace VRChat.API.Api
         /// Switches into that avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>CurrentUser</returns>
-        CurrentUser SelectAvatar(string avatarId, int operationIndex = 0);
+        CurrentUser SelectAvatar(string avatarId);
 
         /// <summary>
         /// Select Avatar
@@ -231,10 +218,9 @@ namespace VRChat.API.Api
         /// Switches into that avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
-        ApiResponse<CurrentUser> SelectAvatarWithHttpInfo(string avatarId, int operationIndex = 0);
+        ApiResponse<CurrentUser> SelectAvatarWithHttpInfo(string avatarId);
         /// <summary>
         /// Select Fallback Avatar
         /// </summary>
@@ -242,10 +228,9 @@ namespace VRChat.API.Api
         /// Switches into that avatar as your fallback avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>CurrentUser</returns>
-        CurrentUser SelectFallbackAvatar(string avatarId, int operationIndex = 0);
+        CurrentUser SelectFallbackAvatar(string avatarId);
 
         /// <summary>
         /// Select Fallback Avatar
@@ -254,10 +239,9 @@ namespace VRChat.API.Api
         /// Switches into that avatar as your fallback avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
-        ApiResponse<CurrentUser> SelectFallbackAvatarWithHttpInfo(string avatarId, int operationIndex = 0);
+        ApiResponse<CurrentUser> SelectFallbackAvatarWithHttpInfo(string avatarId);
         /// <summary>
         /// Update Avatar
         /// </summary>
@@ -265,11 +249,10 @@ namespace VRChat.API.Api
         /// Update information about a specific avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="updateAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Avatar</returns>
-        Avatar UpdateAvatar(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), int operationIndex = 0);
+        Avatar UpdateAvatar(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest));
 
         /// <summary>
         /// Update Avatar
@@ -278,11 +261,10 @@ namespace VRChat.API.Api
         /// Update information about a specific avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="updateAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Avatar</returns>
-        ApiResponse<Avatar> UpdateAvatarWithHttpInfo(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), int operationIndex = 0);
+        ApiResponse<Avatar> UpdateAvatarWithHttpInfo(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest));
         #endregion Synchronous Operations
     }
 
@@ -300,10 +282,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Avatar</returns>
-        System.Threading.Tasks.Task<Avatar> CreateAvatarAsync(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Avatar> CreateAvatarAsync(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Avatar
@@ -313,10 +294,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Avatar>> CreateAvatarWithHttpInfoAsync(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Avatar>> CreateAvatarWithHttpInfoAsync(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete Avatar
         /// </summary>
@@ -324,11 +304,10 @@ namespace VRChat.API.Api
         /// Delete an avatar. Notice an avatar is never fully \&quot;deleted\&quot;, only its ReleaseStatus is set to \&quot;hidden\&quot; and the linked Files are deleted. The AvatarID is permanently reserved.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Avatar</returns>
-        System.Threading.Tasks.Task<Avatar> DeleteAvatarAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Avatar> DeleteAvatarAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Avatar
@@ -337,11 +316,10 @@ namespace VRChat.API.Api
         /// Delete an avatar. Notice an avatar is never fully \&quot;deleted\&quot;, only its ReleaseStatus is set to \&quot;hidden\&quot; and the linked Files are deleted. The AvatarID is permanently reserved.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Avatar>> DeleteAvatarWithHttpInfoAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Avatar>> DeleteAvatarWithHttpInfoAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Avatar
         /// </summary>
@@ -349,11 +327,10 @@ namespace VRChat.API.Api
         /// Get information about a specific Avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Avatar</returns>
-        System.Threading.Tasks.Task<Avatar> GetAvatarAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Avatar> GetAvatarAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Avatar
@@ -362,11 +339,10 @@ namespace VRChat.API.Api
         /// Get information about a specific Avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Avatar>> GetAvatarWithHttpInfoAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Avatar>> GetAvatarWithHttpInfoAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Favorited Avatars
         /// </summary>
@@ -375,22 +351,21 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="search">Filters by world name. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Avatar&gt;</returns>
-        System.Threading.Tasks.Task<List<Avatar>> GetFavoritedAvatarsAsync(bool? featured = default(bool?), string sort = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Avatar>> GetFavoritedAvatarsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Favorited Avatars
@@ -400,22 +375,21 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="search">Filters by world name. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Avatar&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Avatar>>> GetFavoritedAvatarsWithHttpInfoAsync(bool? featured = default(bool?), string sort = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Avatar>>> GetFavoritedAvatarsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Own Avatar
         /// </summary>
@@ -423,11 +397,10 @@ namespace VRChat.API.Api
         /// Get the current avatar for the user. This will return an error for any other user than the one logged in.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Avatar</returns>
-        System.Threading.Tasks.Task<Avatar> GetOwnAvatarAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Avatar> GetOwnAvatarAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Own Avatar
@@ -436,11 +409,10 @@ namespace VRChat.API.Api
         /// Get the current avatar for the user. This will return an error for any other user than the one logged in.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Avatar>> GetOwnAvatarWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Avatar>> GetOwnAvatarWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Avatars
         /// </summary>
@@ -449,22 +421,21 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="user">Set to &#x60;me&#x60; for searching own avatars. (optional)</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Avatar&gt;</returns>
-        System.Threading.Tasks.Task<List<Avatar>> SearchAvatarsAsync(bool? featured = default(bool?), string sort = default(string), string user = default(string), string userId = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Avatar>> SearchAvatarsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Avatars
@@ -474,22 +445,21 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="user">Set to &#x60;me&#x60; for searching own avatars. (optional)</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Avatar&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Avatar>>> SearchAvatarsWithHttpInfoAsync(bool? featured = default(bool?), string sort = default(string), string user = default(string), string userId = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Avatar>>> SearchAvatarsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Select Avatar
         /// </summary>
@@ -497,11 +467,10 @@ namespace VRChat.API.Api
         /// Switches into that avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
-        System.Threading.Tasks.Task<CurrentUser> SelectAvatarAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CurrentUser> SelectAvatarAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Select Avatar
@@ -510,11 +479,10 @@ namespace VRChat.API.Api
         /// Switches into that avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> SelectAvatarWithHttpInfoAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> SelectAvatarWithHttpInfoAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Select Fallback Avatar
         /// </summary>
@@ -522,11 +490,10 @@ namespace VRChat.API.Api
         /// Switches into that avatar as your fallback avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
-        System.Threading.Tasks.Task<CurrentUser> SelectFallbackAvatarAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CurrentUser> SelectFallbackAvatarAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Select Fallback Avatar
@@ -535,11 +502,10 @@ namespace VRChat.API.Api
         /// Switches into that avatar as your fallback avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> SelectFallbackAvatarWithHttpInfoAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> SelectFallbackAvatarWithHttpInfoAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Avatar
         /// </summary>
@@ -547,12 +513,11 @@ namespace VRChat.API.Api
         /// Update information about a specific avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="updateAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Avatar</returns>
-        System.Threading.Tasks.Task<Avatar> UpdateAvatarAsync(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Avatar> UpdateAvatarAsync(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Avatar
@@ -561,12 +526,11 @@ namespace VRChat.API.Api
         /// Update information about a specific avatar.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="updateAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Avatar>> UpdateAvatarWithHttpInfoAsync(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Avatar>> UpdateAvatarWithHttpInfoAsync(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -692,9 +656,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Avatar</returns>
-        public Avatar CreateAvatar(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), int operationIndex = 0)
+        public Avatar CreateAvatar(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest))
         {
             VRChat.API.Client.ApiResponse<Avatar> localVarResponse = CreateAvatarWithHttpInfo(createAvatarRequest);
             return localVarResponse.Data;
@@ -705,9 +668,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Avatar</returns>
-        public VRChat.API.Client.ApiResponse<Avatar> CreateAvatarWithHttpInfo(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Avatar> CreateAvatarWithHttpInfo(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest))
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -721,21 +683,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = createAvatarRequest;
-
-            localVarRequestOptions.Operation = "AvatarsApi.CreateAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -752,13 +705,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Avatar>("/avatars", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -769,12 +720,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Avatar</returns>
-        public async System.Threading.Tasks.Task<Avatar> CreateAvatarAsync(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Avatar> CreateAvatarAsync(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Avatar> localVarResponse = await CreateAvatarWithHttpInfoAsync(createAvatarRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Avatar> localVarResponse = await CreateAvatarWithHttpInfoAsync(createAvatarRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -783,10 +733,9 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Avatar>> CreateAvatarWithHttpInfoAsync(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Avatar>> CreateAvatarWithHttpInfoAsync(CreateAvatarRequest createAvatarRequest = default(CreateAvatarRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -800,22 +749,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = createAvatarRequest;
-
-            localVarRequestOptions.Operation = "AvatarsApi.CreateAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -831,15 +772,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Avatar>("/avatars", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -849,10 +788,9 @@ namespace VRChat.API.Api
         /// Delete Avatar Delete an avatar. Notice an avatar is never fully \&quot;deleted\&quot;, only its ReleaseStatus is set to \&quot;hidden\&quot; and the linked Files are deleted. The AvatarID is permanently reserved.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>Avatar</returns>
-        public Avatar DeleteAvatar(string avatarId, int operationIndex = 0)
+        public Avatar DeleteAvatar(string avatarId)
         {
             VRChat.API.Client.ApiResponse<Avatar> localVarResponse = DeleteAvatarWithHttpInfo(avatarId);
             return localVarResponse.Data;
@@ -862,16 +800,13 @@ namespace VRChat.API.Api
         /// Delete Avatar Delete an avatar. Notice an avatar is never fully \&quot;deleted\&quot;, only its ReleaseStatus is set to \&quot;hidden\&quot; and the linked Files are deleted. The AvatarID is permanently reserved.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>ApiResponse of Avatar</returns>
-        public VRChat.API.Client.ApiResponse<Avatar> DeleteAvatarWithHttpInfo(string avatarId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Avatar> DeleteAvatarWithHttpInfo(string avatarId)
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'avatarId' when calling AvatarsApi->DeleteAvatar");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -884,21 +819,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("avatarId", VRChat.API.Client.ClientUtils.ParameterToString(avatarId)); // path parameter
-
-            localVarRequestOptions.Operation = "AvatarsApi.DeleteAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -915,13 +841,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Avatar>("/avatars/{avatarId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -931,13 +855,12 @@ namespace VRChat.API.Api
         /// Delete Avatar Delete an avatar. Notice an avatar is never fully \&quot;deleted\&quot;, only its ReleaseStatus is set to \&quot;hidden\&quot; and the linked Files are deleted. The AvatarID is permanently reserved.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Avatar</returns>
-        public async System.Threading.Tasks.Task<Avatar> DeleteAvatarAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Avatar> DeleteAvatarAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Avatar> localVarResponse = await DeleteAvatarWithHttpInfoAsync(avatarId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Avatar> localVarResponse = await DeleteAvatarWithHttpInfoAsync(avatarId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -945,17 +868,14 @@ namespace VRChat.API.Api
         /// Delete Avatar Delete an avatar. Notice an avatar is never fully \&quot;deleted\&quot;, only its ReleaseStatus is set to \&quot;hidden\&quot; and the linked Files are deleted. The AvatarID is permanently reserved.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Avatar>> DeleteAvatarWithHttpInfoAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Avatar>> DeleteAvatarWithHttpInfoAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'avatarId' when calling AvatarsApi->DeleteAvatar");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -968,22 +888,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("avatarId", VRChat.API.Client.ClientUtils.ParameterToString(avatarId)); // path parameter
-
-            localVarRequestOptions.Operation = "AvatarsApi.DeleteAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -999,15 +911,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Avatar>("/avatars/{avatarId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1017,10 +927,9 @@ namespace VRChat.API.Api
         /// Get Avatar Get information about a specific Avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>Avatar</returns>
-        public Avatar GetAvatar(string avatarId, int operationIndex = 0)
+        public Avatar GetAvatar(string avatarId)
         {
             VRChat.API.Client.ApiResponse<Avatar> localVarResponse = GetAvatarWithHttpInfo(avatarId);
             return localVarResponse.Data;
@@ -1030,16 +939,13 @@ namespace VRChat.API.Api
         /// Get Avatar Get information about a specific Avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>ApiResponse of Avatar</returns>
-        public VRChat.API.Client.ApiResponse<Avatar> GetAvatarWithHttpInfo(string avatarId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Avatar> GetAvatarWithHttpInfo(string avatarId)
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'avatarId' when calling AvatarsApi->GetAvatar");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1052,21 +958,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("avatarId", VRChat.API.Client.ClientUtils.ParameterToString(avatarId)); // path parameter
-
-            localVarRequestOptions.Operation = "AvatarsApi.GetAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1083,13 +980,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Avatar>("/avatars/{avatarId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1099,13 +994,12 @@ namespace VRChat.API.Api
         /// Get Avatar Get information about a specific Avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Avatar</returns>
-        public async System.Threading.Tasks.Task<Avatar> GetAvatarAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Avatar> GetAvatarAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Avatar> localVarResponse = await GetAvatarWithHttpInfoAsync(avatarId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Avatar> localVarResponse = await GetAvatarWithHttpInfoAsync(avatarId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1113,17 +1007,14 @@ namespace VRChat.API.Api
         /// Get Avatar Get information about a specific Avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Avatar>> GetAvatarWithHttpInfoAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Avatar>> GetAvatarWithHttpInfoAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'avatarId' when calling AvatarsApi->GetAvatar");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1136,22 +1027,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("avatarId", VRChat.API.Client.ClientUtils.ParameterToString(avatarId)); // path parameter
-
-            localVarRequestOptions.Operation = "AvatarsApi.GetAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1167,15 +1050,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Avatar>("/avatars/{avatarId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1186,21 +1067,20 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="search">Filters by world name. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Avatar&gt;</returns>
-        public List<Avatar> GetFavoritedAvatars(bool? featured = default(bool?), string sort = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0)
+        public List<Avatar> GetFavoritedAvatars(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string))
         {
             VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = GetFavoritedAvatarsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
             return localVarResponse.Data;
@@ -1211,21 +1091,20 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="search">Filters by world name. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Avatar&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Avatar>> GetFavoritedAvatarsWithHttpInfo(bool? featured = default(bool?), string sort = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<Avatar>> GetFavoritedAvatarsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string))
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1238,16 +1117,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -1301,9 +1174,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
-
-            localVarRequestOptions.Operation = "AvatarsApi.GetFavoritedAvatars";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1320,13 +1190,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<Avatar>>("/avatars/favorites", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFavoritedAvatars", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1337,24 +1205,23 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="search">Filters by world name. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Avatar&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Avatar>> GetFavoritedAvatarsAsync(bool? featured = default(bool?), string sort = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Avatar>> GetFavoritedAvatarsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = await GetFavoritedAvatarsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = await GetFavoritedAvatarsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1363,22 +1230,21 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="search">Filters by world name. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Avatar&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Avatar>>> GetFavoritedAvatarsWithHttpInfoAsync(bool? featured = default(bool?), string sort = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Avatar>>> GetFavoritedAvatarsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1391,17 +1257,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -1456,9 +1317,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
-            localVarRequestOptions.Operation = "AvatarsApi.GetFavoritedAvatars";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (apiKeyCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apiKey")))
@@ -1473,15 +1331,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Avatar>>("/avatars/favorites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFavoritedAvatars", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1491,10 +1347,9 @@ namespace VRChat.API.Api
         /// Get Own Avatar Get the current avatar for the user. This will return an error for any other user than the one logged in.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Avatar</returns>
-        public Avatar GetOwnAvatar(string userId, int operationIndex = 0)
+        public Avatar GetOwnAvatar(string userId)
         {
             VRChat.API.Client.ApiResponse<Avatar> localVarResponse = GetOwnAvatarWithHttpInfo(userId);
             return localVarResponse.Data;
@@ -1504,16 +1359,13 @@ namespace VRChat.API.Api
         /// Get Own Avatar Get the current avatar for the user. This will return an error for any other user than the one logged in.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Avatar</returns>
-        public VRChat.API.Client.ApiResponse<Avatar> GetOwnAvatarWithHttpInfo(string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Avatar> GetOwnAvatarWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling AvatarsApi->GetOwnAvatar");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1526,21 +1378,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "AvatarsApi.GetOwnAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1557,13 +1400,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Avatar>("/users/{userId}/avatar", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOwnAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1573,13 +1414,12 @@ namespace VRChat.API.Api
         /// Get Own Avatar Get the current avatar for the user. This will return an error for any other user than the one logged in.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Avatar</returns>
-        public async System.Threading.Tasks.Task<Avatar> GetOwnAvatarAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Avatar> GetOwnAvatarAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Avatar> localVarResponse = await GetOwnAvatarWithHttpInfoAsync(userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Avatar> localVarResponse = await GetOwnAvatarWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1587,17 +1427,14 @@ namespace VRChat.API.Api
         /// Get Own Avatar Get the current avatar for the user. This will return an error for any other user than the one logged in.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Avatar>> GetOwnAvatarWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Avatar>> GetOwnAvatarWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling AvatarsApi->GetOwnAvatar");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1610,22 +1447,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "AvatarsApi.GetOwnAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1641,15 +1470,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Avatar>("/users/{userId}/avatar", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOwnAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1660,21 +1487,20 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="user">Set to &#x60;me&#x60; for searching own avatars. (optional)</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Avatar&gt;</returns>
-        public List<Avatar> SearchAvatars(bool? featured = default(bool?), string sort = default(string), string user = default(string), string userId = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0)
+        public List<Avatar> SearchAvatars(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string))
         {
             VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = SearchAvatarsWithHttpInfo(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
             return localVarResponse.Data;
@@ -1685,21 +1511,20 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="user">Set to &#x60;me&#x60; for searching own avatars. (optional)</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Avatar&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Avatar>> SearchAvatarsWithHttpInfo(bool? featured = default(bool?), string sort = default(string), string user = default(string), string userId = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<Avatar>> SearchAvatarsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string))
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1712,16 +1537,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -1775,9 +1594,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
             }
-
-            localVarRequestOptions.Operation = "AvatarsApi.SearchAvatars";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1794,13 +1610,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<Avatar>>("/avatars", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchAvatars", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1811,24 +1625,23 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="user">Set to &#x60;me&#x60; for searching own avatars. (optional)</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Avatar&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Avatar>> SearchAvatarsAsync(bool? featured = default(bool?), string sort = default(string), string user = default(string), string userId = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Avatar>> SearchAvatarsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = await SearchAvatarsWithHttpInfoAsync(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = await SearchAvatarsWithHttpInfoAsync(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1837,22 +1650,21 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
-        /// <param name="sort"> (optional, default to popularity)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="user">Set to &#x60;me&#x60; for searching own avatars. (optional)</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="order"> (optional, default to descending)</param>
+        /// <param name="order">Result ordering (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="tag">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
         /// <param name="notag">Tags to exclude (comma-separated). (optional)</param>
-        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional, default to public)</param>
+        /// <param name="releaseStatus">Filter by ReleaseStatus. (optional)</param>
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Avatar&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Avatar>>> SearchAvatarsWithHttpInfoAsync(bool? featured = default(bool?), string sort = default(string), string user = default(string), string userId = default(string), int? n = default(int?), string order = default(string), int? offset = default(int?), string tag = default(string), string notag = default(string), string releaseStatus = default(string), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Avatar>>> SearchAvatarsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1865,17 +1677,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -1930,9 +1737,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
             }
 
-            localVarRequestOptions.Operation = "AvatarsApi.SearchAvatars";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (apiKeyCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apiKey")))
@@ -1947,15 +1751,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Avatar>>("/avatars", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchAvatars", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1965,10 +1767,9 @@ namespace VRChat.API.Api
         /// Select Avatar Switches into that avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>CurrentUser</returns>
-        public CurrentUser SelectAvatar(string avatarId, int operationIndex = 0)
+        public CurrentUser SelectAvatar(string avatarId)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = SelectAvatarWithHttpInfo(avatarId);
             return localVarResponse.Data;
@@ -1978,16 +1779,13 @@ namespace VRChat.API.Api
         /// Select Avatar Switches into that avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
-        public VRChat.API.Client.ApiResponse<CurrentUser> SelectAvatarWithHttpInfo(string avatarId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<CurrentUser> SelectAvatarWithHttpInfo(string avatarId)
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'avatarId' when calling AvatarsApi->SelectAvatar");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2000,21 +1798,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("avatarId", VRChat.API.Client.ClientUtils.ParameterToString(avatarId)); // path parameter
-
-            localVarRequestOptions.Operation = "AvatarsApi.SelectAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -2031,13 +1820,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<CurrentUser>("/avatars/{avatarId}/select", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SelectAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2047,13 +1834,12 @@ namespace VRChat.API.Api
         /// Select Avatar Switches into that avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
-        public async System.Threading.Tasks.Task<CurrentUser> SelectAvatarAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CurrentUser> SelectAvatarAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await SelectAvatarWithHttpInfoAsync(avatarId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await SelectAvatarWithHttpInfoAsync(avatarId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2061,17 +1847,14 @@ namespace VRChat.API.Api
         /// Select Avatar Switches into that avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> SelectAvatarWithHttpInfoAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> SelectAvatarWithHttpInfoAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'avatarId' when calling AvatarsApi->SelectAvatar");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2084,22 +1867,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("avatarId", VRChat.API.Client.ClientUtils.ParameterToString(avatarId)); // path parameter
-
-            localVarRequestOptions.Operation = "AvatarsApi.SelectAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -2115,15 +1890,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<CurrentUser>("/avatars/{avatarId}/select", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SelectAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2133,10 +1906,9 @@ namespace VRChat.API.Api
         /// Select Fallback Avatar Switches into that avatar as your fallback avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>CurrentUser</returns>
-        public CurrentUser SelectFallbackAvatar(string avatarId, int operationIndex = 0)
+        public CurrentUser SelectFallbackAvatar(string avatarId)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = SelectFallbackAvatarWithHttpInfo(avatarId);
             return localVarResponse.Data;
@@ -2146,16 +1918,13 @@ namespace VRChat.API.Api
         /// Select Fallback Avatar Switches into that avatar as your fallback avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
-        public VRChat.API.Client.ApiResponse<CurrentUser> SelectFallbackAvatarWithHttpInfo(string avatarId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<CurrentUser> SelectFallbackAvatarWithHttpInfo(string avatarId)
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'avatarId' when calling AvatarsApi->SelectFallbackAvatar");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2168,21 +1937,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("avatarId", VRChat.API.Client.ClientUtils.ParameterToString(avatarId)); // path parameter
-
-            localVarRequestOptions.Operation = "AvatarsApi.SelectFallbackAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -2199,13 +1959,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<CurrentUser>("/avatars/{avatarId}/selectFallback", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SelectFallbackAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2215,13 +1973,12 @@ namespace VRChat.API.Api
         /// Select Fallback Avatar Switches into that avatar as your fallback avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
-        public async System.Threading.Tasks.Task<CurrentUser> SelectFallbackAvatarAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CurrentUser> SelectFallbackAvatarAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await SelectFallbackAvatarWithHttpInfoAsync(avatarId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await SelectFallbackAvatarWithHttpInfoAsync(avatarId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2229,17 +1986,14 @@ namespace VRChat.API.Api
         /// Select Fallback Avatar Switches into that avatar as your fallback avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> SelectFallbackAvatarWithHttpInfoAsync(string avatarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> SelectFallbackAvatarWithHttpInfoAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'avatarId' when calling AvatarsApi->SelectFallbackAvatar");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2252,22 +2006,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("avatarId", VRChat.API.Client.ClientUtils.ParameterToString(avatarId)); // path parameter
-
-            localVarRequestOptions.Operation = "AvatarsApi.SelectFallbackAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -2283,15 +2029,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<CurrentUser>("/avatars/{avatarId}/selectFallback", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SelectFallbackAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2301,11 +2045,10 @@ namespace VRChat.API.Api
         /// Update Avatar Update information about a specific avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="updateAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Avatar</returns>
-        public Avatar UpdateAvatar(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), int operationIndex = 0)
+        public Avatar UpdateAvatar(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest))
         {
             VRChat.API.Client.ApiResponse<Avatar> localVarResponse = UpdateAvatarWithHttpInfo(avatarId, updateAvatarRequest);
             return localVarResponse.Data;
@@ -2315,17 +2058,14 @@ namespace VRChat.API.Api
         /// Update Avatar Update information about a specific avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="updateAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Avatar</returns>
-        public VRChat.API.Client.ApiResponse<Avatar> UpdateAvatarWithHttpInfo(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Avatar> UpdateAvatarWithHttpInfo(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest))
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'avatarId' when calling AvatarsApi->UpdateAvatar");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2339,22 +2079,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("avatarId", VRChat.API.Client.ClientUtils.ParameterToString(avatarId)); // path parameter
             localVarRequestOptions.Data = updateAvatarRequest;
-
-            localVarRequestOptions.Operation = "AvatarsApi.UpdateAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -2371,13 +2102,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Avatar>("/avatars/{avatarId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2387,14 +2116,13 @@ namespace VRChat.API.Api
         /// Update Avatar Update information about a specific avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="updateAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Avatar</returns>
-        public async System.Threading.Tasks.Task<Avatar> UpdateAvatarAsync(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Avatar> UpdateAvatarAsync(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Avatar> localVarResponse = await UpdateAvatarWithHttpInfoAsync(avatarId, updateAvatarRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Avatar> localVarResponse = await UpdateAvatarWithHttpInfoAsync(avatarId, updateAvatarRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2402,18 +2130,15 @@ namespace VRChat.API.Api
         /// Update Avatar Update information about a specific avatar.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="avatarId"></param>
+        /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="updateAvatarRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Avatar)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Avatar>> UpdateAvatarWithHttpInfoAsync(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Avatar>> UpdateAvatarWithHttpInfoAsync(string avatarId, UpdateAvatarRequest updateAvatarRequest = default(UpdateAvatarRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'avatarId' is set
             if (avatarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'avatarId' when calling AvatarsApi->UpdateAvatar");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2427,23 +2152,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("avatarId", VRChat.API.Client.ClientUtils.ParameterToString(avatarId)); // path parameter
             localVarRequestOptions.Data = updateAvatarRequest;
-
-            localVarRequestOptions.Operation = "AvatarsApi.UpdateAvatar";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -2459,15 +2176,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Avatar>("/avatars/{avatarId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateAvatar", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

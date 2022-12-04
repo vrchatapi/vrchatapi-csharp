@@ -35,19 +35,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PhotonRegion
         /// </summary>
-        [DataMember(Name = "photonRegion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "photonRegion", IsRequired = true, EmitDefaultValue = false)]
         public Region PhotonRegion { get; set; }
 
         /// <summary>
         /// Gets or Sets Region
         /// </summary>
-        [DataMember(Name = "region", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "region", IsRequired = true, EmitDefaultValue = false)]
         public Region Region { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public InstanceType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Instance" /> class.
@@ -86,62 +86,53 @@ namespace VRChat.API.Model
             this.CanRequestInvite = canRequestInvite;
             this.Capacity = capacity;
             // to ensure "clientNumber" is required (not null)
-            if (clientNumber == null)
-            {
+            if (clientNumber == null) {
                 throw new ArgumentNullException("clientNumber is a required property for Instance and cannot be null");
             }
             this.ClientNumber = clientNumber;
             this.Full = full;
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
+            if (id == null) {
                 throw new ArgumentNullException("id is a required property for Instance and cannot be null");
             }
             this.Id = id;
             // to ensure "instanceId" is required (not null)
-            if (instanceId == null)
-            {
+            if (instanceId == null) {
                 throw new ArgumentNullException("instanceId is a required property for Instance and cannot be null");
             }
             this.InstanceId = instanceId;
             // to ensure "location" is required (not null)
-            if (location == null)
-            {
+            if (location == null) {
                 throw new ArgumentNullException("location is a required property for Instance and cannot be null");
             }
             this.Location = location;
             this.NUsers = nUsers;
             // to ensure "name" is required (not null)
-            if (name == null)
-            {
+            if (name == null) {
                 throw new ArgumentNullException("name is a required property for Instance and cannot be null");
             }
             this.Name = name;
             this.Permanent = permanent;
             this.PhotonRegion = photonRegion;
             // to ensure "platforms" is required (not null)
-            if (platforms == null)
-            {
+            if (platforms == null) {
                 throw new ArgumentNullException("platforms is a required property for Instance and cannot be null");
             }
             this.Platforms = platforms;
             this.Region = region;
             // to ensure "secureName" is required (not null)
-            if (secureName == null)
-            {
+            if (secureName == null) {
                 throw new ArgumentNullException("secureName is a required property for Instance and cannot be null");
             }
             this.SecureName = secureName;
             // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
+            if (tags == null) {
                 throw new ArgumentNullException("tags is a required property for Instance and cannot be null");
             }
             this.Tags = tags;
             this.Type = type;
             // to ensure "worldId" is required (not null)
-            if (worldId == null)
-            {
+            if (worldId == null) {
                 throw new ArgumentNullException("worldId is a required property for Instance and cannot be null");
             }
             this.WorldId = worldId;
@@ -167,14 +158,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
-        [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = false)]
         public int Capacity { get; set; }
 
         /// <summary>
         /// Always returns \&quot;unknown\&quot;.
         /// </summary>
         /// <value>Always returns \&quot;unknown\&quot;.</value>
-        [DataMember(Name = "clientNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientNumber", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string ClientNumber { get; set; }
 
@@ -188,32 +179,32 @@ namespace VRChat.API.Model
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets InstanceId
         /// </summary>
-        [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = false)]
         public string InstanceId { get; set; }
 
         /// <summary>
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
-        [DataMember(Name = "location", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "location", IsRequired = true, EmitDefaultValue = false)]
         public string Location { get; set; }
 
         /// <summary>
         /// Gets or Sets NUsers
         /// </summary>
-        [DataMember(Name = "n_users", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "n_users", IsRequired = true, EmitDefaultValue = false)]
         public int NUsers { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -232,13 +223,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Platforms
         /// </summary>
-        [DataMember(Name = "platforms", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "platforms", IsRequired = true, EmitDefaultValue = false)]
         public InstancePlatforms Platforms { get; set; }
 
         /// <summary>
         /// Gets or Sets SecureName
         /// </summary>
-        [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = false)]
         public string SecureName { get; set; }
 
         /// <summary>
@@ -251,14 +242,14 @@ namespace VRChat.API.Model
         /// The tags array on Instances usually contain the language tags of the people in the instance. 
         /// </summary>
         /// <value>The tags array on Instances usually contain the language tags of the people in the instance. </value>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "worldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "worldId", IsRequired = true, EmitDefaultValue = false)]
         public string WorldId { get; set; }
 
         /// <summary>
@@ -288,7 +279,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class Instance {\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  CanRequestInvite: ").Append(CanRequestInvite).Append("\n");
@@ -344,9 +335,8 @@ namespace VRChat.API.Model
         public bool Equals(Instance input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Active == input.Active ||
@@ -466,71 +456,43 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Active.GetHashCode();
-                hashCode = (hashCode * 59) + this.CanRequestInvite.GetHashCode();
-                hashCode = (hashCode * 59) + this.Capacity.GetHashCode();
+                hashCode = hashCode * 59 + this.Active.GetHashCode();
+                hashCode = hashCode * 59 + this.CanRequestInvite.GetHashCode();
+                hashCode = hashCode * 59 + this.Capacity.GetHashCode();
                 if (this.ClientNumber != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientNumber.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Full.GetHashCode();
+                    hashCode = hashCode * 59 + this.ClientNumber.GetHashCode();
+                hashCode = hashCode * 59 + this.Full.GetHashCode();
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.InstanceId != null)
-                {
-                    hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.InstanceId.GetHashCode();
                 if (this.Location != null)
-                {
-                    hashCode = (hashCode * 59) + this.Location.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.NUsers.GetHashCode();
+                    hashCode = hashCode * 59 + this.Location.GetHashCode();
+                hashCode = hashCode * 59 + this.NUsers.GetHashCode();
                 if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.OwnerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Permanent.GetHashCode();
-                hashCode = (hashCode * 59) + this.PhotonRegion.GetHashCode();
+                    hashCode = hashCode * 59 + this.OwnerId.GetHashCode();
+                hashCode = hashCode * 59 + this.Permanent.GetHashCode();
+                hashCode = hashCode * 59 + this.PhotonRegion.GetHashCode();
                 if (this.Platforms != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platforms.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Region.GetHashCode();
+                    hashCode = hashCode * 59 + this.Platforms.GetHashCode();
+                hashCode = hashCode * 59 + this.Region.GetHashCode();
                 if (this.SecureName != null)
-                {
-                    hashCode = (hashCode * 59) + this.SecureName.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.SecureName.GetHashCode();
                 if (this.ShortName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.ShortName.GetHashCode();
                 if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.WorldId != null)
-                {
-                    hashCode = (hashCode * 59) + this.WorldId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.WorldId.GetHashCode();
                 if (this.Hidden != null)
-                {
-                    hashCode = (hashCode * 59) + this.Hidden.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Hidden.GetHashCode();
                 if (this.Friends != null)
-                {
-                    hashCode = (hashCode * 59) + this.Friends.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Friends.GetHashCode();
                 if (this.Private != null)
-                {
-                    hashCode = (hashCode * 59) + this.Private.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Private.GetHashCode();
                 return hashCode;
             }
         }
@@ -543,13 +505,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Capacity (int) minimum
-            if (this.Capacity < (int)0)
+            if(this.Capacity < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value greater than or equal to 0.", new [] { "Capacity" });
             }
 
             // ClientNumber (string) minLength
-            if (this.ClientNumber != null && this.ClientNumber.Length < 1)
+            if(this.ClientNumber != null && this.ClientNumber.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientNumber, length must be greater than 1.", new [] { "ClientNumber" });
             }
@@ -562,7 +524,7 @@ namespace VRChat.API.Model
             }
 
             // InstanceId (string) minLength
-            if (this.InstanceId != null && this.InstanceId.Length < 1)
+            if(this.InstanceId != null && this.InstanceId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InstanceId, length must be greater than 1.", new [] { "InstanceId" });
             }
@@ -575,25 +537,25 @@ namespace VRChat.API.Model
             }
 
             // NUsers (int) minimum
-            if (this.NUsers < (int)0)
+            if(this.NUsers < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NUsers, must be a value greater than or equal to 0.", new [] { "NUsers" });
             }
 
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // SecureName (string) minLength
-            if (this.SecureName != null && this.SecureName.Length < 1)
+            if(this.SecureName != null && this.SecureName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecureName, length must be greater than 1.", new [] { "SecureName" });
             }
 
             // ShortName (string) minLength
-            if (this.ShortName != null && this.ShortName.Length < 1)
+            if(this.ShortName != null && this.ShortName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortName, length must be greater than 1.", new [] { "ShortName" });
             }

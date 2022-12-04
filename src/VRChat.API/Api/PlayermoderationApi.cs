@@ -33,9 +33,8 @@ namespace VRChat.API.Api
         /// ⚠️ **This will delete every single player moderation you&#39;ve ever made.**
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success ClearAllPlayerModerations(int operationIndex = 0);
+        Success ClearAllPlayerModerations();
 
         /// <summary>
         /// Clear All Player Moderations
@@ -44,9 +43,8 @@ namespace VRChat.API.Api
         /// ⚠️ **This will delete every single player moderation you&#39;ve ever made.**
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> ClearAllPlayerModerationsWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Success> ClearAllPlayerModerationsWithHttpInfo();
         /// <summary>
         /// Delete Player Moderation
         /// </summary>
@@ -54,10 +52,9 @@ namespace VRChat.API.Api
         /// Deletes a specific player moderation based on it&#39;s &#x60;pmod_&#x60; ID. The website uses &#x60;unmoderateUser&#x60; instead. You can delete the same player moderation multiple times successfully.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <returns>Success</returns>
-        Success DeletePlayerModeration(string playerModerationId, int operationIndex = 0);
+        Success DeletePlayerModeration(string playerModerationId);
 
         /// <summary>
         /// Delete Player Moderation
@@ -66,10 +63,9 @@ namespace VRChat.API.Api
         /// Deletes a specific player moderation based on it&#39;s &#x60;pmod_&#x60; ID. The website uses &#x60;unmoderateUser&#x60; instead. You can delete the same player moderation multiple times successfully.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> DeletePlayerModerationWithHttpInfo(string playerModerationId, int operationIndex = 0);
+        ApiResponse<Success> DeletePlayerModerationWithHttpInfo(string playerModerationId);
         /// <summary>
         /// Get Player Moderation
         /// </summary>
@@ -77,10 +73,9 @@ namespace VRChat.API.Api
         /// Returns a single Player Moderation. This returns the exact same amount of information as the more generalised &#x60;getPlayerModerations&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <returns>PlayerModeration</returns>
-        PlayerModeration GetPlayerModeration(string playerModerationId, int operationIndex = 0);
+        PlayerModeration GetPlayerModeration(string playerModerationId);
 
         /// <summary>
         /// Get Player Moderation
@@ -89,10 +84,9 @@ namespace VRChat.API.Api
         /// Returns a single Player Moderation. This returns the exact same amount of information as the more generalised &#x60;getPlayerModerations&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <returns>ApiResponse of PlayerModeration</returns>
-        ApiResponse<PlayerModeration> GetPlayerModerationWithHttpInfo(string playerModerationId, int operationIndex = 0);
+        ApiResponse<PlayerModeration> GetPlayerModerationWithHttpInfo(string playerModerationId);
         /// <summary>
         /// Search Player Moderations
         /// </summary>
@@ -102,9 +96,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)</param>
         /// <param name="targetUserId">Must be valid UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;PlayerModeration&gt;</returns>
-        List<PlayerModeration> GetPlayerModerations(string type = default(string), string targetUserId = default(string), int operationIndex = 0);
+        List<PlayerModeration> GetPlayerModerations(string type = default(string), string targetUserId = default(string));
 
         /// <summary>
         /// Search Player Moderations
@@ -115,9 +108,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)</param>
         /// <param name="targetUserId">Must be valid UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;PlayerModeration&gt;</returns>
-        ApiResponse<List<PlayerModeration>> GetPlayerModerationsWithHttpInfo(string type = default(string), string targetUserId = default(string), int operationIndex = 0);
+        ApiResponse<List<PlayerModeration>> GetPlayerModerationsWithHttpInfo(string type = default(string), string targetUserId = default(string));
         /// <summary>
         /// Moderate User
         /// </summary>
@@ -126,9 +118,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PlayerModeration</returns>
-        PlayerModeration ModerateUser(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0);
+        PlayerModeration ModerateUser(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest));
 
         /// <summary>
         /// Moderate User
@@ -138,9 +129,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PlayerModeration</returns>
-        ApiResponse<PlayerModeration> ModerateUserWithHttpInfo(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0);
+        ApiResponse<PlayerModeration> ModerateUserWithHttpInfo(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest));
         /// <summary>
         /// Unmoderate User
         /// </summary>
@@ -149,9 +139,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success UnmoderateUser(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0);
+        Success UnmoderateUser(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest));
 
         /// <summary>
         /// Unmoderate User
@@ -161,9 +150,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> UnmoderateUserWithHttpInfo(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0);
+        ApiResponse<Success> UnmoderateUserWithHttpInfo(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest));
         #endregion Synchronous Operations
     }
 
@@ -180,10 +168,9 @@ namespace VRChat.API.Api
         /// ⚠️ **This will delete every single player moderation you&#39;ve ever made.**
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> ClearAllPlayerModerationsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> ClearAllPlayerModerationsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Clear All Player Moderations
@@ -192,10 +179,9 @@ namespace VRChat.API.Api
         /// ⚠️ **This will delete every single player moderation you&#39;ve ever made.**
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> ClearAllPlayerModerationsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> ClearAllPlayerModerationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete Player Moderation
         /// </summary>
@@ -203,11 +189,10 @@ namespace VRChat.API.Api
         /// Deletes a specific player moderation based on it&#39;s &#x60;pmod_&#x60; ID. The website uses &#x60;unmoderateUser&#x60; instead. You can delete the same player moderation multiple times successfully.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> DeletePlayerModerationAsync(string playerModerationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> DeletePlayerModerationAsync(string playerModerationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Player Moderation
@@ -216,11 +201,10 @@ namespace VRChat.API.Api
         /// Deletes a specific player moderation based on it&#39;s &#x60;pmod_&#x60; ID. The website uses &#x60;unmoderateUser&#x60; instead. You can delete the same player moderation multiple times successfully.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> DeletePlayerModerationWithHttpInfoAsync(string playerModerationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> DeletePlayerModerationWithHttpInfoAsync(string playerModerationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Player Moderation
         /// </summary>
@@ -228,11 +212,10 @@ namespace VRChat.API.Api
         /// Returns a single Player Moderation. This returns the exact same amount of information as the more generalised &#x60;getPlayerModerations&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerModeration</returns>
-        System.Threading.Tasks.Task<PlayerModeration> GetPlayerModerationAsync(string playerModerationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PlayerModeration> GetPlayerModerationAsync(string playerModerationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Player Moderation
@@ -241,11 +224,10 @@ namespace VRChat.API.Api
         /// Returns a single Player Moderation. This returns the exact same amount of information as the more generalised &#x60;getPlayerModerations&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerModeration)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PlayerModeration>> GetPlayerModerationWithHttpInfoAsync(string playerModerationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PlayerModeration>> GetPlayerModerationWithHttpInfoAsync(string playerModerationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Player Moderations
         /// </summary>
@@ -255,10 +237,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)</param>
         /// <param name="targetUserId">Must be valid UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;PlayerModeration&gt;</returns>
-        System.Threading.Tasks.Task<List<PlayerModeration>> GetPlayerModerationsAsync(string type = default(string), string targetUserId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<PlayerModeration>> GetPlayerModerationsAsync(string type = default(string), string targetUserId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Player Moderations
@@ -269,10 +250,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)</param>
         /// <param name="targetUserId">Must be valid UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;PlayerModeration&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<PlayerModeration>>> GetPlayerModerationsWithHttpInfoAsync(string type = default(string), string targetUserId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<PlayerModeration>>> GetPlayerModerationsWithHttpInfoAsync(string type = default(string), string targetUserId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Moderate User
         /// </summary>
@@ -281,10 +261,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerModeration</returns>
-        System.Threading.Tasks.Task<PlayerModeration> ModerateUserAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PlayerModeration> ModerateUserAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Moderate User
@@ -294,10 +273,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerModeration)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PlayerModeration>> ModerateUserWithHttpInfoAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PlayerModeration>> ModerateUserWithHttpInfoAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Unmoderate User
         /// </summary>
@@ -306,10 +284,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> UnmoderateUserAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> UnmoderateUserAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Unmoderate User
@@ -319,10 +296,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> UnmoderateUserWithHttpInfoAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> UnmoderateUserWithHttpInfoAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -447,9 +423,8 @@ namespace VRChat.API.Api
         /// Clear All Player Moderations ⚠️ **This will delete every single player moderation you&#39;ve ever made.**
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success ClearAllPlayerModerations(int operationIndex = 0)
+        public Success ClearAllPlayerModerations()
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = ClearAllPlayerModerationsWithHttpInfo();
             return localVarResponse.Data;
@@ -459,9 +434,8 @@ namespace VRChat.API.Api
         /// Clear All Player Moderations ⚠️ **This will delete every single player moderation you&#39;ve ever made.**
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> ClearAllPlayerModerationsWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> ClearAllPlayerModerationsWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -474,20 +448,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.ClearAllPlayerModerations";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -504,13 +469,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Success>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ClearAllPlayerModerations", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -520,12 +483,11 @@ namespace VRChat.API.Api
         /// Clear All Player Moderations ⚠️ **This will delete every single player moderation you&#39;ve ever made.**
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> ClearAllPlayerModerationsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> ClearAllPlayerModerationsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await ClearAllPlayerModerationsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await ClearAllPlayerModerationsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -533,10 +495,9 @@ namespace VRChat.API.Api
         /// Clear All Player Moderations ⚠️ **This will delete every single player moderation you&#39;ve ever made.**
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> ClearAllPlayerModerationsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> ClearAllPlayerModerationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -549,21 +510,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.ClearAllPlayerModerations";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -579,15 +532,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ClearAllPlayerModerations", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -597,10 +548,9 @@ namespace VRChat.API.Api
         /// Delete Player Moderation Deletes a specific player moderation based on it&#39;s &#x60;pmod_&#x60; ID. The website uses &#x60;unmoderateUser&#x60; instead. You can delete the same player moderation multiple times successfully.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <returns>Success</returns>
-        public Success DeletePlayerModeration(string playerModerationId, int operationIndex = 0)
+        public Success DeletePlayerModeration(string playerModerationId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeletePlayerModerationWithHttpInfo(playerModerationId);
             return localVarResponse.Data;
@@ -610,16 +560,13 @@ namespace VRChat.API.Api
         /// Delete Player Moderation Deletes a specific player moderation based on it&#39;s &#x60;pmod_&#x60; ID. The website uses &#x60;unmoderateUser&#x60; instead. You can delete the same player moderation multiple times successfully.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> DeletePlayerModerationWithHttpInfo(string playerModerationId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> DeletePlayerModerationWithHttpInfo(string playerModerationId)
         {
             // verify the required parameter 'playerModerationId' is set
             if (playerModerationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'playerModerationId' when calling PlayermoderationApi->DeletePlayerModeration");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -632,21 +579,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("playerModerationId", VRChat.API.Client.ClientUtils.ParameterToString(playerModerationId)); // path parameter
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.DeletePlayerModeration";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -663,13 +601,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Success>("/auth/user/playermoderations/{playerModerationId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeletePlayerModeration", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -679,13 +615,12 @@ namespace VRChat.API.Api
         /// Delete Player Moderation Deletes a specific player moderation based on it&#39;s &#x60;pmod_&#x60; ID. The website uses &#x60;unmoderateUser&#x60; instead. You can delete the same player moderation multiple times successfully.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> DeletePlayerModerationAsync(string playerModerationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> DeletePlayerModerationAsync(string playerModerationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeletePlayerModerationWithHttpInfoAsync(playerModerationId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeletePlayerModerationWithHttpInfoAsync(playerModerationId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -693,17 +628,14 @@ namespace VRChat.API.Api
         /// Delete Player Moderation Deletes a specific player moderation based on it&#39;s &#x60;pmod_&#x60; ID. The website uses &#x60;unmoderateUser&#x60; instead. You can delete the same player moderation multiple times successfully.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeletePlayerModerationWithHttpInfoAsync(string playerModerationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeletePlayerModerationWithHttpInfoAsync(string playerModerationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'playerModerationId' is set
             if (playerModerationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'playerModerationId' when calling PlayermoderationApi->DeletePlayerModeration");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -716,22 +648,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("playerModerationId", VRChat.API.Client.ClientUtils.ParameterToString(playerModerationId)); // path parameter
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.DeletePlayerModeration";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -747,15 +671,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/auth/user/playermoderations/{playerModerationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeletePlayerModeration", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -765,10 +687,9 @@ namespace VRChat.API.Api
         /// Get Player Moderation Returns a single Player Moderation. This returns the exact same amount of information as the more generalised &#x60;getPlayerModerations&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <returns>PlayerModeration</returns>
-        public PlayerModeration GetPlayerModeration(string playerModerationId, int operationIndex = 0)
+        public PlayerModeration GetPlayerModeration(string playerModerationId)
         {
             VRChat.API.Client.ApiResponse<PlayerModeration> localVarResponse = GetPlayerModerationWithHttpInfo(playerModerationId);
             return localVarResponse.Data;
@@ -778,16 +699,13 @@ namespace VRChat.API.Api
         /// Get Player Moderation Returns a single Player Moderation. This returns the exact same amount of information as the more generalised &#x60;getPlayerModerations&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <returns>ApiResponse of PlayerModeration</returns>
-        public VRChat.API.Client.ApiResponse<PlayerModeration> GetPlayerModerationWithHttpInfo(string playerModerationId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<PlayerModeration> GetPlayerModerationWithHttpInfo(string playerModerationId)
         {
             // verify the required parameter 'playerModerationId' is set
             if (playerModerationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'playerModerationId' when calling PlayermoderationApi->GetPlayerModeration");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -800,21 +718,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("playerModerationId", VRChat.API.Client.ClientUtils.ParameterToString(playerModerationId)); // path parameter
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.GetPlayerModeration";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -831,13 +740,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PlayerModeration>("/auth/user/playermoderations/{playerModerationId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPlayerModeration", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -847,13 +754,12 @@ namespace VRChat.API.Api
         /// Get Player Moderation Returns a single Player Moderation. This returns the exact same amount of information as the more generalised &#x60;getPlayerModerations&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerModeration</returns>
-        public async System.Threading.Tasks.Task<PlayerModeration> GetPlayerModerationAsync(string playerModerationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PlayerModeration> GetPlayerModerationAsync(string playerModerationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<PlayerModeration> localVarResponse = await GetPlayerModerationWithHttpInfoAsync(playerModerationId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<PlayerModeration> localVarResponse = await GetPlayerModerationWithHttpInfoAsync(playerModerationId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -861,17 +767,14 @@ namespace VRChat.API.Api
         /// Get Player Moderation Returns a single Player Moderation. This returns the exact same amount of information as the more generalised &#x60;getPlayerModerations&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="playerModerationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="playerModerationId">Must be a valid &#x60;pmod_&#x60; ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerModeration)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PlayerModeration>> GetPlayerModerationWithHttpInfoAsync(string playerModerationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PlayerModeration>> GetPlayerModerationWithHttpInfoAsync(string playerModerationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'playerModerationId' is set
             if (playerModerationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'playerModerationId' when calling PlayermoderationApi->GetPlayerModeration");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -884,22 +787,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("playerModerationId", VRChat.API.Client.ClientUtils.ParameterToString(playerModerationId)); // path parameter
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.GetPlayerModeration";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -915,15 +810,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<PlayerModeration>("/auth/user/playermoderations/{playerModerationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPlayerModeration", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -935,9 +828,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)</param>
         /// <param name="targetUserId">Must be valid UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;PlayerModeration&gt;</returns>
-        public List<PlayerModeration> GetPlayerModerations(string type = default(string), string targetUserId = default(string), int operationIndex = 0)
+        public List<PlayerModeration> GetPlayerModerations(string type = default(string), string targetUserId = default(string))
         {
             VRChat.API.Client.ApiResponse<List<PlayerModeration>> localVarResponse = GetPlayerModerationsWithHttpInfo(type, targetUserId);
             return localVarResponse.Data;
@@ -949,9 +841,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)</param>
         /// <param name="targetUserId">Must be valid UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;PlayerModeration&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<PlayerModeration>> GetPlayerModerationsWithHttpInfo(string type = default(string), string targetUserId = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<PlayerModeration>> GetPlayerModerationsWithHttpInfo(string type = default(string), string targetUserId = default(string))
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -964,16 +855,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (type != null)
             {
@@ -983,9 +868,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "targetUserId", targetUserId));
             }
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.GetPlayerModerations";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1002,13 +884,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<PlayerModeration>>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPlayerModerations", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1020,12 +900,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)</param>
         /// <param name="targetUserId">Must be valid UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;PlayerModeration&gt;</returns>
-        public async System.Threading.Tasks.Task<List<PlayerModeration>> GetPlayerModerationsAsync(string type = default(string), string targetUserId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<PlayerModeration>> GetPlayerModerationsAsync(string type = default(string), string targetUserId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<List<PlayerModeration>> localVarResponse = await GetPlayerModerationsWithHttpInfoAsync(type, targetUserId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<PlayerModeration>> localVarResponse = await GetPlayerModerationsWithHttpInfoAsync(type, targetUserId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1035,10 +914,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional)</param>
         /// <param name="targetUserId">Must be valid UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;PlayerModeration&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<PlayerModeration>>> GetPlayerModerationsWithHttpInfoAsync(string type = default(string), string targetUserId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<PlayerModeration>>> GetPlayerModerationsWithHttpInfoAsync(string type = default(string), string targetUserId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1051,17 +929,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (type != null)
             {
@@ -1071,9 +944,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "targetUserId", targetUserId));
             }
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.GetPlayerModerations";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1089,15 +959,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<PlayerModeration>>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPlayerModerations", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1108,9 +976,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PlayerModeration</returns>
-        public PlayerModeration ModerateUser(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0)
+        public PlayerModeration ModerateUser(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest))
         {
             VRChat.API.Client.ApiResponse<PlayerModeration> localVarResponse = ModerateUserWithHttpInfo(moderateUserRequest);
             return localVarResponse.Data;
@@ -1121,9 +988,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PlayerModeration</returns>
-        public VRChat.API.Client.ApiResponse<PlayerModeration> ModerateUserWithHttpInfo(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<PlayerModeration> ModerateUserWithHttpInfo(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest))
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1137,21 +1003,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = moderateUserRequest;
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.ModerateUser";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1168,13 +1025,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<PlayerModeration>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ModerateUser", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1185,12 +1040,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PlayerModeration</returns>
-        public async System.Threading.Tasks.Task<PlayerModeration> ModerateUserAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PlayerModeration> ModerateUserAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<PlayerModeration> localVarResponse = await ModerateUserWithHttpInfoAsync(moderateUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<PlayerModeration> localVarResponse = await ModerateUserWithHttpInfoAsync(moderateUserRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1199,10 +1053,9 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PlayerModeration)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PlayerModeration>> ModerateUserWithHttpInfoAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PlayerModeration>> ModerateUserWithHttpInfoAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1216,22 +1069,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = moderateUserRequest;
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.ModerateUser";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1247,15 +1092,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<PlayerModeration>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ModerateUser", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1266,9 +1109,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success UnmoderateUser(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0)
+        public Success UnmoderateUser(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest))
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = UnmoderateUserWithHttpInfo(moderateUserRequest);
             return localVarResponse.Data;
@@ -1279,9 +1121,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> UnmoderateUserWithHttpInfo(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> UnmoderateUserWithHttpInfo(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest))
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1295,21 +1136,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = moderateUserRequest;
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.UnmoderateUser";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1326,13 +1158,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Success>("/auth/user/unplayermoderate", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UnmoderateUser", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1343,12 +1173,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> UnmoderateUserAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> UnmoderateUserAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await UnmoderateUserWithHttpInfoAsync(moderateUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await UnmoderateUserWithHttpInfoAsync(moderateUserRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1357,10 +1186,9 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="moderateUserRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> UnmoderateUserWithHttpInfoAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> UnmoderateUserWithHttpInfoAsync(ModerateUserRequest moderateUserRequest = default(ModerateUserRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1374,22 +1202,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = moderateUserRequest;
-
-            localVarRequestOptions.Operation = "PlayermoderationApi.UnmoderateUser";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1405,15 +1225,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/unplayermoderate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UnmoderateUser", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

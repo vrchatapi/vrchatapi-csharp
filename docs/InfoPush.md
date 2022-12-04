@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **IsEnabled** | **bool** |  | [default to true]
 **ReleaseStatus** | **ReleaseStatus** |  | 
 **Priority** | **int** |  | 
-**Tags** | **List&lt;string&gt;** |   | 
+**Tags** | **List&lt;string&gt;** |  | 
 **Data** | [**InfoPushData**](InfoPushData.md) |  | 
 **Hash** | **string** | Unknown usage, MD5 | 
 **CreatedAt** | **DateTime** |  | 

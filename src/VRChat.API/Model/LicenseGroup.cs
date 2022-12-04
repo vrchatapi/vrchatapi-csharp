@@ -46,26 +46,22 @@ namespace VRChat.API.Model
         public LicenseGroup(string id = default(string), string name = default(string), string description = default(string), List<License> licenses = default(List<License>))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
+            if (id == null) {
                 throw new ArgumentNullException("id is a required property for LicenseGroup and cannot be null");
             }
             this.Id = id;
             // to ensure "name" is required (not null)
-            if (name == null)
-            {
+            if (name == null) {
                 throw new ArgumentNullException("name is a required property for LicenseGroup and cannot be null");
             }
             this.Name = name;
             // to ensure "description" is required (not null)
-            if (description == null)
-            {
+            if (description == null) {
                 throw new ArgumentNullException("description is a required property for LicenseGroup and cannot be null");
             }
             this.Description = description;
             // to ensure "licenses" is required (not null)
-            if (licenses == null)
-            {
+            if (licenses == null) {
                 throw new ArgumentNullException("licenses is a required property for LicenseGroup and cannot be null");
             }
             this.Licenses = licenses;
@@ -74,25 +70,25 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Licenses
         /// </summary>
-        [DataMember(Name = "licenses", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "licenses", IsRequired = true, EmitDefaultValue = false)]
         public List<License> Licenses { get; set; }
 
         /// <summary>
@@ -101,7 +97,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class LicenseGroup {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -138,9 +134,8 @@ namespace VRChat.API.Model
         public bool Equals(LicenseGroup input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Id == input.Id ||
@@ -175,21 +170,13 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Licenses != null)
-                {
-                    hashCode = (hashCode * 59) + this.Licenses.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Licenses.GetHashCode();
                 return hashCode;
             }
         }
@@ -209,7 +196,7 @@ namespace VRChat.API.Model
             }
 
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }

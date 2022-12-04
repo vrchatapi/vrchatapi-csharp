@@ -53,20 +53,17 @@ namespace VRChat.API.Model
         {
             this.AssetVersion = assetVersion;
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
+            if (id == null) {
                 throw new ArgumentNullException("id is a required property for UnityPackage and cannot be null");
             }
             this.Id = id;
             // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
+            if (platform == null) {
                 throw new ArgumentNullException("platform is a required property for UnityPackage and cannot be null");
             }
             this.Platform = platform;
             // to ensure "unityVersion" is required (not null)
-            if (unityVersion == null)
-            {
+            if (unityVersion == null) {
                 throw new ArgumentNullException("unityVersion is a required property for UnityPackage and cannot be null");
             }
             this.UnityVersion = unityVersion;
@@ -93,7 +90,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AssetVersion
         /// </summary>
-        [DataMember(Name = "assetVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "assetVersion", IsRequired = true, EmitDefaultValue = false)]
         public int AssetVersion { get; set; }
 
         /// <summary>
@@ -105,14 +102,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = false)]
         public string Platform { get; set; }
 
         /// <summary>
@@ -136,7 +133,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
-        [DataMember(Name = "unityVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "unityVersion", IsRequired = true, EmitDefaultValue = false)]
         public string UnityVersion { get; set; }
 
         /// <summary>
@@ -145,7 +142,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class UnityPackage {\n");
             sb.Append("  AssetUrl: ").Append(AssetUrl).Append("\n");
             sb.Append("  AssetUrlObject: ").Append(AssetUrlObject).Append("\n");
@@ -188,9 +185,8 @@ namespace VRChat.API.Model
         public bool Equals(UnityPackage input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.AssetUrl == input.AssetUrl ||
@@ -252,39 +248,23 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.AssetUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetUrl.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.AssetUrl.GetHashCode();
                 if (this.AssetUrlObject != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetUrlObject.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AssetVersion.GetHashCode();
+                    hashCode = hashCode * 59 + this.AssetUrlObject.GetHashCode();
+                hashCode = hashCode * 59 + this.AssetVersion.GetHashCode();
                 if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Platform != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Platform.GetHashCode();
                 if (this.PluginUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.PluginUrl.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.PluginUrl.GetHashCode();
                 if (this.PluginUrlObject != null)
-                {
-                    hashCode = (hashCode * 59) + this.PluginUrlObject.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.UnitySortNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.PluginUrlObject.GetHashCode();
+                hashCode = hashCode * 59 + this.UnitySortNumber.GetHashCode();
                 if (this.UnityVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityVersion.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.UnityVersion.GetHashCode();
                 return hashCode;
             }
         }
@@ -297,13 +277,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // AssetUrl (string) minLength
-            if (this.AssetUrl != null && this.AssetUrl.Length < 1)
+            if(this.AssetUrl != null && this.AssetUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
             }
 
             // AssetVersion (int) minimum
-            if (this.AssetVersion < (int)0)
+            if(this.AssetVersion < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetVersion, must be a value greater than or equal to 0.", new [] { "AssetVersion" });
             }
@@ -316,13 +296,13 @@ namespace VRChat.API.Model
             }
 
             // UnitySortNumber (long) minimum
-            if (this.UnitySortNumber < (long)0)
+            if(this.UnitySortNumber < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitySortNumber, must be a value greater than or equal to 0.", new [] { "UnitySortNumber" });
             }
 
             // UnityVersion (string) minLength
-            if (this.UnityVersion != null && this.UnityVersion.Length < 1)
+            if(this.UnityVersion != null && this.UnityVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }

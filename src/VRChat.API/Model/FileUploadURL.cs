@@ -43,8 +43,7 @@ namespace VRChat.API.Model
         public FileUploadURL(string url = default(string))
         {
             // to ensure "url" is required (not null)
-            if (url == null)
-            {
+            if (url == null) {
                 throw new ArgumentNullException("url is a required property for FileUploadURL and cannot be null");
             }
             this.Url = url;
@@ -53,7 +52,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Url
         /// </summary>
-        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = false)]
         public string Url { get; set; }
 
         /// <summary>
@@ -62,7 +61,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class FileUploadURL {\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("}\n");
@@ -96,9 +95,8 @@ namespace VRChat.API.Model
         public bool Equals(FileUploadURL input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Url == input.Url ||
@@ -117,9 +115,7 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Url != null)
-                {
-                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 return hashCode;
             }
         }
@@ -132,7 +128,7 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Url (string) minLength
-            if (this.Url != null && this.Url.Length < 1)
+            if(this.Url != null && this.Url.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
             }

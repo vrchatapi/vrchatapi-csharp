@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = false)]
         public TransactionStatus Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Transaction" /> class.
@@ -57,15 +57,13 @@ namespace VRChat.API.Model
         public Transaction(string id = default(string), TransactionStatus status = default(TransactionStatus), Subscription subscription = default(Subscription), bool sandbox = false, DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), TransactionSteamInfo steam = default(TransactionSteamInfo), TransactionAgreement agreement = default(TransactionAgreement), string error = default(string))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
+            if (id == null) {
                 throw new ArgumentNullException("id is a required property for Transaction and cannot be null");
             }
             this.Id = id;
             this.Status = status;
             // to ensure "subscription" is required (not null)
-            if (subscription == null)
-            {
+            if (subscription == null) {
                 throw new ArgumentNullException("subscription is a required property for Transaction and cannot be null");
             }
             this.Subscription = subscription;
@@ -73,8 +71,7 @@ namespace VRChat.API.Model
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             // to ensure "error" is required (not null)
-            if (error == null)
-            {
+            if (error == null) {
                 throw new ArgumentNullException("error is a required property for Transaction and cannot be null");
             }
             this.Error = error;
@@ -85,13 +82,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Subscription
         /// </summary>
-        [DataMember(Name = "subscription", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "subscription", IsRequired = true, EmitDefaultValue = false)]
         public Subscription Subscription { get; set; }
 
         /// <summary>
@@ -103,13 +100,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
@@ -127,7 +124,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = false)]
         public string Error { get; set; }
 
         /// <summary>
@@ -136,7 +133,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class Transaction {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -178,9 +175,8 @@ namespace VRChat.API.Model
         public bool Equals(Transaction input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Id == input.Id ||
@@ -237,35 +233,21 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Subscription != null)
-                {
-                    hashCode = (hashCode * 59) + this.Subscription.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Sandbox.GetHashCode();
+                    hashCode = hashCode * 59 + this.Subscription.GetHashCode();
+                hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
                 if (this.Steam != null)
-                {
-                    hashCode = (hashCode * 59) + this.Steam.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Steam.GetHashCode();
                 if (this.Agreement != null)
-                {
-                    hashCode = (hashCode * 59) + this.Agreement.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Agreement.GetHashCode();
                 if (this.Error != null)
-                {
-                    hashCode = (hashCode * 59) + this.Error.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
                 return hashCode;
             }
         }

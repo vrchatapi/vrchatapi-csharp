@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Email** | **string** |  | [optional] 
 **Birthday** | **DateTime** |  | [optional] 
 **AcceptedTOSVersion** | **decimal** |  | [optional] 
-**Tags** | **List&lt;string&gt;** |   | [optional] 
+**Tags** | **List&lt;string&gt;** |  | [optional] 
 **Status** | **UserStatus** |  | [optional] 
 **StatusDescription** | **string** |  | [optional] 
 **Bio** | **string** |  | [optional] 

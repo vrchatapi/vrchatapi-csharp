@@ -1,4 +1,4 @@
-# VRChat.API.Model.APIEventConfig
+# VRChat.API.Model.APIConfigEvents
 
 ## Properties
 

@@ -2,20 +2,21 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-| Method | HTTP request | Description |
-|--------|--------------|-------------|
-| [**GetInviteMessage**](InviteApi.md#getinvitemessage) | **GET** /message/{userId}/{messageType}/{slot} | Get Invite Message |
-| [**GetInviteMessages**](InviteApi.md#getinvitemessages) | **GET** /message/{userId}/{messageType} | List Invite Messages |
-| [**InviteMyselfTo**](InviteApi.md#invitemyselfto) | **POST** /invite/myself/to/{worldId}:{instanceId} | Invite Myself To Instance |
-| [**InviteUser**](InviteApi.md#inviteuser) | **POST** /invite/{userId} | Invite User |
-| [**RequestInvite**](InviteApi.md#requestinvite) | **POST** /requestInvite/{userId} | Request Invite |
-| [**ResetInviteMessage**](InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/{messageType}/{slot} | Reset Invite Message |
-| [**RespondInvite**](InviteApi.md#respondinvite) | **POST** /invite/{notificationId}/response | Respond Invite |
-| [**UpdateInviteMessage**](InviteApi.md#updateinvitemessage) | **PUT** /message/{userId}/{messageType}/{slot} | Update Invite Message |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**GetInviteMessage**](InviteApi.md#getinvitemessage) | **GET** /message/{userId}/{messageType}/{slot} | Get Invite Message
+[**GetInviteMessages**](InviteApi.md#getinvitemessages) | **GET** /message/{userId}/{messageType} | List Invite Messages
+[**InviteMyselfTo**](InviteApi.md#invitemyselfto) | **POST** /invite/myself/to/{worldId}:{instanceId} | Invite Myself To Instance
+[**InviteUser**](InviteApi.md#inviteuser) | **POST** /invite/{userId} | Invite User
+[**RequestInvite**](InviteApi.md#requestinvite) | **POST** /requestInvite/{userId} | Request Invite
+[**ResetInviteMessage**](InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/{messageType}/{slot} | Reset Invite Message
+[**RespondInvite**](InviteApi.md#respondinvite) | **POST** /invite/{notificationId}/response | Respond Invite
+[**UpdateInviteMessage**](InviteApi.md#updateinvitemessage) | **PUT** /message/{userId}/{messageType}/{slot} | Update Invite Message
+
 
 <a name="getinvitemessage"></a>
 # **GetInviteMessage**
-> InviteMessage GetInviteMessage (string userId, string messageType, int slot)
+> InviteMessage GetInviteMessage (string userId, InviteMessageType messageType, int slot)
 
 Get Invite Message
 
@@ -47,9 +48,9 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InviteApi(config);
-            var userId = "userId_example";  // string | 
-            var messageType = "message";  // string | 
-            var slot = 56;  // int | 
+            var userId = userId_example;  // string | Must be a valid user ID.
+            var messageType = ;  // InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
+            var slot = 56;  // int | The message slot to fetch of a given message type.
 
             try
             {
@@ -59,8 +60,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InviteApi.GetInviteMessage: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling InviteApi.GetInviteMessage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -68,33 +69,13 @@ namespace Example
 }
 ```
 
-#### Using the GetInviteMessageWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get Invite Message
-    ApiResponse<InviteMessage> response = apiInstance.GetInviteMessageWithHttpInfo(userId, messageType, slot);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InviteApi.GetInviteMessageWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
-| **messageType** | **string** |  |  |
-| **slot** | **int** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
+ **messageType** | **InviteMessageType**| The type of message to fetch, must be a valid InviteMessageType. | 
+ **slot** | **int**| The message slot to fetch of a given message type. | 
 
 ### Return type
 
@@ -122,7 +103,7 @@ catch (ApiException e)
 
 <a name="getinvitemessages"></a>
 # **GetInviteMessages**
-> List&lt;InviteMessage&gt; GetInviteMessages (string userId, string messageType)
+> List&lt;InviteMessage&gt; GetInviteMessages (string userId, InviteMessageType messageType)
 
 List Invite Messages
 
@@ -154,8 +135,8 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InviteApi(config);
-            var userId = "userId_example";  // string | 
-            var messageType = "message";  // string | 
+            var userId = userId_example;  // string | Must be a valid user ID.
+            var messageType = ;  // InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
 
             try
             {
@@ -165,8 +146,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InviteApi.GetInviteMessages: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling InviteApi.GetInviteMessages: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -174,32 +155,12 @@ namespace Example
 }
 ```
 
-#### Using the GetInviteMessagesWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // List Invite Messages
-    ApiResponse<List<InviteMessage>> response = apiInstance.GetInviteMessagesWithHttpInfo(userId, messageType);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InviteApi.GetInviteMessagesWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
-| **messageType** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
+ **messageType** | **InviteMessageType**| The type of message to fetch, must be a valid InviteMessageType. | 
 
 ### Return type
 
@@ -258,8 +219,8 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InviteApi(config);
-            var worldId = "worldId_example";  // string | 
-            var instanceId = "instanceId_example";  // string | 
+            var worldId = worldId_example;  // string | Must be a valid world ID.
+            var instanceId = instanceId_example;  // string | Must be a valid instance ID.
 
             try
             {
@@ -269,8 +230,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InviteApi.InviteMyselfTo: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling InviteApi.InviteMyselfTo: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -278,32 +239,12 @@ namespace Example
 }
 ```
 
-#### Using the InviteMyselfToWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Invite Myself To Instance
-    ApiResponse<SentNotification> response = apiInstance.InviteMyselfToWithHttpInfo(worldId, instanceId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InviteApi.InviteMyselfToWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **worldId** | **string** |  |  |
-| **instanceId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **worldId** | **string**| Must be a valid world ID. | 
+ **instanceId** | **string**| Must be a valid instance ID. | 
 
 ### Return type
 
@@ -362,7 +303,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InviteApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = userId_example;  // string | Must be a valid user ID.
             var inviteRequest = new InviteRequest(); // InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional) 
 
             try
@@ -373,8 +314,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InviteApi.InviteUser: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling InviteApi.InviteUser: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -382,32 +323,12 @@ namespace Example
 }
 ```
 
-#### Using the InviteUserWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Invite User
-    ApiResponse<SentNotification> response = apiInstance.InviteUserWithHttpInfo(userId, inviteRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InviteApi.InviteUserWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
-| **inviteRequest** | [**InviteRequest**](InviteRequest.md) | Slot number of the Invite Message to use when inviting a user. | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
+ **inviteRequest** | [**InviteRequest**](InviteRequest.md)| Slot number of the Invite Message to use when inviting a user. | [optional] 
 
 ### Return type
 
@@ -465,7 +386,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InviteApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = userId_example;  // string | Must be a valid user ID.
             var requestInviteRequest = new RequestInviteRequest(); // RequestInviteRequest | Slot number of the Request Message to use when request an invite. (optional) 
 
             try
@@ -476,8 +397,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InviteApi.RequestInvite: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling InviteApi.RequestInvite: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -485,32 +406,12 @@ namespace Example
 }
 ```
 
-#### Using the RequestInviteWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Request Invite
-    ApiResponse<Notification> response = apiInstance.RequestInviteWithHttpInfo(userId, requestInviteRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InviteApi.RequestInviteWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
-| **requestInviteRequest** | [**RequestInviteRequest**](RequestInviteRequest.md) | Slot number of the Request Message to use when request an invite. | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
+ **requestInviteRequest** | [**RequestInviteRequest**](RequestInviteRequest.md)| Slot number of the Request Message to use when request an invite. | [optional] 
 
 ### Return type
 
@@ -536,7 +437,7 @@ catch (ApiException e)
 
 <a name="resetinvitemessage"></a>
 # **ResetInviteMessage**
-> List&lt;InviteMessage&gt; ResetInviteMessage (string userId, string messageType, int slot)
+> List&lt;InviteMessage&gt; ResetInviteMessage (string userId, InviteMessageType messageType, int slot)
 
 Reset Invite Message
 
@@ -568,9 +469,9 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InviteApi(config);
-            var userId = "userId_example";  // string | 
-            var messageType = "message";  // string | 
-            var slot = 56;  // int | 
+            var userId = userId_example;  // string | Must be a valid user ID.
+            var messageType = ;  // InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
+            var slot = 56;  // int | The message slot to fetch of a given message type.
 
             try
             {
@@ -580,8 +481,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InviteApi.ResetInviteMessage: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling InviteApi.ResetInviteMessage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -589,33 +490,13 @@ namespace Example
 }
 ```
 
-#### Using the ResetInviteMessageWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Reset Invite Message
-    ApiResponse<List<InviteMessage>> response = apiInstance.ResetInviteMessageWithHttpInfo(userId, messageType, slot);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InviteApi.ResetInviteMessageWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
-| **messageType** | **string** |  |  |
-| **slot** | **int** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
+ **messageType** | **InviteMessageType**| The type of message to fetch, must be a valid InviteMessageType. | 
+ **slot** | **int**| The message slot to fetch of a given message type. | 
 
 ### Return type
 
@@ -676,7 +557,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InviteApi(config);
-            var notificationId = "notificationId_example";  // string | 
+            var notificationId = notificationId_example;  // string | Must be a valid notification ID.
             var inviteResponse = new InviteResponse(); // InviteResponse | Slot number of the Response Message to use when responding to a user. (optional) 
 
             try
@@ -687,8 +568,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InviteApi.RespondInvite: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling InviteApi.RespondInvite: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -696,32 +577,12 @@ namespace Example
 }
 ```
 
-#### Using the RespondInviteWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Respond Invite
-    ApiResponse<Notification> response = apiInstance.RespondInviteWithHttpInfo(notificationId, inviteResponse);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InviteApi.RespondInviteWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **notificationId** | **string** |  |  |
-| **inviteResponse** | [**InviteResponse**](InviteResponse.md) | Slot number of the Response Message to use when responding to a user. | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notificationId** | **string**| Must be a valid notification ID. | 
+ **inviteResponse** | [**InviteResponse**](InviteResponse.md)| Slot number of the Response Message to use when responding to a user. | [optional] 
 
 ### Return type
 
@@ -747,7 +608,7 @@ catch (ApiException e)
 
 <a name="updateinvitemessage"></a>
 # **UpdateInviteMessage**
-> List&lt;InviteMessage&gt; UpdateInviteMessage (string userId, string messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = null)
+> List&lt;InviteMessage&gt; UpdateInviteMessage (string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = null)
 
 Update Invite Message
 
@@ -779,9 +640,9 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new InviteApi(config);
-            var userId = "userId_example";  // string | 
-            var messageType = "message";  // string | 
-            var slot = 56;  // int | 
+            var userId = userId_example;  // string | Must be a valid user ID.
+            var messageType = ;  // InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
+            var slot = 56;  // int | The message slot to fetch of a given message type.
             var updateInviteMessageRequest = new UpdateInviteMessageRequest(); // UpdateInviteMessageRequest | Message of what to set the invite message to. (optional) 
 
             try
@@ -792,8 +653,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling InviteApi.UpdateInviteMessage: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling InviteApi.UpdateInviteMessage: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -801,34 +662,14 @@ namespace Example
 }
 ```
 
-#### Using the UpdateInviteMessageWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Update Invite Message
-    ApiResponse<List<InviteMessage>> response = apiInstance.UpdateInviteMessageWithHttpInfo(userId, messageType, slot, updateInviteMessageRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InviteApi.UpdateInviteMessageWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
-| **messageType** | **string** |  |  |
-| **slot** | **int** |  |  |
-| **updateInviteMessageRequest** | [**UpdateInviteMessageRequest**](UpdateInviteMessageRequest.md) | Message of what to set the invite message to. | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
+ **messageType** | **InviteMessageType**| The type of message to fetch, must be a valid InviteMessageType. | 
+ **slot** | **int**| The message slot to fetch of a given message type. | 
+ **updateInviteMessageRequest** | [**UpdateInviteMessageRequest**](UpdateInviteMessageRequest.md)| Message of what to set the invite message to. | [optional] 
 
 ### Return type
 

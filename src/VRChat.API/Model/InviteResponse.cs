@@ -48,7 +48,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ResponseSlot
         /// </summary>
-        [DataMember(Name = "responseSlot", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "responseSlot", IsRequired = true, EmitDefaultValue = false)]
         public int ResponseSlot { get; set; }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class InviteResponse {\n");
             sb.Append("  ResponseSlot: ").Append(ResponseSlot).Append("\n");
             sb.Append("}\n");
@@ -91,9 +91,8 @@ namespace VRChat.API.Model
         public bool Equals(InviteResponse input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.ResponseSlot == input.ResponseSlot ||
@@ -110,7 +109,7 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.ResponseSlot.GetHashCode();
+                hashCode = hashCode * 59 + this.ResponseSlot.GetHashCode();
                 return hashCode;
             }
         }
@@ -123,13 +122,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // ResponseSlot (int) maximum
-            if (this.ResponseSlot > (int)11)
+            if(this.ResponseSlot > (int)11)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseSlot, must be a value less than or equal to 11.", new [] { "ResponseSlot" });
             }
 
             // ResponseSlot (int) minimum
-            if (this.ResponseSlot < (int)0)
+            if(this.ResponseSlot < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseSlot, must be a value greater than or equal to 0.", new [] { "ResponseSlot" });
             }

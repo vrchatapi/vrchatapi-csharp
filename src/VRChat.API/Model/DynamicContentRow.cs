@@ -50,32 +50,27 @@ namespace VRChat.API.Model
         public DynamicContentRow(int index = default(int), string name = default(string), string platform = default(string), string sortHeading = default(string), string sortOrder = default(string), string sortOwnership = default(string), string tag = default(string), string type = default(string))
         {
             // to ensure "name" is required (not null)
-            if (name == null)
-            {
+            if (name == null) {
                 throw new ArgumentNullException("name is a required property for DynamicContentRow and cannot be null");
             }
             this.Name = name;
             // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
+            if (platform == null) {
                 throw new ArgumentNullException("platform is a required property for DynamicContentRow and cannot be null");
             }
             this.Platform = platform;
             // to ensure "sortHeading" is required (not null)
-            if (sortHeading == null)
-            {
+            if (sortHeading == null) {
                 throw new ArgumentNullException("sortHeading is a required property for DynamicContentRow and cannot be null");
             }
             this.SortHeading = sortHeading;
             // to ensure "sortOrder" is required (not null)
-            if (sortOrder == null)
-            {
+            if (sortOrder == null) {
                 throw new ArgumentNullException("sortOrder is a required property for DynamicContentRow and cannot be null");
             }
             this.SortOrder = sortOrder;
             // to ensure "sortOwnership" is required (not null)
-            if (sortOwnership == null)
-            {
+            if (sortOwnership == null) {
                 throw new ArgumentNullException("sortOwnership is a required property for DynamicContentRow and cannot be null");
             }
             this.SortOwnership = sortOwnership;
@@ -93,32 +88,32 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers.
         /// </summary>
         /// <value>Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers.</value>
-        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = false)]
         public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets SortHeading
         /// </summary>
-        [DataMember(Name = "sortHeading", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sortHeading", IsRequired = true, EmitDefaultValue = false)]
         public string SortHeading { get; set; }
 
         /// <summary>
         /// Gets or Sets SortOrder
         /// </summary>
-        [DataMember(Name = "sortOrder", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sortOrder", IsRequired = true, EmitDefaultValue = false)]
         public string SortOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets SortOwnership
         /// </summary>
-        [DataMember(Name = "sortOwnership", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sortOwnership", IsRequired = true, EmitDefaultValue = false)]
         public string SortOwnership { get; set; }
 
         /// <summary>
@@ -141,7 +136,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class DynamicContentRow {\n");
             sb.Append("  Index: ").Append(Index).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -182,9 +177,8 @@ namespace VRChat.API.Model
         public bool Equals(DynamicContentRow input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Index == input.Index ||
@@ -236,35 +230,21 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Index.GetHashCode();
+                hashCode = hashCode * 59 + this.Index.GetHashCode();
                 if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Platform != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Platform.GetHashCode();
                 if (this.SortHeading != null)
-                {
-                    hashCode = (hashCode * 59) + this.SortHeading.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.SortHeading.GetHashCode();
                 if (this.SortOrder != null)
-                {
-                    hashCode = (hashCode * 59) + this.SortOrder.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.SortOrder.GetHashCode();
                 if (this.SortOwnership != null)
-                {
-                    hashCode = (hashCode * 59) + this.SortOwnership.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.SortOwnership.GetHashCode();
                 if (this.Tag != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tag.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
                 if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }
@@ -277,43 +257,43 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Index (int) minimum
-            if (this.Index < (int)0)
+            if(this.Index < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Index, must be a value greater than or equal to 0.", new [] { "Index" });
             }
 
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Platform (string) minLength
-            if (this.Platform != null && this.Platform.Length < 1)
+            if(this.Platform != null && this.Platform.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Platform, length must be greater than 1.", new [] { "Platform" });
             }
 
             // SortHeading (string) minLength
-            if (this.SortHeading != null && this.SortHeading.Length < 1)
+            if(this.SortHeading != null && this.SortHeading.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SortHeading, length must be greater than 1.", new [] { "SortHeading" });
             }
 
             // SortOrder (string) minLength
-            if (this.SortOrder != null && this.SortOrder.Length < 1)
+            if(this.SortOrder != null && this.SortOrder.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SortOrder, length must be greater than 1.", new [] { "SortOrder" });
             }
 
             // SortOwnership (string) minLength
-            if (this.SortOwnership != null && this.SortOwnership.Length < 1)
+            if(this.SortOwnership != null && this.SortOwnership.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SortOwnership, length must be greater than 1.", new [] { "SortOwnership" });
             }
 
             // Tag (string) minLength
-            if (this.Tag != null && this.Tag.Length < 1)
+            if(this.Tag != null && this.Tag.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tag, length must be greater than 1.", new [] { "Tag" });
             }

@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ReleaseStatus
         /// </summary>
-        [DataMember(Name = "releaseStatus", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "releaseStatus", IsRequired = true, EmitDefaultValue = false)]
         public ReleaseStatus ReleaseStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPush" /> class.
@@ -49,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="isEnabled">isEnabled (required) (default to true).</param>
         /// <param name="releaseStatus">releaseStatus (required).</param>
         /// <param name="priority">priority (required).</param>
-        /// <param name="tags">  (required).</param>
+        /// <param name="tags">tags (required).</param>
         /// <param name="data">data (required).</param>
         /// <param name="hash">Unknown usage, MD5 (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
@@ -59,8 +59,7 @@ namespace VRChat.API.Model
         public InfoPush(string id = default(string), bool isEnabled = true, ReleaseStatus releaseStatus = default(ReleaseStatus), int priority = default(int), List<string> tags = default(List<string>), InfoPushData data = default(InfoPushData), string hash = default(string), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), DateTime startDate = default(DateTime), DateTime endDate = default(DateTime))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
+            if (id == null) {
                 throw new ArgumentNullException("id is a required property for InfoPush and cannot be null");
             }
             this.Id = id;
@@ -68,20 +67,17 @@ namespace VRChat.API.Model
             this.ReleaseStatus = releaseStatus;
             this.Priority = priority;
             // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
+            if (tags == null) {
                 throw new ArgumentNullException("tags is a required property for InfoPush and cannot be null");
             }
             this.Tags = tags;
             // to ensure "data" is required (not null)
-            if (data == null)
-            {
+            if (data == null) {
                 throw new ArgumentNullException("data is a required property for InfoPush and cannot be null");
             }
             this.Data = data;
             // to ensure "hash" is required (not null)
-            if (hash == null)
-            {
+            if (hash == null) {
                 throw new ArgumentNullException("hash is a required property for InfoPush and cannot be null");
             }
             this.Hash = hash;
@@ -94,7 +90,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
@@ -106,39 +102,38 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Priority
         /// </summary>
-        [DataMember(Name = "priority", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "priority", IsRequired = true, EmitDefaultValue = false)]
         public int Priority { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public InfoPushData Data { get; set; }
 
         /// <summary>
         /// Unknown usage, MD5
         /// </summary>
         /// <value>Unknown usage, MD5</value>
-        [DataMember(Name = "hash", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hash", IsRequired = true, EmitDefaultValue = false)]
         public string Hash { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = false)]
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
@@ -159,7 +154,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class InfoPush {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IsEnabled: ").Append(IsEnabled).Append("\n");
@@ -203,9 +198,8 @@ namespace VRChat.API.Model
         public bool Equals(InfoPush input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Id == input.Id ||
@@ -272,40 +266,24 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsEnabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this.Priority.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = hashCode * 59 + this.IsEnabled.GetHashCode();
+                hashCode = hashCode * 59 + this.ReleaseStatus.GetHashCode();
+                hashCode = hashCode * 59 + this.Priority.GetHashCode();
                 if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 if (this.Hash != null)
-                {
-                    hashCode = (hashCode * 59) + this.Hash.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Hash.GetHashCode();
                 if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
                 if (this.StartDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.EndDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
                 return hashCode;
             }
         }
@@ -318,13 +296,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
-            if (this.Id != null && this.Id.Length < 1)
+            if(this.Id != null && this.Id.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // Hash (string) minLength
-            if (this.Hash != null && this.Hash.Length < 1)
+            if(this.Hash != null && this.Hash.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hash, length must be greater than 1.", new [] { "Hash" });
             }

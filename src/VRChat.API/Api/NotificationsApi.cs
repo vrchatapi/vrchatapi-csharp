@@ -33,10 +33,9 @@ namespace VRChat.API.Api
         /// Accept a friend request by notification &#x60;frq_&#x60; ID. Friend requests can be found using the NotificationsAPI &#x60;getNotifications&#x60; by filtering of type &#x60;friendRequest&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>Success</returns>
-        Success AcceptFriendRequest(string notificationId, int operationIndex = 0);
+        Success AcceptFriendRequest(string notificationId);
 
         /// <summary>
         /// Accept Friend Request
@@ -45,10 +44,9 @@ namespace VRChat.API.Api
         /// Accept a friend request by notification &#x60;frq_&#x60; ID. Friend requests can be found using the NotificationsAPI &#x60;getNotifications&#x60; by filtering of type &#x60;friendRequest&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> AcceptFriendRequestWithHttpInfo(string notificationId, int operationIndex = 0);
+        ApiResponse<Success> AcceptFriendRequestWithHttpInfo(string notificationId);
         /// <summary>
         /// Clear All Notifications
         /// </summary>
@@ -56,9 +54,8 @@ namespace VRChat.API.Api
         /// Clear **all** notifications.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success ClearNotifications(int operationIndex = 0);
+        Success ClearNotifications();
 
         /// <summary>
         /// Clear All Notifications
@@ -67,9 +64,8 @@ namespace VRChat.API.Api
         /// Clear **all** notifications.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> ClearNotificationsWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Success> ClearNotificationsWithHttpInfo();
         /// <summary>
         /// Delete Notification
         /// </summary>
@@ -77,10 +73,9 @@ namespace VRChat.API.Api
         /// Delete a notification.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>Notification</returns>
-        Notification DeleteNotification(string notificationId, int operationIndex = 0);
+        Notification DeleteNotification(string notificationId);
 
         /// <summary>
         /// Delete Notification
@@ -89,10 +84,9 @@ namespace VRChat.API.Api
         /// Delete a notification.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>ApiResponse of Notification</returns>
-        ApiResponse<Notification> DeleteNotificationWithHttpInfo(string notificationId, int operationIndex = 0);
+        ApiResponse<Notification> DeleteNotificationWithHttpInfo(string notificationId);
         /// <summary>
         /// List Notifications
         /// </summary>
@@ -106,9 +100,8 @@ namespace VRChat.API.Api
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Notification&gt;</returns>
-        List<Notification> GetNotifications(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        List<Notification> GetNotifications(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?));
 
         /// <summary>
         /// List Notifications
@@ -123,9 +116,8 @@ namespace VRChat.API.Api
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Notification&gt;</returns>
-        ApiResponse<List<Notification>> GetNotificationsWithHttpInfo(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<List<Notification>> GetNotificationsWithHttpInfo(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?));
         /// <summary>
         /// Mark Notification As Read
         /// </summary>
@@ -133,10 +125,9 @@ namespace VRChat.API.Api
         /// Mark a notification as seen.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>Notification</returns>
-        Notification MarkNotificationAsRead(string notificationId, int operationIndex = 0);
+        Notification MarkNotificationAsRead(string notificationId);
 
         /// <summary>
         /// Mark Notification As Read
@@ -145,10 +136,9 @@ namespace VRChat.API.Api
         /// Mark a notification as seen.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>ApiResponse of Notification</returns>
-        ApiResponse<Notification> MarkNotificationAsReadWithHttpInfo(string notificationId, int operationIndex = 0);
+        ApiResponse<Notification> MarkNotificationAsReadWithHttpInfo(string notificationId);
         #endregion Synchronous Operations
     }
 
@@ -165,11 +155,10 @@ namespace VRChat.API.Api
         /// Accept a friend request by notification &#x60;frq_&#x60; ID. Friend requests can be found using the NotificationsAPI &#x60;getNotifications&#x60; by filtering of type &#x60;friendRequest&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> AcceptFriendRequestAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> AcceptFriendRequestAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Accept Friend Request
@@ -178,11 +167,10 @@ namespace VRChat.API.Api
         /// Accept a friend request by notification &#x60;frq_&#x60; ID. Friend requests can be found using the NotificationsAPI &#x60;getNotifications&#x60; by filtering of type &#x60;friendRequest&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> AcceptFriendRequestWithHttpInfoAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> AcceptFriendRequestWithHttpInfoAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Clear All Notifications
         /// </summary>
@@ -190,10 +178,9 @@ namespace VRChat.API.Api
         /// Clear **all** notifications.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> ClearNotificationsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> ClearNotificationsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Clear All Notifications
@@ -202,10 +189,9 @@ namespace VRChat.API.Api
         /// Clear **all** notifications.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> ClearNotificationsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> ClearNotificationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete Notification
         /// </summary>
@@ -213,11 +199,10 @@ namespace VRChat.API.Api
         /// Delete a notification.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        System.Threading.Tasks.Task<Notification> DeleteNotificationAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Notification> DeleteNotificationAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Notification
@@ -226,11 +211,10 @@ namespace VRChat.API.Api
         /// Delete a notification.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Notification>> DeleteNotificationWithHttpInfoAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Notification>> DeleteNotificationWithHttpInfoAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Notifications
         /// </summary>
@@ -244,10 +228,9 @@ namespace VRChat.API.Api
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Notification&gt;</returns>
-        System.Threading.Tasks.Task<List<Notification>> GetNotificationsAsync(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Notification>> GetNotificationsAsync(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Notifications
@@ -262,10 +245,9 @@ namespace VRChat.API.Api
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Notification&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Notification>>> GetNotificationsWithHttpInfoAsync(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Notification>>> GetNotificationsWithHttpInfoAsync(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Mark Notification As Read
         /// </summary>
@@ -273,11 +255,10 @@ namespace VRChat.API.Api
         /// Mark a notification as seen.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        System.Threading.Tasks.Task<Notification> MarkNotificationAsReadAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Notification> MarkNotificationAsReadAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Mark Notification As Read
@@ -286,11 +267,10 @@ namespace VRChat.API.Api
         /// Mark a notification as seen.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Notification>> MarkNotificationAsReadWithHttpInfoAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Notification>> MarkNotificationAsReadWithHttpInfoAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -415,10 +395,9 @@ namespace VRChat.API.Api
         /// Accept Friend Request Accept a friend request by notification &#x60;frq_&#x60; ID. Friend requests can be found using the NotificationsAPI &#x60;getNotifications&#x60; by filtering of type &#x60;friendRequest&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>Success</returns>
-        public Success AcceptFriendRequest(string notificationId, int operationIndex = 0)
+        public Success AcceptFriendRequest(string notificationId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = AcceptFriendRequestWithHttpInfo(notificationId);
             return localVarResponse.Data;
@@ -428,16 +407,13 @@ namespace VRChat.API.Api
         /// Accept Friend Request Accept a friend request by notification &#x60;frq_&#x60; ID. Friend requests can be found using the NotificationsAPI &#x60;getNotifications&#x60; by filtering of type &#x60;friendRequest&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> AcceptFriendRequestWithHttpInfo(string notificationId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> AcceptFriendRequestWithHttpInfo(string notificationId)
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling NotificationsApi->AcceptFriendRequest");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -450,21 +426,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
-
-            localVarRequestOptions.Operation = "NotificationsApi.AcceptFriendRequest";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -481,13 +448,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Success>("/auth/user/notifications/{notificationId}/accept", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AcceptFriendRequest", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -497,13 +462,12 @@ namespace VRChat.API.Api
         /// Accept Friend Request Accept a friend request by notification &#x60;frq_&#x60; ID. Friend requests can be found using the NotificationsAPI &#x60;getNotifications&#x60; by filtering of type &#x60;friendRequest&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> AcceptFriendRequestAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> AcceptFriendRequestAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await AcceptFriendRequestWithHttpInfoAsync(notificationId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await AcceptFriendRequestWithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -511,17 +475,14 @@ namespace VRChat.API.Api
         /// Accept Friend Request Accept a friend request by notification &#x60;frq_&#x60; ID. Friend requests can be found using the NotificationsAPI &#x60;getNotifications&#x60; by filtering of type &#x60;friendRequest&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> AcceptFriendRequestWithHttpInfoAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> AcceptFriendRequestWithHttpInfoAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling NotificationsApi->AcceptFriendRequest");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -534,22 +495,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
-
-            localVarRequestOptions.Operation = "NotificationsApi.AcceptFriendRequest";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -565,15 +518,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/notifications/{notificationId}/accept", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AcceptFriendRequest", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -583,9 +534,8 @@ namespace VRChat.API.Api
         /// Clear All Notifications Clear **all** notifications.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success ClearNotifications(int operationIndex = 0)
+        public Success ClearNotifications()
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = ClearNotificationsWithHttpInfo();
             return localVarResponse.Data;
@@ -595,9 +545,8 @@ namespace VRChat.API.Api
         /// Clear All Notifications Clear **all** notifications.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> ClearNotificationsWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> ClearNotificationsWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -610,20 +559,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "NotificationsApi.ClearNotifications";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -640,13 +580,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Success>("/auth/user/notifications/clear", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ClearNotifications", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -656,12 +594,11 @@ namespace VRChat.API.Api
         /// Clear All Notifications Clear **all** notifications.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> ClearNotificationsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> ClearNotificationsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await ClearNotificationsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await ClearNotificationsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -669,10 +606,9 @@ namespace VRChat.API.Api
         /// Clear All Notifications Clear **all** notifications.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> ClearNotificationsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> ClearNotificationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -685,21 +621,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "NotificationsApi.ClearNotifications";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -715,15 +643,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/notifications/clear", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ClearNotifications", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -733,10 +659,9 @@ namespace VRChat.API.Api
         /// Delete Notification Delete a notification.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>Notification</returns>
-        public Notification DeleteNotification(string notificationId, int operationIndex = 0)
+        public Notification DeleteNotification(string notificationId)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = DeleteNotificationWithHttpInfo(notificationId);
             return localVarResponse.Data;
@@ -746,16 +671,13 @@ namespace VRChat.API.Api
         /// Delete Notification Delete a notification.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>ApiResponse of Notification</returns>
-        public VRChat.API.Client.ApiResponse<Notification> DeleteNotificationWithHttpInfo(string notificationId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Notification> DeleteNotificationWithHttpInfo(string notificationId)
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling NotificationsApi->DeleteNotification");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -768,21 +690,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
-
-            localVarRequestOptions.Operation = "NotificationsApi.DeleteNotification";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -799,13 +712,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Notification>("/auth/user/notifications/{notificationId}/hide", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteNotification", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -815,13 +726,12 @@ namespace VRChat.API.Api
         /// Delete Notification Delete a notification.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        public async System.Threading.Tasks.Task<Notification> DeleteNotificationAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Notification> DeleteNotificationAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await DeleteNotificationWithHttpInfoAsync(notificationId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await DeleteNotificationWithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -829,17 +739,14 @@ namespace VRChat.API.Api
         /// Delete Notification Delete a notification.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> DeleteNotificationWithHttpInfoAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> DeleteNotificationWithHttpInfoAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling NotificationsApi->DeleteNotification");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -852,22 +759,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
-
-            localVarRequestOptions.Operation = "NotificationsApi.DeleteNotification";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -883,15 +782,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Notification>("/auth/user/notifications/{notificationId}/hide", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteNotification", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -907,9 +804,8 @@ namespace VRChat.API.Api
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Notification&gt;</returns>
-        public List<Notification> GetNotifications(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public List<Notification> GetNotifications(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?))
         {
             VRChat.API.Client.ApiResponse<List<Notification>> localVarResponse = GetNotificationsWithHttpInfo(type, sent, hidden, after, n, offset);
             return localVarResponse.Data;
@@ -925,9 +821,8 @@ namespace VRChat.API.Api
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Notification&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Notification>> GetNotificationsWithHttpInfo(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<Notification>> GetNotificationsWithHttpInfo(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?))
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -940,16 +835,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (type != null)
             {
@@ -975,9 +864,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
-
-            localVarRequestOptions.Operation = "NotificationsApi.GetNotifications";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -994,13 +880,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<Notification>>("/auth/user/notifications", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotifications", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1016,12 +900,11 @@ namespace VRChat.API.Api
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Notification&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Notification>> GetNotificationsAsync(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Notification>> GetNotificationsAsync(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<List<Notification>> localVarResponse = await GetNotificationsWithHttpInfoAsync(type, sent, hidden, after, n, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<Notification>> localVarResponse = await GetNotificationsWithHttpInfoAsync(type, sent, hidden, after, n, offset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1035,10 +918,9 @@ namespace VRChat.API.Api
         /// <param name="after">Only return notifications sent after this Date. Ignored if type is &#x60;friendRequest&#x60;. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Notification&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Notification>>> GetNotificationsWithHttpInfoAsync(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Notification>>> GetNotificationsWithHttpInfoAsync(string type = default(string), bool? sent = default(bool?), bool? hidden = default(bool?), string after = default(string), int? n = default(int?), int? offset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1051,17 +933,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (type != null)
             {
@@ -1088,9 +965,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "NotificationsApi.GetNotifications";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (apiKeyCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apiKey")))
@@ -1105,15 +979,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Notification>>("/auth/user/notifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotifications", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1123,10 +995,9 @@ namespace VRChat.API.Api
         /// Mark Notification As Read Mark a notification as seen.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>Notification</returns>
-        public Notification MarkNotificationAsRead(string notificationId, int operationIndex = 0)
+        public Notification MarkNotificationAsRead(string notificationId)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = MarkNotificationAsReadWithHttpInfo(notificationId);
             return localVarResponse.Data;
@@ -1136,16 +1007,13 @@ namespace VRChat.API.Api
         /// Mark Notification As Read Mark a notification as seen.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <returns>ApiResponse of Notification</returns>
-        public VRChat.API.Client.ApiResponse<Notification> MarkNotificationAsReadWithHttpInfo(string notificationId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Notification> MarkNotificationAsReadWithHttpInfo(string notificationId)
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling NotificationsApi->MarkNotificationAsRead");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1158,21 +1026,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
-
-            localVarRequestOptions.Operation = "NotificationsApi.MarkNotificationAsRead";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1189,13 +1048,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Notification>("/auth/user/notifications/{notificationId}/see", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("MarkNotificationAsRead", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1205,13 +1062,12 @@ namespace VRChat.API.Api
         /// Mark Notification As Read Mark a notification as seen.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        public async System.Threading.Tasks.Task<Notification> MarkNotificationAsReadAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Notification> MarkNotificationAsReadAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await MarkNotificationAsReadWithHttpInfoAsync(notificationId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await MarkNotificationAsReadWithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1219,17 +1075,14 @@ namespace VRChat.API.Api
         /// Mark Notification As Read Mark a notification as seen.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> MarkNotificationAsReadWithHttpInfoAsync(string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> MarkNotificationAsReadWithHttpInfoAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling NotificationsApi->MarkNotificationAsRead");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1242,22 +1095,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
-
-            localVarRequestOptions.Operation = "NotificationsApi.MarkNotificationAsRead";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1273,15 +1118,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Notification>("/auth/user/notifications/{notificationId}/see", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("MarkNotificationAsRead", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Period
         /// </summary>
-        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = false)]
         public SubscriptionPeriod Period { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Subscription" /> class.
@@ -54,21 +54,18 @@ namespace VRChat.API.Model
         public Subscription(string id = default(string), string steamItemId = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod period = default(SubscriptionPeriod), decimal tier = default(decimal))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
+            if (id == null) {
                 throw new ArgumentNullException("id is a required property for Subscription and cannot be null");
             }
             this.Id = id;
             // to ensure "steamItemId" is required (not null)
-            if (steamItemId == null)
-            {
+            if (steamItemId == null) {
                 throw new ArgumentNullException("steamItemId is a required property for Subscription and cannot be null");
             }
             this.SteamItemId = steamItemId;
             this.Amount = amount;
             // to ensure "description" is required (not null)
-            if (description == null)
-            {
+            if (description == null) {
                 throw new ArgumentNullException("description is a required property for Subscription and cannot be null");
             }
             this.Description = description;
@@ -79,31 +76,31 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets SteamItemId
         /// </summary>
-        [DataMember(Name = "steamItemId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "steamItemId", IsRequired = true, EmitDefaultValue = false)]
         public string SteamItemId { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
-        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = false)]
         public decimal Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Tier
         /// </summary>
-        [DataMember(Name = "tier", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tier", IsRequired = true, EmitDefaultValue = false)]
         public decimal Tier { get; set; }
 
         /// <summary>
@@ -112,7 +109,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class Subscription {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  SteamItemId: ").Append(SteamItemId).Append("\n");
@@ -151,9 +148,8 @@ namespace VRChat.API.Model
         public bool Equals(Subscription input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Id == input.Id ||
@@ -194,20 +190,14 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.SteamItemId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SteamItemId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                    hashCode = hashCode * 59 + this.SteamItemId.GetHashCode();
+                hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Period.GetHashCode();
-                hashCode = (hashCode * 59) + this.Tier.GetHashCode();
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                hashCode = hashCode * 59 + this.Period.GetHashCode();
+                hashCode = hashCode * 59 + this.Tier.GetHashCode();
                 return hashCode;
             }
         }
@@ -220,13 +210,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
-            if (this.Id != null && this.Id.Length < 1)
+            if(this.Id != null && this.Id.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // SteamItemId (string) minLength
-            if (this.SteamItemId != null && this.SteamItemId.Length < 1)
+            if(this.SteamItemId != null && this.SteamItemId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SteamItemId, length must be greater than 1.", new [] { "SteamItemId" });
             }

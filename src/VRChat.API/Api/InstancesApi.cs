@@ -33,11 +33,10 @@ namespace VRChat.API.Api
         /// Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \&quot;null\&quot;!
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>Instance</returns>
-        Instance GetInstance(string worldId, string instanceId, int operationIndex = 0);
+        Instance GetInstance(string worldId, string instanceId);
 
         /// <summary>
         /// Get Instance
@@ -46,11 +45,10 @@ namespace VRChat.API.Api
         /// Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \&quot;null\&quot;!
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>ApiResponse of Instance</returns>
-        ApiResponse<Instance> GetInstanceWithHttpInfo(string worldId, string instanceId, int operationIndex = 0);
+        ApiResponse<Instance> GetInstanceWithHttpInfo(string worldId, string instanceId);
         /// <summary>
         /// Get Instance By Short Name
         /// </summary>
@@ -58,10 +56,9 @@ namespace VRChat.API.Api
         /// Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="shortName"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="shortName">Must be a valid instance short name.</param>
         /// <returns>Instance</returns>
-        Instance GetInstanceByShortName(string shortName, int operationIndex = 0);
+        Instance GetInstanceByShortName(string shortName);
 
         /// <summary>
         /// Get Instance By Short Name
@@ -70,10 +67,9 @@ namespace VRChat.API.Api
         /// Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="shortName"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="shortName">Must be a valid instance short name.</param>
         /// <returns>ApiResponse of Instance</returns>
-        ApiResponse<Instance> GetInstanceByShortNameWithHttpInfo(string shortName, int operationIndex = 0);
+        ApiResponse<Instance> GetInstanceByShortNameWithHttpInfo(string shortName);
         /// <summary>
         /// Get Instance Short Name
         /// </summary>
@@ -81,11 +77,10 @@ namespace VRChat.API.Api
         /// Returns an instance short name.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>InstanceShortNameResponse</returns>
-        InstanceShortNameResponse GetShortName(string worldId, string instanceId, int operationIndex = 0);
+        InstanceShortNameResponse GetShortName(string worldId, string instanceId);
 
         /// <summary>
         /// Get Instance Short Name
@@ -94,11 +89,10 @@ namespace VRChat.API.Api
         /// Returns an instance short name.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>ApiResponse of InstanceShortNameResponse</returns>
-        ApiResponse<InstanceShortNameResponse> GetShortNameWithHttpInfo(string worldId, string instanceId, int operationIndex = 0);
+        ApiResponse<InstanceShortNameResponse> GetShortNameWithHttpInfo(string worldId, string instanceId);
         /// <summary>
         /// Send Self Invite
         /// </summary>
@@ -106,11 +100,10 @@ namespace VRChat.API.Api
         /// Sends an invite to the instance to yourself.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>Success</returns>
-        Success SendSelfInvite(string worldId, string instanceId, int operationIndex = 0);
+        Success SendSelfInvite(string worldId, string instanceId);
 
         /// <summary>
         /// Send Self Invite
@@ -119,11 +112,10 @@ namespace VRChat.API.Api
         /// Sends an invite to the instance to yourself.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> SendSelfInviteWithHttpInfo(string worldId, string instanceId, int operationIndex = 0);
+        ApiResponse<Success> SendSelfInviteWithHttpInfo(string worldId, string instanceId);
         #endregion Synchronous Operations
     }
 
@@ -140,12 +132,11 @@ namespace VRChat.API.Api
         /// Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \&quot;null\&quot;!
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Instance</returns>
-        System.Threading.Tasks.Task<Instance> GetInstanceAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Instance> GetInstanceAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Instance
@@ -154,12 +145,11 @@ namespace VRChat.API.Api
         /// Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \&quot;null\&quot;!
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Instance>> GetInstanceWithHttpInfoAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Instance>> GetInstanceWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Instance By Short Name
         /// </summary>
@@ -167,11 +157,10 @@ namespace VRChat.API.Api
         /// Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="shortName"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="shortName">Must be a valid instance short name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Instance</returns>
-        System.Threading.Tasks.Task<Instance> GetInstanceByShortNameAsync(string shortName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Instance> GetInstanceByShortNameAsync(string shortName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Instance By Short Name
@@ -180,11 +169,10 @@ namespace VRChat.API.Api
         /// Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="shortName"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="shortName">Must be a valid instance short name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Instance>> GetInstanceByShortNameWithHttpInfoAsync(string shortName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Instance>> GetInstanceByShortNameWithHttpInfoAsync(string shortName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Instance Short Name
         /// </summary>
@@ -192,12 +180,11 @@ namespace VRChat.API.Api
         /// Returns an instance short name.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstanceShortNameResponse</returns>
-        System.Threading.Tasks.Task<InstanceShortNameResponse> GetShortNameAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InstanceShortNameResponse> GetShortNameAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Instance Short Name
@@ -206,12 +193,11 @@ namespace VRChat.API.Api
         /// Returns an instance short name.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstanceShortNameResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InstanceShortNameResponse>> GetShortNameWithHttpInfoAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InstanceShortNameResponse>> GetShortNameWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Send Self Invite
         /// </summary>
@@ -219,12 +205,11 @@ namespace VRChat.API.Api
         /// Sends an invite to the instance to yourself.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> SendSelfInviteAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> SendSelfInviteAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Self Invite
@@ -233,12 +218,11 @@ namespace VRChat.API.Api
         /// Sends an invite to the instance to yourself.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> SendSelfInviteWithHttpInfoAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> SendSelfInviteWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -363,11 +347,10 @@ namespace VRChat.API.Api
         /// Get Instance Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \&quot;null\&quot;!
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>Instance</returns>
-        public Instance GetInstance(string worldId, string instanceId, int operationIndex = 0)
+        public Instance GetInstance(string worldId, string instanceId)
         {
             VRChat.API.Client.ApiResponse<Instance> localVarResponse = GetInstanceWithHttpInfo(worldId, instanceId);
             return localVarResponse.Data;
@@ -377,23 +360,18 @@ namespace VRChat.API.Api
         /// Get Instance Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \&quot;null\&quot;!
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>ApiResponse of Instance</returns>
-        public VRChat.API.Client.ApiResponse<Instance> GetInstanceWithHttpInfo(string worldId, string instanceId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Instance> GetInstanceWithHttpInfo(string worldId, string instanceId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InstancesApi->GetInstance");
-            }
 
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InstancesApi->GetInstance");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -406,22 +384,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-
-            localVarRequestOptions.Operation = "InstancesApi.GetInstance";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -438,13 +407,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Instance>("/instances/{worldId}:{instanceId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -454,14 +421,13 @@ namespace VRChat.API.Api
         /// Get Instance Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \&quot;null\&quot;!
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Instance</returns>
-        public async System.Threading.Tasks.Task<Instance> GetInstanceAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Instance> GetInstanceAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Instance> localVarResponse = await GetInstanceWithHttpInfoAsync(worldId, instanceId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Instance> localVarResponse = await GetInstanceWithHttpInfoAsync(worldId, instanceId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -469,24 +435,19 @@ namespace VRChat.API.Api
         /// Get Instance Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.  If an invalid instanceId is provided, this endpoint will simply return \&quot;null\&quot;!
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instance)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Instance>> GetInstanceWithHttpInfoAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Instance>> GetInstanceWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InstancesApi->GetInstance");
-            }
 
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InstancesApi->GetInstance");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -499,23 +460,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-
-            localVarRequestOptions.Operation = "InstancesApi.GetInstance";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -531,15 +484,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Instance>("/instances/{worldId}:{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -549,10 +500,9 @@ namespace VRChat.API.Api
         /// Get Instance By Short Name Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="shortName"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="shortName">Must be a valid instance short name.</param>
         /// <returns>Instance</returns>
-        public Instance GetInstanceByShortName(string shortName, int operationIndex = 0)
+        public Instance GetInstanceByShortName(string shortName)
         {
             VRChat.API.Client.ApiResponse<Instance> localVarResponse = GetInstanceByShortNameWithHttpInfo(shortName);
             return localVarResponse.Data;
@@ -562,16 +512,13 @@ namespace VRChat.API.Api
         /// Get Instance By Short Name Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="shortName"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="shortName">Must be a valid instance short name.</param>
         /// <returns>ApiResponse of Instance</returns>
-        public VRChat.API.Client.ApiResponse<Instance> GetInstanceByShortNameWithHttpInfo(string shortName, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Instance> GetInstanceByShortNameWithHttpInfo(string shortName)
         {
             // verify the required parameter 'shortName' is set
             if (shortName == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'shortName' when calling InstancesApi->GetInstanceByShortName");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -584,21 +531,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("shortName", VRChat.API.Client.ClientUtils.ParameterToString(shortName)); // path parameter
-
-            localVarRequestOptions.Operation = "InstancesApi.GetInstanceByShortName";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -615,13 +553,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Instance>("/instances/s/{shortName}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstanceByShortName", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -631,13 +567,12 @@ namespace VRChat.API.Api
         /// Get Instance By Short Name Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="shortName"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="shortName">Must be a valid instance short name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Instance</returns>
-        public async System.Threading.Tasks.Task<Instance> GetInstanceByShortNameAsync(string shortName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Instance> GetInstanceByShortNameAsync(string shortName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Instance> localVarResponse = await GetInstanceByShortNameWithHttpInfoAsync(shortName, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Instance> localVarResponse = await GetInstanceByShortNameWithHttpInfoAsync(shortName, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -645,17 +580,14 @@ namespace VRChat.API.Api
         /// Get Instance By Short Name Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="shortName"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="shortName">Must be a valid instance short name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instance)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Instance>> GetInstanceByShortNameWithHttpInfoAsync(string shortName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Instance>> GetInstanceByShortNameWithHttpInfoAsync(string shortName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'shortName' is set
             if (shortName == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'shortName' when calling InstancesApi->GetInstanceByShortName");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -668,22 +600,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("shortName", VRChat.API.Client.ClientUtils.ParameterToString(shortName)); // path parameter
-
-            localVarRequestOptions.Operation = "InstancesApi.GetInstanceByShortName";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -699,15 +623,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Instance>("/instances/s/{shortName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstanceByShortName", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -717,11 +639,10 @@ namespace VRChat.API.Api
         /// Get Instance Short Name Returns an instance short name.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>InstanceShortNameResponse</returns>
-        public InstanceShortNameResponse GetShortName(string worldId, string instanceId, int operationIndex = 0)
+        public InstanceShortNameResponse GetShortName(string worldId, string instanceId)
         {
             VRChat.API.Client.ApiResponse<InstanceShortNameResponse> localVarResponse = GetShortNameWithHttpInfo(worldId, instanceId);
             return localVarResponse.Data;
@@ -731,23 +652,18 @@ namespace VRChat.API.Api
         /// Get Instance Short Name Returns an instance short name.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>ApiResponse of InstanceShortNameResponse</returns>
-        public VRChat.API.Client.ApiResponse<InstanceShortNameResponse> GetShortNameWithHttpInfo(string worldId, string instanceId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<InstanceShortNameResponse> GetShortNameWithHttpInfo(string worldId, string instanceId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InstancesApi->GetShortName");
-            }
 
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InstancesApi->GetShortName");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -761,22 +677,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-
-            localVarRequestOptions.Operation = "InstancesApi.GetShortName";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -793,13 +700,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InstanceShortNameResponse>("/instances/{worldId}:{instanceId}/shortName", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetShortName", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -809,14 +714,13 @@ namespace VRChat.API.Api
         /// Get Instance Short Name Returns an instance short name.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstanceShortNameResponse</returns>
-        public async System.Threading.Tasks.Task<InstanceShortNameResponse> GetShortNameAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InstanceShortNameResponse> GetShortNameAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<InstanceShortNameResponse> localVarResponse = await GetShortNameWithHttpInfoAsync(worldId, instanceId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<InstanceShortNameResponse> localVarResponse = await GetShortNameWithHttpInfoAsync(worldId, instanceId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -824,24 +728,19 @@ namespace VRChat.API.Api
         /// Get Instance Short Name Returns an instance short name.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstanceShortNameResponse)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InstanceShortNameResponse>> GetShortNameWithHttpInfoAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InstanceShortNameResponse>> GetShortNameWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InstancesApi->GetShortName");
-            }
 
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InstancesApi->GetShortName");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -855,23 +754,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-
-            localVarRequestOptions.Operation = "InstancesApi.GetShortName";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -887,15 +778,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<InstanceShortNameResponse>("/instances/{worldId}:{instanceId}/shortName", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetShortName", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -905,11 +794,10 @@ namespace VRChat.API.Api
         /// Send Self Invite Sends an invite to the instance to yourself.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>Success</returns>
-        public Success SendSelfInvite(string worldId, string instanceId, int operationIndex = 0)
+        public Success SendSelfInvite(string worldId, string instanceId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = SendSelfInviteWithHttpInfo(worldId, instanceId);
             return localVarResponse.Data;
@@ -919,23 +807,18 @@ namespace VRChat.API.Api
         /// Send Self Invite Sends an invite to the instance to yourself.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> SendSelfInviteWithHttpInfo(string worldId, string instanceId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> SendSelfInviteWithHttpInfo(string worldId, string instanceId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InstancesApi->SendSelfInvite");
-            }
 
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InstancesApi->SendSelfInvite");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -948,22 +831,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-
-            localVarRequestOptions.Operation = "InstancesApi.SendSelfInvite";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -980,13 +854,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Success>("/instances/{worldId}:{instanceId}/invite", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SendSelfInvite", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -996,14 +868,13 @@ namespace VRChat.API.Api
         /// Send Self Invite Sends an invite to the instance to yourself.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> SendSelfInviteAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> SendSelfInviteAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await SendSelfInviteWithHttpInfoAsync(worldId, instanceId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await SendSelfInviteWithHttpInfoAsync(worldId, instanceId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1011,24 +882,19 @@ namespace VRChat.API.Api
         /// Send Self Invite Sends an invite to the instance to yourself.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="worldId"></param>
-        /// <param name="instanceId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> SendSelfInviteWithHttpInfoAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> SendSelfInviteWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InstancesApi->SendSelfInvite");
-            }
 
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InstancesApi->SendSelfInvite");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1041,23 +907,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-
-            localVarRequestOptions.Operation = "InstancesApi.SendSelfInvite";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (apiKeyCookie) required
             // cookie parameter support
@@ -1073,15 +931,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Success>("/instances/{worldId}:{instanceId}/invite", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SendSelfInvite", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

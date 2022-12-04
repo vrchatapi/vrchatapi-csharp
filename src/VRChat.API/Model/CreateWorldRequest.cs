@@ -56,26 +56,23 @@ namespace VRChat.API.Model
         /// <param name="name">name (required).</param>
         /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
         /// <param name="releaseStatus">releaseStatus.</param>
-        /// <param name="tags"> .</param>
+        /// <param name="tags">tags.</param>
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
         public CreateWorldRequest(string assetUrl = default(string), int assetVersion = default(int), string authorId = default(string), string authorName = default(string), int capacity = default(int), string description = default(string), string id = default(string), string imageUrl = default(string), string name = default(string), string platform = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), List<string> tags = default(List<string>), string unityPackageUrl = default(string), string unityVersion = "5.3.4p1")
         {
             // to ensure "assetUrl" is required (not null)
-            if (assetUrl == null)
-            {
+            if (assetUrl == null) {
                 throw new ArgumentNullException("assetUrl is a required property for CreateWorldRequest and cannot be null");
             }
             this.AssetUrl = assetUrl;
             // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
+            if (imageUrl == null) {
                 throw new ArgumentNullException("imageUrl is a required property for CreateWorldRequest and cannot be null");
             }
             this.ImageUrl = imageUrl;
             // to ensure "name" is required (not null)
-            if (name == null)
-            {
+            if (name == null) {
                 throw new ArgumentNullException("name is a required property for CreateWorldRequest and cannot be null");
             }
             this.Name = name;
@@ -96,7 +93,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AssetUrl
         /// </summary>
-        [DataMember(Name = "assetUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "assetUrl", IsRequired = true, EmitDefaultValue = false)]
         public string AssetUrl { get; set; }
 
         /// <summary>
@@ -140,13 +137,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
-        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = false)]
         public string ImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -157,9 +154,8 @@ namespace VRChat.API.Model
         public string Platform { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
@@ -181,7 +177,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class CreateWorldRequest {\n");
             sb.Append("  AssetUrl: ").Append(AssetUrl).Append("\n");
             sb.Append("  AssetVersion: ").Append(AssetVersion).Append("\n");
@@ -228,9 +224,8 @@ namespace VRChat.API.Model
         public bool Equals(CreateWorldRequest input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.AssetUrl == input.AssetUrl ||
@@ -312,52 +307,30 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.AssetUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetUrl.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AssetVersion.GetHashCode();
+                    hashCode = hashCode * 59 + this.AssetUrl.GetHashCode();
+                hashCode = hashCode * 59 + this.AssetVersion.GetHashCode();
                 if (this.AuthorId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.AuthorId.GetHashCode();
                 if (this.AuthorName != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Capacity.GetHashCode();
+                    hashCode = hashCode * 59 + this.AuthorName.GetHashCode();
+                hashCode = hashCode * 59 + this.Capacity.GetHashCode();
                 if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.ImageUrl.GetHashCode();
                 if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Platform != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
+                    hashCode = hashCode * 59 + this.Platform.GetHashCode();
+                hashCode = hashCode * 59 + this.ReleaseStatus.GetHashCode();
                 if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.UnityPackageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.UnityPackageUrl.GetHashCode();
                 if (this.UnityVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityVersion.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.UnityVersion.GetHashCode();
                 return hashCode;
             }
         }
@@ -370,31 +343,31 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // AssetUrl (string) minLength
-            if (this.AssetUrl != null && this.AssetUrl.Length < 1)
+            if(this.AssetUrl != null && this.AssetUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
             }
 
             // AssetVersion (int) minimum
-            if (this.AssetVersion < (int)0)
+            if(this.AssetVersion < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetVersion, must be a value greater than or equal to 0.", new [] { "AssetVersion" });
             }
 
             // AuthorName (string) minLength
-            if (this.AuthorName != null && this.AuthorName.Length < 1)
+            if(this.AuthorName != null && this.AuthorName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
 
             // Capacity (int) maximum
-            if (this.Capacity > (int)40)
+            if(this.Capacity > (int)40)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value less than or equal to 40.", new [] { "Capacity" });
             }
 
             // Capacity (int) minimum
-            if (this.Capacity < (int)0)
+            if(this.Capacity < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value greater than or equal to 0.", new [] { "Capacity" });
             }
@@ -407,25 +380,25 @@ namespace VRChat.API.Model
             }
 
             // ImageUrl (string) minLength
-            if (this.ImageUrl != null && this.ImageUrl.Length < 1)
+            if(this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // UnityPackageUrl (string) minLength
-            if (this.UnityPackageUrl != null && this.UnityPackageUrl.Length < 1)
+            if(this.UnityPackageUrl != null && this.UnityPackageUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityPackageUrl, length must be greater than 1.", new [] { "UnityPackageUrl" });
             }
 
             // UnityVersion (string) minLength
-            if (this.UnityVersion != null && this.UnityVersion.Length < 1)
+            if(this.UnityVersion != null && this.UnityVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }

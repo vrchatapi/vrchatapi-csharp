@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Description** | **string** |  | [optional] 
-**Tags** | **List&lt;string&gt;** |   | [optional] 
+**Tags** | **List&lt;string&gt;** |  | [optional] 
 **ImageUrl** | **string** |  | [optional] 
 **ReleaseStatus** | **ReleaseStatus** |  | [optional] 
 **_Version** | **decimal** |  | [optional] [default to 1M]

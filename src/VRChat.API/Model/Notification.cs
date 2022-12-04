@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public NotificationType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Notification" /> class.
@@ -46,81 +46,87 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="Notification" /> class.
         /// </summary>
         /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="details">**NOTICE:** This is not a JSON object, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType. (required) (default to &quot;{}&quot;).</param>
+        /// <param name="details">**NOTICE:** This is not a JSON object when received from the REST API, but it is when received from the Websocket API. When received from the REST API, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType. (required) (default to &quot;{}&quot;).</param>
         /// <param name="id">id (required).</param>
         /// <param name="message">message (required).</param>
-        /// <param name="seen">seen (required) (default to false).</param>
+        /// <param name="seen">Not included in notification objects received from the Websocket API (default to false).</param>
+        /// <param name="receiverUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="senderUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="senderUsername">-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
         /// <param name="type">type (required).</param>
-        public Notification(DateTime createdAt = default(DateTime), string details = "{}", string id = default(string), string message = default(string), bool seen = false, string senderUserId = default(string), string senderUsername = default(string), NotificationType type = default(NotificationType))
+        public Notification(DateTime createdAt = default(DateTime), string details = "{}", string id = default(string), string message = default(string), bool seen = false, string receiverUserId = default(string), string senderUserId = default(string), string senderUsername = default(string), NotificationType type = default(NotificationType))
         {
             this.CreatedAt = createdAt;
             // to ensure "details" is required (not null)
-            if (details == null)
-            {
+            if (details == null) {
                 throw new ArgumentNullException("details is a required property for Notification and cannot be null");
             }
             this.Details = details;
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
+            if (id == null) {
                 throw new ArgumentNullException("id is a required property for Notification and cannot be null");
             }
             this.Id = id;
             // to ensure "message" is required (not null)
-            if (message == null)
-            {
+            if (message == null) {
                 throw new ArgumentNullException("message is a required property for Notification and cannot be null");
             }
             this.Message = message;
-            this.Seen = seen;
             // to ensure "senderUserId" is required (not null)
-            if (senderUserId == null)
-            {
+            if (senderUserId == null) {
                 throw new ArgumentNullException("senderUserId is a required property for Notification and cannot be null");
             }
             this.SenderUserId = senderUserId;
             this.Type = type;
+            this.Seen = seen;
+            this.ReceiverUserId = receiverUserId;
             this.SenderUsername = senderUsername;
         }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// **NOTICE:** This is not a JSON object, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.
+        /// **NOTICE:** This is not a JSON object when received from the REST API, but it is when received from the Websocket API. When received from the REST API, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.
         /// </summary>
-        /// <value>**NOTICE:** This is not a JSON object, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.</value>
-        [DataMember(Name = "details", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>**NOTICE:** This is not a JSON object when received from the REST API, but it is when received from the Websocket API. When received from the REST API, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.</value>
+        [DataMember(Name = "details", IsRequired = true, EmitDefaultValue = false)]
         public string Details { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets Seen
+        /// Not included in notification objects received from the Websocket API
         /// </summary>
-        [DataMember(Name = "seen", IsRequired = true, EmitDefaultValue = true)]
+        /// <value>Not included in notification objects received from the Websocket API</value>
+        [DataMember(Name = "seen", EmitDefaultValue = true)]
         public bool Seen { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "senderUserId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "receiverUserId", EmitDefaultValue = false)]
+        public string ReceiverUserId { get; set; }
+
+        /// <summary>
+        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// </summary>
+        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        [DataMember(Name = "senderUserId", IsRequired = true, EmitDefaultValue = false)]
         public string SenderUserId { get; set; }
 
         /// <summary>
@@ -137,13 +143,14 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class Notification {\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Seen: ").Append(Seen).Append("\n");
+            sb.Append("  ReceiverUserId: ").Append(ReceiverUserId).Append("\n");
             sb.Append("  SenderUserId: ").Append(SenderUserId).Append("\n");
             sb.Append("  SenderUsername: ").Append(SenderUsername).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -178,9 +185,8 @@ namespace VRChat.API.Model
         public bool Equals(Notification input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -205,6 +211,11 @@ namespace VRChat.API.Model
                 (
                     this.Seen == input.Seen ||
                     this.Seen.Equals(input.Seen)
+                ) && 
+                (
+                    this.ReceiverUserId == input.ReceiverUserId ||
+                    (this.ReceiverUserId != null &&
+                    this.ReceiverUserId.Equals(input.ReceiverUserId))
                 ) && 
                 (
                     this.SenderUserId == input.SenderUserId ||
@@ -232,31 +243,21 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.Details != null)
-                {
-                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Details.GetHashCode();
                 if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Seen.GetHashCode();
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                hashCode = hashCode * 59 + this.Seen.GetHashCode();
+                if (this.ReceiverUserId != null)
+                    hashCode = hashCode * 59 + this.ReceiverUserId.GetHashCode();
                 if (this.SenderUserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SenderUserId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.SenderUserId.GetHashCode();
                 if (this.SenderUsername != null)
-                {
-                    hashCode = (hashCode * 59) + this.SenderUsername.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                    hashCode = hashCode * 59 + this.SenderUsername.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }
@@ -269,13 +270,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
-            if (this.Id != null && this.Id.Length < 1)
+            if(this.Id != null && this.Id.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // SenderUsername (string) minLength
-            if (this.SenderUsername != null && this.SenderUsername.Length < 1)
+            if(this.SenderUsername != null && this.SenderUsername.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SenderUsername, length must be greater than 1.", new [] { "SenderUsername" });
             }

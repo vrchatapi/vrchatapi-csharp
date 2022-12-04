@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 **Popularity** | **int** |  | [default to 0]
 **PublicationDate** | **string** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
-**Tags** | **List&lt;string&gt;** |   | 
+**Tags** | **List&lt;string&gt;** |  | 
 **ThumbnailImageUrl** | **string** |  | 
-**UnityPackages** | [**List&lt;LimitedUnityPackage&gt;**](LimitedUnityPackage.md) |   | 
+**UnityPackages** | [**List&lt;LimitedUnityPackage&gt;**](LimitedUnityPackage.md) |  | 
 **UpdatedAt** | **DateTime** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

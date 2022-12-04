@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DeploymentGroup
         /// </summary>
-        [DataMember(Name = "deploymentGroup", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "deploymentGroup", IsRequired = true, EmitDefaultValue = false)]
         public DeploymentGroup DeploymentGroup { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfig" /> class.
@@ -125,43 +125,37 @@ namespace VRChat.API.Model
         /// <param name="worldUpdatePeriod">Unknown (required).</param>
         /// <param name="playerUrlResolverHash">Currently used youtube-dl.exe hash in SHA-256-delimited format (required).</param>
         /// <param name="playerUrlResolverVersion">Currently used youtube-dl.exe version (required).</param>
-        public APIConfig(bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, string address = default(string), List<PublicAnnouncement> announcements = default(List<PublicAnnouncement>), string apiKey = default(string), string appName = "VrChat", string buildVersionTag = default(string), string clientApiKey = default(string), int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, string contactEmail = default(string), string copyrightEmail = default(string), int currentTOSVersion = default(int), string defaultAvatar = default(string), DeploymentGroup deploymentGroup = default(DeploymentGroup), string devAppVersionStandalone = default(string), string devDownloadLinkWindows = default(string), string devSdkUrl = default(string), string devSdkVersion = default(string), string devServerVersionStandalone = default(string), DateTime disCountdown = default(DateTime), bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default(string), DownloadURLList downloadUrls = default(DownloadURLList), List<DynamicContentRow> dynamicWorldRows = default(List<DynamicContentRow>), APIEventConfig events = default(APIEventConfig), string gearDemoRoomId = default(string), string homeWorldId = default(string), string homepageRedirectTarget = "https://hello.vrchat.com", string hubWorldId = default(string), string jobsEmail = default(string), string messageOfTheDay = default(string), string moderationEmail = default(string), int moderationQueryPeriod = default(int), string notAllowedToSelectAvatarInPrivateWorldMessage = default(string), string plugin = default(string), string releaseAppVersionStandalone = default(string), string releaseSdkUrl = default(string), string releaseSdkVersion = default(string), string releaseServerVersionStandalone = default(string), string sdkDeveloperFaqUrl = default(string), string sdkDiscordUrl = default(string), string sdkNotAllowedToPublishMessage = default(string), string sdkUnityVersion = default(string), string serverName = default(string), string supportEmail = default(string), string timeOutWorldId = default(string), string tutorialWorldId = default(string), int updateRateMsMaximum = default(int), int updateRateMsMinimum = default(int), int updateRateMsNormal = default(int), int updateRateMsUdonManual = default(int), int uploadAnalysisPercent = default(int), List<string> urlList = default(List<string>), bool useReliableUdpForVoice = false, int userUpdatePeriod = default(int), int userVerificationDelay = default(int), int userVerificationRetry = default(int), int userVerificationTimeout = default(int), string viveWindowsUrl = default(string), List<string> whiteListedAssetUrls = default(List<string>), int worldUpdatePeriod = default(int), string playerUrlResolverHash = default(string), string playerUrlResolverVersion = default(string))
+        public APIConfig(bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, string address = default(string), List<APIConfigAnnouncement> announcements = default(List<APIConfigAnnouncement>), string apiKey = default(string), string appName = "VrChat", string buildVersionTag = default(string), string clientApiKey = default(string), int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, string contactEmail = default(string), string copyrightEmail = default(string), int currentTOSVersion = default(int), string defaultAvatar = default(string), DeploymentGroup deploymentGroup = default(DeploymentGroup), string devAppVersionStandalone = default(string), string devDownloadLinkWindows = default(string), string devSdkUrl = default(string), string devSdkVersion = default(string), string devServerVersionStandalone = default(string), DateTime disCountdown = default(DateTime), bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default(string), APIConfigDownloadURLList downloadUrls = default(APIConfigDownloadURLList), List<DynamicContentRow> dynamicWorldRows = default(List<DynamicContentRow>), APIConfigEvents events = default(APIConfigEvents), string gearDemoRoomId = default(string), string homeWorldId = default(string), string homepageRedirectTarget = "https://hello.vrchat.com", string hubWorldId = default(string), string jobsEmail = default(string), string messageOfTheDay = default(string), string moderationEmail = default(string), int moderationQueryPeriod = default(int), string notAllowedToSelectAvatarInPrivateWorldMessage = default(string), string plugin = default(string), string releaseAppVersionStandalone = default(string), string releaseSdkUrl = default(string), string releaseSdkVersion = default(string), string releaseServerVersionStandalone = default(string), string sdkDeveloperFaqUrl = default(string), string sdkDiscordUrl = default(string), string sdkNotAllowedToPublishMessage = default(string), string sdkUnityVersion = default(string), string serverName = default(string), string supportEmail = default(string), string timeOutWorldId = default(string), string tutorialWorldId = default(string), int updateRateMsMaximum = default(int), int updateRateMsMinimum = default(int), int updateRateMsNormal = default(int), int updateRateMsUdonManual = default(int), int uploadAnalysisPercent = default(int), List<string> urlList = default(List<string>), bool useReliableUdpForVoice = false, int userUpdatePeriod = default(int), int userVerificationDelay = default(int), int userVerificationRetry = default(int), int userVerificationTimeout = default(int), string viveWindowsUrl = default(string), List<string> whiteListedAssetUrls = default(List<string>), int worldUpdatePeriod = default(int), string playerUrlResolverHash = default(string), string playerUrlResolverVersion = default(string))
         {
             this.VoiceEnableDegradation = voiceEnableDegradation;
             this.VoiceEnableReceiverLimiting = voiceEnableReceiverLimiting;
             // to ensure "address" is required (not null)
-            if (address == null)
-            {
+            if (address == null) {
                 throw new ArgumentNullException("address is a required property for APIConfig and cannot be null");
             }
             this.Address = address;
             // to ensure "announcements" is required (not null)
-            if (announcements == null)
-            {
+            if (announcements == null) {
                 throw new ArgumentNullException("announcements is a required property for APIConfig and cannot be null");
             }
             this.Announcements = announcements;
             // to ensure "apiKey" is required (not null)
-            if (apiKey == null)
-            {
+            if (apiKey == null) {
                 throw new ArgumentNullException("apiKey is a required property for APIConfig and cannot be null");
             }
             this.ApiKey = apiKey;
             // to ensure "appName" is required (not null)
-            if (appName == null)
-            {
+            if (appName == null) {
                 throw new ArgumentNullException("appName is a required property for APIConfig and cannot be null");
             }
             this.AppName = appName;
             // to ensure "buildVersionTag" is required (not null)
-            if (buildVersionTag == null)
-            {
+            if (buildVersionTag == null) {
                 throw new ArgumentNullException("buildVersionTag is a required property for APIConfig and cannot be null");
             }
             this.BuildVersionTag = buildVersionTag;
             // to ensure "clientApiKey" is required (not null)
-            if (clientApiKey == null)
-            {
+            if (clientApiKey == null) {
                 throw new ArgumentNullException("clientApiKey is a required property for APIConfig and cannot be null");
             }
             this.ClientApiKey = clientApiKey;
@@ -170,52 +164,44 @@ namespace VRChat.API.Model
             this.ClientReservedPlayerBPS = clientReservedPlayerBPS;
             this.ClientSentCountAllowance = clientSentCountAllowance;
             // to ensure "contactEmail" is required (not null)
-            if (contactEmail == null)
-            {
+            if (contactEmail == null) {
                 throw new ArgumentNullException("contactEmail is a required property for APIConfig and cannot be null");
             }
             this.ContactEmail = contactEmail;
             // to ensure "copyrightEmail" is required (not null)
-            if (copyrightEmail == null)
-            {
+            if (copyrightEmail == null) {
                 throw new ArgumentNullException("copyrightEmail is a required property for APIConfig and cannot be null");
             }
             this.CopyrightEmail = copyrightEmail;
             this.CurrentTOSVersion = currentTOSVersion;
             // to ensure "defaultAvatar" is required (not null)
-            if (defaultAvatar == null)
-            {
+            if (defaultAvatar == null) {
                 throw new ArgumentNullException("defaultAvatar is a required property for APIConfig and cannot be null");
             }
             this.DefaultAvatar = defaultAvatar;
             this.DeploymentGroup = deploymentGroup;
             // to ensure "devAppVersionStandalone" is required (not null)
-            if (devAppVersionStandalone == null)
-            {
+            if (devAppVersionStandalone == null) {
                 throw new ArgumentNullException("devAppVersionStandalone is a required property for APIConfig and cannot be null");
             }
             this.DevAppVersionStandalone = devAppVersionStandalone;
             // to ensure "devDownloadLinkWindows" is required (not null)
-            if (devDownloadLinkWindows == null)
-            {
+            if (devDownloadLinkWindows == null) {
                 throw new ArgumentNullException("devDownloadLinkWindows is a required property for APIConfig and cannot be null");
             }
             this.DevDownloadLinkWindows = devDownloadLinkWindows;
             // to ensure "devSdkUrl" is required (not null)
-            if (devSdkUrl == null)
-            {
+            if (devSdkUrl == null) {
                 throw new ArgumentNullException("devSdkUrl is a required property for APIConfig and cannot be null");
             }
             this.DevSdkUrl = devSdkUrl;
             // to ensure "devSdkVersion" is required (not null)
-            if (devSdkVersion == null)
-            {
+            if (devSdkVersion == null) {
                 throw new ArgumentNullException("devSdkVersion is a required property for APIConfig and cannot be null");
             }
             this.DevSdkVersion = devSdkVersion;
             // to ensure "devServerVersionStandalone" is required (not null)
-            if (devServerVersionStandalone == null)
-            {
+            if (devServerVersionStandalone == null) {
                 throw new ArgumentNullException("devServerVersionStandalone is a required property for APIConfig and cannot be null");
             }
             this.DevServerVersionStandalone = devServerVersionStandalone;
@@ -236,153 +222,128 @@ namespace VRChat.API.Model
             this.DisableUdon = disableUdon;
             this.DisableUpgradeAccount = disableUpgradeAccount;
             // to ensure "downloadLinkWindows" is required (not null)
-            if (downloadLinkWindows == null)
-            {
+            if (downloadLinkWindows == null) {
                 throw new ArgumentNullException("downloadLinkWindows is a required property for APIConfig and cannot be null");
             }
             this.DownloadLinkWindows = downloadLinkWindows;
             // to ensure "downloadUrls" is required (not null)
-            if (downloadUrls == null)
-            {
+            if (downloadUrls == null) {
                 throw new ArgumentNullException("downloadUrls is a required property for APIConfig and cannot be null");
             }
             this.DownloadUrls = downloadUrls;
             // to ensure "dynamicWorldRows" is required (not null)
-            if (dynamicWorldRows == null)
-            {
+            if (dynamicWorldRows == null) {
                 throw new ArgumentNullException("dynamicWorldRows is a required property for APIConfig and cannot be null");
             }
             this.DynamicWorldRows = dynamicWorldRows;
             // to ensure "events" is required (not null)
-            if (events == null)
-            {
+            if (events == null) {
                 throw new ArgumentNullException("events is a required property for APIConfig and cannot be null");
             }
             this.Events = events;
             // to ensure "gearDemoRoomId" is required (not null)
-            if (gearDemoRoomId == null)
-            {
+            if (gearDemoRoomId == null) {
                 throw new ArgumentNullException("gearDemoRoomId is a required property for APIConfig and cannot be null");
             }
             this.GearDemoRoomId = gearDemoRoomId;
             // to ensure "homeWorldId" is required (not null)
-            if (homeWorldId == null)
-            {
+            if (homeWorldId == null) {
                 throw new ArgumentNullException("homeWorldId is a required property for APIConfig and cannot be null");
             }
             this.HomeWorldId = homeWorldId;
             // to ensure "homepageRedirectTarget" is required (not null)
-            if (homepageRedirectTarget == null)
-            {
+            if (homepageRedirectTarget == null) {
                 throw new ArgumentNullException("homepageRedirectTarget is a required property for APIConfig and cannot be null");
             }
             this.HomepageRedirectTarget = homepageRedirectTarget;
             // to ensure "hubWorldId" is required (not null)
-            if (hubWorldId == null)
-            {
+            if (hubWorldId == null) {
                 throw new ArgumentNullException("hubWorldId is a required property for APIConfig and cannot be null");
             }
             this.HubWorldId = hubWorldId;
             // to ensure "jobsEmail" is required (not null)
-            if (jobsEmail == null)
-            {
+            if (jobsEmail == null) {
                 throw new ArgumentNullException("jobsEmail is a required property for APIConfig and cannot be null");
             }
             this.JobsEmail = jobsEmail;
             // to ensure "messageOfTheDay" is required (not null)
-            if (messageOfTheDay == null)
-            {
+            if (messageOfTheDay == null) {
                 throw new ArgumentNullException("messageOfTheDay is a required property for APIConfig and cannot be null");
             }
             this.MessageOfTheDay = messageOfTheDay;
             // to ensure "moderationEmail" is required (not null)
-            if (moderationEmail == null)
-            {
+            if (moderationEmail == null) {
                 throw new ArgumentNullException("moderationEmail is a required property for APIConfig and cannot be null");
             }
             this.ModerationEmail = moderationEmail;
             this.ModerationQueryPeriod = moderationQueryPeriod;
             // to ensure "notAllowedToSelectAvatarInPrivateWorldMessage" is required (not null)
-            if (notAllowedToSelectAvatarInPrivateWorldMessage == null)
-            {
+            if (notAllowedToSelectAvatarInPrivateWorldMessage == null) {
                 throw new ArgumentNullException("notAllowedToSelectAvatarInPrivateWorldMessage is a required property for APIConfig and cannot be null");
             }
             this.NotAllowedToSelectAvatarInPrivateWorldMessage = notAllowedToSelectAvatarInPrivateWorldMessage;
             // to ensure "plugin" is required (not null)
-            if (plugin == null)
-            {
+            if (plugin == null) {
                 throw new ArgumentNullException("plugin is a required property for APIConfig and cannot be null");
             }
             this.Plugin = plugin;
             // to ensure "releaseAppVersionStandalone" is required (not null)
-            if (releaseAppVersionStandalone == null)
-            {
+            if (releaseAppVersionStandalone == null) {
                 throw new ArgumentNullException("releaseAppVersionStandalone is a required property for APIConfig and cannot be null");
             }
             this.ReleaseAppVersionStandalone = releaseAppVersionStandalone;
             // to ensure "releaseSdkUrl" is required (not null)
-            if (releaseSdkUrl == null)
-            {
+            if (releaseSdkUrl == null) {
                 throw new ArgumentNullException("releaseSdkUrl is a required property for APIConfig and cannot be null");
             }
             this.ReleaseSdkUrl = releaseSdkUrl;
             // to ensure "releaseSdkVersion" is required (not null)
-            if (releaseSdkVersion == null)
-            {
+            if (releaseSdkVersion == null) {
                 throw new ArgumentNullException("releaseSdkVersion is a required property for APIConfig and cannot be null");
             }
             this.ReleaseSdkVersion = releaseSdkVersion;
             // to ensure "releaseServerVersionStandalone" is required (not null)
-            if (releaseServerVersionStandalone == null)
-            {
+            if (releaseServerVersionStandalone == null) {
                 throw new ArgumentNullException("releaseServerVersionStandalone is a required property for APIConfig and cannot be null");
             }
             this.ReleaseServerVersionStandalone = releaseServerVersionStandalone;
             // to ensure "sdkDeveloperFaqUrl" is required (not null)
-            if (sdkDeveloperFaqUrl == null)
-            {
+            if (sdkDeveloperFaqUrl == null) {
                 throw new ArgumentNullException("sdkDeveloperFaqUrl is a required property for APIConfig and cannot be null");
             }
             this.SdkDeveloperFaqUrl = sdkDeveloperFaqUrl;
             // to ensure "sdkDiscordUrl" is required (not null)
-            if (sdkDiscordUrl == null)
-            {
+            if (sdkDiscordUrl == null) {
                 throw new ArgumentNullException("sdkDiscordUrl is a required property for APIConfig and cannot be null");
             }
             this.SdkDiscordUrl = sdkDiscordUrl;
             // to ensure "sdkNotAllowedToPublishMessage" is required (not null)
-            if (sdkNotAllowedToPublishMessage == null)
-            {
+            if (sdkNotAllowedToPublishMessage == null) {
                 throw new ArgumentNullException("sdkNotAllowedToPublishMessage is a required property for APIConfig and cannot be null");
             }
             this.SdkNotAllowedToPublishMessage = sdkNotAllowedToPublishMessage;
             // to ensure "sdkUnityVersion" is required (not null)
-            if (sdkUnityVersion == null)
-            {
+            if (sdkUnityVersion == null) {
                 throw new ArgumentNullException("sdkUnityVersion is a required property for APIConfig and cannot be null");
             }
             this.SdkUnityVersion = sdkUnityVersion;
             // to ensure "serverName" is required (not null)
-            if (serverName == null)
-            {
+            if (serverName == null) {
                 throw new ArgumentNullException("serverName is a required property for APIConfig and cannot be null");
             }
             this.ServerName = serverName;
             // to ensure "supportEmail" is required (not null)
-            if (supportEmail == null)
-            {
+            if (supportEmail == null) {
                 throw new ArgumentNullException("supportEmail is a required property for APIConfig and cannot be null");
             }
             this.SupportEmail = supportEmail;
             // to ensure "timeOutWorldId" is required (not null)
-            if (timeOutWorldId == null)
-            {
+            if (timeOutWorldId == null) {
                 throw new ArgumentNullException("timeOutWorldId is a required property for APIConfig and cannot be null");
             }
             this.TimeOutWorldId = timeOutWorldId;
             // to ensure "tutorialWorldId" is required (not null)
-            if (tutorialWorldId == null)
-            {
+            if (tutorialWorldId == null) {
                 throw new ArgumentNullException("tutorialWorldId is a required property for APIConfig and cannot be null");
             }
             this.TutorialWorldId = tutorialWorldId;
@@ -392,8 +353,7 @@ namespace VRChat.API.Model
             this.UpdateRateMsUdonManual = updateRateMsUdonManual;
             this.UploadAnalysisPercent = uploadAnalysisPercent;
             // to ensure "urlList" is required (not null)
-            if (urlList == null)
-            {
+            if (urlList == null) {
                 throw new ArgumentNullException("urlList is a required property for APIConfig and cannot be null");
             }
             this.UrlList = urlList;
@@ -403,27 +363,23 @@ namespace VRChat.API.Model
             this.UserVerificationRetry = userVerificationRetry;
             this.UserVerificationTimeout = userVerificationTimeout;
             // to ensure "viveWindowsUrl" is required (not null)
-            if (viveWindowsUrl == null)
-            {
+            if (viveWindowsUrl == null) {
                 throw new ArgumentNullException("viveWindowsUrl is a required property for APIConfig and cannot be null");
             }
             this.ViveWindowsUrl = viveWindowsUrl;
             // to ensure "whiteListedAssetUrls" is required (not null)
-            if (whiteListedAssetUrls == null)
-            {
+            if (whiteListedAssetUrls == null) {
                 throw new ArgumentNullException("whiteListedAssetUrls is a required property for APIConfig and cannot be null");
             }
             this.WhiteListedAssetUrls = whiteListedAssetUrls;
             this.WorldUpdatePeriod = worldUpdatePeriod;
             // to ensure "playerUrlResolverHash" is required (not null)
-            if (playerUrlResolverHash == null)
-            {
+            if (playerUrlResolverHash == null) {
                 throw new ArgumentNullException("playerUrlResolverHash is a required property for APIConfig and cannot be null");
             }
             this.PlayerUrlResolverHash = playerUrlResolverHash;
             // to ensure "playerUrlResolverVersion" is required (not null)
-            if (playerUrlResolverVersion == null)
-            {
+            if (playerUrlResolverVersion == null) {
                 throw new ArgumentNullException("playerUrlResolverVersion is a required property for APIConfig and cannot be null");
             }
             this.PlayerUrlResolverVersion = playerUrlResolverVersion;
@@ -447,28 +403,28 @@ namespace VRChat.API.Model
         /// VRChat&#39;s office address
         /// </summary>
         /// <value>VRChat&#39;s office address</value>
-        [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = false)]
         public string Address { get; set; }
 
         /// <summary>
         /// Public Announcements
         /// </summary>
         /// <value>Public Announcements</value>
-        [DataMember(Name = "announcements", IsRequired = true, EmitDefaultValue = true)]
-        public List<PublicAnnouncement> Announcements { get; set; }
+        [DataMember(Name = "announcements", IsRequired = true, EmitDefaultValue = false)]
+        public List<APIConfigAnnouncement> Announcements { get; set; }
 
         /// <summary>
         /// apiKey to be used for all other requests
         /// </summary>
         /// <value>apiKey to be used for all other requests</value>
-        [DataMember(Name = "apiKey", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "apiKey", IsRequired = true, EmitDefaultValue = false)]
         public string ApiKey { get; set; }
 
         /// <summary>
         /// Game name
         /// </summary>
         /// <value>Game name</value>
-        [DataMember(Name = "appName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "appName", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string AppName { get; set; }
 
@@ -476,76 +432,76 @@ namespace VRChat.API.Model
         /// Build tag of the API server
         /// </summary>
         /// <value>Build tag of the API server</value>
-        [DataMember(Name = "buildVersionTag", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "buildVersionTag", IsRequired = true, EmitDefaultValue = false)]
         public string BuildVersionTag { get; set; }
 
         /// <summary>
         /// apiKey to be used for all other requests
         /// </summary>
         /// <value>apiKey to be used for all other requests</value>
-        [DataMember(Name = "clientApiKey", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientApiKey", IsRequired = true, EmitDefaultValue = false)]
         public string ClientApiKey { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "clientBPSCeiling", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientBPSCeiling", IsRequired = true, EmitDefaultValue = false)]
         public int ClientBPSCeiling { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "clientDisconnectTimeout", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientDisconnectTimeout", IsRequired = true, EmitDefaultValue = false)]
         public int ClientDisconnectTimeout { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "clientReservedPlayerBPS", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientReservedPlayerBPS", IsRequired = true, EmitDefaultValue = false)]
         public int ClientReservedPlayerBPS { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "clientSentCountAllowance", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "clientSentCountAllowance", IsRequired = true, EmitDefaultValue = false)]
         public int ClientSentCountAllowance { get; set; }
 
         /// <summary>
         /// VRChat&#39;s contact email
         /// </summary>
         /// <value>VRChat&#39;s contact email</value>
-        [DataMember(Name = "contactEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "contactEmail", IsRequired = true, EmitDefaultValue = false)]
         public string ContactEmail { get; set; }
 
         /// <summary>
         /// VRChat&#39;s copyright-issues-related email
         /// </summary>
         /// <value>VRChat&#39;s copyright-issues-related email</value>
-        [DataMember(Name = "copyrightEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "copyrightEmail", IsRequired = true, EmitDefaultValue = false)]
         public string CopyrightEmail { get; set; }
 
         /// <summary>
         /// Current version number of the Terms of Service
         /// </summary>
         /// <value>Current version number of the Terms of Service</value>
-        [DataMember(Name = "currentTOSVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentTOSVersion", IsRequired = true, EmitDefaultValue = false)]
         public int CurrentTOSVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultAvatar
         /// </summary>
-        [DataMember(Name = "defaultAvatar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "defaultAvatar", IsRequired = true, EmitDefaultValue = false)]
         public string DefaultAvatar { get; set; }
 
         /// <summary>
         /// Version number for game development build
         /// </summary>
         /// <value>Version number for game development build</value>
-        [DataMember(Name = "devAppVersionStandalone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "devAppVersionStandalone", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string DevAppVersionStandalone { get; set; }
 
@@ -553,7 +509,7 @@ namespace VRChat.API.Model
         /// Developer Download link
         /// </summary>
         /// <value>Developer Download link</value>
-        [DataMember(Name = "devDownloadLinkWindows", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "devDownloadLinkWindows", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string DevDownloadLinkWindows { get; set; }
 
@@ -561,7 +517,7 @@ namespace VRChat.API.Model
         /// Link to download the development SDK, use downloadUrls instead
         /// </summary>
         /// <value>Link to download the development SDK, use downloadUrls instead</value>
-        [DataMember(Name = "devSdkUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "devSdkUrl", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string DevSdkUrl { get; set; }
 
@@ -569,7 +525,7 @@ namespace VRChat.API.Model
         /// Version of the development SDK
         /// </summary>
         /// <value>Version of the development SDK</value>
-        [DataMember(Name = "devSdkVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "devSdkVersion", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string DevSdkVersion { get; set; }
 
@@ -577,7 +533,7 @@ namespace VRChat.API.Model
         /// Version number for server development build
         /// </summary>
         /// <value>Version number for server development build</value>
-        [DataMember(Name = "devServerVersionStandalone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "devServerVersionStandalone", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string DevServerVersionStandalone { get; set; }
 
@@ -585,7 +541,7 @@ namespace VRChat.API.Model
         /// Unknown, \&quot;dis\&quot; maybe for disconnect?
         /// </summary>
         /// <value>Unknown, \&quot;dis\&quot; maybe for disconnect?</value>
-        [DataMember(Name = "dis-countdown", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dis-countdown", IsRequired = true, EmitDefaultValue = false)]
         public DateTime DisCountdown { get; set; }
 
         /// <summary>
@@ -698,33 +654,33 @@ namespace VRChat.API.Model
         /// Download link for game on the Oculus Rift website.
         /// </summary>
         /// <value>Download link for game on the Oculus Rift website.</value>
-        [DataMember(Name = "downloadLinkWindows", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "downloadLinkWindows", IsRequired = true, EmitDefaultValue = false)]
         public string DownloadLinkWindows { get; set; }
 
         /// <summary>
         /// Gets or Sets DownloadUrls
         /// </summary>
-        [DataMember(Name = "downloadUrls", IsRequired = true, EmitDefaultValue = true)]
-        public DownloadURLList DownloadUrls { get; set; }
+        [DataMember(Name = "downloadUrls", IsRequired = true, EmitDefaultValue = false)]
+        public APIConfigDownloadURLList DownloadUrls { get; set; }
 
         /// <summary>
         /// Array of DynamicWorldRow objects, used by the game to display the list of world rows
         /// </summary>
         /// <value>Array of DynamicWorldRow objects, used by the game to display the list of world rows</value>
-        [DataMember(Name = "dynamicWorldRows", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "dynamicWorldRows", IsRequired = true, EmitDefaultValue = false)]
         public List<DynamicContentRow> DynamicWorldRows { get; set; }
 
         /// <summary>
         /// Gets or Sets Events
         /// </summary>
-        [DataMember(Name = "events", IsRequired = true, EmitDefaultValue = true)]
-        public APIEventConfig Events { get; set; }
+        [DataMember(Name = "events", IsRequired = true, EmitDefaultValue = false)]
+        public APIConfigEvents Events { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "gearDemoRoomId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "gearDemoRoomId", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string GearDemoRoomId { get; set; }
 
@@ -732,35 +688,35 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "homeWorldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "homeWorldId", IsRequired = true, EmitDefaultValue = false)]
         public string HomeWorldId { get; set; }
 
         /// <summary>
         /// Redirect target if you try to open the base API domain in your browser
         /// </summary>
         /// <value>Redirect target if you try to open the base API domain in your browser</value>
-        [DataMember(Name = "homepageRedirectTarget", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "homepageRedirectTarget", IsRequired = true, EmitDefaultValue = false)]
         public string HomepageRedirectTarget { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "hubWorldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hubWorldId", IsRequired = true, EmitDefaultValue = false)]
         public string HubWorldId { get; set; }
 
         /// <summary>
         /// VRChat&#39;s job application email
         /// </summary>
         /// <value>VRChat&#39;s job application email</value>
-        [DataMember(Name = "jobsEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "jobsEmail", IsRequired = true, EmitDefaultValue = false)]
         public string JobsEmail { get; set; }
 
         /// <summary>
         /// MOTD
         /// </summary>
         /// <value>MOTD</value>
-        [DataMember(Name = "messageOfTheDay", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "messageOfTheDay", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string MessageOfTheDay { get; set; }
 
@@ -768,35 +724,35 @@ namespace VRChat.API.Model
         /// VRChat&#39;s moderation related email
         /// </summary>
         /// <value>VRChat&#39;s moderation related email</value>
-        [DataMember(Name = "moderationEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "moderationEmail", IsRequired = true, EmitDefaultValue = false)]
         public string ModerationEmail { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "moderationQueryPeriod", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "moderationQueryPeriod", IsRequired = true, EmitDefaultValue = false)]
         public int ModerationQueryPeriod { get; set; }
 
         /// <summary>
         /// Used in-game to notify a user they aren&#39;t allowed to select avatars in private worlds
         /// </summary>
         /// <value>Used in-game to notify a user they aren&#39;t allowed to select avatars in private worlds</value>
-        [DataMember(Name = "notAllowedToSelectAvatarInPrivateWorldMessage", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "notAllowedToSelectAvatarInPrivateWorldMessage", IsRequired = true, EmitDefaultValue = false)]
         public string NotAllowedToSelectAvatarInPrivateWorldMessage { get; set; }
 
         /// <summary>
         /// Extra [plugin](https://doc.photonengine.com/en-us/server/current/plugins/manual) to run in each instance
         /// </summary>
         /// <value>Extra [plugin](https://doc.photonengine.com/en-us/server/current/plugins/manual) to run in each instance</value>
-        [DataMember(Name = "plugin", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "plugin", IsRequired = true, EmitDefaultValue = false)]
         public string Plugin { get; set; }
 
         /// <summary>
         /// Version number for game release build
         /// </summary>
         /// <value>Version number for game release build</value>
-        [DataMember(Name = "releaseAppVersionStandalone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "releaseAppVersionStandalone", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string ReleaseAppVersionStandalone { get; set; }
 
@@ -804,7 +760,7 @@ namespace VRChat.API.Model
         /// Link to download the release SDK
         /// </summary>
         /// <value>Link to download the release SDK</value>
-        [DataMember(Name = "releaseSdkUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "releaseSdkUrl", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string ReleaseSdkUrl { get; set; }
 
@@ -812,7 +768,7 @@ namespace VRChat.API.Model
         /// Version of the release SDK
         /// </summary>
         /// <value>Version of the release SDK</value>
-        [DataMember(Name = "releaseSdkVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "releaseSdkVersion", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string ReleaseSdkVersion { get; set; }
 
@@ -820,7 +776,7 @@ namespace VRChat.API.Model
         /// Version number for server release build
         /// </summary>
         /// <value>Version number for server release build</value>
-        [DataMember(Name = "releaseServerVersionStandalone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "releaseServerVersionStandalone", IsRequired = true, EmitDefaultValue = false)]
         [Obsolete]
         public string ReleaseServerVersionStandalone { get; set; }
 
@@ -828,98 +784,98 @@ namespace VRChat.API.Model
         /// Link to the developer FAQ
         /// </summary>
         /// <value>Link to the developer FAQ</value>
-        [DataMember(Name = "sdkDeveloperFaqUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sdkDeveloperFaqUrl", IsRequired = true, EmitDefaultValue = false)]
         public string SdkDeveloperFaqUrl { get; set; }
 
         /// <summary>
         /// Link to the official VRChat Discord
         /// </summary>
         /// <value>Link to the official VRChat Discord</value>
-        [DataMember(Name = "sdkDiscordUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sdkDiscordUrl", IsRequired = true, EmitDefaultValue = false)]
         public string SdkDiscordUrl { get; set; }
 
         /// <summary>
         /// Used in the SDK to notify a user they aren&#39;t allowed to upload avatars/worlds yet
         /// </summary>
         /// <value>Used in the SDK to notify a user they aren&#39;t allowed to upload avatars/worlds yet</value>
-        [DataMember(Name = "sdkNotAllowedToPublishMessage", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sdkNotAllowedToPublishMessage", IsRequired = true, EmitDefaultValue = false)]
         public string SdkNotAllowedToPublishMessage { get; set; }
 
         /// <summary>
         /// Unity version supported by the SDK
         /// </summary>
         /// <value>Unity version supported by the SDK</value>
-        [DataMember(Name = "sdkUnityVersion", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sdkUnityVersion", IsRequired = true, EmitDefaultValue = false)]
         public string SdkUnityVersion { get; set; }
 
         /// <summary>
         /// Server name of the API server currently responding
         /// </summary>
         /// <value>Server name of the API server currently responding</value>
-        [DataMember(Name = "serverName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "serverName", IsRequired = true, EmitDefaultValue = false)]
         public string ServerName { get; set; }
 
         /// <summary>
         /// VRChat&#39;s support email
         /// </summary>
         /// <value>VRChat&#39;s support email</value>
-        [DataMember(Name = "supportEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "supportEmail", IsRequired = true, EmitDefaultValue = false)]
         public string SupportEmail { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "timeOutWorldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "timeOutWorldId", IsRequired = true, EmitDefaultValue = false)]
         public string TimeOutWorldId { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "tutorialWorldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tutorialWorldId", IsRequired = true, EmitDefaultValue = false)]
         public string TutorialWorldId { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "updateRateMsMaximum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updateRateMsMaximum", IsRequired = true, EmitDefaultValue = false)]
         public int UpdateRateMsMaximum { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "updateRateMsMinimum", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updateRateMsMinimum", IsRequired = true, EmitDefaultValue = false)]
         public int UpdateRateMsMinimum { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "updateRateMsNormal", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updateRateMsNormal", IsRequired = true, EmitDefaultValue = false)]
         public int UpdateRateMsNormal { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "updateRateMsUdonManual", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updateRateMsUdonManual", IsRequired = true, EmitDefaultValue = false)]
         public int UpdateRateMsUdonManual { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "uploadAnalysisPercent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "uploadAnalysisPercent", IsRequired = true, EmitDefaultValue = false)]
         public int UploadAnalysisPercent { get; set; }
 
         /// <summary>
         /// List of allowed URLs that bypass the \&quot;Allow untrusted URL&#39;s\&quot; setting in-game
         /// </summary>
         /// <value>List of allowed URLs that bypass the \&quot;Allow untrusted URL&#39;s\&quot; setting in-game</value>
-        [DataMember(Name = "urlList", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "urlList", IsRequired = true, EmitDefaultValue = false)]
         public List<string> UrlList { get; set; }
 
         /// <summary>
@@ -933,63 +889,63 @@ namespace VRChat.API.Model
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "userUpdatePeriod", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userUpdatePeriod", IsRequired = true, EmitDefaultValue = false)]
         public int UserUpdatePeriod { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "userVerificationDelay", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userVerificationDelay", IsRequired = true, EmitDefaultValue = false)]
         public int UserVerificationDelay { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "userVerificationRetry", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userVerificationRetry", IsRequired = true, EmitDefaultValue = false)]
         public int UserVerificationRetry { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "userVerificationTimeout", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userVerificationTimeout", IsRequired = true, EmitDefaultValue = false)]
         public int UserVerificationTimeout { get; set; }
 
         /// <summary>
         /// Download link for game on the Steam website.
         /// </summary>
         /// <value>Download link for game on the Steam website.</value>
-        [DataMember(Name = "viveWindowsUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "viveWindowsUrl", IsRequired = true, EmitDefaultValue = false)]
         public string ViveWindowsUrl { get; set; }
 
         /// <summary>
         /// List of allowed URLs that are allowed to host avatar assets
         /// </summary>
         /// <value>List of allowed URLs that are allowed to host avatar assets</value>
-        [DataMember(Name = "whiteListedAssetUrls", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "whiteListedAssetUrls", IsRequired = true, EmitDefaultValue = false)]
         public List<string> WhiteListedAssetUrls { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "worldUpdatePeriod", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "worldUpdatePeriod", IsRequired = true, EmitDefaultValue = false)]
         public int WorldUpdatePeriod { get; set; }
 
         /// <summary>
         /// Currently used youtube-dl.exe hash in SHA-256-delimited format
         /// </summary>
         /// <value>Currently used youtube-dl.exe hash in SHA-256-delimited format</value>
-        [DataMember(Name = "player-url-resolver-hash", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "player-url-resolver-hash", IsRequired = true, EmitDefaultValue = false)]
         public string PlayerUrlResolverHash { get; set; }
 
         /// <summary>
         /// Currently used youtube-dl.exe version
         /// </summary>
         /// <value>Currently used youtube-dl.exe version</value>
-        [DataMember(Name = "player-url-resolver-version", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "player-url-resolver-version", IsRequired = true, EmitDefaultValue = false)]
         public string PlayerUrlResolverVersion { get; set; }
 
         /// <summary>
@@ -998,7 +954,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class APIConfig {\n");
             sb.Append("  VoiceEnableDegradation: ").Append(VoiceEnableDegradation).Append("\n");
             sb.Append("  VoiceEnableReceiverLimiting: ").Append(VoiceEnableReceiverLimiting).Append("\n");
@@ -1111,9 +1067,8 @@ namespace VRChat.API.Model
         public bool Equals(APIConfig input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.VoiceEnableDegradation == input.VoiceEnableDegradation ||
@@ -1495,221 +1450,131 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.VoiceEnableDegradation.GetHashCode();
-                hashCode = (hashCode * 59) + this.VoiceEnableReceiverLimiting.GetHashCode();
+                hashCode = hashCode * 59 + this.VoiceEnableDegradation.GetHashCode();
+                hashCode = hashCode * 59 + this.VoiceEnableReceiverLimiting.GetHashCode();
                 if (this.Address != null)
-                {
-                    hashCode = (hashCode * 59) + this.Address.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Address.GetHashCode();
                 if (this.Announcements != null)
-                {
-                    hashCode = (hashCode * 59) + this.Announcements.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Announcements.GetHashCode();
                 if (this.ApiKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.ApiKey.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.ApiKey.GetHashCode();
                 if (this.AppName != null)
-                {
-                    hashCode = (hashCode * 59) + this.AppName.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.AppName.GetHashCode();
                 if (this.BuildVersionTag != null)
-                {
-                    hashCode = (hashCode * 59) + this.BuildVersionTag.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.BuildVersionTag.GetHashCode();
                 if (this.ClientApiKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientApiKey.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ClientBPSCeiling.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientDisconnectTimeout.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientReservedPlayerBPS.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientSentCountAllowance.GetHashCode();
+                    hashCode = hashCode * 59 + this.ClientApiKey.GetHashCode();
+                hashCode = hashCode * 59 + this.ClientBPSCeiling.GetHashCode();
+                hashCode = hashCode * 59 + this.ClientDisconnectTimeout.GetHashCode();
+                hashCode = hashCode * 59 + this.ClientReservedPlayerBPS.GetHashCode();
+                hashCode = hashCode * 59 + this.ClientSentCountAllowance.GetHashCode();
                 if (this.ContactEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContactEmail.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.ContactEmail.GetHashCode();
                 if (this.CopyrightEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.CopyrightEmail.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.CurrentTOSVersion.GetHashCode();
+                    hashCode = hashCode * 59 + this.CopyrightEmail.GetHashCode();
+                hashCode = hashCode * 59 + this.CurrentTOSVersion.GetHashCode();
                 if (this.DefaultAvatar != null)
-                {
-                    hashCode = (hashCode * 59) + this.DefaultAvatar.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.DeploymentGroup.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultAvatar.GetHashCode();
+                hashCode = hashCode * 59 + this.DeploymentGroup.GetHashCode();
                 if (this.DevAppVersionStandalone != null)
-                {
-                    hashCode = (hashCode * 59) + this.DevAppVersionStandalone.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.DevAppVersionStandalone.GetHashCode();
                 if (this.DevDownloadLinkWindows != null)
-                {
-                    hashCode = (hashCode * 59) + this.DevDownloadLinkWindows.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.DevDownloadLinkWindows.GetHashCode();
                 if (this.DevSdkUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.DevSdkUrl.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.DevSdkUrl.GetHashCode();
                 if (this.DevSdkVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.DevSdkVersion.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.DevSdkVersion.GetHashCode();
                 if (this.DevServerVersionStandalone != null)
-                {
-                    hashCode = (hashCode * 59) + this.DevServerVersionStandalone.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.DevServerVersionStandalone.GetHashCode();
                 if (this.DisCountdown != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisCountdown.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.DisableAvatarCopying.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableAvatarGating.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableCommunityLabs.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableCommunityLabsPromotion.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableEmail.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableEventStream.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableFeedbackGating.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableFrontendBuilds.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableHello.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableOculusSubs.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableRegistration.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableSteamNetworking.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableTwoFactorAuth.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableUdon.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableUpgradeAccount.GetHashCode();
+                    hashCode = hashCode * 59 + this.DisCountdown.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableAvatarCopying.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableAvatarGating.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableCommunityLabs.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableCommunityLabsPromotion.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableEmail.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableEventStream.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableFeedbackGating.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableFrontendBuilds.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableHello.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableOculusSubs.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableRegistration.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableSteamNetworking.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableTwoFactorAuth.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableUdon.GetHashCode();
+                hashCode = hashCode * 59 + this.DisableUpgradeAccount.GetHashCode();
                 if (this.DownloadLinkWindows != null)
-                {
-                    hashCode = (hashCode * 59) + this.DownloadLinkWindows.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.DownloadLinkWindows.GetHashCode();
                 if (this.DownloadUrls != null)
-                {
-                    hashCode = (hashCode * 59) + this.DownloadUrls.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.DownloadUrls.GetHashCode();
                 if (this.DynamicWorldRows != null)
-                {
-                    hashCode = (hashCode * 59) + this.DynamicWorldRows.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.DynamicWorldRows.GetHashCode();
                 if (this.Events != null)
-                {
-                    hashCode = (hashCode * 59) + this.Events.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Events.GetHashCode();
                 if (this.GearDemoRoomId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GearDemoRoomId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.GearDemoRoomId.GetHashCode();
                 if (this.HomeWorldId != null)
-                {
-                    hashCode = (hashCode * 59) + this.HomeWorldId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.HomeWorldId.GetHashCode();
                 if (this.HomepageRedirectTarget != null)
-                {
-                    hashCode = (hashCode * 59) + this.HomepageRedirectTarget.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.HomepageRedirectTarget.GetHashCode();
                 if (this.HubWorldId != null)
-                {
-                    hashCode = (hashCode * 59) + this.HubWorldId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.HubWorldId.GetHashCode();
                 if (this.JobsEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.JobsEmail.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.JobsEmail.GetHashCode();
                 if (this.MessageOfTheDay != null)
-                {
-                    hashCode = (hashCode * 59) + this.MessageOfTheDay.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.MessageOfTheDay.GetHashCode();
                 if (this.ModerationEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.ModerationEmail.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ModerationQueryPeriod.GetHashCode();
+                    hashCode = hashCode * 59 + this.ModerationEmail.GetHashCode();
+                hashCode = hashCode * 59 + this.ModerationQueryPeriod.GetHashCode();
                 if (this.NotAllowedToSelectAvatarInPrivateWorldMessage != null)
-                {
-                    hashCode = (hashCode * 59) + this.NotAllowedToSelectAvatarInPrivateWorldMessage.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.NotAllowedToSelectAvatarInPrivateWorldMessage.GetHashCode();
                 if (this.Plugin != null)
-                {
-                    hashCode = (hashCode * 59) + this.Plugin.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Plugin.GetHashCode();
                 if (this.ReleaseAppVersionStandalone != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReleaseAppVersionStandalone.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.ReleaseAppVersionStandalone.GetHashCode();
                 if (this.ReleaseSdkUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReleaseSdkUrl.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.ReleaseSdkUrl.GetHashCode();
                 if (this.ReleaseSdkVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReleaseSdkVersion.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.ReleaseSdkVersion.GetHashCode();
                 if (this.ReleaseServerVersionStandalone != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReleaseServerVersionStandalone.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.ReleaseServerVersionStandalone.GetHashCode();
                 if (this.SdkDeveloperFaqUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.SdkDeveloperFaqUrl.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.SdkDeveloperFaqUrl.GetHashCode();
                 if (this.SdkDiscordUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.SdkDiscordUrl.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.SdkDiscordUrl.GetHashCode();
                 if (this.SdkNotAllowedToPublishMessage != null)
-                {
-                    hashCode = (hashCode * 59) + this.SdkNotAllowedToPublishMessage.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.SdkNotAllowedToPublishMessage.GetHashCode();
                 if (this.SdkUnityVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.SdkUnityVersion.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.SdkUnityVersion.GetHashCode();
                 if (this.ServerName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ServerName.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.ServerName.GetHashCode();
                 if (this.SupportEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.SupportEmail.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.SupportEmail.GetHashCode();
                 if (this.TimeOutWorldId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TimeOutWorldId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.TimeOutWorldId.GetHashCode();
                 if (this.TutorialWorldId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TutorialWorldId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.UpdateRateMsMaximum.GetHashCode();
-                hashCode = (hashCode * 59) + this.UpdateRateMsMinimum.GetHashCode();
-                hashCode = (hashCode * 59) + this.UpdateRateMsNormal.GetHashCode();
-                hashCode = (hashCode * 59) + this.UpdateRateMsUdonManual.GetHashCode();
-                hashCode = (hashCode * 59) + this.UploadAnalysisPercent.GetHashCode();
+                    hashCode = hashCode * 59 + this.TutorialWorldId.GetHashCode();
+                hashCode = hashCode * 59 + this.UpdateRateMsMaximum.GetHashCode();
+                hashCode = hashCode * 59 + this.UpdateRateMsMinimum.GetHashCode();
+                hashCode = hashCode * 59 + this.UpdateRateMsNormal.GetHashCode();
+                hashCode = hashCode * 59 + this.UpdateRateMsUdonManual.GetHashCode();
+                hashCode = hashCode * 59 + this.UploadAnalysisPercent.GetHashCode();
                 if (this.UrlList != null)
-                {
-                    hashCode = (hashCode * 59) + this.UrlList.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.UseReliableUdpForVoice.GetHashCode();
-                hashCode = (hashCode * 59) + this.UserUpdatePeriod.GetHashCode();
-                hashCode = (hashCode * 59) + this.UserVerificationDelay.GetHashCode();
-                hashCode = (hashCode * 59) + this.UserVerificationRetry.GetHashCode();
-                hashCode = (hashCode * 59) + this.UserVerificationTimeout.GetHashCode();
+                    hashCode = hashCode * 59 + this.UrlList.GetHashCode();
+                hashCode = hashCode * 59 + this.UseReliableUdpForVoice.GetHashCode();
+                hashCode = hashCode * 59 + this.UserUpdatePeriod.GetHashCode();
+                hashCode = hashCode * 59 + this.UserVerificationDelay.GetHashCode();
+                hashCode = hashCode * 59 + this.UserVerificationRetry.GetHashCode();
+                hashCode = hashCode * 59 + this.UserVerificationTimeout.GetHashCode();
                 if (this.ViveWindowsUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ViveWindowsUrl.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.ViveWindowsUrl.GetHashCode();
                 if (this.WhiteListedAssetUrls != null)
-                {
-                    hashCode = (hashCode * 59) + this.WhiteListedAssetUrls.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.WorldUpdatePeriod.GetHashCode();
+                    hashCode = hashCode * 59 + this.WhiteListedAssetUrls.GetHashCode();
+                hashCode = hashCode * 59 + this.WorldUpdatePeriod.GetHashCode();
                 if (this.PlayerUrlResolverHash != null)
-                {
-                    hashCode = (hashCode * 59) + this.PlayerUrlResolverHash.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.PlayerUrlResolverHash.GetHashCode();
                 if (this.PlayerUrlResolverVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.PlayerUrlResolverVersion.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.PlayerUrlResolverVersion.GetHashCode();
                 return hashCode;
             }
         }
@@ -1722,49 +1587,49 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Address (string) minLength
-            if (this.Address != null && this.Address.Length < 1)
+            if(this.Address != null && this.Address.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address, length must be greater than 1.", new [] { "Address" });
             }
 
             // ApiKey (string) minLength
-            if (this.ApiKey != null && this.ApiKey.Length < 1)
+            if(this.ApiKey != null && this.ApiKey.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApiKey, length must be greater than 1.", new [] { "ApiKey" });
             }
 
             // AppName (string) minLength
-            if (this.AppName != null && this.AppName.Length < 1)
+            if(this.AppName != null && this.AppName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AppName, length must be greater than 1.", new [] { "AppName" });
             }
 
             // BuildVersionTag (string) minLength
-            if (this.BuildVersionTag != null && this.BuildVersionTag.Length < 1)
+            if(this.BuildVersionTag != null && this.BuildVersionTag.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BuildVersionTag, length must be greater than 1.", new [] { "BuildVersionTag" });
             }
 
             // ClientApiKey (string) minLength
-            if (this.ClientApiKey != null && this.ClientApiKey.Length < 1)
+            if(this.ClientApiKey != null && this.ClientApiKey.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientApiKey, length must be greater than 1.", new [] { "ClientApiKey" });
             }
 
             // ContactEmail (string) minLength
-            if (this.ContactEmail != null && this.ContactEmail.Length < 1)
+            if(this.ContactEmail != null && this.ContactEmail.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContactEmail, length must be greater than 1.", new [] { "ContactEmail" });
             }
 
             // CopyrightEmail (string) minLength
-            if (this.CopyrightEmail != null && this.CopyrightEmail.Length < 1)
+            if(this.CopyrightEmail != null && this.CopyrightEmail.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CopyrightEmail, length must be greater than 1.", new [] { "CopyrightEmail" });
             }
 
             // CurrentTOSVersion (int) minimum
-            if (this.CurrentTOSVersion < (int)0)
+            if(this.CurrentTOSVersion < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurrentTOSVersion, must be a value greater than or equal to 0.", new [] { "CurrentTOSVersion" });
             }
@@ -1777,43 +1642,43 @@ namespace VRChat.API.Model
             }
 
             // DevAppVersionStandalone (string) minLength
-            if (this.DevAppVersionStandalone != null && this.DevAppVersionStandalone.Length < 1)
+            if(this.DevAppVersionStandalone != null && this.DevAppVersionStandalone.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevAppVersionStandalone, length must be greater than 1.", new [] { "DevAppVersionStandalone" });
             }
 
             // DevDownloadLinkWindows (string) minLength
-            if (this.DevDownloadLinkWindows != null && this.DevDownloadLinkWindows.Length < 1)
+            if(this.DevDownloadLinkWindows != null && this.DevDownloadLinkWindows.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevDownloadLinkWindows, length must be greater than 1.", new [] { "DevDownloadLinkWindows" });
             }
 
             // DevSdkUrl (string) minLength
-            if (this.DevSdkUrl != null && this.DevSdkUrl.Length < 1)
+            if(this.DevSdkUrl != null && this.DevSdkUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevSdkUrl, length must be greater than 1.", new [] { "DevSdkUrl" });
             }
 
             // DevSdkVersion (string) minLength
-            if (this.DevSdkVersion != null && this.DevSdkVersion.Length < 1)
+            if(this.DevSdkVersion != null && this.DevSdkVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevSdkVersion, length must be greater than 1.", new [] { "DevSdkVersion" });
             }
 
             // DevServerVersionStandalone (string) minLength
-            if (this.DevServerVersionStandalone != null && this.DevServerVersionStandalone.Length < 1)
+            if(this.DevServerVersionStandalone != null && this.DevServerVersionStandalone.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevServerVersionStandalone, length must be greater than 1.", new [] { "DevServerVersionStandalone" });
             }
 
             // DownloadLinkWindows (string) minLength
-            if (this.DownloadLinkWindows != null && this.DownloadLinkWindows.Length < 1)
+            if(this.DownloadLinkWindows != null && this.DownloadLinkWindows.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DownloadLinkWindows, length must be greater than 1.", new [] { "DownloadLinkWindows" });
             }
 
             // GearDemoRoomId (string) minLength
-            if (this.GearDemoRoomId != null && this.GearDemoRoomId.Length < 1)
+            if(this.GearDemoRoomId != null && this.GearDemoRoomId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GearDemoRoomId, length must be greater than 1.", new [] { "GearDemoRoomId" });
             }
@@ -1826,7 +1691,7 @@ namespace VRChat.API.Model
             }
 
             // HomepageRedirectTarget (string) minLength
-            if (this.HomepageRedirectTarget != null && this.HomepageRedirectTarget.Length < 1)
+            if(this.HomepageRedirectTarget != null && this.HomepageRedirectTarget.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HomepageRedirectTarget, length must be greater than 1.", new [] { "HomepageRedirectTarget" });
             }
@@ -1839,91 +1704,91 @@ namespace VRChat.API.Model
             }
 
             // JobsEmail (string) minLength
-            if (this.JobsEmail != null && this.JobsEmail.Length < 1)
+            if(this.JobsEmail != null && this.JobsEmail.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for JobsEmail, length must be greater than 1.", new [] { "JobsEmail" });
             }
 
             // MessageOfTheDay (string) minLength
-            if (this.MessageOfTheDay != null && this.MessageOfTheDay.Length < 1)
+            if(this.MessageOfTheDay != null && this.MessageOfTheDay.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MessageOfTheDay, length must be greater than 1.", new [] { "MessageOfTheDay" });
             }
 
             // ModerationEmail (string) minLength
-            if (this.ModerationEmail != null && this.ModerationEmail.Length < 1)
+            if(this.ModerationEmail != null && this.ModerationEmail.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModerationEmail, length must be greater than 1.", new [] { "ModerationEmail" });
             }
 
             // NotAllowedToSelectAvatarInPrivateWorldMessage (string) minLength
-            if (this.NotAllowedToSelectAvatarInPrivateWorldMessage != null && this.NotAllowedToSelectAvatarInPrivateWorldMessage.Length < 1)
+            if(this.NotAllowedToSelectAvatarInPrivateWorldMessage != null && this.NotAllowedToSelectAvatarInPrivateWorldMessage.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAllowedToSelectAvatarInPrivateWorldMessage, length must be greater than 1.", new [] { "NotAllowedToSelectAvatarInPrivateWorldMessage" });
             }
 
             // Plugin (string) minLength
-            if (this.Plugin != null && this.Plugin.Length < 1)
+            if(this.Plugin != null && this.Plugin.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Plugin, length must be greater than 1.", new [] { "Plugin" });
             }
 
             // ReleaseAppVersionStandalone (string) minLength
-            if (this.ReleaseAppVersionStandalone != null && this.ReleaseAppVersionStandalone.Length < 1)
+            if(this.ReleaseAppVersionStandalone != null && this.ReleaseAppVersionStandalone.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseAppVersionStandalone, length must be greater than 1.", new [] { "ReleaseAppVersionStandalone" });
             }
 
             // ReleaseSdkUrl (string) minLength
-            if (this.ReleaseSdkUrl != null && this.ReleaseSdkUrl.Length < 1)
+            if(this.ReleaseSdkUrl != null && this.ReleaseSdkUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseSdkUrl, length must be greater than 1.", new [] { "ReleaseSdkUrl" });
             }
 
             // ReleaseSdkVersion (string) minLength
-            if (this.ReleaseSdkVersion != null && this.ReleaseSdkVersion.Length < 1)
+            if(this.ReleaseSdkVersion != null && this.ReleaseSdkVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseSdkVersion, length must be greater than 1.", new [] { "ReleaseSdkVersion" });
             }
 
             // ReleaseServerVersionStandalone (string) minLength
-            if (this.ReleaseServerVersionStandalone != null && this.ReleaseServerVersionStandalone.Length < 1)
+            if(this.ReleaseServerVersionStandalone != null && this.ReleaseServerVersionStandalone.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseServerVersionStandalone, length must be greater than 1.", new [] { "ReleaseServerVersionStandalone" });
             }
 
             // SdkDeveloperFaqUrl (string) minLength
-            if (this.SdkDeveloperFaqUrl != null && this.SdkDeveloperFaqUrl.Length < 1)
+            if(this.SdkDeveloperFaqUrl != null && this.SdkDeveloperFaqUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkDeveloperFaqUrl, length must be greater than 1.", new [] { "SdkDeveloperFaqUrl" });
             }
 
             // SdkDiscordUrl (string) minLength
-            if (this.SdkDiscordUrl != null && this.SdkDiscordUrl.Length < 1)
+            if(this.SdkDiscordUrl != null && this.SdkDiscordUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkDiscordUrl, length must be greater than 1.", new [] { "SdkDiscordUrl" });
             }
 
             // SdkNotAllowedToPublishMessage (string) minLength
-            if (this.SdkNotAllowedToPublishMessage != null && this.SdkNotAllowedToPublishMessage.Length < 1)
+            if(this.SdkNotAllowedToPublishMessage != null && this.SdkNotAllowedToPublishMessage.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkNotAllowedToPublishMessage, length must be greater than 1.", new [] { "SdkNotAllowedToPublishMessage" });
             }
 
             // SdkUnityVersion (string) minLength
-            if (this.SdkUnityVersion != null && this.SdkUnityVersion.Length < 1)
+            if(this.SdkUnityVersion != null && this.SdkUnityVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkUnityVersion, length must be greater than 1.", new [] { "SdkUnityVersion" });
             }
 
             // ServerName (string) minLength
-            if (this.ServerName != null && this.ServerName.Length < 1)
+            if(this.ServerName != null && this.ServerName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerName, length must be greater than 1.", new [] { "ServerName" });
             }
 
             // SupportEmail (string) minLength
-            if (this.SupportEmail != null && this.SupportEmail.Length < 1)
+            if(this.SupportEmail != null && this.SupportEmail.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SupportEmail, length must be greater than 1.", new [] { "SupportEmail" });
             }
@@ -1943,19 +1808,19 @@ namespace VRChat.API.Model
             }
 
             // ViveWindowsUrl (string) minLength
-            if (this.ViveWindowsUrl != null && this.ViveWindowsUrl.Length < 1)
+            if(this.ViveWindowsUrl != null && this.ViveWindowsUrl.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ViveWindowsUrl, length must be greater than 1.", new [] { "ViveWindowsUrl" });
             }
 
             // PlayerUrlResolverHash (string) minLength
-            if (this.PlayerUrlResolverHash != null && this.PlayerUrlResolverHash.Length < 1)
+            if(this.PlayerUrlResolverHash != null && this.PlayerUrlResolverHash.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerUrlResolverHash, length must be greater than 1.", new [] { "PlayerUrlResolverHash" });
             }
 
             // PlayerUrlResolverVersion (string) minLength
-            if (this.PlayerUrlResolverVersion != null && this.PlayerUrlResolverVersion.Length < 1)
+            if(this.PlayerUrlResolverVersion != null && this.PlayerUrlResolverVersion.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerUrlResolverVersion, length must be greater than 1.", new [] { "PlayerUrlResolverVersion" });
             }

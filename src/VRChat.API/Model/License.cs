@@ -35,13 +35,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ForType
         /// </summary>
-        [DataMember(Name = "forType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "forType", IsRequired = true, EmitDefaultValue = false)]
         public LicenseType ForType { get; set; }
 
         /// <summary>
         /// Gets or Sets ForAction
         /// </summary>
-        [DataMember(Name = "forAction", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "forAction", IsRequired = true, EmitDefaultValue = false)]
         public LicenseAction ForAction { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="License" /> class.
@@ -58,15 +58,13 @@ namespace VRChat.API.Model
         public License(string forId = default(string), LicenseType forType = default(LicenseType), string forName = default(string), LicenseAction forAction = default(LicenseAction))
         {
             // to ensure "forId" is required (not null)
-            if (forId == null)
-            {
+            if (forId == null) {
                 throw new ArgumentNullException("forId is a required property for License and cannot be null");
             }
             this.ForId = forId;
             this.ForType = forType;
             // to ensure "forName" is required (not null)
-            if (forName == null)
-            {
+            if (forName == null) {
                 throw new ArgumentNullException("forName is a required property for License and cannot be null");
             }
             this.ForName = forName;
@@ -77,13 +75,13 @@ namespace VRChat.API.Model
         /// Either a AvatarID, LicenseGroupID, PermissionID or ProductID. This depends on the &#x60;forType&#x60; field.
         /// </summary>
         /// <value>Either a AvatarID, LicenseGroupID, PermissionID or ProductID. This depends on the &#x60;forType&#x60; field.</value>
-        [DataMember(Name = "forId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "forId", IsRequired = true, EmitDefaultValue = false)]
         public string ForId { get; set; }
 
         /// <summary>
         /// Gets or Sets ForName
         /// </summary>
-        [DataMember(Name = "forName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "forName", IsRequired = true, EmitDefaultValue = false)]
         public string ForName { get; set; }
 
         /// <summary>
@@ -92,7 +90,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class License {\n");
             sb.Append("  ForId: ").Append(ForId).Append("\n");
             sb.Append("  ForType: ").Append(ForType).Append("\n");
@@ -129,9 +127,8 @@ namespace VRChat.API.Model
         public bool Equals(License input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.ForId == input.ForId ||
@@ -163,15 +160,11 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.ForId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ForId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ForType.GetHashCode();
+                    hashCode = hashCode * 59 + this.ForId.GetHashCode();
+                hashCode = hashCode * 59 + this.ForType.GetHashCode();
                 if (this.ForName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ForName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ForAction.GetHashCode();
+                    hashCode = hashCode * 59 + this.ForName.GetHashCode();
+                hashCode = hashCode * 59 + this.ForAction.GetHashCode();
                 return hashCode;
             }
         }
@@ -184,7 +177,7 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // ForId (string) minLength
-            if (this.ForId != null && this.ForId.Length < 1)
+            if(this.ForId != null && this.ForId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForId, length must be greater than 1.", new [] { "ForId" });
             }
@@ -197,7 +190,7 @@ namespace VRChat.API.Model
             }
 
             // ForName (string) minLength
-            if (this.ForName != null && this.ForName.Length < 1)
+            if(this.ForName != null && this.ForName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForName, length must be greater than 1.", new [] { "ForName" });
             }

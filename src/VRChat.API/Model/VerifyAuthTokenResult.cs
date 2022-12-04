@@ -45,8 +45,7 @@ namespace VRChat.API.Model
         {
             this.Ok = ok;
             // to ensure "token" is required (not null)
-            if (token == null)
-            {
+            if (token == null) {
                 throw new ArgumentNullException("token is a required property for VerifyAuthTokenResult and cannot be null");
             }
             this.Token = token;
@@ -61,7 +60,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Token
         /// </summary>
-        [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "token", IsRequired = true, EmitDefaultValue = false)]
         public string Token { get; set; }
 
         /// <summary>
@@ -70,7 +69,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class VerifyAuthTokenResult {\n");
             sb.Append("  Ok: ").Append(Ok).Append("\n");
             sb.Append("  Token: ").Append(Token).Append("\n");
@@ -105,9 +104,8 @@ namespace VRChat.API.Model
         public bool Equals(VerifyAuthTokenResult input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Ok == input.Ok ||
@@ -129,11 +127,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Ok.GetHashCode();
+                hashCode = hashCode * 59 + this.Ok.GetHashCode();
                 if (this.Token != null)
-                {
-                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Token.GetHashCode();
                 return hashCode;
             }
         }
@@ -146,7 +142,7 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Token (string) minLength
-            if (this.Token != null && this.Token.Length < 1)
+            if(this.Token != null && this.Token.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Token, length must be greater than 1.", new [] { "Token" });
             }

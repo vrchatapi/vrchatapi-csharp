@@ -28,31 +28,29 @@ namespace VRChat.API.Model
     /// <summary>
     /// Public Announcement
     /// </summary>
-    [DataContract(Name = "Public_Announcement")]
-    public partial class PublicAnnouncement : IEquatable<PublicAnnouncement>, IValidatableObject
+    [DataContract(Name = "APIConfigAnnouncement")]
+    public partial class APIConfigAnnouncement : IEquatable<APIConfigAnnouncement>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PublicAnnouncement" /> class.
+        /// Initializes a new instance of the <see cref="APIConfigAnnouncement" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PublicAnnouncement() { }
+        protected APIConfigAnnouncement() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PublicAnnouncement" /> class.
+        /// Initializes a new instance of the <see cref="APIConfigAnnouncement" /> class.
         /// </summary>
         /// <param name="name">Announcement name (required).</param>
         /// <param name="text">Announcement text (required).</param>
-        public PublicAnnouncement(string name = default(string), string text = default(string))
+        public APIConfigAnnouncement(string name = default(string), string text = default(string))
         {
             // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for PublicAnnouncement and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for APIConfigAnnouncement and cannot be null");
             }
             this.Name = name;
             // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new ArgumentNullException("text is a required property for PublicAnnouncement and cannot be null");
+            if (text == null) {
+                throw new ArgumentNullException("text is a required property for APIConfigAnnouncement and cannot be null");
             }
             this.Text = text;
         }
@@ -61,14 +59,14 @@ namespace VRChat.API.Model
         /// Announcement name
         /// </summary>
         /// <value>Announcement name</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Announcement text
         /// </summary>
         /// <value>Announcement text</value>
-        [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = false)]
         public string Text { get; set; }
 
         /// <summary>
@@ -77,8 +75,8 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("class PublicAnnouncement {\n");
+            var sb = new StringBuilder();
+            sb.Append("class APIConfigAnnouncement {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
@@ -101,20 +99,19 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PublicAnnouncement);
+            return this.Equals(input as APIConfigAnnouncement);
         }
 
         /// <summary>
-        /// Returns true if PublicAnnouncement instances are equal
+        /// Returns true if APIConfigAnnouncement instances are equal
         /// </summary>
-        /// <param name="input">Instance of PublicAnnouncement to be compared</param>
+        /// <param name="input">Instance of APIConfigAnnouncement to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PublicAnnouncement input)
+        public bool Equals(APIConfigAnnouncement input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Name == input.Name ||
@@ -138,13 +135,9 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Text != null)
-                {
-                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
                 return hashCode;
             }
         }
@@ -157,13 +150,13 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Text (string) minLength
-            if (this.Text != null && this.Text.Length < 1)
+            if(this.Text != null && this.Text.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Text, length must be greater than 1.", new [] { "Text" });
             }

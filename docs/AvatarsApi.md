@@ -2,17 +2,18 @@
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
-| Method | HTTP request | Description |
-|--------|--------------|-------------|
-| [**CreateAvatar**](AvatarsApi.md#createavatar) | **POST** /avatars | Create Avatar |
-| [**DeleteAvatar**](AvatarsApi.md#deleteavatar) | **DELETE** /avatars/{avatarId} | Delete Avatar |
-| [**GetAvatar**](AvatarsApi.md#getavatar) | **GET** /avatars/{avatarId} | Get Avatar |
-| [**GetFavoritedAvatars**](AvatarsApi.md#getfavoritedavatars) | **GET** /avatars/favorites | List Favorited Avatars |
-| [**GetOwnAvatar**](AvatarsApi.md#getownavatar) | **GET** /users/{userId}/avatar | Get Own Avatar |
-| [**SearchAvatars**](AvatarsApi.md#searchavatars) | **GET** /avatars | Search Avatars |
-| [**SelectAvatar**](AvatarsApi.md#selectavatar) | **PUT** /avatars/{avatarId}/select | Select Avatar |
-| [**SelectFallbackAvatar**](AvatarsApi.md#selectfallbackavatar) | **PUT** /avatars/{avatarId}/selectFallback | Select Fallback Avatar |
-| [**UpdateAvatar**](AvatarsApi.md#updateavatar) | **PUT** /avatars/{avatarId} | Update Avatar |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**CreateAvatar**](AvatarsApi.md#createavatar) | **POST** /avatars | Create Avatar
+[**DeleteAvatar**](AvatarsApi.md#deleteavatar) | **DELETE** /avatars/{avatarId} | Delete Avatar
+[**GetAvatar**](AvatarsApi.md#getavatar) | **GET** /avatars/{avatarId} | Get Avatar
+[**GetFavoritedAvatars**](AvatarsApi.md#getfavoritedavatars) | **GET** /avatars/favorites | List Favorited Avatars
+[**GetOwnAvatar**](AvatarsApi.md#getownavatar) | **GET** /users/{userId}/avatar | Get Own Avatar
+[**SearchAvatars**](AvatarsApi.md#searchavatars) | **GET** /avatars | Search Avatars
+[**SelectAvatar**](AvatarsApi.md#selectavatar) | **PUT** /avatars/{avatarId}/select | Select Avatar
+[**SelectFallbackAvatar**](AvatarsApi.md#selectfallbackavatar) | **PUT** /avatars/{avatarId}/selectFallback | Select Fallback Avatar
+[**UpdateAvatar**](AvatarsApi.md#updateavatar) | **PUT** /avatars/{avatarId} | Update Avatar
+
 
 <a name="createavatar"></a>
 # **CreateAvatar**
@@ -58,8 +59,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AvatarsApi.CreateAvatar: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AvatarsApi.CreateAvatar: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -67,31 +68,11 @@ namespace Example
 }
 ```
 
-#### Using the CreateAvatarWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Create Avatar
-    ApiResponse<Avatar> response = apiInstance.CreateAvatarWithHttpInfo(createAvatarRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AvatarsApi.CreateAvatarWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **createAvatarRequest** | [**CreateAvatarRequest**](CreateAvatarRequest.md) |  | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createAvatarRequest** | [**CreateAvatarRequest**](CreateAvatarRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -149,7 +130,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AvatarsApi(config);
-            var avatarId = "avatarId_example";  // string | 
+            var avatarId = avatarId_example;  // string | Must be a valid avatar ID.
 
             try
             {
@@ -159,8 +140,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AvatarsApi.DeleteAvatar: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AvatarsApi.DeleteAvatar: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -168,31 +149,11 @@ namespace Example
 }
 ```
 
-#### Using the DeleteAvatarWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Delete Avatar
-    ApiResponse<Avatar> response = apiInstance.DeleteAvatarWithHttpInfo(avatarId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AvatarsApi.DeleteAvatarWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **avatarId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **avatarId** | **string**| Must be a valid avatar ID. | 
 
 ### Return type
 
@@ -251,7 +212,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AvatarsApi(config);
-            var avatarId = "avatarId_example";  // string | 
+            var avatarId = avatarId_example;  // string | Must be a valid avatar ID.
 
             try
             {
@@ -261,8 +222,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AvatarsApi.GetAvatar: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AvatarsApi.GetAvatar: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -270,31 +231,11 @@ namespace Example
 }
 ```
 
-#### Using the GetAvatarWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get Avatar
-    ApiResponse<Avatar> response = apiInstance.GetAvatarWithHttpInfo(avatarId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AvatarsApi.GetAvatarWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **avatarId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **avatarId** | **string**| Must be a valid avatar ID. | 
 
 ### Return type
 
@@ -321,7 +262,7 @@ catch (ApiException e)
 
 <a name="getfavoritedavatars"></a>
 # **GetFavoritedAvatars**
-> List&lt;Avatar&gt; GetFavoritedAvatars (bool? featured = null, string sort = null, int? n = null, string order = null, int? offset = null, string search = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
+> List&lt;Avatar&gt; GetFavoritedAvatars (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
 
 List Favorited Avatars
 
@@ -354,18 +295,18 @@ namespace Example
 
             var apiInstance = new AvatarsApi(config);
             var featured = true;  // bool? | Filters on featured results. (optional) 
-            var sort = popularity;  // string |  (optional)  (default to popularity)
-            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
-            var order = descending;  // string |  (optional)  (default to descending)
+            var sort = ;  // SortOption? | The sort order of the results. (optional) 
+            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var order = ;  // OrderOption? | Result ordering (optional) 
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var search = "search_example";  // string | Filters by world name. (optional) 
-            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = "public";  // string | Filter by ReleaseStatus. (optional)  (default to public)
-            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
-            var userId = "userId_example";  // string | Target user to see information on, admin-only. (optional) 
+            var search = search_example;  // string | Filters by world name. (optional) 
+            var tag = tag_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = ;  // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
+            var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = minUnityVersion_example;  // string | The minimum Unity version supported by the asset. (optional) 
+            var platform = platform_example;  // string | The platform the asset supports. (optional) 
+            var userId = userId_example;  // string | Target user to see information on, admin-only. (optional) 
 
             try
             {
@@ -375,8 +316,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AvatarsApi.GetFavoritedAvatars: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AvatarsApi.GetFavoritedAvatars: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -384,43 +325,23 @@ namespace Example
 }
 ```
 
-#### Using the GetFavoritedAvatarsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // List Favorited Avatars
-    ApiResponse<List<Avatar>> response = apiInstance.GetFavoritedAvatarsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AvatarsApi.GetFavoritedAvatarsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **featured** | **bool?** | Filters on featured results. | [optional]  |
-| **sort** | **string** |  | [optional] [default to popularity] |
-| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
-| **order** | **string** |  | [optional] [default to descending] |
-| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **search** | **string** | Filters by world name. | [optional]  |
-| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
-| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
-| **releaseStatus** | **string** | Filter by ReleaseStatus. | [optional] [default to public] |
-| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
-| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
-| **platform** | **string** | The platform the asset supports. | [optional]  |
-| **userId** | **string** | Target user to see information on, admin-only. | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **featured** | **bool?**| Filters on featured results. | [optional] 
+ **sort** | **SortOption?**| The sort order of the results. | [optional] 
+ **n** | **int?**| The number of objects to return. | [optional] [default to 60]
+ **order** | **OrderOption?**| Result ordering | [optional] 
+ **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **search** | **string**| Filters by world name. | [optional] 
+ **tag** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
+ **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
+ **releaseStatus** | **ReleaseStatus?**| Filter by ReleaseStatus. | [optional] 
+ **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
+ **minUnityVersion** | **string**| The minimum Unity version supported by the asset. | [optional] 
+ **platform** | **string**| The platform the asset supports. | [optional] 
+ **userId** | **string**| Target user to see information on, admin-only. | [optional] 
 
 ### Return type
 
@@ -479,7 +400,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AvatarsApi(config);
-            var userId = "userId_example";  // string | 
+            var userId = userId_example;  // string | Must be a valid user ID.
 
             try
             {
@@ -489,8 +410,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AvatarsApi.GetOwnAvatar: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AvatarsApi.GetOwnAvatar: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -498,31 +419,11 @@ namespace Example
 }
 ```
 
-#### Using the GetOwnAvatarWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get Own Avatar
-    ApiResponse<Avatar> response = apiInstance.GetOwnAvatarWithHttpInfo(userId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AvatarsApi.GetOwnAvatarWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **string**| Must be a valid user ID. | 
 
 ### Return type
 
@@ -549,7 +450,7 @@ catch (ApiException e)
 
 <a name="searchavatars"></a>
 # **SearchAvatars**
-> List&lt;Avatar&gt; SearchAvatars (bool? featured = null, string sort = null, string user = null, string userId = null, int? n = null, string order = null, int? offset = null, string tag = null, string notag = null, string releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
+> List&lt;Avatar&gt; SearchAvatars (bool? featured = null, SortOption? sort = null, string user = null, string userId = null, int? n = null, OrderOption? order = null, int? offset = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
 
 Search Avatars
 
@@ -582,18 +483,18 @@ namespace Example
 
             var apiInstance = new AvatarsApi(config);
             var featured = true;  // bool? | Filters on featured results. (optional) 
-            var sort = popularity;  // string |  (optional)  (default to popularity)
-            var user = "me";  // string | Set to `me` for searching own avatars. (optional) 
-            var userId = "userId_example";  // string | Filter by UserID. (optional) 
-            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
-            var order = descending;  // string |  (optional)  (default to descending)
+            var sort = ;  // SortOption? | The sort order of the results. (optional) 
+            var user = user_example;  // string | Set to `me` for searching own avatars. (optional) 
+            var userId = userId_example;  // string | Filter by UserID. (optional) 
+            var n = 56;  // int? | The number of objects to return. (optional)  (default to 60)
+            var order = ;  // OrderOption? | Result ordering (optional) 
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = "public";  // string | Filter by ReleaseStatus. (optional)  (default to public)
-            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
+            var tag = tag_example;  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = notag_example;  // string | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = ;  // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
+            var maxUnityVersion = maxUnityVersion_example;  // string | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = minUnityVersion_example;  // string | The minimum Unity version supported by the asset. (optional) 
+            var platform = platform_example;  // string | The platform the asset supports. (optional) 
 
             try
             {
@@ -603,8 +504,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AvatarsApi.SearchAvatars: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AvatarsApi.SearchAvatars: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -612,43 +513,23 @@ namespace Example
 }
 ```
 
-#### Using the SearchAvatarsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Search Avatars
-    ApiResponse<List<Avatar>> response = apiInstance.SearchAvatarsWithHttpInfo(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AvatarsApi.SearchAvatarsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **featured** | **bool?** | Filters on featured results. | [optional]  |
-| **sort** | **string** |  | [optional] [default to popularity] |
-| **user** | **string** | Set to &#x60;me&#x60; for searching own avatars. | [optional]  |
-| **userId** | **string** | Filter by UserID. | [optional]  |
-| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
-| **order** | **string** |  | [optional] [default to descending] |
-| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
-| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
-| **releaseStatus** | **string** | Filter by ReleaseStatus. | [optional] [default to public] |
-| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
-| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
-| **platform** | **string** | The platform the asset supports. | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **featured** | **bool?**| Filters on featured results. | [optional] 
+ **sort** | **SortOption?**| The sort order of the results. | [optional] 
+ **user** | **string**| Set to &#x60;me&#x60; for searching own avatars. | [optional] 
+ **userId** | **string**| Filter by UserID. | [optional] 
+ **n** | **int?**| The number of objects to return. | [optional] [default to 60]
+ **order** | **OrderOption?**| Result ordering | [optional] 
+ **offset** | **int?**| A zero-based offset from the default object sorting from where search results start. | [optional] 
+ **tag** | **string**| Tags to include (comma-separated). Any of the tags needs to be present. | [optional] 
+ **notag** | **string**| Tags to exclude (comma-separated). | [optional] 
+ **releaseStatus** | **ReleaseStatus?**| Filter by ReleaseStatus. | [optional] 
+ **maxUnityVersion** | **string**| The maximum Unity version supported by the asset. | [optional] 
+ **minUnityVersion** | **string**| The minimum Unity version supported by the asset. | [optional] 
+ **platform** | **string**| The platform the asset supports. | [optional] 
 
 ### Return type
 
@@ -706,7 +587,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AvatarsApi(config);
-            var avatarId = "avatarId_example";  // string | 
+            var avatarId = avatarId_example;  // string | Must be a valid avatar ID.
 
             try
             {
@@ -716,8 +597,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AvatarsApi.SelectAvatar: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AvatarsApi.SelectAvatar: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -725,31 +606,11 @@ namespace Example
 }
 ```
 
-#### Using the SelectAvatarWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Select Avatar
-    ApiResponse<CurrentUser> response = apiInstance.SelectAvatarWithHttpInfo(avatarId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AvatarsApi.SelectAvatarWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **avatarId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **avatarId** | **string**| Must be a valid avatar ID. | 
 
 ### Return type
 
@@ -808,7 +669,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AvatarsApi(config);
-            var avatarId = "avatarId_example";  // string | 
+            var avatarId = avatarId_example;  // string | Must be a valid avatar ID.
 
             try
             {
@@ -818,8 +679,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AvatarsApi.SelectFallbackAvatar: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AvatarsApi.SelectFallbackAvatar: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -827,31 +688,11 @@ namespace Example
 }
 ```
 
-#### Using the SelectFallbackAvatarWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Select Fallback Avatar
-    ApiResponse<CurrentUser> response = apiInstance.SelectFallbackAvatarWithHttpInfo(avatarId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AvatarsApi.SelectFallbackAvatarWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **avatarId** | **string** |  |  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **avatarId** | **string**| Must be a valid avatar ID. | 
 
 ### Return type
 
@@ -911,7 +752,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AvatarsApi(config);
-            var avatarId = "avatarId_example";  // string | 
+            var avatarId = avatarId_example;  // string | Must be a valid avatar ID.
             var updateAvatarRequest = new UpdateAvatarRequest(); // UpdateAvatarRequest |  (optional) 
 
             try
@@ -922,8 +763,8 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling AvatarsApi.UpdateAvatar: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print("Exception when calling AvatarsApi.UpdateAvatar: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
         }
@@ -931,32 +772,12 @@ namespace Example
 }
 ```
 
-#### Using the UpdateAvatarWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Update Avatar
-    ApiResponse<Avatar> response = apiInstance.UpdateAvatarWithHttpInfo(avatarId, updateAvatarRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling AvatarsApi.UpdateAvatarWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
 ### Parameters
 
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **avatarId** | **string** |  |  |
-| **updateAvatarRequest** | [**UpdateAvatarRequest**](UpdateAvatarRequest.md) |  | [optional]  |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **avatarId** | **string**| Must be a valid avatar ID. | 
+ **updateAvatarRequest** | [**UpdateAvatarRequest**](UpdateAvatarRequest.md)|  | [optional] 
 
 ### Return type
 

@@ -48,28 +48,24 @@ namespace VRChat.API.Model
         public FileVersionUploadStatus(string uploadId = default(string), string fileName = default(string), decimal nextPartNumber = default(decimal), decimal maxParts = default(decimal), List<Object> parts = default(List<Object>), List<Object> etags = default(List<Object>))
         {
             // to ensure "uploadId" is required (not null)
-            if (uploadId == null)
-            {
+            if (uploadId == null) {
                 throw new ArgumentNullException("uploadId is a required property for FileVersionUploadStatus and cannot be null");
             }
             this.UploadId = uploadId;
             // to ensure "fileName" is required (not null)
-            if (fileName == null)
-            {
+            if (fileName == null) {
                 throw new ArgumentNullException("fileName is a required property for FileVersionUploadStatus and cannot be null");
             }
             this.FileName = fileName;
             this.NextPartNumber = nextPartNumber;
             this.MaxParts = maxParts;
             // to ensure "parts" is required (not null)
-            if (parts == null)
-            {
+            if (parts == null) {
                 throw new ArgumentNullException("parts is a required property for FileVersionUploadStatus and cannot be null");
             }
             this.Parts = parts;
             // to ensure "etags" is required (not null)
-            if (etags == null)
-            {
+            if (etags == null) {
                 throw new ArgumentNullException("etags is a required property for FileVersionUploadStatus and cannot be null");
             }
             this.Etags = etags;
@@ -78,38 +74,38 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UploadId
         /// </summary>
-        [DataMember(Name = "uploadId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "uploadId", IsRequired = true, EmitDefaultValue = false)]
         public string UploadId { get; set; }
 
         /// <summary>
         /// Gets or Sets FileName
         /// </summary>
-        [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = false)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Gets or Sets NextPartNumber
         /// </summary>
-        [DataMember(Name = "nextPartNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nextPartNumber", IsRequired = true, EmitDefaultValue = false)]
         public decimal NextPartNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxParts
         /// </summary>
-        [DataMember(Name = "maxParts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "maxParts", IsRequired = true, EmitDefaultValue = false)]
         public decimal MaxParts { get; set; }
 
         /// <summary>
         /// Gets or Sets Parts
         /// </summary>
-        [DataMember(Name = "parts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "parts", IsRequired = true, EmitDefaultValue = false)]
         public List<Object> Parts { get; set; }
 
         /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "etags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "etags", IsRequired = true, EmitDefaultValue = false)]
         public List<Object> Etags { get; set; }
 
         /// <summary>
@@ -118,7 +114,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class FileVersionUploadStatus {\n");
             sb.Append("  UploadId: ").Append(UploadId).Append("\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
@@ -157,9 +153,8 @@ namespace VRChat.API.Model
         public bool Equals(FileVersionUploadStatus input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.UploadId == input.UploadId ||
@@ -203,23 +198,15 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.UploadId != null)
-                {
-                    hashCode = (hashCode * 59) + this.UploadId.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.UploadId.GetHashCode();
                 if (this.FileName != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.NextPartNumber.GetHashCode();
-                hashCode = (hashCode * 59) + this.MaxParts.GetHashCode();
+                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
+                hashCode = hashCode * 59 + this.NextPartNumber.GetHashCode();
+                hashCode = hashCode * 59 + this.MaxParts.GetHashCode();
                 if (this.Parts != null)
-                {
-                    hashCode = (hashCode * 59) + this.Parts.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Parts.GetHashCode();
                 if (this.Etags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Etags.GetHashCode();
-                }
+                    hashCode = hashCode * 59 + this.Etags.GetHashCode();
                 return hashCode;
             }
         }
@@ -232,25 +219,25 @@ namespace VRChat.API.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // UploadId (string) minLength
-            if (this.UploadId != null && this.UploadId.Length < 1)
+            if(this.UploadId != null && this.UploadId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UploadId, length must be greater than 1.", new [] { "UploadId" });
             }
 
             // FileName (string) minLength
-            if (this.FileName != null && this.FileName.Length < 1)
+            if(this.FileName != null && this.FileName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileName, length must be greater than 1.", new [] { "FileName" });
             }
 
             // NextPartNumber (decimal) minimum
-            if (this.NextPartNumber < (decimal)0)
+            if(this.NextPartNumber < (decimal)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPartNumber, must be a value greater than or equal to 0.", new [] { "NextPartNumber" });
             }
 
             // MaxParts (decimal) minimum
-            if (this.MaxParts < (decimal)1)
+            if(this.MaxParts < (decimal)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxParts, must be a value greater than or equal to 1.", new [] { "MaxParts" });
             }

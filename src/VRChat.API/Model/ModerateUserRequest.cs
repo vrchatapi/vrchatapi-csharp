@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public PlayerModerationType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ModerateUserRequest" /> class.
@@ -50,8 +50,7 @@ namespace VRChat.API.Model
         public ModerateUserRequest(string moderated = default(string), PlayerModerationType type = default(PlayerModerationType))
         {
             // to ensure "moderated" is required (not null)
-            if (moderated == null)
-            {
+            if (moderated == null) {
                 throw new ArgumentNullException("moderated is a required property for ModerateUserRequest and cannot be null");
             }
             this.Moderated = moderated;
@@ -62,7 +61,7 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "moderated", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "moderated", IsRequired = true, EmitDefaultValue = false)]
         public string Moderated { get; set; }
 
         /// <summary>
@@ -71,7 +70,7 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class ModerateUserRequest {\n");
             sb.Append("  Moderated: ").Append(Moderated).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -106,9 +105,8 @@ namespace VRChat.API.Model
         public bool Equals(ModerateUserRequest input)
         {
             if (input == null)
-            {
                 return false;
-            }
+
             return 
                 (
                     this.Moderated == input.Moderated ||
@@ -131,10 +129,8 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 if (this.Moderated != null)
-                {
-                    hashCode = (hashCode * 59) + this.Moderated.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                    hashCode = hashCode * 59 + this.Moderated.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }
