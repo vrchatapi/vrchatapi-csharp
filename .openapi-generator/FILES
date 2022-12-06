@@ -5,6 +5,7 @@ docs/APIConfigAnnouncement.md
 docs/APIConfigDownloadURLList.md
 docs/APIConfigEvents.md
 docs/APIHealth.md
+docs/AccountDeletionLog.md
 docs/AddFavoriteRequest.md
 docs/AddGroupGalleryImageRequest.md
 docs/AuthenticationApi.md
@@ -171,6 +172,7 @@ src/VRChat.API/Model/APIConfigDownloadURLList.cs
 src/VRChat.API/Model/APIConfigEvents.cs
 src/VRChat.API/Model/APIHealth.cs
 src/VRChat.API/Model/AbstractOpenAPISchema.cs
+src/VRChat.API/Model/AccountDeletionLog.cs
 src/VRChat.API/Model/AddFavoriteRequest.cs
 src/VRChat.API/Model/AddGroupGalleryImageRequest.cs
 src/VRChat.API/Model/Avatar.cs

@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AcceptedTOSVersion** | **int** |  | 
 **AccountDeletionDate** | **DateTime?** |  | [optional] 
-**ActiveFriends** | **List&lt;string&gt;** |  | [optional] 
+**AccountDeletionLog** | [**List&lt;AccountDeletionLog&gt;**](AccountDeletionLog.md) |   | [optional] 
+**ActiveFriends** | **List&lt;string&gt;** |   | [optional] 
 **AllowAvatarCopying** | **bool** |  | 
 **Bio** | **string** |  | 
-**BioLinks** | **List&lt;string&gt;** |  | 
+**BioLinks** | **List&lt;string&gt;** |   | 
 **CurrentAvatar** | **string** |  | 
 **CurrentAvatarAssetUrl** | **string** |  | 
 **CurrentAvatarImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
