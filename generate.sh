@@ -21,9 +21,16 @@ rm openapi.yaml
 
 rmdir src/VRChat.API.Test/
 
+#
 # Enable global cookie storage
-sed -i '/RestClient client = new RestClient/a \            client.CookieContainer = CookieContainer;\n' ./src/VRChat.API/Client/ApiClient.cs
+#
+# Create global CookieContainer
 sed -i '/readonly string _baseUrl/a \        public static readonly CookieContainer CookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
+# Replace "var cookies = new CookieContainer()" with "var cookies = CookieContainer"
+sed -i 's/cookies = new CookieContainer()/cookies = CookieContainer/' ./src/VRChat.API/Client/ApiClient.cs
+# Add CookieContainer to client
+sed -i '/UseSerializer/a \            client.CookieContainer = CookieContainer;\n' ./src/VRChat.API/Client/ApiClient.cs
+# Add result to CookieContainer
 sed -i '/result.Cookies.Add(cookie);/a \                    client.CookieContainer.Add(cookie);' ./src/VRChat.API/Client/ApiClient.cs
 
 # Fix fields in csproj
@@ -41,5 +48,8 @@ sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\\README.md" 
 for i in src/VRChat.API/*/*.cs; do
     sed -i '/VRChat API Banner/d' $i
 done
+
+cp README.md src/VRChat.API/
+cp README.md src/
 
 #bash ./build.sh

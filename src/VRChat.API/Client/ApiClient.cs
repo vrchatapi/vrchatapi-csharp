@@ -439,7 +439,7 @@ namespace VRChat.API.Client
         {
             var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;
 
-            var cookies = new CookieContainer();
+            var cookies = CookieContainer;
 
             if (options.Cookies != null && options.Cookies.Count > 0)
             {
@@ -459,9 +459,9 @@ namespace VRChat.API.Client
             };
 
             RestClient client = new RestClient(clientOptions)
+                .UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
             client.CookieContainer = CookieContainer;
 
-                .UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
 
             InterceptRequest(req);
 
@@ -557,9 +557,9 @@ namespace VRChat.API.Client
             };
 
             RestClient client = new RestClient(clientOptions)
+                .UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
             client.CookieContainer = CookieContainer;
 
-                .UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
 
             InterceptRequest(req);
 
