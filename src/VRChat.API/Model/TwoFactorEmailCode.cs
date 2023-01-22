@@ -26,25 +26,35 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// **Deprecation:** &#x60;Object&#x60; has unknown usage/fields, and is always empty. Use normal &#x60;Url&#x60; field instead.
+    /// TwoFactorEmailCode
     /// </summary>
-    [DataContract(Name = "Avatar_unityPackageUrlObject")]
-    public partial class AvatarUnityPackageUrlObject : IEquatable<AvatarUnityPackageUrlObject>, IValidatableObject
+    [DataContract(Name = "TwoFactorEmailCode")]
+    public partial class TwoFactorEmailCode : IEquatable<TwoFactorEmailCode>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AvatarUnityPackageUrlObject" /> class.
+        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
         /// </summary>
-        /// <param name="unityPackageUrl">unityPackageUrl.</param>
-        public AvatarUnityPackageUrlObject(string unityPackageUrl = default(string))
+        [JsonConstructorAttribute]
+        protected TwoFactorEmailCode() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// </summary>
+        /// <param name="code">code (required).</param>
+        public TwoFactorEmailCode(string code = default(string))
         {
-            this.UnityPackageUrl = unityPackageUrl;
+            // to ensure "code" is required (not null)
+            if (code == null)
+            {
+                throw new ArgumentNullException("code is a required property for TwoFactorEmailCode and cannot be null");
+            }
+            this.Code = code;
         }
 
         /// <summary>
-        /// Gets or Sets UnityPackageUrl
+        /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "unityPackageUrl", EmitDefaultValue = false)]
-        public string UnityPackageUrl { get; set; }
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        public string Code { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +63,8 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AvatarUnityPackageUrlObject {\n");
-            sb.Append("  UnityPackageUrl: ").Append(UnityPackageUrl).Append("\n");
+            sb.Append("class TwoFactorEmailCode {\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,15 +85,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AvatarUnityPackageUrlObject);
+            return this.Equals(input as TwoFactorEmailCode);
         }
 
         /// <summary>
-        /// Returns true if AvatarUnityPackageUrlObject instances are equal
+        /// Returns true if TwoFactorEmailCode instances are equal
         /// </summary>
-        /// <param name="input">Instance of AvatarUnityPackageUrlObject to be compared</param>
+        /// <param name="input">Instance of TwoFactorEmailCode to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AvatarUnityPackageUrlObject input)
+        public bool Equals(TwoFactorEmailCode input)
         {
             if (input == null)
             {
@@ -91,9 +101,9 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.UnityPackageUrl == input.UnityPackageUrl ||
-                    (this.UnityPackageUrl != null &&
-                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 );
         }
 
@@ -106,9 +116,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.UnityPackageUrl != null)
+                if (this.Code != null)
                 {
-                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
                 return hashCode;
             }

@@ -5,10 +5,11 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CheckUserExists**](AuthenticationApi.md#checkuserexists) | **GET** /auth/exists | Check User Exists |
-| [**DeleteUser**](AuthenticationApi.md#deleteuser) | **PUT** /user/{userId}/delete | Delete User |
+| [**DeleteUser**](AuthenticationApi.md#deleteuser) | **PUT** /users/{userId}/delete | Delete User |
 | [**GetCurrentUser**](AuthenticationApi.md#getcurrentuser) | **GET** /auth/user | Login and/or Get Current User Info |
 | [**Logout**](AuthenticationApi.md#logout) | **PUT** /logout | Logout |
 | [**Verify2FA**](AuthenticationApi.md#verify2fa) | **POST** /auth/twofactorauth/totp/verify | Verify 2FA code |
+| [**Verify2FAEmailCode**](AuthenticationApi.md#verify2faemailcode) | **POST** /auth/twofactorauth/emailotp/verify | Verify 2FA email code |
 | [**VerifyAuthToken**](AuthenticationApi.md#verifyauthtoken) | **GET** /auth | Verify Auth Token |
 | [**VerifyRecoveryCode**](AuthenticationApi.md#verifyrecoverycode) | **POST** /auth/twofactorauth/otp/verify | Verify 2FA code with Recovery code |
 
@@ -485,6 +486,103 @@ catch (ApiException e)
 ### Return type
 
 [**Verify2FAResult**](Verify2FAResult.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  * Set-Cookie - Provides a &#x60;twoFactorAuth&#x60; cookie, which can be used to bypasses the 2FA requirement for future logins on the same device. <br>  |
+| **401** | Error response due to missing apiKey or auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="verify2faemailcode"></a>
+# **Verify2FAEmailCode**
+> Verify2FAEmailCodeResult Verify2FAEmailCode (TwoFactorEmailCode twoFactorEmailCode = null)
+
+Verify 2FA email code
+
+Finishes the login sequence with an 2FA email code.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class Verify2FAEmailCodeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AuthenticationApi(config);
+            var twoFactorEmailCode = new TwoFactorEmailCode(); // TwoFactorEmailCode |  (optional) 
+
+            try
+            {
+                // Verify 2FA email code
+                Verify2FAEmailCodeResult result = apiInstance.Verify2FAEmailCode(twoFactorEmailCode);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.Verify2FAEmailCode: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the Verify2FAEmailCodeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Verify 2FA email code
+    ApiResponse<Verify2FAEmailCodeResult> response = apiInstance.Verify2FAEmailCodeWithHttpInfo(twoFactorEmailCode);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AuthenticationApi.Verify2FAEmailCodeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **twoFactorEmailCode** | [**TwoFactorEmailCode**](TwoFactorEmailCode.md) |  | [optional]  |
+
+### Return type
+
+[**Verify2FAEmailCodeResult**](Verify2FAEmailCodeResult.md)
 
 ### Authorization
 

@@ -112,6 +112,7 @@ docs/TransactionStatus.md
 docs/TransactionSteamInfo.md
 docs/TransactionSteamWalletInfo.md
 docs/TwoFactorAuthCode.md
+docs/TwoFactorEmailCode.md
 docs/UnityPackage.md
 docs/UpdateAvatarRequest.md
 docs/UpdateFavoriteGroupRequest.md
@@ -128,6 +129,7 @@ docs/UserState.md
 docs/UserStatus.md
 docs/UserSubscription.md
 docs/UsersApi.md
+docs/Verify2FAEmailCodeResult.md
 docs/Verify2FAResult.md
 docs/VerifyAuthTokenResult.md
 docs/World.md
@@ -266,6 +268,7 @@ src/VRChat.API/Model/TransactionStatus.cs
 src/VRChat.API/Model/TransactionSteamInfo.cs
 src/VRChat.API/Model/TransactionSteamWalletInfo.cs
 src/VRChat.API/Model/TwoFactorAuthCode.cs
+src/VRChat.API/Model/TwoFactorEmailCode.cs
 src/VRChat.API/Model/UnityPackage.cs
 src/VRChat.API/Model/UpdateAvatarRequest.cs
 src/VRChat.API/Model/UpdateFavoriteGroupRequest.cs
@@ -281,6 +284,7 @@ src/VRChat.API/Model/UserExists.cs
 src/VRChat.API/Model/UserState.cs
 src/VRChat.API/Model/UserStatus.cs
 src/VRChat.API/Model/UserSubscription.cs
+src/VRChat.API/Model/Verify2FAEmailCodeResult.cs
 src/VRChat.API/Model/Verify2FAResult.cs
 src/VRChat.API/Model/VerifyAuthTokenResult.cs
 src/VRChat.API/Model/World.cs

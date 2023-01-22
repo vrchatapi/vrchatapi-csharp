@@ -26,25 +26,30 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// **Deprecation:** &#x60;Object&#x60; has unknown usage/fields, and is always empty. Use normal &#x60;Url&#x60; field instead.
+    /// Verify2FAEmailCodeResult
     /// </summary>
-    [DataContract(Name = "Avatar_unityPackageUrlObject")]
-    public partial class AvatarUnityPackageUrlObject : IEquatable<AvatarUnityPackageUrlObject>, IValidatableObject
+    [DataContract(Name = "Verify2FAEmailCodeResult")]
+    public partial class Verify2FAEmailCodeResult : IEquatable<Verify2FAEmailCodeResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AvatarUnityPackageUrlObject" /> class.
+        /// Initializes a new instance of the <see cref="Verify2FAEmailCodeResult" /> class.
         /// </summary>
-        /// <param name="unityPackageUrl">unityPackageUrl.</param>
-        public AvatarUnityPackageUrlObject(string unityPackageUrl = default(string))
+        [JsonConstructorAttribute]
+        protected Verify2FAEmailCodeResult() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Verify2FAEmailCodeResult" /> class.
+        /// </summary>
+        /// <param name="verified">verified (required).</param>
+        public Verify2FAEmailCodeResult(bool verified = default(bool))
         {
-            this.UnityPackageUrl = unityPackageUrl;
+            this.Verified = verified;
         }
 
         /// <summary>
-        /// Gets or Sets UnityPackageUrl
+        /// Gets or Sets Verified
         /// </summary>
-        [DataMember(Name = "unityPackageUrl", EmitDefaultValue = false)]
-        public string UnityPackageUrl { get; set; }
+        [DataMember(Name = "verified", IsRequired = true, EmitDefaultValue = true)]
+        public bool Verified { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +58,8 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class AvatarUnityPackageUrlObject {\n");
-            sb.Append("  UnityPackageUrl: ").Append(UnityPackageUrl).Append("\n");
+            sb.Append("class Verify2FAEmailCodeResult {\n");
+            sb.Append("  Verified: ").Append(Verified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,15 +80,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AvatarUnityPackageUrlObject);
+            return this.Equals(input as Verify2FAEmailCodeResult);
         }
 
         /// <summary>
-        /// Returns true if AvatarUnityPackageUrlObject instances are equal
+        /// Returns true if Verify2FAEmailCodeResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of AvatarUnityPackageUrlObject to be compared</param>
+        /// <param name="input">Instance of Verify2FAEmailCodeResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AvatarUnityPackageUrlObject input)
+        public bool Equals(Verify2FAEmailCodeResult input)
         {
             if (input == null)
             {
@@ -91,9 +96,8 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.UnityPackageUrl == input.UnityPackageUrl ||
-                    (this.UnityPackageUrl != null &&
-                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
+                    this.Verified == input.Verified ||
+                    this.Verified.Equals(input.Verified)
                 );
         }
 
@@ -106,10 +110,7 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.UnityPackageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Verified.GetHashCode();
                 return hashCode;
             }
         }
