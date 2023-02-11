@@ -28,8 +28,6 @@ rmdir src/VRChat.API.Test/
 sed -i '/readonly string _baseUrl/a \        public static readonly CookieContainer CookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
 # Replace "var cookies = new CookieContainer()" with "var cookies = CookieContainer"
 sed -i 's/cookies = new CookieContainer()/cookies = CookieContainer/' ./src/VRChat.API/Client/ApiClient.cs
-# Add CookieContainer to client
-sed -i '/UseSerializer/a \            client.CookieContainer = CookieContainer;\n' ./src/VRChat.API/Client/ApiClient.cs
 # Add result to CookieContainer
 sed -i '/result.Cookies.Add(cookie);/a \                    client.CookieContainer.Add(cookie);' ./src/VRChat.API/Client/ApiClient.cs
 
