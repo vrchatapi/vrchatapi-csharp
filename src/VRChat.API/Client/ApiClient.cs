@@ -460,8 +460,6 @@ namespace VRChat.API.Client
 
             RestClient client = new RestClient(clientOptions)
                 .UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
-            client.CookieContainer = CookieContainer;
-
 
             InterceptRequest(req);
 
@@ -558,8 +556,6 @@ namespace VRChat.API.Client
 
             RestClient client = new RestClient(clientOptions)
                 .UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
-            client.CookieContainer = CookieContainer;
-
 
             InterceptRequest(req);
 
