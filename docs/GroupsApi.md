@@ -2743,11 +2743,11 @@ catch (ApiException e)
 
 <a name="joingroup"></a>
 # **JoinGroup**
-> Group JoinGroup (string groupId)
+> GroupMember JoinGroup (string groupId)
 
 Join Group
 
-Join a Group by ID and returns the joined Group.
+Join a Group by ID and returns the member object.
 
 ### Example
 ```csharp
@@ -2780,7 +2780,7 @@ namespace Example
             try
             {
                 // Join Group
-                Group result = apiInstance.JoinGroup(groupId);
+                GroupMember result = apiInstance.JoinGroup(groupId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2801,7 +2801,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Join Group
-    ApiResponse<Group> response = apiInstance.JoinGroupWithHttpInfo(groupId);
+    ApiResponse<GroupMember> response = apiInstance.JoinGroupWithHttpInfo(groupId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2822,7 +2822,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**Group**](Group.md)
+[**GroupMember**](GroupMember.md)
 
 ### Authorization
 
@@ -2837,7 +2837,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a single Group object. |  -  |
+| **200** | Returns a list of GroupMember objects. |  -  |
 | **400** | Error response when trying to join a group that the user is already a member of. |  -  |
 | **401** | Error response due to missing apiKey or auth cookie. |  -  |
 | **404** | Error response when trying to perform operations on a non-existing group. |  -  |
