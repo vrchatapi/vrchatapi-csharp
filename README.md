@@ -38,7 +38,6 @@ using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
 
-
 // Authentication credentials
 Configuration Config = new Configuration();
 Config.Username = "username";
@@ -52,13 +51,13 @@ WorldsApi WorldApi = new WorldsApi(Config);
 try
 {
     // Calling "GetCurrentUser(Async)" logs you in if you are not already logged in.
-    CurrentUser CurrentUser = await AuthApi.GetCurrentUserAsync();
+    CurrentUser CurrentUser = AuthApi.GetCurrentUser();
     Console.WriteLine("Logged in as {0}, Current Avatar {1}", CurrentUser.DisplayName, CurrentUser.CurrentAvatar);
 
-    User OtherUser = await UserApi.GetUserAsync("usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469");
+    User OtherUser = UserApi.GetUser("usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469");
     Console.WriteLine("Found user {0}, joined {1}", OtherUser.DisplayName, OtherUser.DateJoined);
 
-    World World = await WorldApi.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
+    World World = WorldApi.GetWorld("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
     Console.WriteLine("Found world {0}, visits: {1}", World.Name, World.Visits);
 }
 catch (ApiException e)
