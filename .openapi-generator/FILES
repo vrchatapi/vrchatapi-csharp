@@ -23,6 +23,7 @@ docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
+docs/CurrentUserPresence.md
 docs/DeploymentGroup.md
 docs/DeveloperType.md
 docs/DynamicContentRow.md
@@ -190,6 +191,7 @@ src/VRChat.API/Model/CreateGroupRequest.cs
 src/VRChat.API/Model/CreateGroupRoleRequest.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
 src/VRChat.API/Model/CurrentUser.cs
+src/VRChat.API/Model/CurrentUserPresence.cs
 src/VRChat.API/Model/DeploymentGroup.cs
 src/VRChat.API/Model/DeveloperType.cs
 src/VRChat.API/Model/DynamicContentRow.cs
