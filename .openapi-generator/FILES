@@ -80,6 +80,7 @@ docs/License.md
 docs/LicenseAction.md
 docs/LicenseGroup.md
 docs/LicenseType.md
+docs/LimitedGroup.md
 docs/LimitedUnityPackage.md
 docs/LimitedUser.md
 docs/LimitedWorld.md
@@ -241,6 +242,7 @@ src/VRChat.API/Model/License.cs
 src/VRChat.API/Model/LicenseAction.cs
 src/VRChat.API/Model/LicenseGroup.cs
 src/VRChat.API/Model/LicenseType.cs
+src/VRChat.API/Model/LimitedGroup.cs
 src/VRChat.API/Model/LimitedUnityPackage.cs
 src/VRChat.API/Model/LimitedUser.cs
 src/VRChat.API/Model/LimitedWorld.cs
