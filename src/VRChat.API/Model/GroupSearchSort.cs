@@ -26,22 +26,22 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Defines LicenseAction
+    /// Defines GroupSearchSort
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum LicenseAction
+    public enum GroupSearchSort
     {
         /// <summary>
-        /// Enum Wear for value: wear
+        /// Enum Asc for value: joinedAt:asc
         /// </summary>
-        [EnumMember(Value = "wear")]
-        Wear = 1,
+        [EnumMember(Value = "joinedAt:asc")]
+        Asc = 1,
 
         /// <summary>
-        /// Enum Have for value: have
+        /// Enum Desc for value: joinedAt:desc
         /// </summary>
-        [EnumMember(Value = "have")]
-        Have = 2
+        [EnumMember(Value = "joinedAt:desc")]
+        Desc = 2
 
     }
 

@@ -2242,7 +2242,7 @@ catch (ApiException e)
 
 <a name="getgroupmembers"></a>
 # **GetGroupMembers**
-> List&lt;GroupMember&gt; GetGroupMembers (string groupId, int? n = null, int? offset = null)
+> List&lt;GroupMember&gt; GetGroupMembers (string groupId, int? n = null, int? offset = null, GroupSearchSort? sort = null)
 
 List Group Members
 
@@ -2273,11 +2273,12 @@ namespace Example
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+            var sort = (GroupSearchSort) "joinedAt:asc";  // GroupSearchSort? | The sort order of Group Member results (optional) 
 
             try
             {
                 // List Group Members
-                List<GroupMember> result = apiInstance.GetGroupMembers(groupId, n, offset);
+                List<GroupMember> result = apiInstance.GetGroupMembers(groupId, n, offset, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2298,7 +2299,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List Group Members
-    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupMembersWithHttpInfo(groupId, n, offset);
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupMembersWithHttpInfo(groupId, n, offset, sort);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2318,6 +2319,7 @@ catch (ApiException e)
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **sort** | **GroupSearchSort?** | The sort order of Group Member results | [optional]  |
 
 ### Return type
 

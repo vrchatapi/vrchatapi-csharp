@@ -59,6 +59,7 @@ docs/GroupPermission.md
 docs/GroupPrivacy.md
 docs/GroupRole.md
 docs/GroupRoleTemplate.md
+docs/GroupSearchSort.md
 docs/GroupUserVisibility.md
 docs/GroupsApi.md
 docs/InfoPush.md
@@ -224,6 +225,7 @@ src/VRChat.API/Model/GroupPermission.cs
 src/VRChat.API/Model/GroupPrivacy.cs
 src/VRChat.API/Model/GroupRole.cs
 src/VRChat.API/Model/GroupRoleTemplate.cs
+src/VRChat.API/Model/GroupSearchSort.cs
 src/VRChat.API/Model/GroupUserVisibility.cs
 src/VRChat.API/Model/InfoPush.cs
 src/VRChat.API/Model/InfoPushData.cs
