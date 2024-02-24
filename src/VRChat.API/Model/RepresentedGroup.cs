@@ -26,63 +26,57 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// LimitedGroup
+    /// RepresentedGroup
     /// </summary>
-    [DataContract(Name = "LimitedGroup")]
-    public partial class LimitedGroup : IEquatable<LimitedGroup>, IValidatableObject
+    [DataContract(Name = "representedGroup")]
+    public partial class RepresentedGroup : IEquatable<RepresentedGroup>, IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets MembershipStatus
+        /// Gets or Sets Privacy
         /// </summary>
-        [DataMember(Name = "membershipStatus", EmitDefaultValue = false)]
-        public GroupMemberStatus? MembershipStatus { get; set; }
+        [DataMember(Name = "privacy", EmitDefaultValue = false)]
+        public GroupPrivacy? Privacy { get; set; }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="LimitedGroup" /> class.
+        /// Gets or Sets MemberVisibility
         /// </summary>
-        /// <param name="id">id.</param>
+        [DataMember(Name = "memberVisibility", EmitDefaultValue = false)]
+        public GroupUserVisibility? MemberVisibility { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RepresentedGroup" /> class.
+        /// </summary>
         /// <param name="name">name.</param>
         /// <param name="shortCode">shortCode.</param>
         /// <param name="discriminator">discriminator.</param>
         /// <param name="description">description.</param>
-        /// <param name="iconUrl">iconUrl.</param>
-        /// <param name="bannerUrl">bannerUrl.</param>
-        /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
-        /// <param name="rules">rules.</param>
         /// <param name="iconId">iconId.</param>
+        /// <param name="iconUrl">iconUrl.</param>
         /// <param name="bannerId">bannerId.</param>
+        /// <param name="bannerUrl">bannerUrl.</param>
+        /// <param name="privacy">privacy.</param>
+        /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="memberCount">memberCount.</param>
-        /// <param name="tags"> .</param>
-        /// <param name="createdAt">createdAt.</param>
-        /// <param name="membershipStatus">membershipStatus.</param>
-        /// <param name="isSearchable">isSearchable.</param>
-        /// <param name="galleries"> .</param>
-        public LimitedGroup(string id = default(string), string name = default(string), string shortCode = default(string), string discriminator = default(string), string description = default(string), string iconUrl = default(string), string bannerUrl = default(string), string ownerId = default(string), string rules = default(string), string iconId = default(string), string bannerId = default(string), int memberCount = default(int), List<string> tags = default(List<string>), DateTime createdAt = default(DateTime), GroupMemberStatus? membershipStatus = default(GroupMemberStatus?), bool isSearchable = default(bool), List<GroupGallery> galleries = default(List<GroupGallery>))
+        /// <param name="groupId">groupId.</param>
+        /// <param name="memberVisibility">memberVisibility.</param>
+        /// <param name="isRepresenting">isRepresenting.</param>
+        public RepresentedGroup(string name = default(string), string shortCode = default(string), string discriminator = default(string), string description = default(string), string iconId = default(string), string iconUrl = default(string), string bannerId = default(string), string bannerUrl = default(string), GroupPrivacy? privacy = default(GroupPrivacy?), string ownerId = default(string), int memberCount = default(int), string groupId = default(string), GroupUserVisibility? memberVisibility = default(GroupUserVisibility?), bool isRepresenting = default(bool))
         {
-            this.Id = id;
             this.Name = name;
             this.ShortCode = shortCode;
             this.Discriminator = discriminator;
             this.Description = description;
-            this.IconUrl = iconUrl;
-            this.BannerUrl = bannerUrl;
-            this.OwnerId = ownerId;
-            this.Rules = rules;
             this.IconId = iconId;
+            this.IconUrl = iconUrl;
             this.BannerId = bannerId;
+            this.BannerUrl = bannerUrl;
+            this.Privacy = privacy;
+            this.OwnerId = ownerId;
             this.MemberCount = memberCount;
-            this.Tags = tags;
-            this.CreatedAt = createdAt;
-            this.MembershipStatus = membershipStatus;
-            this.IsSearchable = isSearchable;
-            this.Galleries = galleries;
+            this.GroupId = groupId;
+            this.MemberVisibility = memberVisibility;
+            this.IsRepresenting = isRepresenting;
         }
-
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -109,10 +103,22 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// Gets or Sets IconId
+        /// </summary>
+        [DataMember(Name = "iconId", EmitDefaultValue = true)]
+        public string IconId { get; set; }
+
+        /// <summary>
         /// Gets or Sets IconUrl
         /// </summary>
         [DataMember(Name = "iconUrl", EmitDefaultValue = true)]
         public string IconUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BannerId
+        /// </summary>
+        [DataMember(Name = "bannerId", EmitDefaultValue = true)]
+        public string BannerId { get; set; }
 
         /// <summary>
         /// Gets or Sets BannerUrl
@@ -128,54 +134,22 @@ namespace VRChat.API.Model
         public string OwnerId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Rules
-        /// </summary>
-        [DataMember(Name = "rules", EmitDefaultValue = true)]
-        public string Rules { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IconId
-        /// </summary>
-        [DataMember(Name = "iconId", EmitDefaultValue = true)]
-        public string IconId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BannerId
-        /// </summary>
-        [DataMember(Name = "bannerId", EmitDefaultValue = true)]
-        public string BannerId { get; set; }
-
-        /// <summary>
         /// Gets or Sets MemberCount
         /// </summary>
         [DataMember(Name = "memberCount", EmitDefaultValue = false)]
         public int MemberCount { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets GroupId
         /// </summary>
-        /// <value> </value>
-        [DataMember(Name = "tags", EmitDefaultValue = false)]
-        public List<string> Tags { get; set; }
+        [DataMember(Name = "groupId", EmitDefaultValue = false)]
+        public string GroupId { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedAt
+        /// Gets or Sets IsRepresenting
         /// </summary>
-        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsSearchable
-        /// </summary>
-        [DataMember(Name = "isSearchable", EmitDefaultValue = true)]
-        public bool IsSearchable { get; set; }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <value> </value>
-        [DataMember(Name = "galleries", EmitDefaultValue = false)]
-        public List<GroupGallery> Galleries { get; set; }
+        [DataMember(Name = "isRepresenting", EmitDefaultValue = true)]
+        public bool IsRepresenting { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -184,24 +158,21 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LimitedGroup {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("class RepresentedGroup {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
             sb.Append("  Discriminator: ").Append(Discriminator).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  IconUrl: ").Append(IconUrl).Append("\n");
-            sb.Append("  BannerUrl: ").Append(BannerUrl).Append("\n");
-            sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
-            sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("  IconId: ").Append(IconId).Append("\n");
+            sb.Append("  IconUrl: ").Append(IconUrl).Append("\n");
             sb.Append("  BannerId: ").Append(BannerId).Append("\n");
+            sb.Append("  BannerUrl: ").Append(BannerUrl).Append("\n");
+            sb.Append("  Privacy: ").Append(Privacy).Append("\n");
+            sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
             sb.Append("  MemberCount: ").Append(MemberCount).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  MembershipStatus: ").Append(MembershipStatus).Append("\n");
-            sb.Append("  IsSearchable: ").Append(IsSearchable).Append("\n");
-            sb.Append("  Galleries: ").Append(Galleries).Append("\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
+            sb.Append("  MemberVisibility: ").Append(MemberVisibility).Append("\n");
+            sb.Append("  IsRepresenting: ").Append(IsRepresenting).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -222,26 +193,21 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LimitedGroup);
+            return this.Equals(input as RepresentedGroup);
         }
 
         /// <summary>
-        /// Returns true if LimitedGroup instances are equal
+        /// Returns true if RepresentedGroup instances are equal
         /// </summary>
-        /// <param name="input">Instance of LimitedGroup to be compared</param>
+        /// <param name="input">Instance of RepresentedGroup to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LimitedGroup input)
+        public bool Equals(RepresentedGroup input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
@@ -263,29 +229,14 @@ namespace VRChat.API.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.IconUrl == input.IconUrl ||
-                    (this.IconUrl != null &&
-                    this.IconUrl.Equals(input.IconUrl))
-                ) && 
-                (
-                    this.BannerUrl == input.BannerUrl ||
-                    (this.BannerUrl != null &&
-                    this.BannerUrl.Equals(input.BannerUrl))
-                ) && 
-                (
-                    this.OwnerId == input.OwnerId ||
-                    (this.OwnerId != null &&
-                    this.OwnerId.Equals(input.OwnerId))
-                ) && 
-                (
-                    this.Rules == input.Rules ||
-                    (this.Rules != null &&
-                    this.Rules.Equals(input.Rules))
-                ) && 
-                (
                     this.IconId == input.IconId ||
                     (this.IconId != null &&
                     this.IconId.Equals(input.IconId))
+                ) && 
+                (
+                    this.IconUrl == input.IconUrl ||
+                    (this.IconUrl != null &&
+                    this.IconUrl.Equals(input.IconUrl))
                 ) && 
                 (
                     this.BannerId == input.BannerId ||
@@ -293,33 +244,35 @@ namespace VRChat.API.Model
                     this.BannerId.Equals(input.BannerId))
                 ) && 
                 (
+                    this.BannerUrl == input.BannerUrl ||
+                    (this.BannerUrl != null &&
+                    this.BannerUrl.Equals(input.BannerUrl))
+                ) && 
+                (
+                    this.Privacy == input.Privacy ||
+                    this.Privacy.Equals(input.Privacy)
+                ) && 
+                (
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
+                ) && 
+                (
                     this.MemberCount == input.MemberCount ||
                     this.MemberCount.Equals(input.MemberCount)
                 ) && 
                 (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
                 ) && 
                 (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
+                    this.MemberVisibility == input.MemberVisibility ||
+                    this.MemberVisibility.Equals(input.MemberVisibility)
                 ) && 
                 (
-                    this.MembershipStatus == input.MembershipStatus ||
-                    this.MembershipStatus.Equals(input.MembershipStatus)
-                ) && 
-                (
-                    this.IsSearchable == input.IsSearchable ||
-                    this.IsSearchable.Equals(input.IsSearchable)
-                ) && 
-                (
-                    this.Galleries == input.Galleries ||
-                    this.Galleries != null &&
-                    input.Galleries != null &&
-                    this.Galleries.SequenceEqual(input.Galleries)
+                    this.IsRepresenting == input.IsRepresenting ||
+                    this.IsRepresenting.Equals(input.IsRepresenting)
                 );
         }
 
@@ -332,10 +285,6 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
@@ -352,45 +301,34 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.IconUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
-                }
-                if (this.BannerUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();
-                }
-                if (this.OwnerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
-                }
-                if (this.Rules != null)
-                {
-                    hashCode = (hashCode * 59) + this.Rules.GetHashCode();
-                }
                 if (this.IconId != null)
                 {
                     hashCode = (hashCode * 59) + this.IconId.GetHashCode();
+                }
+                if (this.IconUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
                 }
                 if (this.BannerId != null)
                 {
                     hashCode = (hashCode * 59) + this.BannerId.GetHashCode();
                 }
+                if (this.BannerUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Privacy.GetHashCode();
+                if (this.OwnerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.MemberCount.GetHashCode();
-                if (this.Tags != null)
+                if (this.GroupId != null)
                 {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
                 }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.MembershipStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsSearchable.GetHashCode();
-                if (this.Galleries != null)
-                {
-                    hashCode = (hashCode * 59) + this.Galleries.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.MemberVisibility.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsRepresenting.GetHashCode();
                 return hashCode;
             }
         }

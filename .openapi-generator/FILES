@@ -100,6 +100,7 @@ docs/PlayerModerationType.md
 docs/PlayermoderationApi.md
 docs/Region.md
 docs/ReleaseStatus.md
+docs/RepresentedGroup.md
 docs/RequestInviteRequest.md
 docs/RespondGroupJoinRequest.md
 docs/Response.md
@@ -260,6 +261,7 @@ src/VRChat.API/Model/PlayerModeration.cs
 src/VRChat.API/Model/PlayerModerationType.cs
 src/VRChat.API/Model/Region.cs
 src/VRChat.API/Model/ReleaseStatus.cs
+src/VRChat.API/Model/RepresentedGroup.cs
 src/VRChat.API/Model/RequestInviteRequest.cs
 src/VRChat.API/Model/RespondGroupJoinRequest.cs
 src/VRChat.API/Model/Response.cs

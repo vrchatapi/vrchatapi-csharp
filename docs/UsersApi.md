@@ -8,6 +8,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetUserByName**](UsersApi.md#getuserbyname) | **GET** /users/{username}/name | Get User by Username |
 | [**GetUserGroupRequests**](UsersApi.md#getusergrouprequests) | **GET** /users/{userId}/groups/requested | Get User Group Requests |
 | [**GetUserGroups**](UsersApi.md#getusergroups) | **GET** /users/{userId}/groups | Get User Groups |
+| [**GetUserRepresentedGroup**](UsersApi.md#getuserrepresentedgroup) | **GET** /users/{userId}/groups/represented | Get user&#39;s current represented group |
 | [**SearchUsers**](UsersApi.md#searchusers) | **GET** /users | Search All Users |
 | [**UpdateUser**](UsersApi.md#updateuser) | **PUT** /users/{userId} | Update User Info |
 
@@ -395,6 +396,103 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of Group objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getuserrepresentedgroup"></a>
+# **GetUserRepresentedGroup**
+> RepresentedGroup GetUserRepresentedGroup (string userId)
+
+Get user's current represented group
+
+Returns the current group that the user is currently representing
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetUserRepresentedGroupExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new UsersApi(config);
+            var userId = "userId_example";  // string | Must be a valid user ID.
+
+            try
+            {
+                // Get user's current represented group
+                RepresentedGroup result = apiInstance.GetUserRepresentedGroup(userId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.GetUserRepresentedGroup: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetUserRepresentedGroupWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get user's current represented group
+    ApiResponse<RepresentedGroup> response = apiInstance.GetUserRepresentedGroupWithHttpInfo(userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.GetUserRepresentedGroupWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+
+### Return type
+
+[**RepresentedGroup**](RepresentedGroup.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
