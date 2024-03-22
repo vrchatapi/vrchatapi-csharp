@@ -2043,7 +2043,7 @@ catch (ApiException e)
 
 <a name="getgroupinvites"></a>
 # **GetGroupInvites**
-> List&lt;GroupMember&gt; GetGroupInvites (string groupId)
+> List&lt;GroupMember&gt; GetGroupInvites (string groupId, int? n = null, int? offset = null)
 
 Get Group Invites Sent
 
@@ -2072,11 +2072,13 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
             try
             {
                 // Get Group Invites Sent
-                List<GroupMember> result = apiInstance.GetGroupInvites(groupId);
+                List<GroupMember> result = apiInstance.GetGroupInvites(groupId, n, offset);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2097,7 +2099,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Group Invites Sent
-    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupInvitesWithHttpInfo(groupId);
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupInvitesWithHttpInfo(groupId, n, offset);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2115,6 +2117,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
 ### Return type
 
@@ -2446,7 +2450,7 @@ catch (ApiException e)
 
 <a name="getgrouprequests"></a>
 # **GetGroupRequests**
-> List&lt;GroupMember&gt; GetGroupRequests (string groupId)
+> List&lt;GroupMember&gt; GetGroupRequests (string groupId, int? n = null, int? offset = null)
 
 Get Group Join Requests
 
@@ -2475,11 +2479,13 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
             try
             {
                 // Get Group Join Requests
-                List<GroupMember> result = apiInstance.GetGroupRequests(groupId);
+                List<GroupMember> result = apiInstance.GetGroupRequests(groupId, n, offset);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2500,7 +2506,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Group Join Requests
-    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupRequestsWithHttpInfo(groupId);
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupRequestsWithHttpInfo(groupId, n, offset);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2518,6 +2524,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
 ### Return type
 

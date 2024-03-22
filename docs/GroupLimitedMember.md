@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **CreatedAt** | **DateTime?** | Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user. | [optional] 
 **BannedAt** | **DateTime?** | Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user. | [optional] 
 **ManagerNotes** | **string** | Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user. | [optional] 
-**LastPostReadAt** | **DateTime** |  | [optional] 
+**LastPostReadAt** | **DateTime?** |  | [optional] 
 **HasJoinedFromPurchase** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
