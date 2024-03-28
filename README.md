@@ -38,33 +38,70 @@ using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
 
-// Authentication credentials
-Configuration Config = new Configuration();
-Config.Username = "username";
-Config.Password = "password";
+// Create a configuration for us to log in
+Configuration config = new Configuration();
+config.Username = "Username";
+config.Password = "Password";
 
-// Create instances of API's we'll need
-AuthenticationApi AuthApi = new AuthenticationApi(Config);
-UsersApi UserApi = new UsersApi(Config);
-WorldsApi WorldApi = new WorldsApi(Config);
+// We have to identify ourselves according to the vrchat tos,
+// We can't use emails here bc http header parser complains
+config.UserAgent = "ExampleProgram/0.0.1 mydiscordusername"; 
+
+// Create a client to hold all our cookies :D
+ApiClient client = new ApiClient();
+
+// Create an instance of the auth api so we can verify and log in
+AuthenticationApi authApi = new AuthenticationApi(client, client, config);
+
+// We also need to create instances of the other APIs we'll need
+UsersApi userApi = new UsersApi(client, client, config);
+WorldsApi worldApi = new WorldsApi(client, client, config);
 
 try
 {
-    // Calling "GetCurrentUser(Async)" logs you in if you are not already logged in.
-    CurrentUser CurrentUser = AuthApi.GetCurrentUser();
-    Console.WriteLine("Logged in as {0}, Current Avatar {1}", CurrentUser.DisplayName, CurrentUser.CurrentAvatar);
+    // Our first request we get the ApiResponse instead of just the user object,
+    // so we can see what the API expects from us
+    ApiResponse<CurrentUser> currentUserResp = authApi.GetCurrentUserWithHttpInfo();
 
-    User OtherUser = UserApi.GetUser("usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469");
-    Console.WriteLine("Found user {0}, joined {1}", OtherUser.DisplayName, OtherUser.DateJoined);
+    if (requiresEmail2FA(currentUserResp)) // If the API wants us to send an Email OTP code
+    {
+        authApi.Verify2FAEmailCode(new TwoFactorEmailCode("123456"));
+    }
+    else
+    {
+        // requiresEmail2FA returned false, so we use secret-based 2fa verification
+        // authApi.VerifyRecoveryCode(new TwoFactorAuthCode("12345678")); // To Use a Recovery Code
+        authApi.Verify2FA(new TwoFactorAuthCode("123456"));
+    }
 
-    World World = WorldApi.GetWorld("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
-    Console.WriteLine("Found world {0}, visits: {1}", World.Name, World.Visits);
-}
-catch (ApiException e)
+    // We can now get our CurrentUser :D
+    CurrentUser currentUser = authApi.GetCurrentUser();
+    Console.WriteLine("Logged in as {0}", currentUser.DisplayName);
+
+    User user = userApi.GetUser("usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469");
+    Console.WriteLine("Found user {0}, joined {1}", user.DisplayName, user.DateJoined);
+
+    World world = worldApi.GetWorld("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
+    Console.WriteLine("Found world {0}, visits: {1}", world.Name, world.Visits);
+} 
+catch (ApiException ex)
 {
-    Console.WriteLine("Exception when calling API: {0}", e.Message);
-    Console.WriteLine("Status Code: {0}", e.ErrorCode);
-    Console.WriteLine(e.ToString());
+    // Catch any exceptions write to console, helps w debugging :D
+    Console.WriteLine("Exception when calling API: {0}", ex.Message);
+    Console.WriteLine("Status Code: {0}", ex.ErrorCode);
+    Console.WriteLine(ex.ToString());
+}
+
+// Function that determines if the api expects email2FA from an ApiResponse
+static bool requiresEmail2FA(ApiResponse<CurrentUser> resp)
+{
+    // We can just use a super simple string.Contains() check
+    if (resp.RawContent.Contains("emailOtp"))
+    {
+        return true;
+    }
+
+    return false;
 }
 ```
 
