@@ -54,8 +54,8 @@ ApiClient client = new ApiClient();
 AuthenticationApi authApi = new AuthenticationApi(client, client, config);
 
 // We also need to create instances of the other APIs we'll need
-UsersApi UserApi = new UsersApi(client, client, config);
-WorldsApi WorldApi = new WorldsApi(client, client, config);
+UsersApi userApi = new UsersApi(client, client, config);
+WorldsApi worldApi = new WorldsApi(client, client, config);
 
 try
 {
@@ -78,10 +78,10 @@ try
     CurrentUser currentUser = authApi.GetCurrentUser();
     Console.WriteLine("Logged in as {0}", currentUser.DisplayName);
 
-    User user = UserApi.GetUser("usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469");
+    User user = userApi.GetUser("usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469");
     Console.WriteLine("Found user {0}, joined {1}", user.DisplayName, user.DateJoined);
 
-    World world = WorldApi.GetWorld("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
+    World world = worldApi.GetWorld("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
     Console.WriteLine("Found world {0}, visits: {1}", world.Name, world.Visits);
 } 
 catch (ApiException ex)
