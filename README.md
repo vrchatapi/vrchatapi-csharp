@@ -78,11 +78,11 @@ try
     CurrentUser currentUser = authApi.GetCurrentUser();
     Console.WriteLine("Logged in as {0}", currentUser.DisplayName);
 
-    User OtherUser = UserApi.GetUser("usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469");
-    Console.WriteLine("Found user {0}, joined {1}", OtherUser.DisplayName, OtherUser.DateJoined);
+    User user = UserApi.GetUser("usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469");
+    Console.WriteLine("Found user {0}, joined {1}", user.DisplayName, user.DateJoined);
 
-    World World = WorldApi.GetWorld("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
-    Console.WriteLine("Found world {0}, visits: {1}", World.Name, World.Visits);
+    World world = WorldApi.GetWorld("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
+    Console.WriteLine("Found world {0}, visits: {1}", world.Name, world.Visits);
 } 
 catch (ApiException ex)
 {
