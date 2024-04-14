@@ -44,7 +44,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 <a name="addgroupgalleryimage"></a>
 # **AddGroupGalleryImage**
-> GroupGalleryImage AddGroupGalleryImage (string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest = null)
+> GroupGalleryImage AddGroupGalleryImage (string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest)
 
 Add Group Gallery Image
 
@@ -74,7 +74,7 @@ namespace Example
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var groupGalleryId = ggal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group gallery ID.
-            var addGroupGalleryImageRequest = new AddGroupGalleryImageRequest(); // AddGroupGalleryImageRequest |  (optional) 
+            var addGroupGalleryImageRequest = new AddGroupGalleryImageRequest(); // AddGroupGalleryImageRequest | 
 
             try
             {
@@ -119,7 +119,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **groupGalleryId** | **string** | Must be a valid group gallery ID. |  |
-| **addGroupGalleryImageRequest** | [**AddGroupGalleryImageRequest**](AddGroupGalleryImageRequest.md) |  | [optional]  |
+| **addGroupGalleryImageRequest** | [**AddGroupGalleryImageRequest**](AddGroupGalleryImageRequest.md) |  |  |
 
 ### Return type
 
@@ -248,7 +248,7 @@ catch (ApiException e)
 
 <a name="bangroupmember"></a>
 # **BanGroupMember**
-> GroupMember BanGroupMember (string groupId, BanGroupMemberRequest banGroupMemberRequest = null)
+> GroupMember BanGroupMember (string groupId, BanGroupMemberRequest banGroupMemberRequest)
 
 Ban Group Member
 
@@ -277,7 +277,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var banGroupMemberRequest = new BanGroupMemberRequest(); // BanGroupMemberRequest |  (optional) 
+            var banGroupMemberRequest = new BanGroupMemberRequest(); // BanGroupMemberRequest | 
 
             try
             {
@@ -321,7 +321,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **banGroupMemberRequest** | [**BanGroupMemberRequest**](BanGroupMemberRequest.md) |  | [optional]  |
+| **banGroupMemberRequest** | [**BanGroupMemberRequest**](BanGroupMemberRequest.md) |  |  |
 
 ### Return type
 
@@ -443,7 +443,7 @@ void (empty response body)
 
 <a name="creategroup"></a>
 # **CreateGroup**
-> Group CreateGroup (CreateGroupRequest createGroupRequest = null)
+> Group CreateGroup (CreateGroupRequest createGroupRequest)
 
 Create Group
 
@@ -471,7 +471,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new GroupsApi(config);
-            var createGroupRequest = new CreateGroupRequest(); // CreateGroupRequest |  (optional) 
+            var createGroupRequest = new CreateGroupRequest(); // CreateGroupRequest | 
 
             try
             {
@@ -514,7 +514,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createGroupRequest** | [**CreateGroupRequest**](CreateGroupRequest.md) |  | [optional]  |
+| **createGroupRequest** | [**CreateGroupRequest**](CreateGroupRequest.md) |  |  |
 
 ### Return type
 
@@ -540,7 +540,7 @@ catch (ApiException e)
 
 <a name="creategroupannouncement"></a>
 # **CreateGroupAnnouncement**
-> GroupAnnouncement CreateGroupAnnouncement (string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest = null)
+> GroupAnnouncement CreateGroupAnnouncement (string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest)
 
 Create Group Announcement
 
@@ -569,7 +569,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var createGroupAnnouncementRequest = new CreateGroupAnnouncementRequest(); // CreateGroupAnnouncementRequest |  (optional) 
+            var createGroupAnnouncementRequest = new CreateGroupAnnouncementRequest(); // CreateGroupAnnouncementRequest | 
 
             try
             {
@@ -613,7 +613,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **createGroupAnnouncementRequest** | [**CreateGroupAnnouncementRequest**](CreateGroupAnnouncementRequest.md) |  | [optional]  |
+| **createGroupAnnouncementRequest** | [**CreateGroupAnnouncementRequest**](CreateGroupAnnouncementRequest.md) |  |  |
 
 ### Return type
 
@@ -640,7 +640,7 @@ catch (ApiException e)
 
 <a name="creategroupgallery"></a>
 # **CreateGroupGallery**
-> GroupGallery CreateGroupGallery (string groupId, CreateGroupGalleryRequest createGroupGalleryRequest = null)
+> GroupGallery CreateGroupGallery (string groupId, CreateGroupGalleryRequest createGroupGalleryRequest)
 
 Create Group Gallery
 
@@ -669,7 +669,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var createGroupGalleryRequest = new CreateGroupGalleryRequest(); // CreateGroupGalleryRequest |  (optional) 
+            var createGroupGalleryRequest = new CreateGroupGalleryRequest(); // CreateGroupGalleryRequest | 
 
             try
             {
@@ -713,7 +713,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **createGroupGalleryRequest** | [**CreateGroupGalleryRequest**](CreateGroupGalleryRequest.md) |  | [optional]  |
+| **createGroupGalleryRequest** | [**CreateGroupGalleryRequest**](CreateGroupGalleryRequest.md) |  |  |
 
 ### Return type
 
@@ -740,7 +740,7 @@ catch (ApiException e)
 
 <a name="creategroupinvite"></a>
 # **CreateGroupInvite**
-> void CreateGroupInvite (string groupId, CreateGroupInviteRequest createGroupInviteRequest = null)
+> void CreateGroupInvite (string groupId, CreateGroupInviteRequest createGroupInviteRequest)
 
 Invite User to Group
 
@@ -769,7 +769,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var createGroupInviteRequest = new CreateGroupInviteRequest(); // CreateGroupInviteRequest |  (optional) 
+            var createGroupInviteRequest = new CreateGroupInviteRequest(); // CreateGroupInviteRequest | 
 
             try
             {
@@ -809,7 +809,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **createGroupInviteRequest** | [**CreateGroupInviteRequest**](CreateGroupInviteRequest.md) |  | [optional]  |
+| **createGroupInviteRequest** | [**CreateGroupInviteRequest**](CreateGroupInviteRequest.md) |  |  |
 
 ### Return type
 
@@ -837,7 +837,7 @@ void (empty response body)
 
 <a name="creategrouprole"></a>
 # **CreateGroupRole**
-> GroupRole CreateGroupRole (string groupId, CreateGroupRoleRequest createGroupRoleRequest = null)
+> GroupRole CreateGroupRole (string groupId, CreateGroupRoleRequest createGroupRoleRequest)
 
 Create GroupRole
 
@@ -866,7 +866,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var createGroupRoleRequest = new CreateGroupRoleRequest(); // CreateGroupRoleRequest |  (optional) 
+            var createGroupRoleRequest = new CreateGroupRoleRequest(); // CreateGroupRoleRequest | 
 
             try
             {
@@ -910,7 +910,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **createGroupRoleRequest** | [**CreateGroupRoleRequest**](CreateGroupRoleRequest.md) |  | [optional]  |
+| **createGroupRoleRequest** | [**CreateGroupRoleRequest**](CreateGroupRoleRequest.md) |  |  |
 
 ### Return type
 
@@ -3042,7 +3042,7 @@ catch (ApiException e)
 
 <a name="respondgroupjoinrequest"></a>
 # **RespondGroupJoinRequest**
-> void RespondGroupJoinRequest (string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest = null)
+> void RespondGroupJoinRequest (string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest)
 
 Respond Group Join request
 
@@ -3072,7 +3072,7 @@ namespace Example
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var userId = "userId_example";  // string | Must be a valid user ID.
-            var respondGroupJoinRequest = new RespondGroupJoinRequest(); // RespondGroupJoinRequest |  (optional) 
+            var respondGroupJoinRequest = new RespondGroupJoinRequest(); // RespondGroupJoinRequest | 
 
             try
             {
@@ -3113,7 +3113,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **userId** | **string** | Must be a valid user ID. |  |
-| **respondGroupJoinRequest** | [**RespondGroupJoinRequest**](RespondGroupJoinRequest.md) |  | [optional]  |
+| **respondGroupJoinRequest** | [**RespondGroupJoinRequest**](RespondGroupJoinRequest.md) |  |  |
 
 ### Return type
 

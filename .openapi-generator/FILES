@@ -49,6 +49,7 @@ docs/GroupAnnouncement.md
 docs/GroupAuditLogEntry.md
 docs/GroupGallery.md
 docs/GroupGalleryImage.md
+docs/GroupJoinRequestAction.md
 docs/GroupJoinState.md
 docs/GroupLimitedMember.md
 docs/GroupMember.md
@@ -216,6 +217,7 @@ src/VRChat.API/Model/GroupAnnouncement.cs
 src/VRChat.API/Model/GroupAuditLogEntry.cs
 src/VRChat.API/Model/GroupGallery.cs
 src/VRChat.API/Model/GroupGalleryImage.cs
+src/VRChat.API/Model/GroupJoinRequestAction.cs
 src/VRChat.API/Model/GroupJoinState.cs
 src/VRChat.API/Model/GroupLimitedMember.cs
 src/VRChat.API/Model/GroupMember.cs

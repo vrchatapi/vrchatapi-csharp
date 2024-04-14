@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Instances** | **List&lt;List&lt;Object&gt;&gt;** | Will always be an empty list when unauthenticated. | [optional] 
 **LabsPublicationDate** | **string** |  | 
 **Name** | **string** |  | 
-**Namespace** | **string** |  | 
+**Namespace** | **string** |  | [optional] 
 **Occupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional] [default to 0]
 **Organization** | **string** |  | [default to "vrchat"]
 **Popularity** | **int** |  | [default to 0]

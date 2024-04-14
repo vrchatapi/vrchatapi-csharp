@@ -401,7 +401,7 @@ This endpoint does not need any parameter.
 
 <a name="verify2fa"></a>
 # **Verify2FA**
-> Verify2FAResult Verify2FA (TwoFactorAuthCode twoFactorAuthCode = null)
+> Verify2FAResult Verify2FA (TwoFactorAuthCode twoFactorAuthCode)
 
 Verify 2FA code
 
@@ -429,7 +429,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AuthenticationApi(config);
-            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode |  (optional) 
+            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode | 
 
             try
             {
@@ -472,7 +472,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  | [optional]  |
+| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  |  |
 
 ### Return type
 
@@ -498,7 +498,7 @@ catch (ApiException e)
 
 <a name="verify2faemailcode"></a>
 # **Verify2FAEmailCode**
-> Verify2FAEmailCodeResult Verify2FAEmailCode (TwoFactorEmailCode twoFactorEmailCode = null)
+> Verify2FAEmailCodeResult Verify2FAEmailCode (TwoFactorEmailCode twoFactorEmailCode)
 
 Verify 2FA email code
 
@@ -526,7 +526,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AuthenticationApi(config);
-            var twoFactorEmailCode = new TwoFactorEmailCode(); // TwoFactorEmailCode |  (optional) 
+            var twoFactorEmailCode = new TwoFactorEmailCode(); // TwoFactorEmailCode | 
 
             try
             {
@@ -569,7 +569,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **twoFactorEmailCode** | [**TwoFactorEmailCode**](TwoFactorEmailCode.md) |  | [optional]  |
+| **twoFactorEmailCode** | [**TwoFactorEmailCode**](TwoFactorEmailCode.md) |  |  |
 
 ### Return type
 
@@ -687,7 +687,7 @@ This endpoint does not need any parameter.
 
 <a name="verifyrecoverycode"></a>
 # **VerifyRecoveryCode**
-> Verify2FAResult VerifyRecoveryCode (TwoFactorAuthCode twoFactorAuthCode = null)
+> Verify2FAResult VerifyRecoveryCode (TwoFactorAuthCode twoFactorAuthCode)
 
 Verify 2FA code with Recovery code
 
@@ -715,7 +715,7 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AuthenticationApi(config);
-            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode |  (optional) 
+            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode | 
 
             try
             {
@@ -758,7 +758,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  | [optional]  |
+| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  |  |
 
 ### Return type
 
