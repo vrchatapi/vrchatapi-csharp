@@ -201,6 +201,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a single Notifcation object. |  -  |
+| **400** | Bad request error response when sending a friend request |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **404** | Error response when trying to send a friend request to a user which doesn&#39;t exist. |  -  |
 

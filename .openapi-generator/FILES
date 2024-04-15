@@ -45,6 +45,7 @@ docs/FinishFileDataUploadRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
 docs/Group.md
+docs/GroupAccessType.md
 docs/GroupAnnouncement.md
 docs/GroupAuditLogEntry.md
 docs/GroupGallery.md
@@ -213,6 +214,7 @@ src/VRChat.API/Model/FileVersionUploadStatus.cs
 src/VRChat.API/Model/FinishFileDataUploadRequest.cs
 src/VRChat.API/Model/FriendStatus.cs
 src/VRChat.API/Model/Group.cs
+src/VRChat.API/Model/GroupAccessType.cs
 src/VRChat.API/Model/GroupAnnouncement.cs
 src/VRChat.API/Model/GroupAuditLogEntry.cs
 src/VRChat.API/Model/GroupGallery.cs
