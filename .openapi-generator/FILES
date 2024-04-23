@@ -19,6 +19,7 @@ docs/CreateFileVersionRequest.md
 docs/CreateGroupAnnouncementRequest.md
 docs/CreateGroupGalleryRequest.md
 docs/CreateGroupInviteRequest.md
+docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
 docs/CreateWorldRequest.md
@@ -59,6 +60,8 @@ docs/GroupMemberLimitedUser.md
 docs/GroupMemberStatus.md
 docs/GroupMyMember.md
 docs/GroupPermission.md
+docs/GroupPost.md
+docs/GroupPostVisibility.md
 docs/GroupPrivacy.md
 docs/GroupRole.md
 docs/GroupRoleTemplate.md
@@ -193,6 +196,7 @@ src/VRChat.API/Model/CreateFileVersionRequest.cs
 src/VRChat.API/Model/CreateGroupAnnouncementRequest.cs
 src/VRChat.API/Model/CreateGroupGalleryRequest.cs
 src/VRChat.API/Model/CreateGroupInviteRequest.cs
+src/VRChat.API/Model/CreateGroupPostRequest.cs
 src/VRChat.API/Model/CreateGroupRequest.cs
 src/VRChat.API/Model/CreateGroupRoleRequest.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
@@ -229,6 +233,8 @@ src/VRChat.API/Model/GroupMemberLimitedUser.cs
 src/VRChat.API/Model/GroupMemberStatus.cs
 src/VRChat.API/Model/GroupMyMember.cs
 src/VRChat.API/Model/GroupPermission.cs
+src/VRChat.API/Model/GroupPost.cs
+src/VRChat.API/Model/GroupPostVisibility.cs
 src/VRChat.API/Model/GroupPrivacy.cs
 src/VRChat.API/Model/GroupRole.cs
 src/VRChat.API/Model/GroupRoleTemplate.cs

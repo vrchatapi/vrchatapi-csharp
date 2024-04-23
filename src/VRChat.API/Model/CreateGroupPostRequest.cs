@@ -26,48 +26,63 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// CreateGroupAnnouncementRequest
+    /// CreateGroupPostRequest
     /// </summary>
-    [DataContract(Name = "CreateGroupAnnouncementRequest")]
-    public partial class CreateGroupAnnouncementRequest : IEquatable<CreateGroupAnnouncementRequest>, IValidatableObject
+    [DataContract(Name = "CreateGroupPostRequest")]
+    public partial class CreateGroupPostRequest : IEquatable<CreateGroupPostRequest>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateGroupAnnouncementRequest" /> class.
+        /// Gets or Sets Visibility
+        /// </summary>
+        [DataMember(Name = "visibility", IsRequired = true, EmitDefaultValue = true)]
+        public GroupPostVisibility Visibility { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateGroupPostRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CreateGroupAnnouncementRequest() { }
+        protected CreateGroupPostRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateGroupAnnouncementRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateGroupPostRequest" /> class.
         /// </summary>
-        /// <param name="title">Announcement title (required).</param>
-        /// <param name="text">Announcement text.</param>
+        /// <param name="title">Post title (required).</param>
+        /// <param name="text">Post text (required).</param>
         /// <param name="imageId">imageId.</param>
-        /// <param name="sendNotification">Send notification to group members. (default to false).</param>
-        public CreateGroupAnnouncementRequest(string title = default(string), string text = default(string), string imageId = default(string), bool sendNotification = false)
+        /// <param name="sendNotification">Send notification to group members. (required) (default to false).</param>
+        /// <param name="roleIds"> .</param>
+        /// <param name="visibility">visibility (required).</param>
+        public CreateGroupPostRequest(string title = default(string), string text = default(string), string imageId = default(string), bool sendNotification = false, List<string> roleIds = default(List<string>), GroupPostVisibility visibility = default(GroupPostVisibility))
         {
             // to ensure "title" is required (not null)
             if (title == null)
             {
-                throw new ArgumentNullException("title is a required property for CreateGroupAnnouncementRequest and cannot be null");
+                throw new ArgumentNullException("title is a required property for CreateGroupPostRequest and cannot be null");
             }
             this.Title = title;
+            // to ensure "text" is required (not null)
+            if (text == null)
+            {
+                throw new ArgumentNullException("text is a required property for CreateGroupPostRequest and cannot be null");
+            }
             this.Text = text;
-            this.ImageId = imageId;
             this.SendNotification = sendNotification;
+            this.Visibility = visibility;
+            this.ImageId = imageId;
+            this.RoleIds = roleIds;
         }
 
         /// <summary>
-        /// Announcement title
+        /// Post title
         /// </summary>
-        /// <value>Announcement title</value>
+        /// <value>Post title</value>
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Announcement text
+        /// Post text
         /// </summary>
-        /// <value>Announcement text</value>
-        [DataMember(Name = "text", EmitDefaultValue = false)]
+        /// <value>Post text</value>
+        [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>
@@ -80,8 +95,15 @@ namespace VRChat.API.Model
         /// Send notification to group members.
         /// </summary>
         /// <value>Send notification to group members.</value>
-        [DataMember(Name = "sendNotification", EmitDefaultValue = true)]
+        [DataMember(Name = "sendNotification", IsRequired = true, EmitDefaultValue = true)]
         public bool SendNotification { get; set; }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <value> </value>
+        [DataMember(Name = "roleIds", EmitDefaultValue = false)]
+        public List<string> RoleIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -90,11 +112,13 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreateGroupAnnouncementRequest {\n");
+            sb.Append("class CreateGroupPostRequest {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  ImageId: ").Append(ImageId).Append("\n");
             sb.Append("  SendNotification: ").Append(SendNotification).Append("\n");
+            sb.Append("  RoleIds: ").Append(RoleIds).Append("\n");
+            sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,15 +139,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreateGroupAnnouncementRequest);
+            return this.Equals(input as CreateGroupPostRequest);
         }
 
         /// <summary>
-        /// Returns true if CreateGroupAnnouncementRequest instances are equal
+        /// Returns true if CreateGroupPostRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreateGroupAnnouncementRequest to be compared</param>
+        /// <param name="input">Instance of CreateGroupPostRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateGroupAnnouncementRequest input)
+        public bool Equals(CreateGroupPostRequest input)
         {
             if (input == null)
             {
@@ -148,6 +172,16 @@ namespace VRChat.API.Model
                 (
                     this.SendNotification == input.SendNotification ||
                     this.SendNotification.Equals(input.SendNotification)
+                ) && 
+                (
+                    this.RoleIds == input.RoleIds ||
+                    this.RoleIds != null &&
+                    input.RoleIds != null &&
+                    this.RoleIds.SequenceEqual(input.RoleIds)
+                ) && 
+                (
+                    this.Visibility == input.Visibility ||
+                    this.Visibility.Equals(input.Visibility)
                 );
         }
 
@@ -173,6 +207,11 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.SendNotification.GetHashCode();
+                if (this.RoleIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
                 return hashCode;
             }
         }

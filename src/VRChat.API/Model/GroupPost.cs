@@ -26,28 +26,40 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// GroupAnnouncement
+    /// GroupPost
     /// </summary>
-    [DataContract(Name = "GroupAnnouncement")]
-    public partial class GroupAnnouncement : IEquatable<GroupAnnouncement>, IValidatableObject
+    [DataContract(Name = "GroupPost")]
+    public partial class GroupPost : IEquatable<GroupPost>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupAnnouncement" /> class.
+        /// Gets or Sets Visibility
+        /// </summary>
+        [DataMember(Name = "visibility", EmitDefaultValue = false)]
+        public GroupPostVisibility? Visibility { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupPost" /> class.
         /// </summary>
         /// <param name="id">id.</param>
         /// <param name="groupId">groupId.</param>
         /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="editorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="visibility">visibility.</param>
+        /// <param name="roleId"> .</param>
         /// <param name="title">title.</param>
         /// <param name="text">text.</param>
         /// <param name="imageId">imageId.</param>
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public GroupAnnouncement(string id = default(string), string groupId = default(string), string authorId = default(string), string title = default(string), string text = default(string), string imageId = default(string), string imageUrl = default(string), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?))
+        public GroupPost(string id = default(string), string groupId = default(string), string authorId = default(string), string editorId = default(string), GroupPostVisibility? visibility = default(GroupPostVisibility?), List<string> roleId = default(List<string>), string title = default(string), string text = default(string), string imageId = default(string), string imageUrl = default(string), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime))
         {
             this.Id = id;
             this.GroupId = groupId;
             this.AuthorId = authorId;
+            this.EditorId = editorId;
+            this.Visibility = visibility;
+            this.RoleId = roleId;
             this.Title = title;
             this.Text = text;
             this.ImageId = imageId;
@@ -76,15 +88,29 @@ namespace VRChat.API.Model
         public string AuthorId { get; set; }
 
         /// <summary>
+        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// </summary>
+        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        [DataMember(Name = "editorId", EmitDefaultValue = false)]
+        public string EditorId { get; set; }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <value> </value>
+        [DataMember(Name = "roleId", EmitDefaultValue = false)]
+        public List<string> RoleId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Text
         /// </summary>
-        [DataMember(Name = "text", EmitDefaultValue = true)]
+        [DataMember(Name = "text", EmitDefaultValue = false)]
         public string Text { get; set; }
 
         /// <summary>
@@ -102,14 +128,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
-        public DateTime? CreatedAt { get; set; }
+        [DataMember(Name = "createdAt", EmitDefaultValue = false)]
+        public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        [DataMember(Name = "updatedAt", EmitDefaultValue = true)]
-        public DateTime? UpdatedAt { get; set; }
+        [DataMember(Name = "updatedAt", EmitDefaultValue = false)]
+        public DateTime UpdatedAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -118,10 +144,13 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GroupAnnouncement {\n");
+            sb.Append("class GroupPost {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
+            sb.Append("  EditorId: ").Append(EditorId).Append("\n");
+            sb.Append("  Visibility: ").Append(Visibility).Append("\n");
+            sb.Append("  RoleId: ").Append(RoleId).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  ImageId: ").Append(ImageId).Append("\n");
@@ -148,15 +177,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GroupAnnouncement);
+            return this.Equals(input as GroupPost);
         }
 
         /// <summary>
-        /// Returns true if GroupAnnouncement instances are equal
+        /// Returns true if GroupPost instances are equal
         /// </summary>
-        /// <param name="input">Instance of GroupAnnouncement to be compared</param>
+        /// <param name="input">Instance of GroupPost to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GroupAnnouncement input)
+        public bool Equals(GroupPost input)
         {
             if (input == null)
             {
@@ -177,6 +206,21 @@ namespace VRChat.API.Model
                     this.AuthorId == input.AuthorId ||
                     (this.AuthorId != null &&
                     this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
+                    this.EditorId == input.EditorId ||
+                    (this.EditorId != null &&
+                    this.EditorId.Equals(input.EditorId))
+                ) && 
+                (
+                    this.Visibility == input.Visibility ||
+                    this.Visibility.Equals(input.Visibility)
+                ) && 
+                (
+                    this.RoleId == input.RoleId ||
+                    this.RoleId != null &&
+                    input.RoleId != null &&
+                    this.RoleId.SequenceEqual(input.RoleId)
                 ) && 
                 (
                     this.Title == input.Title ||
@@ -230,6 +274,15 @@ namespace VRChat.API.Model
                 if (this.AuthorId != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
+                if (this.EditorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.EditorId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
+                if (this.RoleId != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoleId.GetHashCode();
                 }
                 if (this.Title != null)
                 {
