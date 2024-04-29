@@ -44,6 +44,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**UpdateGroup**](GroupsApi.md#updategroup) | **PUT** /groups/{groupId} | Update Group |
 | [**UpdateGroupGallery**](GroupsApi.md#updategroupgallery) | **PUT** /groups/{groupId}/galleries/{groupGalleryId} | Update Group Gallery |
 | [**UpdateGroupMember**](GroupsApi.md#updategroupmember) | **PUT** /groups/{groupId}/members/{userId} | Update Group Member |
+| [**UpdateGroupPost**](GroupsApi.md#updategrouppost) | **PUT** /groups/{groupId}/posts/{notificationId} | Edits a Group post |
 | [**UpdateGroupRole**](GroupsApi.md#updategrouprole) | **PUT** /groups/{groupId}/roles/{groupRoleId} | Update Group Role |
 
 <a name="addgroupgalleryimage"></a>
@@ -4043,6 +4044,108 @@ catch (ApiException e)
 | **200** | Returns a list of GroupMember objects. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updategrouppost"></a>
+# **UpdateGroupPost**
+> GroupPost UpdateGroupPost (string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest)
+
+Edits a Group post
+
+Edits a Group post
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class UpdateGroupPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new GroupsApi(config);
+            var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+            var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
+            var createGroupPostRequest = new CreateGroupPostRequest(); // CreateGroupPostRequest | 
+
+            try
+            {
+                // Edits a Group post
+                GroupPost result = apiInstance.UpdateGroupPost(groupId, notificationId, createGroupPostRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupsApi.UpdateGroupPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdateGroupPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Edits a Group post
+    ApiResponse<GroupPost> response = apiInstance.UpdateGroupPostWithHttpInfo(groupId, notificationId, createGroupPostRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.UpdateGroupPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **notificationId** | **string** | Must be a valid notification ID. |  |
+| **createGroupPostRequest** | [**CreateGroupPostRequest**](CreateGroupPostRequest.md) |  |  |
+
+### Return type
+
+[**GroupPost**](GroupPost.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a GroupPost object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Response after deleting a group post. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

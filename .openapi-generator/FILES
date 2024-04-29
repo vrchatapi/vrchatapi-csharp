@@ -22,6 +22,7 @@ docs/CreateGroupInviteRequest.md
 docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
+docs/CreateInstanceRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
 docs/CurrentUserPresence.md
@@ -94,6 +95,11 @@ docs/LimitedWorld.md
 docs/MIMEType.md
 docs/ModerateUserRequest.md
 docs/Notification.md
+docs/NotificationDetailInvite.md
+docs/NotificationDetailInviteResponse.md
+docs/NotificationDetailRequestInvite.md
+docs/NotificationDetailRequestInviteResponse.md
+docs/NotificationDetailVoteToKick.md
 docs/NotificationType.md
 docs/NotificationsApi.md
 docs/OrderOption.md
@@ -199,6 +205,7 @@ src/VRChat.API/Model/CreateGroupInviteRequest.cs
 src/VRChat.API/Model/CreateGroupPostRequest.cs
 src/VRChat.API/Model/CreateGroupRequest.cs
 src/VRChat.API/Model/CreateGroupRoleRequest.cs
+src/VRChat.API/Model/CreateInstanceRequest.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
 src/VRChat.API/Model/CurrentUser.cs
 src/VRChat.API/Model/CurrentUserPresence.cs
@@ -264,6 +271,11 @@ src/VRChat.API/Model/LimitedWorld.cs
 src/VRChat.API/Model/MIMEType.cs
 src/VRChat.API/Model/ModerateUserRequest.cs
 src/VRChat.API/Model/Notification.cs
+src/VRChat.API/Model/NotificationDetailInvite.cs
+src/VRChat.API/Model/NotificationDetailInviteResponse.cs
+src/VRChat.API/Model/NotificationDetailRequestInvite.cs
+src/VRChat.API/Model/NotificationDetailRequestInviteResponse.cs
+src/VRChat.API/Model/NotificationDetailVoteToKick.cs
 src/VRChat.API/Model/NotificationType.cs
 src/VRChat.API/Model/OrderOption.cs
 src/VRChat.API/Model/PaginatedGroupAuditLogEntryList.cs

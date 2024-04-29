@@ -305,7 +305,7 @@ catch (ApiException e)
 
 <a name="getusergroups"></a>
 # **GetUserGroups**
-> List&lt;Group&gt; GetUserGroups (string userId)
+> List&lt;LimitedGroup&gt; GetUserGroups (string userId)
 
 Get User Groups
 
@@ -338,7 +338,7 @@ namespace Example
             try
             {
                 // Get User Groups
-                List<Group> result = apiInstance.GetUserGroups(userId);
+                List<LimitedGroup> result = apiInstance.GetUserGroups(userId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -359,7 +359,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get User Groups
-    ApiResponse<List<Group>> response = apiInstance.GetUserGroupsWithHttpInfo(userId);
+    ApiResponse<List<LimitedGroup>> response = apiInstance.GetUserGroupsWithHttpInfo(userId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -380,7 +380,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**List&lt;Group&gt;**](Group.md)
+[**List&lt;LimitedGroup&gt;**](LimitedGroup.md)
 
 ### Authorization
 
@@ -395,7 +395,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a list of Group objects. |  -  |
+| **200** | Returns a list of LimitedGroup objects. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
