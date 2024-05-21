@@ -6,6 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **SteamItemId** | **string** |  | 
+**OculusSku** | **string** |  | [optional] 
+**GoogleProductId** | **string** |  | [optional] 
+**GooglePlanId** | **string** |  | [optional] 
+**PicoSku** | **string** |  | [optional] 
 **Amount** | **decimal** |  | 
 **Description** | **string** |  | 
 **Period** | **SubscriptionPeriod** |  | 

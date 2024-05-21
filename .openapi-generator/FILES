@@ -12,6 +12,7 @@ docs/AuthenticationApi.md
 docs/Avatar.md
 docs/AvatarUnityPackageUrlObject.md
 docs/AvatarsApi.md
+docs/Badge.md
 docs/BanGroupMemberRequest.md
 docs/CreateAvatarRequest.md
 docs/CreateFileRequest.md
@@ -195,6 +196,7 @@ src/VRChat.API/Model/AddFavoriteRequest.cs
 src/VRChat.API/Model/AddGroupGalleryImageRequest.cs
 src/VRChat.API/Model/Avatar.cs
 src/VRChat.API/Model/AvatarUnityPackageUrlObject.cs
+src/VRChat.API/Model/Badge.cs
 src/VRChat.API/Model/BanGroupMemberRequest.cs
 src/VRChat.API/Model/CreateAvatarRequest.cs
 src/VRChat.API/Model/CreateFileRequest.cs

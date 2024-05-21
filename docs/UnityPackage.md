@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **UnityVersion** | **string** |  | [default to "5.3.4p1"]
 **ImpostorUrl** | **string** |  | [optional] 
 **ScanStatus** | **string** |  | [optional] 
+**Variant** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **RecommendedCapacity** | **int** |  | [optional] 
 **CreatedAt** | **DateTime** |  | 
 **Favorites** | **int** |  | [default to 0]
+**Visits** | **int** |  | [optional] [default to 0]
 **Heat** | **int** |  | [default to 0]
 **Id** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **ImageUrl** | **string** |  | 
@@ -18,6 +19,7 @@ Name | Type | Description | Notes
 **Occupants** | **int** |  | [default to 0]
 **Organization** | **string** |  | [default to "vrchat"]
 **Popularity** | **int** |  | [default to 0]
+**PreviewYoutubeId** | **string** |  | [optional] 
 **PublicationDate** | **string** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
 **Tags** | **List&lt;string&gt;** |   | 

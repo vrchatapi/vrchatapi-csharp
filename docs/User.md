@@ -5,10 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowAvatarCopying** | **bool** |  | [default to true]
+**Badges** | [**List&lt;Badge&gt;**](Badge.md) |   | 
 **Bio** | **string** |  | 
 **BioLinks** | **List&lt;string&gt;** |  | 
 **CurrentAvatarImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
 **CurrentAvatarThumbnailImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
+**CurrentAvatarTags** | **List&lt;string&gt;** |  | 
 **DateJoined** | **DateTime** |  | 
 **DeveloperType** | **DeveloperType** |  | 
 **DisplayName** | **string** | A users visual display name. This is what shows up in-game, and can different from their &#x60;username&#x60;. Changing display name is restricted to a cooldown period. | 
@@ -23,6 +25,7 @@ Name | Type | Description | Notes
 **Location** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | [optional] 
 **Note** | **string** |  | [optional] 
 **ProfilePicOverride** | **string** |  | 
+**Pronouns** | **string** |  | 
 **State** | **UserState** |  | 
 **Status** | **UserStatus** |  | 
 **StatusDescription** | **string** |  | 
