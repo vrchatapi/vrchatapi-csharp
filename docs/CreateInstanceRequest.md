@@ -11,7 +11,10 @@ Name | Type | Description | Notes
 **RoleIds** | **List&lt;string&gt;** | Group roleIds that are allowed to join if the type is \&quot;group\&quot; and groupAccessType is \&quot;member\&quot; | [optional] 
 **GroupAccessType** | **GroupAccessType** |  | [optional] 
 **QueueEnabled** | **bool** |  | [optional] [default to false]
-**ClosedAt** | **DateTime** | The time after which users won&#39;t be allowed to join the instance | [optional] 
+**ClosedAt** | **DateTime** | The time after which users won&#39;t be allowed to join the instance. This doesn&#39;t work for public instances. | [optional] 
+**CanRequestInvite** | **bool** | Only applies to invite type instances to make them invite+ | [optional] [default to false]
+**HardClose** | **bool** | Currently unused, but will eventually be a flag to set if the closing of the instance should kick people. | [optional] [default to false]
+**InviteOnly** | **bool** |  | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

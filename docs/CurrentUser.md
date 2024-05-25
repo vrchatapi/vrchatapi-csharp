@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **AccountDeletionLog** | [**List&lt;AccountDeletionLog&gt;**](AccountDeletionLog.md) |   | [optional] 
 **ActiveFriends** | **List&lt;string&gt;** |   | [optional] 
 **AllowAvatarCopying** | **bool** |  | 
-**Badges** | [**List&lt;Badge&gt;**](Badge.md) |   | 
+**Badges** | [**List&lt;Badge&gt;**](Badge.md) |   | [optional] 
 **Bio** | **string** |  | 
 **BioLinks** | **List&lt;string&gt;** |   | 
 **CurrentAvatar** | **string** |  | 

@@ -1,6 +1,6 @@
 # VRChat.API.Api.SystemApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -35,7 +35,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new SystemApi(config);
             var variant = "public";  // string | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)  (default to public)
             var branch = "\"main\"";  // string | Specifies which git branch the site should load frontend source code from. (optional)  (default to "main")
@@ -129,7 +129,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new SystemApi(config);
 
             try
@@ -215,7 +215,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new SystemApi(config);
 
             try
@@ -301,7 +301,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new SystemApi(config);
 
             try
@@ -387,7 +387,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new SystemApi(config);
             var require = "require_example";  // string | Tags to include (comma-separated). All of the tags needs to be present. (optional) 
             var include = "include_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
@@ -480,7 +480,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new SystemApi(config);
             var variant = "public";  // string | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)  (default to public)
             var branch = "\"main\"";  // string | Specifies which git branch the site should load frontend source code from. (optional)  (default to "main")
@@ -574,7 +574,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new SystemApi(config);
 
             try

@@ -92,6 +92,7 @@ docs/LicenseType.md
 docs/LimitedGroup.md
 docs/LimitedUnityPackage.md
 docs/LimitedUser.md
+docs/LimitedUserGroups.md
 docs/LimitedWorld.md
 docs/MIMEType.md
 docs/ModerateUserRequest.md
@@ -269,6 +270,7 @@ src/VRChat.API/Model/LicenseType.cs
 src/VRChat.API/Model/LimitedGroup.cs
 src/VRChat.API/Model/LimitedUnityPackage.cs
 src/VRChat.API/Model/LimitedUser.cs
+src/VRChat.API/Model/LimitedUserGroups.cs
 src/VRChat.API/Model/LimitedWorld.cs
 src/VRChat.API/Model/MIMEType.cs
 src/VRChat.API/Model/ModerateUserRequest.cs

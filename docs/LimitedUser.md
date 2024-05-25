@@ -5,8 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bio** | **string** |  | [optional] 
+**BioLinks** | **List&lt;string&gt;** |   | [optional] 
 **CurrentAvatarImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | [optional] 
 **CurrentAvatarThumbnailImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | [optional] 
+**CurrentAvatarTags** | **List&lt;string&gt;** |  | [optional] 
 **DeveloperType** | **DeveloperType** |  | 
 **DisplayName** | **string** |  | 
 **FallbackAvatar** | **string** |  | [optional] 
