@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowAvatarCopying** | **bool** |  | [default to true]
-**Badges** | [**List&lt;Badge&gt;**](Badge.md) |   | 
+**Badges** | [**List&lt;Badge&gt;**](Badge.md) |   | [optional] 
 **Bio** | **string** |  | 
 **BioLinks** | **List&lt;string&gt;** |  | 
 **CurrentAvatarImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 

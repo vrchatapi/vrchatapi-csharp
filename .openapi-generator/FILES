@@ -77,6 +77,7 @@ docs/InfoPushDataArticleContent.md
 docs/InfoPushDataClickable.md
 docs/Instance.md
 docs/InstancePlatforms.md
+docs/InstanceRegion.md
 docs/InstanceShortNameResponse.md
 docs/InstanceType.md
 docs/InstancesApi.md
@@ -257,6 +258,7 @@ src/VRChat.API/Model/InfoPushDataArticleContent.cs
 src/VRChat.API/Model/InfoPushDataClickable.cs
 src/VRChat.API/Model/Instance.cs
 src/VRChat.API/Model/InstancePlatforms.cs
+src/VRChat.API/Model/InstanceRegion.cs
 src/VRChat.API/Model/InstanceShortNameResponse.cs
 src/VRChat.API/Model/InstanceType.cs
 src/VRChat.API/Model/InviteMessage.cs

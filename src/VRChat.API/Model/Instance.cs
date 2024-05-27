@@ -42,7 +42,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Region
         /// </summary>
         [DataMember(Name = "region", IsRequired = true, EmitDefaultValue = true)]
-        public Region Region { get; set; }
+        public InstanceRegion Region { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
@@ -99,7 +99,7 @@ namespace VRChat.API.Model
         /// <param name="nonce">nonce.</param>
         /// <param name="closedAt">closedAt.</param>
         /// <param name="hardClose">hardClose.</param>
-        public Instance(bool active = true, bool canRequestInvite = true, int capacity = default(int), string clientNumber = default(string), bool full = false, string id = default(string), string instanceId = default(string), string location = default(string), int nUsers = default(int), string name = default(string), string ownerId = default(string), bool permanent = false, Region photonRegion = default(Region), InstancePlatforms platforms = default(InstancePlatforms), Region region = default(Region), string secureName = default(string), string shortName = default(string), List<string> tags = default(List<string>), InstanceType type = default(InstanceType), string worldId = default(string), string hidden = default(string), string friends = default(string), string _private = default(string), bool queueEnabled = default(bool), int queueSize = default(int), int recommendedCapacity = default(int), bool roleRestricted = default(bool), bool strict = default(bool), int userCount = default(int), World world = default(World), List<LimitedUser> users = default(List<LimitedUser>), GroupAccessType? groupAccessType = default(GroupAccessType?), bool hasCapacityForYou = default(bool), string nonce = default(string), DateTime? closedAt = default(DateTime?), bool? hardClose = default(bool?))
+        public Instance(bool active = true, bool canRequestInvite = true, int capacity = default(int), string clientNumber = default(string), bool full = false, string id = default(string), string instanceId = default(string), string location = default(string), int nUsers = default(int), string name = default(string), string ownerId = default(string), bool permanent = false, Region photonRegion = default(Region), InstancePlatforms platforms = default(InstancePlatforms), InstanceRegion region = default(InstanceRegion), string secureName = default(string), string shortName = default(string), List<string> tags = default(List<string>), InstanceType type = default(InstanceType), string worldId = default(string), string hidden = default(string), string friends = default(string), string _private = default(string), bool queueEnabled = default(bool), int queueSize = default(int), int recommendedCapacity = default(int), bool roleRestricted = default(bool), bool strict = default(bool), int userCount = default(int), World world = default(World), List<LimitedUser> users = default(List<LimitedUser>), GroupAccessType? groupAccessType = default(GroupAccessType?), bool hasCapacityForYou = default(bool), string nonce = default(string), DateTime? closedAt = default(DateTime?), bool? hardClose = default(bool?))
         {
             this.Active = active;
             this.CanRequestInvite = canRequestInvite;

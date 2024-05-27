@@ -58,7 +58,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="User" /> class.
         /// </summary>
         /// <param name="allowAvatarCopying">allowAvatarCopying (required) (default to true).</param>
-        /// <param name="badges">  (required).</param>
+        /// <param name="badges"> .</param>
         /// <param name="bio">bio (required).</param>
         /// <param name="bioLinks">bioLinks (required).</param>
         /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
@@ -92,12 +92,6 @@ namespace VRChat.API.Model
         public User(bool allowAvatarCopying = true, List<Badge> badges = default(List<Badge>), string bio = default(string), List<string> bioLinks = default(List<string>), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>), DateTime dateJoined = default(DateTime), DeveloperType developerType = default(DeveloperType), string displayName = default(string), string friendKey = default(string), string friendRequestStatus = default(string), string id = default(string), string instanceId = default(string), bool isFriend = default(bool), string lastActivity = default(string), string lastLogin = default(string), string lastPlatform = default(string), string location = default(string), string note = default(string), string profilePicOverride = default(string), string pronouns = default(string), UserState state = default(UserState), UserStatus status = default(UserStatus), string statusDescription = default(string), List<string> tags = default(List<string>), string travelingToInstance = default(string), string travelingToLocation = default(string), string travelingToWorld = default(string), string userIcon = default(string), string username = default(string), string worldId = default(string))
         {
             this.AllowAvatarCopying = allowAvatarCopying;
-            // to ensure "badges" is required (not null)
-            if (badges == null)
-            {
-                throw new ArgumentNullException("badges is a required property for User and cannot be null");
-            }
-            this.Badges = badges;
             // to ensure "bio" is required (not null)
             if (bio == null)
             {
@@ -199,6 +193,7 @@ namespace VRChat.API.Model
                 throw new ArgumentNullException("userIcon is a required property for User and cannot be null");
             }
             this.UserIcon = userIcon;
+            this.Badges = badges;
             this.FriendRequestStatus = friendRequestStatus;
             this.InstanceId = instanceId;
             this.Location = location;
@@ -220,7 +215,7 @@ namespace VRChat.API.Model
         ///  
         /// </summary>
         /// <value> </value>
-        [DataMember(Name = "badges", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "badges", EmitDefaultValue = false)]
         public List<Badge> Badges { get; set; }
 
         /// <summary>

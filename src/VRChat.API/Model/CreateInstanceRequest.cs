@@ -42,7 +42,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Region
         /// </summary>
         [DataMember(Name = "region", IsRequired = true, EmitDefaultValue = true)]
-        public Region Region { get; set; }
+        public InstanceRegion Region { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupAccessType
@@ -68,7 +68,7 @@ namespace VRChat.API.Model
         /// <param name="canRequestInvite">Only applies to invite type instances to make them invite+ (default to false).</param>
         /// <param name="hardClose">Currently unused, but will eventually be a flag to set if the closing of the instance should kick people. (default to false).</param>
         /// <param name="inviteOnly">inviteOnly (default to false).</param>
-        public CreateInstanceRequest(string worldId = default(string), InstanceType type = default(InstanceType), Region region = default(Region), string ownerId = default(string), List<string> roleIds = default(List<string>), GroupAccessType? groupAccessType = default(GroupAccessType?), bool queueEnabled = false, DateTime closedAt = default(DateTime), bool canRequestInvite = false, bool hardClose = false, bool inviteOnly = false)
+        public CreateInstanceRequest(string worldId = default(string), InstanceType type = default(InstanceType), InstanceRegion region = default(InstanceRegion), string ownerId = default(string), List<string> roleIds = default(List<string>), GroupAccessType? groupAccessType = default(GroupAccessType?), bool queueEnabled = false, DateTime closedAt = default(DateTime), bool canRequestInvite = false, bool hardClose = false, bool inviteOnly = false)
         {
             // to ensure "worldId" is required (not null)
             if (worldId == null)

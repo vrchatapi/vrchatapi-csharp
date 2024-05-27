@@ -26,29 +26,35 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Group access type when the instance type is \&quot;group\&quot;
+    /// Instance region
     /// </summary>
-    /// <value>Group access type when the instance type is \&quot;group\&quot;</value>
+    /// <value>Instance region</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum GroupAccessType
+    public enum InstanceRegion
     {
         /// <summary>
-        /// Enum Public for value: public
+        /// Enum Us for value: us
         /// </summary>
-        [EnumMember(Value = "public")]
-        Public = 1,
+        [EnumMember(Value = "us")]
+        Us = 1,
 
         /// <summary>
-        /// Enum Plus for value: plus
+        /// Enum Use for value: use
         /// </summary>
-        [EnumMember(Value = "plus")]
-        Plus = 2,
+        [EnumMember(Value = "use")]
+        Use = 2,
 
         /// <summary>
-        /// Enum Members for value: members
+        /// Enum Eu for value: eu
         /// </summary>
-        [EnumMember(Value = "members")]
-        Members = 3
+        [EnumMember(Value = "eu")]
+        Eu = 3,
+
+        /// <summary>
+        /// Enum Jp for value: jp
+        /// </summary>
+        [EnumMember(Value = "jp")]
+        Jp = 4
 
     }
 

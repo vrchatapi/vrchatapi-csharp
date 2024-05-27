@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Permanent** | **bool** |  | [default to false]
 **PhotonRegion** | **Region** |  | 
 **Platforms** | [**InstancePlatforms**](InstancePlatforms.md) |  | 
-**Region** | **Region** |  | 
+**Region** | **InstanceRegion** |  | 
 **SecureName** | **string** |  | 
 **ShortName** | **string** |  | [optional] 
 **Tags** | **List&lt;string&gt;** | The tags array on Instances usually contain the language tags of the people in the instance.  | 
