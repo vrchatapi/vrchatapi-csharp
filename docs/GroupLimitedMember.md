@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **IsRepresenting** | **bool** | Whether the user is representing the group. This makes the group show up above the name tag in-game. | [optional] [default to false]
 **RoleIds** | **List&lt;string&gt;** |  | [optional] 
 **MRoleIds** | **List&lt;string&gt;** |  | [optional] 
-**JoinedAt** | **DateTime** |  | [optional] 
+**JoinedAt** | **DateTime?** |  | [optional] 
 **MembershipStatus** | **GroupMemberStatus** |  | [optional] 
 **Visibility** | **string** |  | [optional] 
 **IsSubscribedToAnnouncements** | **bool** |  | [optional] [default to false]
