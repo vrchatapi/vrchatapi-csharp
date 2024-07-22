@@ -211,7 +211,7 @@ catch (ApiException e)
 
 <a name="deletefile"></a>
 # **DeleteFile**
-> Success DeleteFile (string fileId)
+> File DeleteFile (string fileId)
 
 Delete File
 
@@ -244,7 +244,7 @@ namespace Example
             try
             {
                 // Delete File
-                Success result = apiInstance.DeleteFile(fileId);
+                File result = apiInstance.DeleteFile(fileId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -265,7 +265,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete File
-    ApiResponse<Success> response = apiInstance.DeleteFileWithHttpInfo(fileId);
+    ApiResponse<File> response = apiInstance.DeleteFileWithHttpInfo(fileId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -286,7 +286,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**Success**](Success.md)
+[**File**](File.md)
 
 ### Authorization
 
@@ -301,7 +301,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful response after deleting a File. |  -  |
+| **200** | Returns a single File object. |  -  |
 | **404** | Error response when trying to delete a non-existent file. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -402,7 +402,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Returns a single File object. |  -  |
 | **400** | Error response when trying to delete the initial version of a file. Delete the main File object instead. |  -  |
-| **500** | Error response when trying to delete any version of a file that is not hte last one. |  -  |
+| **500** | Error response when trying to delete any version of a file that is not the last one. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -490,13 +490,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Raw file |  -  |
+| **404** | Error response when trying to show information about a non-existent file. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

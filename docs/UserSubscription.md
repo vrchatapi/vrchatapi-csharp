@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Tier** | **decimal** |  | 
 **Active** | **bool** |  | [default to true]
 **Status** | **TransactionStatus** |  | 
+**Starts** | **DateTime** |  | [optional] 
 **Expires** | **DateTime** |  | 
 **CreatedAt** | **DateTime** |  | 
 **UpdatedAt** | **DateTime** |  | 

@@ -15,7 +15,7 @@ All URIs are relative to *https://vrchat.com/api/1*
 
 <a name="checkuserexists"></a>
 # **CheckUserExists**
-> UserExists CheckUserExists (string email = null, string displayName = null, string userId = null, string excludeUserId = null)
+> UserExists CheckUserExists (string email = null, string displayName = null, string username = null, string excludeUserId = null)
 
 Check User Exists
 
@@ -40,13 +40,13 @@ namespace Example
             var apiInstance = new AuthenticationApi(config);
             var email = "email_example";  // string | Filter by email. (optional) 
             var displayName = "displayName_example";  // string | Filter by displayName. (optional) 
-            var userId = "userId_example";  // string | Filter by UserID. (optional) 
+            var username = "username_example";  // string | Filter by Username. (optional) 
             var excludeUserId = "excludeUserId_example";  // string | Exclude by UserID. (optional) 
 
             try
             {
                 // Check User Exists
-                UserExists result = apiInstance.CheckUserExists(email, displayName, userId, excludeUserId);
+                UserExists result = apiInstance.CheckUserExists(email, displayName, username, excludeUserId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -67,7 +67,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Check User Exists
-    ApiResponse<UserExists> response = apiInstance.CheckUserExistsWithHttpInfo(email, displayName, userId, excludeUserId);
+    ApiResponse<UserExists> response = apiInstance.CheckUserExistsWithHttpInfo(email, displayName, username, excludeUserId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -86,7 +86,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **email** | **string** | Filter by email. | [optional]  |
 | **displayName** | **string** | Filter by displayName. | [optional]  |
-| **userId** | **string** | Filter by UserID. | [optional]  |
+| **username** | **string** | Filter by Username. | [optional]  |
 | **excludeUserId** | **string** | Exclude by UserID. | [optional]  |
 
 ### Return type

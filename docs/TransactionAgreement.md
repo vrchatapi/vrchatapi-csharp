@@ -1,4 +1,5 @@
 # VRChat.API.Model.TransactionAgreement
+Represents a single Transaction, which is likely between VRChat and Steam.
 
 ## Properties
 
@@ -6,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AgreementId** | **string** |  | 
 **ItemId** | **decimal** |  | 
+**Agreement** | **string** |  | 
 **Status** | **string** | This is NOT TransactionStatus, but whatever Steam return. | 
 **Period** | **string** |  | 
 **Frequency** | **decimal** |  | 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Category** | **string** |  | [default to CategoryEnum.Queued]
 **FileName** | **string** |  | 
-**Md5** | **string** |  | 
+**Md5** | **string** |  | [optional] 
 **SizeInBytes** | **int** |  | 
 **Status** | **FileStatus** |  | 
 **UploadId** | **string** |  | [default to ""]

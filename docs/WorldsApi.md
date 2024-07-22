@@ -1050,7 +1050,7 @@ void (empty response body)
 
 <a name="searchworlds"></a>
 # **SearchWorlds**
-> List&lt;LimitedWorld&gt; SearchWorlds (bool? featured = null, SortOption? sort = null, string user = null, string userId = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
+> List&lt;LimitedWorld&gt; SearchWorlds (bool? featured = null, SortOption? sort = null, string user = null, string userId = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, bool? fuzzy = null)
 
 Search All Worlds
 
@@ -1092,11 +1092,12 @@ namespace Example
             var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
             var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
             var platform = "platform_example";  // string | The platform the asset supports. (optional) 
+            var fuzzy = true;  // bool? |  (optional) 
 
             try
             {
                 // Search All Worlds
-                List<LimitedWorld> result = apiInstance.SearchWorlds(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
+                List<LimitedWorld> result = apiInstance.SearchWorlds(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, fuzzy);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1117,7 +1118,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search All Worlds
-    ApiResponse<List<LimitedWorld>> response = apiInstance.SearchWorldsWithHttpInfo(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
+    ApiResponse<List<LimitedWorld>> response = apiInstance.SearchWorldsWithHttpInfo(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, fuzzy);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1148,6 +1149,7 @@ catch (ApiException e)
 | **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
 | **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
 | **platform** | **string** | The platform the asset supports. | [optional]  |
+| **fuzzy** | **bool?** |  | [optional]  |
 
 ### Return type
 
