@@ -445,7 +445,7 @@ namespace VRChat.API.Client
             {
                 foreach (var cookie in options.Cookies)
                 {
-                    cookies.Add(new Cookie(cookie.Name, cookie.Value));
+                    cookies.Add(new Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Domain));
                 }
             }
 
