@@ -40,6 +40,9 @@ done
 # Fix username and password encoding
 sed -i 's/VRChat.API.Client.ClientUtils.Base64Encode(this.Configuration.Username + \":\" + this.Configuration.Password)/VRChat.API.Client.ClientUtils.Base64Encode(System.Web.HttpUtility.UrlEncode(this.Configuration.Username) + ":" + System.Web.HttpUtility.UrlEncode(this.Configuration.Password))/g' src/VRChat.API/Api/AuthenticationApi.cs
 
+# Disable URL encoding for path parameters
+sed -i 's/request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment)/request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment, false)/g' src/VRChat.API/Client/ApiClient.cs
+
 # Fix fields in csproj
 sed -i 's/OpenAPI Library/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/A library generated from a OpenAPI doc/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj

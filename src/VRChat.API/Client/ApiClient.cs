@@ -292,7 +292,7 @@ namespace VRChat.API.Client
             {
                 foreach (var pathParam in options.PathParameters)
                 {
-                    request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment);
+                    request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment, false);
                 }
             }
 
