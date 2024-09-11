@@ -53,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="lastPostReadAt">lastPostReadAt.</param>
         /// <param name="mRoleIds">mRoleIds.</param>
         /// <param name="permissions">permissions.</param>
-        public GroupMyMember(string id = default(string), string groupId = default(string), string userId = default(string), List<string> roleIds = default(List<string>), string acceptedByDisplayName = default(string), string acceptedById = default(string), DateTime createdAt = default(DateTime), string managerNotes = default(string), string membershipStatus = default(string), bool isSubscribedToAnnouncements = true, string visibility = default(string), bool isRepresenting = false, DateTime joinedAt = default(DateTime), string bannedAt = default(string), bool has2FA = false, bool hasJoinedFromPurchase = false, DateTime lastPostReadAt = default(DateTime), List<string> mRoleIds = default(List<string>), List<string> permissions = default(List<string>))
+        public GroupMyMember(string id = default(string), string groupId = default(string), string userId = default(string), List<string> roleIds = default(List<string>), string acceptedByDisplayName = default(string), string acceptedById = default(string), DateTime createdAt = default(DateTime), string managerNotes = default(string), string membershipStatus = default(string), bool isSubscribedToAnnouncements = true, string visibility = default(string), bool isRepresenting = false, DateTime joinedAt = default(DateTime), string bannedAt = default(string), bool has2FA = false, bool hasJoinedFromPurchase = false, DateTime? lastPostReadAt = default(DateTime?), List<string> mRoleIds = default(List<string>), List<string> permissions = default(List<string>))
         {
             this.Id = id;
             this.GroupId = groupId;
@@ -104,7 +104,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AcceptedByDisplayName
         /// </summary>
-        [DataMember(Name = "acceptedByDisplayName", EmitDefaultValue = false)]
+        [DataMember(Name = "acceptedByDisplayName", EmitDefaultValue = true)]
         public string AcceptedByDisplayName { get; set; }
 
         /// <summary>
@@ -177,8 +177,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LastPostReadAt
         /// </summary>
-        [DataMember(Name = "lastPostReadAt", EmitDefaultValue = false)]
-        public DateTime LastPostReadAt { get; set; }
+        [DataMember(Name = "lastPostReadAt", EmitDefaultValue = true)]
+        public DateTime? LastPostReadAt { get; set; }
 
         /// <summary>
         /// Gets or Sets MRoleIds

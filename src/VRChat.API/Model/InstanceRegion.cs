@@ -54,7 +54,13 @@ namespace VRChat.API.Model
         /// Enum Jp for value: jp
         /// </summary>
         [EnumMember(Value = "jp")]
-        Jp = 4
+        Jp = 4,
+
+        /// <summary>
+        /// Enum Unknown for value: unknown
+        /// </summary>
+        [EnumMember(Value = "unknown")]
+        Unknown = 5
 
     }
 

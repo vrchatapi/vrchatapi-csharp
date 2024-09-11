@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **BannedAt** | **string** |  | [optional] 
 **Has2FA** | **bool** |  | [optional] [default to false]
 **HasJoinedFromPurchase** | **bool** |  | [optional] [default to false]
-**LastPostReadAt** | **DateTime** |  | [optional] 
+**LastPostReadAt** | **DateTime?** |  | [optional] 
 **MRoleIds** | **List&lt;string&gt;** |  | [optional] 
 **Permissions** | **List&lt;string&gt;** |  | [optional] 
 

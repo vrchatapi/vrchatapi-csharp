@@ -67,7 +67,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="licenseGroups">licenseGroups (required).</param>
         /// <param name="isGift">isGift (required) (default to false).</param>
-        public UserSubscription(string id = default(string), string transactionId = default(string), string store = default(string), string steamItemId = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod period = default(SubscriptionPeriod), decimal tier = default(decimal), bool active = true, TransactionStatus status = default(TransactionStatus), DateTime starts = default(DateTime), DateTime expires = default(DateTime), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), List<string> licenseGroups = default(List<string>), bool isGift = false)
+        public UserSubscription(string id = default(string), string transactionId = default(string), string store = default(string), string steamItemId = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod period = default(SubscriptionPeriod), decimal tier = default(decimal), bool active = true, TransactionStatus status = default(TransactionStatus), string starts = default(string), DateTime expires = default(DateTime), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), List<string> licenseGroups = default(List<string>), bool isGift = false)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -165,7 +165,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Starts
         /// </summary>
         [DataMember(Name = "starts", EmitDefaultValue = false)]
-        public DateTime Starts { get; set; }
+        public string Starts { get; set; }
 
         /// <summary>
         /// Gets or Sets Expires

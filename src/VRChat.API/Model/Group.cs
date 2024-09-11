@@ -70,9 +70,9 @@ namespace VRChat.API.Model
         /// <param name="memberCountSyncedAt">memberCountSyncedAt.</param>
         /// <param name="isVerified">isVerified (default to false).</param>
         /// <param name="joinState">joinState.</param>
-        /// <param name="tags"> .</param>
+        /// <param name="tags">tags.</param>
         /// <param name="transferTargetId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
-        /// <param name="galleries"> .</param>
+        /// <param name="galleries">galleries.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="lastPostCreatedAt">lastPostCreatedAt.</param>
@@ -80,7 +80,7 @@ namespace VRChat.API.Model
         /// <param name="membershipStatus">membershipStatus.</param>
         /// <param name="myMember">myMember.</param>
         /// <param name="roles">Only returned if ?includeRoles&#x3D;true is specified..</param>
-        public Group(string id = default(string), string name = default(string), string shortCode = default(string), string discriminator = default(string), string description = default(string), string iconUrl = default(string), string bannerUrl = default(string), GroupPrivacy? privacy = default(GroupPrivacy?), string ownerId = default(string), string rules = default(string), List<string> links = default(List<string>), List<string> languages = default(List<string>), string iconId = default(string), string bannerId = default(string), int memberCount = default(int), DateTime memberCountSyncedAt = default(DateTime), bool isVerified = false, GroupJoinState? joinState = default(GroupJoinState?), List<string> tags = default(List<string>), string transferTargetId = default(string), List<GroupGallery> galleries = default(List<GroupGallery>), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), DateTime lastPostCreatedAt = default(DateTime), int onlineMemberCount = default(int), GroupMemberStatus? membershipStatus = default(GroupMemberStatus?), GroupMyMember myMember = default(GroupMyMember), List<GroupRole> roles = default(List<GroupRole>))
+        public Group(string id = default(string), string name = default(string), string shortCode = default(string), string discriminator = default(string), string description = default(string), string iconUrl = default(string), string bannerUrl = default(string), GroupPrivacy? privacy = default(GroupPrivacy?), string ownerId = default(string), string rules = default(string), List<string> links = default(List<string>), List<string> languages = default(List<string>), string iconId = default(string), string bannerId = default(string), int memberCount = default(int), DateTime memberCountSyncedAt = default(DateTime), bool isVerified = false, GroupJoinState? joinState = default(GroupJoinState?), List<string> tags = default(List<string>), string transferTargetId = default(string), List<GroupGallery> galleries = default(List<GroupGallery>), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), DateTime? lastPostCreatedAt = default(DateTime?), int onlineMemberCount = default(int), GroupMemberStatus? membershipStatus = default(GroupMemberStatus?), GroupMyMember myMember = default(GroupMyMember), List<GroupRole> roles = default(List<GroupRole>))
         {
             this.Id = id;
             this.Name = name;
@@ -210,9 +210,8 @@ namespace VRChat.API.Model
         public bool IsVerified { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
@@ -224,9 +223,8 @@ namespace VRChat.API.Model
         public string TransferTargetId { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Galleries
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "galleries", EmitDefaultValue = false)]
         public List<GroupGallery> Galleries { get; set; }
 
@@ -245,8 +243,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LastPostCreatedAt
         /// </summary>
-        [DataMember(Name = "lastPostCreatedAt", EmitDefaultValue = false)]
-        public DateTime LastPostCreatedAt { get; set; }
+        [DataMember(Name = "lastPostCreatedAt", EmitDefaultValue = true)]
+        public DateTime? LastPostCreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets OnlineMemberCount

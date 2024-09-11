@@ -40,9 +40,11 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="UserExists" /> class.
         /// </summary>
         /// <param name="userExists">Status if a user exist with that username or userId. (required) (default to false).</param>
-        public UserExists(bool userExists = false)
+        /// <param name="nameOk">Is the username valid? (required) (default to false).</param>
+        public UserExists(bool userExists = false, bool nameOk = false)
         {
             this._UserExists = userExists;
+            this.NameOk = nameOk;
         }
 
         /// <summary>
@@ -53,6 +55,13 @@ namespace VRChat.API.Model
         public bool _UserExists { get; set; }
 
         /// <summary>
+        /// Is the username valid?
+        /// </summary>
+        /// <value>Is the username valid?</value>
+        [DataMember(Name = "nameOk", IsRequired = true, EmitDefaultValue = true)]
+        public bool NameOk { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,6 +70,7 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UserExists {\n");
             sb.Append("  _UserExists: ").Append(_UserExists).Append("\n");
+            sb.Append("  NameOk: ").Append(NameOk).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,6 +109,10 @@ namespace VRChat.API.Model
                 (
                     this._UserExists == input._UserExists ||
                     this._UserExists.Equals(input._UserExists)
+                ) && 
+                (
+                    this.NameOk == input.NameOk ||
+                    this.NameOk.Equals(input.NameOk)
                 );
         }
 
@@ -112,6 +126,7 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this._UserExists.GetHashCode();
+                hashCode = (hashCode * 59) + this.NameOk.GetHashCode();
                 return hashCode;
             }
         }
