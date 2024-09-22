@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Tags** | **List&lt;string&gt;** |   | [optional] 
 **ImageUrl** | **string** |  | [optional] 
 **ReleaseStatus** | **ReleaseStatus** |  | [optional] 
-**_Version** | **decimal** |  | [optional] [default to 1M]
+**_Version** | **int** |  | [optional] [default to 1]
 **UnityPackageUrl** | **string** |  | [optional] 
 **UnityVersion** | **string** |  | [optional] [default to "5.3.4p1"]
 

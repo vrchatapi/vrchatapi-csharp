@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Email** | **string** |  | [optional] 
 **Birthday** | **DateTime** |  | [optional] 
-**AcceptedTOSVersion** | **decimal** |  | [optional] 
+**AcceptedTOSVersion** | **int** |  | [optional] 
 **Tags** | **List&lt;string&gt;** |   | [optional] 
 **Status** | **UserStatus** |  | [optional] 
 **StatusDescription** | **string** |  | [optional] 

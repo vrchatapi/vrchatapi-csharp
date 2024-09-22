@@ -21,10 +21,11 @@ Name | Type | Description | Notes
 **IsFriend** | **bool** | Either their &#x60;friendKey&#x60;, or empty string if you are not friends. Unknown usage. | 
 **LastActivity** | **string** | Either a date-time or empty string. | 
 **LastLogin** | **string** | Either a date-time or empty string. | 
+**LastMobile** | **string** |  | [optional] 
 **LastPlatform** | **string** | This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. | 
 **Location** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | [optional] 
 **Note** | **string** |  | [optional] 
-**Platform** | **string** |  | 
+**Platform** | **string** |  | [optional] 
 **ProfilePicOverride** | **string** |  | 
 **ProfilePicOverrideThumbnail** | **string** |  | 
 **Pronouns** | **string** |  | 

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UploadId** | **string** |  | 
 **FileName** | **string** |  | 
-**NextPartNumber** | **decimal** |  | 
-**MaxParts** | **decimal** |  | 
+**NextPartNumber** | **int** |  | 
+**MaxParts** | **int** |  | 
 **Parts** | **List&lt;Object&gt;** |  | 
 **Etags** | **List&lt;Object&gt;** | Unknown | 
 

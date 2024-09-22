@@ -2553,7 +2553,7 @@ catch (ApiException e)
 
 <a name="getgroupmembers"></a>
 # **GetGroupMembers**
-> List&lt;GroupMember&gt; GetGroupMembers (string groupId, int? n = null, int? offset = null, GroupSearchSort? sort = null)
+> List&lt;GroupMember&gt; GetGroupMembers (string groupId, int? n = null, int? offset = null, GroupSearchSort? sort = null, string roleId = null)
 
 List Group Members
 
@@ -2585,11 +2585,12 @@ namespace Example
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var sort = (GroupSearchSort) "joinedAt:asc";  // GroupSearchSort? | The sort order of Group Member results (optional) 
+            var roleId = "roleId_example";  // string | Only returns members with a specific groupRoleId (optional) 
 
             try
             {
                 // List Group Members
-                List<GroupMember> result = apiInstance.GetGroupMembers(groupId, n, offset, sort);
+                List<GroupMember> result = apiInstance.GetGroupMembers(groupId, n, offset, sort, roleId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2610,7 +2611,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List Group Members
-    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupMembersWithHttpInfo(groupId, n, offset, sort);
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupMembersWithHttpInfo(groupId, n, offset, sort, roleId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2631,6 +2632,7 @@ catch (ApiException e)
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 | **sort** | **GroupSearchSort?** | The sort order of Group Member results | [optional]  |
+| **roleId** | **string** | Only returns members with a specific groupRoleId | [optional]  |
 
 ### Return type
 
