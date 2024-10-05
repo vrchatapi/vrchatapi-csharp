@@ -9,9 +9,12 @@ Name | Type | Description | Notes
 **CanRequestInvite** | **bool** |  | [default to true]
 **Capacity** | **int** |  | 
 **ClientNumber** | **string** | Always returns \&quot;unknown\&quot;. | 
+**DisplayName** | **string** |  | 
 **Full** | **bool** |  | [default to false]
+**GameServerVersion** | **int** |  | 
 **Id** | **string** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | 
 **InstanceId** | **string** |  | 
+**InstancePersistenceEnabled** | **string** |  | 
 **Location** | **string** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | 
 **NUsers** | **int** |  | 
 **Name** | **string** |  | 
@@ -19,6 +22,7 @@ Name | Type | Description | Notes
 **Permanent** | **bool** |  | [default to false]
 **PhotonRegion** | **Region** |  | 
 **Platforms** | [**InstancePlatforms**](InstancePlatforms.md) |  | 
+**PlayerPersistenceEnabled** | **string** |  | 
 **Region** | **InstanceRegion** |  | 
 **SecureName** | **string** |  | 
 **ShortName** | **string** |  | [optional] 

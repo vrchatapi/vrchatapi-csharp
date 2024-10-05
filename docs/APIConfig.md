@@ -8,14 +8,18 @@ Name | Type | Description | Notes
 **VoiceEnableReceiverLimiting** | **bool** | Unknown, probably voice optimization testing | [default to true]
 **Address** | **string** | VRChat&#39;s office address | 
 **Announcements** | [**List&lt;APIConfigAnnouncement&gt;**](APIConfigAnnouncement.md) | Public Announcements | 
+**AnalyticsSegmentNewUIPctOfUsers** | **int** | Unknown | 
+**AnalyticsSegmentNewUISalt** | **string** | Unknown | 
 **AppName** | **string** | Game name | [default to "VrChat"]
 **AvailableLanguageCodes** | **List&lt;string&gt;** | List of supported Languages | 
 **AvailableLanguages** | **List&lt;string&gt;** | List of supported Languages | 
 **BuildVersionTag** | **string** | Build tag of the API server | 
+**ChatboxLogBufferSeconds** | **int** | Unknown | [default to 40]
 **ClientApiKey** | **string** | apiKey to be used for all other requests | 
 **ClientBPSCeiling** | **int** | Unknown | [default to 18432]
 **ClientDisconnectTimeout** | **int** | Unknown | [default to 30000]
 **ClientNetDispatchThread** | **bool** | Unknown | [optional] [default to false]
+**ClientNetDispatchThreadMobile** | **bool** | Unknown | [default to true]
 **ClientNetInThread** | **bool** | Unknown | [optional] [default to false]
 **ClientNetInThread2** | **bool** | Unknown | [optional] [default to false]
 **ClientNetInThreadMobile** | **bool** | Unknown | [optional] [default to false]
@@ -27,6 +31,7 @@ Name | Type | Description | Notes
 **ClientQR** | **int** | Unknown | [optional] [default to 1]
 **ClientReservedPlayerBPS** | **int** | Unknown | [default to 7168]
 **ClientSentCountAllowance** | **int** | Unknown | [default to 15]
+**Constants** | [**APIConfigConstants**](APIConfigConstants.md) |  | 
 **ContactEmail** | **string** | VRChat&#39;s contact email | 
 **CopyrightEmail** | **string** | VRChat&#39;s copyright-issues-related email | 
 **CurrentPrivacyVersion** | **int** | Current version number of the Privacy Agreement | [optional] [default to 1]
@@ -61,13 +66,24 @@ Name | Type | Description | Notes
 **EconomyPauseStart** | **string** | Unknown | [optional] 
 **EconomyState** | **int** | Unknown | [optional] [default to 1]
 **Events** | [**APIConfigEvents**](APIConfigEvents.md) |  | 
+**ForceUseLatestWorld** | **bool** | Unknown | [default to true]
+**GoogleApiClientId** | **string** | Unknown | [default to "827942544393-r2ouvckvouldn9dg9uruseje575e878f.apps.googleusercontent.com"]
 **HomeWorldId** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **HomepageRedirectTarget** | **string** | Redirect target if you try to open the base API domain in your browser | [default to "https://hello.vrchat.com"]
 **HubWorldId** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **ImageHostUrlList** | **List&lt;string&gt;** | A list of explicitly allowed origins that worlds can request images from via the Udon&#39;s [VRCImageDownloader#DownloadImage](https://creators.vrchat.com/worlds/udon/image-loading/#downloadimage). | 
 **JobsEmail** | **string** | VRChat&#39;s job application email | 
+**MinSupportedClientBuildNumber** | [**APIConfigMinSupportedClientBuildNumber**](APIConfigMinSupportedClientBuildNumber.md) |  | 
+**MinimumUnityVersionForUploads** | **string** | Minimum Unity version required for uploading assets | [default to "2019.0.0f1"]
 **ModerationEmail** | **string** | VRChat&#39;s moderation related email | 
 **NotAllowedToSelectAvatarInPrivateWorldMessage** | **string** | Used in-game to notify a user they aren&#39;t allowed to select avatars in private worlds | 
+**OfflineAnalysis** | [**APIConfigOfflineAnalysis**](APIConfigOfflineAnalysis.md) |  | 
+**PhotonNameserverOverrides** | **List&lt;string&gt;** | Unknown | 
+**PhotonPublicKeys** | **List&lt;string&gt;** | Unknown | 
+**ReportCategories** | [**APIConfigReportCategories**](APIConfigReportCategories.md) |  | 
+**ReportFormUrl** | **string** | URL to the report form | [default to "https://help.vrchat.com/hc/en-us/requests/new?ticket_form_id=1500000182242&tf_360056455174=user_report&tf_360057451993={userId}&tf_1500001445142={reportedId}&tf_subject={reason} {category} By {contentType} {reportedName}&tf_description={description}"]
+**ReportOptions** | **Object** | Options for reporting content | 
+**ReportReasons** | [**APIConfigReportReasons**](APIConfigReportReasons.md) |  | 
 **SdkDeveloperFaqUrl** | **string** | Link to the developer FAQ | 
 **SdkDiscordUrl** | **string** | Link to the official VRChat Discord | 
 **SdkNotAllowedToPublishMessage** | **string** | Used in the SDK to notify a user they aren&#39;t allowed to upload avatars/worlds yet | 
@@ -75,6 +91,7 @@ Name | Type | Description | Notes
 **ServerName** | **string** | Server name of the API server currently responding | 
 **StringHostUrlList** | **List&lt;string&gt;** | A list of explicitly allowed origins that worlds can request strings from via the Udon&#39;s [VRCStringDownloader.LoadUrl](https://creators.vrchat.com/worlds/udon/string-loading/#ivrcstringdownload). | 
 **SupportEmail** | **string** | VRChat&#39;s support email | 
+**Timekeeping** | **bool** | Unknown | [default to true]
 **TimeOutWorldId** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **TutorialWorldId** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **UpdateRateMsMaximum** | **int** | Unknown | 
@@ -88,6 +105,9 @@ Name | Type | Description | Notes
 **WhiteListedAssetUrls** | **List&lt;string&gt;** | List of allowed URLs that are allowed to host avatar assets | 
 **PlayerUrlResolverVersion** | **string** | Currently used youtube-dl.exe version | 
 **PlayerUrlResolverSha1** | **string** | Currently used youtube-dl.exe hash in SHA1-delimited format | 
+**WebsocketMaxFriendsRefreshDelay** | **int** | Unknown | [default to 900]
+**WebsocketQuickReconnectTime** | **int** | Unknown | [default to 2]
+**WebsocketReconnectMaxDelay** | **int** | Unknown | [default to 2]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
