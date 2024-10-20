@@ -48,6 +48,7 @@ docs/Favorite.md
 docs/FavoriteGroup.md
 docs/FavoriteGroupVisibility.md
 docs/FavoriteType.md
+docs/FavoritedWorld.md
 docs/FavoritesApi.md
 docs/File.md
 docs/FileData.md
@@ -98,6 +99,9 @@ docs/InviteMessage.md
 docs/InviteMessageType.md
 docs/InviteRequest.md
 docs/InviteResponse.md
+docs/Jam.md
+docs/JamStateChangeDates.md
+docs/JamsApi.md
 docs/License.md
 docs/LicenseAction.md
 docs/LicenseGroup.md
@@ -137,6 +141,7 @@ docs/RespondGroupJoinRequest.md
 docs/Response.md
 docs/SentNotification.md
 docs/SortOption.md
+docs/Submission.md
 docs/Subscription.md
 docs/SubscriptionPeriod.md
 docs/Success.md
@@ -181,6 +186,7 @@ src/VRChat.API/Api/FriendsApi.cs
 src/VRChat.API/Api/GroupsApi.cs
 src/VRChat.API/Api/InstancesApi.cs
 src/VRChat.API/Api/InviteApi.cs
+src/VRChat.API/Api/JamsApi.cs
 src/VRChat.API/Api/NotificationsApi.cs
 src/VRChat.API/Api/PermissionsApi.cs
 src/VRChat.API/Api/PlayermoderationApi.cs
@@ -249,6 +255,7 @@ src/VRChat.API/Model/Favorite.cs
 src/VRChat.API/Model/FavoriteGroup.cs
 src/VRChat.API/Model/FavoriteGroupVisibility.cs
 src/VRChat.API/Model/FavoriteType.cs
+src/VRChat.API/Model/FavoritedWorld.cs
 src/VRChat.API/Model/File.cs
 src/VRChat.API/Model/FileData.cs
 src/VRChat.API/Model/FileStatus.cs
@@ -293,6 +300,8 @@ src/VRChat.API/Model/InviteMessage.cs
 src/VRChat.API/Model/InviteMessageType.cs
 src/VRChat.API/Model/InviteRequest.cs
 src/VRChat.API/Model/InviteResponse.cs
+src/VRChat.API/Model/Jam.cs
+src/VRChat.API/Model/JamStateChangeDates.cs
 src/VRChat.API/Model/License.cs
 src/VRChat.API/Model/LicenseAction.cs
 src/VRChat.API/Model/LicenseGroup.cs
@@ -329,6 +338,7 @@ src/VRChat.API/Model/RespondGroupJoinRequest.cs
 src/VRChat.API/Model/Response.cs
 src/VRChat.API/Model/SentNotification.cs
 src/VRChat.API/Model/SortOption.cs
+src/VRChat.API/Model/Submission.cs
 src/VRChat.API/Model/Subscription.cs
 src/VRChat.API/Model/SubscriptionPeriod.cs
 src/VRChat.API/Model/Success.cs

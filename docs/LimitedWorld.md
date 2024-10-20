@@ -22,7 +22,6 @@ Name | Type | Description | Notes
 **PreviewYoutubeId** | **string** |  | [optional] 
 **PublicationDate** | **string** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
-**StoreId** | **string** |  | 
 **Tags** | **List&lt;string&gt;** |   | 
 **ThumbnailImageUrl** | **string** |  | 
 **UnityPackages** | [**List&lt;LimitedUnityPackage&gt;**](LimitedUnityPackage.md) |   | 

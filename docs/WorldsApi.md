@@ -326,7 +326,7 @@ catch (ApiException e)
 
 <a name="getfavoritedworlds"></a>
 # **GetFavoritedWorlds**
-> List&lt;LimitedWorld&gt; GetFavoritedWorlds (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
+> List&lt;FavoritedWorld&gt; GetFavoritedWorlds (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
 
 List Favorited Worlds
 
@@ -371,7 +371,7 @@ namespace Example
             try
             {
                 // List Favorited Worlds
-                List<LimitedWorld> result = apiInstance.GetFavoritedWorlds(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
+                List<FavoritedWorld> result = apiInstance.GetFavoritedWorlds(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -392,7 +392,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List Favorited Worlds
-    ApiResponse<List<LimitedWorld>> response = apiInstance.GetFavoritedWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
+    ApiResponse<List<FavoritedWorld>> response = apiInstance.GetFavoritedWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -425,7 +425,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**List&lt;LimitedWorld&gt;**](LimitedWorld.md)
+[**List&lt;FavoritedWorld&gt;**](FavoritedWorld.md)
 
 ### Authorization
 
@@ -440,7 +440,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a list of LimitedWorld objects. |  -  |
+| **200** | Returns a list of FavoritedWorld objects. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **403** | Error response when trying to see favourited worlds of another user without sufficient admin permissions. |  -  |
 
