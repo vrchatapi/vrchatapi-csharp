@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Active** | **bool** |  | [default to true]
+**AgeGate** | **string** |  | [optional] 
 **CanRequestInvite** | **bool** |  | [default to true]
 **Capacity** | **int** |  | 
 **ClientNumber** | **string** | Always returns \&quot;unknown\&quot;. | 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 **Permanent** | **bool** |  | [default to false]
 **PhotonRegion** | **Region** |  | 
 **Platforms** | [**InstancePlatforms**](InstancePlatforms.md) |  | 
-**PlayerPersistenceEnabled** | **string** |  | 
+**PlayerPersistenceEnabled** | **bool?** |  | 
 **Region** | **InstanceRegion** |  | 
 **SecureName** | **string** |  | 
 **ShortName** | **string** |  | [optional] 

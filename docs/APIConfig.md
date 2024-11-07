@@ -7,12 +7,15 @@ Name | Type | Description | Notes
 **VoiceEnableDegradation** | **bool** | Unknown, probably voice optimization testing | [default to false]
 **VoiceEnableReceiverLimiting** | **bool** | Unknown, probably voice optimization testing | [default to true]
 **Address** | **string** | VRChat&#39;s office address | 
+**AgeVerificationP** | **bool** |  | 
+**AgeVerificationStatusVisible** | **bool** |  | 
 **Announcements** | [**List&lt;APIConfigAnnouncement&gt;**](APIConfigAnnouncement.md) | Public Announcements | 
 **AnalyticsSegmentNewUIPctOfUsers** | **int** | Unknown | 
 **AnalyticsSegmentNewUISalt** | **string** | Unknown | 
 **AppName** | **string** | Game name | [default to "VrChat"]
 **AvailableLanguageCodes** | **List&lt;string&gt;** | List of supported Languages | 
 **AvailableLanguages** | **List&lt;string&gt;** | List of supported Languages | 
+**AvatarPerfLimiter** | [**APIConfigAvatarPerfLimiter**](APIConfigAvatarPerfLimiter.md) |  | 
 **BuildVersionTag** | **string** | Build tag of the API server | 
 **ChatboxLogBufferSeconds** | **int** | Unknown | [default to 40]
 **ClientApiKey** | **string** | apiKey to be used for all other requests | 
@@ -37,6 +40,7 @@ Name | Type | Description | Notes
 **CurrentPrivacyVersion** | **int** | Current version number of the Privacy Agreement | [optional] [default to 1]
 **CurrentTOSVersion** | **int** | Current version number of the Terms of Service | 
 **DefaultAvatar** | **string** |  | 
+**DefaultStickerSet** | **string** |  | 
 **DeploymentGroup** | **DeploymentGroup** |  | 
 **DevLanguageCodes** | **List&lt;string&gt;** | Unknown | [optional] 
 **DevSdkUrl** | **string** | Link to download the development SDK, use downloadUrls instead | 
@@ -91,6 +95,7 @@ Name | Type | Description | Notes
 **ServerName** | **string** | Server name of the API server currently responding | 
 **StringHostUrlList** | **List&lt;string&gt;** | A list of explicitly allowed origins that worlds can request strings from via the Udon&#39;s [VRCStringDownloader.LoadUrl](https://creators.vrchat.com/worlds/udon/string-loading/#ivrcstringdownload). | 
 **SupportEmail** | **string** | VRChat&#39;s support email | 
+**SupportFormUrl** | **string** | VRChat&#39;s support form | 
 **Timekeeping** | **bool** | Unknown | [default to true]
 **TimeOutWorldId** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 
 **TutorialWorldId** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | 

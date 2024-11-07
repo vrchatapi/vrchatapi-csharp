@@ -64,6 +64,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="Instance" /> class.
         /// </summary>
         /// <param name="active">active (required) (default to true).</param>
+        /// <param name="ageGate">ageGate.</param>
         /// <param name="canRequestInvite">canRequestInvite (required) (default to true).</param>
         /// <param name="capacity">capacity (required).</param>
         /// <param name="clientNumber">Always returns \&quot;unknown\&quot;. (required).</param>
@@ -103,7 +104,7 @@ namespace VRChat.API.Model
         /// <param name="nonce">nonce.</param>
         /// <param name="closedAt">closedAt.</param>
         /// <param name="hardClose">hardClose.</param>
-        public Instance(bool active = true, bool canRequestInvite = true, int capacity = default(int), string clientNumber = default(string), string displayName = default(string), bool full = false, int gameServerVersion = default(int), string id = default(string), string instanceId = default(string), string instancePersistenceEnabled = default(string), string location = default(string), int nUsers = default(int), string name = default(string), string ownerId = default(string), bool permanent = false, Region photonRegion = default(Region), InstancePlatforms platforms = default(InstancePlatforms), string playerPersistenceEnabled = default(string), InstanceRegion region = default(InstanceRegion), string secureName = default(string), string shortName = default(string), List<string> tags = default(List<string>), InstanceType type = default(InstanceType), string worldId = default(string), string hidden = default(string), string friends = default(string), string _private = default(string), bool queueEnabled = default(bool), int queueSize = default(int), int recommendedCapacity = default(int), bool roleRestricted = default(bool), bool strict = default(bool), int userCount = default(int), World world = default(World), List<LimitedUser> users = default(List<LimitedUser>), GroupAccessType? groupAccessType = default(GroupAccessType?), bool hasCapacityForYou = default(bool), string nonce = default(string), DateTime? closedAt = default(DateTime?), bool? hardClose = default(bool?))
+        public Instance(bool active = true, string ageGate = default(string), bool canRequestInvite = true, int capacity = default(int), string clientNumber = default(string), string displayName = default(string), bool full = false, int gameServerVersion = default(int), string id = default(string), string instanceId = default(string), string instancePersistenceEnabled = default(string), string location = default(string), int nUsers = default(int), string name = default(string), string ownerId = default(string), bool permanent = false, Region photonRegion = default(Region), InstancePlatforms platforms = default(InstancePlatforms), bool? playerPersistenceEnabled = default(bool?), InstanceRegion region = default(InstanceRegion), string secureName = default(string), string shortName = default(string), List<string> tags = default(List<string>), InstanceType type = default(InstanceType), string worldId = default(string), string hidden = default(string), string friends = default(string), string _private = default(string), bool queueEnabled = default(bool), int queueSize = default(int), int recommendedCapacity = default(int), bool roleRestricted = default(bool), bool strict = default(bool), int userCount = default(int), World world = default(World), List<LimitedUser> users = default(List<LimitedUser>), GroupAccessType? groupAccessType = default(GroupAccessType?), bool hasCapacityForYou = default(bool), string nonce = default(string), DateTime? closedAt = default(DateTime?), bool? hardClose = default(bool?))
         {
             this.Active = active;
             this.CanRequestInvite = canRequestInvite;
@@ -198,6 +199,7 @@ namespace VRChat.API.Model
                 throw new ArgumentNullException("world is a required property for Instance and cannot be null");
             }
             this.World = world;
+            this.AgeGate = ageGate;
             this.OwnerId = ownerId;
             this.ShortName = shortName;
             this.Hidden = hidden;
@@ -217,6 +219,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "active", IsRequired = true, EmitDefaultValue = true)]
         public bool Active { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AgeGate
+        /// </summary>
+        [DataMember(Name = "ageGate", EmitDefaultValue = true)]
+        public string AgeGate { get; set; }
 
         /// <summary>
         /// Gets or Sets CanRequestInvite
@@ -317,7 +325,7 @@ namespace VRChat.API.Model
         /// Gets or Sets PlayerPersistenceEnabled
         /// </summary>
         [DataMember(Name = "playerPersistenceEnabled", IsRequired = true, EmitDefaultValue = true)]
-        public string PlayerPersistenceEnabled { get; set; }
+        public bool? PlayerPersistenceEnabled { get; set; }
 
         /// <summary>
         /// Gets or Sets SecureName
@@ -448,6 +456,7 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class Instance {\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
+            sb.Append("  AgeGate: ").Append(AgeGate).Append("\n");
             sb.Append("  CanRequestInvite: ").Append(CanRequestInvite).Append("\n");
             sb.Append("  Capacity: ").Append(Capacity).Append("\n");
             sb.Append("  ClientNumber: ").Append(ClientNumber).Append("\n");
@@ -525,6 +534,11 @@ namespace VRChat.API.Model
                 (
                     this.Active == input.Active ||
                     this.Active.Equals(input.Active)
+                ) && 
+                (
+                    this.AgeGate == input.AgeGate ||
+                    (this.AgeGate != null &&
+                    this.AgeGate.Equals(input.AgeGate))
                 ) && 
                 (
                     this.CanRequestInvite == input.CanRequestInvite ||
@@ -718,6 +732,10 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Active.GetHashCode();
+                if (this.AgeGate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AgeGate.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.CanRequestInvite.GetHashCode();
                 hashCode = (hashCode * 59) + this.Capacity.GetHashCode();
                 if (this.ClientNumber != null)

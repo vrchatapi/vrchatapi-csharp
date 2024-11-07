@@ -8,10 +8,12 @@ Name | Type | Description | Notes
 **Avatar** | [**ReportCategory**](ReportCategory.md) |  | 
 **Behavior** | [**ReportCategory**](ReportCategory.md) |  | 
 **Chat** | [**ReportCategory**](ReportCategory.md) |  | 
+**Emoji** | [**ReportCategory**](ReportCategory.md) |  | [optional] 
 **Environment** | [**ReportCategory**](ReportCategory.md) |  | 
 **Groupstore** | [**ReportCategory**](ReportCategory.md) |  | 
 **Image** | [**ReportCategory**](ReportCategory.md) |  | 
 **Text** | [**ReportCategory**](ReportCategory.md) |  | 
+**Sticker** | [**ReportCategory**](ReportCategory.md) |  | [optional] 
 **Warnings** | [**ReportCategory**](ReportCategory.md) |  | 
 **Worldimage** | [**ReportCategory**](ReportCategory.md) |  | 
 **Worldstore** | [**ReportCategory**](ReportCategory.md) |  | 

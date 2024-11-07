@@ -62,6 +62,8 @@ namespace VRChat.API.Model
         /// <param name="accountDeletionDate">accountDeletionDate.</param>
         /// <param name="accountDeletionLog"> .</param>
         /// <param name="activeFriends"> .</param>
+        /// <param name="ageVerificationStatus">ageVerificationStatus (required).</param>
+        /// <param name="ageVerified">ageVerified (required).</param>
         /// <param name="allowAvatarCopying">allowAvatarCopying (required).</param>
         /// <param name="badges"> .</param>
         /// <param name="bio">bio (required).</param>
@@ -88,6 +90,7 @@ namespace VRChat.API.Model
         /// <param name="hasPendingEmail">hasPendingEmail (required).</param>
         /// <param name="homeLocation">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
         /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
+        /// <param name="isAdult">isAdult (required).</param>
         /// <param name="isBoopingEnabled">isBoopingEnabled (default to true).</param>
         /// <param name="isFriend">isFriend (required) (default to false).</param>
         /// <param name="lastActivity">lastActivity.</param>
@@ -124,9 +127,16 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="userIcon">userIcon (required).</param>
         /// <param name="username">-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
-        public CurrentUser(int acceptedTOSVersion = default(int), int acceptedPrivacyVersion = default(int), DateTime? accountDeletionDate = default(DateTime?), List<AccountDeletionLog> accountDeletionLog = default(List<AccountDeletionLog>), List<string> activeFriends = default(List<string>), bool allowAvatarCopying = default(bool), List<Badge> badges = default(List<Badge>), string bio = default(string), List<string> bioLinks = default(List<string>), string currentAvatar = default(string), string currentAvatarAssetUrl = default(string), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>), DateTime dateJoined = default(DateTime), DeveloperType developerType = default(DeveloperType), string displayName = default(string), bool emailVerified = default(bool), string fallbackAvatar = default(string), List<string> friendGroupNames = default(List<string>), string friendKey = default(string), List<string> friends = default(List<string>), bool hasBirthday = default(bool), bool hideContentFilterSettings = default(bool), string userLanguage = default(string), string userLanguageCode = default(string), bool hasEmail = default(bool), bool hasLoggedInFromClient = default(bool), bool hasPendingEmail = default(bool), string homeLocation = default(string), string id = default(string), bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default(DateTime), DateTime lastLogin = default(DateTime), DateTime? lastMobile = default(DateTime?), string lastPlatform = default(string), string obfuscatedEmail = default(string), string obfuscatedPendingEmail = default(string), string oculusId = default(string), string googleId = default(string), Object googleDetails = default(Object), string picoId = default(string), string viveId = default(string), List<string> offlineFriends = default(List<string>), List<string> onlineFriends = default(List<string>), List<PastDisplayName> pastDisplayNames = default(List<PastDisplayName>), CurrentUserPresence presence = default(CurrentUserPresence), string profilePicOverride = default(string), string profilePicOverrideThumbnail = default(string), string pronouns = default(string), string queuedInstance = default(string), bool receiveMobileInvitations = default(bool), UserState state = default(UserState), UserStatus status = default(UserStatus), string statusDescription = default(string), bool statusFirstTime = default(bool), List<string> statusHistory = default(List<string>), Object steamDetails = default(Object), string steamId = default(string), List<string> tags = default(List<string>), bool twoFactorAuthEnabled = default(bool), DateTime? twoFactorAuthEnabledDate = default(DateTime?), bool unsubscribe = default(bool), DateTime updatedAt = default(DateTime), string userIcon = default(string), string username = default(string))
+        public CurrentUser(int acceptedTOSVersion = default(int), int acceptedPrivacyVersion = default(int), DateTime? accountDeletionDate = default(DateTime?), List<AccountDeletionLog> accountDeletionLog = default(List<AccountDeletionLog>), List<string> activeFriends = default(List<string>), string ageVerificationStatus = default(string), bool ageVerified = default(bool), bool allowAvatarCopying = default(bool), List<Badge> badges = default(List<Badge>), string bio = default(string), List<string> bioLinks = default(List<string>), string currentAvatar = default(string), string currentAvatarAssetUrl = default(string), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>), DateTime dateJoined = default(DateTime), DeveloperType developerType = default(DeveloperType), string displayName = default(string), bool emailVerified = default(bool), string fallbackAvatar = default(string), List<string> friendGroupNames = default(List<string>), string friendKey = default(string), List<string> friends = default(List<string>), bool hasBirthday = default(bool), bool hideContentFilterSettings = default(bool), string userLanguage = default(string), string userLanguageCode = default(string), bool hasEmail = default(bool), bool hasLoggedInFromClient = default(bool), bool hasPendingEmail = default(bool), string homeLocation = default(string), string id = default(string), bool isAdult = default(bool), bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default(DateTime), DateTime lastLogin = default(DateTime), DateTime? lastMobile = default(DateTime?), string lastPlatform = default(string), string obfuscatedEmail = default(string), string obfuscatedPendingEmail = default(string), string oculusId = default(string), string googleId = default(string), Object googleDetails = default(Object), string picoId = default(string), string viveId = default(string), List<string> offlineFriends = default(List<string>), List<string> onlineFriends = default(List<string>), List<PastDisplayName> pastDisplayNames = default(List<PastDisplayName>), CurrentUserPresence presence = default(CurrentUserPresence), string profilePicOverride = default(string), string profilePicOverrideThumbnail = default(string), string pronouns = default(string), string queuedInstance = default(string), bool receiveMobileInvitations = default(bool), UserState state = default(UserState), UserStatus status = default(UserStatus), string statusDescription = default(string), bool statusFirstTime = default(bool), List<string> statusHistory = default(List<string>), Object steamDetails = default(Object), string steamId = default(string), List<string> tags = default(List<string>), bool twoFactorAuthEnabled = default(bool), DateTime? twoFactorAuthEnabledDate = default(DateTime?), bool unsubscribe = default(bool), DateTime updatedAt = default(DateTime), string userIcon = default(string), string username = default(string))
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
+            // to ensure "ageVerificationStatus" is required (not null)
+            if (ageVerificationStatus == null)
+            {
+                throw new ArgumentNullException("ageVerificationStatus is a required property for CurrentUser and cannot be null");
+            }
+            this.AgeVerificationStatus = ageVerificationStatus;
+            this.AgeVerified = ageVerified;
             this.AllowAvatarCopying = allowAvatarCopying;
             // to ensure "bio" is required (not null)
             if (bio == null)
@@ -213,6 +223,7 @@ namespace VRChat.API.Model
                 throw new ArgumentNullException("id is a required property for CurrentUser and cannot be null");
             }
             this.Id = id;
+            this.IsAdult = isAdult;
             this.IsFriend = isFriend;
             this.LastLogin = lastLogin;
             // to ensure "lastMobile" is required (not null)
@@ -367,6 +378,18 @@ namespace VRChat.API.Model
         /// <value> </value>
         [DataMember(Name = "activeFriends", EmitDefaultValue = false)]
         public List<string> ActiveFriends { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AgeVerificationStatus
+        /// </summary>
+        [DataMember(Name = "ageVerificationStatus", IsRequired = true, EmitDefaultValue = true)]
+        public string AgeVerificationStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AgeVerified
+        /// </summary>
+        [DataMember(Name = "ageVerified", IsRequired = true, EmitDefaultValue = true)]
+        public bool AgeVerified { get; set; }
 
         /// <summary>
         /// Gets or Sets AllowAvatarCopying
@@ -526,6 +549,12 @@ namespace VRChat.API.Model
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsAdult
+        /// </summary>
+        [DataMember(Name = "isAdult", IsRequired = true, EmitDefaultValue = true)]
+        public bool IsAdult { get; set; }
 
         /// <summary>
         /// Gets or Sets IsBoopingEnabled
@@ -748,6 +777,8 @@ namespace VRChat.API.Model
             sb.Append("  AccountDeletionDate: ").Append(AccountDeletionDate).Append("\n");
             sb.Append("  AccountDeletionLog: ").Append(AccountDeletionLog).Append("\n");
             sb.Append("  ActiveFriends: ").Append(ActiveFriends).Append("\n");
+            sb.Append("  AgeVerificationStatus: ").Append(AgeVerificationStatus).Append("\n");
+            sb.Append("  AgeVerified: ").Append(AgeVerified).Append("\n");
             sb.Append("  AllowAvatarCopying: ").Append(AllowAvatarCopying).Append("\n");
             sb.Append("  Badges: ").Append(Badges).Append("\n");
             sb.Append("  Bio: ").Append(Bio).Append("\n");
@@ -774,6 +805,7 @@ namespace VRChat.API.Model
             sb.Append("  HasPendingEmail: ").Append(HasPendingEmail).Append("\n");
             sb.Append("  HomeLocation: ").Append(HomeLocation).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  IsAdult: ").Append(IsAdult).Append("\n");
             sb.Append("  IsBoopingEnabled: ").Append(IsBoopingEnabled).Append("\n");
             sb.Append("  IsFriend: ").Append(IsFriend).Append("\n");
             sb.Append("  LastActivity: ").Append(LastActivity).Append("\n");
@@ -869,6 +901,15 @@ namespace VRChat.API.Model
                     this.ActiveFriends != null &&
                     input.ActiveFriends != null &&
                     this.ActiveFriends.SequenceEqual(input.ActiveFriends)
+                ) && 
+                (
+                    this.AgeVerificationStatus == input.AgeVerificationStatus ||
+                    (this.AgeVerificationStatus != null &&
+                    this.AgeVerificationStatus.Equals(input.AgeVerificationStatus))
+                ) && 
+                (
+                    this.AgeVerified == input.AgeVerified ||
+                    this.AgeVerified.Equals(input.AgeVerified)
                 ) && 
                 (
                     this.AllowAvatarCopying == input.AllowAvatarCopying ||
@@ -996,6 +1037,10 @@ namespace VRChat.API.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.IsAdult == input.IsAdult ||
+                    this.IsAdult.Equals(input.IsAdult)
                 ) && 
                 (
                     this.IsBoopingEnabled == input.IsBoopingEnabled ||
@@ -1199,6 +1244,11 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ActiveFriends.GetHashCode();
                 }
+                if (this.AgeVerificationStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.AgeVerificationStatus.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AgeVerified.GetHashCode();
                 hashCode = (hashCode * 59) + this.AllowAvatarCopying.GetHashCode();
                 if (this.Badges != null)
                 {
@@ -1279,6 +1329,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsAdult.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsBoopingEnabled.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsFriend.GetHashCode();
                 if (this.LastActivity != null)

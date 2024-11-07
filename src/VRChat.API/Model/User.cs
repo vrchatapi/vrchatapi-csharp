@@ -57,6 +57,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
         /// </summary>
+        /// <param name="ageVerificationStatus">ageVerificationStatus (required).</param>
         /// <param name="allowAvatarCopying">allowAvatarCopying (required) (default to true).</param>
         /// <param name="badges"> .</param>
         /// <param name="bio">bio (required).</param>
@@ -92,8 +93,14 @@ namespace VRChat.API.Model
         /// <param name="userIcon">userIcon (required).</param>
         /// <param name="username">-| A users unique name, used during login. This is different from &#x60;displayName&#x60; which is what shows up in-game. A users &#x60;username&#x60; can never be changed.&#39; **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public User(bool allowAvatarCopying = true, List<Badge> badges = default(List<Badge>), string bio = default(string), List<string> bioLinks = default(List<string>), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>), DateTime dateJoined = default(DateTime), DeveloperType developerType = default(DeveloperType), string displayName = default(string), string friendKey = default(string), string friendRequestStatus = default(string), string id = default(string), string instanceId = default(string), bool isFriend = default(bool), string lastActivity = default(string), string lastLogin = default(string), string lastMobile = default(string), string lastPlatform = default(string), string location = default(string), string note = default(string), string platform = default(string), string profilePicOverride = default(string), string profilePicOverrideThumbnail = default(string), string pronouns = default(string), UserState state = default(UserState), UserStatus status = default(UserStatus), string statusDescription = default(string), List<string> tags = default(List<string>), string travelingToInstance = default(string), string travelingToLocation = default(string), string travelingToWorld = default(string), string userIcon = default(string), string username = default(string), string worldId = default(string))
+        public User(string ageVerificationStatus = default(string), bool allowAvatarCopying = true, List<Badge> badges = default(List<Badge>), string bio = default(string), List<string> bioLinks = default(List<string>), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>), DateTime dateJoined = default(DateTime), DeveloperType developerType = default(DeveloperType), string displayName = default(string), string friendKey = default(string), string friendRequestStatus = default(string), string id = default(string), string instanceId = default(string), bool isFriend = default(bool), string lastActivity = default(string), string lastLogin = default(string), string lastMobile = default(string), string lastPlatform = default(string), string location = default(string), string note = default(string), string platform = default(string), string profilePicOverride = default(string), string profilePicOverrideThumbnail = default(string), string pronouns = default(string), UserState state = default(UserState), UserStatus status = default(UserStatus), string statusDescription = default(string), List<string> tags = default(List<string>), string travelingToInstance = default(string), string travelingToLocation = default(string), string travelingToWorld = default(string), string userIcon = default(string), string username = default(string), string worldId = default(string))
         {
+            // to ensure "ageVerificationStatus" is required (not null)
+            if (ageVerificationStatus == null)
+            {
+                throw new ArgumentNullException("ageVerificationStatus is a required property for User and cannot be null");
+            }
+            this.AgeVerificationStatus = ageVerificationStatus;
             this.AllowAvatarCopying = allowAvatarCopying;
             // to ensure "bio" is required (not null)
             if (bio == null)
@@ -215,6 +222,12 @@ namespace VRChat.API.Model
             this.Username = username;
             this.WorldId = worldId;
         }
+
+        /// <summary>
+        /// Gets or Sets AgeVerificationStatus
+        /// </summary>
+        [DataMember(Name = "ageVerificationStatus", IsRequired = true, EmitDefaultValue = true)]
+        public string AgeVerificationStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets AllowAvatarCopying
@@ -432,6 +445,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class User {\n");
+            sb.Append("  AgeVerificationStatus: ").Append(AgeVerificationStatus).Append("\n");
             sb.Append("  AllowAvatarCopying: ").Append(AllowAvatarCopying).Append("\n");
             sb.Append("  Badges: ").Append(Badges).Append("\n");
             sb.Append("  Bio: ").Append(Bio).Append("\n");
@@ -502,6 +516,11 @@ namespace VRChat.API.Model
                 return false;
             }
             return 
+                (
+                    this.AgeVerificationStatus == input.AgeVerificationStatus ||
+                    (this.AgeVerificationStatus != null &&
+                    this.AgeVerificationStatus.Equals(input.AgeVerificationStatus))
+                ) && 
                 (
                     this.AllowAvatarCopying == input.AllowAvatarCopying ||
                     this.AllowAvatarCopying.Equals(input.AllowAvatarCopying)
@@ -687,6 +706,10 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AgeVerificationStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.AgeVerificationStatus.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.AllowAvatarCopying.GetHashCode();
                 if (this.Badges != null)
                 {

@@ -2,6 +2,7 @@
 appveyor.yml
 docs/APIConfig.md
 docs/APIConfigAnnouncement.md
+docs/APIConfigAvatarPerfLimiter.md
 docs/APIConfigConstants.md
 docs/APIConfigConstantsGROUPS.md
 docs/APIConfigConstantsINSTANCE.md
@@ -124,6 +125,7 @@ docs/NotificationsApi.md
 docs/OrderOption.md
 docs/PaginatedGroupAuditLogEntryList.md
 docs/PastDisplayName.md
+docs/PerformanceLimiterInfo.md
 docs/PerformanceRatings.md
 docs/Permission.md
 docs/PermissionsApi.md
@@ -211,6 +213,7 @@ src/VRChat.API/Client/RequestOptions.cs
 src/VRChat.API/Client/RetryConfiguration.cs
 src/VRChat.API/Model/APIConfig.cs
 src/VRChat.API/Model/APIConfigAnnouncement.cs
+src/VRChat.API/Model/APIConfigAvatarPerfLimiter.cs
 src/VRChat.API/Model/APIConfigConstants.cs
 src/VRChat.API/Model/APIConfigConstantsGROUPS.cs
 src/VRChat.API/Model/APIConfigConstantsINSTANCE.cs
@@ -323,6 +326,7 @@ src/VRChat.API/Model/NotificationType.cs
 src/VRChat.API/Model/OrderOption.cs
 src/VRChat.API/Model/PaginatedGroupAuditLogEntryList.cs
 src/VRChat.API/Model/PastDisplayName.cs
+src/VRChat.API/Model/PerformanceLimiterInfo.cs
 src/VRChat.API/Model/PerformanceRatings.cs
 src/VRChat.API/Model/Permission.cs
 src/VRChat.API/Model/PlatformBuildInfo.cs

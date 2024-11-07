@@ -71,9 +71,10 @@ namespace VRChat.API.Model
         /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
         /// <param name="unityPackages">  (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
+        /// <param name="urlList">urlList (required).</param>
         /// <param name="udonProducts">udonProducts.</param>
         /// <param name="version">version (required).</param>
-        public FavoritedWorld(string authorId = default(string), string authorName = default(string), int capacity = default(int), string description = default(string), int recommendedCapacity = default(int), DateTime createdAt = default(DateTime), int favorites = 0, string favoriteGroup = default(string), string favoriteId = default(string), bool featured = false, int visits = 0, int heat = 0, string id = default(string), string imageUrl = default(string), string labsPublicationDate = default(string), string name = default(string), int occupants = 0, string organization = "vrchat", int popularity = 0, string previewYoutubeId = default(string), string publicationDate = default(string), ReleaseStatus releaseStatus = default(ReleaseStatus), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), List<string> udonProducts = default(List<string>), int version = default(int))
+        public FavoritedWorld(string authorId = default(string), string authorName = default(string), int capacity = default(int), string description = default(string), int recommendedCapacity = default(int), DateTime createdAt = default(DateTime), int favorites = 0, string favoriteGroup = default(string), string favoriteId = default(string), bool featured = false, int visits = 0, int heat = 0, string id = default(string), string imageUrl = default(string), string labsPublicationDate = default(string), string name = default(string), int occupants = 0, string organization = "vrchat", int popularity = 0, string previewYoutubeId = default(string), string publicationDate = default(string), ReleaseStatus releaseStatus = default(ReleaseStatus), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), List<string> urlList = default(List<string>), List<string> udonProducts = default(List<string>), int version = default(int))
         {
             // to ensure "authorId" is required (not null)
             if (authorId == null)
@@ -168,6 +169,12 @@ namespace VRChat.API.Model
             }
             this.UnityPackages = unityPackages;
             this.UpdatedAt = updatedAt;
+            // to ensure "urlList" is required (not null)
+            if (urlList == null)
+            {
+                throw new ArgumentNullException("urlList is a required property for FavoritedWorld and cannot be null");
+            }
+            this.UrlList = urlList;
             this._Version = version;
             this.RecommendedCapacity = recommendedCapacity;
             this.Visits = visits;
@@ -330,6 +337,12 @@ namespace VRChat.API.Model
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
+        /// Gets or Sets UrlList
+        /// </summary>
+        [DataMember(Name = "urlList", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> UrlList { get; set; }
+
+        /// <summary>
         /// Gets or Sets UdonProducts
         /// </summary>
         [DataMember(Name = "udonProducts", EmitDefaultValue = false)]
@@ -375,6 +388,7 @@ namespace VRChat.API.Model
             sb.Append("  ThumbnailImageUrl: ").Append(ThumbnailImageUrl).Append("\n");
             sb.Append("  UnityPackages: ").Append(UnityPackages).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  UrlList: ").Append(UrlList).Append("\n");
             sb.Append("  UdonProducts: ").Append(UdonProducts).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
@@ -536,6 +550,12 @@ namespace VRChat.API.Model
                     this.UpdatedAt.Equals(input.UpdatedAt))
                 ) && 
                 (
+                    this.UrlList == input.UrlList ||
+                    this.UrlList != null &&
+                    input.UrlList != null &&
+                    this.UrlList.SequenceEqual(input.UrlList)
+                ) && 
+                (
                     this.UdonProducts == input.UdonProducts ||
                     this.UdonProducts != null &&
                     input.UdonProducts != null &&
@@ -632,6 +652,10 @@ namespace VRChat.API.Model
                 if (this.UpdatedAt != null)
                 {
                     hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                if (this.UrlList != null)
+                {
+                    hashCode = (hashCode * 59) + this.UrlList.GetHashCode();
                 }
                 if (this.UdonProducts != null)
                 {

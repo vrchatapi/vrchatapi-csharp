@@ -72,10 +72,11 @@ namespace VRChat.API.Model
         /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
         /// <param name="unityPackages">Empty if unauthenticated..</param>
         /// <param name="updatedAt">updatedAt (required).</param>
+        /// <param name="urlList">urlList.</param>
         /// <param name="version">version (required) (default to 0).</param>
         /// <param name="visits">visits (required) (default to 0).</param>
         /// <param name="udonProducts">udonProducts.</param>
-        public World(string authorId = default(string), string authorName = default(string), int capacity = default(int), int recommendedCapacity = default(int), DateTime createdAt = default(DateTime), string description = default(string), int favorites = 0, bool featured = false, int heat = 0, string id = default(string), string imageUrl = default(string), List<List<Object>> instances = default(List<List<Object>>), string labsPublicationDate = default(string), string name = default(string), string _namespace = default(string), int occupants = 0, string organization = "vrchat", int popularity = 0, string previewYoutubeId = default(string), int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default(string), ReleaseStatus releaseStatus = default(ReleaseStatus), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), int version = 0, int visits = 0, List<string> udonProducts = default(List<string>))
+        public World(string authorId = default(string), string authorName = default(string), int capacity = default(int), int recommendedCapacity = default(int), DateTime createdAt = default(DateTime), string description = default(string), int favorites = 0, bool featured = false, int heat = 0, string id = default(string), string imageUrl = default(string), List<List<Object>> instances = default(List<List<Object>>), string labsPublicationDate = default(string), string name = default(string), string _namespace = default(string), int occupants = 0, string organization = "vrchat", int popularity = 0, string previewYoutubeId = default(string), int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default(string), ReleaseStatus releaseStatus = default(ReleaseStatus), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), List<string> urlList = default(List<string>), int version = 0, int visits = 0, List<string> udonProducts = default(List<string>))
         {
             // to ensure "authorId" is required (not null)
             if (authorId == null)
@@ -161,6 +162,7 @@ namespace VRChat.API.Model
             this.PrivateOccupants = privateOccupants;
             this.PublicOccupants = publicOccupants;
             this.UnityPackages = unityPackages;
+            this.UrlList = urlList;
             this.UdonProducts = udonProducts;
         }
 
@@ -329,6 +331,12 @@ namespace VRChat.API.Model
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
+        /// Gets or Sets UrlList
+        /// </summary>
+        [DataMember(Name = "urlList", EmitDefaultValue = false)]
+        public List<string> UrlList { get; set; }
+
+        /// <summary>
         /// Gets or Sets _Version
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
@@ -381,6 +389,7 @@ namespace VRChat.API.Model
             sb.Append("  ThumbnailImageUrl: ").Append(ThumbnailImageUrl).Append("\n");
             sb.Append("  UnityPackages: ").Append(UnityPackages).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  UrlList: ").Append(UrlList).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("  Visits: ").Append(Visits).Append("\n");
             sb.Append("  UdonProducts: ").Append(UdonProducts).Append("\n");
@@ -548,6 +557,12 @@ namespace VRChat.API.Model
                     this.UpdatedAt.Equals(input.UpdatedAt))
                 ) && 
                 (
+                    this.UrlList == input.UrlList ||
+                    this.UrlList != null &&
+                    input.UrlList != null &&
+                    this.UrlList.SequenceEqual(input.UrlList)
+                ) && 
+                (
                     this._Version == input._Version ||
                     this._Version.Equals(input._Version)
                 ) && 
@@ -649,6 +664,10 @@ namespace VRChat.API.Model
                 if (this.UpdatedAt != null)
                 {
                     hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                if (this.UrlList != null)
+                {
+                    hashCode = (hashCode * 59) + this.UrlList.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this._Version.GetHashCode();
                 hashCode = (hashCode * 59) + this.Visits.GetHashCode();

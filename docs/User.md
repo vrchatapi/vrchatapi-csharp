@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AgeVerificationStatus** | **string** |  | 
 **AllowAvatarCopying** | **bool** |  | [default to true]
 **Badges** | [**List&lt;Badge&gt;**](Badge.md) |   | [optional] 
 **Bio** | **string** |  | 

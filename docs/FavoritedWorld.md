@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **ThumbnailImageUrl** | **string** |  | 
 **UnityPackages** | [**List&lt;UnityPackage&gt;**](UnityPackage.md) |   | 
 **UpdatedAt** | **DateTime** |  | 
+**UrlList** | **List&lt;string&gt;** |  | 
 **UdonProducts** | **List&lt;string&gt;** |  | [optional] 
 **_Version** | **int** |  | 
 
