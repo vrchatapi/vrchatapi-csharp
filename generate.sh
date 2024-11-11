@@ -54,6 +54,8 @@ sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj
 sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\\README.md" Pack="true" PackagePath="\\"/>' src/VRChat.API/VRChat.API.csproj
 
+# Add image multicontent type
+sed -i 's/request\.AddFile(\(fileParam\.Key, bytes, System\.IO\.Path\.GetFileName(fileStream\.Name)\))/request.AddFile(\1, System.IO.Path.GetFileName(fileStream.Name).EndsWith("png") ? "image\/png" : "application\/octet-stream")/g' src/VRChat.API/Client/ApiClient.cs
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
     sed -i '/VRChat API Banner/d' $i
