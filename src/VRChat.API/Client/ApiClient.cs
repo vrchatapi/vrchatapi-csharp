@@ -545,10 +545,21 @@ namespace VRChat.API.Client
         private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, RequestOptions options, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;
-
+            
+            var cookies = CookieContainer;
+            
+            if (options.Cookies != null && options.Cookies.Count > 0)
+            {
+                foreach (var cookie in options.Cookies)
+                {
+                    cookies.Add(new Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Domain));
+                }
+            }
+            
             var clientOptions = new RestClientOptions(baseUrl)
             {
                 ClientCertificates = configuration.ClientCertificates,
+                CookieContainer = cookies,
                 MaxTimeout = configuration.Timeout,
                 Proxy = configuration.Proxy,
                 UserAgent = configuration.UserAgent

@@ -54,6 +54,28 @@ sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj
 sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\\README.md" Pack="true" PackagePath="\\"/>' src/VRChat.API/VRChat.API.csproj
 
+sed -i '/var baseUrl = configuration\.GetOperationServerUrl(options\.Operation, options\.OperationIndex) ?? _baseUrl;/,/\};/c \
+            var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;\
+            \
+            var cookies = CookieContainer;\
+            \
+            if (options.Cookies != null && options.Cookies.Count > 0)\
+            {\
+                foreach (var cookie in options.Cookies)\
+                {\
+                    cookies.Add(new Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Domain));\
+                }\
+            }\
+            \
+            var clientOptions = new RestClientOptions(baseUrl)\
+            {\
+                ClientCertificates = configuration.ClientCertificates,\
+                CookieContainer = cookies,\
+                MaxTimeout = configuration.Timeout,\
+                Proxy = configuration.Proxy,\
+                UserAgent = configuration.UserAgent\
+            };' src/VRChat.API/Client/ApiClient.cs
+
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
     sed -i '/VRChat API Banner/d' $i
