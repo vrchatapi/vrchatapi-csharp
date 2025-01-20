@@ -9,6 +9,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetFavorite**](FavoritesApi.md#getfavorite) | **GET** /favorites/{favoriteId} | Show Favorite |
 | [**GetFavoriteGroup**](FavoritesApi.md#getfavoritegroup) | **GET** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Show Favorite Group |
 | [**GetFavoriteGroups**](FavoritesApi.md#getfavoritegroups) | **GET** /favorite/groups | List Favorite Groups |
+| [**GetFavoriteLimits**](FavoritesApi.md#getfavoritelimits) | **GET** /auth/user/favoritelimits | Get Favorite Limits |
 | [**GetFavorites**](FavoritesApi.md#getfavorites) | **GET** /favorites | List Favorites |
 | [**RemoveFavorite**](FavoritesApi.md#removefavorite) | **DELETE** /favorites/{favoriteId} | Remove Favorite |
 | [**UpdateFavoriteGroup**](FavoritesApi.md#updatefavoritegroup) | **PUT** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Update Favorite Group |
@@ -506,6 +507,98 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of FavoriteGroup objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getfavoritelimits"></a>
+# **GetFavoriteLimits**
+> FavoriteLimits GetFavoriteLimits ()
+
+Get Favorite Limits
+
+Return information about a specific Favorite.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetFavoriteLimitsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new FavoritesApi(config);
+
+            try
+            {
+                // Get Favorite Limits
+                FavoriteLimits result = apiInstance.GetFavoriteLimits();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FavoritesApi.GetFavoriteLimits: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetFavoriteLimitsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Favorite Limits
+    ApiResponse<FavoriteLimits> response = apiInstance.GetFavoriteLimitsWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FavoritesApi.GetFavoriteLimitsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**FavoriteLimits**](FavoriteLimits.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single FavoriteLimits object. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

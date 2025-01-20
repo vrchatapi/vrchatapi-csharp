@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ImageUrl** | **string** |  | 
 **Name** | **string** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
+**Styles** | [**AvatarStyles**](AvatarStyles.md) |  | 
 **Tags** | **List&lt;string&gt;** |   | 
 **ThumbnailImageUrl** | **string** |  | 
 **UnityPackageUrl** | **string** |  | 

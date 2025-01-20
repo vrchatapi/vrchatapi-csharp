@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **HasJoinedFromPurchase** | **bool** |  | [optional] [default to false]
 **LastPostReadAt** | **DateTime?** |  | [optional] 
 **MRoleIds** | **List&lt;string&gt;** |  | [optional] 
-**Permissions** | **List&lt;string&gt;** |  | [optional] 
+**Permissions** | **List&lt;GroupMyMember.PermissionsEnum&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

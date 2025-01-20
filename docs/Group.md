@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AgeVerificationSlotsAvailable** | **bool** |  | [optional] 
+**AgeVerificationBetaCode** | **string** |  | [optional] 
+**AgeVerificationBetaSlots** | **decimal** |  | [optional] 
 **Badges** | **List&lt;string&gt;** |  | [optional] 
 **Id** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 

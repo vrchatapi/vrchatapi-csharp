@@ -105,6 +105,17 @@ static bool requiresEmail2FA(ApiResponse<CurrentUser> resp)
 }
 ```
 
+## Cookies
+Cookies can be displayed after logging in using:
+```csharp
+ApiClient.CookieContainer.GetAllCookies().ToList().ForEach(x => Console.WriteLine($"{x.Name}={x.Value}"));
+```
+
+And they can be used by editing the config at the start of your program like this:
+```csharp
+config.DefaultHeaders.Add("Cookie", "auth=[AUTH_COOKIE_HERE]; twoFactorAuth=[TWO_FACTOR_AUTH_COOKIE_HERE]");
+```
+
 ## Documentation
 
  - [docs](docs/)

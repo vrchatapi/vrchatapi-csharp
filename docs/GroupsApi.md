@@ -649,7 +649,7 @@ catch (ApiException e)
 
 Create Group Announcement
 
-Creates an Announcement for a Group.
+Creates an Announcement for a Group. Warning: This will also remove all announcements. To make proper announcements, use the posts endpoint instead
 
 ### Example
 ```csharp
@@ -1936,7 +1936,7 @@ catch (ApiException e)
 
 <a name="getgroupauditlogs"></a>
 # **GetGroupAuditLogs**
-> PaginatedGroupAuditLogEntryList GetGroupAuditLogs (string groupId, int? n = null, int? offset = null, DateTime? startDate = null, DateTime? endDate = null)
+> PaginatedGroupAuditLogEntryList GetGroupAuditLogs (string groupId, int? n = null, int? offset = null, DateTime? startDate = null, DateTime? endDate = null, string actorIds = null, string eventTypes = null, string targetIds = null)
 
 Get Group Audit Logs
 
@@ -1969,11 +1969,14 @@ namespace Example
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var startDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | The start date of the search range. (optional) 
             var endDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | The end date of the search range. (optional) 
+            var actorIds = usr_00000000-0000-0000-0000-000000000000,usr_11111111-1111-1111-1111-111111111111;  // string | The comma-separated actor ids to search for. (optional) 
+            var eventTypes = group.member.remove,group.instance.kick;  // string | The comma-separated event types to search for. (optional) 
+            var targetIds = usr_00000000-0000-0000-0000-000000000000,usr_11111111-1111-1111-1111-111111111111;  // string | The comma-separated target ids to search for. (optional) 
 
             try
             {
                 // Get Group Audit Logs
-                PaginatedGroupAuditLogEntryList result = apiInstance.GetGroupAuditLogs(groupId, n, offset, startDate, endDate);
+                PaginatedGroupAuditLogEntryList result = apiInstance.GetGroupAuditLogs(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1994,7 +1997,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Group Audit Logs
-    ApiResponse<PaginatedGroupAuditLogEntryList> response = apiInstance.GetGroupAuditLogsWithHttpInfo(groupId, n, offset, startDate, endDate);
+    ApiResponse<PaginatedGroupAuditLogEntryList> response = apiInstance.GetGroupAuditLogsWithHttpInfo(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2016,6 +2019,9 @@ catch (ApiException e)
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 | **startDate** | **DateTime?** | The start date of the search range. | [optional]  |
 | **endDate** | **DateTime?** | The end date of the search range. | [optional]  |
+| **actorIds** | **string** | The comma-separated actor ids to search for. | [optional]  |
+| **eventTypes** | **string** | The comma-separated event types to search for. | [optional]  |
+| **targetIds** | **string** | The comma-separated target ids to search for. | [optional]  |
 
 ### Return type
 

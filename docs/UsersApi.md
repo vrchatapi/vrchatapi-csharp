@@ -6,11 +6,16 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 |--------|--------------|-------------|
 | [**GetUser**](UsersApi.md#getuser) | **GET** /users/{userId} | Get User by ID |
 | [**GetUserByName**](UsersApi.md#getuserbyname) | **GET** /users/{username}/name | Get User by Username |
+| [**GetUserFeedback**](UsersApi.md#getuserfeedback) | **GET** /users/{userId}/feedback | Get User Feedback |
+| [**GetUserGroupInstances**](UsersApi.md#getusergroupinstances) | **GET** /users/{userId}/instances/groups | Get User Group Instances |
 | [**GetUserGroupRequests**](UsersApi.md#getusergrouprequests) | **GET** /users/{userId}/groups/requested | Get User Group Requests |
 | [**GetUserGroups**](UsersApi.md#getusergroups) | **GET** /users/{userId}/groups | Get User Groups |
+| [**GetUserNote**](UsersApi.md#getusernote) | **GET** /userNotes/{userNoteId} | Get User Note |
+| [**GetUserNotes**](UsersApi.md#getusernotes) | **GET** /userNotes | Get User Notes |
 | [**GetUserRepresentedGroup**](UsersApi.md#getuserrepresentedgroup) | **GET** /users/{userId}/groups/represented | Get user&#39;s current represented group |
 | [**SearchUsers**](UsersApi.md#searchusers) | **GET** /users | Search All Users |
 | [**UpdateUser**](UsersApi.md#updateuser) | **PUT** /users/{userId} | Update User Info |
+| [**UpdateUserNote**](UsersApi.md#updateusernote) | **POST** /userNotes | Update User Note |
 
 <a name="getuser"></a>
 # **GetUser**
@@ -206,6 +211,207 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getuserfeedback"></a>
+# **GetUserFeedback**
+> List&lt;Feedback&gt; GetUserFeedback (string userId, bool? contentId = null, int? n = null, int? offset = null)
+
+Get User Feedback
+
+Get user's submitted feedback
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetUserFeedbackExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new UsersApi(config);
+            var userId = "userId_example";  // string | Must be a valid user ID.
+            var contentId = true;  // bool? | Filter for users' previously submitted feedback, e.g., a groupId, useeId, avatarId, etc. (optional) 
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+
+            try
+            {
+                // Get User Feedback
+                List<Feedback> result = apiInstance.GetUserFeedback(userId, contentId, n, offset);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.GetUserFeedback: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetUserFeedbackWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get User Feedback
+    ApiResponse<List<Feedback>> response = apiInstance.GetUserFeedbackWithHttpInfo(userId, contentId, n, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.GetUserFeedbackWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+| **contentId** | **bool?** | Filter for users&#39; previously submitted feedback, e.g., a groupId, useeId, avatarId, etc. | [optional]  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+
+### Return type
+
+[**List&lt;Feedback&gt;**](Feedback.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of Feedback objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getusergroupinstances"></a>
+# **GetUserGroupInstances**
+> GetUserGroupInstances200Response GetUserGroupInstances (string userId)
+
+Get User Group Instances
+
+Returns a list of group instances for a user
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetUserGroupInstancesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new UsersApi(config);
+            var userId = "userId_example";  // string | Must be a valid user ID.
+
+            try
+            {
+                // Get User Group Instances
+                GetUserGroupInstances200Response result = apiInstance.GetUserGroupInstances(userId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.GetUserGroupInstances: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetUserGroupInstancesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get User Group Instances
+    ApiResponse<GetUserGroupInstances200Response> response = apiInstance.GetUserGroupInstancesWithHttpInfo(userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.GetUserGroupInstancesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+
+### Return type
+
+[**GetUserGroupInstances200Response**](GetUserGroupInstances200Response.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of Instance objects with a fetched at time. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response when trying get group instances of another user. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getusergrouprequests"></a>
 # **GetUserGroupRequests**
 > List&lt;Group&gt; GetUserGroupRequests (string userId)
@@ -396,6 +602,202 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of LimitedUserGroups objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getusernote"></a>
+# **GetUserNote**
+> UserNote GetUserNote (string userNoteId)
+
+Get User Note
+
+Get a particular user note
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetUserNoteExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new UsersApi(config);
+            var userNoteId = "userNoteId_example";  // string | Must be a valid user note ID.
+
+            try
+            {
+                // Get User Note
+                UserNote result = apiInstance.GetUserNote(userNoteId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.GetUserNote: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetUserNoteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get User Note
+    ApiResponse<UserNote> response = apiInstance.GetUserNoteWithHttpInfo(userNoteId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.GetUserNoteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userNoteId** | **string** | Must be a valid user note ID. |  |
+
+### Return type
+
+[**UserNote**](UserNote.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single UserNote object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getusernotes"></a>
+# **GetUserNotes**
+> List&lt;UserNote&gt; GetUserNotes (int? n = null, int? offset = null)
+
+Get User Notes
+
+Get recently updated user notes
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetUserNotesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new UsersApi(config);
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+
+            try
+            {
+                // Get User Notes
+                List<UserNote> result = apiInstance.GetUserNotes(n, offset);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.GetUserNotes: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetUserNotesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get User Notes
+    ApiResponse<List<UserNote>> response = apiInstance.GetUserNotesWithHttpInfo(n, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.GetUserNotesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+
+### Return type
+
+[**List&lt;UserNote&gt;**](UserNote.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of UserNote objects. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -696,6 +1098,103 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a single CurrentUser object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateusernote"></a>
+# **UpdateUserNote**
+> UserNote UpdateUserNote (UpdateUserNoteRequest updateUserNoteRequest)
+
+Update User Note
+
+Updates the currently authenticated user's note on a user
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class UpdateUserNoteExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new UsersApi(config);
+            var updateUserNoteRequest = new UpdateUserNoteRequest(); // UpdateUserNoteRequest | 
+
+            try
+            {
+                // Update User Note
+                UserNote result = apiInstance.UpdateUserNote(updateUserNoteRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.UpdateUserNote: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdateUserNoteWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update User Note
+    ApiResponse<UserNote> response = apiInstance.UpdateUserNoteWithHttpInfo(updateUserNoteRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.UpdateUserNoteWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **updateUserNoteRequest** | [**UpdateUserNoteRequest**](UpdateUserNoteRequest.md) |  |  |
+
+### Return type
+
+[**UserNote**](UserNote.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single UserNote object. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

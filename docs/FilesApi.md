@@ -11,6 +11,9 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**DownloadFileVersion**](FilesApi.md#downloadfileversion) | **GET** /file/{fileId}/{versionId} | Download File Version |
 | [**FinishFileDataUpload**](FilesApi.md#finishfiledataupload) | **PUT** /file/{fileId}/{versionId}/{fileType}/finish | Finish FileData Upload |
 | [**GetFile**](FilesApi.md#getfile) | **GET** /file/{fileId} | Show File |
+| [**GetFileAnalysis**](FilesApi.md#getfileanalysis) | **GET** /analysis/{fileId}/{versionId} | Get File Version Analysis |
+| [**GetFileAnalysisSecurity**](FilesApi.md#getfileanalysissecurity) | **GET** /analysis/{fileId}/{versionId}/security | Get File Version Analysis Security |
+| [**GetFileAnalysisStandard**](FilesApi.md#getfileanalysisstandard) | **GET** /analysis/{fileId}/{versionId}/standard | Get File Version Analysis Standard |
 | [**GetFileDataUploadStatus**](FilesApi.md#getfiledatauploadstatus) | **GET** /file/{fileId}/{versionId}/{fileType}/status | Check FileData Upload Status |
 | [**GetFiles**](FilesApi.md#getfiles) | **GET** /files | List Files |
 | [**StartFileDataUpload**](FilesApi.md#startfiledataupload) | **PUT** /file/{fileId}/{versionId}/{fileType}/start | Start FileData Upload |
@@ -696,6 +699,303 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a single File object. |  -  |
+| **404** | Error response when trying to show information about a non-existent file. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getfileanalysis"></a>
+# **GetFileAnalysis**
+> FileAnalysis GetFileAnalysis (string fileId, int versionId)
+
+Get File Version Analysis
+
+Get the performance analysis for the uploaded assets of an avatar
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetFileAnalysisExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new FilesApi(config);
+            var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
+            var versionId = 1;  // int | Version ID of the asset.
+
+            try
+            {
+                // Get File Version Analysis
+                FileAnalysis result = apiInstance.GetFileAnalysis(fileId, versionId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesApi.GetFileAnalysis: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetFileAnalysisWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get File Version Analysis
+    ApiResponse<FileAnalysis> response = apiInstance.GetFileAnalysisWithHttpInfo(fileId, versionId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.GetFileAnalysisWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** | Must be a valid file ID. |  |
+| **versionId** | **int** | Version ID of the asset. |  |
+
+### Return type
+
+[**FileAnalysis**](FileAnalysis.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single FileAnalysis object. |  -  |
+| **404** | Error response when trying to show information about a non-existent file. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getfileanalysissecurity"></a>
+# **GetFileAnalysisSecurity**
+> FileAnalysis GetFileAnalysisSecurity (string fileId, int versionId)
+
+Get File Version Analysis Security
+
+Get the security performance analysis for the uploaded assets of an avatar
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetFileAnalysisSecurityExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new FilesApi(config);
+            var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
+            var versionId = 1;  // int | Version ID of the asset.
+
+            try
+            {
+                // Get File Version Analysis Security
+                FileAnalysis result = apiInstance.GetFileAnalysisSecurity(fileId, versionId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesApi.GetFileAnalysisSecurity: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetFileAnalysisSecurityWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get File Version Analysis Security
+    ApiResponse<FileAnalysis> response = apiInstance.GetFileAnalysisSecurityWithHttpInfo(fileId, versionId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.GetFileAnalysisSecurityWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** | Must be a valid file ID. |  |
+| **versionId** | **int** | Version ID of the asset. |  |
+
+### Return type
+
+[**FileAnalysis**](FileAnalysis.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single FileAnalysis object. |  -  |
+| **404** | Error response when trying to show information about a non-existent file. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getfileanalysisstandard"></a>
+# **GetFileAnalysisStandard**
+> FileAnalysis GetFileAnalysisStandard (string fileId, int versionId)
+
+Get File Version Analysis Standard
+
+Get the standard performance analysis for the uploaded assets of an avatar
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetFileAnalysisStandardExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new FilesApi(config);
+            var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
+            var versionId = 1;  // int | Version ID of the asset.
+
+            try
+            {
+                // Get File Version Analysis Standard
+                FileAnalysis result = apiInstance.GetFileAnalysisStandard(fileId, versionId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesApi.GetFileAnalysisStandard: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetFileAnalysisStandardWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get File Version Analysis Standard
+    ApiResponse<FileAnalysis> response = apiInstance.GetFileAnalysisStandardWithHttpInfo(fileId, versionId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.GetFileAnalysisStandardWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **string** | Must be a valid file ID. |  |
+| **versionId** | **int** | Version ID of the asset. |  |
+
+### Return type
+
+[**FileAnalysis**](FileAnalysis.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single FileAnalysis object. |  -  |
 | **404** | Error response when trying to show information about a non-existent file. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

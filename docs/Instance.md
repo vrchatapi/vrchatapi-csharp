@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Active** | **bool** |  | [default to true]
-**AgeGate** | **string** |  | [optional] 
+**AgeGate** | **bool?** |  | [optional] 
 **CanRequestInvite** | **bool** |  | [default to true]
 **Capacity** | **int** |  | 
 **ClientNumber** | **string** | Always returns \&quot;unknown\&quot;. | 
