@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [optional] 
 **Description** | **string** |  | [optional] 
 **IsSelfAssignable** | **bool** |  | [optional] [default to false]
-**Permissions** | **List&lt;GroupRole.PermissionsEnum&gt;** |  | [optional] 
+**Permissions** | [**List&lt;GroupPermissions&gt;**](GroupPermissions.md) |  | [optional] 
 **IsManagementRole** | **bool** |  | [optional] [default to false]
 **RequiresTwoFactor** | **bool** |  | [optional] [default to false]
 **RequiresPurchase** | **bool** |  | [optional] [default to false]

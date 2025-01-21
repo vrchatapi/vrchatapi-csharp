@@ -85,6 +85,7 @@ docs/GroupMemberLimitedUser.md
 docs/GroupMemberStatus.md
 docs/GroupMyMember.md
 docs/GroupPermission.md
+docs/GroupPermissions.md
 docs/GroupPost.md
 docs/GroupPostVisibility.md
 docs/GroupPrivacy.md
@@ -311,6 +312,7 @@ src/VRChat.API/Model/GroupMemberLimitedUser.cs
 src/VRChat.API/Model/GroupMemberStatus.cs
 src/VRChat.API/Model/GroupMyMember.cs
 src/VRChat.API/Model/GroupPermission.cs
+src/VRChat.API/Model/GroupPermissions.cs
 src/VRChat.API/Model/GroupPost.cs
 src/VRChat.API/Model/GroupPostVisibility.cs
 src/VRChat.API/Model/GroupPrivacy.cs
