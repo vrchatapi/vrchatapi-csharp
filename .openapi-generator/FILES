@@ -1,6 +1,7 @@
 .gitignore
 appveyor.yml
 docs/APIConfig.md
+docs/APIConfigAccessLogsUrls.md
 docs/APIConfigAnnouncement.md
 docs/APIConfigAvatarPerfLimiter.md
 docs/APIConfigConstants.md
@@ -16,6 +17,11 @@ docs/APIConfigEvents.md
 docs/APIConfigMinSupportedClientBuildNumber.md
 docs/APIConfigOfflineAnalysis.md
 docs/APIConfigReportCategories.md
+docs/APIConfigReportOptions.md
+docs/APIConfigReportOptionsAvatar.md
+docs/APIConfigReportOptionsGroup.md
+docs/APIConfigReportOptionsUser.md
+docs/APIConfigReportOptionsWorld.md
 docs/APIConfigReportReasons.md
 docs/APIHealth.md
 docs/AccountDeletionLog.md
@@ -42,6 +48,7 @@ docs/CreateGroupRoleRequest.md
 docs/CreateInstanceRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
+docs/CurrentUserPlatformHistoryInner.md
 docs/CurrentUserPresence.md
 docs/DeploymentGroup.md
 docs/DeveloperType.md
@@ -233,6 +240,7 @@ src/VRChat.API/Client/OpenAPIDateConverter.cs
 src/VRChat.API/Client/RequestOptions.cs
 src/VRChat.API/Client/RetryConfiguration.cs
 src/VRChat.API/Model/APIConfig.cs
+src/VRChat.API/Model/APIConfigAccessLogsUrls.cs
 src/VRChat.API/Model/APIConfigAnnouncement.cs
 src/VRChat.API/Model/APIConfigAvatarPerfLimiter.cs
 src/VRChat.API/Model/APIConfigConstants.cs
@@ -248,6 +256,11 @@ src/VRChat.API/Model/APIConfigEvents.cs
 src/VRChat.API/Model/APIConfigMinSupportedClientBuildNumber.cs
 src/VRChat.API/Model/APIConfigOfflineAnalysis.cs
 src/VRChat.API/Model/APIConfigReportCategories.cs
+src/VRChat.API/Model/APIConfigReportOptions.cs
+src/VRChat.API/Model/APIConfigReportOptionsAvatar.cs
+src/VRChat.API/Model/APIConfigReportOptionsGroup.cs
+src/VRChat.API/Model/APIConfigReportOptionsUser.cs
+src/VRChat.API/Model/APIConfigReportOptionsWorld.cs
 src/VRChat.API/Model/APIConfigReportReasons.cs
 src/VRChat.API/Model/APIHealth.cs
 src/VRChat.API/Model/AbstractOpenAPISchema.cs
@@ -273,6 +286,7 @@ src/VRChat.API/Model/CreateGroupRoleRequest.cs
 src/VRChat.API/Model/CreateInstanceRequest.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
 src/VRChat.API/Model/CurrentUser.cs
+src/VRChat.API/Model/CurrentUserPlatformHistoryInner.cs
 src/VRChat.API/Model/CurrentUserPresence.cs
 src/VRChat.API/Model/DeploymentGroup.cs
 src/VRChat.API/Model/DeveloperType.cs

@@ -1,4 +1,5 @@
 # VRChat.API.Model.AgeVerificationStatus
+`verified` is obsolete.  User who have verified and are 18+ can switch to `plus18` status. 
 
 ## Properties
 

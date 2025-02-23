@@ -798,6 +798,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a single FileAnalysis object. |  -  |
+| **202** | Error response when requesting file Analysis that is not yet available. |  -  |
 | **404** | Error response when trying to show information about a non-existent file. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -897,6 +898,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a single FileAnalysis object. |  -  |
+| **202** | Error response when requesting file Analysis that is not yet available. |  -  |
 | **404** | Error response when trying to show information about a non-existent file. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -996,6 +998,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a single FileAnalysis object. |  -  |
+| **202** | Error response when requesting file Analysis that is not yet available. |  -  |
 | **404** | Error response when trying to show information about a non-existent file. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
