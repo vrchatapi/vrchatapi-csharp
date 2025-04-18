@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AvatarStats** | [**FileAnalysisAvatarStats**](FileAnalysisAvatarStats.md) |  | 
 **CreatedAt** | **DateTime** |  | [optional] 
 **FileSize** | **int** |  | 
+**PerformanceRating** | **string** |  | [optional] 
 **Success** | **bool** |  | 
 **UncompressedSize** | **int** |  | 
 

@@ -31,7 +31,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetGroupMember**](GroupsApi.md#getgroupmember) | **GET** /groups/{groupId}/members/{userId} | Get Group Member |
 | [**GetGroupMembers**](GroupsApi.md#getgroupmembers) | **GET** /groups/{groupId}/members | List Group Members |
 | [**GetGroupPermissions**](GroupsApi.md#getgrouppermissions) | **GET** /groups/{groupId}/permissions | List Group Permissions |
-| [**GetGroupPost**](GroupsApi.md#getgrouppost) | **GET** /groups/{groupId}/posts | Get posts from a Group |
+| [**GetGroupPosts**](GroupsApi.md#getgroupposts) | **GET** /groups/{groupId}/posts | Get posts from a Group |
 | [**GetGroupRequests**](GroupsApi.md#getgrouprequests) | **GET** /groups/{groupId}/requests | Get Group Join Requests |
 | [**GetGroupRoles**](GroupsApi.md#getgrouproles) | **GET** /groups/{groupId}/roles | Get Group Roles |
 | [**JoinGroup**](GroupsApi.md#joingroup) | **POST** /groups/{groupId}/join | Join Group |
@@ -2763,9 +2763,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgrouppost"></a>
-# **GetGroupPost**
-> GroupPost GetGroupPost (string groupId, int? n = null, int? offset = null, bool? publicOnly = null)
+<a name="getgroupposts"></a>
+# **GetGroupPosts**
+> GetGroupPosts200Response GetGroupPosts (string groupId, int? n = null, int? offset = null, bool? publicOnly = null)
 
 Get posts from a Group
 
@@ -2781,7 +2781,7 @@ using VRChat.API.Model;
 
 namespace Example
 {
-    public class GetGroupPostExample
+    public class GetGroupPostsExample
     {
         public static void Main()
         {
@@ -2801,12 +2801,12 @@ namespace Example
             try
             {
                 // Get posts from a Group
-                GroupPost result = apiInstance.GetGroupPost(groupId, n, offset, publicOnly);
+                GetGroupPosts200Response result = apiInstance.GetGroupPosts(groupId, n, offset, publicOnly);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupsApi.GetGroupPost: " + e.Message);
+                Debug.Print("Exception when calling GroupsApi.GetGroupPosts: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2815,21 +2815,21 @@ namespace Example
 }
 ```
 
-#### Using the GetGroupPostWithHttpInfo variant
+#### Using the GetGroupPostsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get posts from a Group
-    ApiResponse<GroupPost> response = apiInstance.GetGroupPostWithHttpInfo(groupId, n, offset, publicOnly);
+    ApiResponse<GetGroupPosts200Response> response = apiInstance.GetGroupPostsWithHttpInfo(groupId, n, offset, publicOnly);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling GroupsApi.GetGroupPostWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GroupsApi.GetGroupPostsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -2846,7 +2846,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**GroupPost**](GroupPost.md)
+[**GetGroupPosts200Response**](GetGroupPosts200Response.md)
 
 ### Authorization
 
@@ -2861,7 +2861,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a GroupPost object. |  -  |
+| **200** | Returns a GroupPost Array. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

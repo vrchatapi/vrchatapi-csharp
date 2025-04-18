@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **Bio** | **string** |  | 
 **BioLinks** | **List&lt;string&gt;** |   | 
 **CurrentAvatar** | **string** |  | 
-**CurrentAvatarAssetUrl** | **string** |  | 
 **CurrentAvatarImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
 **CurrentAvatarThumbnailImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
 **CurrentAvatarTags** | **List&lt;string&gt;** |  | 

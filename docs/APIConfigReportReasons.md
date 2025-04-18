@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Billing** | [**ReportReason**](ReportReason.md) |  | 
 **Botting** | [**ReportReason**](ReportReason.md) |  | 
 **Cancellation** | [**ReportReason**](ReportReason.md) |  | 
+**Copyright** | [**ReportReason**](ReportReason.md) |  | [optional] 
+**Fraud** | [**ReportReason**](ReportReason.md) |  | [optional] 
 **Gore** | [**ReportReason**](ReportReason.md) |  | 
 **Hacking** | [**ReportReason**](ReportReason.md) |  | 
 **Harassing** | [**ReportReason**](ReportReason.md) |  | 
@@ -22,6 +24,7 @@ Name | Type | Description | Notes
 **Security** | [**ReportReason**](ReportReason.md) |  | 
 **Service** | [**ReportReason**](ReportReason.md) |  | 
 **Sexual** | [**ReportReason**](ReportReason.md) |  | 
+**Technical** | [**ReportReason**](ReportReason.md) |  | [optional] 
 **Threatening** | [**ReportReason**](ReportReason.md) |  | 
 **Visuals** | [**ReportReason**](ReportReason.md) |  | 
 

@@ -6,8 +6,12 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 |--------|--------------|-------------|
 | [**CreateAvatar**](AvatarsApi.md#createavatar) | **POST** /avatars | Create Avatar |
 | [**DeleteAvatar**](AvatarsApi.md#deleteavatar) | **DELETE** /avatars/{avatarId} | Delete Avatar |
+| [**DeleteImpostor**](AvatarsApi.md#deleteimpostor) | **DELETE** /avatars/{avatarId}/impostor | Delete generated Impostor |
+| [**EnqueueImpostor**](AvatarsApi.md#enqueueimpostor) | **POST** /avatars/{avatarId}/impostor/enqueue | Enqueue Impostor generation |
 | [**GetAvatar**](AvatarsApi.md#getavatar) | **GET** /avatars/{avatarId} | Get Avatar |
 | [**GetFavoritedAvatars**](AvatarsApi.md#getfavoritedavatars) | **GET** /avatars/favorites | List Favorited Avatars |
+| [**GetImpostorQueueStats**](AvatarsApi.md#getimpostorqueuestats) | **GET** /avatars/impostor/queue/stats | Get Impostor Queue Stats |
+| [**GetLicensedAvatars**](AvatarsApi.md#getlicensedavatars) | **GET** /avatars/licensed | List Licensed Avatars |
 | [**GetOwnAvatar**](AvatarsApi.md#getownavatar) | **GET** /users/{userId}/avatar | Get Own Avatar |
 | [**SearchAvatars**](AvatarsApi.md#searchavatars) | **GET** /avatars | Search Avatars |
 | [**SelectAvatar**](AvatarsApi.md#selectavatar) | **PUT** /avatars/{avatarId}/select | Select Avatar |
@@ -204,6 +208,198 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a single Avatar object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to show information about a non-existent avatar. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteimpostor"></a>
+# **DeleteImpostor**
+> void DeleteImpostor (string avatarId)
+
+Delete generated Impostor
+
+Delete generated Impostor for that avatar.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class DeleteImpostorExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AvatarsApi(config);
+            var avatarId = "avatarId_example";  // string | Must be a valid avatar ID.
+
+            try
+            {
+                // Delete generated Impostor
+                apiInstance.DeleteImpostor(avatarId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AvatarsApi.DeleteImpostor: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteImpostorWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete generated Impostor
+    apiInstance.DeleteImpostorWithHttpInfo(avatarId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AvatarsApi.DeleteImpostorWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **avatarId** | **string** | Must be a valid avatar ID. |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Impostors generated for that avatar are deleted. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to show information about a non-existent avatar. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="enqueueimpostor"></a>
+# **EnqueueImpostor**
+> ServiceStatus EnqueueImpostor (string avatarId)
+
+Enqueue Impostor generation
+
+Enqueue Impostor generation for that avatar.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class EnqueueImpostorExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AvatarsApi(config);
+            var avatarId = "avatarId_example";  // string | Must be a valid avatar ID.
+
+            try
+            {
+                // Enqueue Impostor generation
+                ServiceStatus result = apiInstance.EnqueueImpostor(avatarId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AvatarsApi.EnqueueImpostor: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the EnqueueImpostorWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Enqueue Impostor generation
+    ApiResponse<ServiceStatus> response = apiInstance.EnqueueImpostorWithHttpInfo(avatarId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AvatarsApi.EnqueueImpostorWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **avatarId** | **string** | Must be a valid avatar ID. |  |
+
+### Return type
+
+[**ServiceStatus**](ServiceStatus.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a Service Status. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent avatar. |  -  |
 
@@ -426,6 +622,197 @@ catch (ApiException e)
 | **200** | Returns a list of Avatar objects. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **403** | Error response when trying to see favourited avatars of another user without sufficient admin permissions. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getimpostorqueuestats"></a>
+# **GetImpostorQueueStats**
+> ServiceQueueStats GetImpostorQueueStats ()
+
+Get Impostor Queue Stats
+
+Gets service stats for queued impostor.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetImpostorQueueStatsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AvatarsApi(config);
+
+            try
+            {
+                // Get Impostor Queue Stats
+                ServiceQueueStats result = apiInstance.GetImpostorQueueStats();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AvatarsApi.GetImpostorQueueStats: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetImpostorQueueStatsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Impostor Queue Stats
+    ApiResponse<ServiceQueueStats> response = apiInstance.GetImpostorQueueStatsWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AvatarsApi.GetImpostorQueueStatsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ServiceQueueStats**](ServiceQueueStats.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a Service Queue Stats. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getlicensedavatars"></a>
+# **GetLicensedAvatars**
+> List&lt;Avatar&gt; GetLicensedAvatars (int? n = null, int? offset = null)
+
+List Licensed Avatars
+
+List licensed avatars.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetLicensedAvatarsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AvatarsApi(config);
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+
+            try
+            {
+                // List Licensed Avatars
+                List<Avatar> result = apiInstance.GetLicensedAvatars(n, offset);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AvatarsApi.GetLicensedAvatars: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetLicensedAvatarsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Licensed Avatars
+    ApiResponse<List<Avatar>> response = apiInstance.GetLicensedAvatarsWithHttpInfo(n, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AvatarsApi.GetLicensedAvatarsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+
+### Return type
+
+[**List&lt;Avatar&gt;**](Avatar.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of Avatar objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

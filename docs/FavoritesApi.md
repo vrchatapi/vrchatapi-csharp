@@ -6,7 +6,6 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 |--------|--------------|-------------|
 | [**AddFavorite**](FavoritesApi.md#addfavorite) | **POST** /favorites | Add Favorite |
 | [**ClearFavoriteGroup**](FavoritesApi.md#clearfavoritegroup) | **DELETE** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Clear Favorite Group |
-| [**GetFavorite**](FavoritesApi.md#getfavorite) | **GET** /favorites/{favoriteId} | Show Favorite |
 | [**GetFavoriteGroup**](FavoritesApi.md#getfavoritegroup) | **GET** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Show Favorite Group |
 | [**GetFavoriteGroups**](FavoritesApi.md#getfavoritegroups) | **GET** /favorite/groups | List Favorite Groups |
 | [**GetFavoriteLimits**](FavoritesApi.md#getfavoritelimits) | **GET** /auth/user/favoritelimits | Get Favorite Limits |
@@ -209,104 +208,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success response after clearing a favorite group. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getfavorite"></a>
-# **GetFavorite**
-> Favorite GetFavorite (string favoriteId)
-
-Show Favorite
-
-Return information about a specific Favorite.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using VRChat.API.Api;
-using VRChat.API.Client;
-using VRChat.API.Model;
-
-namespace Example
-{
-    public class GetFavoriteExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
-            // Configure API key authorization: authCookie
-            config.AddApiKey("auth", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("auth", "Bearer");
-
-            var apiInstance = new FavoritesApi(config);
-            var favoriteId = "favoriteId_example";  // string | Must be a valid favorite ID.
-
-            try
-            {
-                // Show Favorite
-                Favorite result = apiInstance.GetFavorite(favoriteId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling FavoritesApi.GetFavorite: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetFavoriteWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Show Favorite
-    ApiResponse<Favorite> response = apiInstance.GetFavoriteWithHttpInfo(favoriteId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FavoritesApi.GetFavoriteWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **favoriteId** | **string** | Must be a valid favorite ID. |  |
-
-### Return type
-
-[**Favorite**](Favorite.md)
-
-### Authorization
-
-[authCookie](../README.md#authCookie)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns a single Favorite object. |  -  |
-| **401** | Error response due to missing auth cookie. |  -  |
-| **404** | Error response when trying to show information about a non-existent favorite. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

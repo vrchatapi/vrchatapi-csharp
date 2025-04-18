@@ -4,7 +4,9 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**CheckUserPersistenceExists**](WorldsApi.md#checkuserpersistenceexists) | **GET** /users/{userId}/{worldId}/persist/exists | Check User Persistence Exists |
 | [**CreateWorld**](WorldsApi.md#createworld) | **POST** /worlds | Create World |
+| [**DeleteUserPersistence**](WorldsApi.md#deleteuserpersistence) | **DELETE** /users/{userId}/{worldId}/persist | Delete User Persistence |
 | [**DeleteWorld**](WorldsApi.md#deleteworld) | **DELETE** /worlds/{worldId} | Delete World |
 | [**GetActiveWorlds**](WorldsApi.md#getactiveworlds) | **GET** /worlds/active | List Active Worlds |
 | [**GetFavoritedWorlds**](WorldsApi.md#getfavoritedworlds) | **GET** /worlds/favorites | List Favorited Worlds |
@@ -17,6 +19,102 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**SearchWorlds**](WorldsApi.md#searchworlds) | **GET** /worlds | Search All Worlds |
 | [**UnpublishWorld**](WorldsApi.md#unpublishworld) | **DELETE** /worlds/{worldId}/publish | Unpublish World |
 | [**UpdateWorld**](WorldsApi.md#updateworld) | **PUT** /worlds/{worldId} | Update World |
+
+<a name="checkuserpersistenceexists"></a>
+# **CheckUserPersistenceExists**
+> void CheckUserPersistenceExists (string userId, string worldId)
+
+Check User Persistence Exists
+
+Checks whether the user has persistence data for a given world
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class CheckUserPersistenceExistsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new WorldsApi(config);
+            var userId = "userId_example";  // string | Must be a valid user ID.
+            var worldId = "worldId_example";  // string | Must be a valid world ID.
+
+            try
+            {
+                // Check User Persistence Exists
+                apiInstance.CheckUserPersistenceExists(userId, worldId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling WorldsApi.CheckUserPersistenceExists: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CheckUserPersistenceExistsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Check User Persistence Exists
+    apiInstance.CheckUserPersistenceExistsWithHttpInfo(userId, worldId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.CheckUserPersistenceExistsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+| **worldId** | **string** | Must be a valid world ID. |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The user has persistence data for the given world. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | The user does not have persistence data for the given world. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="createworld"></a>
 # **CreateWorld**
@@ -108,6 +206,102 @@ No authorization required
 | **200** | Returns a single World object. |  -  |
 | **400** | Error response when trying create a world without having the neccesary Trust rank yet. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteuserpersistence"></a>
+# **DeleteUserPersistence**
+> void DeleteUserPersistence (string userId, string worldId)
+
+Delete User Persistence
+
+Deletes the user's persistence data for a given world
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class DeleteUserPersistenceExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new WorldsApi(config);
+            var userId = "userId_example";  // string | Must be a valid user ID.
+            var worldId = "worldId_example";  // string | Must be a valid world ID.
+
+            try
+            {
+                // Delete User Persistence
+                apiInstance.DeleteUserPersistence(userId, worldId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling WorldsApi.DeleteUserPersistence: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteUserPersistenceWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete User Persistence
+    apiInstance.DeleteUserPersistenceWithHttpInfo(userId, worldId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorldsApi.DeleteUserPersistenceWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+| **worldId** | **string** | Must be a valid world ID. |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The user&#39;s persistence data for the given world is deleted. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | The user does not have persistence data for the given world. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

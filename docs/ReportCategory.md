@@ -5,6 +5,8 @@ A category used for reporting content
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Description** | **string** | The description of the report category | [optional] 
+**Title** | **string** | The title of the report category | [optional] 
 **Text** | **string** | The label of the report category | 
 **Tooltip** | **string** | The tooltip that describes the category | 
 
