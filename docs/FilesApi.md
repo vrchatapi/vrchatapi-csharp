@@ -17,6 +17,9 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetFileDataUploadStatus**](FilesApi.md#getfiledatauploadstatus) | **GET** /file/{fileId}/{versionId}/{fileType}/status | Check FileData Upload Status |
 | [**GetFiles**](FilesApi.md#getfiles) | **GET** /files | List Files |
 | [**StartFileDataUpload**](FilesApi.md#startfiledataupload) | **PUT** /file/{fileId}/{versionId}/{fileType}/start | Start FileData Upload |
+| [**UploadGalleryImage**](FilesApi.md#uploadgalleryimage) | **POST** /gallery | Upload gallery image |
+| [**UploadIcon**](FilesApi.md#uploadicon) | **POST** /icon | Upload icon |
+| [**UploadImage**](FilesApi.md#uploadimage) | **POST** /file/image | Upload gallery image, icon, emoji or sticker |
 
 <a name="createfile"></a>
 # **CreateFile**
@@ -411,7 +414,7 @@ catch (ApiException e)
 
 <a name="downloadfileversion"></a>
 # **DownloadFileVersion**
-> void DownloadFileVersion (string fileId, int versionId)
+> System.IO.Stream DownloadFileVersion (string fileId, int versionId)
 
 Download File Version
 
@@ -445,7 +448,8 @@ namespace Example
             try
             {
                 // Download File Version
-                apiInstance.DownloadFileVersion(fileId, versionId);
+                System.IO.Stream result = apiInstance.DownloadFileVersion(fileId, versionId);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -465,7 +469,10 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Download File Version
-    apiInstance.DownloadFileVersionWithHttpInfo(fileId, versionId);
+    ApiResponse<System.IO.Stream> response = apiInstance.DownloadFileVersionWithHttpInfo(fileId, versionId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
@@ -484,7 +491,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+**System.IO.Stream**
 
 ### Authorization
 
@@ -493,7 +500,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: image/*, application/json
 
 
 ### HTTP response details
@@ -1305,6 +1312,304 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | See [https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html](AWS REST docs - PUT Object) |  -  |
 | **400** | Error response when trying to start an upload against a FileVersion that is already marked as  &#x60;complete&#x60;. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="uploadgalleryimage"></a>
+# **UploadGalleryImage**
+> File UploadGalleryImage (System.IO.Stream file)
+
+Upload gallery image
+
+Upload a gallery image
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class UploadGalleryImageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new FilesApi(config);
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+
+            try
+            {
+                // Upload gallery image
+                File result = apiInstance.UploadGalleryImage(file);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesApi.UploadGalleryImage: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UploadGalleryImageWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Upload gallery image
+    ApiResponse<File> response = apiInstance.UploadGalleryImageWithHttpInfo(file);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.UploadGalleryImageWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **file** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single File object. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="uploadicon"></a>
+# **UploadIcon**
+> File UploadIcon (System.IO.Stream file)
+
+Upload icon
+
+Upload an icon
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class UploadIconExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new FilesApi(config);
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+
+            try
+            {
+                // Upload icon
+                File result = apiInstance.UploadIcon(file);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesApi.UploadIcon: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UploadIconWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Upload icon
+    ApiResponse<File> response = apiInstance.UploadIconWithHttpInfo(file);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.UploadIconWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **file** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single File object. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="uploadimage"></a>
+# **UploadImage**
+> File UploadImage (System.IO.Stream file, string tag, int? frames = null, int? framesOverTime = null, string animationStyle = null, string maskTag = null)
+
+Upload gallery image, icon, emoji or sticker
+
+Upload an image, which can be an icon, gallery image, sticker or emoji
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class UploadImageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new FilesApi(config);
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            var tag = "tag_example";  // string | Needs to be either icon, gallery, sticker, emoji, or emojianimated
+            var frames = 56;  // int? | Required for emojianimated. Total number of frames to be animated (2-64) (optional) 
+            var framesOverTime = 56;  // int? | Required for emojianimated. Animation frames per second (1-64) (optional) 
+            var animationStyle = "animationStyle_example";  // string | Animation style for sticker, required for emoji. (optional) 
+            var maskTag = "maskTag_example";  // string | Mask of the sticker, optional for emoji. (optional) 
+
+            try
+            {
+                // Upload gallery image, icon, emoji or sticker
+                File result = apiInstance.UploadImage(file, tag, frames, framesOverTime, animationStyle, maskTag);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesApi.UploadImage: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UploadImageWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Upload gallery image, icon, emoji or sticker
+    ApiResponse<File> response = apiInstance.UploadImageWithHttpInfo(file, tag, frames, framesOverTime, animationStyle, maskTag);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.UploadImageWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **file** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **tag** | **string** | Needs to be either icon, gallery, sticker, emoji, or emojianimated |  |
+| **frames** | **int?** | Required for emojianimated. Total number of frames to be animated (2-64) | [optional]  |
+| **framesOverTime** | **int?** | Required for emojianimated. Animation frames per second (1-64) | [optional]  |
+| **animationStyle** | **string** | Animation style for sticker, required for emoji. | [optional]  |
+| **maskTag** | **string** | Mask of the sticker, optional for emoji. | [optional]  |
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single File object. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

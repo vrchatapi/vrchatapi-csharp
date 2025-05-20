@@ -30,6 +30,7 @@ docs/AddGroupGalleryImageRequest.md
 docs/AgeVerificationStatus.md
 docs/AuthenticationApi.md
 docs/Avatar.md
+docs/AvatarPublishedListingsInner.md
 docs/AvatarStyles.md
 docs/AvatarUnityPackageUrlObject.md
 docs/AvatarsApi.md
@@ -52,6 +53,7 @@ docs/CurrentUser.md
 docs/CurrentUserPlatformHistoryInner.md
 docs/CurrentUserPresence.md
 docs/DeveloperType.md
+docs/Disable2FAResult.md
 docs/DynamicContentRow.md
 docs/EconomyApi.md
 docs/Error.md
@@ -99,6 +101,8 @@ docs/GroupPostVisibility.md
 docs/GroupPrivacy.md
 docs/GroupRole.md
 docs/GroupRoleTemplate.md
+docs/GroupRoleTemplateValues.md
+docs/GroupRoleTemplateValuesRoles.md
 docs/GroupSearchSort.md
 docs/GroupUserVisibility.md
 docs/GroupsApi.md
@@ -108,6 +112,7 @@ docs/InfoPushDataArticle.md
 docs/InfoPushDataArticleContent.md
 docs/InfoPushDataClickable.md
 docs/Instance.md
+docs/InstanceContentSettings.md
 docs/InstancePlatforms.md
 docs/InstanceRegion.md
 docs/InstanceShortNameResponse.md
@@ -143,6 +148,7 @@ docs/NotificationsApi.md
 docs/OrderOption.md
 docs/PaginatedGroupAuditLogEntryList.md
 docs/PastDisplayName.md
+docs/Pending2FAResult.md
 docs/PerformanceLimiterInfo.md
 docs/PerformanceRatings.md
 docs/Permission.md
@@ -160,6 +166,7 @@ docs/ProductListingType.md
 docs/ProductListingVariant.md
 docs/ProductType.md
 docs/Region.md
+docs/RegisterUserAccountRequest.md
 docs/ReleaseStatus.md
 docs/ReportCategory.md
 docs/ReportReason.md
@@ -186,6 +193,8 @@ docs/TransactionSteamInfo.md
 docs/TransactionSteamWalletInfo.md
 docs/TwoFactorAuthCode.md
 docs/TwoFactorEmailCode.md
+docs/TwoFactorRecoveryCodes.md
+docs/TwoFactorRecoveryCodesOtpInner.md
 docs/UnityPackage.md
 docs/UpdateAvatarRequest.md
 docs/UpdateFavoriteGroupRequest.md
@@ -277,6 +286,7 @@ src/VRChat.API/Model/AddFavoriteRequest.cs
 src/VRChat.API/Model/AddGroupGalleryImageRequest.cs
 src/VRChat.API/Model/AgeVerificationStatus.cs
 src/VRChat.API/Model/Avatar.cs
+src/VRChat.API/Model/AvatarPublishedListingsInner.cs
 src/VRChat.API/Model/AvatarStyles.cs
 src/VRChat.API/Model/AvatarUnityPackageUrlObject.cs
 src/VRChat.API/Model/Badge.cs
@@ -298,6 +308,7 @@ src/VRChat.API/Model/CurrentUser.cs
 src/VRChat.API/Model/CurrentUserPlatformHistoryInner.cs
 src/VRChat.API/Model/CurrentUserPresence.cs
 src/VRChat.API/Model/DeveloperType.cs
+src/VRChat.API/Model/Disable2FAResult.cs
 src/VRChat.API/Model/DynamicContentRow.cs
 src/VRChat.API/Model/Error.cs
 src/VRChat.API/Model/Favorite.cs
@@ -341,6 +352,8 @@ src/VRChat.API/Model/GroupPostVisibility.cs
 src/VRChat.API/Model/GroupPrivacy.cs
 src/VRChat.API/Model/GroupRole.cs
 src/VRChat.API/Model/GroupRoleTemplate.cs
+src/VRChat.API/Model/GroupRoleTemplateValues.cs
+src/VRChat.API/Model/GroupRoleTemplateValuesRoles.cs
 src/VRChat.API/Model/GroupSearchSort.cs
 src/VRChat.API/Model/GroupUserVisibility.cs
 src/VRChat.API/Model/InfoPush.cs
@@ -349,6 +362,7 @@ src/VRChat.API/Model/InfoPushDataArticle.cs
 src/VRChat.API/Model/InfoPushDataArticleContent.cs
 src/VRChat.API/Model/InfoPushDataClickable.cs
 src/VRChat.API/Model/Instance.cs
+src/VRChat.API/Model/InstanceContentSettings.cs
 src/VRChat.API/Model/InstancePlatforms.cs
 src/VRChat.API/Model/InstanceRegion.cs
 src/VRChat.API/Model/InstanceShortNameResponse.cs
@@ -380,6 +394,7 @@ src/VRChat.API/Model/NotificationType.cs
 src/VRChat.API/Model/OrderOption.cs
 src/VRChat.API/Model/PaginatedGroupAuditLogEntryList.cs
 src/VRChat.API/Model/PastDisplayName.cs
+src/VRChat.API/Model/Pending2FAResult.cs
 src/VRChat.API/Model/PerformanceLimiterInfo.cs
 src/VRChat.API/Model/PerformanceRatings.cs
 src/VRChat.API/Model/Permission.cs
@@ -394,6 +409,7 @@ src/VRChat.API/Model/ProductListingType.cs
 src/VRChat.API/Model/ProductListingVariant.cs
 src/VRChat.API/Model/ProductType.cs
 src/VRChat.API/Model/Region.cs
+src/VRChat.API/Model/RegisterUserAccountRequest.cs
 src/VRChat.API/Model/ReleaseStatus.cs
 src/VRChat.API/Model/ReportCategory.cs
 src/VRChat.API/Model/ReportReason.cs
@@ -419,6 +435,8 @@ src/VRChat.API/Model/TransactionSteamInfo.cs
 src/VRChat.API/Model/TransactionSteamWalletInfo.cs
 src/VRChat.API/Model/TwoFactorAuthCode.cs
 src/VRChat.API/Model/TwoFactorEmailCode.cs
+src/VRChat.API/Model/TwoFactorRecoveryCodes.cs
+src/VRChat.API/Model/TwoFactorRecoveryCodesOtpInner.cs
 src/VRChat.API/Model/UnityPackage.cs
 src/VRChat.API/Model/UpdateAvatarRequest.cs
 src/VRChat.API/Model/UpdateFavoriteGroupRequest.cs

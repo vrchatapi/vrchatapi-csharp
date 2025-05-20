@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AnimationStyle** | **string** |  | [optional] 
+**MaskTag** | **string** |  | [optional] 
 **Extension** | **string** |  | 
 **Id** | **string** |  | 
 **MimeType** | **MIMEType** |  | 

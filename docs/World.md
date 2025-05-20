@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Capacity** | **int** |  | 
 **RecommendedCapacity** | **int** |  | 
 **CreatedAt** | **DateTime** |  | 
+**DefaultContentSettings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
 **Description** | **string** |  | 
 **Favorites** | **int** |  | [optional] [default to 0]
 **Featured** | **bool** |  | [default to false]
@@ -27,6 +28,7 @@ Name | Type | Description | Notes
 **PublicOccupants** | **int** | Will always be &#x60;0&#x60; when unauthenticated. | [optional] [default to 0]
 **PublicationDate** | **string** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
+**StoreId** | **string** |  | [optional] 
 **Tags** | **List&lt;string&gt;** |   | 
 **ThumbnailImageUrl** | **string** |  | 
 **UnityPackages** | [**List&lt;UnityPackage&gt;**](UnityPackage.md) | Empty if unauthenticated. | [optional] 

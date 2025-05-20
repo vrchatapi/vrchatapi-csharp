@@ -33,6 +33,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetGroupPermissions**](GroupsApi.md#getgrouppermissions) | **GET** /groups/{groupId}/permissions | List Group Permissions |
 | [**GetGroupPosts**](GroupsApi.md#getgroupposts) | **GET** /groups/{groupId}/posts | Get posts from a Group |
 | [**GetGroupRequests**](GroupsApi.md#getgrouprequests) | **GET** /groups/{groupId}/requests | Get Group Join Requests |
+| [**GetGroupRoleTemplates**](GroupsApi.md#getgrouproletemplates) | **GET** /groups/roleTemplates | Get Group Role Templates |
 | [**GetGroupRoles**](GroupsApi.md#getgrouproles) | **GET** /groups/{groupId}/roles | Get Group Roles |
 | [**JoinGroup**](GroupsApi.md#joingroup) | **POST** /groups/{groupId}/join | Join Group |
 | [**KickGroupMember**](GroupsApi.md#kickgroupmember) | **DELETE** /groups/{groupId}/members/{userId} | Kick Group Member |
@@ -2968,6 +2969,98 @@ catch (ApiException e)
 | **400** | Bad request error response when responding to a group join request |  -  |
 | **403** | Error response when trying to perform operations on a group you are not member of. |  -  |
 | **404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getgrouproletemplates"></a>
+# **GetGroupRoleTemplates**
+> Dictionary&lt;string, GroupRoleTemplateValues&gt; GetGroupRoleTemplates ()
+
+Get Group Role Templates
+
+Obtain predefined templates for group roles
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetGroupRoleTemplatesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new GroupsApi(config);
+
+            try
+            {
+                // Get Group Role Templates
+                Dictionary<string, GroupRoleTemplateValues> result = apiInstance.GetGroupRoleTemplates();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupsApi.GetGroupRoleTemplates: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetGroupRoleTemplatesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group Role Templates
+    ApiResponse<Dictionary<string, GroupRoleTemplateValues>> response = apiInstance.GetGroupRoleTemplatesWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupRoleTemplatesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**Dictionary&lt;string, GroupRoleTemplateValues&gt;**](GroupRoleTemplateValues.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a dictionary of GroupRoleTemplate objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

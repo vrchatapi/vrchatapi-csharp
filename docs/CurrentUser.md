@@ -12,9 +12,11 @@ Name | Type | Description | Notes
 **AgeVerificationStatus** | **AgeVerificationStatus** |  | 
 **AgeVerified** | **bool** | &#x60;true&#x60; if, user is age verified (not 18+). | 
 **AllowAvatarCopying** | **bool** |  | 
+**AuthToken** | **string** | The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register) | [optional] 
 **Badges** | [**List&lt;Badge&gt;**](Badge.md) |   | [optional] 
 **Bio** | **string** |  | 
 **BioLinks** | **List&lt;string&gt;** |   | 
+**ContentFilters** | **List&lt;string&gt;** | These tags begin with &#x60;content_&#x60; and control content gating | [optional] 
 **CurrentAvatar** | **string** |  | 
 **CurrentAvatarImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
 **CurrentAvatarThumbnailImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 

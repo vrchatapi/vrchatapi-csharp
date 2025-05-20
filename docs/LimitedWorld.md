@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Capacity** | **int** |  | 
 **RecommendedCapacity** | **int** |  | [optional] 
 **CreatedAt** | **DateTime** |  | 
+**DefaultContentSettings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
 **Favorites** | **int** |  | [default to 0]
 **Visits** | **int** |  | [optional] [default to 0]
 **Heat** | **int** |  | [default to 0]
@@ -22,6 +23,7 @@ Name | Type | Description | Notes
 **PreviewYoutubeId** | **string** |  | [optional] 
 **PublicationDate** | **string** |  | 
 **ReleaseStatus** | **ReleaseStatus** |  | 
+**StoreId** | **string** |  | [optional] 
 **Tags** | **List&lt;string&gt;** |   | 
 **ThumbnailImageUrl** | **string** |  | 
 **UnityPackages** | [**List&lt;LimitedUnityPackage&gt;**](LimitedUnityPackage.md) |   | 

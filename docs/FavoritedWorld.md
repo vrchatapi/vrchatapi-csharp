@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Description** | **string** |  | 
 **RecommendedCapacity** | **int** |  | [optional] 
 **CreatedAt** | **DateTime** |  | 
+**DefaultContentSettings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
 **Favorites** | **int** |  | [default to 0]
 **FavoriteGroup** | **string** |  | 
 **FavoriteId** | **string** |  | 

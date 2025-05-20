@@ -4,14 +4,115 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**CancelPending2FA**](AuthenticationApi.md#cancelpending2fa) | **DELETE** /auth/twofactorauth/totp/pending | Cancel pending enabling of time-based 2FA codes |
 | [**CheckUserExists**](AuthenticationApi.md#checkuserexists) | **GET** /auth/exists | Check User Exists |
+| [**ConfirmEmail**](AuthenticationApi.md#confirmemail) | **GET** /auth/confirmEmail | Confirm Email |
 | [**DeleteUser**](AuthenticationApi.md#deleteuser) | **PUT** /users/{userId}/delete | Delete User |
+| [**Disable2FA**](AuthenticationApi.md#disable2fa) | **DELETE** /auth/twofactorauth | Disable 2FA |
+| [**Enable2FA**](AuthenticationApi.md#enable2fa) | **POST** /auth/twofactorauth/totp/pending | Enable time-based 2FA codes |
 | [**GetCurrentUser**](AuthenticationApi.md#getcurrentuser) | **GET** /auth/user | Login and/or Get Current User Info |
+| [**GetRecoveryCodes**](AuthenticationApi.md#getrecoverycodes) | **GET** /auth/user/twofactorauth/otp | Get 2FA Recovery codes |
 | [**Logout**](AuthenticationApi.md#logout) | **PUT** /logout | Logout |
+| [**RegisterUserAccount**](AuthenticationApi.md#registeruseraccount) | **POST** /auth/register | Register User Account |
+| [**ResendEmailConfirmation**](AuthenticationApi.md#resendemailconfirmation) | **POST** /auth/user/resendEmail | Resend Email Confirmation |
 | [**Verify2FA**](AuthenticationApi.md#verify2fa) | **POST** /auth/twofactorauth/totp/verify | Verify 2FA code |
 | [**Verify2FAEmailCode**](AuthenticationApi.md#verify2faemailcode) | **POST** /auth/twofactorauth/emailotp/verify | Verify 2FA email code |
 | [**VerifyAuthToken**](AuthenticationApi.md#verifyauthtoken) | **GET** /auth | Verify Auth Token |
+| [**VerifyLoginPlace**](AuthenticationApi.md#verifyloginplace) | **GET** /auth/verifyLoginPlace | Verify Login Place |
+| [**VerifyPending2FA**](AuthenticationApi.md#verifypending2fa) | **POST** /auth/twofactorauth/totp/pending/verify | Verify Pending 2FA code |
 | [**VerifyRecoveryCode**](AuthenticationApi.md#verifyrecoverycode) | **POST** /auth/twofactorauth/otp/verify | Verify 2FA code with Recovery code |
+
+<a name="cancelpending2fa"></a>
+# **CancelPending2FA**
+> Disable2FAResult CancelPending2FA ()
+
+Cancel pending enabling of time-based 2FA codes
+
+Cancels the sequence for enabling time-based 2FA.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class CancelPending2FAExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AuthenticationApi(config);
+
+            try
+            {
+                // Cancel pending enabling of time-based 2FA codes
+                Disable2FAResult result = apiInstance.CancelPending2FA();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.CancelPending2FA: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CancelPending2FAWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Cancel pending enabling of time-based 2FA codes
+    ApiResponse<Disable2FAResult> response = apiInstance.CancelPending2FAWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AuthenticationApi.CancelPending2FAWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**Disable2FAResult**](Disable2FAResult.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="checkuserexists"></a>
 # **CheckUserExists**
@@ -111,6 +212,95 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="confirmemail"></a>
+# **ConfirmEmail**
+> void ConfirmEmail (string id, string verifyEmail)
+
+Confirm Email
+
+Confirms the email address for a user
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class ConfirmEmailExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new AuthenticationApi(config);
+            var id = usr_00000000-0000-0000-0000-000000000000;  // string | Target user for which to verify email.
+            var verifyEmail = eml_00000000-0000-0000-0000-000000000000;  // string | Token to verify email.
+
+            try
+            {
+                // Confirm Email
+                apiInstance.ConfirmEmail(id, verifyEmail);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.ConfirmEmail: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ConfirmEmailWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Confirm Email
+    apiInstance.ConfirmEmailWithHttpInfo(id, verifyEmail);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AuthenticationApi.ConfirmEmailWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | Target user for which to verify email. |  |
+| **verifyEmail** | **string** | Token to verify email. |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **302** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="deleteuser"></a>
 # **DeleteUser**
 > CurrentUser DeleteUser (string userId)
@@ -189,6 +379,190 @@ catch (ApiException e)
 ### Return type
 
 [**CurrentUser**](CurrentUser.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="disable2fa"></a>
+# **Disable2FA**
+> Disable2FAResult Disable2FA ()
+
+Disable 2FA
+
+Disables 2FA for the currently logged in account
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class Disable2FAExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AuthenticationApi(config);
+
+            try
+            {
+                // Disable 2FA
+                Disable2FAResult result = apiInstance.Disable2FA();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.Disable2FA: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the Disable2FAWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Disable 2FA
+    ApiResponse<Disable2FAResult> response = apiInstance.Disable2FAWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AuthenticationApi.Disable2FAWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**Disable2FAResult**](Disable2FAResult.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="enable2fa"></a>
+# **Enable2FA**
+> Pending2FAResult Enable2FA ()
+
+Enable time-based 2FA codes
+
+Begins the sequence for enabling time-based 2FA.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class Enable2FAExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AuthenticationApi(config);
+
+            try
+            {
+                // Enable time-based 2FA codes
+                Pending2FAResult result = apiInstance.Enable2FA();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.Enable2FA: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the Enable2FAWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Enable time-based 2FA codes
+    ApiResponse<Pending2FAResult> response = apiInstance.Enable2FAWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AuthenticationApi.Enable2FAWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**Pending2FAResult**](Pending2FAResult.md)
 
 ### Authorization
 
@@ -307,6 +681,98 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getrecoverycodes"></a>
+# **GetRecoveryCodes**
+> TwoFactorRecoveryCodes GetRecoveryCodes ()
+
+Get 2FA Recovery codes
+
+Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetRecoveryCodesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AuthenticationApi(config);
+
+            try
+            {
+                // Get 2FA Recovery codes
+                TwoFactorRecoveryCodes result = apiInstance.GetRecoveryCodes();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.GetRecoveryCodes: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetRecoveryCodesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get 2FA Recovery codes
+    ApiResponse<TwoFactorRecoveryCodes> response = apiInstance.GetRecoveryCodesWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AuthenticationApi.GetRecoveryCodesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TwoFactorRecoveryCodes**](TwoFactorRecoveryCodes.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns the two factor recovery codes |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="logout"></a>
 # **Logout**
 > Success Logout ()
@@ -395,6 +861,190 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  * Set-Cookie - Clears the &#x60;auth&#x60; cookie. <br>  * \0Set-Cookie - Clears the &#x60;age&#x60; cookie. <br>  * \0\0Set-Cookie - Clears the &#x60;tos&#x60; cookie. <br>  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="registeruseraccount"></a>
+# **RegisterUserAccount**
+> CurrentUser RegisterUserAccount (RegisterUserAccountRequest registerUserAccountRequest)
+
+Register User Account
+
+~~Register a new user account.~~  **DEPRECATED:** Automated creation of accounts has no legitimate public third-party use case, and would be in violation of ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class RegisterUserAccountExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new AuthenticationApi(config);
+            var registerUserAccountRequest = new RegisterUserAccountRequest(); // RegisterUserAccountRequest | 
+
+            try
+            {
+                // Register User Account
+                CurrentUser result = apiInstance.RegisterUserAccount(registerUserAccountRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.RegisterUserAccount: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RegisterUserAccountWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Register User Account
+    ApiResponse<CurrentUser> response = apiInstance.RegisterUserAccountWithHttpInfo(registerUserAccountRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AuthenticationApi.RegisterUserAccountWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **registerUserAccountRequest** | [**RegisterUserAccountRequest**](RegisterUserAccountRequest.md) |  |  |
+
+### Return type
+
+[**CurrentUser**](CurrentUser.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  * Set-Cookie - Successful authentication returns an &#x60;auth&#x60; cookie. <br>  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="resendemailconfirmation"></a>
+# **ResendEmailConfirmation**
+> Success ResendEmailConfirmation ()
+
+Resend Email Confirmation
+
+Requests a resend of pending email address confirmation email
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class ResendEmailConfirmationExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AuthenticationApi(config);
+
+            try
+            {
+                // Resend Email Confirmation
+                Success result = apiInstance.ResendEmailConfirmation();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.ResendEmailConfirmation: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ResendEmailConfirmationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Resend Email Confirmation
+    ApiResponse<Success> response = apiInstance.ResendEmailConfirmationWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AuthenticationApi.ResendEmailConfirmationWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -681,6 +1331,192 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns wether a provided auth token is valid or not. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="verifyloginplace"></a>
+# **VerifyLoginPlace**
+> void VerifyLoginPlace (string token, string userId = null)
+
+Verify Login Place
+
+Verifies a login attempt for a user
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class VerifyLoginPlaceExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new AuthenticationApi(config);
+            var token = "token_example";  // string | Token to verify login attempt.
+            var userId = "userId_example";  // string | Filter by UserID. (optional) 
+
+            try
+            {
+                // Verify Login Place
+                apiInstance.VerifyLoginPlace(token, userId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.VerifyLoginPlace: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the VerifyLoginPlaceWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Verify Login Place
+    apiInstance.VerifyLoginPlaceWithHttpInfo(token, userId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AuthenticationApi.VerifyLoginPlaceWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **token** | **string** | Token to verify login attempt. |  |
+| **userId** | **string** | Filter by UserID. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **302** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="verifypending2fa"></a>
+# **VerifyPending2FA**
+> Verify2FAResult VerifyPending2FA (TwoFactorAuthCode twoFactorAuthCode)
+
+Verify Pending 2FA code
+
+Finishes sequence for enabling time-based 2FA.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class VerifyPending2FAExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new AuthenticationApi(config);
+            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode | 
+
+            try
+            {
+                // Verify Pending 2FA code
+                Verify2FAResult result = apiInstance.VerifyPending2FA(twoFactorAuthCode);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AuthenticationApi.VerifyPending2FA: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the VerifyPending2FAWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Verify Pending 2FA code
+    ApiResponse<Verify2FAResult> response = apiInstance.VerifyPending2FAWithHttpInfo(twoFactorAuthCode);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AuthenticationApi.VerifyPending2FAWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  |  |
+
+### Return type
+
+[**Verify2FAResult**](Verify2FAResult.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  * Set-Cookie - Provides a &#x60;twoFactorAuth&#x60; cookie, which can be used to bypasses the 2FA requirement for future logins on the same device. <br>  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

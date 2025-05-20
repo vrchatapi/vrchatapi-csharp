@@ -8,9 +8,12 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetInviteMessages**](InviteApi.md#getinvitemessages) | **GET** /message/{userId}/{messageType} | List Invite Messages |
 | [**InviteMyselfTo**](InviteApi.md#invitemyselfto) | **POST** /invite/myself/to/{worldId}:{instanceId} | Invite Myself To Instance |
 | [**InviteUser**](InviteApi.md#inviteuser) | **POST** /invite/{userId} | Invite User |
+| [**InviteUserWithPhoto**](InviteApi.md#inviteuserwithphoto) | **POST** /invite/{userId}/photo | Invite User with photo |
 | [**RequestInvite**](InviteApi.md#requestinvite) | **POST** /requestInvite/{userId} | Request Invite |
+| [**RequestInviteWithPhoto**](InviteApi.md#requestinvitewithphoto) | **POST** /requestInvite/{userId}/photo | Request Invite with photo |
 | [**ResetInviteMessage**](InviteApi.md#resetinvitemessage) | **DELETE** /message/{userId}/{messageType}/{slot} | Reset Invite Message |
 | [**RespondInvite**](InviteApi.md#respondinvite) | **POST** /invite/{notificationId}/response | Respond Invite |
+| [**RespondInviteWithPhoto**](InviteApi.md#respondinvitewithphoto) | **POST** /invite/{notificationId}/response/photo | Respond Invite with photo |
 | [**UpdateInviteMessage**](InviteApi.md#updateinvitemessage) | **PUT** /message/{userId}/{messageType}/{slot} | Update Invite Message |
 
 <a name="getinvitemessage"></a>
@@ -415,6 +418,107 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="inviteuserwithphoto"></a>
+# **InviteUserWithPhoto**
+> SentNotification InviteUserWithPhoto (string userId, System.IO.Stream image, InviteRequest data)
+
+Invite User with photo
+
+Sends an photo invite to a user. Returns the Notification of type `invite` that was sent.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class InviteUserWithPhotoExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new InviteApi(config);
+            var userId = "userId_example";  // string | Must be a valid user ID.
+            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            var data = new InviteRequest(); // InviteRequest | 
+
+            try
+            {
+                // Invite User with photo
+                SentNotification result = apiInstance.InviteUserWithPhoto(userId, image, data);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InviteApi.InviteUserWithPhoto: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the InviteUserWithPhotoWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Invite User with photo
+    ApiResponse<SentNotification> response = apiInstance.InviteUserWithPhotoWithHttpInfo(userId, image, data);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InviteApi.InviteUserWithPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+| **image** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **data** | [**InviteRequest**](InviteRequest.md) |  |  |
+
+### Return type
+
+[**SentNotification**](SentNotification.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single SentNotifcation object. |  -  |
+| **403** | Error response when trying to invite someome whom you are not friends with. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="requestinvite"></a>
 # **RequestInvite**
 > Notification RequestInvite (string userId, RequestInviteRequest requestInviteRequest = null)
@@ -503,6 +607,107 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single Notifcation object. |  -  |
+| **403** | Error response when trying to invite someome whom you are not friends with. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="requestinvitewithphoto"></a>
+# **RequestInviteWithPhoto**
+> Notification RequestInviteWithPhoto (string userId, System.IO.Stream image, RequestInviteRequest data)
+
+Request Invite with photo
+
+Requests with photo an invite from a user. Returns the Notification of type `requestInvite` that was sent.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class RequestInviteWithPhotoExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new InviteApi(config);
+            var userId = "userId_example";  // string | Must be a valid user ID.
+            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            var data = new RequestInviteRequest(); // RequestInviteRequest | 
+
+            try
+            {
+                // Request Invite with photo
+                Notification result = apiInstance.RequestInviteWithPhoto(userId, image, data);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InviteApi.RequestInviteWithPhoto: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RequestInviteWithPhotoWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Request Invite with photo
+    ApiResponse<Notification> response = apiInstance.RequestInviteWithPhotoWithHttpInfo(userId, image, data);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InviteApi.RequestInviteWithPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+| **image** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **data** | [**RequestInviteRequest**](RequestInviteRequest.md) |  |  |
+
+### Return type
+
+[**Notification**](Notification.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 
@@ -624,7 +829,7 @@ catch (ApiException e)
 
 Respond Invite
 
-Respond to an invite request by sending a world invite to the requesting user. `:notificationId` is the ID of the requesting notification.
+Respond to an invite or invite request without accepting it. `:notificationId` is the ID of the requesting notification.  In case the notification being replied to is an invite, the `responseSlot` refers to a response message from the the `message` collection. In case the notification is an invite request, it will refer to one from the `requestResponse` collection instead.
 
 ### Example
 ```csharp
@@ -706,6 +911,107 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single Notifcation object. |  -  |
+| **400** | Error response when trying to respond to an invite and something went wrong. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="respondinvitewithphoto"></a>
+# **RespondInviteWithPhoto**
+> Notification RespondInviteWithPhoto (string notificationId, System.IO.Stream image, InviteResponse data)
+
+Respond Invite with photo
+
+Respond with photo to an invite or invite request without accepting it. `:notificationId` is the ID of the requesting notification.  In case the notification being replied to is an invite, the `responseSlot` refers to a response message from the the `message` collection. In case the notification is an invite request, it will refer to one from the `requestResponse` collection instead.'
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class RespondInviteWithPhotoExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new InviteApi(config);
+            var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
+            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            var data = new InviteResponse(); // InviteResponse | 
+
+            try
+            {
+                // Respond Invite with photo
+                Notification result = apiInstance.RespondInviteWithPhoto(notificationId, image, data);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InviteApi.RespondInviteWithPhoto: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the RespondInviteWithPhotoWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Respond Invite with photo
+    ApiResponse<Notification> response = apiInstance.RespondInviteWithPhotoWithHttpInfo(notificationId, image, data);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InviteApi.RespondInviteWithPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **notificationId** | **string** | Must be a valid notification ID. |  |
+| **image** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **data** | [**InviteResponse**](InviteResponse.md) |  |  |
+
+### Return type
+
+[**Notification**](Notification.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 

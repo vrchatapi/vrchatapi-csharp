@@ -313,7 +313,7 @@ catch (ApiException e)
 
 <a name="getfavoritegroups"></a>
 # **GetFavoriteGroups**
-> List&lt;FavoriteGroup&gt; GetFavoriteGroups (int? n = null, int? offset = null, string ownerId = null)
+> List&lt;FavoriteGroup&gt; GetFavoriteGroups (int? n = null, int? offset = null, string userId = null, string ownerId = null)
 
 List Favorite Groups
 
@@ -343,12 +343,13 @@ namespace Example
             var apiInstance = new FavoritesApi(config);
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+            var userId = "userId_example";  // string | Target user to see information on, admin-only. (optional) 
             var ownerId = "ownerId_example";  // string | The owner of whoms favorite groups to return. Must be a UserID. (optional) 
 
             try
             {
                 // List Favorite Groups
-                List<FavoriteGroup> result = apiInstance.GetFavoriteGroups(n, offset, ownerId);
+                List<FavoriteGroup> result = apiInstance.GetFavoriteGroups(n, offset, userId, ownerId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -369,7 +370,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List Favorite Groups
-    ApiResponse<List<FavoriteGroup>> response = apiInstance.GetFavoriteGroupsWithHttpInfo(n, offset, ownerId);
+    ApiResponse<List<FavoriteGroup>> response = apiInstance.GetFavoriteGroupsWithHttpInfo(n, offset, userId, ownerId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -388,6 +389,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **userId** | **string** | Target user to see information on, admin-only. | [optional]  |
 | **ownerId** | **string** | The owner of whoms favorite groups to return. Must be a UserID. | [optional]  |
 
 ### Return type

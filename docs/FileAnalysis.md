@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AvatarStats** | [**FileAnalysisAvatarStats**](FileAnalysisAvatarStats.md) |  | 
 **CreatedAt** | **DateTime** |  | [optional] 
+**EncryptionKey** | **string** |  | [optional] 
 **FileSize** | **int** |  | 
 **PerformanceRating** | **string** |  | [optional] 
 **Success** | **bool** |  | 
