@@ -136,6 +136,7 @@ docs/LimitedUser.md
 docs/LimitedUserGroups.md
 docs/LimitedWorld.md
 docs/MIMEType.md
+docs/MiscellaneousApi.md
 docs/ModerateUserRequest.md
 docs/Notification.md
 docs/NotificationDetailInvite.md
@@ -152,7 +153,6 @@ docs/Pending2FAResult.md
 docs/PerformanceLimiterInfo.md
 docs/PerformanceRatings.md
 docs/Permission.md
-docs/PermissionsApi.md
 docs/PlatformBuildInfo.md
 docs/PlayerModeration.md
 docs/PlayerModerationType.md
@@ -182,7 +182,6 @@ docs/Submission.md
 docs/Subscription.md
 docs/SubscriptionPeriod.md
 docs/Success.md
-docs/SystemApi.md
 docs/TiliaStatus.md
 docs/TiliaTOS.md
 docs/TokenBundle.md
@@ -200,6 +199,7 @@ docs/UpdateAvatarRequest.md
 docs/UpdateFavoriteGroupRequest.md
 docs/UpdateGroupGalleryRequest.md
 docs/UpdateGroupMemberRequest.md
+docs/UpdateGroupRepresentationRequest.md
 docs/UpdateGroupRequest.md
 docs/UpdateGroupRoleRequest.md
 docs/UpdateInviteMessageRequest.md
@@ -233,11 +233,10 @@ src/VRChat.API/Api/GroupsApi.cs
 src/VRChat.API/Api/InstancesApi.cs
 src/VRChat.API/Api/InviteApi.cs
 src/VRChat.API/Api/JamsApi.cs
+src/VRChat.API/Api/MiscellaneousApi.cs
 src/VRChat.API/Api/NotificationsApi.cs
-src/VRChat.API/Api/PermissionsApi.cs
 src/VRChat.API/Api/PlayermoderationApi.cs
 src/VRChat.API/Api/PrintsApi.cs
-src/VRChat.API/Api/SystemApi.cs
 src/VRChat.API/Api/UsersApi.cs
 src/VRChat.API/Api/WorldsApi.cs
 src/VRChat.API/Client/ApiClient.cs
@@ -442,6 +441,7 @@ src/VRChat.API/Model/UpdateAvatarRequest.cs
 src/VRChat.API/Model/UpdateFavoriteGroupRequest.cs
 src/VRChat.API/Model/UpdateGroupGalleryRequest.cs
 src/VRChat.API/Model/UpdateGroupMemberRequest.cs
+src/VRChat.API/Model/UpdateGroupRepresentationRequest.cs
 src/VRChat.API/Model/UpdateGroupRequest.cs
 src/VRChat.API/Model/UpdateGroupRoleRequest.cs
 src/VRChat.API/Model/UpdateInviteMessageRequest.cs

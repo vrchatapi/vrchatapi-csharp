@@ -46,6 +46,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**UpdateGroupGallery**](GroupsApi.md#updategroupgallery) | **PUT** /groups/{groupId}/galleries/{groupGalleryId} | Update Group Gallery |
 | [**UpdateGroupMember**](GroupsApi.md#updategroupmember) | **PUT** /groups/{groupId}/members/{userId} | Update Group Member |
 | [**UpdateGroupPost**](GroupsApi.md#updategrouppost) | **PUT** /groups/{groupId}/posts/{notificationId} | Edits a Group post |
+| [**UpdateGroupRepresentation**](GroupsApi.md#updategrouprepresentation) | **PUT** /groups/{groupId}/representation | Update Group Representation |
 | [**UpdateGroupRole**](GroupsApi.md#updategrouprole) | **PUT** /groups/{groupId}/roles/{groupRoleId} | Update Group Role |
 
 <a name="addgroupgalleryimage"></a>
@@ -4251,6 +4252,106 @@ catch (ApiException e)
 | **200** | Returns a GroupPost object. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **404** | Response after deleting a group post. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updategrouprepresentation"></a>
+# **UpdateGroupRepresentation**
+> Success UpdateGroupRepresentation (string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest)
+
+Update Group Representation
+
+Updates whether the user is representing the group.  When `isRepresenting` is set to `true`, this flag will be set to `false` for all other groups
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class UpdateGroupRepresentationExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new GroupsApi(config);
+            var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+            var updateGroupRepresentationRequest = new UpdateGroupRepresentationRequest(); // UpdateGroupRepresentationRequest | 
+
+            try
+            {
+                // Update Group Representation
+                Success result = apiInstance.UpdateGroupRepresentation(groupId, updateGroupRepresentationRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupsApi.UpdateGroupRepresentation: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdateGroupRepresentationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Group Representation
+    ApiResponse<Success> response = apiInstance.UpdateGroupRepresentationWithHttpInfo(groupId, updateGroupRepresentationRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.UpdateGroupRepresentationWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **updateGroupRepresentationRequest** | [**UpdateGroupRepresentationRequest**](UpdateGroupRepresentationRequest.md) |  |  |
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response after updating group representation. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response when trying to perform operations on a group you are not member of. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

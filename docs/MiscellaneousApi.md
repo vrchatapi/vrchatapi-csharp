@@ -1,16 +1,110 @@
-# VRChat.API.Api.SystemApi
+# VRChat.API.Api.MiscellaneousApi
 
 All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetCSS**](SystemApi.md#getcss) | **GET** /css/app.css | Download CSS |
-| [**GetConfig**](SystemApi.md#getconfig) | **GET** /config | Fetch API Config |
-| [**GetCurrentOnlineUsers**](SystemApi.md#getcurrentonlineusers) | **GET** /visits | Current Online Users |
-| [**GetHealth**](SystemApi.md#gethealth) | **GET** /health | Check API Health |
-| [**GetInfoPush**](SystemApi.md#getinfopush) | **GET** /infoPush | Show Information Notices |
-| [**GetJavaScript**](SystemApi.md#getjavascript) | **GET** /js/app.js | Download JavaScript |
-| [**GetSystemTime**](SystemApi.md#getsystemtime) | **GET** /time | Current System Time |
+| [**GetAssignedPermissions**](MiscellaneousApi.md#getassignedpermissions) | **GET** /auth/permissions | Get Assigned Permissions |
+| [**GetCSS**](MiscellaneousApi.md#getcss) | **GET** /css/app.css | Download CSS |
+| [**GetConfig**](MiscellaneousApi.md#getconfig) | **GET** /config | Fetch API Config |
+| [**GetCurrentOnlineUsers**](MiscellaneousApi.md#getcurrentonlineusers) | **GET** /visits | Current Online Users |
+| [**GetHealth**](MiscellaneousApi.md#gethealth) | **GET** /health | Check API Health |
+| [**GetInfoPush**](MiscellaneousApi.md#getinfopush) | **GET** /infoPush | Show Information Notices |
+| [**GetJavaScript**](MiscellaneousApi.md#getjavascript) | **GET** /js/app.js | Download JavaScript |
+| [**GetPermission**](MiscellaneousApi.md#getpermission) | **GET** /permissions/{permissionId} | Get Permission |
+| [**GetSystemTime**](MiscellaneousApi.md#getsystemtime) | **GET** /time | Current System Time |
+
+<a name="getassignedpermissions"></a>
+# **GetAssignedPermissions**
+> List&lt;Permission&gt; GetAssignedPermissions ()
+
+Get Assigned Permissions
+
+Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetAssignedPermissionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new MiscellaneousApi(config);
+
+            try
+            {
+                // Get Assigned Permissions
+                List<Permission> result = apiInstance.GetAssignedPermissions();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling MiscellaneousApi.GetAssignedPermissions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAssignedPermissionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Assigned Permissions
+    ApiResponse<List<Permission>> response = apiInstance.GetAssignedPermissionsWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MiscellaneousApi.GetAssignedPermissionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;Permission&gt;**](Permission.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of Permission objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getcss"></a>
 # **GetCSS**
@@ -36,7 +130,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(config);
+            var apiInstance = new MiscellaneousApi(config);
             var variant = "public";  // string | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)  (default to public)
             var branch = "\"main\"";  // string | Specifies which git branch the site should load frontend source code from. (optional)  (default to "main")
 
@@ -48,7 +142,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetCSS: " + e.Message);
+                Debug.Print("Exception when calling MiscellaneousApi.GetCSS: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -71,7 +165,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SystemApi.GetCSSWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MiscellaneousApi.GetCSSWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -130,7 +224,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(config);
+            var apiInstance = new MiscellaneousApi(config);
 
             try
             {
@@ -140,7 +234,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetConfig: " + e.Message);
+                Debug.Print("Exception when calling MiscellaneousApi.GetConfig: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -163,7 +257,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SystemApi.GetConfigWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MiscellaneousApi.GetConfigWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -216,7 +310,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(config);
+            var apiInstance = new MiscellaneousApi(config);
 
             try
             {
@@ -226,7 +320,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetCurrentOnlineUsers: " + e.Message);
+                Debug.Print("Exception when calling MiscellaneousApi.GetCurrentOnlineUsers: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -249,7 +343,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SystemApi.GetCurrentOnlineUsersWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MiscellaneousApi.GetCurrentOnlineUsersWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -302,7 +396,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(config);
+            var apiInstance = new MiscellaneousApi(config);
 
             try
             {
@@ -312,7 +406,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetHealth: " + e.Message);
+                Debug.Print("Exception when calling MiscellaneousApi.GetHealth: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -335,7 +429,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SystemApi.GetHealthWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MiscellaneousApi.GetHealthWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -388,7 +482,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(config);
+            var apiInstance = new MiscellaneousApi(config);
             var require = "require_example";  // string | Tags to include (comma-separated). All of the tags needs to be present. (optional) 
             var include = "include_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
 
@@ -400,7 +494,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetInfoPush: " + e.Message);
+                Debug.Print("Exception when calling MiscellaneousApi.GetInfoPush: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -423,7 +517,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SystemApi.GetInfoPushWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MiscellaneousApi.GetInfoPushWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -481,7 +575,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(config);
+            var apiInstance = new MiscellaneousApi(config);
             var variant = "public";  // string | Specifies which `variant` of the site. Public is the end-user site, while `internal` is the staff-only site with special pages for moderation and management. (optional)  (default to public)
             var branch = "\"main\"";  // string | Specifies which git branch the site should load frontend source code from. (optional)  (default to "main")
 
@@ -493,7 +587,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetJavaScript: " + e.Message);
+                Debug.Print("Exception when calling MiscellaneousApi.GetJavaScript: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -516,7 +610,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SystemApi.GetJavaScriptWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MiscellaneousApi.GetJavaScriptWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -551,6 +645,103 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getpermission"></a>
+# **GetPermission**
+> Permission GetPermission (string permissionId)
+
+Get Permission
+
+Returns a single permission. This endpoint is pretty useless, as it returns the exact same information as `/auth/permissions`.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetPermissionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new MiscellaneousApi(config);
+            var permissionId = "permissionId_example";  // string | Must be a valid permission ID.
+
+            try
+            {
+                // Get Permission
+                Permission result = apiInstance.GetPermission(permissionId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling MiscellaneousApi.GetPermission: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPermissionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Permission
+    ApiResponse<Permission> response = apiInstance.GetPermissionWithHttpInfo(permissionId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MiscellaneousApi.GetPermissionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **permissionId** | **string** | Must be a valid permission ID. |  |
+
+### Return type
+
+[**Permission**](Permission.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single Permission object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getsystemtime"></a>
 # **GetSystemTime**
 > DateTime GetSystemTime ()
@@ -575,7 +766,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new SystemApi(config);
+            var apiInstance = new MiscellaneousApi(config);
 
             try
             {
@@ -585,7 +776,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SystemApi.GetSystemTime: " + e.Message);
+                Debug.Print("Exception when calling MiscellaneousApi.GetSystemTime: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -608,7 +799,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SystemApi.GetSystemTimeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MiscellaneousApi.GetSystemTimeWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

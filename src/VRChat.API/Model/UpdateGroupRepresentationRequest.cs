@@ -26,43 +26,31 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// PastDisplayName
+    /// UpdateGroupRepresentationRequest
     /// </summary>
-    [DataContract(Name = "PastDisplayName")]
-    public partial class PastDisplayName : IEquatable<PastDisplayName>, IValidatableObject
+    [DataContract(Name = "updateGroupRepresentation_request")]
+    public partial class UpdateGroupRepresentationRequest : IEquatable<UpdateGroupRepresentationRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
+        /// Initializes a new instance of the <see cref="UpdateGroupRepresentationRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PastDisplayName() { }
+        protected UpdateGroupRepresentationRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
+        /// Initializes a new instance of the <see cref="UpdateGroupRepresentationRequest" /> class.
         /// </summary>
-        /// <param name="displayName">displayName (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
-        public PastDisplayName(string displayName = default(string), DateTime updatedAt = default(DateTime))
+        /// <param name="isRepresenting">Whether the user is representing the group. (required).</param>
+        public UpdateGroupRepresentationRequest(bool isRepresenting = default(bool))
         {
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for PastDisplayName and cannot be null");
-            }
-            this.DisplayName = displayName;
-            this.UpdatedAt = updatedAt;
+            this.IsRepresenting = isRepresenting;
         }
 
         /// <summary>
-        /// Gets or Sets DisplayName
+        /// Whether the user is representing the group.
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
-        public string DisplayName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UpdatedAt
-        /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime UpdatedAt { get; set; }
+        /// <value>Whether the user is representing the group.</value>
+        [DataMember(Name = "isRepresenting", IsRequired = true, EmitDefaultValue = true)]
+        public bool IsRepresenting { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,9 +59,8 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PastDisplayName {\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("class UpdateGroupRepresentationRequest {\n");
+            sb.Append("  IsRepresenting: ").Append(IsRepresenting).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,15 +81,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PastDisplayName);
+            return this.Equals(input as UpdateGroupRepresentationRequest);
         }
 
         /// <summary>
-        /// Returns true if PastDisplayName instances are equal
+        /// Returns true if UpdateGroupRepresentationRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of PastDisplayName to be compared</param>
+        /// <param name="input">Instance of UpdateGroupRepresentationRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PastDisplayName input)
+        public bool Equals(UpdateGroupRepresentationRequest input)
         {
             if (input == null)
             {
@@ -110,14 +97,8 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
+                    this.IsRepresenting == input.IsRepresenting ||
+                    this.IsRepresenting.Equals(input.IsRepresenting)
                 );
         }
 
@@ -130,14 +111,7 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.IsRepresenting.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,12 +123,6 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // DisplayName (string) minLength
-            if (this.DisplayName != null && this.DisplayName.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
-            }
-
             yield break;
         }
     }
