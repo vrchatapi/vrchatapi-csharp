@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **SteamItemId** | **string** |  | 
 **OculusSku** | **string** |  | 
+**GoogleProductId** | **string** |  | [optional] 
 **Amount** | **int** | price of the bundle | 
 **Description** | **string** |  | 
 **Tokens** | **int** | number of tokens received | 

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **GoogleProductId** | **string** |  | [optional] 
 **GooglePlanId** | **string** |  | [optional] 
 **PicoSku** | **string** |  | [optional] 
+**AppleProductId** | **string** |  | [optional] 
 **Amount** | **decimal** |  | 
 **Description** | **string** |  | 
 **Period** | **SubscriptionPeriod** |  | 

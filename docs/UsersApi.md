@@ -1298,7 +1298,7 @@ catch (ApiException e)
 
 <a name="searchusers"></a>
 # **SearchUsers**
-> List&lt;LimitedUser&gt; SearchUsers (string search = null, string developerType = null, int? n = null, int? offset = null)
+> List&lt;LimitedUserSearch&gt; SearchUsers (string search = null, string developerType = null, int? n = null, int? offset = null)
 
 Search All Users
 
@@ -1334,7 +1334,7 @@ namespace Example
             try
             {
                 // Search All Users
-                List<LimitedUser> result = apiInstance.SearchUsers(search, developerType, n, offset);
+                List<LimitedUserSearch> result = apiInstance.SearchUsers(search, developerType, n, offset);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1355,7 +1355,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search All Users
-    ApiResponse<List<LimitedUser>> response = apiInstance.SearchUsersWithHttpInfo(search, developerType, n, offset);
+    ApiResponse<List<LimitedUserSearch>> response = apiInstance.SearchUsersWithHttpInfo(search, developerType, n, offset);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1379,7 +1379,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**List&lt;LimitedUser&gt;**](LimitedUser.md)
+[**List&lt;LimitedUserSearch&gt;**](LimitedUserSearch.md)
 
 ### Authorization
 
@@ -1394,7 +1394,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a list of LimitedUser objects. |  -  |
+| **200** | Returns a list of LimitedUserSearch objects. |  -  |
 | **400** | Error response when trying to search list of users with an invalid request. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 

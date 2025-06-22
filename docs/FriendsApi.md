@@ -306,7 +306,7 @@ catch (ApiException e)
 
 <a name="getfriends"></a>
 # **GetFriends**
-> List&lt;LimitedUser&gt; GetFriends (int? offset = null, int? n = null, bool? offline = null)
+> List&lt;LimitedUserFriend&gt; GetFriends (int? offset = null, int? n = null, bool? offline = null)
 
 List Friends
 
@@ -341,7 +341,7 @@ namespace Example
             try
             {
                 // List Friends
-                List<LimitedUser> result = apiInstance.GetFriends(offset, n, offline);
+                List<LimitedUserFriend> result = apiInstance.GetFriends(offset, n, offline);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -362,7 +362,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List Friends
-    ApiResponse<List<LimitedUser>> response = apiInstance.GetFriendsWithHttpInfo(offset, n, offline);
+    ApiResponse<List<LimitedUserFriend>> response = apiInstance.GetFriendsWithHttpInfo(offset, n, offline);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -385,7 +385,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**List&lt;LimitedUser&gt;**](LimitedUser.md)
+[**List&lt;LimitedUserFriend&gt;**](LimitedUserFriend.md)
 
 ### Authorization
 
@@ -400,7 +400,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a list of LimitedUser objects. |  -  |
+| **200** | Returns a list of LimitedUserFriend objects. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

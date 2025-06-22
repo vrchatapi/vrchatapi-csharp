@@ -30,6 +30,7 @@ docs/AddGroupGalleryImageRequest.md
 docs/AgeVerificationStatus.md
 docs/AuthenticationApi.md
 docs/Avatar.md
+docs/AvatarPerformance.md
 docs/AvatarPublishedListingsInner.md
 docs/AvatarStyles.md
 docs/AvatarUnityPackageUrlObject.md
@@ -132,8 +133,10 @@ docs/LicenseGroup.md
 docs/LicenseType.md
 docs/LimitedGroup.md
 docs/LimitedUnityPackage.md
-docs/LimitedUser.md
+docs/LimitedUserFriend.md
 docs/LimitedUserGroups.md
+docs/LimitedUserInstance.md
+docs/LimitedUserSearch.md
 docs/LimitedWorld.md
 docs/MIMEType.md
 docs/MiscellaneousApi.md
@@ -285,6 +288,7 @@ src/VRChat.API/Model/AddFavoriteRequest.cs
 src/VRChat.API/Model/AddGroupGalleryImageRequest.cs
 src/VRChat.API/Model/AgeVerificationStatus.cs
 src/VRChat.API/Model/Avatar.cs
+src/VRChat.API/Model/AvatarPerformance.cs
 src/VRChat.API/Model/AvatarPublishedListingsInner.cs
 src/VRChat.API/Model/AvatarStyles.cs
 src/VRChat.API/Model/AvatarUnityPackageUrlObject.cs
@@ -378,8 +382,10 @@ src/VRChat.API/Model/LicenseGroup.cs
 src/VRChat.API/Model/LicenseType.cs
 src/VRChat.API/Model/LimitedGroup.cs
 src/VRChat.API/Model/LimitedUnityPackage.cs
-src/VRChat.API/Model/LimitedUser.cs
+src/VRChat.API/Model/LimitedUserFriend.cs
 src/VRChat.API/Model/LimitedUserGroups.cs
+src/VRChat.API/Model/LimitedUserInstance.cs
+src/VRChat.API/Model/LimitedUserSearch.cs
 src/VRChat.API/Model/LimitedWorld.cs
 src/VRChat.API/Model/MIMEType.cs
 src/VRChat.API/Model/ModerateUserRequest.cs
