@@ -9,6 +9,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**DeleteImpostor**](AvatarsApi.md#deleteimpostor) | **DELETE** /avatars/{avatarId}/impostor | Delete generated Impostor |
 | [**EnqueueImpostor**](AvatarsApi.md#enqueueimpostor) | **POST** /avatars/{avatarId}/impostor/enqueue | Enqueue Impostor generation |
 | [**GetAvatar**](AvatarsApi.md#getavatar) | **GET** /avatars/{avatarId} | Get Avatar |
+| [**GetAvatarStyles**](AvatarsApi.md#getavatarstyles) | **GET** /avatarStyles | Get Avatar Styles |
 | [**GetFavoritedAvatars**](AvatarsApi.md#getfavoritedavatars) | **GET** /avatars/favorites | List Favorited Avatars |
 | [**GetImpostorQueueStats**](AvatarsApi.md#getimpostorqueuestats) | **GET** /avatars/impostor/queue/stats | Get Impostor Queue Stats |
 | [**GetLicensedAvatars**](AvatarsApi.md#getlicensedavatars) | **GET** /avatars/licensed | List Licensed Avatars |
@@ -501,6 +502,92 @@ catch (ApiException e)
 | **200** | Returns a single Avatar object. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **404** | Error response when trying to show information about a non-existent avatar. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getavatarstyles"></a>
+# **GetAvatarStyles**
+> List&lt;AvatarStyle&gt; GetAvatarStyles ()
+
+Get Avatar Styles
+
+List avatar styles.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetAvatarStylesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new AvatarsApi(config);
+
+            try
+            {
+                // Get Avatar Styles
+                List<AvatarStyle> result = apiInstance.GetAvatarStyles();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AvatarsApi.GetAvatarStyles: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAvatarStylesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Avatar Styles
+    ApiResponse<List<AvatarStyle>> response = apiInstance.GetAvatarStylesWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AvatarsApi.GetAvatarStylesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;AvatarStyle&gt;**](AvatarStyle.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of AvatarStyle objects. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

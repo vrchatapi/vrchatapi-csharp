@@ -436,7 +436,7 @@ namespace Example
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var hydrate = true;  // bool? | Populates some fields and changes types of others for certain objects. (optional) 
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID. (optional) 
-            var active = true;  // bool? | Filter for users' listings. (optional) 
+            var active = true;  // bool? | Filter for users' listings and inventory bundles. (optional) 
 
             try
             {
@@ -484,7 +484,7 @@ catch (ApiException e)
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 | **hydrate** | **bool?** | Populates some fields and changes types of others for certain objects. | [optional]  |
 | **groupId** | **string** | Must be a valid group ID. | [optional]  |
-| **active** | **bool?** | Filter for users&#39; listings. | [optional]  |
+| **active** | **bool?** | Filter for users&#39; listings and inventory bundles. | [optional]  |
 
 ### Return type
 

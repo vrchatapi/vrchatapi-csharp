@@ -539,7 +539,7 @@ namespace Example
 
             var apiInstance = new UsersApi(config);
             var userId = "userId_example";  // string | Must be a valid user ID.
-            var contentId = true;  // bool? | Filter for users' previously submitted feedback, e.g., a groupId, useeId, avatarId, etc. (optional) 
+            var contentId = true;  // bool? | Filter for users' previously submitted feedback, e.g., a groupId, userId, avatarId, etc. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
@@ -585,7 +585,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userId** | **string** | Must be a valid user ID. |  |
-| **contentId** | **bool?** | Filter for users&#39; previously submitted feedback, e.g., a groupId, useeId, avatarId, etc. | [optional]  |
+| **contentId** | **bool?** | Filter for users&#39; previously submitted feedback, e.g., a groupId, userId, avatarId, etc. | [optional]  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
