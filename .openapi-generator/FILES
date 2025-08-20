@@ -41,8 +41,12 @@ docs/AvatarsApi.md
 docs/Badge.md
 docs/Balance.md
 docs/BanGroupMemberRequest.md
+docs/CalendarApi.md
+docs/CalendarEvent.md
+docs/CalendarEventUserInterest.md
 docs/ChangeUserTagsRequest.md
 docs/CreateAvatarRequest.md
+docs/CreateCalendarEventRequest.md
 docs/CreateFileRequest.md
 docs/CreateFileVersionRequest.md
 docs/CreateGroupAnnouncementRequest.md
@@ -80,6 +84,7 @@ docs/FileVersion.md
 docs/FileVersionUploadStatus.md
 docs/FilesApi.md
 docs/FinishFileDataUploadRequest.md
+docs/FollowCalendarEventRequest.md
 docs/FriendStatus.md
 docs/FriendsApi.md
 docs/GetGroupPosts200Response.md
@@ -162,6 +167,7 @@ docs/NotificationDetailVoteToKick.md
 docs/NotificationType.md
 docs/NotificationsApi.md
 docs/OrderOption.md
+docs/PaginatedCalendarEventList.md
 docs/PaginatedGroupAuditLogEntryList.md
 docs/PastDisplayName.md
 docs/Pending2FAResult.md
@@ -214,6 +220,7 @@ docs/TwoFactorRecoveryCodes.md
 docs/TwoFactorRecoveryCodesOtpInner.md
 docs/UnityPackage.md
 docs/UpdateAvatarRequest.md
+docs/UpdateCalendarEventRequest.md
 docs/UpdateFavoriteGroupRequest.md
 docs/UpdateGroupGalleryRequest.md
 docs/UpdateGroupMemberRequest.md
@@ -243,6 +250,7 @@ docs/WorldsApi.md
 git_push.sh
 src/VRChat.API/Api/AuthenticationApi.cs
 src/VRChat.API/Api/AvatarsApi.cs
+src/VRChat.API/Api/CalendarApi.cs
 src/VRChat.API/Api/EconomyApi.cs
 src/VRChat.API/Api/FavoritesApi.cs
 src/VRChat.API/Api/FilesApi.cs
@@ -315,8 +323,11 @@ src/VRChat.API/Model/AvatarUnityPackageUrlObject.cs
 src/VRChat.API/Model/Badge.cs
 src/VRChat.API/Model/Balance.cs
 src/VRChat.API/Model/BanGroupMemberRequest.cs
+src/VRChat.API/Model/CalendarEvent.cs
+src/VRChat.API/Model/CalendarEventUserInterest.cs
 src/VRChat.API/Model/ChangeUserTagsRequest.cs
 src/VRChat.API/Model/CreateAvatarRequest.cs
+src/VRChat.API/Model/CreateCalendarEventRequest.cs
 src/VRChat.API/Model/CreateFileRequest.cs
 src/VRChat.API/Model/CreateFileVersionRequest.cs
 src/VRChat.API/Model/CreateGroupAnnouncementRequest.cs
@@ -351,6 +362,7 @@ src/VRChat.API/Model/FileUploadURL.cs
 src/VRChat.API/Model/FileVersion.cs
 src/VRChat.API/Model/FileVersionUploadStatus.cs
 src/VRChat.API/Model/FinishFileDataUploadRequest.cs
+src/VRChat.API/Model/FollowCalendarEventRequest.cs
 src/VRChat.API/Model/FriendStatus.cs
 src/VRChat.API/Model/GetGroupPosts200Response.cs
 src/VRChat.API/Model/GetUserGroupInstances200Response.cs
@@ -425,6 +437,7 @@ src/VRChat.API/Model/NotificationDetailRequestInviteResponse.cs
 src/VRChat.API/Model/NotificationDetailVoteToKick.cs
 src/VRChat.API/Model/NotificationType.cs
 src/VRChat.API/Model/OrderOption.cs
+src/VRChat.API/Model/PaginatedCalendarEventList.cs
 src/VRChat.API/Model/PaginatedGroupAuditLogEntryList.cs
 src/VRChat.API/Model/PastDisplayName.cs
 src/VRChat.API/Model/Pending2FAResult.cs
@@ -474,6 +487,7 @@ src/VRChat.API/Model/TwoFactorRecoveryCodes.cs
 src/VRChat.API/Model/TwoFactorRecoveryCodesOtpInner.cs
 src/VRChat.API/Model/UnityPackage.cs
 src/VRChat.API/Model/UpdateAvatarRequest.cs
+src/VRChat.API/Model/UpdateCalendarEventRequest.cs
 src/VRChat.API/Model/UpdateFavoriteGroupRequest.cs
 src/VRChat.API/Model/UpdateGroupGalleryRequest.cs
 src/VRChat.API/Model/UpdateGroupMemberRequest.cs
