@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ManagerNotes** | **string** |  | [optional] 
 **MembershipStatus** | **string** |  | [optional] 
 **IsSubscribedToAnnouncements** | **bool** |  | [optional] [default to true]
+**IsSubscribedToEventAnnouncements** | **bool** |  | [optional] 
 **Visibility** | **string** |  | [optional] 
 **IsRepresenting** | **bool** |  | [optional] [default to false]
 **JoinedAt** | **DateTime** |  | [optional] 

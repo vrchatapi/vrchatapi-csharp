@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **HighestPrice** | **int** |  | [optional] 
 **Id** | **string** |  | 
 **ImageUrl** | **string** |  | 
+**ListingDate** | **string** |  | 
 **Lock** | **bool** |  | [optional] 
 **LowestPrice** | **int** |  | [optional] 
 **Name** | **string** |  | 

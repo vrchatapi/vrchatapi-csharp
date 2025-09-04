@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
+**AppleProductId** | **string** |  | 
 **SteamItemId** | **string** |  | 
 **OculusSku** | **string** |  | 
 **GoogleProductId** | **string** |  | [optional] 

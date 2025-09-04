@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **CameraCount** | **int** |  | [optional] 
 **ClothCount** | **int** |  | 
 **ConstraintCount** | **int** |  | 
+**ConstraintDepth** | **int** |  | 
 **ContactCount** | **int** |  | 
 **CustomExpressions** | **bool** |  | 
 **CustomizeAnimationLayers** | **bool** |  | 

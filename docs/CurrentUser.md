@@ -60,6 +60,7 @@ Name | Type | Description | Notes
 **ProfilePicOverride** | **string** |  | 
 **ProfilePicOverrideThumbnail** | **string** |  | 
 **Pronouns** | **string** |  | 
+**PronounsHistory** | **List&lt;string&gt;** |  | 
 **QueuedInstance** | **string** |  | [optional] 
 **ReceiveMobileInvitations** | **bool** |  | [optional] 
 **State** | **UserState** |  | 
