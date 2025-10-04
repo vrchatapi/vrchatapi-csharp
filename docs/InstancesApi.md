@@ -8,6 +8,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**CreateInstance**](InstancesApi.md#createinstance) | **POST** /instances | Create Instance |
 | [**GetInstance**](InstancesApi.md#getinstance) | **GET** /instances/{worldId}:{instanceId} | Get Instance |
 | [**GetInstanceByShortName**](InstancesApi.md#getinstancebyshortname) | **GET** /instances/s/{shortName} | Get Instance By Short Name |
+| [**GetRecentLocations**](InstancesApi.md#getrecentlocations) | **GET** /instances/recent | List Recent Locations |
 | [**GetShortName**](InstancesApi.md#getshortname) | **GET** /instances/{worldId}:{instanceId}/shortName | Get Instance Short Name |
 
 <a name="closeinstance"></a>
@@ -406,6 +407,105 @@ catch (ApiException e)
 | **200** | Returns a single Instance object. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **404** | Error response due to non existant instance |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getrecentlocations"></a>
+# **GetRecentLocations**
+> List&lt;string&gt; GetRecentLocations (int? n = null, int? offset = null)
+
+List Recent Locations
+
+Returns a list of recently visited locations.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetRecentLocationsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new InstancesApi(config);
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+
+            try
+            {
+                // List Recent Locations
+                List<string> result = apiInstance.GetRecentLocations(n, offset);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InstancesApi.GetRecentLocations: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetRecentLocationsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List Recent Locations
+    ApiResponse<List<string>> response = apiInstance.GetRecentLocationsWithHttpInfo(n, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InstancesApi.GetRecentLocationsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+
+### Return type
+
+**List<string>**
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of LocationIDs. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

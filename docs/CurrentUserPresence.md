@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **ProfilePicOverride** | **string** |  | [optional] 
 **Status** | **string** | either a UserStatus or empty string | [optional] 
 **TravelingToInstance** | **string** |  | [optional] 
-**TravelingToWorld** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | [optional] 
+**TravelingToWorld** | **string** | Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. | [optional] 
 **UserIcon** | **string** |  | [optional] 
 **World** | **string** | WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. | [optional] 
 

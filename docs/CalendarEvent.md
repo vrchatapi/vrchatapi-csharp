@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **AccessType** | **string** |  | 
 **Category** | **string** |  | [optional] 
 **CloseInstanceAfterEndMinutes** | **int** |  | [optional] 
-**CreatedAt** | **DateTime** |  | 
+**CreatedAt** | **DateTime** |  | [optional] 
 **DeletedAt** | **DateTime?** |  | [optional] 
 **Description** | **string** |  | [optional] 
 **EndsAt** | **DateTime** |  | [optional] 

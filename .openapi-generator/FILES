@@ -63,6 +63,7 @@ docs/CurrentUserPresence.md
 docs/DeveloperType.md
 docs/Disable2FAResult.md
 docs/DynamicContentRow.md
+docs/EconomyAccount.md
 docs/EconomyApi.md
 docs/Error.md
 docs/Favorite.md
@@ -130,6 +131,7 @@ docs/InstancesApi.md
 docs/Inventory.md
 docs/InventoryApi.md
 docs/InventoryDrop.md
+docs/InventoryFlag.md
 docs/InventoryItem.md
 docs/InventoryItemType.md
 docs/InventoryMetadata.md
@@ -166,6 +168,7 @@ docs/NotificationDetailRequestInviteResponse.md
 docs/NotificationDetailVoteToKick.md
 docs/NotificationType.md
 docs/NotificationsApi.md
+docs/OkStatus.md
 docs/OrderOption.md
 docs/PaginatedCalendarEventList.md
 docs/PaginatedGroupAuditLogEntryList.md
@@ -201,7 +204,12 @@ docs/Response.md
 docs/SentNotification.md
 docs/ServiceQueueStats.md
 docs/ServiceStatus.md
+docs/ShareInventoryItemDirectRequest.md
 docs/SortOption.md
+docs/Store.md
+docs/StoreShelf.md
+docs/StoreType.md
+docs/StoreView.md
 docs/Submission.md
 docs/Subscription.md
 docs/SubscriptionPeriod.md
@@ -227,6 +235,7 @@ docs/UpdateGroupMemberRequest.md
 docs/UpdateGroupRepresentationRequest.md
 docs/UpdateGroupRequest.md
 docs/UpdateGroupRoleRequest.md
+docs/UpdateInventoryItemRequest.md
 docs/UpdateInviteMessageRequest.md
 docs/UpdateUserBadgeRequest.md
 docs/UpdateUserNoteRequest.md
@@ -239,6 +248,7 @@ docs/UserNoteTargetUser.md
 docs/UserState.md
 docs/UserStatus.md
 docs/UserSubscription.md
+docs/UserSubscriptionEligible.md
 docs/UsersApi.md
 docs/Verify2FAEmailCodeResult.md
 docs/Verify2FAResult.md
@@ -344,6 +354,7 @@ src/VRChat.API/Model/CurrentUserPresence.cs
 src/VRChat.API/Model/DeveloperType.cs
 src/VRChat.API/Model/Disable2FAResult.cs
 src/VRChat.API/Model/DynamicContentRow.cs
+src/VRChat.API/Model/EconomyAccount.cs
 src/VRChat.API/Model/Error.cs
 src/VRChat.API/Model/Favorite.cs
 src/VRChat.API/Model/FavoriteGroup.cs
@@ -404,6 +415,7 @@ src/VRChat.API/Model/InstanceShortNameResponse.cs
 src/VRChat.API/Model/InstanceType.cs
 src/VRChat.API/Model/Inventory.cs
 src/VRChat.API/Model/InventoryDrop.cs
+src/VRChat.API/Model/InventoryFlag.cs
 src/VRChat.API/Model/InventoryItem.cs
 src/VRChat.API/Model/InventoryItemType.cs
 src/VRChat.API/Model/InventoryMetadata.cs
@@ -436,6 +448,7 @@ src/VRChat.API/Model/NotificationDetailRequestInvite.cs
 src/VRChat.API/Model/NotificationDetailRequestInviteResponse.cs
 src/VRChat.API/Model/NotificationDetailVoteToKick.cs
 src/VRChat.API/Model/NotificationType.cs
+src/VRChat.API/Model/OkStatus.cs
 src/VRChat.API/Model/OrderOption.cs
 src/VRChat.API/Model/PaginatedCalendarEventList.cs
 src/VRChat.API/Model/PaginatedGroupAuditLogEntryList.cs
@@ -468,7 +481,12 @@ src/VRChat.API/Model/Response.cs
 src/VRChat.API/Model/SentNotification.cs
 src/VRChat.API/Model/ServiceQueueStats.cs
 src/VRChat.API/Model/ServiceStatus.cs
+src/VRChat.API/Model/ShareInventoryItemDirectRequest.cs
 src/VRChat.API/Model/SortOption.cs
+src/VRChat.API/Model/Store.cs
+src/VRChat.API/Model/StoreShelf.cs
+src/VRChat.API/Model/StoreType.cs
+src/VRChat.API/Model/StoreView.cs
 src/VRChat.API/Model/Submission.cs
 src/VRChat.API/Model/Subscription.cs
 src/VRChat.API/Model/SubscriptionPeriod.cs
@@ -494,6 +512,7 @@ src/VRChat.API/Model/UpdateGroupMemberRequest.cs
 src/VRChat.API/Model/UpdateGroupRepresentationRequest.cs
 src/VRChat.API/Model/UpdateGroupRequest.cs
 src/VRChat.API/Model/UpdateGroupRoleRequest.cs
+src/VRChat.API/Model/UpdateInventoryItemRequest.cs
 src/VRChat.API/Model/UpdateInviteMessageRequest.cs
 src/VRChat.API/Model/UpdateUserBadgeRequest.cs
 src/VRChat.API/Model/UpdateUserNoteRequest.cs
@@ -506,6 +525,7 @@ src/VRChat.API/Model/UserNoteTargetUser.cs
 src/VRChat.API/Model/UserState.cs
 src/VRChat.API/Model/UserStatus.cs
 src/VRChat.API/Model/UserSubscription.cs
+src/VRChat.API/Model/UserSubscriptionEligible.cs
 src/VRChat.API/Model/Verify2FAEmailCodeResult.cs
 src/VRChat.API/Model/Verify2FAResult.cs
 src/VRChat.API/Model/VerifyAuthTokenResult.cs

@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **Full** | **bool** |  | [default to false]
 **GameServerVersion** | **int** |  | [optional] 
 **Id** | **string** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | 
-**InstanceId** | **string** |  | 
+**InstanceId** | **string** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | 
 **InstancePersistenceEnabled** | **string** |  | 
-**Location** | **string** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | 
+**Location** | **string** | Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. | 
 **NUsers** | **int** |  | 
 **Name** | **string** |  | 
 **OwnerId** | **string** | A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise | [optional] 

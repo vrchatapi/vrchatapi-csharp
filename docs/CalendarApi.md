@@ -13,6 +13,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetGroupCalendarEvent**](CalendarApi.md#getgroupcalendarevent) | **GET** /calendar/{groupId}/{calendarId} | Get a calendar event |
 | [**GetGroupCalendarEventICS**](CalendarApi.md#getgroupcalendareventics) | **GET** /calendar/{groupId}/{calendarId}.ics | Download calendar event as ICS |
 | [**GetGroupCalendarEvents**](CalendarApi.md#getgroupcalendarevents) | **GET** /calendar/{groupId} | List a group&#39;s calendar events |
+| [**SearchCalendarEvents**](CalendarApi.md#searchcalendarevents) | **GET** /calendar/search | Search for calendar events |
 | [**UpdateGroupCalendarEvent**](CalendarApi.md#updategroupcalendarevent) | **PUT** /calendar/{groupId}/{calendarId}/event | Update a calendar event |
 
 <a name="creategroupcalendarevent"></a>
@@ -889,6 +890,109 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **date** | **DateTime?** | The month to search in. | [optional]  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+
+### Return type
+
+[**PaginatedCalendarEventList**](PaginatedCalendarEventList.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of CalendarEvent objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="searchcalendarevents"></a>
+# **SearchCalendarEvents**
+> PaginatedCalendarEventList SearchCalendarEvents (string searchTerm, int? utcOffset = null, int? n = null, int? offset = null)
+
+Search for calendar events
+
+Get a list of calendar events by search terms
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class SearchCalendarEventsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new CalendarApi(config);
+            var searchTerm = game night;  // string | Search term for calendar events.
+            var utcOffset = 56;  // int? | The offset from UTC in hours of the client or authenticated user. (optional) 
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+
+            try
+            {
+                // Search for calendar events
+                PaginatedCalendarEventList result = apiInstance.SearchCalendarEvents(searchTerm, utcOffset, n, offset);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CalendarApi.SearchCalendarEvents: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SearchCalendarEventsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search for calendar events
+    ApiResponse<PaginatedCalendarEventList> response = apiInstance.SearchCalendarEventsWithHttpInfo(searchTerm, utcOffset, n, offset);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CalendarApi.SearchCalendarEventsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **searchTerm** | **string** | Search term for calendar events. |  |
+| **utcOffset** | **int?** | The offset from UTC in hours of the client or authenticated user. | [optional]  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 

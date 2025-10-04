@@ -4,17 +4,115 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**GetActiveLicenses**](EconomyApi.md#getactivelicenses) | **GET** /economy/licenses/active | Get Active Licenses |
 | [**GetBalance**](EconomyApi.md#getbalance) | **GET** /user/{userId}/balance | Get Balance |
+| [**GetBalanceEarnings**](EconomyApi.md#getbalanceearnings) | **GET** /user/{userId}/balance/earnings | Get Balance Earnings |
 | [**GetCurrentSubscriptions**](EconomyApi.md#getcurrentsubscriptions) | **GET** /auth/user/subscription | Get Current Subscriptions |
+| [**GetEconomyAccount**](EconomyApi.md#geteconomyaccount) | **GET** /user/{userId}/economy/account | Get Economy Account |
 | [**GetLicenseGroup**](EconomyApi.md#getlicensegroup) | **GET** /licenseGroups/{licenseGroupId} | Get License Group |
 | [**GetProductListing**](EconomyApi.md#getproductlisting) | **GET** /listing/{productId} | Get Product Listing |
 | [**GetProductListings**](EconomyApi.md#getproductlistings) | **GET** /user/{userId}/listings | Get User Product Listings |
 | [**GetSteamTransaction**](EconomyApi.md#getsteamtransaction) | **GET** /Steam/transactions/{transactionId} | Get Steam Transaction |
 | [**GetSteamTransactions**](EconomyApi.md#getsteamtransactions) | **GET** /Steam/transactions | List Steam Transactions |
+| [**GetStore**](EconomyApi.md#getstore) | **GET** /economy/store | Get Store |
+| [**GetStoreShelves**](EconomyApi.md#getstoreshelves) | **GET** /economy/store/shelves | Get Store Shelves |
 | [**GetSubscriptions**](EconomyApi.md#getsubscriptions) | **GET** /subscriptions | List Subscriptions |
 | [**GetTiliaStatus**](EconomyApi.md#gettiliastatus) | **GET** /tilia/status | Get Tilia Status |
 | [**GetTiliaTos**](EconomyApi.md#gettiliatos) | **GET** /user/{userId}/tilia/tos | Get Tilia TOS Agreement Status |
 | [**GetTokenBundles**](EconomyApi.md#gettokenbundles) | **GET** /tokenBundles | List Token Bundles |
+| [**GetUserSubscriptionEligible**](EconomyApi.md#getusersubscriptioneligible) | **GET** /users/{userId}/subscription/eligible | Get User Subscription Eligiblity |
+
+<a name="getactivelicenses"></a>
+# **GetActiveLicenses**
+> List&lt;License&gt; GetActiveLicenses ()
+
+Get Active Licenses
+
+Gets active licenses
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetActiveLicensesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new EconomyApi(config);
+
+            try
+            {
+                // Get Active Licenses
+                List<License> result = apiInstance.GetActiveLicenses();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling EconomyApi.GetActiveLicenses: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetActiveLicensesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Active Licenses
+    ApiResponse<List<License>> response = apiInstance.GetActiveLicensesWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EconomyApi.GetActiveLicensesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;License&gt;**](License.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of License objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getbalance"></a>
 # **GetBalance**
@@ -80,6 +178,103 @@ try
 catch (ApiException e)
 {
     Debug.Print("Exception when calling EconomyApi.GetBalanceWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+
+### Return type
+
+[**Balance**](Balance.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single Balance object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getbalanceearnings"></a>
+# **GetBalanceEarnings**
+> Balance GetBalanceEarnings (string userId)
+
+Get Balance Earnings
+
+Gets the balance of a user from earnings
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetBalanceEarningsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new EconomyApi(config);
+            var userId = "userId_example";  // string | Must be a valid user ID.
+
+            try
+            {
+                // Get Balance Earnings
+                Balance result = apiInstance.GetBalanceEarnings(userId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling EconomyApi.GetBalanceEarnings: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetBalanceEarningsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Balance Earnings
+    ApiResponse<Balance> response = apiInstance.GetBalanceEarningsWithHttpInfo(userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EconomyApi.GetBalanceEarningsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -201,6 +396,103 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of UserSubscription objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="geteconomyaccount"></a>
+# **GetEconomyAccount**
+> EconomyAccount GetEconomyAccount (string userId)
+
+Get Economy Account
+
+Gets the economy account of a user
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetEconomyAccountExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new EconomyApi(config);
+            var userId = "userId_example";  // string | Must be a valid user ID.
+
+            try
+            {
+                // Get Economy Account
+                EconomyAccount result = apiInstance.GetEconomyAccount(userId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling EconomyApi.GetEconomyAccount: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetEconomyAccountWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Economy Account
+    ApiResponse<EconomyAccount> response = apiInstance.GetEconomyAccountWithHttpInfo(userId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EconomyApi.GetEconomyAccountWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+
+### Return type
+
+[**EconomyAccount**](EconomyAccount.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single EconomyAccount object. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -697,6 +989,208 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getstore"></a>
+# **GetStore**
+> Store GetStore (string storeId, bool? hydrateListings = null, bool? hydrateProducts = null)
+
+Get Store
+
+Gets a store
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetStoreExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new EconomyApi(config);
+            var storeId = "storeId_example";  // string | 
+            var hydrateListings = true;  // bool? | Listings fields will be populated. (optional) 
+            var hydrateProducts = true;  // bool? | Products fields will be populated. (optional) 
+
+            try
+            {
+                // Get Store
+                Store result = apiInstance.GetStore(storeId, hydrateListings, hydrateProducts);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling EconomyApi.GetStore: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetStoreWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Store
+    ApiResponse<Store> response = apiInstance.GetStoreWithHttpInfo(storeId, hydrateListings, hydrateProducts);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EconomyApi.GetStoreWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **storeId** | **string** |  |  |
+| **hydrateListings** | **bool?** | Listings fields will be populated. | [optional]  |
+| **hydrateProducts** | **bool?** | Products fields will be populated. | [optional]  |
+
+### Return type
+
+[**Store**](Store.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single Store object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getstoreshelves"></a>
+# **GetStoreShelves**
+> List&lt;StoreShelf&gt; GetStoreShelves (string storeId, bool? hydrateListings = null, StoreView? fetch = null)
+
+Get Store Shelves
+
+Gets the shelves for a store
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetStoreShelvesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new EconomyApi(config);
+            var storeId = "storeId_example";  // string | 
+            var hydrateListings = true;  // bool? | Listings fields will be populated. (optional) 
+            var fetch = (StoreView) "all";  // StoreView? |  (optional) 
+
+            try
+            {
+                // Get Store Shelves
+                List<StoreShelf> result = apiInstance.GetStoreShelves(storeId, hydrateListings, fetch);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling EconomyApi.GetStoreShelves: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetStoreShelvesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Store Shelves
+    ApiResponse<List<StoreShelf>> response = apiInstance.GetStoreShelvesWithHttpInfo(storeId, hydrateListings, fetch);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EconomyApi.GetStoreShelvesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **storeId** | **string** |  |  |
+| **hydrateListings** | **bool?** | Listings fields will be populated. | [optional]  |
+| **fetch** | **StoreView?** |  | [optional]  |
+
+### Return type
+
+[**List&lt;StoreShelf&gt;**](StoreShelf.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of StoreShelf objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getsubscriptions"></a>
 # **GetSubscriptions**
 > List&lt;Subscription&gt; GetSubscriptions ()
@@ -1066,6 +1560,105 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of TokenBundle objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getusersubscriptioneligible"></a>
+# **GetUserSubscriptionEligible**
+> UserSubscriptionEligible GetUserSubscriptionEligible (string userId, string steamId = null)
+
+Get User Subscription Eligiblity
+
+Get the user's eligibility status for subscriptions.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetUserSubscriptionEligibleExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new EconomyApi(config);
+            var userId = "userId_example";  // string | Must be a valid user ID.
+            var steamId = game night;  // string | The Steam ID of the user. (optional) 
+
+            try
+            {
+                // Get User Subscription Eligiblity
+                UserSubscriptionEligible result = apiInstance.GetUserSubscriptionEligible(userId, steamId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling EconomyApi.GetUserSubscriptionEligible: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetUserSubscriptionEligibleWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get User Subscription Eligiblity
+    ApiResponse<UserSubscriptionEligible> response = apiInstance.GetUserSubscriptionEligibleWithHttpInfo(userId, steamId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EconomyApi.GetUserSubscriptionEligibleWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **string** | Must be a valid user ID. |  |
+| **steamId** | **string** | The Steam ID of the user. | [optional]  |
+
+### Return type
+
+[**UserSubscriptionEligible**](UserSubscriptionEligible.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single UserSubscriptionEligible object. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

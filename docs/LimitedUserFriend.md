@@ -22,12 +22,12 @@ Name | Type | Description | Notes
 **LastActivity** | **DateTime?** |  | 
 **LastMobile** | **DateTime?** |  | 
 **Platform** | **string** |  | 
-**ProfilePicOverride** | **string** |  | 
-**ProfilePicOverrideThumbnail** | **string** |  | 
+**ProfilePicOverride** | **string** |  | [optional] 
+**ProfilePicOverrideThumbnail** | **string** |  | [optional] 
 **Status** | **UserStatus** |  | 
 **StatusDescription** | **string** |  | 
 **Tags** | **List&lt;string&gt;** | &lt;- Always empty. | 
-**UserIcon** | **string** |  | 
+**UserIcon** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
