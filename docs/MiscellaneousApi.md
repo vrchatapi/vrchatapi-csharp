@@ -4,6 +4,8 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**CreatePermission**](MiscellaneousApi.md#createpermission) | **POST** /permissions | Create Permission |
+| [**DeletePermission**](MiscellaneousApi.md#deletepermission) | **DELETE** /permissions/{permissionId} | Delete Permission |
 | [**GetAssignedPermissions**](MiscellaneousApi.md#getassignedpermissions) | **GET** /auth/permissions | Get Assigned Permissions |
 | [**GetCSS**](MiscellaneousApi.md#getcss) | **GET** /css/app.css | Download CSS |
 | [**GetConfig**](MiscellaneousApi.md#getconfig) | **GET** /config | Fetch API Config |
@@ -12,7 +14,211 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetInfoPush**](MiscellaneousApi.md#getinfopush) | **GET** /infoPush | Show Information Notices |
 | [**GetJavaScript**](MiscellaneousApi.md#getjavascript) | **GET** /js/app.js | Download JavaScript |
 | [**GetPermission**](MiscellaneousApi.md#getpermission) | **GET** /permissions/{permissionId} | Get Permission |
+| [**GetPermissions**](MiscellaneousApi.md#getpermissions) | **GET** /permissions | Get Permissions |
 | [**GetSystemTime**](MiscellaneousApi.md#getsystemtime) | **GET** /time | Current System Time |
+| [**UpdatePermission**](MiscellaneousApi.md#updatepermission) | **PUT** /permissions/{permissionId} | Update Permission |
+
+<a name="createpermission"></a>
+# **CreatePermission**
+> Permission CreatePermission (int? n = null, int? offset = null, string ownerId = null, CreatePermissionRequest createPermissionRequest = null)
+
+Create Permission
+
+**REQUIRES ADMIN CREDENTIALS**. Creates and returns a new Permission. The permission will by default be owned by the sender of the request unless otherwise specified.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class CreatePermissionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new MiscellaneousApi(config);
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+            var ownerId = "ownerId_example";  // string | Owner of the Permission, MUST be valid UserID. (optional) 
+            var createPermissionRequest = new CreatePermissionRequest(); // CreatePermissionRequest |  (optional) 
+
+            try
+            {
+                // Create Permission
+                Permission result = apiInstance.CreatePermission(n, offset, ownerId, createPermissionRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling MiscellaneousApi.CreatePermission: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CreatePermissionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create Permission
+    ApiResponse<Permission> response = apiInstance.CreatePermissionWithHttpInfo(n, offset, ownerId, createPermissionRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MiscellaneousApi.CreatePermissionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **ownerId** | **string** | Owner of the Permission, MUST be valid UserID. | [optional]  |
+| **createPermissionRequest** | [**CreatePermissionRequest**](CreatePermissionRequest.md) |  | [optional]  |
+
+### Return type
+
+[**Permission**](Permission.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single Permission object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response due to missing Administrator credentials. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletepermission"></a>
+# **DeletePermission**
+> Permission DeletePermission (string permissionId)
+
+Delete Permission
+
+**REQUIRES ADMIN CREDENTIALS**. Deletes a permission.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class DeletePermissionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new MiscellaneousApi(config);
+            var permissionId = "permissionId_example";  // string | Must be a valid permission ID.
+
+            try
+            {
+                // Delete Permission
+                Permission result = apiInstance.DeletePermission(permissionId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling MiscellaneousApi.DeletePermission: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeletePermissionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete Permission
+    ApiResponse<Permission> response = apiInstance.DeletePermissionWithHttpInfo(permissionId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MiscellaneousApi.DeletePermissionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **permissionId** | **string** | Must be a valid permission ID. |  |
+
+### Return type
+
+[**Permission**](Permission.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single Permission object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response due to missing Administrator credentials. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getassignedpermissions"></a>
 # **GetAssignedPermissions**
@@ -742,6 +948,99 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getpermissions"></a>
+# **GetPermissions**
+> List&lt;Permission&gt; GetPermissions ()
+
+Get Permissions
+
+**REQUIRES ADMIN CREDENTIALS**. Returns a list of all existing permissions, just like `/users` with empty search would.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetPermissionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new MiscellaneousApi(config);
+
+            try
+            {
+                // Get Permissions
+                List<Permission> result = apiInstance.GetPermissions();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling MiscellaneousApi.GetPermissions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPermissionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Permissions
+    ApiResponse<List<Permission>> response = apiInstance.GetPermissionsWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MiscellaneousApi.GetPermissionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;Permission&gt;**](Permission.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of Permission objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response due to missing Administrator credentials. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getsystemtime"></a>
 # **GetSystemTime**
 > DateTime GetSystemTime ()
@@ -825,6 +1124,106 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatepermission"></a>
+# **UpdatePermission**
+> Permission UpdatePermission (string permissionId, UpdatePermissionRequest updatePermissionRequest = null)
+
+Update Permission
+
+**REQUIRES ADMIN CREDENTIALS**. Updates the info on a permission.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class UpdatePermissionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new MiscellaneousApi(config);
+            var permissionId = "permissionId_example";  // string | Must be a valid permission ID.
+            var updatePermissionRequest = new UpdatePermissionRequest(); // UpdatePermissionRequest |  (optional) 
+
+            try
+            {
+                // Update Permission
+                Permission result = apiInstance.UpdatePermission(permissionId, updatePermissionRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling MiscellaneousApi.UpdatePermission: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdatePermissionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update Permission
+    ApiResponse<Permission> response = apiInstance.UpdatePermissionWithHttpInfo(permissionId, updatePermissionRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MiscellaneousApi.UpdatePermissionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **permissionId** | **string** | Must be a valid permission ID. |  |
+| **updatePermissionRequest** | [**UpdatePermissionRequest**](UpdatePermissionRequest.md) |  | [optional]  |
+
+### Return type
+
+[**Permission**](Permission.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a single Permission object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response due to missing Administrator credentials. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

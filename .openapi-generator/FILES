@@ -32,6 +32,8 @@ docs/AdminUnityPackage.md
 docs/AgeVerificationStatus.md
 docs/AuthenticationApi.md
 docs/Avatar.md
+docs/AvatarModeration.md
+docs/AvatarModerationType.md
 docs/AvatarPerformance.md
 docs/AvatarPublishedListingsInner.md
 docs/AvatarStyle.md
@@ -56,12 +58,14 @@ docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
 docs/CreateInstanceRequest.md
+docs/CreatePermissionRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
 docs/CurrentUserPlatformHistoryInner.md
 docs/CurrentUserPresence.md
 docs/DeveloperType.md
 docs/Disable2FAResult.md
+docs/DiscordDetails.md
 docs/DynamicContentRow.md
 docs/EconomyAccount.md
 docs/EconomyApi.md
@@ -237,6 +241,7 @@ docs/UpdateGroupRequest.md
 docs/UpdateGroupRoleRequest.md
 docs/UpdateInventoryItemRequest.md
 docs/UpdateInviteMessageRequest.md
+docs/UpdatePermissionRequest.md
 docs/UpdateUserBadgeRequest.md
 docs/UpdateUserNoteRequest.md
 docs/UpdateUserRequest.md
@@ -325,6 +330,8 @@ src/VRChat.API/Model/AdminAssetBundle.cs
 src/VRChat.API/Model/AdminUnityPackage.cs
 src/VRChat.API/Model/AgeVerificationStatus.cs
 src/VRChat.API/Model/Avatar.cs
+src/VRChat.API/Model/AvatarModeration.cs
+src/VRChat.API/Model/AvatarModerationType.cs
 src/VRChat.API/Model/AvatarPerformance.cs
 src/VRChat.API/Model/AvatarPublishedListingsInner.cs
 src/VRChat.API/Model/AvatarStyle.cs
@@ -347,12 +354,14 @@ src/VRChat.API/Model/CreateGroupPostRequest.cs
 src/VRChat.API/Model/CreateGroupRequest.cs
 src/VRChat.API/Model/CreateGroupRoleRequest.cs
 src/VRChat.API/Model/CreateInstanceRequest.cs
+src/VRChat.API/Model/CreatePermissionRequest.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
 src/VRChat.API/Model/CurrentUser.cs
 src/VRChat.API/Model/CurrentUserPlatformHistoryInner.cs
 src/VRChat.API/Model/CurrentUserPresence.cs
 src/VRChat.API/Model/DeveloperType.cs
 src/VRChat.API/Model/Disable2FAResult.cs
+src/VRChat.API/Model/DiscordDetails.cs
 src/VRChat.API/Model/DynamicContentRow.cs
 src/VRChat.API/Model/EconomyAccount.cs
 src/VRChat.API/Model/Error.cs
@@ -514,6 +523,7 @@ src/VRChat.API/Model/UpdateGroupRequest.cs
 src/VRChat.API/Model/UpdateGroupRoleRequest.cs
 src/VRChat.API/Model/UpdateInventoryItemRequest.cs
 src/VRChat.API/Model/UpdateInviteMessageRequest.cs
+src/VRChat.API/Model/UpdatePermissionRequest.cs
 src/VRChat.API/Model/UpdateUserBadgeRequest.cs
 src/VRChat.API/Model/UpdateUserNoteRequest.cs
 src/VRChat.API/Model/UpdateUserRequest.cs

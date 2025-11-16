@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **CanRequestInvite** | **bool** |  | [default to true]
 **Capacity** | **int** |  | 
 **ClientNumber** | **string** | Always returns \&quot;unknown\&quot;. | 
-**ContentSettings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | 
-**DisplayName** | **string** |  | 
+**ContentSettings** | [**InstanceContentSettings**](InstanceContentSettings.md) |  | [optional] 
+**DisplayName** | **string** |  | [optional] 
 **Full** | **bool** |  | [default to false]
 **GameServerVersion** | **int** |  | [optional] 
 **Id** | **string** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | 
 **InstanceId** | **string** | InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. | 
-**InstancePersistenceEnabled** | **string** |  | 
+**InstancePersistenceEnabled** | **string** |  | [optional] 
 **Location** | **string** | Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. | 
 **NUsers** | **int** |  | 
 **Name** | **string** |  | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **Permanent** | **bool** |  | [default to false]
 **PhotonRegion** | **Region** |  | 
 **Platforms** | [**InstancePlatforms**](InstancePlatforms.md) |  | 
-**PlayerPersistenceEnabled** | **bool?** |  | 
+**PlayerPersistenceEnabled** | **bool?** |  | [optional] 
 **Region** | **InstanceRegion** |  | 
 **SecureName** | **string** |  | 
 **ShortName** | **string** |  | [optional] 

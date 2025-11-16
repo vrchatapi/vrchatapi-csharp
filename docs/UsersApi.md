@@ -17,6 +17,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetUserNotes**](UsersApi.md#getusernotes) | **GET** /userNotes | Get User Notes |
 | [**GetUserRepresentedGroup**](UsersApi.md#getuserrepresentedgroup) | **GET** /users/{userId}/groups/represented | Get user&#39;s current represented group |
 | [**RemoveTags**](UsersApi.md#removetags) | **POST** /users/{userId}/removeTags | Remove User Tags |
+| [**SearchActiveUsers**](UsersApi.md#searchactiveusers) | **GET** /users/active | Search Active Users |
 | [**SearchUsers**](UsersApi.md#searchusers) | **GET** /users | Search All Users |
 | [**UpdateBadge**](UsersApi.md#updatebadge) | **PUT** /users/{userId}/badges/{badgeId} | Update User Badge |
 | [**UpdateUser**](UsersApi.md#updateuser) | **PUT** /users/{userId} | Update User Info |
@@ -1293,6 +1294,110 @@ catch (ApiException e)
 | **200** | Returns a single CurrentUser object. |  -  |
 | **400** | Error response when a user attempts to add an invalid, restricted, or duplicate tag to their profile, attempts to add tags above the limit for their profile, or attempts to remove invalid, restricted, or absent tag from their profile. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="searchactiveusers"></a>
+# **SearchActiveUsers**
+> List&lt;LimitedUserFriend&gt; SearchActiveUsers (string search, string developerType = null, int? offset = null, int? n = null)
+
+Search Active Users
+
+**REQUIRES ADMIN CREDENTIALS**. Search and list any Active users by text query.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class SearchActiveUsersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new UsersApi(config);
+            var search = "search_example";  // string | Username to search for
+            var developerType = "developerType_example";  // string | Active user by developer type, none for normal users and internal for moderators (optional) 
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+
+            try
+            {
+                // Search Active Users
+                List<LimitedUserFriend> result = apiInstance.SearchActiveUsers(search, developerType, offset, n);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling UsersApi.SearchActiveUsers: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SearchActiveUsersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search Active Users
+    ApiResponse<List<LimitedUserFriend>> response = apiInstance.SearchActiveUsersWithHttpInfo(search, developerType, offset, n);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling UsersApi.SearchActiveUsersWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **search** | **string** | Username to search for |  |
+| **developerType** | **string** | Active user by developer type, none for normal users and internal for moderators | [optional]  |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+
+### Return type
+
+[**List&lt;LimitedUserFriend&gt;**](LimitedUserFriend.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response due to missing Administrator credentials. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

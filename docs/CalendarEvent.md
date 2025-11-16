@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessType** | **string** |  | 
-**Category** | **string** |  | [optional] 
+**Category** | **string** |  | 
 **CloseInstanceAfterEndMinutes** | **int** |  | [optional] 
 **CreatedAt** | **DateTime** |  | [optional] 
 **DeletedAt** | **DateTime?** |  | [optional] 
-**Description** | **string** |  | [optional] 
-**EndsAt** | **DateTime** |  | [optional] 
+**Description** | **string** |  | 
+**EndsAt** | **DateTime** |  | 
 **Featured** | **bool** |  | [optional] 
 **GuestEarlyJoinMinutes** | **int** |  | [optional] 
 **HostEarlyJoinMinutes** | **int** |  | [optional] 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **OwnerId** | **string** |  | [optional] 
 **Platforms** | **List&lt;string&gt;** |   | [optional] 
 **RoleIds** | **List&lt;string&gt;** |   | [optional] 
-**StartsAt** | **DateTime** |  | [optional] 
+**StartsAt** | **DateTime** |  | 
 **Tags** | **List&lt;string&gt;** |   | [optional] 
 **Title** | **string** |  | 
 **Type** | **string** |  | [optional] 

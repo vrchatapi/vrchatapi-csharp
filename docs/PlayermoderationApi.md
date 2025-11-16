@@ -103,7 +103,7 @@ This endpoint does not need any parameter.
 
 <a name="getplayermoderations"></a>
 # **GetPlayerModerations**
-> List&lt;PlayerModeration&gt; GetPlayerModerations (string type = null, string targetUserId = null)
+> List&lt;PlayerModeration&gt; GetPlayerModerations (PlayerModerationType? type = null, string sourceUserId = null, string targetUserId = null)
 
 Search Player Moderations
 
@@ -131,13 +131,14 @@ namespace Example
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PlayermoderationApi(config);
-            var type = "type_example";  // string | Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. (optional) 
+            var type = (PlayerModerationType) "block";  // PlayerModerationType? | Must be one of PlayerModerationType. (optional) 
+            var sourceUserId = "sourceUserId_example";  // string | Must be valid UserID. Trying to view someone else's moderations results with \"Can't view someone else's player moderations\" error. (optional) 
             var targetUserId = "targetUserId_example";  // string | Must be valid UserID. (optional) 
 
             try
             {
                 // Search Player Moderations
-                List<PlayerModeration> result = apiInstance.GetPlayerModerations(type, targetUserId);
+                List<PlayerModeration> result = apiInstance.GetPlayerModerations(type, sourceUserId, targetUserId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -158,7 +159,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search Player Moderations
-    ApiResponse<List<PlayerModeration>> response = apiInstance.GetPlayerModerationsWithHttpInfo(type, targetUserId);
+    ApiResponse<List<PlayerModeration>> response = apiInstance.GetPlayerModerationsWithHttpInfo(type, sourceUserId, targetUserId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -175,7 +176,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **type** | **string** | Must be one of PlayerModerationType, except unblock. Unblocking simply removes a block. | [optional]  |
+| **type** | **PlayerModerationType?** | Must be one of PlayerModerationType. | [optional]  |
+| **sourceUserId** | **string** | Must be valid UserID. Trying to view someone else&#39;s moderations results with \&quot;Can&#39;t view someone else&#39;s player moderations\&quot; error. | [optional]  |
 | **targetUserId** | **string** | Must be valid UserID. | [optional]  |
 
 ### Return type
