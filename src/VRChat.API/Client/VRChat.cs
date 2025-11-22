@@ -157,9 +157,9 @@ namespace VRChat.API.Client
         Task<CurrentUser> LoginAsync(bool throwOnFail = false, CancellationToken ct = default);
     }
 
-    internal class VRChat : IVRChat
+    internal class VRChatClient : IVRChat
     {
-        private VRChat(Configuration configuration, string twoFactorSecret = null, ApiClient client = null, HttpClient httpClient = null, HttpClientHandler httpClientHandler = null)
+        private VRChatClient(Configuration configuration, string twoFactorSecret = null, ApiClient client = null, HttpClient httpClient = null, HttpClientHandler httpClientHandler = null)
         {
             _twoFactorSecret = twoFactorSecret;
             _httpClientHandler = httpClientHandler ?? new HttpClientHandler()
@@ -248,8 +248,8 @@ namespace VRChat.API.Client
         public bool IsLoggedIn { get; private set; }
 
         // Creates a new VRChatClient internally, compatible with IVRChatClient
-        internal static VRChat CreateInternal(Configuration configuration, string twoFactorSecret, ApiClient client, HttpClient httpClient, HttpClientHandler handler) =>
-            new VRChat(configuration, twoFactorSecret, client, httpClient, handler);
+        internal static VRChatClient CreateInternal(Configuration configuration, string twoFactorSecret, ApiClient client, HttpClient httpClient, HttpClientHandler handler) =>
+            new VRChatClient(configuration, twoFactorSecret, client, httpClient, handler);
 
         public List<Cookie> GetCookies()
         {
