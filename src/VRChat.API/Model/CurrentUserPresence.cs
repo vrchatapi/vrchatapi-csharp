@@ -51,7 +51,7 @@ namespace VRChat.API.Model
         /// <param name="travelingToWorld">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list..</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="world">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUserPresence(string avatarThumbnail = default, string currentAvatarTags = default, string displayName = default, string debugflag = default, List<string> groups = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string platform = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
+        public CurrentUserPresence(string avatarThumbnail = default, string[] currentAvatarTags = default, string displayName = default, string debugflag = default, List<string> groups = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string platform = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
         {
             this.AvatarThumbnail = avatarThumbnail;
             this.CurrentAvatarTags = currentAvatarTags;
