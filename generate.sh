@@ -46,7 +46,7 @@ sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' s
 sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\\README.md" Pack="true" PackagePath="\\"/>' src/VRChat.API/VRChat.API.csproj
 
 # Add Otp.NET package to project
-sed -i '/<PackageReference Include="JsonSubTypes" Version="1.9.0" \/>/a \    <PackageReference Include="Otp.NET" Version="1.4.0" \/>' src/VRChat.API/VRChat.API.csproj
+sed -i '/JsonSubTypes/a \    <PackageReference Include="Otp.NET" Version="1.4.0" \/>' src/VRChat.API/VRChat.API.csproj
 
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
