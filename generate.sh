@@ -59,6 +59,7 @@ sed -i '/public string UserIcon { get; set; }/a\\n        /// <summary>\n       
 
 # Temporary patch for issue #520
 sed -i 's/public string CurrentAvatarTags/public string[] CurrentAvatarTags/g' src/VRChat.API/Model/CurrentUserPresence.cs
+sed -i 's/string currentAvatarTags/string[] currentAvatarTags/g' src/VRChat.API/Model/CurrentUserPresence.cs
 
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
