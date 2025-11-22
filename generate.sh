@@ -51,6 +51,12 @@ sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\\README.md" 
 # Add Otp.NET package to project
 sed -i '/JsonSubTypes/a \    <PackageReference Include="Otp.NET" Version="1.4.0" \/>' src/VRChat.API/VRChat.API.csproj
 
+# Make CurrentUser fields optional for 2FA response compatibility
+sed -i 's/IsRequired = true/IsRequired = false/g' src/VRChat.API/Model/CurrentUser.cs
+
+# Add RequiresTwoFactorAuth property to CurrentUser
+sed -i '/public string UserIcon { get; set; }/a\\n        /// <summary>\n        /// An array of two-factor authentication methods available to use to with two factor authentication.\n        /// </summary>\n        [DataMember(Name = "requiresTwoFactorAuth", IsRequired = false, EmitDefaultValue = true)]\n        public List<string> RequiresTwoFactorAuth { get; set; }' src/VRChat.API/Model/CurrentUser.cs
+
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
     sed -i '/VRChat API Banner/d' $i

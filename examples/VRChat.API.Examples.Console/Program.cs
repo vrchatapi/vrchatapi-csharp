@@ -1,4 +1,7 @@
-﻿using VRChat.API.Client;
+﻿using OtpNet;
+using System.Net;
+using VRChat.API.Client;
+using VRChat.API.Model;
 
 namespace VRChat.API.Examples.Console
 {
@@ -16,6 +19,31 @@ namespace VRChat.API.Examples.Console
                 .WithTwoFactorSecret(twoFactorSecret)
                 .WithApplication("VRChatAPIExample", "1.0.0", "contact@vrchat.community")
                 .Build();
+
+            //ApiResponse<CurrentUser> response = null;
+
+            //try
+            //{
+            //    response = await vrchat.Authentication.GetCurrentUserWithHttpInfoAsync();
+
+            //    if (response.RawContent.Contains("totp"))
+            //    {
+            //        var totp = new Totp(Base32Encoding.ToBytes(twoFactorSecret));
+            //        var twoFactorResponse = await vrchat.Authentication.Verify2FAWithHttpInfoAsync(new TwoFactorAuthCode(totp.ComputeTotp()));
+
+            //        if (twoFactorResponse.StatusCode != HttpStatusCode.OK)
+            //            throw new UnauthorizedAccessException("Failed to verify two-factor authentication with VRChat.");
+
+            //        response = await vrchat.Authentication.GetCurrentUserWithHttpInfoAsync();
+            //    }
+            //}
+            //catch
+            //{
+
+            //}
+
+            //return;
+
 
             var user = await vrchat.LoginAsync(throwOnFail: true);
 
