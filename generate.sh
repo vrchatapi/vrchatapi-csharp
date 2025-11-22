@@ -22,6 +22,9 @@ rm openapi.yaml
 
 rmdir src/VRChat.API.Test/
 
+# Move wrapper code to src/VRChat.API/Client/
+cp -r wrapper/VRChat.API/Client/* src/VRChat.API/Client/
+
 for file in $(find ./src/VRChat.API -name '*.cs'); do
     sed -i 's/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"))/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "\/", "vrchat.com")/g' $file
     sed -i 's/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"))/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"), "\/", "vrchat.com")/g' $file
@@ -41,6 +44,9 @@ sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 # Add README.md to fields
 sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj
 sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\\README.md" Pack="true" PackagePath="\\"/>' src/VRChat.API/VRChat.API.csproj
+
+# Add Otp.NET package to project
+sed -i '/<PackageReference Include="JsonSubTypes" Version="1.9.0" \/>/a \    <PackageReference Include="Otp.NET" Version="1.4.0" \/>' src/VRChat.API/VRChat.API.csproj
 
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
