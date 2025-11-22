@@ -81,7 +81,7 @@ namespace VRChat.API.Model
         /// Gets or Sets CurrentAvatarTags
         /// </summary>
         [DataMember(Name = "currentAvatarTags", EmitDefaultValue = false)]
-        public string CurrentAvatarTags { get; set; }
+        public string[] CurrentAvatarTags { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
