@@ -44,7 +44,7 @@ namespace VRChat.API.Extensions.Hosting // Maybe we should change the namespace 
                         Credentials = new NetworkCredential(options.Proxy.Username, options.Proxy.Password)
                     };
 
-                    builder.WithProxy(options.Proxy, true);
+                    builder.WithProxy(webProxy);
                 }
 
                 if (options.Timeout.HasValue)

@@ -29,6 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VRChat.API\VRChat.API.Wrapper.csproj" />
+    <ProjectReference Include="..\..\src\VRChat.API\VRChat.API.csproj" />
   </ItemGroup>
 </Project>
