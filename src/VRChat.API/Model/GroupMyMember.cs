@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// GroupMyMember
     /// </summary>
     [DataContract(Name = "GroupMyMember")]
-    public partial class GroupMyMember : IEquatable<GroupMyMember>, IValidatableObject
+    public partial class GroupMyMember : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupMyMember" /> class.
@@ -54,7 +55,7 @@ namespace VRChat.API.Model
         /// <param name="lastPostReadAt">lastPostReadAt.</param>
         /// <param name="mRoleIds">mRoleIds.</param>
         /// <param name="permissions">permissions.</param>
-        public GroupMyMember(string id = default(string), string groupId = default(string), string userId = default(string), List<string> roleIds = default(List<string>), string acceptedByDisplayName = default(string), string acceptedById = default(string), DateTime createdAt = default(DateTime), string managerNotes = default(string), string membershipStatus = default(string), bool isSubscribedToAnnouncements = true, bool isSubscribedToEventAnnouncements = default(bool), string visibility = default(string), bool isRepresenting = false, DateTime joinedAt = default(DateTime), string bannedAt = default(string), bool has2FA = false, bool hasJoinedFromPurchase = false, DateTime? lastPostReadAt = default(DateTime?), List<string> mRoleIds = default(List<string>), List<GroupPermissions> permissions = default(List<GroupPermissions>))
+        public GroupMyMember(string id = default, string groupId = default, string userId = default, List<string> roleIds = default, string acceptedByDisplayName = default, string acceptedById = default, DateTime createdAt = default, string managerNotes = default, string membershipStatus = default, bool isSubscribedToAnnouncements = true, bool isSubscribedToEventAnnouncements = default, string visibility = default, bool isRepresenting = false, DateTime joinedAt = default, string bannedAt = default, bool has2FA = false, bool hasJoinedFromPurchase = false, DateTime? lastPostReadAt = default, List<string> mRoleIds = default, List<GroupPermissions> permissions = default)
         {
             this.Id = id;
             this.GroupId = groupId;
@@ -81,12 +82,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>gmem_95cdb3b4-4643-4eb6-bdab-46a4e1e5ce37</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
@@ -94,6 +101,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public string UserId { get; set; }
 
@@ -130,6 +140,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets MembershipStatus
         /// </summary>
+        /*
+        <example>member</example>
+        */
         [DataMember(Name = "membershipStatus", EmitDefaultValue = false)]
         public string MembershipStatus { get; set; }
 
@@ -148,6 +161,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Visibility
         /// </summary>
+        /*
+        <example>visible</example>
+        */
         [DataMember(Name = "visibility", EmitDefaultValue = false)]
         public string Visibility { get; set; }
 
@@ -241,211 +257,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as GroupMyMember);
-        }
-
-        /// <summary>
-        /// Returns true if GroupMyMember instances are equal
-        /// </summary>
-        /// <param name="input">Instance of GroupMyMember to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(GroupMyMember input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.GroupId == input.GroupId ||
-                    (this.GroupId != null &&
-                    this.GroupId.Equals(input.GroupId))
-                ) && 
-                (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
-                ) && 
-                (
-                    this.RoleIds == input.RoleIds ||
-                    this.RoleIds != null &&
-                    input.RoleIds != null &&
-                    this.RoleIds.SequenceEqual(input.RoleIds)
-                ) && 
-                (
-                    this.AcceptedByDisplayName == input.AcceptedByDisplayName ||
-                    (this.AcceptedByDisplayName != null &&
-                    this.AcceptedByDisplayName.Equals(input.AcceptedByDisplayName))
-                ) && 
-                (
-                    this.AcceptedById == input.AcceptedById ||
-                    (this.AcceptedById != null &&
-                    this.AcceptedById.Equals(input.AcceptedById))
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.ManagerNotes == input.ManagerNotes ||
-                    (this.ManagerNotes != null &&
-                    this.ManagerNotes.Equals(input.ManagerNotes))
-                ) && 
-                (
-                    this.MembershipStatus == input.MembershipStatus ||
-                    (this.MembershipStatus != null &&
-                    this.MembershipStatus.Equals(input.MembershipStatus))
-                ) && 
-                (
-                    this.IsSubscribedToAnnouncements == input.IsSubscribedToAnnouncements ||
-                    this.IsSubscribedToAnnouncements.Equals(input.IsSubscribedToAnnouncements)
-                ) && 
-                (
-                    this.IsSubscribedToEventAnnouncements == input.IsSubscribedToEventAnnouncements ||
-                    this.IsSubscribedToEventAnnouncements.Equals(input.IsSubscribedToEventAnnouncements)
-                ) && 
-                (
-                    this.Visibility == input.Visibility ||
-                    (this.Visibility != null &&
-                    this.Visibility.Equals(input.Visibility))
-                ) && 
-                (
-                    this.IsRepresenting == input.IsRepresenting ||
-                    this.IsRepresenting.Equals(input.IsRepresenting)
-                ) && 
-                (
-                    this.JoinedAt == input.JoinedAt ||
-                    (this.JoinedAt != null &&
-                    this.JoinedAt.Equals(input.JoinedAt))
-                ) && 
-                (
-                    this.BannedAt == input.BannedAt ||
-                    (this.BannedAt != null &&
-                    this.BannedAt.Equals(input.BannedAt))
-                ) && 
-                (
-                    this.Has2FA == input.Has2FA ||
-                    this.Has2FA.Equals(input.Has2FA)
-                ) && 
-                (
-                    this.HasJoinedFromPurchase == input.HasJoinedFromPurchase ||
-                    this.HasJoinedFromPurchase.Equals(input.HasJoinedFromPurchase)
-                ) && 
-                (
-                    this.LastPostReadAt == input.LastPostReadAt ||
-                    (this.LastPostReadAt != null &&
-                    this.LastPostReadAt.Equals(input.LastPostReadAt))
-                ) && 
-                (
-                    this.MRoleIds == input.MRoleIds ||
-                    this.MRoleIds != null &&
-                    input.MRoleIds != null &&
-                    this.MRoleIds.SequenceEqual(input.MRoleIds)
-                ) && 
-                (
-                    this.Permissions == input.Permissions ||
-                    this.Permissions != null &&
-                    input.Permissions != null &&
-                    this.Permissions.SequenceEqual(input.Permissions)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.GroupId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
-                }
-                if (this.UserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
-                }
-                if (this.RoleIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
-                }
-                if (this.AcceptedByDisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.AcceptedByDisplayName.GetHashCode();
-                }
-                if (this.AcceptedById != null)
-                {
-                    hashCode = (hashCode * 59) + this.AcceptedById.GetHashCode();
-                }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.ManagerNotes != null)
-                {
-                    hashCode = (hashCode * 59) + this.ManagerNotes.GetHashCode();
-                }
-                if (this.MembershipStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.MembershipStatus.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsSubscribedToAnnouncements.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsSubscribedToEventAnnouncements.GetHashCode();
-                if (this.Visibility != null)
-                {
-                    hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsRepresenting.GetHashCode();
-                if (this.JoinedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.JoinedAt.GetHashCode();
-                }
-                if (this.BannedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannedAt.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Has2FA.GetHashCode();
-                hashCode = (hashCode * 59) + this.HasJoinedFromPurchase.GetHashCode();
-                if (this.LastPostReadAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastPostReadAt.GetHashCode();
-                }
-                if (this.MRoleIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.MRoleIds.GetHashCode();
-                }
-                if (this.Permissions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

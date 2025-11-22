@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InviteMessage
     /// </summary>
     [DataContract(Name = "InviteMessage")]
-    public partial class InviteMessage : IEquatable<InviteMessage>, IValidatableObject
+    public partial class InviteMessage : IValidatableObject
     {
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="remainingCooldownMinutes">Changes to 60 when updated, although probably server-side configurable. (required) (default to 0).</param>
         /// <param name="slot">slot (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public InviteMessage(bool canBeUpdated = true, string id = default(string), string message = default(string), InviteMessageType messageType = default(InviteMessageType), int remainingCooldownMinutes = 0, int slot = default(int), DateTime updatedAt = default(DateTime))
+        public InviteMessage(bool canBeUpdated = true, string id = default, string message = default, InviteMessageType messageType = default, int remainingCooldownMinutes = 0, int slot = default, DateTime updatedAt = default)
         {
             this.CanBeUpdated = canBeUpdated;
             // to ensure "id" is required (not null)
@@ -82,6 +83,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>invm_24a1c14d-5e24-48e5-90e3-c3f712420ffa</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -139,118 +143,34 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InviteMessage);
-        }
-
-        /// <summary>
-        /// Returns true if InviteMessage instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InviteMessage to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InviteMessage input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CanBeUpdated == input.CanBeUpdated ||
-                    this.CanBeUpdated.Equals(input.CanBeUpdated)
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.MessageType == input.MessageType ||
-                    this.MessageType.Equals(input.MessageType)
-                ) && 
-                (
-                    this.RemainingCooldownMinutes == input.RemainingCooldownMinutes ||
-                    this.RemainingCooldownMinutes.Equals(input.RemainingCooldownMinutes)
-                ) && 
-                (
-                    this.Slot == input.Slot ||
-                    this.Slot.Equals(input.Slot)
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.CanBeUpdated.GetHashCode();
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.MessageType.GetHashCode();
-                hashCode = (hashCode * 59) + this.RemainingCooldownMinutes.GetHashCode();
-                hashCode = (hashCode * 59) + this.Slot.GetHashCode();
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Message (string) minLength
             if (this.Message != null && this.Message.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
+                yield return new ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
             }
 
             // RemainingCooldownMinutes (int) minimum
             if (this.RemainingCooldownMinutes < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RemainingCooldownMinutes, must be a value greater than or equal to 0.", new [] { "RemainingCooldownMinutes" });
+                yield return new ValidationResult("Invalid value for RemainingCooldownMinutes, must be a value greater than or equal to 0.", new [] { "RemainingCooldownMinutes" });
             }
 
             // Slot (int) maximum
             if (this.Slot > (int)11)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Slot, must be a value less than or equal to 11.", new [] { "Slot" });
+                yield return new ValidationResult("Invalid value for Slot, must be a value less than or equal to 11.", new [] { "Slot" });
             }
 
             // Slot (int) minimum
             if (this.Slot < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Slot, must be a value greater than or equal to 0.", new [] { "Slot" });
+                yield return new ValidationResult("Invalid value for Slot, must be a value greater than or equal to 0.", new [] { "Slot" });
             }
 
             yield break;

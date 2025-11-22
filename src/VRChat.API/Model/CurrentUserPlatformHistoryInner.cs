@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// CurrentUserPlatformHistoryInner
     /// </summary>
     [DataContract(Name = "CurrentUser_platform_history_inner")]
-    public partial class CurrentUserPlatformHistoryInner : IEquatable<CurrentUserPlatformHistoryInner>, IValidatableObject
+    public partial class CurrentUserPlatformHistoryInner : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentUserPlatformHistoryInner" /> class.
@@ -37,7 +38,7 @@ namespace VRChat.API.Model
         /// <param name="isMobile">isMobile.</param>
         /// <param name="platform">platform.</param>
         /// <param name="recorded">recorded.</param>
-        public CurrentUserPlatformHistoryInner(bool isMobile = default(bool), string platform = default(string), DateTime recorded = default(DateTime))
+        public CurrentUserPlatformHistoryInner(bool isMobile = default, string platform = default, DateTime recorded = default)
         {
             this.IsMobile = isMobile;
             this.Platform = platform;
@@ -87,71 +88,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as CurrentUserPlatformHistoryInner);
-        }
-
-        /// <summary>
-        /// Returns true if CurrentUserPlatformHistoryInner instances are equal
-        /// </summary>
-        /// <param name="input">Instance of CurrentUserPlatformHistoryInner to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserPlatformHistoryInner input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.IsMobile == input.IsMobile ||
-                    this.IsMobile.Equals(input.IsMobile)
-                ) && 
-                (
-                    this.Platform == input.Platform ||
-                    (this.Platform != null &&
-                    this.Platform.Equals(input.Platform))
-                ) && 
-                (
-                    this.Recorded == input.Recorded ||
-                    (this.Recorded != null &&
-                    this.Recorded.Equals(input.Recorded))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.IsMobile.GetHashCode();
-                if (this.Platform != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
-                }
-                if (this.Recorded != null)
-                {
-                    hashCode = (hashCode * 59) + this.Recorded.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

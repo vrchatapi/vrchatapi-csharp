@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// APIConfigReportOptionsUser
     /// </summary>
     [DataContract(Name = "APIConfig_reportOptions_user")]
-    public partial class APIConfigReportOptionsUser : IEquatable<APIConfigReportOptionsUser>, IValidatableObject
+    public partial class APIConfigReportOptionsUser : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigReportOptionsUser" /> class.
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// <param name="image">image.</param>
         /// <param name="sticker">sticker.</param>
         /// <param name="text">text.</param>
-        public APIConfigReportOptionsUser(List<string> behavior = default(List<string>), List<string> chat = default(List<string>), List<string> emoji = default(List<string>), List<string> image = default(List<string>), List<string> sticker = default(List<string>), List<string> text = default(List<string>))
+        public APIConfigReportOptionsUser(List<string> behavior = default, List<string> chat = default, List<string> emoji = default, List<string> image = default, List<string> sticker = default, List<string> text = default)
         {
             this.Behavior = behavior;
             this.Chat = chat;
@@ -114,108 +115,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigReportOptionsUser);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigReportOptionsUser instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigReportOptionsUser to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigReportOptionsUser input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Behavior == input.Behavior ||
-                    this.Behavior != null &&
-                    input.Behavior != null &&
-                    this.Behavior.SequenceEqual(input.Behavior)
-                ) && 
-                (
-                    this.Chat == input.Chat ||
-                    this.Chat != null &&
-                    input.Chat != null &&
-                    this.Chat.SequenceEqual(input.Chat)
-                ) && 
-                (
-                    this.Emoji == input.Emoji ||
-                    this.Emoji != null &&
-                    input.Emoji != null &&
-                    this.Emoji.SequenceEqual(input.Emoji)
-                ) && 
-                (
-                    this.Image == input.Image ||
-                    this.Image != null &&
-                    input.Image != null &&
-                    this.Image.SequenceEqual(input.Image)
-                ) && 
-                (
-                    this.Sticker == input.Sticker ||
-                    this.Sticker != null &&
-                    input.Sticker != null &&
-                    this.Sticker.SequenceEqual(input.Sticker)
-                ) && 
-                (
-                    this.Text == input.Text ||
-                    this.Text != null &&
-                    input.Text != null &&
-                    this.Text.SequenceEqual(input.Text)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Behavior != null)
-                {
-                    hashCode = (hashCode * 59) + this.Behavior.GetHashCode();
-                }
-                if (this.Chat != null)
-                {
-                    hashCode = (hashCode * 59) + this.Chat.GetHashCode();
-                }
-                if (this.Emoji != null)
-                {
-                    hashCode = (hashCode * 59) + this.Emoji.GetHashCode();
-                }
-                if (this.Image != null)
-                {
-                    hashCode = (hashCode * 59) + this.Image.GetHashCode();
-                }
-                if (this.Sticker != null)
-                {
-                    hashCode = (hashCode * 59) + this.Sticker.GetHashCode();
-                }
-                if (this.Text != null)
-                {
-                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

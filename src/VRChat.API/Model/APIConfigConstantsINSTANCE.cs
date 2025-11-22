@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,13 +30,13 @@ namespace VRChat.API.Model
     /// Instance-related constants
     /// </summary>
     [DataContract(Name = "APIConfigConstants_INSTANCE")]
-    public partial class APIConfigConstantsINSTANCE : IEquatable<APIConfigConstantsINSTANCE>, IValidatableObject
+    public partial class APIConfigConstantsINSTANCE : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigConstantsINSTANCE" /> class.
         /// </summary>
         /// <param name="pOPULATIONBRACKETS">pOPULATIONBRACKETS.</param>
-        public APIConfigConstantsINSTANCE(APIConfigConstantsINSTANCEPOPULATIONBRACKETS pOPULATIONBRACKETS = default(APIConfigConstantsINSTANCEPOPULATIONBRACKETS))
+        public APIConfigConstantsINSTANCE(APIConfigConstantsINSTANCEPOPULATIONBRACKETS pOPULATIONBRACKETS = default)
         {
             this.POPULATION_BRACKETS = pOPULATIONBRACKETS;
         }
@@ -69,57 +70,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigConstantsINSTANCE);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigConstantsINSTANCE instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigConstantsINSTANCE to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigConstantsINSTANCE input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.POPULATION_BRACKETS == input.POPULATION_BRACKETS ||
-                    (this.POPULATION_BRACKETS != null &&
-                    this.POPULATION_BRACKETS.Equals(input.POPULATION_BRACKETS))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.POPULATION_BRACKETS != null)
-                {
-                    hashCode = (hashCode * 59) + this.POPULATION_BRACKETS.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// UserSubscriptionEligible
     /// </summary>
     [DataContract(Name = "UserSubscriptionEligible")]
-    public partial class UserSubscriptionEligible : IEquatable<UserSubscriptionEligible>, IValidatableObject
+    public partial class UserSubscriptionEligible : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UserSubscriptionEligible" /> class.
@@ -45,7 +46,7 @@ namespace VRChat.API.Model
         /// <param name="purchaseEligible">purchaseEligible (required).</param>
         /// <param name="subscriptionEligible">subscriptionEligible (required).</param>
         /// <param name="subscriptionOnAltAccount">subscriptionOnAltAccount (required).</param>
-        public UserSubscriptionEligible(bool activeCancelledSubscription = default(bool), bool giftEligible = default(bool), bool nonExtendVendorWillLoseGiftTime = default(bool), bool purchaseEligible = default(bool), bool subscriptionEligible = default(bool), bool subscriptionOnAltAccount = default(bool))
+        public UserSubscriptionEligible(bool activeCancelledSubscription = default, bool giftEligible = default, bool nonExtendVendorWillLoseGiftTime = default, bool purchaseEligible = default, bool subscriptionEligible = default, bool subscriptionOnAltAccount = default)
         {
             this.ActiveCancelledSubscription = activeCancelledSubscription;
             this.GiftEligible = giftEligible;
@@ -119,78 +120,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as UserSubscriptionEligible);
-        }
-
-        /// <summary>
-        /// Returns true if UserSubscriptionEligible instances are equal
-        /// </summary>
-        /// <param name="input">Instance of UserSubscriptionEligible to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(UserSubscriptionEligible input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.ActiveCancelledSubscription == input.ActiveCancelledSubscription ||
-                    this.ActiveCancelledSubscription.Equals(input.ActiveCancelledSubscription)
-                ) && 
-                (
-                    this.GiftEligible == input.GiftEligible ||
-                    this.GiftEligible.Equals(input.GiftEligible)
-                ) && 
-                (
-                    this.NonExtendVendorWillLoseGiftTime == input.NonExtendVendorWillLoseGiftTime ||
-                    this.NonExtendVendorWillLoseGiftTime.Equals(input.NonExtendVendorWillLoseGiftTime)
-                ) && 
-                (
-                    this.PurchaseEligible == input.PurchaseEligible ||
-                    this.PurchaseEligible.Equals(input.PurchaseEligible)
-                ) && 
-                (
-                    this.SubscriptionEligible == input.SubscriptionEligible ||
-                    this.SubscriptionEligible.Equals(input.SubscriptionEligible)
-                ) && 
-                (
-                    this.SubscriptionOnAltAccount == input.SubscriptionOnAltAccount ||
-                    this.SubscriptionOnAltAccount.Equals(input.SubscriptionOnAltAccount)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.ActiveCancelledSubscription.GetHashCode();
-                hashCode = (hashCode * 59) + this.GiftEligible.GetHashCode();
-                hashCode = (hashCode * 59) + this.NonExtendVendorWillLoseGiftTime.GetHashCode();
-                hashCode = (hashCode * 59) + this.PurchaseEligible.GetHashCode();
-                hashCode = (hashCode * 59) + this.SubscriptionEligible.GetHashCode();
-                hashCode = (hashCode * 59) + this.SubscriptionOnAltAccount.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

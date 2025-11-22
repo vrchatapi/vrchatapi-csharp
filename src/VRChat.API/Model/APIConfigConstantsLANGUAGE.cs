@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,13 +30,13 @@ namespace VRChat.API.Model
     /// Language-related constants
     /// </summary>
     [DataContract(Name = "APIConfigConstants_LANGUAGE")]
-    public partial class APIConfigConstantsLANGUAGE : IEquatable<APIConfigConstantsLANGUAGE>, IValidatableObject
+    public partial class APIConfigConstantsLANGUAGE : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigConstantsLANGUAGE" /> class.
         /// </summary>
         /// <param name="sPOKENLANGUAGEOPTIONS">Supported spoken language options.</param>
-        public APIConfigConstantsLANGUAGE(Dictionary<string, string> sPOKENLANGUAGEOPTIONS = default(Dictionary<string, string>))
+        public APIConfigConstantsLANGUAGE(Dictionary<string, string> sPOKENLANGUAGEOPTIONS = default)
         {
             this.SPOKEN_LANGUAGE_OPTIONS = sPOKENLANGUAGEOPTIONS;
         }
@@ -70,58 +71,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigConstantsLANGUAGE);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigConstantsLANGUAGE instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigConstantsLANGUAGE to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigConstantsLANGUAGE input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.SPOKEN_LANGUAGE_OPTIONS == input.SPOKEN_LANGUAGE_OPTIONS ||
-                    this.SPOKEN_LANGUAGE_OPTIONS != null &&
-                    input.SPOKEN_LANGUAGE_OPTIONS != null &&
-                    this.SPOKEN_LANGUAGE_OPTIONS.SequenceEqual(input.SPOKEN_LANGUAGE_OPTIONS)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.SPOKEN_LANGUAGE_OPTIONS != null)
-                {
-                    hashCode = (hashCode * 59) + this.SPOKEN_LANGUAGE_OPTIONS.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

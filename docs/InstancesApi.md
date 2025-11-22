@@ -11,7 +11,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetRecentLocations**](InstancesApi.md#getrecentlocations) | **GET** /instances/recent | List Recent Locations |
 | [**GetShortName**](InstancesApi.md#getshortname) | **GET** /instances/{worldId}:{instanceId}/shortName | Get Instance Short Name |
 
-<a name="closeinstance"></a>
+<a id="closeinstance"></a>
 # **CloseInstance**
 > Instance CloseInstance (string worldId, string instanceId, bool? hardClose = null, DateTime? closedAt = null)
 
@@ -23,6 +23,7 @@ Close an instance or update the closedAt time when it will be closed.  You can o
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -40,7 +41,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InstancesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InstancesApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
             var instanceId = "instanceId_example";  // string | Must be a valid instance ID.
             var hardClose = true;  // bool? | Whether to hard close the instance. Defaults to false. (optional) 
@@ -116,7 +120,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="createinstance"></a>
+<a id="createinstance"></a>
 # **CreateInstance**
 > Instance CreateInstance (CreateInstanceRequest createInstanceRequest)
 
@@ -128,6 +132,7 @@ Create an instance
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -145,7 +150,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InstancesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InstancesApi(httpClient, config, httpClientHandler);
             var createInstanceRequest = new CreateInstanceRequest(); // CreateInstanceRequest | 
 
             try
@@ -213,7 +221,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinstance"></a>
+<a id="getinstance"></a>
 # **GetInstance**
 > Instance GetInstance (string worldId, string instanceId)
 
@@ -225,6 +233,7 @@ Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.i
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -242,7 +251,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InstancesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InstancesApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
             var instanceId = "instanceId_example";  // string | Must be a valid instance ID.
 
@@ -312,7 +324,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinstancebyshortname"></a>
+<a id="getinstancebyshortname"></a>
 # **GetInstanceByShortName**
 > Instance GetInstanceByShortName (string shortName)
 
@@ -324,6 +336,7 @@ Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.i
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -341,7 +354,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InstancesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InstancesApi(httpClient, config, httpClientHandler);
             var shortName = "shortName_example";  // string | Must be a valid instance short name.
 
             try
@@ -410,7 +426,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getrecentlocations"></a>
+<a id="getrecentlocations"></a>
 # **GetRecentLocations**
 > List&lt;string&gt; GetRecentLocations (int? n = null, int? offset = null)
 
@@ -422,6 +438,7 @@ Returns a list of recently visited locations.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -439,7 +456,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InstancesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InstancesApi(httpClient, config, httpClientHandler);
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
@@ -509,7 +529,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getshortname"></a>
+<a id="getshortname"></a>
 # **GetShortName**
 > InstanceShortNameResponse GetShortName (string worldId, string instanceId)
 
@@ -521,6 +541,7 @@ Returns an instance short name.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -538,7 +559,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InstancesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InstancesApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
             var instanceId = "instanceId_example";  // string | Must be a valid instance ID.
 

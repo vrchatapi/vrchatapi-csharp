@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Avatar
     /// </summary>
     [DataContract(Name = "Avatar")]
-    public partial class Avatar : IEquatable<Avatar>, IValidatableObject
+    public partial class Avatar : IValidatableObject
     {
 
         /// <summary>
@@ -57,7 +58,7 @@ namespace VRChat.API.Model
         /// <param name="id">id (required).</param>
         /// <param name="imageUrl">imageUrl (required).</param>
         /// <param name="listingDate">listingDate (required).</param>
-        /// <param name="_lock">_lock.</param>
+        /// <param name="varLock">varLock.</param>
         /// <param name="lowestPrice">lowestPrice.</param>
         /// <param name="name">name (required).</param>
         /// <param name="performance">performance (required).</param>
@@ -72,8 +73,8 @@ namespace VRChat.API.Model
         /// <param name="unityPackageUrlObject">unityPackageUrlObject (required).</param>
         /// <param name="unityPackages">unityPackages (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        /// <param name="version">version (required) (default to 0).</param>
-        public Avatar(string acknowledgements = default(string), string assetUrl = default(string), Object assetUrlObject = default(Object), string authorId = default(string), string authorName = default(string), DateTime createdAt = default(DateTime), string description = default(string), bool featured = false, int highestPrice = default(int), string id = default(string), string imageUrl = default(string), string listingDate = default(string), bool _lock = default(bool), int lowestPrice = default(int), string name = default(string), AvatarPerformance performance = default(AvatarPerformance), string productId = default(string), List<AvatarPublishedListingsInner> publishedListings = default(List<AvatarPublishedListingsInner>), ReleaseStatus releaseStatus = default(ReleaseStatus), bool searchable = false, AvatarStyles styles = default(AvatarStyles), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), string unityPackageUrl = default(string), AvatarUnityPackageUrlObject unityPackageUrlObject = default(AvatarUnityPackageUrlObject), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), int version = 0)
+        /// <param name="varVersion">varVersion (required) (default to 0).</param>
+        public Avatar(string acknowledgements = default, string assetUrl = default, Object assetUrlObject = default, string authorId = default, string authorName = default, DateTime createdAt = default, string description = default, bool featured = false, int highestPrice = default, string id = default, string imageUrl = default, string listingDate = default, bool varLock = default, int lowestPrice = default, string name = default, AvatarPerformance performance = default, string productId = default, List<AvatarPublishedListingsInner> publishedListings = default, ReleaseStatus releaseStatus = default, bool searchable = false, AvatarStyles styles = default, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, AvatarUnityPackageUrlObject unityPackageUrlObject = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, int varVersion = 0)
         {
             // to ensure "authorId" is required (not null)
             if (authorId == null)
@@ -163,12 +164,12 @@ namespace VRChat.API.Model
             }
             this.UnityPackages = unityPackages;
             this.UpdatedAt = updatedAt;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Acknowledgements = acknowledgements;
             this.AssetUrl = assetUrl;
             this.AssetUrlObject = assetUrlObject;
             this.HighestPrice = highestPrice;
-            this.Lock = _lock;
+            this.Lock = varLock;
             this.LowestPrice = lowestPrice;
             this.ProductId = productId;
             this.PublishedListings = publishedListings;
@@ -199,6 +200,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorId { get; set; }
 
@@ -235,6 +239,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -337,10 +344,13 @@ namespace VRChat.API.Model
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
+        /*
+        <example>68</example>
+        */
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public int _Version { get; set; }
+        public int VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -377,7 +387,7 @@ namespace VRChat.API.Model
             sb.Append("  UnityPackageUrlObject: ").Append(UnityPackageUrlObject).Append("\n");
             sb.Append("  UnityPackages: ").Append(UnityPackages).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -392,316 +402,52 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Avatar);
-        }
-
-        /// <summary>
-        /// Returns true if Avatar instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Avatar to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Avatar input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Acknowledgements == input.Acknowledgements ||
-                    (this.Acknowledgements != null &&
-                    this.Acknowledgements.Equals(input.Acknowledgements))
-                ) && 
-                (
-                    this.AssetUrl == input.AssetUrl ||
-                    (this.AssetUrl != null &&
-                    this.AssetUrl.Equals(input.AssetUrl))
-                ) && 
-                (
-                    this.AssetUrlObject == input.AssetUrlObject ||
-                    (this.AssetUrlObject != null &&
-                    this.AssetUrlObject.Equals(input.AssetUrlObject))
-                ) && 
-                (
-                    this.AuthorId == input.AuthorId ||
-                    (this.AuthorId != null &&
-                    this.AuthorId.Equals(input.AuthorId))
-                ) && 
-                (
-                    this.AuthorName == input.AuthorName ||
-                    (this.AuthorName != null &&
-                    this.AuthorName.Equals(input.AuthorName))
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Featured == input.Featured ||
-                    this.Featured.Equals(input.Featured)
-                ) && 
-                (
-                    this.HighestPrice == input.HighestPrice ||
-                    this.HighestPrice.Equals(input.HighestPrice)
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.ListingDate == input.ListingDate ||
-                    (this.ListingDate != null &&
-                    this.ListingDate.Equals(input.ListingDate))
-                ) && 
-                (
-                    this.Lock == input.Lock ||
-                    this.Lock.Equals(input.Lock)
-                ) && 
-                (
-                    this.LowestPrice == input.LowestPrice ||
-                    this.LowestPrice.Equals(input.LowestPrice)
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Performance == input.Performance ||
-                    (this.Performance != null &&
-                    this.Performance.Equals(input.Performance))
-                ) && 
-                (
-                    this.ProductId == input.ProductId ||
-                    (this.ProductId != null &&
-                    this.ProductId.Equals(input.ProductId))
-                ) && 
-                (
-                    this.PublishedListings == input.PublishedListings ||
-                    this.PublishedListings != null &&
-                    input.PublishedListings != null &&
-                    this.PublishedListings.SequenceEqual(input.PublishedListings)
-                ) && 
-                (
-                    this.ReleaseStatus == input.ReleaseStatus ||
-                    this.ReleaseStatus.Equals(input.ReleaseStatus)
-                ) && 
-                (
-                    this.Searchable == input.Searchable ||
-                    this.Searchable.Equals(input.Searchable)
-                ) && 
-                (
-                    this.Styles == input.Styles ||
-                    (this.Styles != null &&
-                    this.Styles.Equals(input.Styles))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.ThumbnailImageUrl == input.ThumbnailImageUrl ||
-                    (this.ThumbnailImageUrl != null &&
-                    this.ThumbnailImageUrl.Equals(input.ThumbnailImageUrl))
-                ) && 
-                (
-                    this.UnityPackageUrl == input.UnityPackageUrl ||
-                    (this.UnityPackageUrl != null &&
-                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
-                ) && 
-                (
-                    this.UnityPackageUrlObject == input.UnityPackageUrlObject ||
-                    (this.UnityPackageUrlObject != null &&
-                    this.UnityPackageUrlObject.Equals(input.UnityPackageUrlObject))
-                ) && 
-                (
-                    this.UnityPackages == input.UnityPackages ||
-                    this.UnityPackages != null &&
-                    input.UnityPackages != null &&
-                    this.UnityPackages.SequenceEqual(input.UnityPackages)
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                ) && 
-                (
-                    this._Version == input._Version ||
-                    this._Version.Equals(input._Version)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Acknowledgements != null)
-                {
-                    hashCode = (hashCode * 59) + this.Acknowledgements.GetHashCode();
-                }
-                if (this.AssetUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetUrl.GetHashCode();
-                }
-                if (this.AssetUrlObject != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetUrlObject.GetHashCode();
-                }
-                if (this.AuthorId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
-                }
-                if (this.AuthorName != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
-                }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Featured.GetHashCode();
-                hashCode = (hashCode * 59) + this.HighestPrice.GetHashCode();
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                if (this.ListingDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.ListingDate.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Lock.GetHashCode();
-                hashCode = (hashCode * 59) + this.LowestPrice.GetHashCode();
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Performance != null)
-                {
-                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
-                }
-                if (this.ProductId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProductId.GetHashCode();
-                }
-                if (this.PublishedListings != null)
-                {
-                    hashCode = (hashCode * 59) + this.PublishedListings.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this.Searchable.GetHashCode();
-                if (this.Styles != null)
-                {
-                    hashCode = (hashCode * 59) + this.Styles.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.ThumbnailImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
-                }
-                if (this.UnityPackageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
-                }
-                if (this.UnityPackageUrlObject != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityPackageUrlObject.GetHashCode();
-                }
-                if (this.UnityPackages != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityPackages.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this._Version.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AssetUrl (string) minLength
             if (this.AssetUrl != null && this.AssetUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
+                yield return new ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
             }
 
             // AuthorName (string) minLength
             if (this.AuthorName != null && this.AuthorName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
+                yield return new ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
 
             // Description (string) minLength
             if (this.Description != null && this.Description.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
 
             // ImageUrl (string) minLength
             if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
+                yield return new ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // ThumbnailImageUrl (string) minLength
             if (this.ThumbnailImageUrl != null && this.ThumbnailImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
+                yield return new ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
             }
 
-            // _Version (int) minimum
-            if (this._Version < (int)0)
+            // VarVersion (int) minimum
+            if (this.VarVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
+                yield return new ValidationResult("Invalid value for VarVersion, must be a value greater than or equal to 0.", new [] { "VarVersion" });
             }
 
             yield break;

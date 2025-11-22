@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Response
     /// </summary>
     [DataContract(Name = "Response")]
-    public partial class Response : IEquatable<Response>, IValidatableObject
+    public partial class Response : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Response" /> class.
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="message">message.</param>
         /// <param name="statusCode">statusCode (required).</param>
-        public Response(string message = default(string), int statusCode = default(int))
+        public Response(string message = default, int statusCode = default)
         {
             this.StatusCode = statusCode;
             this.Message = message;
@@ -83,73 +84,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Response);
-        }
-
-        /// <summary>
-        /// Returns true if Response instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Response to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Response input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.StatusCode == input.StatusCode ||
-                    this.StatusCode.Equals(input.StatusCode)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.StatusCode.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Message (string) minLength
             if (this.Message != null && this.Message.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
+                yield return new ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
             }
 
             // StatusCode (int) minimum
             if (this.StatusCode < (int)100)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StatusCode, must be a value greater than or equal to 100.", new [] { "StatusCode" });
+                yield return new ValidationResult("Invalid value for StatusCode, must be a value greater than or equal to 100.", new [] { "StatusCode" });
             }
 
             yield break;

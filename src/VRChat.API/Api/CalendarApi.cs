@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -35,9 +36,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CalendarEvent</returns>
-        CalendarEvent CreateGroupCalendarEvent(string groupId, CreateCalendarEventRequest createCalendarEventRequest, int operationIndex = 0);
+        CalendarEvent CreateGroupCalendarEvent(string groupId, CreateCalendarEventRequest createCalendarEventRequest);
 
         /// <summary>
         /// Create a calendar event
@@ -48,9 +48,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CalendarEvent</returns>
-        ApiResponse<CalendarEvent> CreateGroupCalendarEventWithHttpInfo(string groupId, CreateCalendarEventRequest createCalendarEventRequest, int operationIndex = 0);
+        ApiResponse<CalendarEvent> CreateGroupCalendarEventWithHttpInfo(string groupId, CreateCalendarEventRequest createCalendarEventRequest);
         /// <summary>
         /// Delete a calendar event
         /// </summary>
@@ -60,9 +59,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success DeleteGroupCalendarEvent(string groupId, string calendarId, int operationIndex = 0);
+        Success DeleteGroupCalendarEvent(string groupId, string calendarId);
 
         /// <summary>
         /// Delete a calendar event
@@ -73,9 +71,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> DeleteGroupCalendarEventWithHttpInfo(string groupId, string calendarId, int operationIndex = 0);
+        ApiResponse<Success> DeleteGroupCalendarEventWithHttpInfo(string groupId, string calendarId);
         /// <summary>
         /// Follow a calendar event
         /// </summary>
@@ -86,9 +83,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="followCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CalendarEvent</returns>
-        CalendarEvent FollowGroupCalendarEvent(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, int operationIndex = 0);
+        CalendarEvent FollowGroupCalendarEvent(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest);
 
         /// <summary>
         /// Follow a calendar event
@@ -100,9 +96,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="followCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CalendarEvent</returns>
-        ApiResponse<CalendarEvent> FollowGroupCalendarEventWithHttpInfo(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, int operationIndex = 0);
+        ApiResponse<CalendarEvent> FollowGroupCalendarEventWithHttpInfo(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest);
         /// <summary>
         /// List calendar events
         /// </summary>
@@ -113,9 +108,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        PaginatedCalendarEventList GetCalendarEvents(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        PaginatedCalendarEventList GetCalendarEvents(DateTime? date = default, int? n = default, int? offset = default);
 
         /// <summary>
         /// List calendar events
@@ -127,9 +121,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        ApiResponse<PaginatedCalendarEventList> GetCalendarEventsWithHttpInfo(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<PaginatedCalendarEventList> GetCalendarEventsWithHttpInfo(DateTime? date = default, int? n = default, int? offset = default);
         /// <summary>
         /// List featured calendar events
         /// </summary>
@@ -140,9 +133,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        PaginatedCalendarEventList GetFeaturedCalendarEvents(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        PaginatedCalendarEventList GetFeaturedCalendarEvents(DateTime? date = default, int? n = default, int? offset = default);
 
         /// <summary>
         /// List featured calendar events
@@ -154,9 +146,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        ApiResponse<PaginatedCalendarEventList> GetFeaturedCalendarEventsWithHttpInfo(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<PaginatedCalendarEventList> GetFeaturedCalendarEventsWithHttpInfo(DateTime? date = default, int? n = default, int? offset = default);
         /// <summary>
         /// List followed calendar events
         /// </summary>
@@ -167,9 +158,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        PaginatedCalendarEventList GetFollowedCalendarEvents(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        PaginatedCalendarEventList GetFollowedCalendarEvents(DateTime? date = default, int? n = default, int? offset = default);
 
         /// <summary>
         /// List followed calendar events
@@ -181,9 +171,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        ApiResponse<PaginatedCalendarEventList> GetFollowedCalendarEventsWithHttpInfo(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<PaginatedCalendarEventList> GetFollowedCalendarEventsWithHttpInfo(DateTime? date = default, int? n = default, int? offset = default);
         /// <summary>
         /// Get a calendar event
         /// </summary>
@@ -193,9 +182,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CalendarEvent</returns>
-        CalendarEvent GetGroupCalendarEvent(string groupId, string calendarId, int operationIndex = 0);
+        CalendarEvent GetGroupCalendarEvent(string groupId, string calendarId);
 
         /// <summary>
         /// Get a calendar event
@@ -206,9 +194,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CalendarEvent</returns>
-        ApiResponse<CalendarEvent> GetGroupCalendarEventWithHttpInfo(string groupId, string calendarId, int operationIndex = 0);
+        ApiResponse<CalendarEvent> GetGroupCalendarEventWithHttpInfo(string groupId, string calendarId);
         /// <summary>
         /// Download calendar event as ICS
         /// </summary>
@@ -218,9 +205,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System.IO.Stream</returns>
-        System.IO.Stream GetGroupCalendarEventICS(string groupId, string calendarId, int operationIndex = 0);
+        /// <returns>FileParameter</returns>
+        FileParameter GetGroupCalendarEventICS(string groupId, string calendarId);
 
         /// <summary>
         /// Download calendar event as ICS
@@ -231,9 +217,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> GetGroupCalendarEventICSWithHttpInfo(string groupId, string calendarId, int operationIndex = 0);
+        /// <returns>ApiResponse of FileParameter</returns>
+        ApiResponse<FileParameter> GetGroupCalendarEventICSWithHttpInfo(string groupId, string calendarId);
         /// <summary>
         /// List a group&#39;s calendar events
         /// </summary>
@@ -245,9 +230,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        PaginatedCalendarEventList GetGroupCalendarEvents(string groupId, DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        PaginatedCalendarEventList GetGroupCalendarEvents(string groupId, DateTime? date = default, int? n = default, int? offset = default);
 
         /// <summary>
         /// List a group&#39;s calendar events
@@ -260,9 +244,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        ApiResponse<PaginatedCalendarEventList> GetGroupCalendarEventsWithHttpInfo(string groupId, DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<PaginatedCalendarEventList> GetGroupCalendarEventsWithHttpInfo(string groupId, DateTime? date = default, int? n = default, int? offset = default);
         /// <summary>
         /// Search for calendar events
         /// </summary>
@@ -274,9 +257,8 @@ namespace VRChat.API.Api
         /// <param name="utcOffset">The offset from UTC in hours of the client or authenticated user. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        PaginatedCalendarEventList SearchCalendarEvents(string searchTerm, int? utcOffset = default(int?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        PaginatedCalendarEventList SearchCalendarEvents(string searchTerm, int? utcOffset = default, int? n = default, int? offset = default);
 
         /// <summary>
         /// Search for calendar events
@@ -289,9 +271,8 @@ namespace VRChat.API.Api
         /// <param name="utcOffset">The offset from UTC in hours of the client or authenticated user. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        ApiResponse<PaginatedCalendarEventList> SearchCalendarEventsWithHttpInfo(string searchTerm, int? utcOffset = default(int?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<PaginatedCalendarEventList> SearchCalendarEventsWithHttpInfo(string searchTerm, int? utcOffset = default, int? n = default, int? offset = default);
         /// <summary>
         /// Update a calendar event
         /// </summary>
@@ -302,9 +283,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="updateCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CalendarEvent</returns>
-        CalendarEvent UpdateGroupCalendarEvent(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, int operationIndex = 0);
+        CalendarEvent UpdateGroupCalendarEvent(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest);
 
         /// <summary>
         /// Update a calendar event
@@ -316,9 +296,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="updateCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CalendarEvent</returns>
-        ApiResponse<CalendarEvent> UpdateGroupCalendarEventWithHttpInfo(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, int operationIndex = 0);
+        ApiResponse<CalendarEvent> UpdateGroupCalendarEventWithHttpInfo(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest);
         #endregion Synchronous Operations
     }
 
@@ -337,10 +316,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalendarEvent</returns>
-        System.Threading.Tasks.Task<CalendarEvent> CreateGroupCalendarEventAsync(string groupId, CreateCalendarEventRequest createCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CalendarEvent> CreateGroupCalendarEventAsync(string groupId, CreateCalendarEventRequest createCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a calendar event
@@ -351,10 +329,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalendarEvent)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalendarEvent>> CreateGroupCalendarEventWithHttpInfoAsync(string groupId, CreateCalendarEventRequest createCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CalendarEvent>> CreateGroupCalendarEventWithHttpInfoAsync(string groupId, CreateCalendarEventRequest createCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a calendar event
         /// </summary>
@@ -364,10 +341,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> DeleteGroupCalendarEventAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> DeleteGroupCalendarEventAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a calendar event
@@ -378,10 +354,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Follow a calendar event
         /// </summary>
@@ -392,10 +367,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="followCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalendarEvent</returns>
-        System.Threading.Tasks.Task<CalendarEvent> FollowGroupCalendarEventAsync(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CalendarEvent> FollowGroupCalendarEventAsync(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Follow a calendar event
@@ -407,10 +381,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="followCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalendarEvent)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalendarEvent>> FollowGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CalendarEvent>> FollowGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List calendar events
         /// </summary>
@@ -421,10 +394,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        System.Threading.Tasks.Task<PaginatedCalendarEventList> GetCalendarEventsAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PaginatedCalendarEventList> GetCalendarEventsAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List calendar events
@@ -436,10 +408,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> GetCalendarEventsWithHttpInfoAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> GetCalendarEventsWithHttpInfoAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List featured calendar events
         /// </summary>
@@ -450,10 +421,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        System.Threading.Tasks.Task<PaginatedCalendarEventList> GetFeaturedCalendarEventsAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PaginatedCalendarEventList> GetFeaturedCalendarEventsAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List featured calendar events
@@ -465,10 +435,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> GetFeaturedCalendarEventsWithHttpInfoAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> GetFeaturedCalendarEventsWithHttpInfoAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List followed calendar events
         /// </summary>
@@ -479,10 +448,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        System.Threading.Tasks.Task<PaginatedCalendarEventList> GetFollowedCalendarEventsAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PaginatedCalendarEventList> GetFollowedCalendarEventsAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List followed calendar events
@@ -494,10 +462,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> GetFollowedCalendarEventsWithHttpInfoAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> GetFollowedCalendarEventsWithHttpInfoAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a calendar event
         /// </summary>
@@ -507,10 +474,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalendarEvent</returns>
-        System.Threading.Tasks.Task<CalendarEvent> GetGroupCalendarEventAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CalendarEvent> GetGroupCalendarEventAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a calendar event
@@ -521,10 +487,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalendarEvent)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalendarEvent>> GetGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CalendarEvent>> GetGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Download calendar event as ICS
         /// </summary>
@@ -534,10 +499,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> GetGroupCalendarEventICSAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of FileParameter</returns>
+        System.Threading.Tasks.Task<FileParameter> GetGroupCalendarEventICSAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Download calendar event as ICS
@@ -548,10 +512,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetGroupCalendarEventICSWithHttpInfoAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (FileParameter)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileParameter>> GetGroupCalendarEventICSWithHttpInfoAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List a group&#39;s calendar events
         /// </summary>
@@ -563,10 +526,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        System.Threading.Tasks.Task<PaginatedCalendarEventList> GetGroupCalendarEventsAsync(string groupId, DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PaginatedCalendarEventList> GetGroupCalendarEventsAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List a group&#39;s calendar events
@@ -579,10 +541,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> GetGroupCalendarEventsWithHttpInfoAsync(string groupId, DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> GetGroupCalendarEventsWithHttpInfoAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search for calendar events
         /// </summary>
@@ -594,10 +555,9 @@ namespace VRChat.API.Api
         /// <param name="utcOffset">The offset from UTC in hours of the client or authenticated user. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        System.Threading.Tasks.Task<PaginatedCalendarEventList> SearchCalendarEventsAsync(string searchTerm, int? utcOffset = default(int?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PaginatedCalendarEventList> SearchCalendarEventsAsync(string searchTerm, int? utcOffset = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for calendar events
@@ -610,10 +570,9 @@ namespace VRChat.API.Api
         /// <param name="utcOffset">The offset from UTC in hours of the client or authenticated user. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> SearchCalendarEventsWithHttpInfoAsync(string searchTerm, int? utcOffset = default(int?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> SearchCalendarEventsWithHttpInfoAsync(string searchTerm, int? utcOffset = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a calendar event
         /// </summary>
@@ -624,10 +583,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="updateCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalendarEvent</returns>
-        System.Threading.Tasks.Task<CalendarEvent> UpdateGroupCalendarEventAsync(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CalendarEvent> UpdateGroupCalendarEventAsync(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a calendar event
@@ -639,10 +597,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="updateCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalendarEvent)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalendarEvent>> UpdateGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CalendarEvent>> UpdateGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -657,12 +614,14 @@ namespace VRChat.API.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class CalendarApi : ICalendarApi
+    public partial class CalendarApi : IDisposable, ICalendarApi
     {
         private VRChat.API.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CalendarApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public CalendarApi() : this((string)null)
@@ -671,7 +630,11 @@ namespace VRChat.API.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CalendarApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public CalendarApi(string basePath)
         {
@@ -679,16 +642,19 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 new VRChat.API.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CalendarApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="CalendarApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public CalendarApi(VRChat.API.Client.Configuration configuration)
         {
@@ -698,8 +664,78 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalendarApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public CalendarApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalendarApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public CalendarApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                new VRChat.API.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalendarApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public CalendarApi(HttpClient client, VRChat.API.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -710,6 +746,7 @@ namespace VRChat.API.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public CalendarApi(VRChat.API.Client.ISynchronousClient client, VRChat.API.Client.IAsynchronousClient asyncClient, VRChat.API.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -721,6 +758,19 @@ namespace VRChat.API.Api
             this.Configuration = configuration;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public VRChat.API.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -769,9 +819,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CalendarEvent</returns>
-        public CalendarEvent CreateGroupCalendarEvent(string groupId, CreateCalendarEventRequest createCalendarEventRequest, int operationIndex = 0)
+        public CalendarEvent CreateGroupCalendarEvent(string groupId, CreateCalendarEventRequest createCalendarEventRequest)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = CreateGroupCalendarEventWithHttpInfo(groupId, createCalendarEventRequest);
             return localVarResponse.Data;
@@ -783,21 +832,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CalendarEvent</returns>
-        public VRChat.API.Client.ApiResponse<CalendarEvent> CreateGroupCalendarEventWithHttpInfo(string groupId, CreateCalendarEventRequest createCalendarEventRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<CalendarEvent> CreateGroupCalendarEventWithHttpInfo(string groupId, CreateCalendarEventRequest createCalendarEventRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->CreateGroupCalendarEvent");
-            }
 
             // verify the required parameter 'createCalendarEventRequest' is set
             if (createCalendarEventRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createCalendarEventRequest' when calling CalendarApi->CreateGroupCalendarEvent");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -811,22 +855,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createCalendarEventRequest;
-
-            localVarRequestOptions.Operation = "CalendarApi.CreateGroupCalendarEvent";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -837,13 +872,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CalendarEvent>("/calendar/{groupId}/event", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupCalendarEvent", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -855,12 +888,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalendarEvent</returns>
-        public async System.Threading.Tasks.Task<CalendarEvent> CreateGroupCalendarEventAsync(string groupId, CreateCalendarEventRequest createCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CalendarEvent> CreateGroupCalendarEventAsync(string groupId, CreateCalendarEventRequest createCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await CreateGroupCalendarEventWithHttpInfoAsync(groupId, createCalendarEventRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await CreateGroupCalendarEventWithHttpInfoAsync(groupId, createCalendarEventRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -870,22 +902,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalendarEvent)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CalendarEvent>> CreateGroupCalendarEventWithHttpInfoAsync(string groupId, CreateCalendarEventRequest createCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CalendarEvent>> CreateGroupCalendarEventWithHttpInfoAsync(string groupId, CreateCalendarEventRequest createCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->CreateGroupCalendarEvent");
-            }
 
             // verify the required parameter 'createCalendarEventRequest' is set
             if (createCalendarEventRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createCalendarEventRequest' when calling CalendarApi->CreateGroupCalendarEvent");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -899,23 +926,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createCalendarEventRequest;
-
-            localVarRequestOptions.Operation = "CalendarApi.CreateGroupCalendarEvent";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -925,15 +944,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<CalendarEvent>("/calendar/{groupId}/event", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupCalendarEvent", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -945,9 +962,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success DeleteGroupCalendarEvent(string groupId, string calendarId, int operationIndex = 0)
+        public Success DeleteGroupCalendarEvent(string groupId, string calendarId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupCalendarEventWithHttpInfo(groupId, calendarId);
             return localVarResponse.Data;
@@ -959,21 +975,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> DeleteGroupCalendarEventWithHttpInfo(string groupId, string calendarId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> DeleteGroupCalendarEventWithHttpInfo(string groupId, string calendarId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->DeleteGroupCalendarEvent");
-            }
 
             // verify the required parameter 'calendarId' is set
             if (calendarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'calendarId' when calling CalendarApi->DeleteGroupCalendarEvent");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -986,22 +997,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
-
-            localVarRequestOptions.Operation = "CalendarApi.DeleteGroupCalendarEvent";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1012,13 +1014,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Success>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupCalendarEvent", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1030,12 +1030,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> DeleteGroupCalendarEventAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> DeleteGroupCalendarEventAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1045,22 +1044,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->DeleteGroupCalendarEvent");
-            }
 
             // verify the required parameter 'calendarId' is set
             if (calendarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'calendarId' when calling CalendarApi->DeleteGroupCalendarEvent");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1073,23 +1067,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
-
-            localVarRequestOptions.Operation = "CalendarApi.DeleteGroupCalendarEvent";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1099,15 +1085,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupCalendarEvent", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1120,9 +1104,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="followCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CalendarEvent</returns>
-        public CalendarEvent FollowGroupCalendarEvent(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, int operationIndex = 0)
+        public CalendarEvent FollowGroupCalendarEvent(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = FollowGroupCalendarEventWithHttpInfo(groupId, calendarId, followCalendarEventRequest);
             return localVarResponse.Data;
@@ -1135,27 +1118,20 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="followCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CalendarEvent</returns>
-        public VRChat.API.Client.ApiResponse<CalendarEvent> FollowGroupCalendarEventWithHttpInfo(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<CalendarEvent> FollowGroupCalendarEventWithHttpInfo(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->FollowGroupCalendarEvent");
-            }
 
             // verify the required parameter 'calendarId' is set
             if (calendarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'calendarId' when calling CalendarApi->FollowGroupCalendarEvent");
-            }
 
             // verify the required parameter 'followCalendarEventRequest' is set
             if (followCalendarEventRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'followCalendarEventRequest' when calling CalendarApi->FollowGroupCalendarEvent");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1169,23 +1145,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
             localVarRequestOptions.Data = followCalendarEventRequest;
-
-            localVarRequestOptions.Operation = "CalendarApi.FollowGroupCalendarEvent";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1196,13 +1163,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CalendarEvent>("/calendar/{groupId}/{calendarId}/follow", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FollowGroupCalendarEvent", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1215,12 +1180,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="followCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalendarEvent</returns>
-        public async System.Threading.Tasks.Task<CalendarEvent> FollowGroupCalendarEventAsync(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CalendarEvent> FollowGroupCalendarEventAsync(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await FollowGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, followCalendarEventRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await FollowGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, followCalendarEventRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1231,28 +1195,21 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="followCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalendarEvent)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CalendarEvent>> FollowGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CalendarEvent>> FollowGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->FollowGroupCalendarEvent");
-            }
 
             // verify the required parameter 'calendarId' is set
             if (calendarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'calendarId' when calling CalendarApi->FollowGroupCalendarEvent");
-            }
 
             // verify the required parameter 'followCalendarEventRequest' is set
             if (followCalendarEventRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'followCalendarEventRequest' when calling CalendarApi->FollowGroupCalendarEvent");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1266,24 +1223,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
             localVarRequestOptions.Data = followCalendarEventRequest;
-
-            localVarRequestOptions.Operation = "CalendarApi.FollowGroupCalendarEvent";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1293,15 +1242,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<CalendarEvent>("/calendar/{groupId}/{calendarId}/follow", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FollowGroupCalendarEvent", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1314,9 +1261,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        public PaginatedCalendarEventList GetCalendarEvents(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public PaginatedCalendarEventList GetCalendarEvents(DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = GetCalendarEventsWithHttpInfo(date, n, offset);
             return localVarResponse.Data;
@@ -1329,9 +1275,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> GetCalendarEventsWithHttpInfo(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> GetCalendarEventsWithHttpInfo(DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1344,16 +1289,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (date != null)
             {
@@ -1368,9 +1307,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "CalendarApi.GetCalendarEvents";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -1380,13 +1316,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCalendarEvents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1399,12 +1333,11 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetCalendarEventsAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetCalendarEventsAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetCalendarEventsWithHttpInfoAsync(date, n, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetCalendarEventsWithHttpInfoAsync(date, n, offset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1415,10 +1348,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> GetCalendarEventsWithHttpInfoAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> GetCalendarEventsWithHttpInfoAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1431,17 +1363,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (date != null)
             {
@@ -1456,9 +1383,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "CalendarApi.GetCalendarEvents";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -1467,15 +1391,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCalendarEvents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1488,9 +1410,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        public PaginatedCalendarEventList GetFeaturedCalendarEvents(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public PaginatedCalendarEventList GetFeaturedCalendarEvents(DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = GetFeaturedCalendarEventsWithHttpInfo(date, n, offset);
             return localVarResponse.Data;
@@ -1503,9 +1424,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> GetFeaturedCalendarEventsWithHttpInfo(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> GetFeaturedCalendarEventsWithHttpInfo(DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1518,16 +1438,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (date != null)
             {
@@ -1542,9 +1456,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "CalendarApi.GetFeaturedCalendarEvents";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -1554,13 +1465,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/featured", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFeaturedCalendarEvents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1573,12 +1482,11 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetFeaturedCalendarEventsAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetFeaturedCalendarEventsAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetFeaturedCalendarEventsWithHttpInfoAsync(date, n, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetFeaturedCalendarEventsWithHttpInfoAsync(date, n, offset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1589,10 +1497,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> GetFeaturedCalendarEventsWithHttpInfoAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> GetFeaturedCalendarEventsWithHttpInfoAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1605,17 +1512,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (date != null)
             {
@@ -1630,9 +1532,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "CalendarApi.GetFeaturedCalendarEvents";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -1641,15 +1540,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/featured", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFeaturedCalendarEvents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1662,9 +1559,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        public PaginatedCalendarEventList GetFollowedCalendarEvents(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public PaginatedCalendarEventList GetFollowedCalendarEvents(DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = GetFollowedCalendarEventsWithHttpInfo(date, n, offset);
             return localVarResponse.Data;
@@ -1677,9 +1573,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> GetFollowedCalendarEventsWithHttpInfo(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> GetFollowedCalendarEventsWithHttpInfo(DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1692,16 +1587,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (date != null)
             {
@@ -1716,9 +1605,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "CalendarApi.GetFollowedCalendarEvents";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -1728,13 +1614,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/following", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFollowedCalendarEvents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1747,12 +1631,11 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetFollowedCalendarEventsAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetFollowedCalendarEventsAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetFollowedCalendarEventsWithHttpInfoAsync(date, n, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetFollowedCalendarEventsWithHttpInfoAsync(date, n, offset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1763,10 +1646,9 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> GetFollowedCalendarEventsWithHttpInfoAsync(DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> GetFollowedCalendarEventsWithHttpInfoAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1779,17 +1661,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (date != null)
             {
@@ -1804,9 +1681,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "CalendarApi.GetFollowedCalendarEvents";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -1815,15 +1689,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/following", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFollowedCalendarEvents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1835,9 +1707,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CalendarEvent</returns>
-        public CalendarEvent GetGroupCalendarEvent(string groupId, string calendarId, int operationIndex = 0)
+        public CalendarEvent GetGroupCalendarEvent(string groupId, string calendarId)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = GetGroupCalendarEventWithHttpInfo(groupId, calendarId);
             return localVarResponse.Data;
@@ -1849,21 +1720,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CalendarEvent</returns>
-        public VRChat.API.Client.ApiResponse<CalendarEvent> GetGroupCalendarEventWithHttpInfo(string groupId, string calendarId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<CalendarEvent> GetGroupCalendarEventWithHttpInfo(string groupId, string calendarId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->GetGroupCalendarEvent");
-            }
 
             // verify the required parameter 'calendarId' is set
             if (calendarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'calendarId' when calling CalendarApi->GetGroupCalendarEvent");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1876,22 +1742,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
-
-            localVarRequestOptions.Operation = "CalendarApi.GetGroupCalendarEvent";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1902,13 +1759,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CalendarEvent>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupCalendarEvent", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1920,12 +1775,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalendarEvent</returns>
-        public async System.Threading.Tasks.Task<CalendarEvent> GetGroupCalendarEventAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CalendarEvent> GetGroupCalendarEventAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await GetGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await GetGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1935,22 +1789,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalendarEvent)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CalendarEvent>> GetGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CalendarEvent>> GetGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->GetGroupCalendarEvent");
-            }
 
             // verify the required parameter 'calendarId' is set
             if (calendarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'calendarId' when calling CalendarApi->GetGroupCalendarEvent");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1963,23 +1812,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
-
-            localVarRequestOptions.Operation = "CalendarApi.GetGroupCalendarEvent";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1989,15 +1830,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<CalendarEvent>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupCalendarEvent", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2009,11 +1848,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream GetGroupCalendarEventICS(string groupId, string calendarId, int operationIndex = 0)
+        /// <returns>FileParameter</returns>
+        public FileParameter GetGroupCalendarEventICS(string groupId, string calendarId)
         {
-            VRChat.API.Client.ApiResponse<System.IO.Stream> localVarResponse = GetGroupCalendarEventICSWithHttpInfo(groupId, calendarId);
+            VRChat.API.Client.ApiResponse<FileParameter> localVarResponse = GetGroupCalendarEventICSWithHttpInfo(groupId, calendarId);
             return localVarResponse.Data;
         }
 
@@ -2023,21 +1861,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System.IO.Stream</returns>
-        public VRChat.API.Client.ApiResponse<System.IO.Stream> GetGroupCalendarEventICSWithHttpInfo(string groupId, string calendarId, int operationIndex = 0)
+        /// <returns>ApiResponse of FileParameter</returns>
+        public VRChat.API.Client.ApiResponse<FileParameter> GetGroupCalendarEventICSWithHttpInfo(string groupId, string calendarId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->GetGroupCalendarEventICS");
-            }
 
             // verify the required parameter 'calendarId' is set
             if (calendarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'calendarId' when calling CalendarApi->GetGroupCalendarEventICS");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2051,33 +1884,22 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
 
-            localVarRequestOptions.Operation = "CalendarApi.GetGroupCalendarEventICS";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<System.IO.Stream>("/calendar/{groupId}/{calendarId}.ics", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<FileParameter>("/calendar/{groupId}/{calendarId}.ics", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupCalendarEventICS", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2089,12 +1911,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> GetGroupCalendarEventICSAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of FileParameter</returns>
+        public async System.Threading.Tasks.Task<FileParameter> GetGroupCalendarEventICSAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetGroupCalendarEventICSWithHttpInfoAsync(groupId, calendarId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<FileParameter> localVarResponse = await GetGroupCalendarEventICSWithHttpInfoAsync(groupId, calendarId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2104,22 +1925,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<System.IO.Stream>> GetGroupCalendarEventICSWithHttpInfoAsync(string groupId, string calendarId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (FileParameter)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileParameter>> GetGroupCalendarEventICSWithHttpInfoAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->GetGroupCalendarEventICS");
-            }
 
             // verify the required parameter 'calendarId' is set
             if (calendarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'calendarId' when calling CalendarApi->GetGroupCalendarEventICS");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2133,35 +1949,25 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
 
-            localVarRequestOptions.Operation = "CalendarApi.GetGroupCalendarEventICS";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/calendar/{groupId}/{calendarId}.ics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/calendar/{groupId}/{calendarId}.ics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupCalendarEventICS", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2175,9 +1981,8 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        public PaginatedCalendarEventList GetGroupCalendarEvents(string groupId, DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public PaginatedCalendarEventList GetGroupCalendarEvents(string groupId, DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = GetGroupCalendarEventsWithHttpInfo(groupId, date, n, offset);
             return localVarResponse.Data;
@@ -2191,15 +1996,12 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> GetGroupCalendarEventsWithHttpInfo(string groupId, DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> GetGroupCalendarEventsWithHttpInfo(string groupId, DateTime? date = default, int? n = default, int? offset = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->GetGroupCalendarEvents");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2212,16 +2014,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (date != null)
@@ -2237,9 +2033,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "CalendarApi.GetGroupCalendarEvents";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -2249,13 +2042,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/{groupId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupCalendarEvents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2269,12 +2060,11 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetGroupCalendarEventsAsync(string groupId, DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetGroupCalendarEventsAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetGroupCalendarEventsWithHttpInfoAsync(groupId, date, n, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetGroupCalendarEventsWithHttpInfoAsync(groupId, date, n, offset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2286,16 +2076,13 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> GetGroupCalendarEventsWithHttpInfoAsync(string groupId, DateTime? date = default(DateTime?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> GetGroupCalendarEventsWithHttpInfoAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->GetGroupCalendarEvents");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2308,17 +2095,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (date != null)
@@ -2334,9 +2116,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "CalendarApi.GetGroupCalendarEvents";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -2345,15 +2124,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupCalendarEvents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2367,9 +2144,8 @@ namespace VRChat.API.Api
         /// <param name="utcOffset">The offset from UTC in hours of the client or authenticated user. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        public PaginatedCalendarEventList SearchCalendarEvents(string searchTerm, int? utcOffset = default(int?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public PaginatedCalendarEventList SearchCalendarEvents(string searchTerm, int? utcOffset = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = SearchCalendarEventsWithHttpInfo(searchTerm, utcOffset, n, offset);
             return localVarResponse.Data;
@@ -2383,15 +2159,12 @@ namespace VRChat.API.Api
         /// <param name="utcOffset">The offset from UTC in hours of the client or authenticated user. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> SearchCalendarEventsWithHttpInfo(string searchTerm, int? utcOffset = default(int?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> SearchCalendarEventsWithHttpInfo(string searchTerm, int? utcOffset = default, int? n = default, int? offset = default)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'searchTerm' when calling CalendarApi->SearchCalendarEvents");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2404,16 +2177,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "searchTerm", searchTerm));
             if (utcOffset != null)
@@ -2429,9 +2196,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "CalendarApi.SearchCalendarEvents";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -2441,13 +2205,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/search", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchCalendarEvents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2461,12 +2223,11 @@ namespace VRChat.API.Api
         /// <param name="utcOffset">The offset from UTC in hours of the client or authenticated user. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> SearchCalendarEventsAsync(string searchTerm, int? utcOffset = default(int?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> SearchCalendarEventsAsync(string searchTerm, int? utcOffset = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await SearchCalendarEventsWithHttpInfoAsync(searchTerm, utcOffset, n, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await SearchCalendarEventsWithHttpInfoAsync(searchTerm, utcOffset, n, offset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2478,16 +2239,13 @@ namespace VRChat.API.Api
         /// <param name="utcOffset">The offset from UTC in hours of the client or authenticated user. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> SearchCalendarEventsWithHttpInfoAsync(string searchTerm, int? utcOffset = default(int?), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> SearchCalendarEventsWithHttpInfoAsync(string searchTerm, int? utcOffset = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'searchTerm' when calling CalendarApi->SearchCalendarEvents");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2500,17 +2258,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "searchTerm", searchTerm));
             if (utcOffset != null)
@@ -2526,9 +2279,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "CalendarApi.SearchCalendarEvents";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -2537,15 +2287,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchCalendarEvents", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2558,9 +2306,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="updateCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CalendarEvent</returns>
-        public CalendarEvent UpdateGroupCalendarEvent(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, int operationIndex = 0)
+        public CalendarEvent UpdateGroupCalendarEvent(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = UpdateGroupCalendarEventWithHttpInfo(groupId, calendarId, updateCalendarEventRequest);
             return localVarResponse.Data;
@@ -2573,27 +2320,20 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="updateCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CalendarEvent</returns>
-        public VRChat.API.Client.ApiResponse<CalendarEvent> UpdateGroupCalendarEventWithHttpInfo(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<CalendarEvent> UpdateGroupCalendarEventWithHttpInfo(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->UpdateGroupCalendarEvent");
-            }
 
             // verify the required parameter 'calendarId' is set
             if (calendarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'calendarId' when calling CalendarApi->UpdateGroupCalendarEvent");
-            }
 
             // verify the required parameter 'updateCalendarEventRequest' is set
             if (updateCalendarEventRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updateCalendarEventRequest' when calling CalendarApi->UpdateGroupCalendarEvent");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2607,23 +2347,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
             localVarRequestOptions.Data = updateCalendarEventRequest;
-
-            localVarRequestOptions.Operation = "CalendarApi.UpdateGroupCalendarEvent";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2634,13 +2365,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<CalendarEvent>("/calendar/{groupId}/{calendarId}/event", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupCalendarEvent", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2653,12 +2382,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="updateCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalendarEvent</returns>
-        public async System.Threading.Tasks.Task<CalendarEvent> UpdateGroupCalendarEventAsync(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CalendarEvent> UpdateGroupCalendarEventAsync(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await UpdateGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, updateCalendarEventRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await UpdateGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, updateCalendarEventRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2669,28 +2397,21 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="calendarId">Must be a valid calendar ID.</param>
         /// <param name="updateCalendarEventRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalendarEvent)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CalendarEvent>> UpdateGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CalendarEvent>> UpdateGroupCalendarEventWithHttpInfoAsync(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling CalendarApi->UpdateGroupCalendarEvent");
-            }
 
             // verify the required parameter 'calendarId' is set
             if (calendarId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'calendarId' when calling CalendarApi->UpdateGroupCalendarEvent");
-            }
 
             // verify the required parameter 'updateCalendarEventRequest' is set
             if (updateCalendarEventRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updateCalendarEventRequest' when calling CalendarApi->UpdateGroupCalendarEvent");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2704,24 +2425,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
             localVarRequestOptions.Data = updateCalendarEventRequest;
-
-            localVarRequestOptions.Operation = "CalendarApi.UpdateGroupCalendarEvent";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2731,15 +2444,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<CalendarEvent>("/calendar/{groupId}/{calendarId}/event", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupCalendarEvent", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

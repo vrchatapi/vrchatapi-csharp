@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Favorite
     /// </summary>
     [DataContract(Name = "Favorite")]
-    public partial class Favorite : IEquatable<Favorite>, IValidatableObject
+    public partial class Favorite : IValidatableObject
     {
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace VRChat.API.Model
         /// <param name="id">id (required).</param>
         /// <param name="tags">  (required).</param>
         /// <param name="type">type (required).</param>
-        public Favorite(string favoriteId = default(string), string id = default(string), List<string> tags = default(List<string>), FavoriteType type = default(FavoriteType))
+        public Favorite(string favoriteId = default, string id = default, List<string> tags = default, FavoriteType type = default)
         {
             // to ensure "favoriteId" is required (not null)
             if (favoriteId == null)
@@ -82,6 +83,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>fvrt_9568d189-8776-44a5-a8c8-defc981e44de</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -118,81 +122,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Favorite);
-        }
-
-        /// <summary>
-        /// Returns true if Favorite instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Favorite to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Favorite input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.FavoriteId == input.FavoriteId ||
-                    (this.FavoriteId != null &&
-                    this.FavoriteId.Equals(input.FavoriteId))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.FavoriteId != null)
-                {
-                    hashCode = (hashCode * 59) + this.FavoriteId.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

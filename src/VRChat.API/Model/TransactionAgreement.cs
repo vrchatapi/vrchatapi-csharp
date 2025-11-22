@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Represents a single Transaction, which is likely between VRChat and Steam.
     /// </summary>
     [DataContract(Name = "TransactionAgreement")]
-    public partial class TransactionAgreement : IEquatable<TransactionAgreement>, IValidatableObject
+    public partial class TransactionAgreement : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionAgreement" /> class.
@@ -57,7 +58,7 @@ namespace VRChat.API.Model
         /// <param name="lastAmountVat">lastAmountVat (required).</param>
         /// <param name="outstanding">outstanding (required).</param>
         /// <param name="failedAttempts">failedAttempts (required).</param>
-        public TransactionAgreement(string agreementId = default(string), int itemId = default(int), string agreement = default(string), string status = default(string), string period = default(string), int frequency = default(int), string billingType = default(string), string startDate = default(string), string endDate = default(string), decimal recurringAmt = default(decimal), string currency = default(string), string timeCreated = default(string), string nextPayment = default(string), string lastPayment = default(string), decimal lastAmount = default(decimal), decimal lastAmountVat = default(decimal), int outstanding = default(int), int failedAttempts = default(int))
+        public TransactionAgreement(string agreementId = default, int itemId = default, string agreement = default, string status = default, string period = default, int frequency = default, string billingType = default, string startDate = default, string endDate = default, decimal recurringAmt = default, string currency = default, string timeCreated = default, string nextPayment = default, string lastPayment = default, decimal lastAmount = default, decimal lastAmountVat = default, int outstanding = default, int failedAttempts = default)
         {
             // to ensure "agreementId" is required (not null)
             if (agreementId == null)
@@ -283,241 +284,70 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TransactionAgreement);
-        }
-
-        /// <summary>
-        /// Returns true if TransactionAgreement instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TransactionAgreement to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TransactionAgreement input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AgreementId == input.AgreementId ||
-                    (this.AgreementId != null &&
-                    this.AgreementId.Equals(input.AgreementId))
-                ) && 
-                (
-                    this.ItemId == input.ItemId ||
-                    this.ItemId.Equals(input.ItemId)
-                ) && 
-                (
-                    this.Agreement == input.Agreement ||
-                    (this.Agreement != null &&
-                    this.Agreement.Equals(input.Agreement))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.Period == input.Period ||
-                    (this.Period != null &&
-                    this.Period.Equals(input.Period))
-                ) && 
-                (
-                    this.Frequency == input.Frequency ||
-                    this.Frequency.Equals(input.Frequency)
-                ) && 
-                (
-                    this.BillingType == input.BillingType ||
-                    (this.BillingType != null &&
-                    this.BillingType.Equals(input.BillingType))
-                ) && 
-                (
-                    this.StartDate == input.StartDate ||
-                    (this.StartDate != null &&
-                    this.StartDate.Equals(input.StartDate))
-                ) && 
-                (
-                    this.EndDate == input.EndDate ||
-                    (this.EndDate != null &&
-                    this.EndDate.Equals(input.EndDate))
-                ) && 
-                (
-                    this.RecurringAmt == input.RecurringAmt ||
-                    this.RecurringAmt.Equals(input.RecurringAmt)
-                ) && 
-                (
-                    this.Currency == input.Currency ||
-                    (this.Currency != null &&
-                    this.Currency.Equals(input.Currency))
-                ) && 
-                (
-                    this.TimeCreated == input.TimeCreated ||
-                    (this.TimeCreated != null &&
-                    this.TimeCreated.Equals(input.TimeCreated))
-                ) && 
-                (
-                    this.NextPayment == input.NextPayment ||
-                    (this.NextPayment != null &&
-                    this.NextPayment.Equals(input.NextPayment))
-                ) && 
-                (
-                    this.LastPayment == input.LastPayment ||
-                    (this.LastPayment != null &&
-                    this.LastPayment.Equals(input.LastPayment))
-                ) && 
-                (
-                    this.LastAmount == input.LastAmount ||
-                    this.LastAmount.Equals(input.LastAmount)
-                ) && 
-                (
-                    this.LastAmountVat == input.LastAmountVat ||
-                    this.LastAmountVat.Equals(input.LastAmountVat)
-                ) && 
-                (
-                    this.Outstanding == input.Outstanding ||
-                    this.Outstanding.Equals(input.Outstanding)
-                ) && 
-                (
-                    this.FailedAttempts == input.FailedAttempts ||
-                    this.FailedAttempts.Equals(input.FailedAttempts)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.AgreementId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AgreementId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ItemId.GetHashCode();
-                if (this.Agreement != null)
-                {
-                    hashCode = (hashCode * 59) + this.Agreement.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.Period != null)
-                {
-                    hashCode = (hashCode * 59) + this.Period.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
-                if (this.BillingType != null)
-                {
-                    hashCode = (hashCode * 59) + this.BillingType.GetHashCode();
-                }
-                if (this.StartDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
-                }
-                if (this.EndDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.RecurringAmt.GetHashCode();
-                if (this.Currency != null)
-                {
-                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
-                }
-                if (this.TimeCreated != null)
-                {
-                    hashCode = (hashCode * 59) + this.TimeCreated.GetHashCode();
-                }
-                if (this.NextPayment != null)
-                {
-                    hashCode = (hashCode * 59) + this.NextPayment.GetHashCode();
-                }
-                if (this.LastPayment != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastPayment.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.LastAmount.GetHashCode();
-                hashCode = (hashCode * 59) + this.LastAmountVat.GetHashCode();
-                hashCode = (hashCode * 59) + this.Outstanding.GetHashCode();
-                hashCode = (hashCode * 59) + this.FailedAttempts.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AgreementId (string) minLength
             if (this.AgreementId != null && this.AgreementId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AgreementId, length must be greater than 1.", new [] { "AgreementId" });
+                yield return new ValidationResult("Invalid value for AgreementId, length must be greater than 1.", new [] { "AgreementId" });
             }
 
             // Status (string) minLength
             if (this.Status != null && this.Status.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be greater than 1.", new [] { "Status" });
+                yield return new ValidationResult("Invalid value for Status, length must be greater than 1.", new [] { "Status" });
             }
 
             // Period (string) minLength
             if (this.Period != null && this.Period.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Period, length must be greater than 1.", new [] { "Period" });
+                yield return new ValidationResult("Invalid value for Period, length must be greater than 1.", new [] { "Period" });
             }
 
             // BillingType (string) minLength
             if (this.BillingType != null && this.BillingType.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BillingType, length must be greater than 1.", new [] { "BillingType" });
+                yield return new ValidationResult("Invalid value for BillingType, length must be greater than 1.", new [] { "BillingType" });
             }
 
             // StartDate (string) minLength
             if (this.StartDate != null && this.StartDate.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDate, length must be greater than 1.", new [] { "StartDate" });
+                yield return new ValidationResult("Invalid value for StartDate, length must be greater than 1.", new [] { "StartDate" });
             }
 
             // EndDate (string) minLength
             if (this.EndDate != null && this.EndDate.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EndDate, length must be greater than 1.", new [] { "EndDate" });
+                yield return new ValidationResult("Invalid value for EndDate, length must be greater than 1.", new [] { "EndDate" });
             }
 
             // Currency (string) minLength
             if (this.Currency != null && this.Currency.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
+                yield return new ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
             }
 
             // TimeCreated (string) minLength
             if (this.TimeCreated != null && this.TimeCreated.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeCreated, length must be greater than 1.", new [] { "TimeCreated" });
+                yield return new ValidationResult("Invalid value for TimeCreated, length must be greater than 1.", new [] { "TimeCreated" });
             }
 
             // NextPayment (string) minLength
             if (this.NextPayment != null && this.NextPayment.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPayment, length must be greater than 1.", new [] { "NextPayment" });
+                yield return new ValidationResult("Invalid value for NextPayment, length must be greater than 1.", new [] { "NextPayment" });
             }
 
             // LastPayment (string) minLength
             if (this.LastPayment != null && this.LastPayment.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastPayment, length must be greater than 1.", new [] { "LastPayment" });
+                yield return new ValidationResult("Invalid value for LastPayment, length must be greater than 1.", new [] { "LastPayment" });
             }
 
             yield break;

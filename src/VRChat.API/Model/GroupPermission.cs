@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// A permission that can be granted to a role in a group.
     /// </summary>
     [DataContract(Name = "GroupPermission")]
-    public partial class GroupPermission : IEquatable<GroupPermission>, IValidatableObject
+    public partial class GroupPermission : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupPermission" /> class.
@@ -39,7 +40,7 @@ namespace VRChat.API.Model
         /// <param name="help">Human-readable description of the permission..</param>
         /// <param name="isManagementPermission">Whether this permission is a \&quot;management\&quot; permission. (default to false).</param>
         /// <param name="allowedToAdd">Whether the user is allowed to add this permission to a role. (default to false).</param>
-        public GroupPermission(string name = default(string), string displayName = default(string), string help = default(string), bool isManagementPermission = false, bool allowedToAdd = false)
+        public GroupPermission(string name = default, string displayName = default, string help = default, bool isManagementPermission = false, bool allowedToAdd = false)
         {
             this.Name = name;
             this.DisplayName = displayName;
@@ -52,6 +53,9 @@ namespace VRChat.API.Model
         /// The name of the permission.
         /// </summary>
         /// <value>The name of the permission.</value>
+        /*
+        <example>group-data-manage</example>
+        */
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
@@ -59,6 +63,9 @@ namespace VRChat.API.Model
         /// The display name of the permission.
         /// </summary>
         /// <value>The display name of the permission.</value>
+        /*
+        <example>Manage Group Data</example>
+        */
         [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
@@ -66,6 +73,9 @@ namespace VRChat.API.Model
         /// Human-readable description of the permission.
         /// </summary>
         /// <value>Human-readable description of the permission.</value>
+        /*
+        <example>Allows role to edit group details (name, description, joinState, initialRoles, etc).</example>
+        */
         [DataMember(Name = "help", EmitDefaultValue = false)]
         public string Help { get; set; }
 
@@ -73,6 +83,9 @@ namespace VRChat.API.Model
         /// Whether this permission is a \&quot;management\&quot; permission.
         /// </summary>
         /// <value>Whether this permission is a \&quot;management\&quot; permission.</value>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "isManagementPermission", EmitDefaultValue = true)]
         public bool IsManagementPermission { get; set; }
 
@@ -80,6 +93,9 @@ namespace VRChat.API.Model
         /// Whether the user is allowed to add this permission to a role.
         /// </summary>
         /// <value>Whether the user is allowed to add this permission to a role.</value>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "allowedToAdd", EmitDefaultValue = true)]
         public bool AllowedToAdd { get; set; }
 
@@ -110,85 +126,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as GroupPermission);
-        }
-
-        /// <summary>
-        /// Returns true if GroupPermission instances are equal
-        /// </summary>
-        /// <param name="input">Instance of GroupPermission to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(GroupPermission input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.Help == input.Help ||
-                    (this.Help != null &&
-                    this.Help.Equals(input.Help))
-                ) && 
-                (
-                    this.IsManagementPermission == input.IsManagementPermission ||
-                    this.IsManagementPermission.Equals(input.IsManagementPermission)
-                ) && 
-                (
-                    this.AllowedToAdd == input.AllowedToAdd ||
-                    this.AllowedToAdd.Equals(input.AllowedToAdd)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                if (this.Help != null)
-                {
-                    hashCode = (hashCode * 59) + this.Help.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsManagementPermission.GetHashCode();
-                hashCode = (hashCode * 59) + this.AllowedToAdd.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

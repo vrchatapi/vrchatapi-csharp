@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// AddFavoriteRequest
     /// </summary>
     [DataContract(Name = "AddFavoriteRequest")]
-    public partial class AddFavoriteRequest : IEquatable<AddFavoriteRequest>, IValidatableObject
+    public partial class AddFavoriteRequest : IValidatableObject
     {
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="type">type (required).</param>
         /// <param name="favoriteId">Must be either AvatarID, WorldID or UserID. (required).</param>
         /// <param name="tags">Tags indicate which group this favorite belongs to. Adding multiple groups makes it show up in all. Removing it from one in that case removes it from all. (required).</param>
-        public AddFavoriteRequest(FavoriteType type = default(FavoriteType), string favoriteId = default(string), List<string> tags = default(List<string>))
+        public AddFavoriteRequest(FavoriteType type = default, string favoriteId = default, List<string> tags = default)
         {
             this.Type = type;
             // to ensure "favoriteId" is required (not null)
@@ -104,72 +105,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as AddFavoriteRequest);
-        }
-
-        /// <summary>
-        /// Returns true if AddFavoriteRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of AddFavoriteRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(AddFavoriteRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                ) && 
-                (
-                    this.FavoriteId == input.FavoriteId ||
-                    (this.FavoriteId != null &&
-                    this.FavoriteId.Equals(input.FavoriteId))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                if (this.FavoriteId != null)
-                {
-                    hashCode = (hashCode * 59) + this.FavoriteId.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

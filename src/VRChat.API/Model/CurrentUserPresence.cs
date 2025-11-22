@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// CurrentUserPresence
     /// </summary>
     [DataContract(Name = "CurrentUserPresence")]
-    public partial class CurrentUserPresence : IEquatable<CurrentUserPresence>, IValidatableObject
+    public partial class CurrentUserPresence : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentUserPresence" /> class.
@@ -50,7 +51,7 @@ namespace VRChat.API.Model
         /// <param name="travelingToWorld">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list..</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="world">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUserPresence(string avatarThumbnail = default(string), string currentAvatarTags = default(string), string displayName = default(string), string debugflag = default(string), List<string> groups = default(List<string>), string id = default(string), string instance = default(string), string instanceType = default(string), string isRejoining = default(string), string platform = default(string), string profilePicOverride = default(string), string status = default(string), string travelingToInstance = default(string), string travelingToWorld = default(string), string userIcon = default(string), string world = default(string))
+        public CurrentUserPresence(string avatarThumbnail = default, string currentAvatarTags = default, string displayName = default, string debugflag = default, List<string> groups = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string platform = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
         {
             this.AvatarThumbnail = avatarThumbnail;
             this.CurrentAvatarTags = currentAvatarTags;
@@ -104,6 +105,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -156,6 +160,9 @@ namespace VRChat.API.Model
         /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.
         /// </summary>
         /// <value>Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
+        */
         [DataMember(Name = "travelingToWorld", EmitDefaultValue = false)]
         public string TravelingToWorld { get; set; }
 
@@ -169,6 +176,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "world", EmitDefaultValue = false)]
         public string World { get; set; }
 
@@ -210,193 +220,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as CurrentUserPresence);
-        }
-
-        /// <summary>
-        /// Returns true if CurrentUserPresence instances are equal
-        /// </summary>
-        /// <param name="input">Instance of CurrentUserPresence to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserPresence input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AvatarThumbnail == input.AvatarThumbnail ||
-                    (this.AvatarThumbnail != null &&
-                    this.AvatarThumbnail.Equals(input.AvatarThumbnail))
-                ) && 
-                (
-                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
-                    (this.CurrentAvatarTags != null &&
-                    this.CurrentAvatarTags.Equals(input.CurrentAvatarTags))
-                ) && 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.Debugflag == input.Debugflag ||
-                    (this.Debugflag != null &&
-                    this.Debugflag.Equals(input.Debugflag))
-                ) && 
-                (
-                    this.Groups == input.Groups ||
-                    this.Groups != null &&
-                    input.Groups != null &&
-                    this.Groups.SequenceEqual(input.Groups)
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Instance == input.Instance ||
-                    (this.Instance != null &&
-                    this.Instance.Equals(input.Instance))
-                ) && 
-                (
-                    this.InstanceType == input.InstanceType ||
-                    (this.InstanceType != null &&
-                    this.InstanceType.Equals(input.InstanceType))
-                ) && 
-                (
-                    this.IsRejoining == input.IsRejoining ||
-                    (this.IsRejoining != null &&
-                    this.IsRejoining.Equals(input.IsRejoining))
-                ) && 
-                (
-                    this.Platform == input.Platform ||
-                    (this.Platform != null &&
-                    this.Platform.Equals(input.Platform))
-                ) && 
-                (
-                    this.ProfilePicOverride == input.ProfilePicOverride ||
-                    (this.ProfilePicOverride != null &&
-                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.TravelingToInstance == input.TravelingToInstance ||
-                    (this.TravelingToInstance != null &&
-                    this.TravelingToInstance.Equals(input.TravelingToInstance))
-                ) && 
-                (
-                    this.TravelingToWorld == input.TravelingToWorld ||
-                    (this.TravelingToWorld != null &&
-                    this.TravelingToWorld.Equals(input.TravelingToWorld))
-                ) && 
-                (
-                    this.UserIcon == input.UserIcon ||
-                    (this.UserIcon != null &&
-                    this.UserIcon.Equals(input.UserIcon))
-                ) && 
-                (
-                    this.World == input.World ||
-                    (this.World != null &&
-                    this.World.Equals(input.World))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.AvatarThumbnail != null)
-                {
-                    hashCode = (hashCode * 59) + this.AvatarThumbnail.GetHashCode();
-                }
-                if (this.CurrentAvatarTags != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
-                }
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                if (this.Debugflag != null)
-                {
-                    hashCode = (hashCode * 59) + this.Debugflag.GetHashCode();
-                }
-                if (this.Groups != null)
-                {
-                    hashCode = (hashCode * 59) + this.Groups.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Instance != null)
-                {
-                    hashCode = (hashCode * 59) + this.Instance.GetHashCode();
-                }
-                if (this.InstanceType != null)
-                {
-                    hashCode = (hashCode * 59) + this.InstanceType.GetHashCode();
-                }
-                if (this.IsRejoining != null)
-                {
-                    hashCode = (hashCode * 59) + this.IsRejoining.GetHashCode();
-                }
-                if (this.Platform != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
-                }
-                if (this.ProfilePicOverride != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.TravelingToInstance != null)
-                {
-                    hashCode = (hashCode * 59) + this.TravelingToInstance.GetHashCode();
-                }
-                if (this.TravelingToWorld != null)
-                {
-                    hashCode = (hashCode * 59) + this.TravelingToWorld.GetHashCode();
-                }
-                if (this.UserIcon != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
-                }
-                if (this.World != null)
-                {
-                    hashCode = (hashCode * 59) + this.World.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

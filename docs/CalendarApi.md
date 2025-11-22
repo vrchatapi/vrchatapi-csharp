@@ -16,7 +16,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**SearchCalendarEvents**](CalendarApi.md#searchcalendarevents) | **GET** /calendar/search | Search for calendar events |
 | [**UpdateGroupCalendarEvent**](CalendarApi.md#updategroupcalendarevent) | **PUT** /calendar/{groupId}/{calendarId}/event | Update a calendar event |
 
-<a name="creategroupcalendarevent"></a>
+<a id="creategroupcalendarevent"></a>
 # **CreateGroupCalendarEvent**
 > CalendarEvent CreateGroupCalendarEvent (string groupId, CreateCalendarEventRequest createCalendarEventRequest)
 
@@ -28,6 +28,7 @@ Creates an event for a group on the calendar
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -45,7 +46,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var createCalendarEventRequest = new CreateCalendarEventRequest(); // CreateCalendarEventRequest | 
 
@@ -115,7 +119,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletegroupcalendarevent"></a>
+<a id="deletegroupcalendarevent"></a>
 # **DeleteGroupCalendarEvent**
 > Success DeleteGroupCalendarEvent (string groupId, string calendarId)
 
@@ -127,6 +131,7 @@ Delete a group calendar event
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -144,7 +149,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var calendarId = cal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid calendar ID.
 
@@ -214,7 +222,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="followgroupcalendarevent"></a>
+<a id="followgroupcalendarevent"></a>
 # **FollowGroupCalendarEvent**
 > CalendarEvent FollowGroupCalendarEvent (string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest)
 
@@ -226,6 +234,7 @@ Follow or unfollow an event on a group's calendar
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -243,7 +252,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var calendarId = cal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid calendar ID.
             var followCalendarEventRequest = new FollowCalendarEventRequest(); // FollowCalendarEventRequest | 
@@ -315,7 +327,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getcalendarevents"></a>
+<a id="getcalendarevents"></a>
 # **GetCalendarEvents**
 > PaginatedCalendarEventList GetCalendarEvents (DateTime? date = null, int? n = null, int? offset = null)
 
@@ -327,6 +339,7 @@ Get a list of a user's calendar events for the month in ?date
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -344,7 +357,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var date = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | The month to search in. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
@@ -416,7 +432,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfeaturedcalendarevents"></a>
+<a id="getfeaturedcalendarevents"></a>
 # **GetFeaturedCalendarEvents**
 > PaginatedCalendarEventList GetFeaturedCalendarEvents (DateTime? date = null, int? n = null, int? offset = null)
 
@@ -428,6 +444,7 @@ Get a list of a featured calendar events for the month in ?date
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -445,7 +462,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var date = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | The month to search in. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
@@ -517,7 +537,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfollowedcalendarevents"></a>
+<a id="getfollowedcalendarevents"></a>
 # **GetFollowedCalendarEvents**
 > PaginatedCalendarEventList GetFollowedCalendarEvents (DateTime? date = null, int? n = null, int? offset = null)
 
@@ -529,6 +549,7 @@ Get a list of a followed calendar events for the month in ?date
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -546,7 +567,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var date = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | The month to search in. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
@@ -618,7 +642,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupcalendarevent"></a>
+<a id="getgroupcalendarevent"></a>
 # **GetGroupCalendarEvent**
 > CalendarEvent GetGroupCalendarEvent (string groupId, string calendarId)
 
@@ -630,6 +654,7 @@ Get a group calendar event
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -647,7 +672,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var calendarId = cal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid calendar ID.
 
@@ -717,9 +745,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupcalendareventics"></a>
+<a id="getgroupcalendareventics"></a>
 # **GetGroupCalendarEventICS**
-> System.IO.Stream GetGroupCalendarEventICS (string groupId, string calendarId)
+> FileParameter GetGroupCalendarEventICS (string groupId, string calendarId)
 
 Download calendar event as ICS
 
@@ -729,6 +757,7 @@ Returns the specified calendar in iCalendar (ICS) format.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -741,14 +770,17 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var calendarId = cal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid calendar ID.
 
             try
             {
                 // Download calendar event as ICS
-                System.IO.Stream result = apiInstance.GetGroupCalendarEventICS(groupId, calendarId);
+                FileParameter result = apiInstance.GetGroupCalendarEventICS(groupId, calendarId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -769,7 +801,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Download calendar event as ICS
-    ApiResponse<System.IO.Stream> response = apiInstance.GetGroupCalendarEventICSWithHttpInfo(groupId, calendarId);
+    ApiResponse<FileParameter> response = apiInstance.GetGroupCalendarEventICSWithHttpInfo(groupId, calendarId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -791,7 +823,7 @@ catch (ApiException e)
 
 ### Return type
 
-**System.IO.Stream**
+[**FileParameter**](FileParameter.md)
 
 ### Authorization
 
@@ -812,7 +844,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupcalendarevents"></a>
+<a id="getgroupcalendarevents"></a>
 # **GetGroupCalendarEvents**
 > PaginatedCalendarEventList GetGroupCalendarEvents (string groupId, DateTime? date = null, int? n = null, int? offset = null)
 
@@ -824,6 +856,7 @@ Get a list of a group's calendar events
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -841,7 +874,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var date = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | The month to search in. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
@@ -915,7 +951,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="searchcalendarevents"></a>
+<a id="searchcalendarevents"></a>
 # **SearchCalendarEvents**
 > PaginatedCalendarEventList SearchCalendarEvents (string searchTerm, int? utcOffset = null, int? n = null, int? offset = null)
 
@@ -927,6 +963,7 @@ Get a list of calendar events by search terms
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -944,7 +981,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var searchTerm = game night;  // string | Search term for calendar events.
             var utcOffset = 56;  // int? | The offset from UTC in hours of the client or authenticated user. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
@@ -1018,7 +1058,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updategroupcalendarevent"></a>
+<a id="updategroupcalendarevent"></a>
 # **UpdateGroupCalendarEvent**
 > CalendarEvent UpdateGroupCalendarEvent (string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest)
 
@@ -1030,6 +1070,7 @@ Updates an event for a group on the calendar
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1047,7 +1088,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new CalendarApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CalendarApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var calendarId = cal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid calendar ID.
             var updateCalendarEventRequest = new UpdateCalendarEventRequest(); // UpdateCalendarEventRequest | 

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// JamStateChangeDates
     /// </summary>
     [DataContract(Name = "Jam_stateChangeDates")]
-    public partial class JamStateChangeDates : IEquatable<JamStateChangeDates>, IValidatableObject
+    public partial class JamStateChangeDates : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="JamStateChangeDates" /> class.
@@ -38,7 +39,7 @@ namespace VRChat.API.Model
         /// <param name="submissionsClosed">submissionsClosed.</param>
         /// <param name="submissionsOpened">submissionsOpened.</param>
         /// <param name="winnersSelected">winnersSelected.</param>
-        public JamStateChangeDates(DateTime? closed = default(DateTime?), DateTime? submissionsClosed = default(DateTime?), DateTime? submissionsOpened = default(DateTime?), DateTime? winnersSelected = default(DateTime?))
+        public JamStateChangeDates(DateTime? closed = default, DateTime? submissionsClosed = default, DateTime? submissionsOpened = default, DateTime? winnersSelected = default)
         {
             this.Closed = closed;
             this.SubmissionsClosed = submissionsClosed;
@@ -96,84 +97,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as JamStateChangeDates);
-        }
-
-        /// <summary>
-        /// Returns true if JamStateChangeDates instances are equal
-        /// </summary>
-        /// <param name="input">Instance of JamStateChangeDates to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(JamStateChangeDates input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Closed == input.Closed ||
-                    (this.Closed != null &&
-                    this.Closed.Equals(input.Closed))
-                ) && 
-                (
-                    this.SubmissionsClosed == input.SubmissionsClosed ||
-                    (this.SubmissionsClosed != null &&
-                    this.SubmissionsClosed.Equals(input.SubmissionsClosed))
-                ) && 
-                (
-                    this.SubmissionsOpened == input.SubmissionsOpened ||
-                    (this.SubmissionsOpened != null &&
-                    this.SubmissionsOpened.Equals(input.SubmissionsOpened))
-                ) && 
-                (
-                    this.WinnersSelected == input.WinnersSelected ||
-                    (this.WinnersSelected != null &&
-                    this.WinnersSelected.Equals(input.WinnersSelected))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Closed != null)
-                {
-                    hashCode = (hashCode * 59) + this.Closed.GetHashCode();
-                }
-                if (this.SubmissionsClosed != null)
-                {
-                    hashCode = (hashCode * 59) + this.SubmissionsClosed.GetHashCode();
-                }
-                if (this.SubmissionsOpened != null)
-                {
-                    hashCode = (hashCode * 59) + this.SubmissionsOpened.GetHashCode();
-                }
-                if (this.WinnersSelected != null)
-                {
-                    hashCode = (hashCode * 59) + this.WinnersSelected.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// ModerateUserRequest
     /// </summary>
     [DataContract(Name = "ModerateUserRequest")]
-    public partial class ModerateUserRequest : IEquatable<ModerateUserRequest>, IValidatableObject
+    public partial class ModerateUserRequest : IValidatableObject
     {
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="moderated">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="type">type (required).</param>
-        public ModerateUserRequest(string moderated = default(string), PlayerModerationType type = default(PlayerModerationType))
+        public ModerateUserRequest(string moderated = default, PlayerModerationType type = default)
         {
             // to ensure "moderated" is required (not null)
             if (moderated == null)
@@ -62,6 +63,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "moderated", IsRequired = true, EmitDefaultValue = true)]
         public string Moderated { get; set; }
 
@@ -89,62 +93,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ModerateUserRequest);
-        }
-
-        /// <summary>
-        /// Returns true if ModerateUserRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ModerateUserRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ModerateUserRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Moderated == input.Moderated ||
-                    (this.Moderated != null &&
-                    this.Moderated.Equals(input.Moderated))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Moderated != null)
-                {
-                    hashCode = (hashCode * 59) + this.Moderated.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

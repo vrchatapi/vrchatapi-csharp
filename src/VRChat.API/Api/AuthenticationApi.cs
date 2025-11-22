@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -33,9 +34,8 @@ namespace VRChat.API.Api
         /// Cancels the sequence for enabling time-based 2FA.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Disable2FAResult</returns>
-        Disable2FAResult CancelPending2FA(int operationIndex = 0);
+        Disable2FAResult CancelPending2FA();
 
         /// <summary>
         /// Cancel pending enabling of time-based 2FA codes
@@ -44,9 +44,8 @@ namespace VRChat.API.Api
         /// Cancels the sequence for enabling time-based 2FA.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Disable2FAResult</returns>
-        ApiResponse<Disable2FAResult> CancelPending2FAWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Disable2FAResult> CancelPending2FAWithHttpInfo();
         /// <summary>
         /// Check User Exists
         /// </summary>
@@ -58,9 +57,8 @@ namespace VRChat.API.Api
         /// <param name="displayName">Filter by displayName. (optional)</param>
         /// <param name="username">Filter by Username. (optional)</param>
         /// <param name="excludeUserId">Exclude by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UserExists</returns>
-        UserExists CheckUserExists(string email = default(string), string displayName = default(string), string username = default(string), string excludeUserId = default(string), int operationIndex = 0);
+        UserExists CheckUserExists(string? email = default, string? displayName = default, string? username = default, string? excludeUserId = default);
 
         /// <summary>
         /// Check User Exists
@@ -73,9 +71,8 @@ namespace VRChat.API.Api
         /// <param name="displayName">Filter by displayName. (optional)</param>
         /// <param name="username">Filter by Username. (optional)</param>
         /// <param name="excludeUserId">Exclude by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UserExists</returns>
-        ApiResponse<UserExists> CheckUserExistsWithHttpInfo(string email = default(string), string displayName = default(string), string username = default(string), string excludeUserId = default(string), int operationIndex = 0);
+        ApiResponse<UserExists> CheckUserExistsWithHttpInfo(string? email = default, string? displayName = default, string? username = default, string? excludeUserId = default);
         /// <summary>
         /// Confirm Email
         /// </summary>
@@ -85,9 +82,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Target user for which to verify email.</param>
         /// <param name="verifyEmail">Token to verify email.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void ConfirmEmail(string id, string verifyEmail, int operationIndex = 0);
+        void ConfirmEmail(string id, string verifyEmail);
 
         /// <summary>
         /// Confirm Email
@@ -98,9 +94,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Target user for which to verify email.</param>
         /// <param name="verifyEmail">Token to verify email.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ConfirmEmailWithHttpInfo(string id, string verifyEmail, int operationIndex = 0);
+        ApiResponse<Object> ConfirmEmailWithHttpInfo(string id, string verifyEmail);
         /// <summary>
         /// Delete User
         /// </summary>
@@ -109,9 +104,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CurrentUser</returns>
-        CurrentUser DeleteUser(string userId, int operationIndex = 0);
+        CurrentUser DeleteUser(string userId);
 
         /// <summary>
         /// Delete User
@@ -121,9 +115,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
-        ApiResponse<CurrentUser> DeleteUserWithHttpInfo(string userId, int operationIndex = 0);
+        ApiResponse<CurrentUser> DeleteUserWithHttpInfo(string userId);
         /// <summary>
         /// Disable 2FA
         /// </summary>
@@ -131,9 +124,8 @@ namespace VRChat.API.Api
         /// Disables 2FA for the currently logged in account
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Disable2FAResult</returns>
-        Disable2FAResult Disable2FA(int operationIndex = 0);
+        Disable2FAResult Disable2FA();
 
         /// <summary>
         /// Disable 2FA
@@ -142,9 +134,8 @@ namespace VRChat.API.Api
         /// Disables 2FA for the currently logged in account
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Disable2FAResult</returns>
-        ApiResponse<Disable2FAResult> Disable2FAWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Disable2FAResult> Disable2FAWithHttpInfo();
         /// <summary>
         /// Enable time-based 2FA codes
         /// </summary>
@@ -152,9 +143,8 @@ namespace VRChat.API.Api
         /// Begins the sequence for enabling time-based 2FA.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Pending2FAResult</returns>
-        Pending2FAResult Enable2FA(int operationIndex = 0);
+        Pending2FAResult Enable2FA();
 
         /// <summary>
         /// Enable time-based 2FA codes
@@ -163,9 +153,8 @@ namespace VRChat.API.Api
         /// Begins the sequence for enabling time-based 2FA.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Pending2FAResult</returns>
-        ApiResponse<Pending2FAResult> Enable2FAWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Pending2FAResult> Enable2FAWithHttpInfo();
         /// <summary>
         /// Login and/or Get Current User Info
         /// </summary>
@@ -173,9 +162,8 @@ namespace VRChat.API.Api
         /// This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.    &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CurrentUser</returns>
-        CurrentUser GetCurrentUser(int operationIndex = 0);
+        CurrentUser GetCurrentUser();
 
         /// <summary>
         /// Login and/or Get Current User Info
@@ -184,9 +172,8 @@ namespace VRChat.API.Api
         /// This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.    &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
-        ApiResponse<CurrentUser> GetCurrentUserWithHttpInfo(int operationIndex = 0);
+        ApiResponse<CurrentUser> GetCurrentUserWithHttpInfo();
         /// <summary>
         /// Get Global Avatar Moderations
         /// </summary>
@@ -194,9 +181,8 @@ namespace VRChat.API.Api
         /// Returns list of globally blocked avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;AvatarModeration&gt;</returns>
-        List<AvatarModeration> GetGlobalAvatarModerations(int operationIndex = 0);
+        List<AvatarModeration> GetGlobalAvatarModerations();
 
         /// <summary>
         /// Get Global Avatar Moderations
@@ -205,9 +191,8 @@ namespace VRChat.API.Api
         /// Returns list of globally blocked avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;AvatarModeration&gt;</returns>
-        ApiResponse<List<AvatarModeration>> GetGlobalAvatarModerationsWithHttpInfo(int operationIndex = 0);
+        ApiResponse<List<AvatarModeration>> GetGlobalAvatarModerationsWithHttpInfo();
         /// <summary>
         /// Get 2FA Recovery codes
         /// </summary>
@@ -215,9 +200,8 @@ namespace VRChat.API.Api
         /// Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TwoFactorRecoveryCodes</returns>
-        TwoFactorRecoveryCodes GetRecoveryCodes(int operationIndex = 0);
+        TwoFactorRecoveryCodes GetRecoveryCodes();
 
         /// <summary>
         /// Get 2FA Recovery codes
@@ -226,9 +210,8 @@ namespace VRChat.API.Api
         /// Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TwoFactorRecoveryCodes</returns>
-        ApiResponse<TwoFactorRecoveryCodes> GetRecoveryCodesWithHttpInfo(int operationIndex = 0);
+        ApiResponse<TwoFactorRecoveryCodes> GetRecoveryCodesWithHttpInfo();
         /// <summary>
         /// Logout
         /// </summary>
@@ -236,9 +219,8 @@ namespace VRChat.API.Api
         /// Invalidates the login session.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success Logout(int operationIndex = 0);
+        Success Logout();
 
         /// <summary>
         /// Logout
@@ -247,9 +229,8 @@ namespace VRChat.API.Api
         /// Invalidates the login session.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> LogoutWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Success> LogoutWithHttpInfo();
         /// <summary>
         /// Register User Account
         /// </summary>
@@ -258,10 +239,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CurrentUser</returns>
         [Obsolete]
-        CurrentUser RegisterUserAccount(RegisterUserAccountRequest registerUserAccountRequest, int operationIndex = 0);
+        CurrentUser RegisterUserAccount(RegisterUserAccountRequest registerUserAccountRequest);
 
         /// <summary>
         /// Register User Account
@@ -271,10 +251,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
         [Obsolete]
-        ApiResponse<CurrentUser> RegisterUserAccountWithHttpInfo(RegisterUserAccountRequest registerUserAccountRequest, int operationIndex = 0);
+        ApiResponse<CurrentUser> RegisterUserAccountWithHttpInfo(RegisterUserAccountRequest registerUserAccountRequest);
         /// <summary>
         /// Resend Email Confirmation
         /// </summary>
@@ -282,9 +261,8 @@ namespace VRChat.API.Api
         /// Requests a resend of pending email address confirmation email
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success ResendEmailConfirmation(int operationIndex = 0);
+        Success ResendEmailConfirmation();
 
         /// <summary>
         /// Resend Email Confirmation
@@ -293,9 +271,8 @@ namespace VRChat.API.Api
         /// Requests a resend of pending email address confirmation email
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> ResendEmailConfirmationWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Success> ResendEmailConfirmationWithHttpInfo();
         /// <summary>
         /// Verify 2FA code
         /// </summary>
@@ -304,9 +281,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Verify2FAResult</returns>
-        Verify2FAResult Verify2FA(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0);
+        Verify2FAResult Verify2FA(TwoFactorAuthCode twoFactorAuthCode);
 
         /// <summary>
         /// Verify 2FA code
@@ -316,9 +292,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Verify2FAResult</returns>
-        ApiResponse<Verify2FAResult> Verify2FAWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0);
+        ApiResponse<Verify2FAResult> Verify2FAWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode);
         /// <summary>
         /// Verify 2FA email code
         /// </summary>
@@ -327,9 +302,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorEmailCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Verify2FAEmailCodeResult</returns>
-        Verify2FAEmailCodeResult Verify2FAEmailCode(TwoFactorEmailCode twoFactorEmailCode, int operationIndex = 0);
+        Verify2FAEmailCodeResult Verify2FAEmailCode(TwoFactorEmailCode twoFactorEmailCode);
 
         /// <summary>
         /// Verify 2FA email code
@@ -339,9 +313,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorEmailCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Verify2FAEmailCodeResult</returns>
-        ApiResponse<Verify2FAEmailCodeResult> Verify2FAEmailCodeWithHttpInfo(TwoFactorEmailCode twoFactorEmailCode, int operationIndex = 0);
+        ApiResponse<Verify2FAEmailCodeResult> Verify2FAEmailCodeWithHttpInfo(TwoFactorEmailCode twoFactorEmailCode);
         /// <summary>
         /// Verify Auth Token
         /// </summary>
@@ -349,9 +322,8 @@ namespace VRChat.API.Api
         /// Verify whether the currently provided Auth Token is valid.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>VerifyAuthTokenResult</returns>
-        VerifyAuthTokenResult VerifyAuthToken(int operationIndex = 0);
+        VerifyAuthTokenResult VerifyAuthToken();
 
         /// <summary>
         /// Verify Auth Token
@@ -360,9 +332,8 @@ namespace VRChat.API.Api
         /// Verify whether the currently provided Auth Token is valid.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of VerifyAuthTokenResult</returns>
-        ApiResponse<VerifyAuthTokenResult> VerifyAuthTokenWithHttpInfo(int operationIndex = 0);
+        ApiResponse<VerifyAuthTokenResult> VerifyAuthTokenWithHttpInfo();
         /// <summary>
         /// Verify Login Place
         /// </summary>
@@ -372,9 +343,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Token to verify login attempt.</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void VerifyLoginPlace(string token, string userId = default(string), int operationIndex = 0);
+        void VerifyLoginPlace(string token, string? userId = default);
 
         /// <summary>
         /// Verify Login Place
@@ -385,9 +355,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Token to verify login attempt.</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> VerifyLoginPlaceWithHttpInfo(string token, string userId = default(string), int operationIndex = 0);
+        ApiResponse<Object> VerifyLoginPlaceWithHttpInfo(string token, string? userId = default);
         /// <summary>
         /// Verify Pending 2FA code
         /// </summary>
@@ -396,9 +365,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Verify2FAResult</returns>
-        Verify2FAResult VerifyPending2FA(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0);
+        Verify2FAResult VerifyPending2FA(TwoFactorAuthCode twoFactorAuthCode);
 
         /// <summary>
         /// Verify Pending 2FA code
@@ -408,9 +376,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Verify2FAResult</returns>
-        ApiResponse<Verify2FAResult> VerifyPending2FAWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0);
+        ApiResponse<Verify2FAResult> VerifyPending2FAWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode);
         /// <summary>
         /// Verify 2FA code with Recovery code
         /// </summary>
@@ -419,9 +386,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Verify2FAResult</returns>
-        Verify2FAResult VerifyRecoveryCode(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0);
+        Verify2FAResult VerifyRecoveryCode(TwoFactorAuthCode twoFactorAuthCode);
 
         /// <summary>
         /// Verify 2FA code with Recovery code
@@ -431,9 +397,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Verify2FAResult</returns>
-        ApiResponse<Verify2FAResult> VerifyRecoveryCodeWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0);
+        ApiResponse<Verify2FAResult> VerifyRecoveryCodeWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode);
         #endregion Synchronous Operations
     }
 
@@ -450,10 +415,9 @@ namespace VRChat.API.Api
         /// Cancels the sequence for enabling time-based 2FA.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Disable2FAResult</returns>
-        System.Threading.Tasks.Task<Disable2FAResult> CancelPending2FAAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Disable2FAResult> CancelPending2FAAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Cancel pending enabling of time-based 2FA codes
@@ -462,10 +426,9 @@ namespace VRChat.API.Api
         /// Cancels the sequence for enabling time-based 2FA.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Disable2FAResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Disable2FAResult>> CancelPending2FAWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Disable2FAResult>> CancelPending2FAWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Check User Exists
         /// </summary>
@@ -477,10 +440,9 @@ namespace VRChat.API.Api
         /// <param name="displayName">Filter by displayName. (optional)</param>
         /// <param name="username">Filter by Username. (optional)</param>
         /// <param name="excludeUserId">Exclude by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserExists</returns>
-        System.Threading.Tasks.Task<UserExists> CheckUserExistsAsync(string email = default(string), string displayName = default(string), string username = default(string), string excludeUserId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserExists> CheckUserExistsAsync(string? email = default, string? displayName = default, string? username = default, string? excludeUserId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check User Exists
@@ -493,10 +455,9 @@ namespace VRChat.API.Api
         /// <param name="displayName">Filter by displayName. (optional)</param>
         /// <param name="username">Filter by Username. (optional)</param>
         /// <param name="excludeUserId">Exclude by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserExists)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UserExists>> CheckUserExistsWithHttpInfoAsync(string email = default(string), string displayName = default(string), string username = default(string), string excludeUserId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UserExists>> CheckUserExistsWithHttpInfoAsync(string? email = default, string? displayName = default, string? username = default, string? excludeUserId = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Confirm Email
         /// </summary>
@@ -506,10 +467,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Target user for which to verify email.</param>
         /// <param name="verifyEmail">Token to verify email.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ConfirmEmailAsync(string id, string verifyEmail, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task ConfirmEmailAsync(string id, string verifyEmail, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Confirm Email
@@ -520,10 +480,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Target user for which to verify email.</param>
         /// <param name="verifyEmail">Token to verify email.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConfirmEmailWithHttpInfoAsync(string id, string verifyEmail, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> ConfirmEmailWithHttpInfoAsync(string id, string verifyEmail, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete User
         /// </summary>
@@ -532,10 +491,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
-        System.Threading.Tasks.Task<CurrentUser> DeleteUserAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CurrentUser> DeleteUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete User
@@ -545,10 +503,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> DeleteUserWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> DeleteUserWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Disable 2FA
         /// </summary>
@@ -556,10 +513,9 @@ namespace VRChat.API.Api
         /// Disables 2FA for the currently logged in account
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Disable2FAResult</returns>
-        System.Threading.Tasks.Task<Disable2FAResult> Disable2FAAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Disable2FAResult> Disable2FAAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Disable 2FA
@@ -568,10 +524,9 @@ namespace VRChat.API.Api
         /// Disables 2FA for the currently logged in account
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Disable2FAResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Disable2FAResult>> Disable2FAWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Disable2FAResult>> Disable2FAWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Enable time-based 2FA codes
         /// </summary>
@@ -579,10 +534,9 @@ namespace VRChat.API.Api
         /// Begins the sequence for enabling time-based 2FA.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Pending2FAResult</returns>
-        System.Threading.Tasks.Task<Pending2FAResult> Enable2FAAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Pending2FAResult> Enable2FAAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Enable time-based 2FA codes
@@ -591,10 +545,9 @@ namespace VRChat.API.Api
         /// Begins the sequence for enabling time-based 2FA.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Pending2FAResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Pending2FAResult>> Enable2FAWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Pending2FAResult>> Enable2FAWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Login and/or Get Current User Info
         /// </summary>
@@ -602,10 +555,9 @@ namespace VRChat.API.Api
         /// This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.    &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
-        System.Threading.Tasks.Task<CurrentUser> GetCurrentUserAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CurrentUser> GetCurrentUserAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login and/or Get Current User Info
@@ -614,10 +566,9 @@ namespace VRChat.API.Api
         /// This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.    &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> GetCurrentUserWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> GetCurrentUserWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Global Avatar Moderations
         /// </summary>
@@ -625,10 +576,9 @@ namespace VRChat.API.Api
         /// Returns list of globally blocked avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AvatarModeration&gt;</returns>
-        System.Threading.Tasks.Task<List<AvatarModeration>> GetGlobalAvatarModerationsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<AvatarModeration>> GetGlobalAvatarModerationsAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Global Avatar Moderations
@@ -637,10 +587,9 @@ namespace VRChat.API.Api
         /// Returns list of globally blocked avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AvatarModeration&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<AvatarModeration>>> GetGlobalAvatarModerationsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<AvatarModeration>>> GetGlobalAvatarModerationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get 2FA Recovery codes
         /// </summary>
@@ -648,10 +597,9 @@ namespace VRChat.API.Api
         /// Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TwoFactorRecoveryCodes</returns>
-        System.Threading.Tasks.Task<TwoFactorRecoveryCodes> GetRecoveryCodesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TwoFactorRecoveryCodes> GetRecoveryCodesAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get 2FA Recovery codes
@@ -660,10 +608,9 @@ namespace VRChat.API.Api
         /// Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TwoFactorRecoveryCodes)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TwoFactorRecoveryCodes>> GetRecoveryCodesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TwoFactorRecoveryCodes>> GetRecoveryCodesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Logout
         /// </summary>
@@ -671,10 +618,9 @@ namespace VRChat.API.Api
         /// Invalidates the login session.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> LogoutAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> LogoutAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Logout
@@ -683,10 +629,9 @@ namespace VRChat.API.Api
         /// Invalidates the login session.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> LogoutWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> LogoutWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Register User Account
         /// </summary>
@@ -695,11 +640,10 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<CurrentUser> RegisterUserAccountAsync(RegisterUserAccountRequest registerUserAccountRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CurrentUser> RegisterUserAccountAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Register User Account
@@ -709,11 +653,10 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> RegisterUserAccountWithHttpInfoAsync(RegisterUserAccountRequest registerUserAccountRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> RegisterUserAccountWithHttpInfoAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Resend Email Confirmation
         /// </summary>
@@ -721,10 +664,9 @@ namespace VRChat.API.Api
         /// Requests a resend of pending email address confirmation email
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> ResendEmailConfirmationAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> ResendEmailConfirmationAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Resend Email Confirmation
@@ -733,10 +675,9 @@ namespace VRChat.API.Api
         /// Requests a resend of pending email address confirmation email
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> ResendEmailConfirmationWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> ResendEmailConfirmationWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Verify 2FA code
         /// </summary>
@@ -745,10 +686,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Verify2FAResult</returns>
-        System.Threading.Tasks.Task<Verify2FAResult> Verify2FAAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Verify2FAResult> Verify2FAAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Verify 2FA code
@@ -758,10 +698,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Verify2FAResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Verify2FAResult>> Verify2FAWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Verify2FAResult>> Verify2FAWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Verify 2FA email code
         /// </summary>
@@ -770,10 +709,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorEmailCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Verify2FAEmailCodeResult</returns>
-        System.Threading.Tasks.Task<Verify2FAEmailCodeResult> Verify2FAEmailCodeAsync(TwoFactorEmailCode twoFactorEmailCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Verify2FAEmailCodeResult> Verify2FAEmailCodeAsync(TwoFactorEmailCode twoFactorEmailCode, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Verify 2FA email code
@@ -783,10 +721,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorEmailCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Verify2FAEmailCodeResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Verify2FAEmailCodeResult>> Verify2FAEmailCodeWithHttpInfoAsync(TwoFactorEmailCode twoFactorEmailCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Verify2FAEmailCodeResult>> Verify2FAEmailCodeWithHttpInfoAsync(TwoFactorEmailCode twoFactorEmailCode, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Verify Auth Token
         /// </summary>
@@ -794,10 +731,9 @@ namespace VRChat.API.Api
         /// Verify whether the currently provided Auth Token is valid.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VerifyAuthTokenResult</returns>
-        System.Threading.Tasks.Task<VerifyAuthTokenResult> VerifyAuthTokenAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<VerifyAuthTokenResult> VerifyAuthTokenAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Verify Auth Token
@@ -806,10 +742,9 @@ namespace VRChat.API.Api
         /// Verify whether the currently provided Auth Token is valid.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VerifyAuthTokenResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VerifyAuthTokenResult>> VerifyAuthTokenWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<VerifyAuthTokenResult>> VerifyAuthTokenWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Verify Login Place
         /// </summary>
@@ -819,10 +754,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Token to verify login attempt.</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task VerifyLoginPlaceAsync(string token, string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task VerifyLoginPlaceAsync(string token, string? userId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Verify Login Place
@@ -833,10 +767,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Token to verify login attempt.</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VerifyLoginPlaceWithHttpInfoAsync(string token, string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> VerifyLoginPlaceWithHttpInfoAsync(string token, string? userId = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Verify Pending 2FA code
         /// </summary>
@@ -845,10 +778,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Verify2FAResult</returns>
-        System.Threading.Tasks.Task<Verify2FAResult> VerifyPending2FAAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Verify2FAResult> VerifyPending2FAAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Verify Pending 2FA code
@@ -858,10 +790,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Verify2FAResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Verify2FAResult>> VerifyPending2FAWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Verify2FAResult>> VerifyPending2FAWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Verify 2FA code with Recovery code
         /// </summary>
@@ -870,10 +801,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Verify2FAResult</returns>
-        System.Threading.Tasks.Task<Verify2FAResult> VerifyRecoveryCodeAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Verify2FAResult> VerifyRecoveryCodeAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Verify 2FA code with Recovery code
@@ -883,10 +813,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Verify2FAResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Verify2FAResult>> VerifyRecoveryCodeWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Verify2FAResult>> VerifyRecoveryCodeWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -901,12 +830,14 @@ namespace VRChat.API.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class AuthenticationApi : IAuthenticationApi
+    public partial class AuthenticationApi : IDisposable, IAuthenticationApi
     {
         private VRChat.API.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public AuthenticationApi() : this((string)null)
@@ -915,7 +846,11 @@ namespace VRChat.API.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public AuthenticationApi(string basePath)
         {
@@ -923,16 +858,19 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 new VRChat.API.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthenticationApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="AuthenticationApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public AuthenticationApi(VRChat.API.Client.Configuration configuration)
         {
@@ -942,8 +880,78 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthenticationApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public AuthenticationApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthenticationApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public AuthenticationApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                new VRChat.API.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthenticationApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public AuthenticationApi(HttpClient client, VRChat.API.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -954,6 +962,7 @@ namespace VRChat.API.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public AuthenticationApi(VRChat.API.Client.ISynchronousClient client, VRChat.API.Client.IAsynchronousClient asyncClient, VRChat.API.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -965,6 +974,19 @@ namespace VRChat.API.Api
             this.Configuration = configuration;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public VRChat.API.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -1011,9 +1033,8 @@ namespace VRChat.API.Api
         /// Cancel pending enabling of time-based 2FA codes Cancels the sequence for enabling time-based 2FA.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Disable2FAResult</returns>
-        public Disable2FAResult CancelPending2FA(int operationIndex = 0)
+        public Disable2FAResult CancelPending2FA()
         {
             VRChat.API.Client.ApiResponse<Disable2FAResult> localVarResponse = CancelPending2FAWithHttpInfo();
             return localVarResponse.Data;
@@ -1023,9 +1044,8 @@ namespace VRChat.API.Api
         /// Cancel pending enabling of time-based 2FA codes Cancels the sequence for enabling time-based 2FA.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Disable2FAResult</returns>
-        public VRChat.API.Client.ApiResponse<Disable2FAResult> CancelPending2FAWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Disable2FAResult> CancelPending2FAWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1038,20 +1058,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.CancelPending2FA";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1062,13 +1073,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Disable2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelPending2FA", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1078,12 +1087,11 @@ namespace VRChat.API.Api
         /// Cancel pending enabling of time-based 2FA codes Cancels the sequence for enabling time-based 2FA.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Disable2FAResult</returns>
-        public async System.Threading.Tasks.Task<Disable2FAResult> CancelPending2FAAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Disable2FAResult> CancelPending2FAAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Disable2FAResult> localVarResponse = await CancelPending2FAWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Disable2FAResult> localVarResponse = await CancelPending2FAWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1091,10 +1099,9 @@ namespace VRChat.API.Api
         /// Cancel pending enabling of time-based 2FA codes Cancels the sequence for enabling time-based 2FA.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Disable2FAResult)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Disable2FAResult>> CancelPending2FAWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Disable2FAResult>> CancelPending2FAWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1107,21 +1114,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.CancelPending2FA";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1131,15 +1130,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Disable2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelPending2FA", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1153,9 +1150,8 @@ namespace VRChat.API.Api
         /// <param name="displayName">Filter by displayName. (optional)</param>
         /// <param name="username">Filter by Username. (optional)</param>
         /// <param name="excludeUserId">Exclude by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UserExists</returns>
-        public UserExists CheckUserExists(string email = default(string), string displayName = default(string), string username = default(string), string excludeUserId = default(string), int operationIndex = 0)
+        public UserExists CheckUserExists(string? email = default, string? displayName = default, string? username = default, string? excludeUserId = default)
         {
             VRChat.API.Client.ApiResponse<UserExists> localVarResponse = CheckUserExistsWithHttpInfo(email, displayName, username, excludeUserId);
             return localVarResponse.Data;
@@ -1169,9 +1165,8 @@ namespace VRChat.API.Api
         /// <param name="displayName">Filter by displayName. (optional)</param>
         /// <param name="username">Filter by Username. (optional)</param>
         /// <param name="excludeUserId">Exclude by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UserExists</returns>
-        public VRChat.API.Client.ApiResponse<UserExists> CheckUserExistsWithHttpInfo(string email = default(string), string displayName = default(string), string username = default(string), string excludeUserId = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<UserExists> CheckUserExistsWithHttpInfo(string? email = default, string? displayName = default, string? username = default, string? excludeUserId = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1184,16 +1179,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (email != null)
             {
@@ -1212,19 +1201,14 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "excludeUserId", excludeUserId));
             }
 
-            localVarRequestOptions.Operation = "AuthenticationApi.CheckUserExists";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<UserExists>("/auth/exists", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CheckUserExists", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1238,12 +1222,11 @@ namespace VRChat.API.Api
         /// <param name="displayName">Filter by displayName. (optional)</param>
         /// <param name="username">Filter by Username. (optional)</param>
         /// <param name="excludeUserId">Exclude by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserExists</returns>
-        public async System.Threading.Tasks.Task<UserExists> CheckUserExistsAsync(string email = default(string), string displayName = default(string), string username = default(string), string excludeUserId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserExists> CheckUserExistsAsync(string? email = default, string? displayName = default, string? username = default, string? excludeUserId = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<UserExists> localVarResponse = await CheckUserExistsWithHttpInfoAsync(email, displayName, username, excludeUserId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<UserExists> localVarResponse = await CheckUserExistsWithHttpInfoAsync(email, displayName, username, excludeUserId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1255,10 +1238,9 @@ namespace VRChat.API.Api
         /// <param name="displayName">Filter by displayName. (optional)</param>
         /// <param name="username">Filter by Username. (optional)</param>
         /// <param name="excludeUserId">Exclude by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserExists)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UserExists>> CheckUserExistsWithHttpInfoAsync(string email = default(string), string displayName = default(string), string username = default(string), string excludeUserId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UserExists>> CheckUserExistsWithHttpInfoAsync(string? email = default, string? displayName = default, string? username = default, string? excludeUserId = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1271,17 +1253,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (email != null)
             {
@@ -1300,20 +1277,15 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "excludeUserId", excludeUserId));
             }
 
-            localVarRequestOptions.Operation = "AuthenticationApi.CheckUserExists";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<UserExists>("/auth/exists", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CheckUserExists", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1325,9 +1297,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Target user for which to verify email.</param>
         /// <param name="verifyEmail">Token to verify email.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void ConfirmEmail(string id, string verifyEmail, int operationIndex = 0)
+        public void ConfirmEmail(string id, string verifyEmail)
         {
             ConfirmEmailWithHttpInfo(id, verifyEmail);
         }
@@ -1338,21 +1309,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Target user for which to verify email.</param>
         /// <param name="verifyEmail">Token to verify email.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> ConfirmEmailWithHttpInfo(string id, string verifyEmail, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> ConfirmEmailWithHttpInfo(string id, string verifyEmail)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'id' when calling AuthenticationApi->ConfirmEmail");
-            }
 
             // verify the required parameter 'verifyEmail' is set
             if (verifyEmail == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'verifyEmail' when calling AuthenticationApi->ConfirmEmail");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1364,33 +1330,22 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "verify_email", verifyEmail));
 
-            localVarRequestOptions.Operation = "AuthenticationApi.ConfirmEmail";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Object>("/auth/confirmEmail", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ConfirmEmail", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1402,12 +1357,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Target user for which to verify email.</param>
         /// <param name="verifyEmail">Token to verify email.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ConfirmEmailAsync(string id, string verifyEmail, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ConfirmEmailAsync(string id, string verifyEmail, System.Threading.CancellationToken cancellationToken = default)
         {
-            await ConfirmEmailWithHttpInfoAsync(id, verifyEmail, operationIndex, cancellationToken).ConfigureAwait(false);
+            await ConfirmEmailWithHttpInfoAsync(id, verifyEmail, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1416,22 +1370,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Target user for which to verify email.</param>
         /// <param name="verifyEmail">Token to verify email.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> ConfirmEmailWithHttpInfoAsync(string id, string verifyEmail, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> ConfirmEmailWithHttpInfoAsync(string id, string verifyEmail, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'id' when calling AuthenticationApi->ConfirmEmail");
-            }
 
             // verify the required parameter 'verifyEmail' is set
             if (verifyEmail == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'verifyEmail' when calling AuthenticationApi->ConfirmEmail");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1443,35 +1392,25 @@ namespace VRChat.API.Api
             string[] _accepts = new string[] {
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "verify_email", verifyEmail));
 
-            localVarRequestOptions.Operation = "AuthenticationApi.ConfirmEmail";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/auth/confirmEmail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ConfirmEmail", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1482,9 +1421,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CurrentUser</returns>
-        public CurrentUser DeleteUser(string userId, int operationIndex = 0)
+        public CurrentUser DeleteUser(string userId)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = DeleteUserWithHttpInfo(userId);
             return localVarResponse.Data;
@@ -1495,15 +1433,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
-        public VRChat.API.Client.ApiResponse<CurrentUser> DeleteUserWithHttpInfo(string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<CurrentUser> DeleteUserWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling AuthenticationApi->DeleteUser");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1516,21 +1451,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "AuthenticationApi.DeleteUser";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1541,13 +1467,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<CurrentUser>("/users/{userId}/delete", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteUser", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1558,12 +1482,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
-        public async System.Threading.Tasks.Task<CurrentUser> DeleteUserAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CurrentUser> DeleteUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await DeleteUserWithHttpInfoAsync(userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await DeleteUserWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1572,16 +1495,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> DeleteUserWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> DeleteUserWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling AuthenticationApi->DeleteUser");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1594,22 +1514,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "AuthenticationApi.DeleteUser";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1619,15 +1531,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<CurrentUser>("/users/{userId}/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteUser", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1637,9 +1547,8 @@ namespace VRChat.API.Api
         /// Disable 2FA Disables 2FA for the currently logged in account
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Disable2FAResult</returns>
-        public Disable2FAResult Disable2FA(int operationIndex = 0)
+        public Disable2FAResult Disable2FA()
         {
             VRChat.API.Client.ApiResponse<Disable2FAResult> localVarResponse = Disable2FAWithHttpInfo();
             return localVarResponse.Data;
@@ -1649,9 +1558,8 @@ namespace VRChat.API.Api
         /// Disable 2FA Disables 2FA for the currently logged in account
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Disable2FAResult</returns>
-        public VRChat.API.Client.ApiResponse<Disable2FAResult> Disable2FAWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Disable2FAResult> Disable2FAWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1664,20 +1572,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.Disable2FA";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1688,13 +1587,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Disable2FAResult>("/auth/twofactorauth", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Disable2FA", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1704,12 +1601,11 @@ namespace VRChat.API.Api
         /// Disable 2FA Disables 2FA for the currently logged in account
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Disable2FAResult</returns>
-        public async System.Threading.Tasks.Task<Disable2FAResult> Disable2FAAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Disable2FAResult> Disable2FAAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Disable2FAResult> localVarResponse = await Disable2FAWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Disable2FAResult> localVarResponse = await Disable2FAWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1717,10 +1613,9 @@ namespace VRChat.API.Api
         /// Disable 2FA Disables 2FA for the currently logged in account
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Disable2FAResult)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Disable2FAResult>> Disable2FAWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Disable2FAResult>> Disable2FAWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1733,21 +1628,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.Disable2FA";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1757,15 +1644,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Disable2FAResult>("/auth/twofactorauth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Disable2FA", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1775,9 +1660,8 @@ namespace VRChat.API.Api
         /// Enable time-based 2FA codes Begins the sequence for enabling time-based 2FA.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Pending2FAResult</returns>
-        public Pending2FAResult Enable2FA(int operationIndex = 0)
+        public Pending2FAResult Enable2FA()
         {
             VRChat.API.Client.ApiResponse<Pending2FAResult> localVarResponse = Enable2FAWithHttpInfo();
             return localVarResponse.Data;
@@ -1787,9 +1671,8 @@ namespace VRChat.API.Api
         /// Enable time-based 2FA codes Begins the sequence for enabling time-based 2FA.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Pending2FAResult</returns>
-        public VRChat.API.Client.ApiResponse<Pending2FAResult> Enable2FAWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Pending2FAResult> Enable2FAWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1802,20 +1685,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.Enable2FA";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1826,13 +1700,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Pending2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Enable2FA", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1842,12 +1714,11 @@ namespace VRChat.API.Api
         /// Enable time-based 2FA codes Begins the sequence for enabling time-based 2FA.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Pending2FAResult</returns>
-        public async System.Threading.Tasks.Task<Pending2FAResult> Enable2FAAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Pending2FAResult> Enable2FAAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Pending2FAResult> localVarResponse = await Enable2FAWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Pending2FAResult> localVarResponse = await Enable2FAWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1855,10 +1726,9 @@ namespace VRChat.API.Api
         /// Enable time-based 2FA codes Begins the sequence for enabling time-based 2FA.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Pending2FAResult)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Pending2FAResult>> Enable2FAWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Pending2FAResult>> Enable2FAWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1871,21 +1741,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.Enable2FA";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1895,15 +1757,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Pending2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Enable2FA", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1913,9 +1773,8 @@ namespace VRChat.API.Api
         /// Login and/or Get Current User Info This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.    &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CurrentUser</returns>
-        public CurrentUser GetCurrentUser(int operationIndex = 0)
+        public CurrentUser GetCurrentUser()
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = GetCurrentUserWithHttpInfo();
             return localVarResponse.Data;
@@ -1925,9 +1784,8 @@ namespace VRChat.API.Api
         /// Login and/or Get Current User Info This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.    &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
-        public VRChat.API.Client.ApiResponse<CurrentUser> GetCurrentUserWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<CurrentUser> GetCurrentUserWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1940,27 +1798,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            localVarRequestOptions.Operation = "AuthenticationApi.GetCurrentUser";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
-            }
             // authentication (authHeader) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
@@ -1973,16 +1816,20 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.Cookies.Add(new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"), "/", "vrchat.com"));
             }
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<CurrentUser>("/auth/user", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCurrentUser", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1992,12 +1839,11 @@ namespace VRChat.API.Api
         /// Login and/or Get Current User Info This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.    &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
-        public async System.Threading.Tasks.Task<CurrentUser> GetCurrentUserAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CurrentUser> GetCurrentUserAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await GetCurrentUserWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await GetCurrentUserWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2005,10 +1851,9 @@ namespace VRChat.API.Api
         /// Login and/or Get Current User Info This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.    &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> GetCurrentUserWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> GetCurrentUserWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2021,28 +1866,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            localVarRequestOptions.Operation = "AuthenticationApi.GetCurrentUser";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
-            }
             // authentication (authHeader) required
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
@@ -2055,17 +1886,21 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.Cookies.Add(new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"), "/", "vrchat.com"));
             }
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+            }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<CurrentUser>("/auth/user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCurrentUser", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2075,9 +1910,8 @@ namespace VRChat.API.Api
         /// Get Global Avatar Moderations Returns list of globally blocked avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;AvatarModeration&gt;</returns>
-        public List<AvatarModeration> GetGlobalAvatarModerations(int operationIndex = 0)
+        public List<AvatarModeration> GetGlobalAvatarModerations()
         {
             VRChat.API.Client.ApiResponse<List<AvatarModeration>> localVarResponse = GetGlobalAvatarModerationsWithHttpInfo();
             return localVarResponse.Data;
@@ -2087,9 +1921,8 @@ namespace VRChat.API.Api
         /// Get Global Avatar Moderations Returns list of globally blocked avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;AvatarModeration&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<AvatarModeration>> GetGlobalAvatarModerationsWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<AvatarModeration>> GetGlobalAvatarModerationsWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2102,20 +1935,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.GetGlobalAvatarModerations";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2126,13 +1950,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<AvatarModeration>>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGlobalAvatarModerations", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2142,12 +1964,11 @@ namespace VRChat.API.Api
         /// Get Global Avatar Moderations Returns list of globally blocked avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AvatarModeration&gt;</returns>
-        public async System.Threading.Tasks.Task<List<AvatarModeration>> GetGlobalAvatarModerationsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<AvatarModeration>> GetGlobalAvatarModerationsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<AvatarModeration>> localVarResponse = await GetGlobalAvatarModerationsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<AvatarModeration>> localVarResponse = await GetGlobalAvatarModerationsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2155,10 +1976,9 @@ namespace VRChat.API.Api
         /// Get Global Avatar Moderations Returns list of globally blocked avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AvatarModeration&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<AvatarModeration>>> GetGlobalAvatarModerationsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<AvatarModeration>>> GetGlobalAvatarModerationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2171,21 +1991,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.GetGlobalAvatarModerations";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2195,15 +2007,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<AvatarModeration>>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGlobalAvatarModerations", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2213,9 +2023,8 @@ namespace VRChat.API.Api
         /// Get 2FA Recovery codes Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TwoFactorRecoveryCodes</returns>
-        public TwoFactorRecoveryCodes GetRecoveryCodes(int operationIndex = 0)
+        public TwoFactorRecoveryCodes GetRecoveryCodes()
         {
             VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes> localVarResponse = GetRecoveryCodesWithHttpInfo();
             return localVarResponse.Data;
@@ -2225,9 +2034,8 @@ namespace VRChat.API.Api
         /// Get 2FA Recovery codes Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TwoFactorRecoveryCodes</returns>
-        public VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes> GetRecoveryCodesWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes> GetRecoveryCodesWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2240,20 +2048,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.GetRecoveryCodes";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2264,13 +2063,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<TwoFactorRecoveryCodes>("/auth/user/twofactorauth/otp", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecoveryCodes", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2280,12 +2077,11 @@ namespace VRChat.API.Api
         /// Get 2FA Recovery codes Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TwoFactorRecoveryCodes</returns>
-        public async System.Threading.Tasks.Task<TwoFactorRecoveryCodes> GetRecoveryCodesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TwoFactorRecoveryCodes> GetRecoveryCodesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes> localVarResponse = await GetRecoveryCodesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes> localVarResponse = await GetRecoveryCodesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2293,10 +2089,9 @@ namespace VRChat.API.Api
         /// Get 2FA Recovery codes Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TwoFactorRecoveryCodes)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes>> GetRecoveryCodesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes>> GetRecoveryCodesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2309,21 +2104,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.GetRecoveryCodes";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2333,15 +2120,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<TwoFactorRecoveryCodes>("/auth/user/twofactorauth/otp", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecoveryCodes", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2351,9 +2136,8 @@ namespace VRChat.API.Api
         /// Logout Invalidates the login session.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success Logout(int operationIndex = 0)
+        public Success Logout()
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = LogoutWithHttpInfo();
             return localVarResponse.Data;
@@ -2363,9 +2147,8 @@ namespace VRChat.API.Api
         /// Logout Invalidates the login session.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> LogoutWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> LogoutWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2378,20 +2161,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.Logout";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2402,13 +2176,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Success>("/logout", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Logout", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2418,12 +2190,11 @@ namespace VRChat.API.Api
         /// Logout Invalidates the login session.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> LogoutAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> LogoutAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await LogoutWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await LogoutWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2431,10 +2202,9 @@ namespace VRChat.API.Api
         /// Logout Invalidates the login session.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> LogoutWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> LogoutWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2447,21 +2217,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.Logout";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2471,15 +2233,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/logout", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Logout", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2490,10 +2250,9 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CurrentUser</returns>
         [Obsolete]
-        public CurrentUser RegisterUserAccount(RegisterUserAccountRequest registerUserAccountRequest, int operationIndex = 0)
+        public CurrentUser RegisterUserAccount(RegisterUserAccountRequest registerUserAccountRequest)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = RegisterUserAccountWithHttpInfo(registerUserAccountRequest);
             return localVarResponse.Data;
@@ -2504,16 +2263,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
         [Obsolete]
-        public VRChat.API.Client.ApiResponse<CurrentUser> RegisterUserAccountWithHttpInfo(RegisterUserAccountRequest registerUserAccountRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<CurrentUser> RegisterUserAccountWithHttpInfo(RegisterUserAccountRequest registerUserAccountRequest)
         {
             // verify the required parameter 'registerUserAccountRequest' is set
             if (registerUserAccountRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'registerUserAccountRequest' when calling AuthenticationApi->RegisterUserAccount");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2527,32 +2283,21 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = registerUserAccountRequest;
-
-            localVarRequestOptions.Operation = "AuthenticationApi.RegisterUserAccount";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<CurrentUser>("/auth/register", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RegisterUserAccount", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2563,13 +2308,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<CurrentUser> RegisterUserAccountAsync(RegisterUserAccountRequest registerUserAccountRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CurrentUser> RegisterUserAccountAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await RegisterUserAccountWithHttpInfoAsync(registerUserAccountRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await RegisterUserAccountWithHttpInfoAsync(registerUserAccountRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2578,17 +2322,14 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> RegisterUserAccountWithHttpInfoAsync(RegisterUserAccountRequest registerUserAccountRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> RegisterUserAccountWithHttpInfoAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'registerUserAccountRequest' is set
             if (registerUserAccountRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'registerUserAccountRequest' when calling AuthenticationApi->RegisterUserAccount");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2602,34 +2343,24 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = registerUserAccountRequest;
 
-            localVarRequestOptions.Operation = "AuthenticationApi.RegisterUserAccount";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<CurrentUser>("/auth/register", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RegisterUserAccount", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2639,9 +2370,8 @@ namespace VRChat.API.Api
         /// Resend Email Confirmation Requests a resend of pending email address confirmation email
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success ResendEmailConfirmation(int operationIndex = 0)
+        public Success ResendEmailConfirmation()
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = ResendEmailConfirmationWithHttpInfo();
             return localVarResponse.Data;
@@ -2651,9 +2381,8 @@ namespace VRChat.API.Api
         /// Resend Email Confirmation Requests a resend of pending email address confirmation email
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> ResendEmailConfirmationWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> ResendEmailConfirmationWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2666,20 +2395,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.ResendEmailConfirmation";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2690,13 +2410,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Success>("/auth/user/resendEmail", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ResendEmailConfirmation", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2706,12 +2424,11 @@ namespace VRChat.API.Api
         /// Resend Email Confirmation Requests a resend of pending email address confirmation email
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> ResendEmailConfirmationAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> ResendEmailConfirmationAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await ResendEmailConfirmationWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await ResendEmailConfirmationWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2719,10 +2436,9 @@ namespace VRChat.API.Api
         /// Resend Email Confirmation Requests a resend of pending email address confirmation email
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> ResendEmailConfirmationWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> ResendEmailConfirmationWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2735,21 +2451,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.ResendEmailConfirmation";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2759,15 +2467,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Success>("/auth/user/resendEmail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ResendEmailConfirmation", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2778,9 +2484,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Verify2FAResult</returns>
-        public Verify2FAResult Verify2FA(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0)
+        public Verify2FAResult Verify2FA(TwoFactorAuthCode twoFactorAuthCode)
         {
             VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = Verify2FAWithHttpInfo(twoFactorAuthCode);
             return localVarResponse.Data;
@@ -2791,15 +2496,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Verify2FAResult</returns>
-        public VRChat.API.Client.ApiResponse<Verify2FAResult> Verify2FAWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Verify2FAResult> Verify2FAWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode)
         {
             // verify the required parameter 'twoFactorAuthCode' is set
             if (twoFactorAuthCode == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'twoFactorAuthCode' when calling AuthenticationApi->Verify2FA");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2813,21 +2515,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = twoFactorAuthCode;
-
-            localVarRequestOptions.Operation = "AuthenticationApi.Verify2FA";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2838,13 +2531,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Verify2FAResult>("/auth/twofactorauth/totp/verify", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Verify2FA", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2855,12 +2546,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Verify2FAResult</returns>
-        public async System.Threading.Tasks.Task<Verify2FAResult> Verify2FAAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Verify2FAResult> Verify2FAAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = await Verify2FAWithHttpInfoAsync(twoFactorAuthCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = await Verify2FAWithHttpInfoAsync(twoFactorAuthCode, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2869,16 +2559,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Verify2FAResult)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Verify2FAResult>> Verify2FAWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Verify2FAResult>> Verify2FAWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'twoFactorAuthCode' is set
             if (twoFactorAuthCode == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'twoFactorAuthCode' when calling AuthenticationApi->Verify2FA");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2892,22 +2579,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = twoFactorAuthCode;
-
-            localVarRequestOptions.Operation = "AuthenticationApi.Verify2FA";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2917,15 +2596,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAResult>("/auth/twofactorauth/totp/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Verify2FA", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2936,9 +2613,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorEmailCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Verify2FAEmailCodeResult</returns>
-        public Verify2FAEmailCodeResult Verify2FAEmailCode(TwoFactorEmailCode twoFactorEmailCode, int operationIndex = 0)
+        public Verify2FAEmailCodeResult Verify2FAEmailCode(TwoFactorEmailCode twoFactorEmailCode)
         {
             VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult> localVarResponse = Verify2FAEmailCodeWithHttpInfo(twoFactorEmailCode);
             return localVarResponse.Data;
@@ -2949,15 +2625,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorEmailCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Verify2FAEmailCodeResult</returns>
-        public VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult> Verify2FAEmailCodeWithHttpInfo(TwoFactorEmailCode twoFactorEmailCode, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult> Verify2FAEmailCodeWithHttpInfo(TwoFactorEmailCode twoFactorEmailCode)
         {
             // verify the required parameter 'twoFactorEmailCode' is set
             if (twoFactorEmailCode == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'twoFactorEmailCode' when calling AuthenticationApi->Verify2FAEmailCode");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2971,21 +2644,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = twoFactorEmailCode;
-
-            localVarRequestOptions.Operation = "AuthenticationApi.Verify2FAEmailCode";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2996,13 +2660,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Verify2FAEmailCodeResult>("/auth/twofactorauth/emailotp/verify", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Verify2FAEmailCode", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3013,12 +2675,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorEmailCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Verify2FAEmailCodeResult</returns>
-        public async System.Threading.Tasks.Task<Verify2FAEmailCodeResult> Verify2FAEmailCodeAsync(TwoFactorEmailCode twoFactorEmailCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Verify2FAEmailCodeResult> Verify2FAEmailCodeAsync(TwoFactorEmailCode twoFactorEmailCode, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult> localVarResponse = await Verify2FAEmailCodeWithHttpInfoAsync(twoFactorEmailCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult> localVarResponse = await Verify2FAEmailCodeWithHttpInfoAsync(twoFactorEmailCode, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3027,16 +2688,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorEmailCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Verify2FAEmailCodeResult)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult>> Verify2FAEmailCodeWithHttpInfoAsync(TwoFactorEmailCode twoFactorEmailCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult>> Verify2FAEmailCodeWithHttpInfoAsync(TwoFactorEmailCode twoFactorEmailCode, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'twoFactorEmailCode' is set
             if (twoFactorEmailCode == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'twoFactorEmailCode' when calling AuthenticationApi->Verify2FAEmailCode");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3050,22 +2708,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = twoFactorEmailCode;
-
-            localVarRequestOptions.Operation = "AuthenticationApi.Verify2FAEmailCode";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3075,15 +2725,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAEmailCodeResult>("/auth/twofactorauth/emailotp/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Verify2FAEmailCode", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3093,9 +2741,8 @@ namespace VRChat.API.Api
         /// Verify Auth Token Verify whether the currently provided Auth Token is valid.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>VerifyAuthTokenResult</returns>
-        public VerifyAuthTokenResult VerifyAuthToken(int operationIndex = 0)
+        public VerifyAuthTokenResult VerifyAuthToken()
         {
             VRChat.API.Client.ApiResponse<VerifyAuthTokenResult> localVarResponse = VerifyAuthTokenWithHttpInfo();
             return localVarResponse.Data;
@@ -3105,9 +2752,8 @@ namespace VRChat.API.Api
         /// Verify Auth Token Verify whether the currently provided Auth Token is valid.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of VerifyAuthTokenResult</returns>
-        public VRChat.API.Client.ApiResponse<VerifyAuthTokenResult> VerifyAuthTokenWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<VerifyAuthTokenResult> VerifyAuthTokenWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3120,20 +2766,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.VerifyAuthToken";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3144,13 +2781,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<VerifyAuthTokenResult>("/auth", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("VerifyAuthToken", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3160,12 +2795,11 @@ namespace VRChat.API.Api
         /// Verify Auth Token Verify whether the currently provided Auth Token is valid.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VerifyAuthTokenResult</returns>
-        public async System.Threading.Tasks.Task<VerifyAuthTokenResult> VerifyAuthTokenAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VerifyAuthTokenResult> VerifyAuthTokenAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<VerifyAuthTokenResult> localVarResponse = await VerifyAuthTokenWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<VerifyAuthTokenResult> localVarResponse = await VerifyAuthTokenWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3173,10 +2807,9 @@ namespace VRChat.API.Api
         /// Verify Auth Token Verify whether the currently provided Auth Token is valid.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VerifyAuthTokenResult)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<VerifyAuthTokenResult>> VerifyAuthTokenWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<VerifyAuthTokenResult>> VerifyAuthTokenWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3189,21 +2822,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "AuthenticationApi.VerifyAuthToken";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3213,15 +2838,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<VerifyAuthTokenResult>("/auth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("VerifyAuthToken", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3233,9 +2856,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Token to verify login attempt.</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void VerifyLoginPlace(string token, string userId = default(string), int operationIndex = 0)
+        public void VerifyLoginPlace(string token, string? userId = default)
         {
             VerifyLoginPlaceWithHttpInfo(token, userId);
         }
@@ -3246,15 +2868,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Token to verify login attempt.</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> VerifyLoginPlaceWithHttpInfo(string token, string userId = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> VerifyLoginPlaceWithHttpInfo(string token, string? userId = default)
         {
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'token' when calling AuthenticationApi->VerifyLoginPlace");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3266,16 +2885,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (userId != null)
             {
@@ -3283,19 +2896,14 @@ namespace VRChat.API.Api
             }
             localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "token", token));
 
-            localVarRequestOptions.Operation = "AuthenticationApi.VerifyLoginPlace";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Object>("/auth/verifyLoginPlace", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("VerifyLoginPlace", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3307,12 +2915,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Token to verify login attempt.</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task VerifyLoginPlaceAsync(string token, string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task VerifyLoginPlaceAsync(string token, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            await VerifyLoginPlaceWithHttpInfoAsync(token, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await VerifyLoginPlaceWithHttpInfoAsync(token, userId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -3321,16 +2928,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="token">Token to verify login attempt.</param>
         /// <param name="userId">Filter by UserID. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> VerifyLoginPlaceWithHttpInfoAsync(string token, string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> VerifyLoginPlaceWithHttpInfoAsync(string token, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'token' is set
             if (token == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'token' when calling AuthenticationApi->VerifyLoginPlace");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3342,17 +2946,12 @@ namespace VRChat.API.Api
             string[] _accepts = new string[] {
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (userId != null)
             {
@@ -3360,20 +2959,15 @@ namespace VRChat.API.Api
             }
             localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "token", token));
 
-            localVarRequestOptions.Operation = "AuthenticationApi.VerifyLoginPlace";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/auth/verifyLoginPlace", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("VerifyLoginPlace", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3384,9 +2978,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Verify2FAResult</returns>
-        public Verify2FAResult VerifyPending2FA(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0)
+        public Verify2FAResult VerifyPending2FA(TwoFactorAuthCode twoFactorAuthCode)
         {
             VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = VerifyPending2FAWithHttpInfo(twoFactorAuthCode);
             return localVarResponse.Data;
@@ -3397,15 +2990,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Verify2FAResult</returns>
-        public VRChat.API.Client.ApiResponse<Verify2FAResult> VerifyPending2FAWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Verify2FAResult> VerifyPending2FAWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode)
         {
             // verify the required parameter 'twoFactorAuthCode' is set
             if (twoFactorAuthCode == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'twoFactorAuthCode' when calling AuthenticationApi->VerifyPending2FA");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3419,21 +3009,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = twoFactorAuthCode;
-
-            localVarRequestOptions.Operation = "AuthenticationApi.VerifyPending2FA";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3444,13 +3025,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Verify2FAResult>("/auth/twofactorauth/totp/pending/verify", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("VerifyPending2FA", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3461,12 +3040,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Verify2FAResult</returns>
-        public async System.Threading.Tasks.Task<Verify2FAResult> VerifyPending2FAAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Verify2FAResult> VerifyPending2FAAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = await VerifyPending2FAWithHttpInfoAsync(twoFactorAuthCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = await VerifyPending2FAWithHttpInfoAsync(twoFactorAuthCode, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3475,16 +3053,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Verify2FAResult)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Verify2FAResult>> VerifyPending2FAWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Verify2FAResult>> VerifyPending2FAWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'twoFactorAuthCode' is set
             if (twoFactorAuthCode == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'twoFactorAuthCode' when calling AuthenticationApi->VerifyPending2FA");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3498,22 +3073,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = twoFactorAuthCode;
-
-            localVarRequestOptions.Operation = "AuthenticationApi.VerifyPending2FA";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3523,15 +3090,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAResult>("/auth/twofactorauth/totp/pending/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("VerifyPending2FA", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3542,9 +3107,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Verify2FAResult</returns>
-        public Verify2FAResult VerifyRecoveryCode(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0)
+        public Verify2FAResult VerifyRecoveryCode(TwoFactorAuthCode twoFactorAuthCode)
         {
             VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = VerifyRecoveryCodeWithHttpInfo(twoFactorAuthCode);
             return localVarResponse.Data;
@@ -3555,15 +3119,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Verify2FAResult</returns>
-        public VRChat.API.Client.ApiResponse<Verify2FAResult> VerifyRecoveryCodeWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Verify2FAResult> VerifyRecoveryCodeWithHttpInfo(TwoFactorAuthCode twoFactorAuthCode)
         {
             // verify the required parameter 'twoFactorAuthCode' is set
             if (twoFactorAuthCode == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'twoFactorAuthCode' when calling AuthenticationApi->VerifyRecoveryCode");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3577,21 +3138,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = twoFactorAuthCode;
-
-            localVarRequestOptions.Operation = "AuthenticationApi.VerifyRecoveryCode";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3602,13 +3154,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Verify2FAResult>("/auth/twofactorauth/otp/verify", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("VerifyRecoveryCode", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3619,12 +3169,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Verify2FAResult</returns>
-        public async System.Threading.Tasks.Task<Verify2FAResult> VerifyRecoveryCodeAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Verify2FAResult> VerifyRecoveryCodeAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = await VerifyRecoveryCodeWithHttpInfoAsync(twoFactorAuthCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = await VerifyRecoveryCodeWithHttpInfoAsync(twoFactorAuthCode, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3633,16 +3182,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="twoFactorAuthCode"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Verify2FAResult)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Verify2FAResult>> VerifyRecoveryCodeWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Verify2FAResult>> VerifyRecoveryCodeWithHttpInfoAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'twoFactorAuthCode' is set
             if (twoFactorAuthCode == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'twoFactorAuthCode' when calling AuthenticationApi->VerifyRecoveryCode");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3656,22 +3202,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = twoFactorAuthCode;
-
-            localVarRequestOptions.Operation = "AuthenticationApi.VerifyRecoveryCode";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3681,15 +3219,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAResult>("/auth/twofactorauth/otp/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("VerifyRecoveryCode", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

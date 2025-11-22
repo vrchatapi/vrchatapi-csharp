@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
 namespace VRChat.API.Client
@@ -70,10 +71,10 @@ namespace VRChat.API.Client
         string TempFolderPath { get; }
 
         /// <summary>
-        /// Gets the HTTP connection timeout (in milliseconds)
+        /// Gets the HTTP connection timeout.
         /// </summary>
         /// <value>HTTP connection timeout.</value>
-        int Timeout { get; }
+        TimeSpan Timeout { get; }
 
         /// <summary>
         /// Gets the proxy.
@@ -98,6 +99,11 @@ namespace VRChat.API.Client
         /// </summary>
         /// <value>Password.</value>
         string Password { get; }
+
+        /// <summary>
+        /// Determine whether or not the "default credentials" (e.g. the user account under which the current process is running) will be sent along to the server. The default is false.
+        /// </summary>
+        bool UseDefaultCredentials { get; }
 
         /// <summary>
         /// Get the servers associated with the operation.
@@ -125,5 +131,11 @@ namespace VRChat.API.Client
         /// </summary>
         /// <value>X509 Certificate collection.</value>
         X509CertificateCollection ClientCertificates { get; }
+
+        /// <summary>
+        /// Callback function for handling the validation of remote certificates. Useful for certificate pinning and
+        /// overriding certificate errors in the scope of a request.
+        /// </summary>
+        RemoteCertificateValidationCallback RemoteCertificateValidationCallback { get; }
     }
 }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Feedback
     /// </summary>
     [DataContract(Name = "Feedback")]
-    public partial class Feedback : IEquatable<Feedback>, IValidatableObject
+    public partial class Feedback : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Feedback" /> class.
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="reason">reason (required).</param>
         /// <param name="tags">tags (required).</param>
         /// <param name="type">type (required).</param>
-        public Feedback(string commenterId = default(string), string commenterName = default(string), string contentAuthorId = default(string), string contentAuthorName = default(string), string contentId = default(string), string contentName = default(string), string contentType = default(string), int? contentVersion = default(int?), string description = default(string), string id = default(string), string reason = default(string), List<string> tags = default(List<string>), string type = default(string))
+        public Feedback(string commenterId = default, string commenterName = default, string contentAuthorId = default, string contentAuthorName = default, string contentId = default, string contentName = default, string contentType = default, int? contentVersion = default, string description = default, string id = default, string reason = default, List<string> tags = default, string type = default)
         {
             // to ensure "commenterId" is required (not null)
             if (commenterId == null)
@@ -128,6 +129,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "commenterId", IsRequired = true, EmitDefaultValue = true)]
         public string CommenterId { get; set; }
 
@@ -141,6 +145,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "contentAuthorId", IsRequired = true, EmitDefaultValue = true)]
         public string ContentAuthorId { get; set; }
 
@@ -183,6 +190,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>feedback_8cffb23a-f961-444e-b496-0196d1c90adb</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -239,166 +249,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Feedback);
-        }
-
-        /// <summary>
-        /// Returns true if Feedback instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Feedback to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Feedback input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CommenterId == input.CommenterId ||
-                    (this.CommenterId != null &&
-                    this.CommenterId.Equals(input.CommenterId))
-                ) && 
-                (
-                    this.CommenterName == input.CommenterName ||
-                    (this.CommenterName != null &&
-                    this.CommenterName.Equals(input.CommenterName))
-                ) && 
-                (
-                    this.ContentAuthorId == input.ContentAuthorId ||
-                    (this.ContentAuthorId != null &&
-                    this.ContentAuthorId.Equals(input.ContentAuthorId))
-                ) && 
-                (
-                    this.ContentAuthorName == input.ContentAuthorName ||
-                    (this.ContentAuthorName != null &&
-                    this.ContentAuthorName.Equals(input.ContentAuthorName))
-                ) && 
-                (
-                    this.ContentId == input.ContentId ||
-                    (this.ContentId != null &&
-                    this.ContentId.Equals(input.ContentId))
-                ) && 
-                (
-                    this.ContentName == input.ContentName ||
-                    (this.ContentName != null &&
-                    this.ContentName.Equals(input.ContentName))
-                ) && 
-                (
-                    this.ContentType == input.ContentType ||
-                    (this.ContentType != null &&
-                    this.ContentType.Equals(input.ContentType))
-                ) && 
-                (
-                    this.ContentVersion == input.ContentVersion ||
-                    (this.ContentVersion != null &&
-                    this.ContentVersion.Equals(input.ContentVersion))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Reason == input.Reason ||
-                    (this.Reason != null &&
-                    this.Reason.Equals(input.Reason))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CommenterId != null)
-                {
-                    hashCode = (hashCode * 59) + this.CommenterId.GetHashCode();
-                }
-                if (this.CommenterName != null)
-                {
-                    hashCode = (hashCode * 59) + this.CommenterName.GetHashCode();
-                }
-                if (this.ContentAuthorId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentAuthorId.GetHashCode();
-                }
-                if (this.ContentAuthorName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentAuthorName.GetHashCode();
-                }
-                if (this.ContentId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentId.GetHashCode();
-                }
-                if (this.ContentName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentName.GetHashCode();
-                }
-                if (this.ContentType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentType.GetHashCode();
-                }
-                if (this.ContentVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentVersion.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Reason != null)
-                {
-                    hashCode = (hashCode * 59) + this.Reason.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

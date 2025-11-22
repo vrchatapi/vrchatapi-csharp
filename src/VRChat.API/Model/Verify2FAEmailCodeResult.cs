@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Verify2FAEmailCodeResult
     /// </summary>
     [DataContract(Name = "Verify2FAEmailCodeResult")]
-    public partial class Verify2FAEmailCodeResult : IEquatable<Verify2FAEmailCodeResult>, IValidatableObject
+    public partial class Verify2FAEmailCodeResult : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Verify2FAEmailCodeResult" /> class.
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="Verify2FAEmailCodeResult" /> class.
         /// </summary>
         /// <param name="verified">verified (required).</param>
-        public Verify2FAEmailCodeResult(bool verified = default(bool))
+        public Verify2FAEmailCodeResult(bool verified = default)
         {
             this.Verified = verified;
         }
@@ -74,53 +75,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Verify2FAEmailCodeResult);
-        }
-
-        /// <summary>
-        /// Returns true if Verify2FAEmailCodeResult instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Verify2FAEmailCodeResult to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Verify2FAEmailCodeResult input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Verified == input.Verified ||
-                    this.Verified.Equals(input.Verified)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Verified.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

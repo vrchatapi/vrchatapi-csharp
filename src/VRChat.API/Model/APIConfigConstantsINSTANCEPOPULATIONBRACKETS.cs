@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Population brackets based on instance population
     /// </summary>
     [DataContract(Name = "APIConfigConstants_INSTANCE_POPULATION_BRACKETS")]
-    public partial class APIConfigConstantsINSTANCEPOPULATIONBRACKETS : IEquatable<APIConfigConstantsINSTANCEPOPULATIONBRACKETS>, IValidatableObject
+    public partial class APIConfigConstantsINSTANCEPOPULATIONBRACKETS : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigConstantsINSTANCEPOPULATIONBRACKETS" /> class.
@@ -37,7 +38,7 @@ namespace VRChat.API.Model
         /// <param name="cROWDED">cROWDED.</param>
         /// <param name="fEW">fEW.</param>
         /// <param name="mANY">mANY.</param>
-        public APIConfigConstantsINSTANCEPOPULATIONBRACKETS(APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED cROWDED = default(APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED), APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW fEW = default(APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW), APIConfigConstantsINSTANCEPOPULATIONBRACKETSMANY mANY = default(APIConfigConstantsINSTANCEPOPULATIONBRACKETSMANY))
+        public APIConfigConstantsINSTANCEPOPULATIONBRACKETS(APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED cROWDED = default, APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW fEW = default, APIConfigConstantsINSTANCEPOPULATIONBRACKETSMANY mANY = default)
         {
             this.CROWDED = cROWDED;
             this.FEW = fEW;
@@ -87,75 +88,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigConstantsINSTANCEPOPULATIONBRACKETS);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigConstantsINSTANCEPOPULATIONBRACKETS instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigConstantsINSTANCEPOPULATIONBRACKETS to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigConstantsINSTANCEPOPULATIONBRACKETS input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CROWDED == input.CROWDED ||
-                    (this.CROWDED != null &&
-                    this.CROWDED.Equals(input.CROWDED))
-                ) && 
-                (
-                    this.FEW == input.FEW ||
-                    (this.FEW != null &&
-                    this.FEW.Equals(input.FEW))
-                ) && 
-                (
-                    this.MANY == input.MANY ||
-                    (this.MANY != null &&
-                    this.MANY.Equals(input.MANY))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CROWDED != null)
-                {
-                    hashCode = (hashCode * 59) + this.CROWDED.GetHashCode();
-                }
-                if (this.FEW != null)
-                {
-                    hashCode = (hashCode * 59) + this.FEW.GetHashCode();
-                }
-                if (this.MANY != null)
-                {
-                    hashCode = (hashCode * 59) + this.MANY.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

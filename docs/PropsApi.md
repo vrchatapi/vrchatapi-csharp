@@ -6,7 +6,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 |--------|--------------|-------------|
 | [**GetProp**](PropsApi.md#getprop) | **GET** /props/{propId} | Get Prop |
 
-<a name="getprop"></a>
+<a id="getprop"></a>
 # **GetProp**
 > Prop GetProp (string propId)
 
@@ -18,6 +18,7 @@ Returns a Prop object.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -35,7 +36,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new PropsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PropsApi(httpClient, config, httpClientHandler);
             var propId = prop_829ba6f6-b837-49d9-b9a9-056b82103b58;  // string | Prop ID.
 
             try

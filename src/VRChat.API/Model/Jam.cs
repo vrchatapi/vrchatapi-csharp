@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Jam
     /// </summary>
     [DataContract(Name = "Jam")]
-    public partial class Jam : IEquatable<Jam>, IValidatableObject
+    public partial class Jam : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Jam" /> class.
@@ -49,7 +50,7 @@ namespace VRChat.API.Model
         /// <param name="submissionContentGated">submissionContentGated (required).</param>
         /// <param name="title">title (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public Jam(string description = default(string), string id = default(string), bool isVisible = default(bool), string moreInfo = default(string), string state = default(string), JamStateChangeDates stateChangeDates = default(JamStateChangeDates), DateTime? submissionContentGateDate = default(DateTime?), bool submissionContentGated = default(bool), string title = default(string), DateTime updatedAt = default(DateTime))
+        public Jam(string description = default, string id = default, bool isVisible = default, string moreInfo = default, string state = default, JamStateChangeDates stateChangeDates = default, DateTime? submissionContentGateDate = default, bool submissionContentGated = default, string title = default, DateTime updatedAt = default)
         {
             // to ensure "description" is required (not null)
             if (description == null)
@@ -107,6 +108,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>jam_0b7e3f6d-4647-4648-b2a1-1431e76906d9</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -191,159 +195,40 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Jam);
-        }
-
-        /// <summary>
-        /// Returns true if Jam instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Jam to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Jam input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.IsVisible == input.IsVisible ||
-                    this.IsVisible.Equals(input.IsVisible)
-                ) && 
-                (
-                    this.MoreInfo == input.MoreInfo ||
-                    (this.MoreInfo != null &&
-                    this.MoreInfo.Equals(input.MoreInfo))
-                ) && 
-                (
-                    this.State == input.State ||
-                    (this.State != null &&
-                    this.State.Equals(input.State))
-                ) && 
-                (
-                    this.StateChangeDates == input.StateChangeDates ||
-                    (this.StateChangeDates != null &&
-                    this.StateChangeDates.Equals(input.StateChangeDates))
-                ) && 
-                (
-                    this.SubmissionContentGateDate == input.SubmissionContentGateDate ||
-                    (this.SubmissionContentGateDate != null &&
-                    this.SubmissionContentGateDate.Equals(input.SubmissionContentGateDate))
-                ) && 
-                (
-                    this.SubmissionContentGated == input.SubmissionContentGated ||
-                    this.SubmissionContentGated.Equals(input.SubmissionContentGated)
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsVisible.GetHashCode();
-                if (this.MoreInfo != null)
-                {
-                    hashCode = (hashCode * 59) + this.MoreInfo.GetHashCode();
-                }
-                if (this.State != null)
-                {
-                    hashCode = (hashCode * 59) + this.State.GetHashCode();
-                }
-                if (this.StateChangeDates != null)
-                {
-                    hashCode = (hashCode * 59) + this.StateChangeDates.GetHashCode();
-                }
-                if (this.SubmissionContentGateDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.SubmissionContentGateDate.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.SubmissionContentGated.GetHashCode();
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Description (string) minLength
             if (this.Description != null && this.Description.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // MoreInfo (string) minLength
             if (this.MoreInfo != null && this.MoreInfo.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MoreInfo, length must be greater than 1.", new [] { "MoreInfo" });
+                yield return new ValidationResult("Invalid value for MoreInfo, length must be greater than 1.", new [] { "MoreInfo" });
             }
 
             // State (string) minLength
             if (this.State != null && this.State.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be greater than 1.", new [] { "State" });
+                yield return new ValidationResult("Invalid value for State, length must be greater than 1.", new [] { "State" });
             }
 
             // Title (string) minLength
             if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             yield break;

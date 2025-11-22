@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// CalendarEvent
     /// </summary>
     [DataContract(Name = "CalendarEvent")]
-    public partial class CalendarEvent : IEquatable<CalendarEvent>, IValidatableObject
+    public partial class CalendarEvent : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalendarEvent" /> class.
@@ -65,7 +66,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
         /// <param name="userInterest">userInterest.</param>
-        public CalendarEvent(string accessType = default(string), string category = default(string), int closeInstanceAfterEndMinutes = default(int), DateTime createdAt = default(DateTime), DateTime? deletedAt = default(DateTime?), string description = default(string), DateTime endsAt = default(DateTime), bool featured = default(bool), int guestEarlyJoinMinutes = default(int), int hostEarlyJoinMinutes = default(int), string id = default(string), string imageId = default(string), string imageUrl = default(string), int interestedUserCount = default(int), bool isDraft = default(bool), List<string> languages = default(List<string>), string ownerId = default(string), List<string> platforms = default(List<string>), List<string> roleIds = default(List<string>), DateTime startsAt = default(DateTime), List<string> tags = default(List<string>), string title = default(string), string type = default(string), DateTime updatedAt = default(DateTime), bool usesInstanceOverflow = default(bool), CalendarEventUserInterest userInterest = default(CalendarEventUserInterest))
+        public CalendarEvent(string accessType = default, string category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, string ownerId = default, List<string> platforms = default, List<string> roleIds = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, bool usesInstanceOverflow = default, CalendarEventUserInterest userInterest = default)
         {
             // to ensure "accessType" is required (not null)
             if (accessType == null)
@@ -123,12 +124,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AccessType
         /// </summary>
+        /*
+        <example>group</example>
+        */
         [DataMember(Name = "accessType", IsRequired = true, EmitDefaultValue = true)]
         public string AccessType { get; set; }
 
         /// <summary>
         /// Gets or Sets Category
         /// </summary>
+        /*
+        <example>performance</example>
+        */
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public string Category { get; set; }
 
@@ -183,12 +190,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>cal_6b182f0c-61ef-4bdf-97fe-94f63bcba27b</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "imageId", EmitDefaultValue = false)]
         public string ImageId { get; set; }
 
@@ -220,6 +233,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets OwnerId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public string OwnerId { get; set; }
 
@@ -259,6 +275,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
+        /*
+        <example>event</example>
+        */
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
@@ -328,263 +347,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as CalendarEvent);
-        }
-
-        /// <summary>
-        /// Returns true if CalendarEvent instances are equal
-        /// </summary>
-        /// <param name="input">Instance of CalendarEvent to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(CalendarEvent input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AccessType == input.AccessType ||
-                    (this.AccessType != null &&
-                    this.AccessType.Equals(input.AccessType))
-                ) && 
-                (
-                    this.Category == input.Category ||
-                    (this.Category != null &&
-                    this.Category.Equals(input.Category))
-                ) && 
-                (
-                    this.CloseInstanceAfterEndMinutes == input.CloseInstanceAfterEndMinutes ||
-                    this.CloseInstanceAfterEndMinutes.Equals(input.CloseInstanceAfterEndMinutes)
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.DeletedAt == input.DeletedAt ||
-                    (this.DeletedAt != null &&
-                    this.DeletedAt.Equals(input.DeletedAt))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.EndsAt == input.EndsAt ||
-                    (this.EndsAt != null &&
-                    this.EndsAt.Equals(input.EndsAt))
-                ) && 
-                (
-                    this.Featured == input.Featured ||
-                    this.Featured.Equals(input.Featured)
-                ) && 
-                (
-                    this.GuestEarlyJoinMinutes == input.GuestEarlyJoinMinutes ||
-                    this.GuestEarlyJoinMinutes.Equals(input.GuestEarlyJoinMinutes)
-                ) && 
-                (
-                    this.HostEarlyJoinMinutes == input.HostEarlyJoinMinutes ||
-                    this.HostEarlyJoinMinutes.Equals(input.HostEarlyJoinMinutes)
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ImageId == input.ImageId ||
-                    (this.ImageId != null &&
-                    this.ImageId.Equals(input.ImageId))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.InterestedUserCount == input.InterestedUserCount ||
-                    this.InterestedUserCount.Equals(input.InterestedUserCount)
-                ) && 
-                (
-                    this.IsDraft == input.IsDraft ||
-                    this.IsDraft.Equals(input.IsDraft)
-                ) && 
-                (
-                    this.Languages == input.Languages ||
-                    this.Languages != null &&
-                    input.Languages != null &&
-                    this.Languages.SequenceEqual(input.Languages)
-                ) && 
-                (
-                    this.OwnerId == input.OwnerId ||
-                    (this.OwnerId != null &&
-                    this.OwnerId.Equals(input.OwnerId))
-                ) && 
-                (
-                    this.Platforms == input.Platforms ||
-                    this.Platforms != null &&
-                    input.Platforms != null &&
-                    this.Platforms.SequenceEqual(input.Platforms)
-                ) && 
-                (
-                    this.RoleIds == input.RoleIds ||
-                    this.RoleIds != null &&
-                    input.RoleIds != null &&
-                    this.RoleIds.SequenceEqual(input.RoleIds)
-                ) && 
-                (
-                    this.StartsAt == input.StartsAt ||
-                    (this.StartsAt != null &&
-                    this.StartsAt.Equals(input.StartsAt))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                ) && 
-                (
-                    this.UsesInstanceOverflow == input.UsesInstanceOverflow ||
-                    this.UsesInstanceOverflow.Equals(input.UsesInstanceOverflow)
-                ) && 
-                (
-                    this.UserInterest == input.UserInterest ||
-                    (this.UserInterest != null &&
-                    this.UserInterest.Equals(input.UserInterest))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.AccessType != null)
-                {
-                    hashCode = (hashCode * 59) + this.AccessType.GetHashCode();
-                }
-                if (this.Category != null)
-                {
-                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.CloseInstanceAfterEndMinutes.GetHashCode();
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.DeletedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.DeletedAt.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.EndsAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.EndsAt.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Featured.GetHashCode();
-                hashCode = (hashCode * 59) + this.GuestEarlyJoinMinutes.GetHashCode();
-                hashCode = (hashCode * 59) + this.HostEarlyJoinMinutes.GetHashCode();
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.ImageId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.InterestedUserCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsDraft.GetHashCode();
-                if (this.Languages != null)
-                {
-                    hashCode = (hashCode * 59) + this.Languages.GetHashCode();
-                }
-                if (this.OwnerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
-                }
-                if (this.Platforms != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platforms.GetHashCode();
-                }
-                if (this.RoleIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
-                }
-                if (this.StartsAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.StartsAt.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.UsesInstanceOverflow.GetHashCode();
-                if (this.UserInterest != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserInterest.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Title (string) minLength
             if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             yield break;

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// RegisterUserAccountRequest
     /// </summary>
     [DataContract(Name = "RegisterUserAccountRequest")]
-    public partial class RegisterUserAccountRequest : IEquatable<RegisterUserAccountRequest>, IValidatableObject
+    public partial class RegisterUserAccountRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RegisterUserAccountRequest" /> class.
@@ -48,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="captchaCode">Captcha code (required).</param>
         /// <param name="subscribe">Whether to recieve promotional emails (required).</param>
         /// <param name="acceptedTOSVersion">The most recent version of the TOS (required).</param>
-        public RegisterUserAccountRequest(string username = default(string), string password = default(string), string email = default(string), string year = default(string), string month = default(string), string day = default(string), string captchaCode = default(string), bool subscribe = default(bool), int acceptedTOSVersion = default(int))
+        public RegisterUserAccountRequest(string username = default, string password = default, string email = default, string year = default, string month = default, string day = default, string captchaCode = default, bool subscribe = default, int acceptedTOSVersion = default)
         {
             // to ensure "username" is required (not null)
             if (username == null)
@@ -190,138 +191,28 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as RegisterUserAccountRequest);
-        }
-
-        /// <summary>
-        /// Returns true if RegisterUserAccountRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of RegisterUserAccountRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(RegisterUserAccountRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Username == input.Username ||
-                    (this.Username != null &&
-                    this.Username.Equals(input.Username))
-                ) && 
-                (
-                    this.Password == input.Password ||
-                    (this.Password != null &&
-                    this.Password.Equals(input.Password))
-                ) && 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.Year == input.Year ||
-                    (this.Year != null &&
-                    this.Year.Equals(input.Year))
-                ) && 
-                (
-                    this.Month == input.Month ||
-                    (this.Month != null &&
-                    this.Month.Equals(input.Month))
-                ) && 
-                (
-                    this.Day == input.Day ||
-                    (this.Day != null &&
-                    this.Day.Equals(input.Day))
-                ) && 
-                (
-                    this.CaptchaCode == input.CaptchaCode ||
-                    (this.CaptchaCode != null &&
-                    this.CaptchaCode.Equals(input.CaptchaCode))
-                ) && 
-                (
-                    this.Subscribe == input.Subscribe ||
-                    this.Subscribe.Equals(input.Subscribe)
-                ) && 
-                (
-                    this.AcceptedTOSVersion == input.AcceptedTOSVersion ||
-                    this.AcceptedTOSVersion.Equals(input.AcceptedTOSVersion)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Username != null)
-                {
-                    hashCode = (hashCode * 59) + this.Username.GetHashCode();
-                }
-                if (this.Password != null)
-                {
-                    hashCode = (hashCode * 59) + this.Password.GetHashCode();
-                }
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                if (this.Year != null)
-                {
-                    hashCode = (hashCode * 59) + this.Year.GetHashCode();
-                }
-                if (this.Month != null)
-                {
-                    hashCode = (hashCode * 59) + this.Month.GetHashCode();
-                }
-                if (this.Day != null)
-                {
-                    hashCode = (hashCode * 59) + this.Day.GetHashCode();
-                }
-                if (this.CaptchaCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.CaptchaCode.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Subscribe.GetHashCode();
-                hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Username (string) maxLength
             if (this.Username != null && this.Username.Length > 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Username, length must be less than 15.", new [] { "Username" });
+                yield return new ValidationResult("Invalid value for Username, length must be less than 15.", new [] { "Username" });
             }
 
             // Username (string) minLength
             if (this.Username != null && this.Username.Length < 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Username, length must be greater than 4.", new [] { "Username" });
+                yield return new ValidationResult("Invalid value for Username, length must be greater than 4.", new [] { "Username" });
             }
 
             // Password (string) minLength
             if (this.Password != null && this.Password.Length < 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Password, length must be greater than 8.", new [] { "Password" });
+                yield return new ValidationResult("Invalid value for Password, length must be greater than 8.", new [] { "Password" });
             }
 
             yield break;

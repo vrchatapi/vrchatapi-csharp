@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Status object representing if a queried user by username or userId exists or not. This model is primarily used by the &#x60;/auth/exists&#x60; endpoint, which in turn is used during registration. Please see the documentation on that endpoint for more information on usage.
     /// </summary>
     [DataContract(Name = "UserExists")]
-    public partial class UserExists : IEquatable<UserExists>, IValidatableObject
+    public partial class UserExists : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UserExists" /> class.
@@ -39,11 +40,11 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserExists" /> class.
         /// </summary>
-        /// <param name="userExists">Status if a user exist with that username or userId. (required) (default to false).</param>
+        /// <param name="varUserExists">Status if a user exist with that username or userId. (required) (default to false).</param>
         /// <param name="nameOk">Is the username valid? (default to false).</param>
-        public UserExists(bool userExists = false, bool nameOk = false)
+        public UserExists(bool varUserExists = false, bool nameOk = false)
         {
-            this._UserExists = userExists;
+            this.VarUserExists = varUserExists;
             this.NameOk = nameOk;
         }
 
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <value>Status if a user exist with that username or userId.</value>
         [DataMember(Name = "userExists", IsRequired = true, EmitDefaultValue = true)]
-        public bool _UserExists { get; set; }
+        public bool VarUserExists { get; set; }
 
         /// <summary>
         /// Is the username valid?
@@ -69,7 +70,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UserExists {\n");
-            sb.Append("  _UserExists: ").Append(_UserExists).Append("\n");
+            sb.Append("  VarUserExists: ").Append(VarUserExists).Append("\n");
             sb.Append("  NameOk: ").Append(NameOk).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -85,58 +86,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as UserExists);
-        }
-
-        /// <summary>
-        /// Returns true if UserExists instances are equal
-        /// </summary>
-        /// <param name="input">Instance of UserExists to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(UserExists input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this._UserExists == input._UserExists ||
-                    this._UserExists.Equals(input._UserExists)
-                ) && 
-                (
-                    this.NameOk == input.NameOk ||
-                    this.NameOk.Equals(input.NameOk)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this._UserExists.GetHashCode();
-                hashCode = (hashCode * 59) + this.NameOk.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

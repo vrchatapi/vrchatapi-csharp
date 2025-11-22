@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,19 +30,19 @@ namespace VRChat.API.Model
     /// APIConfigReportOptionsWorld
     /// </summary>
     [DataContract(Name = "APIConfig_reportOptions_world")]
-    public partial class APIConfigReportOptionsWorld : IEquatable<APIConfigReportOptionsWorld>, IValidatableObject
+    public partial class APIConfigReportOptionsWorld : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigReportOptionsWorld" /> class.
         /// </summary>
-        /// <param name="environment">environment.</param>
+        /// <param name="varEnvironment">varEnvironment.</param>
         /// <param name="text">text.</param>
         /// <param name="warnings">warnings.</param>
         /// <param name="worldimage">worldimage.</param>
         /// <param name="worldstore">worldstore.</param>
-        public APIConfigReportOptionsWorld(List<string> environment = default(List<string>), List<string> text = default(List<string>), List<string> warnings = default(List<string>), List<string> worldimage = default(List<string>), List<string> worldstore = default(List<string>))
+        public APIConfigReportOptionsWorld(List<string> varEnvironment = default, List<string> text = default, List<string> warnings = default, List<string> worldimage = default, List<string> worldstore = default)
         {
-            this.Environment = environment;
+            this.VarEnvironment = varEnvironment;
             this.Text = text;
             this.Warnings = warnings;
             this.Worldimage = worldimage;
@@ -49,10 +50,10 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets Environment
+        /// Gets or Sets VarEnvironment
         /// </summary>
         [DataMember(Name = "environment", EmitDefaultValue = false)]
-        public List<string> Environment { get; set; }
+        public List<string> VarEnvironment { get; set; }
 
         /// <summary>
         /// Gets or Sets Text
@@ -86,7 +87,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class APIConfigReportOptionsWorld {\n");
-            sb.Append("  Environment: ").Append(Environment).Append("\n");
+            sb.Append("  VarEnvironment: ").Append(VarEnvironment).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("  Worldimage: ").Append(Worldimage).Append("\n");
@@ -105,98 +106,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigReportOptionsWorld);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigReportOptionsWorld instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigReportOptionsWorld to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigReportOptionsWorld input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Environment == input.Environment ||
-                    this.Environment != null &&
-                    input.Environment != null &&
-                    this.Environment.SequenceEqual(input.Environment)
-                ) && 
-                (
-                    this.Text == input.Text ||
-                    this.Text != null &&
-                    input.Text != null &&
-                    this.Text.SequenceEqual(input.Text)
-                ) && 
-                (
-                    this.Warnings == input.Warnings ||
-                    this.Warnings != null &&
-                    input.Warnings != null &&
-                    this.Warnings.SequenceEqual(input.Warnings)
-                ) && 
-                (
-                    this.Worldimage == input.Worldimage ||
-                    this.Worldimage != null &&
-                    input.Worldimage != null &&
-                    this.Worldimage.SequenceEqual(input.Worldimage)
-                ) && 
-                (
-                    this.Worldstore == input.Worldstore ||
-                    this.Worldstore != null &&
-                    input.Worldstore != null &&
-                    this.Worldstore.SequenceEqual(input.Worldstore)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Environment != null)
-                {
-                    hashCode = (hashCode * 59) + this.Environment.GetHashCode();
-                }
-                if (this.Text != null)
-                {
-                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
-                }
-                if (this.Warnings != null)
-                {
-                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
-                }
-                if (this.Worldimage != null)
-                {
-                    hashCode = (hashCode * 59) + this.Worldimage.GetHashCode();
-                }
-                if (this.Worldstore != null)
-                {
-                    hashCode = (hashCode * 59) + this.Worldstore.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

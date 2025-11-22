@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// CreateGroupAnnouncementRequest
     /// </summary>
     [DataContract(Name = "CreateGroupAnnouncementRequest")]
-    public partial class CreateGroupAnnouncementRequest : IEquatable<CreateGroupAnnouncementRequest>, IValidatableObject
+    public partial class CreateGroupAnnouncementRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateGroupAnnouncementRequest" /> class.
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="text">Announcement text.</param>
         /// <param name="imageId">imageId.</param>
         /// <param name="sendNotification">Send notification to group members. (default to false).</param>
-        public CreateGroupAnnouncementRequest(string title = default(string), string text = default(string), string imageId = default(string), bool sendNotification = false)
+        public CreateGroupAnnouncementRequest(string title = default, string text = default, string imageId = default, bool sendNotification = false)
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -60,6 +61,9 @@ namespace VRChat.API.Model
         /// Announcement title
         /// </summary>
         /// <value>Announcement title</value>
+        /*
+        <example>Event is starting soon!</example>
+        */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
@@ -67,12 +71,18 @@ namespace VRChat.API.Model
         /// Announcement text
         /// </summary>
         /// <value>Announcement text</value>
+        /*
+        <example>Come join us for the event!</example>
+        */
         [DataMember(Name = "text", EmitDefaultValue = false)]
         public string Text { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "imageId", EmitDefaultValue = false)]
         public string ImageId { get; set; }
 
@@ -80,6 +90,9 @@ namespace VRChat.API.Model
         /// Send notification to group members.
         /// </summary>
         /// <value>Send notification to group members.</value>
+        /*
+        <example>false</example>
+        */
         [DataMember(Name = "sendNotification", EmitDefaultValue = true)]
         public bool SendNotification { get; set; }
 
@@ -109,91 +122,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as CreateGroupAnnouncementRequest);
-        }
-
-        /// <summary>
-        /// Returns true if CreateGroupAnnouncementRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of CreateGroupAnnouncementRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(CreateGroupAnnouncementRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.Text == input.Text ||
-                    (this.Text != null &&
-                    this.Text.Equals(input.Text))
-                ) && 
-                (
-                    this.ImageId == input.ImageId ||
-                    (this.ImageId != null &&
-                    this.ImageId.Equals(input.ImageId))
-                ) && 
-                (
-                    this.SendNotification == input.SendNotification ||
-                    this.SendNotification.Equals(input.SendNotification)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.Text != null)
-                {
-                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
-                }
-                if (this.ImageId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.SendNotification.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Title (string) minLength
             if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             // Text (string) minLength
             if (this.Text != null && this.Text.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Text, length must be greater than 1.", new [] { "Text" });
+                yield return new ValidationResult("Invalid value for Text, length must be greater than 1.", new [] { "Text" });
             }
 
             yield break;

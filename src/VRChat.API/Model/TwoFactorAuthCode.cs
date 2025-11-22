@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// TwoFactorAuthCode
     /// </summary>
     [DataContract(Name = "TwoFactorAuthCode")]
-    public partial class TwoFactorAuthCode : IEquatable<TwoFactorAuthCode>, IValidatableObject
+    public partial class TwoFactorAuthCode : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TwoFactorAuthCode" /> class.
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="TwoFactorAuthCode" /> class.
         /// </summary>
         /// <param name="code">code (required).</param>
-        public TwoFactorAuthCode(string code = default(string))
+        public TwoFactorAuthCode(string code = default)
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -79,57 +80,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TwoFactorAuthCode);
-        }
-
-        /// <summary>
-        /// Returns true if TwoFactorAuthCode instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TwoFactorAuthCode to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TwoFactorAuthCode input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Code != null)
-                {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

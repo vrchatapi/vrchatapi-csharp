@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InstancePlatforms
     /// </summary>
     [DataContract(Name = "InstancePlatforms")]
-    public partial class InstancePlatforms : IEquatable<InstancePlatforms>, IValidatableObject
+    public partial class InstancePlatforms : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InstancePlatforms" /> class.
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="android">android (required).</param>
         /// <param name="ios">ios.</param>
         /// <param name="standalonewindows">standalonewindows (required).</param>
-        public InstancePlatforms(int android = default(int), int ios = default(int), int standalonewindows = default(int))
+        public InstancePlatforms(int android = default, int ios = default, int standalonewindows = default)
         {
             this.Android = android;
             this.Standalonewindows = standalonewindows;
@@ -52,18 +53,27 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Android
         /// </summary>
+        /*
+        <example>1</example>
+        */
         [DataMember(Name = "android", IsRequired = true, EmitDefaultValue = true)]
         public int Android { get; set; }
 
         /// <summary>
         /// Gets or Sets Ios
         /// </summary>
+        /*
+        <example>1</example>
+        */
         [DataMember(Name = "ios", EmitDefaultValue = false)]
         public int Ios { get; set; }
 
         /// <summary>
         /// Gets or Sets Standalonewindows
         /// </summary>
+        /*
+        <example>5</example>
+        */
         [DataMember(Name = "standalonewindows", IsRequired = true, EmitDefaultValue = true)]
         public int Standalonewindows { get; set; }
 
@@ -92,80 +102,28 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InstancePlatforms);
-        }
-
-        /// <summary>
-        /// Returns true if InstancePlatforms instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InstancePlatforms to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InstancePlatforms input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Android == input.Android ||
-                    this.Android.Equals(input.Android)
-                ) && 
-                (
-                    this.Ios == input.Ios ||
-                    this.Ios.Equals(input.Ios)
-                ) && 
-                (
-                    this.Standalonewindows == input.Standalonewindows ||
-                    this.Standalonewindows.Equals(input.Standalonewindows)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Android.GetHashCode();
-                hashCode = (hashCode * 59) + this.Ios.GetHashCode();
-                hashCode = (hashCode * 59) + this.Standalonewindows.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Android (int) minimum
             if (this.Android < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Android, must be a value greater than or equal to 0.", new [] { "Android" });
+                yield return new ValidationResult("Invalid value for Android, must be a value greater than or equal to 0.", new [] { "Android" });
             }
 
             // Ios (int) minimum
             if (this.Ios < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ios, must be a value greater than or equal to 0.", new [] { "Ios" });
+                yield return new ValidationResult("Invalid value for Ios, must be a value greater than or equal to 0.", new [] { "Ios" });
             }
 
             // Standalonewindows (int) minimum
             if (this.Standalonewindows < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Standalonewindows, must be a value greater than or equal to 0.", new [] { "Standalonewindows" });
+                yield return new ValidationResult("Invalid value for Standalonewindows, must be a value greater than or equal to 0.", new [] { "Standalonewindows" });
             }
 
             yield break;

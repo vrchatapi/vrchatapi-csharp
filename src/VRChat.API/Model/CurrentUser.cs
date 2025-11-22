@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// CurrentUser
     /// </summary>
     [DataContract(Name = "CurrentUser")]
-    public partial class CurrentUser : IEquatable<CurrentUser>, IValidatableObject
+    public partial class CurrentUser : IValidatableObject
     {
 
         /// <summary>
@@ -138,7 +139,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="userIcon">userIcon (required).</param>
         /// <param name="username">-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
-        public CurrentUser(int acceptedTOSVersion = default(int), int acceptedPrivacyVersion = default(int), DateTime? accountDeletionDate = default(DateTime?), List<AccountDeletionLog> accountDeletionLog = default(List<AccountDeletionLog>), List<string> activeFriends = default(List<string>), AgeVerificationStatus ageVerificationStatus = default(AgeVerificationStatus), bool ageVerified = default(bool), bool allowAvatarCopying = default(bool), string authToken = default(string), List<Badge> badges = default(List<Badge>), string bio = default(string), List<string> bioLinks = default(List<string>), List<string> contentFilters = default(List<string>), string currentAvatar = default(string), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>), DateTime dateJoined = default(DateTime), DeveloperType developerType = default(DeveloperType), DiscordDetails discordDetails = default(DiscordDetails), string discordId = default(string), string displayName = default(string), bool emailVerified = default(bool), string fallbackAvatar = default(string), List<string> friendGroupNames = default(List<string>), string friendKey = default(string), List<string> friends = default(List<string>), bool hasBirthday = default(bool), bool hideContentFilterSettings = default(bool), string userLanguage = default(string), string userLanguageCode = default(string), bool hasEmail = default(bool), bool hasLoggedInFromClient = default(bool), bool hasPendingEmail = default(bool), string homeLocation = default(string), string id = default(string), bool isAdult = default(bool), bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default(DateTime), DateTime lastLogin = default(DateTime), DateTime? lastMobile = default(DateTime?), string lastPlatform = default(string), string obfuscatedEmail = default(string), string obfuscatedPendingEmail = default(string), string oculusId = default(string), string googleId = default(string), Object googleDetails = default(Object), string picoId = default(string), string viveId = default(string), List<string> offlineFriends = default(List<string>), List<string> onlineFriends = default(List<string>), List<PastDisplayName> pastDisplayNames = default(List<PastDisplayName>), CurrentUserPresence presence = default(CurrentUserPresence), List<CurrentUserPlatformHistoryInner> platformHistory = default(List<CurrentUserPlatformHistoryInner>), string profilePicOverride = default(string), string profilePicOverrideThumbnail = default(string), string pronouns = default(string), List<string> pronounsHistory = default(List<string>), string queuedInstance = default(string), bool receiveMobileInvitations = default(bool), UserState state = default(UserState), UserStatus status = default(UserStatus), string statusDescription = default(string), bool statusFirstTime = default(bool), List<string> statusHistory = default(List<string>), Object steamDetails = default(Object), string steamId = default(string), List<string> tags = default(List<string>), bool twoFactorAuthEnabled = default(bool), DateTime? twoFactorAuthEnabledDate = default(DateTime?), bool unsubscribe = default(bool), DateTime updatedAt = default(DateTime), string userIcon = default(string), string username = default(string))
+        public CurrentUser(int acceptedTOSVersion = default, int acceptedPrivacyVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, string authToken = default, List<Badge> badges = default, string bio = default, List<string> bioLinks = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, string currentAvatarThumbnailImageUrl = default, List<string> currentAvatarTags = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, List<string> friends = default, bool hasBirthday = default, bool hideContentFilterSettings = default, string userLanguage = default, string userLanguageCode = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, string homeLocation = default, string id = default, bool isAdult = default, bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, string googleId = default, Object googleDetails = default, string picoId = default, string viveId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, CurrentUserPresence presence = default, List<CurrentUserPlatformHistoryInner> platformHistory = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userIcon = default, string username = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.AgeVerificationStatus = ageVerificationStatus;
@@ -360,12 +361,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AcceptedTOSVersion
         /// </summary>
+        /*
+        <example>7</example>
+        */
         [DataMember(Name = "acceptedTOSVersion", IsRequired = true, EmitDefaultValue = true)]
         public int AcceptedTOSVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets AcceptedPrivacyVersion
         /// </summary>
+        /*
+        <example>0</example>
+        */
         [DataMember(Name = "acceptedPrivacyVersion", EmitDefaultValue = false)]
         public int AcceptedPrivacyVersion { get; set; }
 
@@ -373,8 +380,7 @@ namespace VRChat.API.Model
         /// Gets or Sets AccountDeletionDate
         /// </summary>
         [DataMember(Name = "accountDeletionDate", EmitDefaultValue = true)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime? AccountDeletionDate { get; set; }
+        public DateOnly? AccountDeletionDate { get; set; }
 
         /// <summary>
         ///  
@@ -440,6 +446,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CurrentAvatar
         /// </summary>
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
         [DataMember(Name = "currentAvatar", IsRequired = true, EmitDefaultValue = true)]
         public string CurrentAvatar { get; set; }
 
@@ -447,6 +456,9 @@ namespace VRChat.API.Model
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
+        /*
+        <example>https://api.vrchat.cloud/api/1/file/file_ae46d521-7281-4b38-b365-804b32a1d6a7/1/file</example>
+        */
         [DataMember(Name = "currentAvatarImageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string CurrentAvatarImageUrl { get; set; }
 
@@ -454,6 +466,9 @@ namespace VRChat.API.Model
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
+        /*
+        <example>https://api.vrchat.cloud/api/1/image/file_aae83ed9-d42d-4d72-9f4b-9f1e41ed17e1/1/256</example>
+        */
         [DataMember(Name = "currentAvatarThumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string CurrentAvatarThumbnailImageUrl { get; set; }
 
@@ -467,8 +482,7 @@ namespace VRChat.API.Model
         /// Gets or Sets DateJoined
         /// </summary>
         [DataMember(Name = "date_joined", IsRequired = true, EmitDefaultValue = true)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime DateJoined { get; set; }
+        public DateOnly DateJoined { get; set; }
 
         /// <summary>
         /// Gets or Sets DiscordDetails
@@ -480,6 +494,9 @@ namespace VRChat.API.Model
         /// https://discord.com/developers/docs/reference#snowflakes
         /// </summary>
         /// <value>https://discord.com/developers/docs/reference#snowflakes</value>
+        /*
+        <example>1280064052206370848</example>
+        */
         [DataMember(Name = "discordId", EmitDefaultValue = false)]
         public string DiscordId { get; set; }
 
@@ -498,6 +515,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets FallbackAvatar
         /// </summary>
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
         [DataMember(Name = "fallbackAvatar", EmitDefaultValue = false)]
         public string FallbackAvatar { get; set; }
 
@@ -567,6 +587,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "homeLocation", IsRequired = true, EmitDefaultValue = true)]
         public string HomeLocation { get; set; }
 
@@ -574,6 +597,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -617,6 +643,9 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "last_platform", IsRequired = true, EmitDefaultValue = true)]
         public string LastPlatform { get; set; }
 
@@ -900,665 +929,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as CurrentUser);
-        }
-
-        /// <summary>
-        /// Returns true if CurrentUser instances are equal
-        /// </summary>
-        /// <param name="input">Instance of CurrentUser to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(CurrentUser input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AcceptedTOSVersion == input.AcceptedTOSVersion ||
-                    this.AcceptedTOSVersion.Equals(input.AcceptedTOSVersion)
-                ) && 
-                (
-                    this.AcceptedPrivacyVersion == input.AcceptedPrivacyVersion ||
-                    this.AcceptedPrivacyVersion.Equals(input.AcceptedPrivacyVersion)
-                ) && 
-                (
-                    this.AccountDeletionDate == input.AccountDeletionDate ||
-                    (this.AccountDeletionDate != null &&
-                    this.AccountDeletionDate.Equals(input.AccountDeletionDate))
-                ) && 
-                (
-                    this.AccountDeletionLog == input.AccountDeletionLog ||
-                    this.AccountDeletionLog != null &&
-                    input.AccountDeletionLog != null &&
-                    this.AccountDeletionLog.SequenceEqual(input.AccountDeletionLog)
-                ) && 
-                (
-                    this.ActiveFriends == input.ActiveFriends ||
-                    this.ActiveFriends != null &&
-                    input.ActiveFriends != null &&
-                    this.ActiveFriends.SequenceEqual(input.ActiveFriends)
-                ) && 
-                (
-                    this.AgeVerificationStatus == input.AgeVerificationStatus ||
-                    this.AgeVerificationStatus.Equals(input.AgeVerificationStatus)
-                ) && 
-                (
-                    this.AgeVerified == input.AgeVerified ||
-                    this.AgeVerified.Equals(input.AgeVerified)
-                ) && 
-                (
-                    this.AllowAvatarCopying == input.AllowAvatarCopying ||
-                    this.AllowAvatarCopying.Equals(input.AllowAvatarCopying)
-                ) && 
-                (
-                    this.AuthToken == input.AuthToken ||
-                    (this.AuthToken != null &&
-                    this.AuthToken.Equals(input.AuthToken))
-                ) && 
-                (
-                    this.Badges == input.Badges ||
-                    this.Badges != null &&
-                    input.Badges != null &&
-                    this.Badges.SequenceEqual(input.Badges)
-                ) && 
-                (
-                    this.Bio == input.Bio ||
-                    (this.Bio != null &&
-                    this.Bio.Equals(input.Bio))
-                ) && 
-                (
-                    this.BioLinks == input.BioLinks ||
-                    this.BioLinks != null &&
-                    input.BioLinks != null &&
-                    this.BioLinks.SequenceEqual(input.BioLinks)
-                ) && 
-                (
-                    this.ContentFilters == input.ContentFilters ||
-                    this.ContentFilters != null &&
-                    input.ContentFilters != null &&
-                    this.ContentFilters.SequenceEqual(input.ContentFilters)
-                ) && 
-                (
-                    this.CurrentAvatar == input.CurrentAvatar ||
-                    (this.CurrentAvatar != null &&
-                    this.CurrentAvatar.Equals(input.CurrentAvatar))
-                ) && 
-                (
-                    this.CurrentAvatarImageUrl == input.CurrentAvatarImageUrl ||
-                    (this.CurrentAvatarImageUrl != null &&
-                    this.CurrentAvatarImageUrl.Equals(input.CurrentAvatarImageUrl))
-                ) && 
-                (
-                    this.CurrentAvatarThumbnailImageUrl == input.CurrentAvatarThumbnailImageUrl ||
-                    (this.CurrentAvatarThumbnailImageUrl != null &&
-                    this.CurrentAvatarThumbnailImageUrl.Equals(input.CurrentAvatarThumbnailImageUrl))
-                ) && 
-                (
-                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
-                    this.CurrentAvatarTags != null &&
-                    input.CurrentAvatarTags != null &&
-                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
-                ) && 
-                (
-                    this.DateJoined == input.DateJoined ||
-                    (this.DateJoined != null &&
-                    this.DateJoined.Equals(input.DateJoined))
-                ) && 
-                (
-                    this.DeveloperType == input.DeveloperType ||
-                    this.DeveloperType.Equals(input.DeveloperType)
-                ) && 
-                (
-                    this.DiscordDetails == input.DiscordDetails ||
-                    (this.DiscordDetails != null &&
-                    this.DiscordDetails.Equals(input.DiscordDetails))
-                ) && 
-                (
-                    this.DiscordId == input.DiscordId ||
-                    (this.DiscordId != null &&
-                    this.DiscordId.Equals(input.DiscordId))
-                ) && 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.EmailVerified == input.EmailVerified ||
-                    this.EmailVerified.Equals(input.EmailVerified)
-                ) && 
-                (
-                    this.FallbackAvatar == input.FallbackAvatar ||
-                    (this.FallbackAvatar != null &&
-                    this.FallbackAvatar.Equals(input.FallbackAvatar))
-                ) && 
-                (
-                    this.FriendGroupNames == input.FriendGroupNames ||
-                    this.FriendGroupNames != null &&
-                    input.FriendGroupNames != null &&
-                    this.FriendGroupNames.SequenceEqual(input.FriendGroupNames)
-                ) && 
-                (
-                    this.FriendKey == input.FriendKey ||
-                    (this.FriendKey != null &&
-                    this.FriendKey.Equals(input.FriendKey))
-                ) && 
-                (
-                    this.Friends == input.Friends ||
-                    this.Friends != null &&
-                    input.Friends != null &&
-                    this.Friends.SequenceEqual(input.Friends)
-                ) && 
-                (
-                    this.HasBirthday == input.HasBirthday ||
-                    this.HasBirthday.Equals(input.HasBirthday)
-                ) && 
-                (
-                    this.HideContentFilterSettings == input.HideContentFilterSettings ||
-                    this.HideContentFilterSettings.Equals(input.HideContentFilterSettings)
-                ) && 
-                (
-                    this.UserLanguage == input.UserLanguage ||
-                    (this.UserLanguage != null &&
-                    this.UserLanguage.Equals(input.UserLanguage))
-                ) && 
-                (
-                    this.UserLanguageCode == input.UserLanguageCode ||
-                    (this.UserLanguageCode != null &&
-                    this.UserLanguageCode.Equals(input.UserLanguageCode))
-                ) && 
-                (
-                    this.HasEmail == input.HasEmail ||
-                    this.HasEmail.Equals(input.HasEmail)
-                ) && 
-                (
-                    this.HasLoggedInFromClient == input.HasLoggedInFromClient ||
-                    this.HasLoggedInFromClient.Equals(input.HasLoggedInFromClient)
-                ) && 
-                (
-                    this.HasPendingEmail == input.HasPendingEmail ||
-                    this.HasPendingEmail.Equals(input.HasPendingEmail)
-                ) && 
-                (
-                    this.HomeLocation == input.HomeLocation ||
-                    (this.HomeLocation != null &&
-                    this.HomeLocation.Equals(input.HomeLocation))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.IsAdult == input.IsAdult ||
-                    this.IsAdult.Equals(input.IsAdult)
-                ) && 
-                (
-                    this.IsBoopingEnabled == input.IsBoopingEnabled ||
-                    this.IsBoopingEnabled.Equals(input.IsBoopingEnabled)
-                ) && 
-                (
-                    this.IsFriend == input.IsFriend ||
-                    this.IsFriend.Equals(input.IsFriend)
-                ) && 
-                (
-                    this.LastActivity == input.LastActivity ||
-                    (this.LastActivity != null &&
-                    this.LastActivity.Equals(input.LastActivity))
-                ) && 
-                (
-                    this.LastLogin == input.LastLogin ||
-                    (this.LastLogin != null &&
-                    this.LastLogin.Equals(input.LastLogin))
-                ) && 
-                (
-                    this.LastMobile == input.LastMobile ||
-                    (this.LastMobile != null &&
-                    this.LastMobile.Equals(input.LastMobile))
-                ) && 
-                (
-                    this.LastPlatform == input.LastPlatform ||
-                    (this.LastPlatform != null &&
-                    this.LastPlatform.Equals(input.LastPlatform))
-                ) && 
-                (
-                    this.ObfuscatedEmail == input.ObfuscatedEmail ||
-                    (this.ObfuscatedEmail != null &&
-                    this.ObfuscatedEmail.Equals(input.ObfuscatedEmail))
-                ) && 
-                (
-                    this.ObfuscatedPendingEmail == input.ObfuscatedPendingEmail ||
-                    (this.ObfuscatedPendingEmail != null &&
-                    this.ObfuscatedPendingEmail.Equals(input.ObfuscatedPendingEmail))
-                ) && 
-                (
-                    this.OculusId == input.OculusId ||
-                    (this.OculusId != null &&
-                    this.OculusId.Equals(input.OculusId))
-                ) && 
-                (
-                    this.GoogleId == input.GoogleId ||
-                    (this.GoogleId != null &&
-                    this.GoogleId.Equals(input.GoogleId))
-                ) && 
-                (
-                    this.GoogleDetails == input.GoogleDetails ||
-                    (this.GoogleDetails != null &&
-                    this.GoogleDetails.Equals(input.GoogleDetails))
-                ) && 
-                (
-                    this.PicoId == input.PicoId ||
-                    (this.PicoId != null &&
-                    this.PicoId.Equals(input.PicoId))
-                ) && 
-                (
-                    this.ViveId == input.ViveId ||
-                    (this.ViveId != null &&
-                    this.ViveId.Equals(input.ViveId))
-                ) && 
-                (
-                    this.OfflineFriends == input.OfflineFriends ||
-                    this.OfflineFriends != null &&
-                    input.OfflineFriends != null &&
-                    this.OfflineFriends.SequenceEqual(input.OfflineFriends)
-                ) && 
-                (
-                    this.OnlineFriends == input.OnlineFriends ||
-                    this.OnlineFriends != null &&
-                    input.OnlineFriends != null &&
-                    this.OnlineFriends.SequenceEqual(input.OnlineFriends)
-                ) && 
-                (
-                    this.PastDisplayNames == input.PastDisplayNames ||
-                    this.PastDisplayNames != null &&
-                    input.PastDisplayNames != null &&
-                    this.PastDisplayNames.SequenceEqual(input.PastDisplayNames)
-                ) && 
-                (
-                    this.Presence == input.Presence ||
-                    (this.Presence != null &&
-                    this.Presence.Equals(input.Presence))
-                ) && 
-                (
-                    this.PlatformHistory == input.PlatformHistory ||
-                    this.PlatformHistory != null &&
-                    input.PlatformHistory != null &&
-                    this.PlatformHistory.SequenceEqual(input.PlatformHistory)
-                ) && 
-                (
-                    this.ProfilePicOverride == input.ProfilePicOverride ||
-                    (this.ProfilePicOverride != null &&
-                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
-                ) && 
-                (
-                    this.ProfilePicOverrideThumbnail == input.ProfilePicOverrideThumbnail ||
-                    (this.ProfilePicOverrideThumbnail != null &&
-                    this.ProfilePicOverrideThumbnail.Equals(input.ProfilePicOverrideThumbnail))
-                ) && 
-                (
-                    this.Pronouns == input.Pronouns ||
-                    (this.Pronouns != null &&
-                    this.Pronouns.Equals(input.Pronouns))
-                ) && 
-                (
-                    this.PronounsHistory == input.PronounsHistory ||
-                    this.PronounsHistory != null &&
-                    input.PronounsHistory != null &&
-                    this.PronounsHistory.SequenceEqual(input.PronounsHistory)
-                ) && 
-                (
-                    this.QueuedInstance == input.QueuedInstance ||
-                    (this.QueuedInstance != null &&
-                    this.QueuedInstance.Equals(input.QueuedInstance))
-                ) && 
-                (
-                    this.ReceiveMobileInvitations == input.ReceiveMobileInvitations ||
-                    this.ReceiveMobileInvitations.Equals(input.ReceiveMobileInvitations)
-                ) && 
-                (
-                    this.State == input.State ||
-                    this.State.Equals(input.State)
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.StatusDescription == input.StatusDescription ||
-                    (this.StatusDescription != null &&
-                    this.StatusDescription.Equals(input.StatusDescription))
-                ) && 
-                (
-                    this.StatusFirstTime == input.StatusFirstTime ||
-                    this.StatusFirstTime.Equals(input.StatusFirstTime)
-                ) && 
-                (
-                    this.StatusHistory == input.StatusHistory ||
-                    this.StatusHistory != null &&
-                    input.StatusHistory != null &&
-                    this.StatusHistory.SequenceEqual(input.StatusHistory)
-                ) && 
-                (
-                    this.SteamDetails == input.SteamDetails ||
-                    (this.SteamDetails != null &&
-                    this.SteamDetails.Equals(input.SteamDetails))
-                ) && 
-                (
-                    this.SteamId == input.SteamId ||
-                    (this.SteamId != null &&
-                    this.SteamId.Equals(input.SteamId))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.TwoFactorAuthEnabled == input.TwoFactorAuthEnabled ||
-                    this.TwoFactorAuthEnabled.Equals(input.TwoFactorAuthEnabled)
-                ) && 
-                (
-                    this.TwoFactorAuthEnabledDate == input.TwoFactorAuthEnabledDate ||
-                    (this.TwoFactorAuthEnabledDate != null &&
-                    this.TwoFactorAuthEnabledDate.Equals(input.TwoFactorAuthEnabledDate))
-                ) && 
-                (
-                    this.Unsubscribe == input.Unsubscribe ||
-                    this.Unsubscribe.Equals(input.Unsubscribe)
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                ) && 
-                (
-                    this.UserIcon == input.UserIcon ||
-                    (this.UserIcon != null &&
-                    this.UserIcon.Equals(input.UserIcon))
-                ) && 
-                (
-                    this.Username == input.Username ||
-                    (this.Username != null &&
-                    this.Username.Equals(input.Username))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
-                hashCode = (hashCode * 59) + this.AcceptedPrivacyVersion.GetHashCode();
-                if (this.AccountDeletionDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.AccountDeletionDate.GetHashCode();
-                }
-                if (this.AccountDeletionLog != null)
-                {
-                    hashCode = (hashCode * 59) + this.AccountDeletionLog.GetHashCode();
-                }
-                if (this.ActiveFriends != null)
-                {
-                    hashCode = (hashCode * 59) + this.ActiveFriends.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AgeVerificationStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this.AgeVerified.GetHashCode();
-                hashCode = (hashCode * 59) + this.AllowAvatarCopying.GetHashCode();
-                if (this.AuthToken != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthToken.GetHashCode();
-                }
-                if (this.Badges != null)
-                {
-                    hashCode = (hashCode * 59) + this.Badges.GetHashCode();
-                }
-                if (this.Bio != null)
-                {
-                    hashCode = (hashCode * 59) + this.Bio.GetHashCode();
-                }
-                if (this.BioLinks != null)
-                {
-                    hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
-                }
-                if (this.ContentFilters != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentFilters.GetHashCode();
-                }
-                if (this.CurrentAvatar != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatar.GetHashCode();
-                }
-                if (this.CurrentAvatarImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarImageUrl.GetHashCode();
-                }
-                if (this.CurrentAvatarThumbnailImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
-                }
-                if (this.CurrentAvatarTags != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
-                }
-                if (this.DateJoined != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateJoined.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.DeveloperType.GetHashCode();
-                if (this.DiscordDetails != null)
-                {
-                    hashCode = (hashCode * 59) + this.DiscordDetails.GetHashCode();
-                }
-                if (this.DiscordId != null)
-                {
-                    hashCode = (hashCode * 59) + this.DiscordId.GetHashCode();
-                }
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.EmailVerified.GetHashCode();
-                if (this.FallbackAvatar != null)
-                {
-                    hashCode = (hashCode * 59) + this.FallbackAvatar.GetHashCode();
-                }
-                if (this.FriendGroupNames != null)
-                {
-                    hashCode = (hashCode * 59) + this.FriendGroupNames.GetHashCode();
-                }
-                if (this.FriendKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.FriendKey.GetHashCode();
-                }
-                if (this.Friends != null)
-                {
-                    hashCode = (hashCode * 59) + this.Friends.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.HasBirthday.GetHashCode();
-                hashCode = (hashCode * 59) + this.HideContentFilterSettings.GetHashCode();
-                if (this.UserLanguage != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserLanguage.GetHashCode();
-                }
-                if (this.UserLanguageCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserLanguageCode.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.HasEmail.GetHashCode();
-                hashCode = (hashCode * 59) + this.HasLoggedInFromClient.GetHashCode();
-                hashCode = (hashCode * 59) + this.HasPendingEmail.GetHashCode();
-                if (this.HomeLocation != null)
-                {
-                    hashCode = (hashCode * 59) + this.HomeLocation.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsAdult.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsBoopingEnabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsFriend.GetHashCode();
-                if (this.LastActivity != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastActivity.GetHashCode();
-                }
-                if (this.LastLogin != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastLogin.GetHashCode();
-                }
-                if (this.LastMobile != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastMobile.GetHashCode();
-                }
-                if (this.LastPlatform != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastPlatform.GetHashCode();
-                }
-                if (this.ObfuscatedEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.ObfuscatedEmail.GetHashCode();
-                }
-                if (this.ObfuscatedPendingEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.ObfuscatedPendingEmail.GetHashCode();
-                }
-                if (this.OculusId != null)
-                {
-                    hashCode = (hashCode * 59) + this.OculusId.GetHashCode();
-                }
-                if (this.GoogleId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GoogleId.GetHashCode();
-                }
-                if (this.GoogleDetails != null)
-                {
-                    hashCode = (hashCode * 59) + this.GoogleDetails.GetHashCode();
-                }
-                if (this.PicoId != null)
-                {
-                    hashCode = (hashCode * 59) + this.PicoId.GetHashCode();
-                }
-                if (this.ViveId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ViveId.GetHashCode();
-                }
-                if (this.OfflineFriends != null)
-                {
-                    hashCode = (hashCode * 59) + this.OfflineFriends.GetHashCode();
-                }
-                if (this.OnlineFriends != null)
-                {
-                    hashCode = (hashCode * 59) + this.OnlineFriends.GetHashCode();
-                }
-                if (this.PastDisplayNames != null)
-                {
-                    hashCode = (hashCode * 59) + this.PastDisplayNames.GetHashCode();
-                }
-                if (this.Presence != null)
-                {
-                    hashCode = (hashCode * 59) + this.Presence.GetHashCode();
-                }
-                if (this.PlatformHistory != null)
-                {
-                    hashCode = (hashCode * 59) + this.PlatformHistory.GetHashCode();
-                }
-                if (this.ProfilePicOverride != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
-                }
-                if (this.ProfilePicOverrideThumbnail != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfilePicOverrideThumbnail.GetHashCode();
-                }
-                if (this.Pronouns != null)
-                {
-                    hashCode = (hashCode * 59) + this.Pronouns.GetHashCode();
-                }
-                if (this.PronounsHistory != null)
-                {
-                    hashCode = (hashCode * 59) + this.PronounsHistory.GetHashCode();
-                }
-                if (this.QueuedInstance != null)
-                {
-                    hashCode = (hashCode * 59) + this.QueuedInstance.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ReceiveMobileInvitations.GetHashCode();
-                hashCode = (hashCode * 59) + this.State.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.StatusDescription != null)
-                {
-                    hashCode = (hashCode * 59) + this.StatusDescription.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.StatusFirstTime.GetHashCode();
-                if (this.StatusHistory != null)
-                {
-                    hashCode = (hashCode * 59) + this.StatusHistory.GetHashCode();
-                }
-                if (this.SteamDetails != null)
-                {
-                    hashCode = (hashCode * 59) + this.SteamDetails.GetHashCode();
-                }
-                if (this.SteamId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SteamId.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.TwoFactorAuthEnabled.GetHashCode();
-                if (this.TwoFactorAuthEnabledDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.TwoFactorAuthEnabledDate.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Unsubscribe.GetHashCode();
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                if (this.UserIcon != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
-                }
-                if (this.Username != null)
-                {
-                    hashCode = (hashCode * 59) + this.Username.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AcceptedTOSVersion (int) minimum
             if (this.AcceptedTOSVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcceptedTOSVersion, must be a value greater than or equal to 0.", new [] { "AcceptedTOSVersion" });
+                yield return new ValidationResult("Invalid value for AcceptedTOSVersion, must be a value greater than or equal to 0.", new [] { "AcceptedTOSVersion" });
             }
 
             // AcceptedPrivacyVersion (int) minimum
             if (this.AcceptedPrivacyVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcceptedPrivacyVersion, must be a value greater than or equal to 0.", new [] { "AcceptedPrivacyVersion" });
+                yield return new ValidationResult("Invalid value for AcceptedPrivacyVersion, must be a value greater than or equal to 0.", new [] { "AcceptedPrivacyVersion" });
             }
 
             yield break;

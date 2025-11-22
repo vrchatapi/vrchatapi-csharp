@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// AccountDeletionLog
     /// </summary>
     [DataContract(Name = "AccountDeletionLog")]
-    public partial class AccountDeletionLog : IEquatable<AccountDeletionLog>, IValidatableObject
+    public partial class AccountDeletionLog : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountDeletionLog" /> class.
@@ -37,10 +38,10 @@ namespace VRChat.API.Model
         /// <param name="message">Typically \&quot;Deletion requested\&quot; or \&quot;Deletion canceled\&quot;. Other messages like \&quot;Deletion completed\&quot; may exist, but are these are not possible to see as a regular user. (default to &quot;Deletion requested&quot;).</param>
         /// <param name="deletionScheduled">When the deletion is scheduled to happen, standard is 14 days after the request..</param>
         /// <param name="dateTime">Date and time of the deletion request..</param>
-        public AccountDeletionLog(string message = "Deletion requested", DateTime? deletionScheduled = default(DateTime?), DateTime dateTime = default(DateTime))
+        public AccountDeletionLog(string message = @"Deletion requested", DateTime? deletionScheduled = default, DateTime dateTime = default)
         {
             // use default value if no "message" provided
-            this.Message = message ?? "Deletion requested";
+            this.Message = message ?? @"Deletion requested";
             this.DeletionScheduled = deletionScheduled;
             this.DateTime = dateTime;
         }
@@ -49,6 +50,9 @@ namespace VRChat.API.Model
         /// Typically \&quot;Deletion requested\&quot; or \&quot;Deletion canceled\&quot;. Other messages like \&quot;Deletion completed\&quot; may exist, but are these are not possible to see as a regular user.
         /// </summary>
         /// <value>Typically \&quot;Deletion requested\&quot; or \&quot;Deletion canceled\&quot;. Other messages like \&quot;Deletion completed\&quot; may exist, but are these are not possible to see as a regular user.</value>
+        /*
+        <example>Deletion requested</example>
+        */
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
@@ -91,75 +95,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as AccountDeletionLog);
-        }
-
-        /// <summary>
-        /// Returns true if AccountDeletionLog instances are equal
-        /// </summary>
-        /// <param name="input">Instance of AccountDeletionLog to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(AccountDeletionLog input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.DeletionScheduled == input.DeletionScheduled ||
-                    (this.DeletionScheduled != null &&
-                    this.DeletionScheduled.Equals(input.DeletionScheduled))
-                ) && 
-                (
-                    this.DateTime == input.DateTime ||
-                    (this.DateTime != null &&
-                    this.DateTime.Equals(input.DateTime))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
-                if (this.DeletionScheduled != null)
-                {
-                    hashCode = (hashCode * 59) + this.DeletionScheduled.GetHashCode();
-                }
-                if (this.DateTime != null)
-                {
-                    hashCode = (hashCode * 59) + this.DateTime.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

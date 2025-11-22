@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// FileAnalysis
     /// </summary>
     [DataContract(Name = "FileAnalysis")]
-    public partial class FileAnalysis : IEquatable<FileAnalysis>, IValidatableObject
+    public partial class FileAnalysis : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FileAnalysis" /> class.
@@ -46,7 +47,7 @@ namespace VRChat.API.Model
         /// <param name="performanceRating">performanceRating.</param>
         /// <param name="success">success (required).</param>
         /// <param name="uncompressedSize">uncompressedSize (required).</param>
-        public FileAnalysis(FileAnalysisAvatarStats avatarStats = default(FileAnalysisAvatarStats), DateTime createdAt = default(DateTime), string encryptionKey = default(string), int fileSize = default(int), string performanceRating = default(string), bool success = default(bool), int uncompressedSize = default(int))
+        public FileAnalysis(FileAnalysisAvatarStats avatarStats = default, DateTime createdAt = default, string encryptionKey = default, int fileSize = default, string performanceRating = default, bool success = default, int uncompressedSize = default)
         {
             // to ensure "avatarStats" is required (not null)
             if (avatarStats == null)
@@ -133,99 +134,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as FileAnalysis);
-        }
-
-        /// <summary>
-        /// Returns true if FileAnalysis instances are equal
-        /// </summary>
-        /// <param name="input">Instance of FileAnalysis to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(FileAnalysis input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AvatarStats == input.AvatarStats ||
-                    (this.AvatarStats != null &&
-                    this.AvatarStats.Equals(input.AvatarStats))
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.EncryptionKey == input.EncryptionKey ||
-                    (this.EncryptionKey != null &&
-                    this.EncryptionKey.Equals(input.EncryptionKey))
-                ) && 
-                (
-                    this.FileSize == input.FileSize ||
-                    this.FileSize.Equals(input.FileSize)
-                ) && 
-                (
-                    this.PerformanceRating == input.PerformanceRating ||
-                    (this.PerformanceRating != null &&
-                    this.PerformanceRating.Equals(input.PerformanceRating))
-                ) && 
-                (
-                    this.Success == input.Success ||
-                    this.Success.Equals(input.Success)
-                ) && 
-                (
-                    this.UncompressedSize == input.UncompressedSize ||
-                    this.UncompressedSize.Equals(input.UncompressedSize)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.AvatarStats != null)
-                {
-                    hashCode = (hashCode * 59) + this.AvatarStats.GetHashCode();
-                }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.EncryptionKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.EncryptionKey.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.FileSize.GetHashCode();
-                if (this.PerformanceRating != null)
-                {
-                    hashCode = (hashCode * 59) + this.PerformanceRating.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Success.GetHashCode();
-                hashCode = (hashCode * 59) + this.UncompressedSize.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

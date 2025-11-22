@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Environment** | **List&lt;string&gt;** |  | [optional] 
+**VarEnvironment** | **List&lt;string&gt;** |  | [optional] 
 **Text** | **List&lt;string&gt;** |  | [optional] 
 **Warnings** | **List&lt;string&gt;** |  | [optional] 
 **Worldimage** | **List&lt;string&gt;** |  | [optional] 

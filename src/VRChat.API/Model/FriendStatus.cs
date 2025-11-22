@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// FriendStatus
     /// </summary>
     [DataContract(Name = "FriendStatus")]
-    public partial class FriendStatus : IEquatable<FriendStatus>, IValidatableObject
+    public partial class FriendStatus : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FriendStatus" /> class.
@@ -92,63 +93,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as FriendStatus);
-        }
-
-        /// <summary>
-        /// Returns true if FriendStatus instances are equal
-        /// </summary>
-        /// <param name="input">Instance of FriendStatus to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(FriendStatus input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.IncomingRequest == input.IncomingRequest ||
-                    this.IncomingRequest.Equals(input.IncomingRequest)
-                ) && 
-                (
-                    this.IsFriend == input.IsFriend ||
-                    this.IsFriend.Equals(input.IsFriend)
-                ) && 
-                (
-                    this.OutgoingRequest == input.OutgoingRequest ||
-                    this.OutgoingRequest.Equals(input.OutgoingRequest)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.IncomingRequest.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsFriend.GetHashCode();
-                hashCode = (hashCode * 59) + this.OutgoingRequest.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

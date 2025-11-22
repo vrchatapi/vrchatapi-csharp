@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InfoPushDataArticleContent
     /// </summary>
     [DataContract(Name = "InfoPushDataArticleContent")]
-    public partial class InfoPushDataArticleContent : IEquatable<InfoPushDataArticleContent>, IValidatableObject
+    public partial class InfoPushDataArticleContent : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushDataArticleContent" /> class.
@@ -37,7 +38,7 @@ namespace VRChat.API.Model
         /// <param name="text">text.</param>
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="onPressed">onPressed.</param>
-        public InfoPushDataArticleContent(string text = default(string), string imageUrl = default(string), InfoPushDataClickable onPressed = default(InfoPushDataClickable))
+        public InfoPushDataArticleContent(string text = default, string imageUrl = default, InfoPushDataClickable onPressed = default)
         {
             this.Text = text;
             this.ImageUrl = imageUrl;
@@ -87,75 +88,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InfoPushDataArticleContent);
-        }
-
-        /// <summary>
-        /// Returns true if InfoPushDataArticleContent instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InfoPushDataArticleContent to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InfoPushDataArticleContent input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Text == input.Text ||
-                    (this.Text != null &&
-                    this.Text.Equals(input.Text))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.OnPressed == input.OnPressed ||
-                    (this.OnPressed != null &&
-                    this.OnPressed.Equals(input.OnPressed))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Text != null)
-                {
-                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                if (this.OnPressed != null)
-                {
-                    hashCode = (hashCode * 59) + this.OnPressed.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// UserSubscription
     /// </summary>
     [DataContract(Name = "UserSubscription")]
-    public partial class UserSubscription : IEquatable<UserSubscription>, IValidatableObject
+    public partial class UserSubscription : IValidatableObject
     {
 
         /// <summary>
@@ -68,7 +69,7 @@ namespace VRChat.API.Model
         /// <param name="licenseGroups">licenseGroups (required).</param>
         /// <param name="isGift">isGift (required) (default to false).</param>
         /// <param name="isBulkGift">isBulkGift (required) (default to false).</param>
-        public UserSubscription(string id = default(string), string transactionId = default(string), string store = default(string), string steamItemId = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod period = default(SubscriptionPeriod), int tier = default(int), bool active = true, TransactionStatus status = default(TransactionStatus), string starts = default(string), DateTime expires = default(DateTime), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), List<string> licenseGroups = default(List<string>), bool isGift = false, bool isBulkGift = false)
+        public UserSubscription(string id = default, string transactionId = default, string store = default, string steamItemId = default, decimal amount = default, string description = default, SubscriptionPeriod period = default, int tier = default, bool active = true, TransactionStatus status = default, string starts = default, DateTime expires = default, DateTime createdAt = default, DateTime updatedAt = default, List<string> licenseGroups = default, bool isGift = false, bool isBulkGift = false)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -117,12 +118,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>vrchatplus-yearly</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionId
         /// </summary>
+        /*
+        <example>txn_e5c72948-e735-4880-8245-24b2a41198b0</example>
+        */
         [DataMember(Name = "transactionId", IsRequired = true, EmitDefaultValue = true)]
         public string TransactionId { get; set; }
 
@@ -130,30 +137,45 @@ namespace VRChat.API.Model
         /// Which \&quot;Store\&quot; it came from. Right now only Stores are \&quot;Steam\&quot; and \&quot;Admin\&quot;.
         /// </summary>
         /// <value>Which \&quot;Store\&quot; it came from. Right now only Stores are \&quot;Steam\&quot; and \&quot;Admin\&quot;.</value>
+        /*
+        <example>Steam</example>
+        */
         [DataMember(Name = "store", IsRequired = true, EmitDefaultValue = true)]
         public string Store { get; set; }
 
         /// <summary>
         /// Gets or Sets SteamItemId
         /// </summary>
+        /*
+        <example>5000</example>
+        */
         [DataMember(Name = "steamItemId", EmitDefaultValue = false)]
         public string SteamItemId { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
+        /*
+        <example>9999</example>
+        */
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
+        /*
+        <example>VRChat Plus (Yearly)</example>
+        */
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Tier
         /// </summary>
+        /*
+        <example>5</example>
+        */
         [DataMember(Name = "tier", IsRequired = true, EmitDefaultValue = true)]
         public int Tier { get; set; }
 
@@ -244,191 +266,28 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as UserSubscription);
-        }
-
-        /// <summary>
-        /// Returns true if UserSubscription instances are equal
-        /// </summary>
-        /// <param name="input">Instance of UserSubscription to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(UserSubscription input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.TransactionId == input.TransactionId ||
-                    (this.TransactionId != null &&
-                    this.TransactionId.Equals(input.TransactionId))
-                ) && 
-                (
-                    this.Store == input.Store ||
-                    (this.Store != null &&
-                    this.Store.Equals(input.Store))
-                ) && 
-                (
-                    this.SteamItemId == input.SteamItemId ||
-                    (this.SteamItemId != null &&
-                    this.SteamItemId.Equals(input.SteamItemId))
-                ) && 
-                (
-                    this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Period == input.Period ||
-                    this.Period.Equals(input.Period)
-                ) && 
-                (
-                    this.Tier == input.Tier ||
-                    this.Tier.Equals(input.Tier)
-                ) && 
-                (
-                    this.Active == input.Active ||
-                    this.Active.Equals(input.Active)
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.Starts == input.Starts ||
-                    (this.Starts != null &&
-                    this.Starts.Equals(input.Starts))
-                ) && 
-                (
-                    this.Expires == input.Expires ||
-                    (this.Expires != null &&
-                    this.Expires.Equals(input.Expires))
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                ) && 
-                (
-                    this.LicenseGroups == input.LicenseGroups ||
-                    this.LicenseGroups != null &&
-                    input.LicenseGroups != null &&
-                    this.LicenseGroups.SequenceEqual(input.LicenseGroups)
-                ) && 
-                (
-                    this.IsGift == input.IsGift ||
-                    this.IsGift.Equals(input.IsGift)
-                ) && 
-                (
-                    this.IsBulkGift == input.IsBulkGift ||
-                    this.IsBulkGift.Equals(input.IsBulkGift)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.TransactionId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TransactionId.GetHashCode();
-                }
-                if (this.Store != null)
-                {
-                    hashCode = (hashCode * 59) + this.Store.GetHashCode();
-                }
-                if (this.SteamItemId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SteamItemId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Period.GetHashCode();
-                hashCode = (hashCode * 59) + this.Tier.GetHashCode();
-                hashCode = (hashCode * 59) + this.Active.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.Starts != null)
-                {
-                    hashCode = (hashCode * 59) + this.Starts.GetHashCode();
-                }
-                if (this.Expires != null)
-                {
-                    hashCode = (hashCode * 59) + this.Expires.GetHashCode();
-                }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                if (this.LicenseGroups != null)
-                {
-                    hashCode = (hashCode * 59) + this.LicenseGroups.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsGift.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsBulkGift.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // Store (string) minLength
             if (this.Store != null && this.Store.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Store, length must be greater than 1.", new [] { "Store" });
+                yield return new ValidationResult("Invalid value for Store, length must be greater than 1.", new [] { "Store" });
             }
 
             // SteamItemId (string) minLength
             if (this.SteamItemId != null && this.SteamItemId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SteamItemId, length must be greater than 1.", new [] { "SteamItemId" });
+                yield return new ValidationResult("Invalid value for SteamItemId, length must be greater than 1.", new [] { "SteamItemId" });
             }
 
             yield break;

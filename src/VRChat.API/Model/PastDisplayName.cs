@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// PastDisplayName
     /// </summary>
     [DataContract(Name = "PastDisplayName")]
-    public partial class PastDisplayName : IEquatable<PastDisplayName>, IValidatableObject
+    public partial class PastDisplayName : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="displayName">displayName (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public PastDisplayName(string displayName = default(string), DateTime updatedAt = default(DateTime))
+        public PastDisplayName(string displayName = default, DateTime updatedAt = default)
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -88,71 +89,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as PastDisplayName);
-        }
-
-        /// <summary>
-        /// Returns true if PastDisplayName instances are equal
-        /// </summary>
-        /// <param name="input">Instance of PastDisplayName to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(PastDisplayName input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // DisplayName (string) minLength
             if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+                yield return new ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
 
             yield break;

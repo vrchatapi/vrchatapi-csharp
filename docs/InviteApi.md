@@ -16,7 +16,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**RespondInviteWithPhoto**](InviteApi.md#respondinvitewithphoto) | **POST** /invite/{notificationId}/response/photo | Respond Invite with photo |
 | [**UpdateInviteMessage**](InviteApi.md#updateinvitemessage) | **PUT** /message/{userId}/{messageType}/{slot} | Update Invite Message |
 
-<a name="getinvitemessage"></a>
+<a id="getinvitemessage"></a>
 # **GetInviteMessage**
 > InviteMessage GetInviteMessage (string userId, InviteMessageType messageType, int slot)
 
@@ -28,6 +28,7 @@ Returns a single Invite Message. This returns the exact same information but les
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -45,7 +46,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
             var messageType = (InviteMessageType) "message";  // InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
             var slot = 56;  // int | The message slot to fetch of a given message type.
@@ -119,7 +123,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinvitemessages"></a>
+<a id="getinvitemessages"></a>
 # **GetInviteMessages**
 > List&lt;InviteMessage&gt; GetInviteMessages (string userId, InviteMessageType messageType)
 
@@ -131,6 +135,7 @@ Returns a list of all the users Invite Messages. Admin Credentials are required 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -148,7 +153,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
             var messageType = (InviteMessageType) "message";  // InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
 
@@ -219,7 +227,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="invitemyselfto"></a>
+<a id="invitemyselfto"></a>
 # **InviteMyselfTo**
 > SentNotification InviteMyselfTo (string worldId, string instanceId)
 
@@ -231,6 +239,7 @@ Sends self an invite to an instance
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -248,7 +257,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
             var instanceId = "instanceId_example";  // string | Must be a valid instance ID.
 
@@ -319,7 +331,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inviteuser"></a>
+<a id="inviteuser"></a>
 # **InviteUser**
 > SentNotification InviteUser (string userId, InviteRequest inviteRequest)
 
@@ -331,6 +343,7 @@ Sends an invite to a user. Returns the Notification of type `invite` that was se
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -348,7 +361,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
             var inviteRequest = new InviteRequest(); // InviteRequest | Slot number of the Invite Message to use when inviting a user.
 
@@ -418,9 +434,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inviteuserwithphoto"></a>
+<a id="inviteuserwithphoto"></a>
 # **InviteUserWithPhoto**
-> SentNotification InviteUserWithPhoto (string userId, System.IO.Stream image, InviteRequest data)
+> SentNotification InviteUserWithPhoto (string userId, FileParameter image, InviteRequest data)
 
 Invite User with photo
 
@@ -430,6 +446,7 @@ Sends an photo invite to a user. Returns the Notification of type `invite` that 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -447,9 +464,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
-            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The binary blob of the png file.
             var data = new InviteRequest(); // InviteRequest | 
 
             try
@@ -494,7 +514,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userId** | **string** | Must be a valid user ID. |  |
-| **image** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **image** | **FileParameter****FileParameter** | The binary blob of the png file. |  |
 | **data** | [**InviteRequest**](InviteRequest.md) |  |  |
 
 ### Return type
@@ -519,9 +539,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="requestinvite"></a>
+<a id="requestinvite"></a>
 # **RequestInvite**
-> Notification RequestInvite (string userId, RequestInviteRequest requestInviteRequest = null)
+> Notification RequestInvite (string userId, RequestInviteRequest? requestInviteRequest = null)
 
 Request Invite
 
@@ -531,6 +551,7 @@ Requests an invite from a user. Returns the Notification of type `requestInvite`
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -548,9 +569,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
-            var requestInviteRequest = new RequestInviteRequest(); // RequestInviteRequest | Slot number of the Request Message to use when request an invite. (optional) 
+            var requestInviteRequest = new RequestInviteRequest?(); // RequestInviteRequest? | Slot number of the Request Message to use when request an invite. (optional) 
 
             try
             {
@@ -594,7 +618,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userId** | **string** | Must be a valid user ID. |  |
-| **requestInviteRequest** | [**RequestInviteRequest**](RequestInviteRequest.md) | Slot number of the Request Message to use when request an invite. | [optional]  |
+| **requestInviteRequest** | [**RequestInviteRequest?**](RequestInviteRequest?.md) | Slot number of the Request Message to use when request an invite. | [optional]  |
 
 ### Return type
 
@@ -618,9 +642,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="requestinvitewithphoto"></a>
+<a id="requestinvitewithphoto"></a>
 # **RequestInviteWithPhoto**
-> Notification RequestInviteWithPhoto (string userId, System.IO.Stream image, RequestInviteRequest data)
+> Notification RequestInviteWithPhoto (string userId, FileParameter image, RequestInviteRequest data)
 
 Request Invite with photo
 
@@ -630,6 +654,7 @@ Requests with photo an invite from a user. Returns the Notification of type `req
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -647,9 +672,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
-            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The binary blob of the png file.
             var data = new RequestInviteRequest(); // RequestInviteRequest | 
 
             try
@@ -694,7 +722,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userId** | **string** | Must be a valid user ID. |  |
-| **image** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **image** | **FileParameter****FileParameter** | The binary blob of the png file. |  |
 | **data** | [**RequestInviteRequest**](RequestInviteRequest.md) |  |  |
 
 ### Return type
@@ -719,7 +747,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="resetinvitemessage"></a>
+<a id="resetinvitemessage"></a>
 # **ResetInviteMessage**
 > List&lt;InviteMessage&gt; ResetInviteMessage (string userId, InviteMessageType messageType, int slot)
 
@@ -731,6 +759,7 @@ Resets a single Invite Message back to its original message, and then returns a 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -748,7 +777,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
             var messageType = (InviteMessageType) "message";  // InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
             var slot = 56;  // int | The message slot to fetch of a given message type.
@@ -823,7 +855,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="respondinvite"></a>
+<a id="respondinvite"></a>
 # **RespondInvite**
 > Notification RespondInvite (string notificationId, InviteResponse inviteResponse)
 
@@ -835,6 +867,7 @@ Respond to an invite or invite request without accepting it. `:notificationId` i
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -852,7 +885,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
             var inviteResponse = new InviteResponse(); // InviteResponse | Slot number of the Response Message to use when responding to a user.
 
@@ -922,9 +958,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="respondinvitewithphoto"></a>
+<a id="respondinvitewithphoto"></a>
 # **RespondInviteWithPhoto**
-> Notification RespondInviteWithPhoto (string notificationId, System.IO.Stream image, InviteResponse data)
+> Notification RespondInviteWithPhoto (string notificationId, FileParameter image, InviteResponse data)
 
 Respond Invite with photo
 
@@ -934,6 +970,7 @@ Respond with photo to an invite or invite request without accepting it. `:notifi
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -951,9 +988,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
-            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The binary blob of the png file.
             var data = new InviteResponse(); // InviteResponse | 
 
             try
@@ -998,7 +1038,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **notificationId** | **string** | Must be a valid notification ID. |  |
-| **image** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **image** | **FileParameter****FileParameter** | The binary blob of the png file. |  |
 | **data** | [**InviteResponse**](InviteResponse.md) |  |  |
 
 ### Return type
@@ -1023,9 +1063,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateinvitemessage"></a>
+<a id="updateinvitemessage"></a>
 # **UpdateInviteMessage**
-> List&lt;InviteMessage&gt; UpdateInviteMessage (string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = null)
+> List&lt;InviteMessage&gt; UpdateInviteMessage (string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest? updateInviteMessageRequest = null)
 
 Update Invite Message
 
@@ -1035,6 +1075,7 @@ Updates a single Invite Message and then returns a list of all of them. Admin Cr
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1052,11 +1093,14 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InviteApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InviteApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
             var messageType = (InviteMessageType) "message";  // InviteMessageType | The type of message to fetch, must be a valid InviteMessageType.
             var slot = 56;  // int | The message slot to fetch of a given message type.
-            var updateInviteMessageRequest = new UpdateInviteMessageRequest(); // UpdateInviteMessageRequest | Message of what to set the invite message to. (optional) 
+            var updateInviteMessageRequest = new UpdateInviteMessageRequest?(); // UpdateInviteMessageRequest? | Message of what to set the invite message to. (optional) 
 
             try
             {
@@ -1102,7 +1146,7 @@ catch (ApiException e)
 | **userId** | **string** | Must be a valid user ID. |  |
 | **messageType** | **InviteMessageType** | The type of message to fetch, must be a valid InviteMessageType. |  |
 | **slot** | **int** | The message slot to fetch of a given message type. |  |
-| **updateInviteMessageRequest** | [**UpdateInviteMessageRequest**](UpdateInviteMessageRequest.md) | Message of what to set the invite message to. | [optional]  |
+| **updateInviteMessageRequest** | [**UpdateInviteMessageRequest?**](UpdateInviteMessageRequest?.md) | Message of what to set the invite message to. | [optional]  |
 
 ### Return type
 

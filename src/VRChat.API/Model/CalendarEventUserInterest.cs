@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// CalendarEventUserInterest
     /// </summary>
     [DataContract(Name = "CalendarEvent_userInterest")]
-    public partial class CalendarEventUserInterest : IEquatable<CalendarEventUserInterest>, IValidatableObject
+    public partial class CalendarEventUserInterest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalendarEventUserInterest" /> class.
@@ -37,7 +38,7 @@ namespace VRChat.API.Model
         /// <param name="createdAt">createdAt.</param>
         /// <param name="isFollowing">isFollowing.</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public CalendarEventUserInterest(DateTime createdAt = default(DateTime), bool isFollowing = default(bool), DateTime updatedAt = default(DateTime))
+        public CalendarEventUserInterest(DateTime createdAt = default, bool isFollowing = default, DateTime updatedAt = default)
         {
             this.CreatedAt = createdAt;
             this.IsFollowing = isFollowing;
@@ -87,71 +88,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as CalendarEventUserInterest);
-        }
-
-        /// <summary>
-        /// Returns true if CalendarEventUserInterest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of CalendarEventUserInterest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(CalendarEventUserInterest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.IsFollowing == input.IsFollowing ||
-                    this.IsFollowing.Equals(input.IsFollowing)
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsFollowing.GetHashCode();
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

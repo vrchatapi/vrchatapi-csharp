@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// UserNoteTargetUser
     /// </summary>
     [DataContract(Name = "UserNote_targetUser")]
-    public partial class UserNoteTargetUser : IEquatable<UserNoteTargetUser>, IValidatableObject
+    public partial class UserNoteTargetUser : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UserNoteTargetUser" /> class.
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// <param name="id">id.</param>
         /// <param name="profilePicOverride">profilePicOverride.</param>
         /// <param name="userIcon">userIcon.</param>
-        public UserNoteTargetUser(List<string> currentAvatarTags = default(List<string>), string currentAvatarThumbnailImageUrl = default(string), string displayName = default(string), string id = default(string), string profilePicOverride = default(string), string userIcon = default(string))
+        public UserNoteTargetUser(List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, string displayName = default, string id = default, string profilePicOverride = default, string userIcon = default)
         {
             this.CurrentAvatarTags = currentAvatarTags;
             this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
@@ -60,6 +61,9 @@ namespace VRChat.API.Model
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
+        /*
+        <example>https://api.vrchat.cloud/api/1/image/file_aae83ed9-d42d-4d72-9f4b-9f1e41ed17e1/1/256</example>
+        */
         [DataMember(Name = "currentAvatarThumbnailImageUrl", EmitDefaultValue = false)]
         public string CurrentAvatarThumbnailImageUrl { get; set; }
 
@@ -72,6 +76,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>unt_e9074848-d107-4019-b4aa-bbd19e67660d</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -115,103 +122,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as UserNoteTargetUser);
-        }
-
-        /// <summary>
-        /// Returns true if UserNoteTargetUser instances are equal
-        /// </summary>
-        /// <param name="input">Instance of UserNoteTargetUser to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(UserNoteTargetUser input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
-                    this.CurrentAvatarTags != null &&
-                    input.CurrentAvatarTags != null &&
-                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
-                ) && 
-                (
-                    this.CurrentAvatarThumbnailImageUrl == input.CurrentAvatarThumbnailImageUrl ||
-                    (this.CurrentAvatarThumbnailImageUrl != null &&
-                    this.CurrentAvatarThumbnailImageUrl.Equals(input.CurrentAvatarThumbnailImageUrl))
-                ) && 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ProfilePicOverride == input.ProfilePicOverride ||
-                    (this.ProfilePicOverride != null &&
-                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
-                ) && 
-                (
-                    this.UserIcon == input.UserIcon ||
-                    (this.UserIcon != null &&
-                    this.UserIcon.Equals(input.UserIcon))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CurrentAvatarTags != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
-                }
-                if (this.CurrentAvatarThumbnailImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
-                }
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.ProfilePicOverride != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
-                }
-                if (this.UserIcon != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

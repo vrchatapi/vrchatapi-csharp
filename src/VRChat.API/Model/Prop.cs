@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Prop
     /// </summary>
     [DataContract(Name = "Prop")]
-    public partial class Prop : IEquatable<Prop>, IValidatableObject
+    public partial class Prop : IValidatableObject
     {
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace VRChat.API.Model
         /// <param name="unityPackageUrl">unityPackageUrl (required).</param>
         /// <param name="unityPackages">unityPackages (required).</param>
         /// <param name="worldPlacementMask">worldPlacementMask (required) (default to 1).</param>
-        public Prop(DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), string authorId = default(string), string authorName = default(string), string description = default(string), string id = default(string), string imageUrl = default(string), int maxCountPerUser = 1, string name = default(string), ReleaseStatus releaseStatus = default(ReleaseStatus), int spawnType = 0, List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), string unityPackageUrl = default(string), List<PropUnityPackage> unityPackages = default(List<PropUnityPackage>), int worldPlacementMask = 1)
+        public Prop(DateTime createdAt = default, DateTime updatedAt = default, string authorId = default, string authorName = default, string description = default, string id = default, string imageUrl = default, int maxCountPerUser = 1, string name = default, ReleaseStatus releaseStatus = default, int spawnType = 0, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, List<PropUnityPackage> unityPackages = default, int worldPlacementMask = 1)
         {
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
@@ -147,6 +148,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorId { get; set; }
 
@@ -165,6 +169,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>prop_829ba6f6-b837-49d9-b9a9-056b82103b58</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -260,178 +267,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Prop);
-        }
-
-        /// <summary>
-        /// Returns true if Prop instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Prop to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Prop input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                ) && 
-                (
-                    this.AuthorId == input.AuthorId ||
-                    (this.AuthorId != null &&
-                    this.AuthorId.Equals(input.AuthorId))
-                ) && 
-                (
-                    this.AuthorName == input.AuthorName ||
-                    (this.AuthorName != null &&
-                    this.AuthorName.Equals(input.AuthorName))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.MaxCountPerUser == input.MaxCountPerUser ||
-                    this.MaxCountPerUser.Equals(input.MaxCountPerUser)
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.ReleaseStatus == input.ReleaseStatus ||
-                    this.ReleaseStatus.Equals(input.ReleaseStatus)
-                ) && 
-                (
-                    this.SpawnType == input.SpawnType ||
-                    this.SpawnType.Equals(input.SpawnType)
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.ThumbnailImageUrl == input.ThumbnailImageUrl ||
-                    (this.ThumbnailImageUrl != null &&
-                    this.ThumbnailImageUrl.Equals(input.ThumbnailImageUrl))
-                ) && 
-                (
-                    this.UnityPackageUrl == input.UnityPackageUrl ||
-                    (this.UnityPackageUrl != null &&
-                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
-                ) && 
-                (
-                    this.UnityPackages == input.UnityPackages ||
-                    this.UnityPackages != null &&
-                    input.UnityPackages != null &&
-                    this.UnityPackages.SequenceEqual(input.UnityPackages)
-                ) && 
-                (
-                    this.WorldPlacementMask == input.WorldPlacementMask ||
-                    this.WorldPlacementMask.Equals(input.WorldPlacementMask)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                if (this.AuthorId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
-                }
-                if (this.AuthorName != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.MaxCountPerUser.GetHashCode();
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this.SpawnType.GetHashCode();
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.ThumbnailImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
-                }
-                if (this.UnityPackageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
-                }
-                if (this.UnityPackages != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityPackages.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.WorldPlacementMask.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

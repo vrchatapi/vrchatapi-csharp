@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// CreateFileVersionRequest
     /// </summary>
     [DataContract(Name = "CreateFileVersionRequest")]
-    public partial class CreateFileVersionRequest : IEquatable<CreateFileVersionRequest>, IValidatableObject
+    public partial class CreateFileVersionRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateFileVersionRequest" /> class.
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="signatureSizeInBytes">signatureSizeInBytes (required).</param>
         /// <param name="fileMd5">fileMd5.</param>
         /// <param name="fileSizeInBytes">fileSizeInBytes.</param>
-        public CreateFileVersionRequest(string signatureMd5 = default(string), int signatureSizeInBytes = default(int), string fileMd5 = default(string), int fileSizeInBytes = default(int))
+        public CreateFileVersionRequest(string signatureMd5 = default, int signatureSizeInBytes = default, string fileMd5 = default, int fileSizeInBytes = default)
         {
             // to ensure "signatureMd5" is required (not null)
             if (signatureMd5 == null)
@@ -106,87 +107,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as CreateFileVersionRequest);
-        }
-
-        /// <summary>
-        /// Returns true if CreateFileVersionRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of CreateFileVersionRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(CreateFileVersionRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.SignatureMd5 == input.SignatureMd5 ||
-                    (this.SignatureMd5 != null &&
-                    this.SignatureMd5.Equals(input.SignatureMd5))
-                ) && 
-                (
-                    this.SignatureSizeInBytes == input.SignatureSizeInBytes ||
-                    this.SignatureSizeInBytes.Equals(input.SignatureSizeInBytes)
-                ) && 
-                (
-                    this.FileMd5 == input.FileMd5 ||
-                    (this.FileMd5 != null &&
-                    this.FileMd5.Equals(input.FileMd5))
-                ) && 
-                (
-                    this.FileSizeInBytes == input.FileSizeInBytes ||
-                    this.FileSizeInBytes.Equals(input.FileSizeInBytes)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.SignatureMd5 != null)
-                {
-                    hashCode = (hashCode * 59) + this.SignatureMd5.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.SignatureSizeInBytes.GetHashCode();
-                if (this.FileMd5 != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileMd5.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.FileSizeInBytes.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // SignatureMd5 (string) minLength
             if (this.SignatureMd5 != null && this.SignatureMd5.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SignatureMd5, length must be greater than 1.", new [] { "SignatureMd5" });
+                yield return new ValidationResult("Invalid value for SignatureMd5, length must be greater than 1.", new [] { "SignatureMd5" });
             }
 
             // FileMd5 (string) minLength
             if (this.FileMd5 != null && this.FileMd5.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileMd5, length must be greater than 1.", new [] { "FileMd5" });
+                yield return new ValidationResult("Invalid value for FileMd5, length must be greater than 1.", new [] { "FileMd5" });
             }
 
             yield break;

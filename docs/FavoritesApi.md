@@ -13,9 +13,9 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**RemoveFavorite**](FavoritesApi.md#removefavorite) | **DELETE** /favorites/{favoriteId} | Remove Favorite |
 | [**UpdateFavoriteGroup**](FavoritesApi.md#updatefavoritegroup) | **PUT** /favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId} | Update Favorite Group |
 
-<a name="addfavorite"></a>
+<a id="addfavorite"></a>
 # **AddFavorite**
-> Favorite AddFavorite (AddFavoriteRequest addFavoriteRequest = null)
+> Favorite AddFavorite (AddFavoriteRequest? addFavoriteRequest = null)
 
 Add Favorite
 
@@ -25,6 +25,7 @@ Add a new favorite.  Friend groups are named `group_0` through `group_3`. Avatar
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -42,8 +43,11 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(config);
-            var addFavoriteRequest = new AddFavoriteRequest(); // AddFavoriteRequest |  (optional) 
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FavoritesApi(httpClient, config, httpClientHandler);
+            var addFavoriteRequest = new AddFavoriteRequest?(); // AddFavoriteRequest? |  (optional) 
 
             try
             {
@@ -86,7 +90,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **addFavoriteRequest** | [**AddFavoriteRequest**](AddFavoriteRequest.md) |  | [optional]  |
+| **addFavoriteRequest** | [**AddFavoriteRequest?**](AddFavoriteRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -111,7 +115,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="clearfavoritegroup"></a>
+<a id="clearfavoritegroup"></a>
 # **ClearFavoriteGroup**
 > Success ClearFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId)
 
@@ -123,6 +127,7 @@ Clear ALL contents of a specific favorite group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -140,7 +145,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FavoritesApi(httpClient, config, httpClientHandler);
             var favoriteGroupType = "world";  // string | The type of group to fetch, must be a valid FavoriteType.
             var favoriteGroupName = "favoriteGroupName_example";  // string | The name of the group to fetch, must be a name of a FavoriteGroup.
             var userId = "userId_example";  // string | Must be a valid user ID.
@@ -211,7 +219,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfavoritegroup"></a>
+<a id="getfavoritegroup"></a>
 # **GetFavoriteGroup**
 > FavoriteGroup GetFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId)
 
@@ -223,6 +231,7 @@ Fetch information about a specific favorite group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -240,7 +249,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FavoritesApi(httpClient, config, httpClientHandler);
             var favoriteGroupType = "world";  // string | The type of group to fetch, must be a valid FavoriteType.
             var favoriteGroupName = "favoriteGroupName_example";  // string | The name of the group to fetch, must be a name of a FavoriteGroup.
             var userId = "userId_example";  // string | Must be a valid user ID.
@@ -311,9 +323,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfavoritegroups"></a>
+<a id="getfavoritegroups"></a>
 # **GetFavoriteGroups**
-> List&lt;FavoriteGroup&gt; GetFavoriteGroups (int? n = null, int? offset = null, string userId = null, string ownerId = null)
+> List&lt;FavoriteGroup&gt; GetFavoriteGroups (int? n = null, int? offset = null, string? userId = null, string? ownerId = null)
 
 List Favorite Groups
 
@@ -323,6 +335,7 @@ Return a list of favorite groups owned by a user. Returns the same information a
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -340,11 +353,14 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FavoritesApi(httpClient, config, httpClientHandler);
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var userId = "userId_example";  // string | Target user to see information on, admin-only. (optional) 
-            var ownerId = "ownerId_example";  // string | The owner of whoms favorite groups to return. Must be a UserID. (optional) 
+            var userId = "userId_example";  // string? | Target user to see information on, admin-only. (optional) 
+            var ownerId = "ownerId_example";  // string? | The owner of whoms favorite groups to return. Must be a UserID. (optional) 
 
             try
             {
@@ -389,8 +405,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **userId** | **string** | Target user to see information on, admin-only. | [optional]  |
-| **ownerId** | **string** | The owner of whoms favorite groups to return. Must be a UserID. | [optional]  |
+| **userId** | **string?** | Target user to see information on, admin-only. | [optional]  |
+| **ownerId** | **string?** | The owner of whoms favorite groups to return. Must be a UserID. | [optional]  |
 
 ### Return type
 
@@ -414,7 +430,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfavoritelimits"></a>
+<a id="getfavoritelimits"></a>
 # **GetFavoriteLimits**
 > FavoriteLimits GetFavoriteLimits ()
 
@@ -426,6 +442,7 @@ Return information about a specific Favorite.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -443,7 +460,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FavoritesApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -506,9 +526,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfavorites"></a>
+<a id="getfavorites"></a>
 # **GetFavorites**
-> List&lt;Favorite&gt; GetFavorites (int? n = null, int? offset = null, string type = null, string tag = null)
+> List&lt;Favorite&gt; GetFavorites (int? n = null, int? offset = null, string? type = null, string? tag = null)
 
 List Favorites
 
@@ -518,6 +538,7 @@ Returns a list of favorites.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -535,11 +556,14 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FavoritesApi(httpClient, config, httpClientHandler);
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var type = "type_example";  // string | The type of favorites to return, FavoriteType. (optional) 
-            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var type = "type_example";  // string? | The type of favorites to return, FavoriteType. (optional) 
+            var tag = "tag_example";  // string? | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
 
             try
             {
@@ -584,8 +608,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **type** | **string** | The type of favorites to return, FavoriteType. | [optional]  |
-| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **type** | **string?** | The type of favorites to return, FavoriteType. | [optional]  |
+| **tag** | **string?** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
 
 ### Return type
 
@@ -609,7 +633,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="removefavorite"></a>
+<a id="removefavorite"></a>
 # **RemoveFavorite**
 > Success RemoveFavorite (string favoriteId)
 
@@ -621,6 +645,7 @@ Remove a favorite from your favorites list.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -638,7 +663,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FavoritesApi(httpClient, config, httpClientHandler);
             var favoriteId = "favoriteId_example";  // string | Must be a valid favorite ID.
 
             try
@@ -707,9 +735,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatefavoritegroup"></a>
+<a id="updatefavoritegroup"></a>
 # **UpdateFavoriteGroup**
-> void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest updateFavoriteGroupRequest = null)
+> void UpdateFavoriteGroup (string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = null)
 
 Update Favorite Group
 
@@ -719,6 +747,7 @@ Update information about a specific favorite group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -736,11 +765,14 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FavoritesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FavoritesApi(httpClient, config, httpClientHandler);
             var favoriteGroupType = "world";  // string | The type of group to fetch, must be a valid FavoriteType.
             var favoriteGroupName = "favoriteGroupName_example";  // string | The name of the group to fetch, must be a name of a FavoriteGroup.
             var userId = "userId_example";  // string | Must be a valid user ID.
-            var updateFavoriteGroupRequest = new UpdateFavoriteGroupRequest(); // UpdateFavoriteGroupRequest |  (optional) 
+            var updateFavoriteGroupRequest = new UpdateFavoriteGroupRequest?(); // UpdateFavoriteGroupRequest? |  (optional) 
 
             try
             {
@@ -782,7 +814,7 @@ catch (ApiException e)
 | **favoriteGroupType** | **string** | The type of group to fetch, must be a valid FavoriteType. |  |
 | **favoriteGroupName** | **string** | The name of the group to fetch, must be a name of a FavoriteGroup. |  |
 | **userId** | **string** | Must be a valid user ID. |  |
-| **updateFavoriteGroupRequest** | [**UpdateFavoriteGroupRequest**](UpdateFavoriteGroupRequest.md) |  | [optional]  |
+| **updateFavoriteGroupRequest** | [**UpdateFavoriteGroupRequest?**](UpdateFavoriteGroupRequest?.md) |  | [optional]  |
 
 ### Return type
 

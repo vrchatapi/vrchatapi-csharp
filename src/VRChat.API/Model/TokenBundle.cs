@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// TokenBundle
     /// </summary>
     [DataContract(Name = "TokenBundle")]
-    public partial class TokenBundle : IEquatable<TokenBundle>, IValidatableObject
+    public partial class TokenBundle : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TokenBundle" /> class.
@@ -48,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="description">description (required).</param>
         /// <param name="tokens">number of tokens received (required).</param>
         /// <param name="imageUrl">direct url to image (required).</param>
-        public TokenBundle(string id = default(string), string appleProductId = default(string), string steamItemId = default(string), string oculusSku = default(string), string googleProductId = default(string), int amount = default(int), string description = default(string), int tokens = default(int), string imageUrl = default(string))
+        public TokenBundle(string id = default, string appleProductId = default, string steamItemId = default, string oculusSku = default, string googleProductId = default, int amount = default, string description = default, int tokens = default, string imageUrl = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -179,121 +180,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TokenBundle);
-        }
-
-        /// <summary>
-        /// Returns true if TokenBundle instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TokenBundle to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TokenBundle input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.AppleProductId == input.AppleProductId ||
-                    (this.AppleProductId != null &&
-                    this.AppleProductId.Equals(input.AppleProductId))
-                ) && 
-                (
-                    this.SteamItemId == input.SteamItemId ||
-                    (this.SteamItemId != null &&
-                    this.SteamItemId.Equals(input.SteamItemId))
-                ) && 
-                (
-                    this.OculusSku == input.OculusSku ||
-                    (this.OculusSku != null &&
-                    this.OculusSku.Equals(input.OculusSku))
-                ) && 
-                (
-                    this.GoogleProductId == input.GoogleProductId ||
-                    (this.GoogleProductId != null &&
-                    this.GoogleProductId.Equals(input.GoogleProductId))
-                ) && 
-                (
-                    this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Tokens == input.Tokens ||
-                    this.Tokens.Equals(input.Tokens)
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.AppleProductId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AppleProductId.GetHashCode();
-                }
-                if (this.SteamItemId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SteamItemId.GetHashCode();
-                }
-                if (this.OculusSku != null)
-                {
-                    hashCode = (hashCode * 59) + this.OculusSku.GetHashCode();
-                }
-                if (this.GoogleProductId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GoogleProductId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Tokens.GetHashCode();
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

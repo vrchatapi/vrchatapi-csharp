@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// CreateGroupRoleRequest
     /// </summary>
     [DataContract(Name = "CreateGroupRoleRequest")]
-    public partial class CreateGroupRoleRequest : IEquatable<CreateGroupRoleRequest>, IValidatableObject
+    public partial class CreateGroupRoleRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateGroupRoleRequest" /> class.
@@ -39,7 +40,7 @@ namespace VRChat.API.Model
         /// <param name="description">description.</param>
         /// <param name="isSelfAssignable">isSelfAssignable (default to false).</param>
         /// <param name="permissions">permissions.</param>
-        public CreateGroupRoleRequest(string id = default(string), string name = default(string), string description = default(string), bool isSelfAssignable = false, List<GroupPermissions> permissions = default(List<GroupPermissions>))
+        public CreateGroupRoleRequest(string id = default, string name = default, string description = default, bool isSelfAssignable = false, List<GroupPermissions> permissions = default)
         {
             this.Id = id;
             this.Name = name;
@@ -105,90 +106,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as CreateGroupRoleRequest);
-        }
-
-        /// <summary>
-        /// Returns true if CreateGroupRoleRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of CreateGroupRoleRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(CreateGroupRoleRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.IsSelfAssignable == input.IsSelfAssignable ||
-                    this.IsSelfAssignable.Equals(input.IsSelfAssignable)
-                ) && 
-                (
-                    this.Permissions == input.Permissions ||
-                    this.Permissions != null &&
-                    input.Permissions != null &&
-                    this.Permissions.SequenceEqual(input.Permissions)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsSelfAssignable.GetHashCode();
-                if (this.Permissions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

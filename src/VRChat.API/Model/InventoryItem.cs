@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InventoryItem
     /// </summary>
     [DataContract(Name = "InventoryItem")]
-    public partial class InventoryItem : IEquatable<InventoryItem>, IValidatableObject
+    public partial class InventoryItem : IValidatableObject
     {
 
         /// <summary>
@@ -64,7 +65,7 @@ namespace VRChat.API.Model
         /// <param name="templateCreatedAt">templateCreatedAt (required).</param>
         /// <param name="templateUpdatedAt">templateUpdatedAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public InventoryItem(List<string> collections = default(List<string>), DateTime createdAt = default(DateTime), string description = default(string), DateTime? expiryDate = default(DateTime?), List<string> flags = default(List<string>), string holderId = default(string), string id = default(string), string imageUrl = default(string), bool isArchived = default(bool), bool isSeen = default(bool), InventoryItemType itemType = default(InventoryItemType), string itemTypeLabel = default(string), InventoryMetadata metadata = default(InventoryMetadata), string name = default(string), List<string> tags = default(List<string>), string templateId = default(string), DateTime templateCreatedAt = default(DateTime), DateTime templateUpdatedAt = default(DateTime), DateTime updatedAt = default(DateTime))
+        public InventoryItem(List<string> collections = default, DateTime createdAt = default, string description = default, DateTime? expiryDate = default, List<string> flags = default, string holderId = default, string id = default, string imageUrl = default, bool isArchived = default, bool isSeen = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, List<string> tags = default, string templateId = default, DateTime templateCreatedAt = default, DateTime templateUpdatedAt = default, DateTime updatedAt = default)
         {
             // to ensure "collections" is required (not null)
             if (collections == null)
@@ -156,6 +157,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
+        /*
+        <example>2025-06-13T05:00:45.455Z</example>
+        */
         [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedAt { get; set; }
 
@@ -168,6 +172,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ExpiryDate
         /// </summary>
+        /*
+        <example>2025-06-13T05:00:45.455Z</example>
+        */
         [DataMember(Name = "expiryDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTime? ExpiryDate { get; set; }
 
@@ -181,12 +188,18 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "holderId", IsRequired = true, EmitDefaultValue = true)]
         public string HolderId { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>inv_10bce5b0-2d2b-44e0-900d-db6534615162</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -235,24 +248,36 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets TemplateId
         /// </summary>
+        /*
+        <example>invt_b80ce14b-038b-4f56-b970-d232771d62e3</example>
+        */
         [DataMember(Name = "templateId", IsRequired = true, EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
         /// <summary>
         /// Gets or Sets TemplateCreatedAt
         /// </summary>
+        /*
+        <example>2025-06-09T16:31:40.785Z</example>
+        */
         [DataMember(Name = "template_created_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime TemplateCreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets TemplateUpdatedAt
         /// </summary>
+        /*
+        <example>2025-06-25T00:34:14.578Z</example>
+        */
         [DataMember(Name = "template_updated_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime TemplateUpdatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
+        /*
+        <example>2025-06-25T00:34:15.965Z</example>
+        */
         [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime UpdatedAt { get; set; }
 
@@ -297,210 +322,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InventoryItem);
-        }
-
-        /// <summary>
-        /// Returns true if InventoryItem instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InventoryItem to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InventoryItem input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Collections == input.Collections ||
-                    this.Collections != null &&
-                    input.Collections != null &&
-                    this.Collections.SequenceEqual(input.Collections)
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.ExpiryDate == input.ExpiryDate ||
-                    (this.ExpiryDate != null &&
-                    this.ExpiryDate.Equals(input.ExpiryDate))
-                ) && 
-                (
-                    this.Flags == input.Flags ||
-                    this.Flags != null &&
-                    input.Flags != null &&
-                    this.Flags.SequenceEqual(input.Flags)
-                ) && 
-                (
-                    this.HolderId == input.HolderId ||
-                    (this.HolderId != null &&
-                    this.HolderId.Equals(input.HolderId))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.IsArchived == input.IsArchived ||
-                    this.IsArchived.Equals(input.IsArchived)
-                ) && 
-                (
-                    this.IsSeen == input.IsSeen ||
-                    this.IsSeen.Equals(input.IsSeen)
-                ) && 
-                (
-                    this.ItemType == input.ItemType ||
-                    this.ItemType.Equals(input.ItemType)
-                ) && 
-                (
-                    this.ItemTypeLabel == input.ItemTypeLabel ||
-                    (this.ItemTypeLabel != null &&
-                    this.ItemTypeLabel.Equals(input.ItemTypeLabel))
-                ) && 
-                (
-                    this.Metadata == input.Metadata ||
-                    (this.Metadata != null &&
-                    this.Metadata.Equals(input.Metadata))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.TemplateId == input.TemplateId ||
-                    (this.TemplateId != null &&
-                    this.TemplateId.Equals(input.TemplateId))
-                ) && 
-                (
-                    this.TemplateCreatedAt == input.TemplateCreatedAt ||
-                    (this.TemplateCreatedAt != null &&
-                    this.TemplateCreatedAt.Equals(input.TemplateCreatedAt))
-                ) && 
-                (
-                    this.TemplateUpdatedAt == input.TemplateUpdatedAt ||
-                    (this.TemplateUpdatedAt != null &&
-                    this.TemplateUpdatedAt.Equals(input.TemplateUpdatedAt))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Collections != null)
-                {
-                    hashCode = (hashCode * 59) + this.Collections.GetHashCode();
-                }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.ExpiryDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.ExpiryDate.GetHashCode();
-                }
-                if (this.Flags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Flags.GetHashCode();
-                }
-                if (this.HolderId != null)
-                {
-                    hashCode = (hashCode * 59) + this.HolderId.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsArchived.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsSeen.GetHashCode();
-                hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
-                if (this.ItemTypeLabel != null)
-                {
-                    hashCode = (hashCode * 59) + this.ItemTypeLabel.GetHashCode();
-                }
-                if (this.Metadata != null)
-                {
-                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.TemplateId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TemplateId.GetHashCode();
-                }
-                if (this.TemplateCreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.TemplateCreatedAt.GetHashCode();
-                }
-                if (this.TemplateUpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.TemplateUpdatedAt.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

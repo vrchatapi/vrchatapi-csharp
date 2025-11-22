@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Minimum supported client build number for various platforms
     /// </summary>
     [DataContract(Name = "APIConfig_minSupportedClientBuildNumber")]
-    public partial class APIConfigMinSupportedClientBuildNumber : IEquatable<APIConfigMinSupportedClientBuildNumber>, IValidatableObject
+    public partial class APIConfigMinSupportedClientBuildNumber : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigMinSupportedClientBuildNumber" /> class.
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="APIConfigMinSupportedClientBuildNumber" /> class.
         /// </summary>
         /// <param name="appStore">appStore (required).</param>
-        /// <param name="_default">_default (required).</param>
+        /// <param name="varDefault">varDefault (required).</param>
         /// <param name="firebase">firebase (required).</param>
         /// <param name="firebaseiOS">firebaseiOS (required).</param>
         /// <param name="googlePlay">googlePlay (required).</param>
@@ -50,7 +51,7 @@ namespace VRChat.API.Model
         /// <param name="questStore">questStore (required).</param>
         /// <param name="testFlight">testFlight (required).</param>
         /// <param name="xRElite">xRElite (required).</param>
-        public APIConfigMinSupportedClientBuildNumber(PlatformBuildInfo appStore = default(PlatformBuildInfo), PlatformBuildInfo _default = default(PlatformBuildInfo), PlatformBuildInfo firebase = default(PlatformBuildInfo), PlatformBuildInfo firebaseiOS = default(PlatformBuildInfo), PlatformBuildInfo googlePlay = default(PlatformBuildInfo), PlatformBuildInfo pC = default(PlatformBuildInfo), PlatformBuildInfo picoStore = default(PlatformBuildInfo), PlatformBuildInfo questAppLab = default(PlatformBuildInfo), PlatformBuildInfo questStore = default(PlatformBuildInfo), PlatformBuildInfo testFlight = default(PlatformBuildInfo), PlatformBuildInfo xRElite = default(PlatformBuildInfo))
+        public APIConfigMinSupportedClientBuildNumber(PlatformBuildInfo appStore = default, PlatformBuildInfo varDefault = default, PlatformBuildInfo firebase = default, PlatformBuildInfo firebaseiOS = default, PlatformBuildInfo googlePlay = default, PlatformBuildInfo pC = default, PlatformBuildInfo picoStore = default, PlatformBuildInfo questAppLab = default, PlatformBuildInfo questStore = default, PlatformBuildInfo testFlight = default, PlatformBuildInfo xRElite = default)
         {
             // to ensure "appStore" is required (not null)
             if (appStore == null)
@@ -58,12 +59,12 @@ namespace VRChat.API.Model
                 throw new ArgumentNullException("appStore is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
             }
             this.AppStore = appStore;
-            // to ensure "_default" is required (not null)
-            if (_default == null)
+            // to ensure "varDefault" is required (not null)
+            if (varDefault == null)
             {
-                throw new ArgumentNullException("_default is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
+                throw new ArgumentNullException("varDefault is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
             }
-            this.Default = _default;
+            this.Default = varDefault;
             // to ensure "firebase" is required (not null)
             if (firebase == null)
             {
@@ -219,147 +220,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigMinSupportedClientBuildNumber);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigMinSupportedClientBuildNumber instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigMinSupportedClientBuildNumber to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigMinSupportedClientBuildNumber input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AppStore == input.AppStore ||
-                    (this.AppStore != null &&
-                    this.AppStore.Equals(input.AppStore))
-                ) && 
-                (
-                    this.Default == input.Default ||
-                    (this.Default != null &&
-                    this.Default.Equals(input.Default))
-                ) && 
-                (
-                    this.Firebase == input.Firebase ||
-                    (this.Firebase != null &&
-                    this.Firebase.Equals(input.Firebase))
-                ) && 
-                (
-                    this.FirebaseiOS == input.FirebaseiOS ||
-                    (this.FirebaseiOS != null &&
-                    this.FirebaseiOS.Equals(input.FirebaseiOS))
-                ) && 
-                (
-                    this.GooglePlay == input.GooglePlay ||
-                    (this.GooglePlay != null &&
-                    this.GooglePlay.Equals(input.GooglePlay))
-                ) && 
-                (
-                    this.PC == input.PC ||
-                    (this.PC != null &&
-                    this.PC.Equals(input.PC))
-                ) && 
-                (
-                    this.PicoStore == input.PicoStore ||
-                    (this.PicoStore != null &&
-                    this.PicoStore.Equals(input.PicoStore))
-                ) && 
-                (
-                    this.QuestAppLab == input.QuestAppLab ||
-                    (this.QuestAppLab != null &&
-                    this.QuestAppLab.Equals(input.QuestAppLab))
-                ) && 
-                (
-                    this.QuestStore == input.QuestStore ||
-                    (this.QuestStore != null &&
-                    this.QuestStore.Equals(input.QuestStore))
-                ) && 
-                (
-                    this.TestFlight == input.TestFlight ||
-                    (this.TestFlight != null &&
-                    this.TestFlight.Equals(input.TestFlight))
-                ) && 
-                (
-                    this.XRElite == input.XRElite ||
-                    (this.XRElite != null &&
-                    this.XRElite.Equals(input.XRElite))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.AppStore != null)
-                {
-                    hashCode = (hashCode * 59) + this.AppStore.GetHashCode();
-                }
-                if (this.Default != null)
-                {
-                    hashCode = (hashCode * 59) + this.Default.GetHashCode();
-                }
-                if (this.Firebase != null)
-                {
-                    hashCode = (hashCode * 59) + this.Firebase.GetHashCode();
-                }
-                if (this.FirebaseiOS != null)
-                {
-                    hashCode = (hashCode * 59) + this.FirebaseiOS.GetHashCode();
-                }
-                if (this.GooglePlay != null)
-                {
-                    hashCode = (hashCode * 59) + this.GooglePlay.GetHashCode();
-                }
-                if (this.PC != null)
-                {
-                    hashCode = (hashCode * 59) + this.PC.GetHashCode();
-                }
-                if (this.PicoStore != null)
-                {
-                    hashCode = (hashCode * 59) + this.PicoStore.GetHashCode();
-                }
-                if (this.QuestAppLab != null)
-                {
-                    hashCode = (hashCode * 59) + this.QuestAppLab.GetHashCode();
-                }
-                if (this.QuestStore != null)
-                {
-                    hashCode = (hashCode * 59) + this.QuestStore.GetHashCode();
-                }
-                if (this.TestFlight != null)
-                {
-                    hashCode = (hashCode * 59) + this.TestFlight.GetHashCode();
-                }
-                if (this.XRElite != null)
-                {
-                    hashCode = (hashCode * 59) + this.XRElite.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

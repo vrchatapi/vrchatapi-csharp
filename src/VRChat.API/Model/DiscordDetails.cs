@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,14 +30,14 @@ namespace VRChat.API.Model
     /// DiscordDetails
     /// </summary>
     [DataContract(Name = "DiscordDetails")]
-    public partial class DiscordDetails : IEquatable<DiscordDetails>, IValidatableObject
+    public partial class DiscordDetails : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DiscordDetails" /> class.
         /// </summary>
         /// <param name="globalName">globalName.</param>
         /// <param name="id">https://discord.com/developers/docs/reference#snowflakes.</param>
-        public DiscordDetails(string globalName = default(string), string id = default(string))
+        public DiscordDetails(string globalName = default, string id = default)
         {
             this.GlobalName = globalName;
             this.Id = id;
@@ -52,6 +53,9 @@ namespace VRChat.API.Model
         /// https://discord.com/developers/docs/reference#snowflakes
         /// </summary>
         /// <value>https://discord.com/developers/docs/reference#snowflakes</value>
+        /*
+        <example>1280064052206370848</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -79,66 +83,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as DiscordDetails);
-        }
-
-        /// <summary>
-        /// Returns true if DiscordDetails instances are equal
-        /// </summary>
-        /// <param name="input">Instance of DiscordDetails to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(DiscordDetails input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.GlobalName == input.GlobalName ||
-                    (this.GlobalName != null &&
-                    this.GlobalName.Equals(input.GlobalName))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.GlobalName != null)
-                {
-                    hashCode = (hashCode * 59) + this.GlobalName.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

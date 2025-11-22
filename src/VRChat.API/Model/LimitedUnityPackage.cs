@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// LimitedUnityPackage
     /// </summary>
     [DataContract(Name = "LimitedUnityPackage")]
-    public partial class LimitedUnityPackage : IEquatable<LimitedUnityPackage>, IValidatableObject
+    public partial class LimitedUnityPackage : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LimitedUnityPackage" /> class.
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
         /// <param name="unityVersion">unityVersion (required).</param>
-        public LimitedUnityPackage(DateTime? createdAt = default(DateTime?), string platform = default(string), string unityVersion = default(string))
+        public LimitedUnityPackage(DateTime? createdAt = default, string platform = default, string unityVersion = default)
         {
             // to ensure "createdAt" is required (not null)
             if (createdAt == null)
@@ -74,12 +75,18 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
+        /*
+        <example>2022.3.6f1</example>
+        */
         [DataMember(Name = "unityVersion", IsRequired = true, EmitDefaultValue = true)]
         public string UnityVersion { get; set; }
 
@@ -108,80 +115,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as LimitedUnityPackage);
-        }
-
-        /// <summary>
-        /// Returns true if LimitedUnityPackage instances are equal
-        /// </summary>
-        /// <param name="input">Instance of LimitedUnityPackage to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(LimitedUnityPackage input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.Platform == input.Platform ||
-                    (this.Platform != null &&
-                    this.Platform.Equals(input.Platform))
-                ) && 
-                (
-                    this.UnityVersion == input.UnityVersion ||
-                    (this.UnityVersion != null &&
-                    this.UnityVersion.Equals(input.UnityVersion))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.Platform != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
-                }
-                if (this.UnityVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityVersion.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // UnityVersion (string) minLength
             if (this.UnityVersion != null && this.UnityVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
+                yield return new ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }
 
             yield break;

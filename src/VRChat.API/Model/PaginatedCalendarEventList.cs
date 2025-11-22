@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// PaginatedCalendarEventList
     /// </summary>
     [DataContract(Name = "PaginatedCalendarEventList")]
-    public partial class PaginatedCalendarEventList : IEquatable<PaginatedCalendarEventList>, IValidatableObject
+    public partial class PaginatedCalendarEventList : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PaginatedCalendarEventList" /> class.
@@ -37,7 +38,7 @@ namespace VRChat.API.Model
         /// <param name="results"> .</param>
         /// <param name="totalCount">The total number of results that the query would return if there were no pagination..</param>
         /// <param name="hasNext">Whether there are more results after this page..</param>
-        public PaginatedCalendarEventList(List<CalendarEvent> results = default(List<CalendarEvent>), int totalCount = default(int), bool hasNext = default(bool))
+        public PaginatedCalendarEventList(List<CalendarEvent> results = default, int totalCount = default, bool hasNext = default)
         {
             this.Results = results;
             this.TotalCount = totalCount;
@@ -90,68 +91,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as PaginatedCalendarEventList);
-        }
-
-        /// <summary>
-        /// Returns true if PaginatedCalendarEventList instances are equal
-        /// </summary>
-        /// <param name="input">Instance of PaginatedCalendarEventList to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(PaginatedCalendarEventList input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Results == input.Results ||
-                    this.Results != null &&
-                    input.Results != null &&
-                    this.Results.SequenceEqual(input.Results)
-                ) && 
-                (
-                    this.TotalCount == input.TotalCount ||
-                    this.TotalCount.Equals(input.TotalCount)
-                ) && 
-                (
-                    this.HasNext == input.HasNext ||
-                    this.HasNext.Equals(input.HasNext)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Results != null)
-                {
-                    hashCode = (hashCode * 59) + this.Results.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.HasNext.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

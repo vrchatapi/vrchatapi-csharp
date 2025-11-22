@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateCalendarEventRequest
     /// </summary>
     [DataContract(Name = "UpdateCalendarEventRequest")]
-    public partial class UpdateCalendarEventRequest : IEquatable<UpdateCalendarEventRequest>, IValidatableObject
+    public partial class UpdateCalendarEventRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateCalendarEventRequest" /> class.
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="guestEarlyJoinMinutes">guestEarlyJoinMinutes.</param>
         /// <param name="closeInstanceAfterEndMinutes">closeInstanceAfterEndMinutes.</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
-        public UpdateCalendarEventRequest(string title = default(string), DateTime startsAt = default(DateTime), string description = default(string), DateTime endsAt = default(DateTime), string category = default(string), List<string> tags = default(List<string>), bool isDraft = default(bool), string imageId = default(string), List<string> roleIds = default(List<string>), string parentId = default(string), List<string> platforms = default(List<string>), List<string> languages = default(List<string>), bool sendCreationNotification = false, bool featured = default(bool), int hostEarlyJoinMinutes = default(int), int guestEarlyJoinMinutes = default(int), int closeInstanceAfterEndMinutes = default(int), bool usesInstanceOverflow = default(bool))
+        public UpdateCalendarEventRequest(string title = default, DateTime startsAt = default, string description = default, DateTime endsAt = default, string category = default, List<string> tags = default, bool isDraft = default, string imageId = default, List<string> roleIds = default, string parentId = default, List<string> platforms = default, List<string> languages = default, bool sendCreationNotification = false, bool featured = default, int hostEarlyJoinMinutes = default, int guestEarlyJoinMinutes = default, int closeInstanceAfterEndMinutes = default, bool usesInstanceOverflow = default)
         {
             this.Title = title;
             this.StartsAt = startsAt;
@@ -78,6 +79,9 @@ namespace VRChat.API.Model
         /// Event title
         /// </summary>
         /// <value>Event title</value>
+        /*
+        <example>Performance Event!</example>
+        */
         [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
@@ -104,6 +108,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Category
         /// </summary>
+        /*
+        <example>performance</example>
+        */
         [DataMember(Name = "category", EmitDefaultValue = false)]
         public string Category { get; set; }
 
@@ -122,6 +129,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "imageId", EmitDefaultValue = false)]
         public string ImageId { get; set; }
 
@@ -153,6 +163,9 @@ namespace VRChat.API.Model
         /// Send notification to group members.
         /// </summary>
         /// <value>Send notification to group members.</value>
+        /*
+        <example>false</example>
+        */
         [DataMember(Name = "sendCreationNotification", EmitDefaultValue = true)]
         public bool SendCreationNotification { get; set; }
 
@@ -165,24 +178,36 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets HostEarlyJoinMinutes
         /// </summary>
+        /*
+        <example>60</example>
+        */
         [DataMember(Name = "hostEarlyJoinMinutes", EmitDefaultValue = false)]
         public int HostEarlyJoinMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets GuestEarlyJoinMinutes
         /// </summary>
+        /*
+        <example>5</example>
+        */
         [DataMember(Name = "guestEarlyJoinMinutes", EmitDefaultValue = false)]
         public int GuestEarlyJoinMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets CloseInstanceAfterEndMinutes
         /// </summary>
+        /*
+        <example>5</example>
+        */
         [DataMember(Name = "closeInstanceAfterEndMinutes", EmitDefaultValue = false)]
         public int CloseInstanceAfterEndMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets UsesInstanceOverflow
         /// </summary>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "usesInstanceOverflow", EmitDefaultValue = true)]
         public bool UsesInstanceOverflow { get; set; }
 
@@ -226,197 +251,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as UpdateCalendarEventRequest);
-        }
-
-        /// <summary>
-        /// Returns true if UpdateCalendarEventRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of UpdateCalendarEventRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(UpdateCalendarEventRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.StartsAt == input.StartsAt ||
-                    (this.StartsAt != null &&
-                    this.StartsAt.Equals(input.StartsAt))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.EndsAt == input.EndsAt ||
-                    (this.EndsAt != null &&
-                    this.EndsAt.Equals(input.EndsAt))
-                ) && 
-                (
-                    this.Category == input.Category ||
-                    (this.Category != null &&
-                    this.Category.Equals(input.Category))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.IsDraft == input.IsDraft ||
-                    this.IsDraft.Equals(input.IsDraft)
-                ) && 
-                (
-                    this.ImageId == input.ImageId ||
-                    (this.ImageId != null &&
-                    this.ImageId.Equals(input.ImageId))
-                ) && 
-                (
-                    this.RoleIds == input.RoleIds ||
-                    this.RoleIds != null &&
-                    input.RoleIds != null &&
-                    this.RoleIds.SequenceEqual(input.RoleIds)
-                ) && 
-                (
-                    this.ParentId == input.ParentId ||
-                    (this.ParentId != null &&
-                    this.ParentId.Equals(input.ParentId))
-                ) && 
-                (
-                    this.Platforms == input.Platforms ||
-                    this.Platforms != null &&
-                    input.Platforms != null &&
-                    this.Platforms.SequenceEqual(input.Platforms)
-                ) && 
-                (
-                    this.Languages == input.Languages ||
-                    this.Languages != null &&
-                    input.Languages != null &&
-                    this.Languages.SequenceEqual(input.Languages)
-                ) && 
-                (
-                    this.SendCreationNotification == input.SendCreationNotification ||
-                    this.SendCreationNotification.Equals(input.SendCreationNotification)
-                ) && 
-                (
-                    this.Featured == input.Featured ||
-                    this.Featured.Equals(input.Featured)
-                ) && 
-                (
-                    this.HostEarlyJoinMinutes == input.HostEarlyJoinMinutes ||
-                    this.HostEarlyJoinMinutes.Equals(input.HostEarlyJoinMinutes)
-                ) && 
-                (
-                    this.GuestEarlyJoinMinutes == input.GuestEarlyJoinMinutes ||
-                    this.GuestEarlyJoinMinutes.Equals(input.GuestEarlyJoinMinutes)
-                ) && 
-                (
-                    this.CloseInstanceAfterEndMinutes == input.CloseInstanceAfterEndMinutes ||
-                    this.CloseInstanceAfterEndMinutes.Equals(input.CloseInstanceAfterEndMinutes)
-                ) && 
-                (
-                    this.UsesInstanceOverflow == input.UsesInstanceOverflow ||
-                    this.UsesInstanceOverflow.Equals(input.UsesInstanceOverflow)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.StartsAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.StartsAt.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.EndsAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.EndsAt.GetHashCode();
-                }
-                if (this.Category != null)
-                {
-                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsDraft.GetHashCode();
-                if (this.ImageId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
-                }
-                if (this.RoleIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
-                }
-                if (this.ParentId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ParentId.GetHashCode();
-                }
-                if (this.Platforms != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platforms.GetHashCode();
-                }
-                if (this.Languages != null)
-                {
-                    hashCode = (hashCode * 59) + this.Languages.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.SendCreationNotification.GetHashCode();
-                hashCode = (hashCode * 59) + this.Featured.GetHashCode();
-                hashCode = (hashCode * 59) + this.HostEarlyJoinMinutes.GetHashCode();
-                hashCode = (hashCode * 59) + this.GuestEarlyJoinMinutes.GetHashCode();
-                hashCode = (hashCode * 59) + this.CloseInstanceAfterEndMinutes.GetHashCode();
-                hashCode = (hashCode * 59) + this.UsesInstanceOverflow.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Title (string) minLength
             if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             // Description (string) minLength
             if (this.Description != null && this.Description.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             yield break;

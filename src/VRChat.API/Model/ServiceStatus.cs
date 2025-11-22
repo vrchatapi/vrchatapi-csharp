@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Status information for a service request
     /// </summary>
     [DataContract(Name = "ServiceStatus")]
-    public partial class ServiceStatus : IEquatable<ServiceStatus>, IValidatableObject
+    public partial class ServiceStatus : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceStatus" /> class.
@@ -48,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="subjectType">The kind of the thing this service was requested for. (required).</param>
         /// <param name="type">The kind of service that was requested. (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ServiceStatus(DateTime createdAt = default(DateTime), string id = default(string), List<Object> progress = default(List<Object>), string requesterUserId = default(string), string state = default(string), string subjectId = default(string), string subjectType = default(string), string type = default(string), DateTime updatedAt = default(DateTime))
+        public ServiceStatus(DateTime createdAt = default, string id = default, List<Object> progress = default, string requesterUserId = default, string state = default, string subjectId = default, string subjectType = default, string type = default, DateTime updatedAt = default)
         {
             this.CreatedAt = createdAt;
             // to ensure "id" is required (not null)
@@ -119,6 +120,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "requesterUserId", IsRequired = true, EmitDefaultValue = true)]
         public string RequesterUserId { get; set; }
 
@@ -186,130 +190,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ServiceStatus);
-        }
-
-        /// <summary>
-        /// Returns true if ServiceStatus instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ServiceStatus to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ServiceStatus input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Progress == input.Progress ||
-                    this.Progress != null &&
-                    input.Progress != null &&
-                    this.Progress.SequenceEqual(input.Progress)
-                ) && 
-                (
-                    this.RequesterUserId == input.RequesterUserId ||
-                    (this.RequesterUserId != null &&
-                    this.RequesterUserId.Equals(input.RequesterUserId))
-                ) && 
-                (
-                    this.State == input.State ||
-                    (this.State != null &&
-                    this.State.Equals(input.State))
-                ) && 
-                (
-                    this.SubjectId == input.SubjectId ||
-                    (this.SubjectId != null &&
-                    this.SubjectId.Equals(input.SubjectId))
-                ) && 
-                (
-                    this.SubjectType == input.SubjectType ||
-                    (this.SubjectType != null &&
-                    this.SubjectType.Equals(input.SubjectType))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Progress != null)
-                {
-                    hashCode = (hashCode * 59) + this.Progress.GetHashCode();
-                }
-                if (this.RequesterUserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.RequesterUserId.GetHashCode();
-                }
-                if (this.State != null)
-                {
-                    hashCode = (hashCode * 59) + this.State.GetHashCode();
-                }
-                if (this.SubjectId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SubjectId.GetHashCode();
-                }
-                if (this.SubjectType != null)
-                {
-                    hashCode = (hashCode * 59) + this.SubjectType.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

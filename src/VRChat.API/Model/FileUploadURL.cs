@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// FileUploadURL
     /// </summary>
     [DataContract(Name = "FileUploadURL")]
-    public partial class FileUploadURL : IEquatable<FileUploadURL>, IValidatableObject
+    public partial class FileUploadURL : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FileUploadURL" /> class.
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="FileUploadURL" /> class.
         /// </summary>
         /// <param name="url">url (required).</param>
-        public FileUploadURL(string url = default(string))
+        public FileUploadURL(string url = default)
         {
             // to ensure "url" is required (not null)
             if (url == null)
@@ -79,62 +80,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as FileUploadURL);
-        }
-
-        /// <summary>
-        /// Returns true if FileUploadURL instances are equal
-        /// </summary>
-        /// <param name="input">Instance of FileUploadURL to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(FileUploadURL input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Url != null)
-                {
-                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Url (string) minLength
             if (this.Url != null && this.Url.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
+                yield return new ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
             }
 
             yield break;

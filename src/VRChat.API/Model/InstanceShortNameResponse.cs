@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InstanceShortNameResponse
     /// </summary>
     [DataContract(Name = "InstanceShortNameResponse")]
-    public partial class InstanceShortNameResponse : IEquatable<InstanceShortNameResponse>, IValidatableObject
+    public partial class InstanceShortNameResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceShortNameResponse" /> class.
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="secureName">secureName (required).</param>
         /// <param name="shortName">shortName.</param>
-        public InstanceShortNameResponse(string secureName = default(string), string shortName = default(string))
+        public InstanceShortNameResponse(string secureName = default, string shortName = default)
         {
             // to ensure "secureName" is required (not null)
             if (secureName == null)
@@ -55,12 +56,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SecureName
         /// </summary>
+        /*
+        <example>7eavhhng</example>
+        */
         [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = true)]
         public string SecureName { get; set; }
 
         /// <summary>
         /// Gets or Sets ShortName
         /// </summary>
+        /*
+        <example>02u7yz8j</example>
+        */
         [DataMember(Name = "shortName", EmitDefaultValue = true)]
         public string ShortName { get; set; }
 
@@ -88,77 +95,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InstanceShortNameResponse);
-        }
-
-        /// <summary>
-        /// Returns true if InstanceShortNameResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InstanceShortNameResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InstanceShortNameResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.SecureName == input.SecureName ||
-                    (this.SecureName != null &&
-                    this.SecureName.Equals(input.SecureName))
-                ) && 
-                (
-                    this.ShortName == input.ShortName ||
-                    (this.ShortName != null &&
-                    this.ShortName.Equals(input.ShortName))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.SecureName != null)
-                {
-                    hashCode = (hashCode * 59) + this.SecureName.GetHashCode();
-                }
-                if (this.ShortName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // SecureName (string) minLength
             if (this.SecureName != null && this.SecureName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecureName, length must be greater than 1.", new [] { "SecureName" });
+                yield return new ValidationResult("Invalid value for SecureName, length must be greater than 1.", new [] { "SecureName" });
             }
 
             // ShortName (string) minLength
             if (this.ShortName != null && this.ShortName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortName, length must be greater than 1.", new [] { "ShortName" });
+                yield return new ValidationResult("Invalid value for ShortName, length must be greater than 1.", new [] { "ShortName" });
             }
 
             yield break;

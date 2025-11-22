@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -36,9 +37,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InviteMessage</returns>
-        InviteMessage GetInviteMessage(string userId, InviteMessageType messageType, int slot, int operationIndex = 0);
+        InviteMessage GetInviteMessage(string userId, InviteMessageType messageType, int slot);
 
         /// <summary>
         /// Get Invite Message
@@ -50,9 +50,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InviteMessage</returns>
-        ApiResponse<InviteMessage> GetInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot, int operationIndex = 0);
+        ApiResponse<InviteMessage> GetInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot);
         /// <summary>
         /// List Invite Messages
         /// </summary>
@@ -62,9 +61,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InviteMessage&gt;</returns>
-        List<InviteMessage> GetInviteMessages(string userId, InviteMessageType messageType, int operationIndex = 0);
+        List<InviteMessage> GetInviteMessages(string userId, InviteMessageType messageType);
 
         /// <summary>
         /// List Invite Messages
@@ -75,9 +73,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InviteMessage&gt;</returns>
-        ApiResponse<List<InviteMessage>> GetInviteMessagesWithHttpInfo(string userId, InviteMessageType messageType, int operationIndex = 0);
+        ApiResponse<List<InviteMessage>> GetInviteMessagesWithHttpInfo(string userId, InviteMessageType messageType);
         /// <summary>
         /// Invite Myself To Instance
         /// </summary>
@@ -87,9 +84,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SentNotification</returns>
-        SentNotification InviteMyselfTo(string worldId, string instanceId, int operationIndex = 0);
+        SentNotification InviteMyselfTo(string worldId, string instanceId);
 
         /// <summary>
         /// Invite Myself To Instance
@@ -100,9 +96,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SentNotification</returns>
-        ApiResponse<SentNotification> InviteMyselfToWithHttpInfo(string worldId, string instanceId, int operationIndex = 0);
+        ApiResponse<SentNotification> InviteMyselfToWithHttpInfo(string worldId, string instanceId);
         /// <summary>
         /// Invite User
         /// </summary>
@@ -112,9 +107,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="inviteRequest">Slot number of the Invite Message to use when inviting a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SentNotification</returns>
-        SentNotification InviteUser(string userId, InviteRequest inviteRequest, int operationIndex = 0);
+        SentNotification InviteUser(string userId, InviteRequest inviteRequest);
 
         /// <summary>
         /// Invite User
@@ -125,9 +119,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="inviteRequest">Slot number of the Invite Message to use when inviting a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SentNotification</returns>
-        ApiResponse<SentNotification> InviteUserWithHttpInfo(string userId, InviteRequest inviteRequest, int operationIndex = 0);
+        ApiResponse<SentNotification> InviteUserWithHttpInfo(string userId, InviteRequest inviteRequest);
         /// <summary>
         /// Invite User with photo
         /// </summary>
@@ -138,9 +131,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SentNotification</returns>
-        SentNotification InviteUserWithPhoto(string userId, System.IO.Stream image, InviteRequest data, int operationIndex = 0);
+        SentNotification InviteUserWithPhoto(string userId, FileParameter image, InviteRequest data);
 
         /// <summary>
         /// Invite User with photo
@@ -152,9 +144,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SentNotification</returns>
-        ApiResponse<SentNotification> InviteUserWithPhotoWithHttpInfo(string userId, System.IO.Stream image, InviteRequest data, int operationIndex = 0);
+        ApiResponse<SentNotification> InviteUserWithPhotoWithHttpInfo(string userId, FileParameter image, InviteRequest data);
         /// <summary>
         /// Request Invite
         /// </summary>
@@ -164,9 +155,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="requestInviteRequest">Slot number of the Request Message to use when request an invite. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Notification</returns>
-        Notification RequestInvite(string userId, RequestInviteRequest requestInviteRequest = default(RequestInviteRequest), int operationIndex = 0);
+        Notification RequestInvite(string userId, RequestInviteRequest? requestInviteRequest = default);
 
         /// <summary>
         /// Request Invite
@@ -177,9 +167,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="requestInviteRequest">Slot number of the Request Message to use when request an invite. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Notification</returns>
-        ApiResponse<Notification> RequestInviteWithHttpInfo(string userId, RequestInviteRequest requestInviteRequest = default(RequestInviteRequest), int operationIndex = 0);
+        ApiResponse<Notification> RequestInviteWithHttpInfo(string userId, RequestInviteRequest? requestInviteRequest = default);
         /// <summary>
         /// Request Invite with photo
         /// </summary>
@@ -190,9 +179,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Notification</returns>
-        Notification RequestInviteWithPhoto(string userId, System.IO.Stream image, RequestInviteRequest data, int operationIndex = 0);
+        Notification RequestInviteWithPhoto(string userId, FileParameter image, RequestInviteRequest data);
 
         /// <summary>
         /// Request Invite with photo
@@ -204,9 +192,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Notification</returns>
-        ApiResponse<Notification> RequestInviteWithPhotoWithHttpInfo(string userId, System.IO.Stream image, RequestInviteRequest data, int operationIndex = 0);
+        ApiResponse<Notification> RequestInviteWithPhotoWithHttpInfo(string userId, FileParameter image, RequestInviteRequest data);
         /// <summary>
         /// Reset Invite Message
         /// </summary>
@@ -217,9 +204,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InviteMessage&gt;</returns>
-        List<InviteMessage> ResetInviteMessage(string userId, InviteMessageType messageType, int slot, int operationIndex = 0);
+        List<InviteMessage> ResetInviteMessage(string userId, InviteMessageType messageType, int slot);
 
         /// <summary>
         /// Reset Invite Message
@@ -231,9 +217,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InviteMessage&gt;</returns>
-        ApiResponse<List<InviteMessage>> ResetInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot, int operationIndex = 0);
+        ApiResponse<List<InviteMessage>> ResetInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot);
         /// <summary>
         /// Respond Invite
         /// </summary>
@@ -243,9 +228,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="inviteResponse">Slot number of the Response Message to use when responding to a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Notification</returns>
-        Notification RespondInvite(string notificationId, InviteResponse inviteResponse, int operationIndex = 0);
+        Notification RespondInvite(string notificationId, InviteResponse inviteResponse);
 
         /// <summary>
         /// Respond Invite
@@ -256,9 +240,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="inviteResponse">Slot number of the Response Message to use when responding to a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Notification</returns>
-        ApiResponse<Notification> RespondInviteWithHttpInfo(string notificationId, InviteResponse inviteResponse, int operationIndex = 0);
+        ApiResponse<Notification> RespondInviteWithHttpInfo(string notificationId, InviteResponse inviteResponse);
         /// <summary>
         /// Respond Invite with photo
         /// </summary>
@@ -269,9 +252,8 @@ namespace VRChat.API.Api
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Notification</returns>
-        Notification RespondInviteWithPhoto(string notificationId, System.IO.Stream image, InviteResponse data, int operationIndex = 0);
+        Notification RespondInviteWithPhoto(string notificationId, FileParameter image, InviteResponse data);
 
         /// <summary>
         /// Respond Invite with photo
@@ -283,9 +265,8 @@ namespace VRChat.API.Api
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Notification</returns>
-        ApiResponse<Notification> RespondInviteWithPhotoWithHttpInfo(string notificationId, System.IO.Stream image, InviteResponse data, int operationIndex = 0);
+        ApiResponse<Notification> RespondInviteWithPhotoWithHttpInfo(string notificationId, FileParameter image, InviteResponse data);
         /// <summary>
         /// Update Invite Message
         /// </summary>
@@ -297,9 +278,8 @@ namespace VRChat.API.Api
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
         /// <param name="updateInviteMessageRequest">Message of what to set the invite message to. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InviteMessage&gt;</returns>
-        List<InviteMessage> UpdateInviteMessage(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = default(UpdateInviteMessageRequest), int operationIndex = 0);
+        List<InviteMessage> UpdateInviteMessage(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest? updateInviteMessageRequest = default);
 
         /// <summary>
         /// Update Invite Message
@@ -312,9 +292,8 @@ namespace VRChat.API.Api
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
         /// <param name="updateInviteMessageRequest">Message of what to set the invite message to. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InviteMessage&gt;</returns>
-        ApiResponse<List<InviteMessage>> UpdateInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = default(UpdateInviteMessageRequest), int operationIndex = 0);
+        ApiResponse<List<InviteMessage>> UpdateInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest? updateInviteMessageRequest = default);
         #endregion Synchronous Operations
     }
 
@@ -334,10 +313,9 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InviteMessage</returns>
-        System.Threading.Tasks.Task<InviteMessage> GetInviteMessageAsync(string userId, InviteMessageType messageType, int slot, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InviteMessage> GetInviteMessageAsync(string userId, InviteMessageType messageType, int slot, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Invite Message
@@ -349,10 +327,9 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InviteMessage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InviteMessage>> GetInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InviteMessage>> GetInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Invite Messages
         /// </summary>
@@ -362,10 +339,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InviteMessage&gt;</returns>
-        System.Threading.Tasks.Task<List<InviteMessage>> GetInviteMessagesAsync(string userId, InviteMessageType messageType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<InviteMessage>> GetInviteMessagesAsync(string userId, InviteMessageType messageType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Invite Messages
@@ -376,10 +352,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InviteMessage&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InviteMessage>>> GetInviteMessagesWithHttpInfoAsync(string userId, InviteMessageType messageType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<InviteMessage>>> GetInviteMessagesWithHttpInfoAsync(string userId, InviteMessageType messageType, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Invite Myself To Instance
         /// </summary>
@@ -389,10 +364,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SentNotification</returns>
-        System.Threading.Tasks.Task<SentNotification> InviteMyselfToAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SentNotification> InviteMyselfToAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite Myself To Instance
@@ -403,10 +377,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SentNotification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SentNotification>> InviteMyselfToWithHttpInfoAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SentNotification>> InviteMyselfToWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Invite User
         /// </summary>
@@ -416,10 +389,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="inviteRequest">Slot number of the Invite Message to use when inviting a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SentNotification</returns>
-        System.Threading.Tasks.Task<SentNotification> InviteUserAsync(string userId, InviteRequest inviteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SentNotification> InviteUserAsync(string userId, InviteRequest inviteRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite User
@@ -430,10 +402,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="inviteRequest">Slot number of the Invite Message to use when inviting a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SentNotification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SentNotification>> InviteUserWithHttpInfoAsync(string userId, InviteRequest inviteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SentNotification>> InviteUserWithHttpInfoAsync(string userId, InviteRequest inviteRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Invite User with photo
         /// </summary>
@@ -444,10 +415,9 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SentNotification</returns>
-        System.Threading.Tasks.Task<SentNotification> InviteUserWithPhotoAsync(string userId, System.IO.Stream image, InviteRequest data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SentNotification> InviteUserWithPhotoAsync(string userId, FileParameter image, InviteRequest data, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite User with photo
@@ -459,10 +429,9 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SentNotification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SentNotification>> InviteUserWithPhotoWithHttpInfoAsync(string userId, System.IO.Stream image, InviteRequest data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SentNotification>> InviteUserWithPhotoWithHttpInfoAsync(string userId, FileParameter image, InviteRequest data, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Request Invite
         /// </summary>
@@ -472,10 +441,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="requestInviteRequest">Slot number of the Request Message to use when request an invite. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        System.Threading.Tasks.Task<Notification> RequestInviteAsync(string userId, RequestInviteRequest requestInviteRequest = default(RequestInviteRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Notification> RequestInviteAsync(string userId, RequestInviteRequest? requestInviteRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Request Invite
@@ -486,10 +454,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="requestInviteRequest">Slot number of the Request Message to use when request an invite. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Notification>> RequestInviteWithHttpInfoAsync(string userId, RequestInviteRequest requestInviteRequest = default(RequestInviteRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Notification>> RequestInviteWithHttpInfoAsync(string userId, RequestInviteRequest? requestInviteRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Request Invite with photo
         /// </summary>
@@ -500,10 +467,9 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        System.Threading.Tasks.Task<Notification> RequestInviteWithPhotoAsync(string userId, System.IO.Stream image, RequestInviteRequest data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Notification> RequestInviteWithPhotoAsync(string userId, FileParameter image, RequestInviteRequest data, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Request Invite with photo
@@ -515,10 +481,9 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Notification>> RequestInviteWithPhotoWithHttpInfoAsync(string userId, System.IO.Stream image, RequestInviteRequest data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Notification>> RequestInviteWithPhotoWithHttpInfoAsync(string userId, FileParameter image, RequestInviteRequest data, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Reset Invite Message
         /// </summary>
@@ -529,10 +494,9 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InviteMessage&gt;</returns>
-        System.Threading.Tasks.Task<List<InviteMessage>> ResetInviteMessageAsync(string userId, InviteMessageType messageType, int slot, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<InviteMessage>> ResetInviteMessageAsync(string userId, InviteMessageType messageType, int slot, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reset Invite Message
@@ -544,10 +508,9 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InviteMessage&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InviteMessage>>> ResetInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<InviteMessage>>> ResetInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Respond Invite
         /// </summary>
@@ -557,10 +520,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="inviteResponse">Slot number of the Response Message to use when responding to a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        System.Threading.Tasks.Task<Notification> RespondInviteAsync(string notificationId, InviteResponse inviteResponse, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Notification> RespondInviteAsync(string notificationId, InviteResponse inviteResponse, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Respond Invite
@@ -571,10 +533,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="inviteResponse">Slot number of the Response Message to use when responding to a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Notification>> RespondInviteWithHttpInfoAsync(string notificationId, InviteResponse inviteResponse, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Notification>> RespondInviteWithHttpInfoAsync(string notificationId, InviteResponse inviteResponse, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Respond Invite with photo
         /// </summary>
@@ -585,10 +546,9 @@ namespace VRChat.API.Api
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        System.Threading.Tasks.Task<Notification> RespondInviteWithPhotoAsync(string notificationId, System.IO.Stream image, InviteResponse data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Notification> RespondInviteWithPhotoAsync(string notificationId, FileParameter image, InviteResponse data, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Respond Invite with photo
@@ -600,10 +560,9 @@ namespace VRChat.API.Api
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Notification>> RespondInviteWithPhotoWithHttpInfoAsync(string notificationId, System.IO.Stream image, InviteResponse data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Notification>> RespondInviteWithPhotoWithHttpInfoAsync(string notificationId, FileParameter image, InviteResponse data, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Invite Message
         /// </summary>
@@ -615,10 +574,9 @@ namespace VRChat.API.Api
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
         /// <param name="updateInviteMessageRequest">Message of what to set the invite message to. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InviteMessage&gt;</returns>
-        System.Threading.Tasks.Task<List<InviteMessage>> UpdateInviteMessageAsync(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = default(UpdateInviteMessageRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<InviteMessage>> UpdateInviteMessageAsync(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest? updateInviteMessageRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Invite Message
@@ -631,10 +589,9 @@ namespace VRChat.API.Api
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
         /// <param name="updateInviteMessageRequest">Message of what to set the invite message to. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InviteMessage&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InviteMessage>>> UpdateInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = default(UpdateInviteMessageRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<InviteMessage>>> UpdateInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest? updateInviteMessageRequest = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -649,12 +606,14 @@ namespace VRChat.API.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class InviteApi : IInviteApi
+    public partial class InviteApi : IDisposable, IInviteApi
     {
         private VRChat.API.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InviteApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public InviteApi() : this((string)null)
@@ -663,7 +622,11 @@ namespace VRChat.API.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InviteApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public InviteApi(string basePath)
         {
@@ -671,16 +634,19 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 new VRChat.API.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="InviteApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="InviteApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public InviteApi(VRChat.API.Client.Configuration configuration)
         {
@@ -690,8 +656,78 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InviteApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public InviteApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InviteApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public InviteApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                new VRChat.API.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InviteApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public InviteApi(HttpClient client, VRChat.API.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -702,6 +738,7 @@ namespace VRChat.API.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public InviteApi(VRChat.API.Client.ISynchronousClient client, VRChat.API.Client.IAsynchronousClient asyncClient, VRChat.API.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -713,6 +750,19 @@ namespace VRChat.API.Api
             this.Configuration = configuration;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public VRChat.API.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -762,9 +812,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>InviteMessage</returns>
-        public InviteMessage GetInviteMessage(string userId, InviteMessageType messageType, int slot, int operationIndex = 0)
+        public InviteMessage GetInviteMessage(string userId, InviteMessageType messageType, int slot)
         {
             VRChat.API.Client.ApiResponse<InviteMessage> localVarResponse = GetInviteMessageWithHttpInfo(userId, messageType, slot);
             return localVarResponse.Data;
@@ -777,15 +826,12 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of InviteMessage</returns>
-        public VRChat.API.Client.ApiResponse<InviteMessage> GetInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<InviteMessage> GetInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->GetInviteMessage");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -798,23 +844,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("messageType", VRChat.API.Client.ClientUtils.ParameterToString(messageType)); // path parameter
             localVarRequestOptions.PathParameters.Add("slot", VRChat.API.Client.ClientUtils.ParameterToString(slot)); // path parameter
-
-            localVarRequestOptions.Operation = "InviteApi.GetInviteMessage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -825,13 +862,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<InviteMessage>("/message/{userId}/{messageType}/{slot}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInviteMessage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -844,12 +879,11 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InviteMessage</returns>
-        public async System.Threading.Tasks.Task<InviteMessage> GetInviteMessageAsync(string userId, InviteMessageType messageType, int slot, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InviteMessage> GetInviteMessageAsync(string userId, InviteMessageType messageType, int slot, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<InviteMessage> localVarResponse = await GetInviteMessageWithHttpInfoAsync(userId, messageType, slot, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<InviteMessage> localVarResponse = await GetInviteMessageWithHttpInfoAsync(userId, messageType, slot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -860,16 +894,13 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InviteMessage)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InviteMessage>> GetInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InviteMessage>> GetInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->GetInviteMessage");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -882,24 +913,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("messageType", VRChat.API.Client.ClientUtils.ParameterToString(messageType)); // path parameter
             localVarRequestOptions.PathParameters.Add("slot", VRChat.API.Client.ClientUtils.ParameterToString(slot)); // path parameter
-
-            localVarRequestOptions.Operation = "InviteApi.GetInviteMessage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -909,15 +932,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<InviteMessage>("/message/{userId}/{messageType}/{slot}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInviteMessage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -929,9 +950,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InviteMessage&gt;</returns>
-        public List<InviteMessage> GetInviteMessages(string userId, InviteMessageType messageType, int operationIndex = 0)
+        public List<InviteMessage> GetInviteMessages(string userId, InviteMessageType messageType)
         {
             VRChat.API.Client.ApiResponse<List<InviteMessage>> localVarResponse = GetInviteMessagesWithHttpInfo(userId, messageType);
             return localVarResponse.Data;
@@ -943,15 +963,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InviteMessage&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<InviteMessage>> GetInviteMessagesWithHttpInfo(string userId, InviteMessageType messageType, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<InviteMessage>> GetInviteMessagesWithHttpInfo(string userId, InviteMessageType messageType)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->GetInviteMessages");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -964,22 +981,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("messageType", VRChat.API.Client.ClientUtils.ParameterToString(messageType)); // path parameter
-
-            localVarRequestOptions.Operation = "InviteApi.GetInviteMessages";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -990,13 +998,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<InviteMessage>>("/message/{userId}/{messageType}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInviteMessages", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1008,12 +1014,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InviteMessage&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InviteMessage>> GetInviteMessagesAsync(string userId, InviteMessageType messageType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<InviteMessage>> GetInviteMessagesAsync(string userId, InviteMessageType messageType, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<InviteMessage>> localVarResponse = await GetInviteMessagesWithHttpInfoAsync(userId, messageType, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<InviteMessage>> localVarResponse = await GetInviteMessagesWithHttpInfoAsync(userId, messageType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1023,16 +1028,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InviteMessage&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InviteMessage>>> GetInviteMessagesWithHttpInfoAsync(string userId, InviteMessageType messageType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InviteMessage>>> GetInviteMessagesWithHttpInfoAsync(string userId, InviteMessageType messageType, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->GetInviteMessages");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1045,23 +1047,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("messageType", VRChat.API.Client.ClientUtils.ParameterToString(messageType)); // path parameter
-
-            localVarRequestOptions.Operation = "InviteApi.GetInviteMessages";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1071,15 +1065,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<InviteMessage>>("/message/{userId}/{messageType}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInviteMessages", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1091,9 +1083,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SentNotification</returns>
-        public SentNotification InviteMyselfTo(string worldId, string instanceId, int operationIndex = 0)
+        public SentNotification InviteMyselfTo(string worldId, string instanceId)
         {
             VRChat.API.Client.ApiResponse<SentNotification> localVarResponse = InviteMyselfToWithHttpInfo(worldId, instanceId);
             return localVarResponse.Data;
@@ -1105,21 +1096,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SentNotification</returns>
-        public VRChat.API.Client.ApiResponse<SentNotification> InviteMyselfToWithHttpInfo(string worldId, string instanceId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<SentNotification> InviteMyselfToWithHttpInfo(string worldId, string instanceId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InviteApi->InviteMyselfTo");
-            }
 
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InviteApi->InviteMyselfTo");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1132,22 +1118,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-
-            localVarRequestOptions.Operation = "InviteApi.InviteMyselfTo";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1158,13 +1135,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SentNotification>("/invite/myself/to/{worldId}:{instanceId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("InviteMyselfTo", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1176,12 +1151,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SentNotification</returns>
-        public async System.Threading.Tasks.Task<SentNotification> InviteMyselfToAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SentNotification> InviteMyselfToAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<SentNotification> localVarResponse = await InviteMyselfToWithHttpInfoAsync(worldId, instanceId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<SentNotification> localVarResponse = await InviteMyselfToWithHttpInfoAsync(worldId, instanceId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1191,22 +1165,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SentNotification)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SentNotification>> InviteMyselfToWithHttpInfoAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SentNotification>> InviteMyselfToWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InviteApi->InviteMyselfTo");
-            }
 
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InviteApi->InviteMyselfTo");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1219,23 +1188,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-
-            localVarRequestOptions.Operation = "InviteApi.InviteMyselfTo";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1245,15 +1206,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<SentNotification>("/invite/myself/to/{worldId}:{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("InviteMyselfTo", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1265,9 +1224,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="inviteRequest">Slot number of the Invite Message to use when inviting a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SentNotification</returns>
-        public SentNotification InviteUser(string userId, InviteRequest inviteRequest, int operationIndex = 0)
+        public SentNotification InviteUser(string userId, InviteRequest inviteRequest)
         {
             VRChat.API.Client.ApiResponse<SentNotification> localVarResponse = InviteUserWithHttpInfo(userId, inviteRequest);
             return localVarResponse.Data;
@@ -1279,21 +1237,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="inviteRequest">Slot number of the Invite Message to use when inviting a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SentNotification</returns>
-        public VRChat.API.Client.ApiResponse<SentNotification> InviteUserWithHttpInfo(string userId, InviteRequest inviteRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<SentNotification> InviteUserWithHttpInfo(string userId, InviteRequest inviteRequest)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->InviteUser");
-            }
 
             // verify the required parameter 'inviteRequest' is set
             if (inviteRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'inviteRequest' when calling InviteApi->InviteUser");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1307,22 +1260,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = inviteRequest;
-
-            localVarRequestOptions.Operation = "InviteApi.InviteUser";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1333,13 +1277,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SentNotification>("/invite/{userId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("InviteUser", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1351,12 +1293,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="inviteRequest">Slot number of the Invite Message to use when inviting a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SentNotification</returns>
-        public async System.Threading.Tasks.Task<SentNotification> InviteUserAsync(string userId, InviteRequest inviteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SentNotification> InviteUserAsync(string userId, InviteRequest inviteRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<SentNotification> localVarResponse = await InviteUserWithHttpInfoAsync(userId, inviteRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<SentNotification> localVarResponse = await InviteUserWithHttpInfoAsync(userId, inviteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1366,22 +1307,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="inviteRequest">Slot number of the Invite Message to use when inviting a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SentNotification)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SentNotification>> InviteUserWithHttpInfoAsync(string userId, InviteRequest inviteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SentNotification>> InviteUserWithHttpInfoAsync(string userId, InviteRequest inviteRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->InviteUser");
-            }
 
             // verify the required parameter 'inviteRequest' is set
             if (inviteRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'inviteRequest' when calling InviteApi->InviteUser");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1395,23 +1331,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = inviteRequest;
-
-            localVarRequestOptions.Operation = "InviteApi.InviteUser";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1421,15 +1349,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<SentNotification>("/invite/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("InviteUser", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1442,9 +1368,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SentNotification</returns>
-        public SentNotification InviteUserWithPhoto(string userId, System.IO.Stream image, InviteRequest data, int operationIndex = 0)
+        public SentNotification InviteUserWithPhoto(string userId, FileParameter image, InviteRequest data)
         {
             VRChat.API.Client.ApiResponse<SentNotification> localVarResponse = InviteUserWithPhotoWithHttpInfo(userId, image, data);
             return localVarResponse.Data;
@@ -1457,27 +1382,20 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SentNotification</returns>
-        public VRChat.API.Client.ApiResponse<SentNotification> InviteUserWithPhotoWithHttpInfo(string userId, System.IO.Stream image, InviteRequest data, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<SentNotification> InviteUserWithPhotoWithHttpInfo(string userId, FileParameter image, InviteRequest data)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->InviteUserWithPhoto");
-            }
 
             // verify the required parameter 'image' is set
             if (image == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'image' when calling InviteApi->InviteUserWithPhoto");
-            }
 
             // verify the required parameter 'data' is set
             if (data == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'data' when calling InviteApi->InviteUserWithPhoto");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1491,23 +1409,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.FileParameters.Add("image", image);
-            localVarRequestOptions.FormParameters.Add("data", VRChat.API.Client.ClientUtils.Serialize(data)); // form parameter
-
-            localVarRequestOptions.Operation = "InviteApi.InviteUserWithPhoto";
-            localVarRequestOptions.OperationIndex = operationIndex;
+            localVarRequestOptions.FormParameters.Add("data", VRChat.API.Client.ClientUtils.ParameterToString(data)); // form parameter
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1518,13 +1427,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SentNotification>("/invite/{userId}/photo", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("InviteUserWithPhoto", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1537,12 +1444,11 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SentNotification</returns>
-        public async System.Threading.Tasks.Task<SentNotification> InviteUserWithPhotoAsync(string userId, System.IO.Stream image, InviteRequest data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SentNotification> InviteUserWithPhotoAsync(string userId, FileParameter image, InviteRequest data, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<SentNotification> localVarResponse = await InviteUserWithPhotoWithHttpInfoAsync(userId, image, data, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<SentNotification> localVarResponse = await InviteUserWithPhotoWithHttpInfoAsync(userId, image, data, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1553,28 +1459,21 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SentNotification)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SentNotification>> InviteUserWithPhotoWithHttpInfoAsync(string userId, System.IO.Stream image, InviteRequest data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SentNotification>> InviteUserWithPhotoWithHttpInfoAsync(string userId, FileParameter image, InviteRequest data, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->InviteUserWithPhoto");
-            }
 
             // verify the required parameter 'image' is set
             if (image == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'image' when calling InviteApi->InviteUserWithPhoto");
-            }
 
             // verify the required parameter 'data' is set
             if (data == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'data' when calling InviteApi->InviteUserWithPhoto");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1588,24 +1487,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.FileParameters.Add("image", image);
             localVarRequestOptions.FormParameters.Add("data", VRChat.API.Client.ClientUtils.ParameterToString(data)); // form parameter
-
-            localVarRequestOptions.Operation = "InviteApi.InviteUserWithPhoto";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1615,15 +1506,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<SentNotification>("/invite/{userId}/photo", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("InviteUserWithPhoto", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1635,9 +1524,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="requestInviteRequest">Slot number of the Request Message to use when request an invite. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Notification</returns>
-        public Notification RequestInvite(string userId, RequestInviteRequest requestInviteRequest = default(RequestInviteRequest), int operationIndex = 0)
+        public Notification RequestInvite(string userId, RequestInviteRequest? requestInviteRequest = default)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = RequestInviteWithHttpInfo(userId, requestInviteRequest);
             return localVarResponse.Data;
@@ -1649,15 +1537,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="requestInviteRequest">Slot number of the Request Message to use when request an invite. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Notification</returns>
-        public VRChat.API.Client.ApiResponse<Notification> RequestInviteWithHttpInfo(string userId, RequestInviteRequest requestInviteRequest = default(RequestInviteRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Notification> RequestInviteWithHttpInfo(string userId, RequestInviteRequest? requestInviteRequest = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->RequestInvite");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1671,22 +1556,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = requestInviteRequest;
-
-            localVarRequestOptions.Operation = "InviteApi.RequestInvite";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1697,13 +1573,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Notification>("/requestInvite/{userId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RequestInvite", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1715,12 +1589,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="requestInviteRequest">Slot number of the Request Message to use when request an invite. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        public async System.Threading.Tasks.Task<Notification> RequestInviteAsync(string userId, RequestInviteRequest requestInviteRequest = default(RequestInviteRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Notification> RequestInviteAsync(string userId, RequestInviteRequest? requestInviteRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await RequestInviteWithHttpInfoAsync(userId, requestInviteRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await RequestInviteWithHttpInfoAsync(userId, requestInviteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1730,16 +1603,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="requestInviteRequest">Slot number of the Request Message to use when request an invite. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> RequestInviteWithHttpInfoAsync(string userId, RequestInviteRequest requestInviteRequest = default(RequestInviteRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> RequestInviteWithHttpInfoAsync(string userId, RequestInviteRequest? requestInviteRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->RequestInvite");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1753,23 +1623,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = requestInviteRequest;
-
-            localVarRequestOptions.Operation = "InviteApi.RequestInvite";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1779,15 +1641,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Notification>("/requestInvite/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RequestInvite", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1800,9 +1660,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Notification</returns>
-        public Notification RequestInviteWithPhoto(string userId, System.IO.Stream image, RequestInviteRequest data, int operationIndex = 0)
+        public Notification RequestInviteWithPhoto(string userId, FileParameter image, RequestInviteRequest data)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = RequestInviteWithPhotoWithHttpInfo(userId, image, data);
             return localVarResponse.Data;
@@ -1815,27 +1674,20 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Notification</returns>
-        public VRChat.API.Client.ApiResponse<Notification> RequestInviteWithPhotoWithHttpInfo(string userId, System.IO.Stream image, RequestInviteRequest data, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Notification> RequestInviteWithPhotoWithHttpInfo(string userId, FileParameter image, RequestInviteRequest data)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->RequestInviteWithPhoto");
-            }
 
             // verify the required parameter 'image' is set
             if (image == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'image' when calling InviteApi->RequestInviteWithPhoto");
-            }
 
             // verify the required parameter 'data' is set
             if (data == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'data' when calling InviteApi->RequestInviteWithPhoto");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1849,23 +1701,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.FileParameters.Add("image", image);
-            localVarRequestOptions.FormParameters.Add("data", VRChat.API.Client.ClientUtils.Serialize(data)); // form parameter
-
-            localVarRequestOptions.Operation = "InviteApi.RequestInviteWithPhoto";
-            localVarRequestOptions.OperationIndex = operationIndex;
+            localVarRequestOptions.FormParameters.Add("data", VRChat.API.Client.ClientUtils.ParameterToString(data)); // form parameter
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1876,13 +1719,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Notification>("/requestInvite/{userId}/photo", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RequestInviteWithPhoto", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1895,12 +1736,11 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        public async System.Threading.Tasks.Task<Notification> RequestInviteWithPhotoAsync(string userId, System.IO.Stream image, RequestInviteRequest data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Notification> RequestInviteWithPhotoAsync(string userId, FileParameter image, RequestInviteRequest data, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await RequestInviteWithPhotoWithHttpInfoAsync(userId, image, data, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await RequestInviteWithPhotoWithHttpInfoAsync(userId, image, data, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1911,28 +1751,21 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> RequestInviteWithPhotoWithHttpInfoAsync(string userId, System.IO.Stream image, RequestInviteRequest data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> RequestInviteWithPhotoWithHttpInfoAsync(string userId, FileParameter image, RequestInviteRequest data, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->RequestInviteWithPhoto");
-            }
 
             // verify the required parameter 'image' is set
             if (image == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'image' when calling InviteApi->RequestInviteWithPhoto");
-            }
 
             // verify the required parameter 'data' is set
             if (data == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'data' when calling InviteApi->RequestInviteWithPhoto");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1946,24 +1779,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.FileParameters.Add("image", image);
             localVarRequestOptions.FormParameters.Add("data", VRChat.API.Client.ClientUtils.ParameterToString(data)); // form parameter
-
-            localVarRequestOptions.Operation = "InviteApi.RequestInviteWithPhoto";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1973,15 +1798,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Notification>("/requestInvite/{userId}/photo", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RequestInviteWithPhoto", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1994,9 +1817,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InviteMessage&gt;</returns>
-        public List<InviteMessage> ResetInviteMessage(string userId, InviteMessageType messageType, int slot, int operationIndex = 0)
+        public List<InviteMessage> ResetInviteMessage(string userId, InviteMessageType messageType, int slot)
         {
             VRChat.API.Client.ApiResponse<List<InviteMessage>> localVarResponse = ResetInviteMessageWithHttpInfo(userId, messageType, slot);
             return localVarResponse.Data;
@@ -2009,15 +1831,12 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InviteMessage&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<InviteMessage>> ResetInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<InviteMessage>> ResetInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->ResetInviteMessage");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2030,23 +1849,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("messageType", VRChat.API.Client.ClientUtils.ParameterToString(messageType)); // path parameter
             localVarRequestOptions.PathParameters.Add("slot", VRChat.API.Client.ClientUtils.ParameterToString(slot)); // path parameter
-
-            localVarRequestOptions.Operation = "InviteApi.ResetInviteMessage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2057,13 +1867,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<List<InviteMessage>>("/message/{userId}/{messageType}/{slot}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ResetInviteMessage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2076,12 +1884,11 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InviteMessage&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InviteMessage>> ResetInviteMessageAsync(string userId, InviteMessageType messageType, int slot, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<InviteMessage>> ResetInviteMessageAsync(string userId, InviteMessageType messageType, int slot, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<InviteMessage>> localVarResponse = await ResetInviteMessageWithHttpInfoAsync(userId, messageType, slot, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<InviteMessage>> localVarResponse = await ResetInviteMessageWithHttpInfoAsync(userId, messageType, slot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2092,16 +1899,13 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InviteMessage&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InviteMessage>>> ResetInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InviteMessage>>> ResetInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->ResetInviteMessage");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2114,24 +1918,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("messageType", VRChat.API.Client.ClientUtils.ParameterToString(messageType)); // path parameter
             localVarRequestOptions.PathParameters.Add("slot", VRChat.API.Client.ClientUtils.ParameterToString(slot)); // path parameter
-
-            localVarRequestOptions.Operation = "InviteApi.ResetInviteMessage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2141,15 +1937,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<InviteMessage>>("/message/{userId}/{messageType}/{slot}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ResetInviteMessage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2161,9 +1955,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="inviteResponse">Slot number of the Response Message to use when responding to a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Notification</returns>
-        public Notification RespondInvite(string notificationId, InviteResponse inviteResponse, int operationIndex = 0)
+        public Notification RespondInvite(string notificationId, InviteResponse inviteResponse)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = RespondInviteWithHttpInfo(notificationId, inviteResponse);
             return localVarResponse.Data;
@@ -2175,21 +1968,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="inviteResponse">Slot number of the Response Message to use when responding to a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Notification</returns>
-        public VRChat.API.Client.ApiResponse<Notification> RespondInviteWithHttpInfo(string notificationId, InviteResponse inviteResponse, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Notification> RespondInviteWithHttpInfo(string notificationId, InviteResponse inviteResponse)
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling InviteApi->RespondInvite");
-            }
 
             // verify the required parameter 'inviteResponse' is set
             if (inviteResponse == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'inviteResponse' when calling InviteApi->RespondInvite");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2203,22 +1991,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
             localVarRequestOptions.Data = inviteResponse;
-
-            localVarRequestOptions.Operation = "InviteApi.RespondInvite";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2229,13 +2008,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Notification>("/invite/{notificationId}/response", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RespondInvite", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2247,12 +2024,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="inviteResponse">Slot number of the Response Message to use when responding to a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        public async System.Threading.Tasks.Task<Notification> RespondInviteAsync(string notificationId, InviteResponse inviteResponse, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Notification> RespondInviteAsync(string notificationId, InviteResponse inviteResponse, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await RespondInviteWithHttpInfoAsync(notificationId, inviteResponse, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await RespondInviteWithHttpInfoAsync(notificationId, inviteResponse, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2262,22 +2038,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="inviteResponse">Slot number of the Response Message to use when responding to a user.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> RespondInviteWithHttpInfoAsync(string notificationId, InviteResponse inviteResponse, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> RespondInviteWithHttpInfoAsync(string notificationId, InviteResponse inviteResponse, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling InviteApi->RespondInvite");
-            }
 
             // verify the required parameter 'inviteResponse' is set
             if (inviteResponse == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'inviteResponse' when calling InviteApi->RespondInvite");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2291,23 +2062,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
             localVarRequestOptions.Data = inviteResponse;
-
-            localVarRequestOptions.Operation = "InviteApi.RespondInvite";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2317,15 +2080,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Notification>("/invite/{notificationId}/response", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RespondInvite", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2338,9 +2099,8 @@ namespace VRChat.API.Api
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Notification</returns>
-        public Notification RespondInviteWithPhoto(string notificationId, System.IO.Stream image, InviteResponse data, int operationIndex = 0)
+        public Notification RespondInviteWithPhoto(string notificationId, FileParameter image, InviteResponse data)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = RespondInviteWithPhotoWithHttpInfo(notificationId, image, data);
             return localVarResponse.Data;
@@ -2353,27 +2113,20 @@ namespace VRChat.API.Api
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Notification</returns>
-        public VRChat.API.Client.ApiResponse<Notification> RespondInviteWithPhotoWithHttpInfo(string notificationId, System.IO.Stream image, InviteResponse data, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Notification> RespondInviteWithPhotoWithHttpInfo(string notificationId, FileParameter image, InviteResponse data)
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling InviteApi->RespondInviteWithPhoto");
-            }
 
             // verify the required parameter 'image' is set
             if (image == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'image' when calling InviteApi->RespondInviteWithPhoto");
-            }
 
             // verify the required parameter 'data' is set
             if (data == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'data' when calling InviteApi->RespondInviteWithPhoto");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2387,23 +2140,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
             localVarRequestOptions.FileParameters.Add("image", image);
-            localVarRequestOptions.FormParameters.Add("data", VRChat.API.Client.ClientUtils.Serialize(data)); // form parameter
-
-            localVarRequestOptions.Operation = "InviteApi.RespondInviteWithPhoto";
-            localVarRequestOptions.OperationIndex = operationIndex;
+            localVarRequestOptions.FormParameters.Add("data", VRChat.API.Client.ClientUtils.ParameterToString(data)); // form parameter
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2414,13 +2158,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Notification>("/invite/{notificationId}/response/photo", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RespondInviteWithPhoto", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2433,12 +2175,11 @@ namespace VRChat.API.Api
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Notification</returns>
-        public async System.Threading.Tasks.Task<Notification> RespondInviteWithPhotoAsync(string notificationId, System.IO.Stream image, InviteResponse data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Notification> RespondInviteWithPhotoAsync(string notificationId, FileParameter image, InviteResponse data, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await RespondInviteWithPhotoWithHttpInfoAsync(notificationId, image, data, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await RespondInviteWithPhotoWithHttpInfoAsync(notificationId, image, data, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2449,28 +2190,21 @@ namespace VRChat.API.Api
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="data"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Notification)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> RespondInviteWithPhotoWithHttpInfoAsync(string notificationId, System.IO.Stream image, InviteResponse data, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> RespondInviteWithPhotoWithHttpInfoAsync(string notificationId, FileParameter image, InviteResponse data, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling InviteApi->RespondInviteWithPhoto");
-            }
 
             // verify the required parameter 'image' is set
             if (image == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'image' when calling InviteApi->RespondInviteWithPhoto");
-            }
 
             // verify the required parameter 'data' is set
             if (data == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'data' when calling InviteApi->RespondInviteWithPhoto");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2484,24 +2218,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
             localVarRequestOptions.FileParameters.Add("image", image);
             localVarRequestOptions.FormParameters.Add("data", VRChat.API.Client.ClientUtils.ParameterToString(data)); // form parameter
-
-            localVarRequestOptions.Operation = "InviteApi.RespondInviteWithPhoto";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2511,15 +2237,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Notification>("/invite/{notificationId}/response/photo", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RespondInviteWithPhoto", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2533,9 +2257,8 @@ namespace VRChat.API.Api
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
         /// <param name="updateInviteMessageRequest">Message of what to set the invite message to. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InviteMessage&gt;</returns>
-        public List<InviteMessage> UpdateInviteMessage(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = default(UpdateInviteMessageRequest), int operationIndex = 0)
+        public List<InviteMessage> UpdateInviteMessage(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest? updateInviteMessageRequest = default)
         {
             VRChat.API.Client.ApiResponse<List<InviteMessage>> localVarResponse = UpdateInviteMessageWithHttpInfo(userId, messageType, slot, updateInviteMessageRequest);
             return localVarResponse.Data;
@@ -2549,15 +2272,12 @@ namespace VRChat.API.Api
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
         /// <param name="updateInviteMessageRequest">Message of what to set the invite message to. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InviteMessage&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<InviteMessage>> UpdateInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = default(UpdateInviteMessageRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<InviteMessage>> UpdateInviteMessageWithHttpInfo(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest? updateInviteMessageRequest = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->UpdateInviteMessage");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2571,24 +2291,15 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("messageType", VRChat.API.Client.ClientUtils.ParameterToString(messageType)); // path parameter
             localVarRequestOptions.PathParameters.Add("slot", VRChat.API.Client.ClientUtils.ParameterToString(slot)); // path parameter
             localVarRequestOptions.Data = updateInviteMessageRequest;
-
-            localVarRequestOptions.Operation = "InviteApi.UpdateInviteMessage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2599,13 +2310,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<List<InviteMessage>>("/message/{userId}/{messageType}/{slot}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateInviteMessage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2619,12 +2328,11 @@ namespace VRChat.API.Api
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
         /// <param name="updateInviteMessageRequest">Message of what to set the invite message to. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InviteMessage&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InviteMessage>> UpdateInviteMessageAsync(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = default(UpdateInviteMessageRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<InviteMessage>> UpdateInviteMessageAsync(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest? updateInviteMessageRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<InviteMessage>> localVarResponse = await UpdateInviteMessageWithHttpInfoAsync(userId, messageType, slot, updateInviteMessageRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<InviteMessage>> localVarResponse = await UpdateInviteMessageWithHttpInfoAsync(userId, messageType, slot, updateInviteMessageRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2636,16 +2344,13 @@ namespace VRChat.API.Api
         /// <param name="messageType">The type of message to fetch, must be a valid InviteMessageType.</param>
         /// <param name="slot">The message slot to fetch of a given message type.</param>
         /// <param name="updateInviteMessageRequest">Message of what to set the invite message to. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InviteMessage&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InviteMessage>>> UpdateInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest updateInviteMessageRequest = default(UpdateInviteMessageRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InviteMessage>>> UpdateInviteMessageWithHttpInfoAsync(string userId, InviteMessageType messageType, int slot, UpdateInviteMessageRequest? updateInviteMessageRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InviteApi->UpdateInviteMessage");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2659,25 +2364,17 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("messageType", VRChat.API.Client.ClientUtils.ParameterToString(messageType)); // path parameter
             localVarRequestOptions.PathParameters.Add("slot", VRChat.API.Client.ClientUtils.ParameterToString(slot)); // path parameter
             localVarRequestOptions.Data = updateInviteMessageRequest;
-
-            localVarRequestOptions.Operation = "InviteApi.UpdateInviteMessage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2687,15 +2384,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<List<InviteMessage>>("/message/{userId}/{messageType}/{slot}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateInviteMessage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

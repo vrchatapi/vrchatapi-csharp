@@ -22,9 +22,9 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**UploadIcon**](FilesApi.md#uploadicon) | **POST** /icon | Upload icon |
 | [**UploadImage**](FilesApi.md#uploadimage) | **POST** /file/image | Upload gallery image, icon, emoji or sticker |
 
-<a name="createfile"></a>
+<a id="createfile"></a>
 # **CreateFile**
-> File CreateFile (CreateFileRequest createFileRequest = null)
+> File CreateFile (CreateFileRequest? createFileRequest = null)
 
 Create File
 
@@ -34,6 +34,7 @@ Creates a new File object
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -51,8 +52,11 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
-            var createFileRequest = new CreateFileRequest(); // CreateFileRequest |  (optional) 
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
+            var createFileRequest = new CreateFileRequest?(); // CreateFileRequest? |  (optional) 
 
             try
             {
@@ -95,7 +99,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createFileRequest** | [**CreateFileRequest**](CreateFileRequest.md) |  | [optional]  |
+| **createFileRequest** | [**CreateFileRequest?**](CreateFileRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -118,9 +122,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="createfileversion"></a>
+<a id="createfileversion"></a>
 # **CreateFileVersion**
-> File CreateFileVersion (string fileId, CreateFileVersionRequest createFileVersionRequest = null)
+> File CreateFileVersion (string fileId, CreateFileVersionRequest? createFileVersionRequest = null)
 
 Create File Version
 
@@ -130,6 +134,7 @@ Creates a new FileVersion. Once a Version has been created, proceed to the `/fil
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -147,9 +152,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
-            var createFileVersionRequest = new CreateFileVersionRequest(); // CreateFileVersionRequest |  (optional) 
+            var createFileVersionRequest = new CreateFileVersionRequest?(); // CreateFileVersionRequest? |  (optional) 
 
             try
             {
@@ -193,7 +201,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **string** | Must be a valid file ID. |  |
-| **createFileVersionRequest** | [**CreateFileVersionRequest**](CreateFileVersionRequest.md) |  | [optional]  |
+| **createFileVersionRequest** | [**CreateFileVersionRequest?**](CreateFileVersionRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -216,7 +224,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletefile"></a>
+<a id="deletefile"></a>
 # **DeleteFile**
 > File DeleteFile (string fileId)
 
@@ -228,6 +236,7 @@ Deletes a File object.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -245,7 +254,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
 
             try
@@ -313,7 +325,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletefileversion"></a>
+<a id="deletefileversion"></a>
 # **DeleteFileVersion**
 > File DeleteFileVersion (string fileId, int versionId)
 
@@ -325,6 +337,7 @@ Delete a specific version of a file. You can only delete the latest version.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -342,7 +355,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
             var versionId = 1;  // int | Version ID of the asset.
 
@@ -413,9 +429,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="downloadfileversion"></a>
+<a id="downloadfileversion"></a>
 # **DownloadFileVersion**
-> System.IO.Stream DownloadFileVersion (string fileId, int versionId)
+> FileParameter DownloadFileVersion (string fileId, int versionId)
 
 Download File Version
 
@@ -425,6 +441,7 @@ Downloads the file with the provided version number.  **Version Note:** Version 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -442,14 +459,17 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
             var versionId = 1;  // int | Version ID of the asset.
 
             try
             {
                 // Download File Version
-                System.IO.Stream result = apiInstance.DownloadFileVersion(fileId, versionId);
+                FileParameter result = apiInstance.DownloadFileVersion(fileId, versionId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -470,7 +490,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Download File Version
-    ApiResponse<System.IO.Stream> response = apiInstance.DownloadFileVersionWithHttpInfo(fileId, versionId);
+    ApiResponse<FileParameter> response = apiInstance.DownloadFileVersionWithHttpInfo(fileId, versionId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -492,7 +512,7 @@ catch (ApiException e)
 
 ### Return type
 
-**System.IO.Stream**
+[**FileParameter**](FileParameter.md)
 
 ### Authorization
 
@@ -512,9 +532,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="finishfiledataupload"></a>
+<a id="finishfiledataupload"></a>
 # **FinishFileDataUpload**
-> File FinishFileDataUpload (string fileId, int versionId, string fileType, FinishFileDataUploadRequest finishFileDataUploadRequest = null)
+> File FinishFileDataUpload (string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = null)
 
 Finish FileData Upload
 
@@ -524,6 +544,7 @@ Finish an upload of a FileData. This will mark it as \"complete\". After uploadi
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -541,11 +562,14 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
             var versionId = 1;  // int | Version ID of the asset.
             var fileType = file;  // string | Type of file.
-            var finishFileDataUploadRequest = new FinishFileDataUploadRequest(); // FinishFileDataUploadRequest | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional) 
+            var finishFileDataUploadRequest = new FinishFileDataUploadRequest?(); // FinishFileDataUploadRequest? | Please see documentation on ETag's: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag's should NOT be present when uploading a `signature`. (optional) 
 
             try
             {
@@ -591,7 +615,7 @@ catch (ApiException e)
 | **fileId** | **string** | Must be a valid file ID. |  |
 | **versionId** | **int** | Version ID of the asset. |  |
 | **fileType** | **string** | Type of file. |  |
-| **finishFileDataUploadRequest** | [**FinishFileDataUploadRequest**](FinishFileDataUploadRequest.md) | Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional]  |
+| **finishFileDataUploadRequest** | [**FinishFileDataUploadRequest?**](FinishFileDataUploadRequest?.md) | Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. | [optional]  |
 
 ### Return type
 
@@ -614,7 +638,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getadminassetbundle"></a>
+<a id="getadminassetbundle"></a>
 # **GetAdminAssetBundle**
 > AdminAssetBundle GetAdminAssetBundle (string adminAssetBundleId)
 
@@ -626,6 +650,7 @@ Returns an AdminAssetBundle
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -643,7 +668,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var adminAssetBundleId = aab_e159e72c-ce54-4fbe-8c37-96af02f6d18d;  // string | Must be a valid admin asset bundle ID.
 
             try
@@ -710,7 +738,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfile"></a>
+<a id="getfile"></a>
 # **GetFile**
 > File GetFile (string fileId)
 
@@ -722,6 +750,7 @@ Shows general information about the \"File\" object. Each File can have several 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -739,7 +768,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
 
             try
@@ -807,7 +839,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfileanalysis"></a>
+<a id="getfileanalysis"></a>
 # **GetFileAnalysis**
 > FileAnalysis GetFileAnalysis (string fileId, int versionId)
 
@@ -819,6 +851,7 @@ Get the performance analysis for the uploaded assets of an avatar
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -836,7 +869,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
             var versionId = 1;  // int | Version ID of the asset.
 
@@ -907,7 +943,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfileanalysissecurity"></a>
+<a id="getfileanalysissecurity"></a>
 # **GetFileAnalysisSecurity**
 > FileAnalysis GetFileAnalysisSecurity (string fileId, int versionId)
 
@@ -919,6 +955,7 @@ Get the security performance analysis for the uploaded assets of an avatar
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -936,7 +973,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
             var versionId = 1;  // int | Version ID of the asset.
 
@@ -1007,7 +1047,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfileanalysisstandard"></a>
+<a id="getfileanalysisstandard"></a>
 # **GetFileAnalysisStandard**
 > FileAnalysis GetFileAnalysisStandard (string fileId, int versionId)
 
@@ -1019,6 +1059,7 @@ Get the standard performance analysis for the uploaded assets of an avatar
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1036,7 +1077,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
             var versionId = 1;  // int | Version ID of the asset.
 
@@ -1107,7 +1151,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfiledatauploadstatus"></a>
+<a id="getfiledatauploadstatus"></a>
 # **GetFileDataUploadStatus**
 > FileVersionUploadStatus GetFileDataUploadStatus (string fileId, int versionId, string fileType)
 
@@ -1119,6 +1163,7 @@ Retrieves the upload status for file upload. Can currently only be accessed when
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1136,7 +1181,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
             var versionId = 1;  // int | Version ID of the asset.
             var fileType = file;  // string | Type of file.
@@ -1207,9 +1255,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfiles"></a>
+<a id="getfiles"></a>
 # **GetFiles**
-> List&lt;File&gt; GetFiles (string tag = null, string userId = null, int? n = null, int? offset = null)
+> List&lt;File&gt; GetFiles (string? tag = null, string? userId = null, int? n = null, int? offset = null)
 
 List Files
 
@@ -1219,6 +1267,7 @@ Returns a list of files
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1236,9 +1285,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
-            var tag = "tag_example";  // string | Tag, for example \"icon\" or \"gallery\", not included by default. (optional) 
-            var userId = "userId_example";  // string | UserID, will always generate a 500 permission error. (optional) 
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
+            var tag = "tag_example";  // string? | Tag, for example \"icon\" or \"gallery\", not included by default. (optional) 
+            var userId = "userId_example";  // string? | UserID, will always generate a 500 permission error. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
@@ -1283,8 +1335,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tag** | **string** | Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. | [optional]  |
-| **userId** | **string** | UserID, will always generate a 500 permission error. | [optional]  |
+| **tag** | **string?** | Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default. | [optional]  |
+| **userId** | **string?** | UserID, will always generate a 500 permission error. | [optional]  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
@@ -1309,7 +1361,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="startfiledataupload"></a>
+<a id="startfiledataupload"></a>
 # **StartFileDataUpload**
 > FileUploadURL StartFileDataUpload (string fileId, int versionId, string fileType, int? partNumber = null)
 
@@ -1321,6 +1373,7 @@ Starts an upload of a specific FilePart. This endpoint will return an AWS URL wh
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1338,7 +1391,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = file_00000000-0000-0000-0000-000000000000;  // string | Must be a valid file ID.
             var versionId = 1;  // int | Version ID of the asset.
             var fileType = file;  // string | Type of file.
@@ -1412,9 +1468,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="uploadgalleryimage"></a>
+<a id="uploadgalleryimage"></a>
 # **UploadGalleryImage**
-> File UploadGalleryImage (System.IO.Stream file)
+> File UploadGalleryImage (FileParameter file)
 
 Upload gallery image
 
@@ -1424,6 +1480,7 @@ Upload a gallery image
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1441,8 +1498,11 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The binary blob of the png file.
 
             try
             {
@@ -1485,7 +1545,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **file** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **file** | **FileParameter****FileParameter** | The binary blob of the png file. |  |
 
 ### Return type
 
@@ -1508,9 +1568,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="uploadicon"></a>
+<a id="uploadicon"></a>
 # **UploadIcon**
-> File UploadIcon (System.IO.Stream file)
+> File UploadIcon (FileParameter file)
 
 Upload icon
 
@@ -1520,6 +1580,7 @@ Upload an icon
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1537,8 +1598,11 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The binary blob of the png file.
 
             try
             {
@@ -1581,7 +1645,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **file** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **file** | **FileParameter****FileParameter** | The binary blob of the png file. |  |
 
 ### Return type
 
@@ -1604,9 +1668,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="uploadimage"></a>
+<a id="uploadimage"></a>
 # **UploadImage**
-> File UploadImage (System.IO.Stream file, string tag, int? frames = null, int? framesOverTime = null, string animationStyle = null, string maskTag = null)
+> File UploadImage (FileParameter file, string tag, int? frames = null, int? framesOverTime = null, string? animationStyle = null, string? maskTag = null)
 
 Upload gallery image, icon, emoji or sticker
 
@@ -1616,6 +1680,7 @@ Upload an image, which can be an icon, gallery image, sticker or emoji
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1633,13 +1698,16 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FilesApi(config);
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The binary blob of the png file.
             var tag = "tag_example";  // string | Needs to be either icon, gallery, sticker, emoji, or emojianimated
             var frames = 56;  // int? | Required for emojianimated. Total number of frames to be animated (2-64) (optional) 
             var framesOverTime = 56;  // int? | Required for emojianimated. Animation frames per second (1-64) (optional) 
-            var animationStyle = "animationStyle_example";  // string | Animation style for sticker, required for emoji. (optional) 
-            var maskTag = "maskTag_example";  // string | Mask of the sticker, optional for emoji. (optional) 
+            var animationStyle = "animationStyle_example";  // string? | Animation style for sticker, required for emoji. (optional) 
+            var maskTag = "maskTag_example";  // string? | Mask of the sticker, optional for emoji. (optional) 
 
             try
             {
@@ -1682,12 +1750,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **file** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **file** | **FileParameter****FileParameter** | The binary blob of the png file. |  |
 | **tag** | **string** | Needs to be either icon, gallery, sticker, emoji, or emojianimated |  |
 | **frames** | **int?** | Required for emojianimated. Total number of frames to be animated (2-64) | [optional]  |
 | **framesOverTime** | **int?** | Required for emojianimated. Animation frames per second (1-64) | [optional]  |
-| **animationStyle** | **string** | Animation style for sticker, required for emoji. | [optional]  |
-| **maskTag** | **string** | Mask of the sticker, optional for emoji. | [optional]  |
+| **animationStyle** | **string?** | Animation style for sticker, required for emoji. | [optional]  |
+| **maskTag** | **string?** | Mask of the sticker, optional for emoji. | [optional]  |
 
 ### Return type
 

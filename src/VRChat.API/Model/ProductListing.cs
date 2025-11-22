@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// ProductListing
     /// </summary>
     [DataContract(Name = "ProductListing")]
-    public partial class ProductListing : IEquatable<ProductListing>, IValidatableObject
+    public partial class ProductListing : IValidatableObject
     {
 
         /// <summary>
@@ -81,7 +82,7 @@ namespace VRChat.API.Model
         /// <param name="stackable">stackable (required).</param>
         /// <param name="storeIds">storeIds (required).</param>
         /// <param name="tags">tags.</param>
-        public ProductListing(bool active = default(bool), bool buyerRefundable = default(bool), string description = default(string), string displayName = default(string), int? duration = default(int?), string durationType = default(string), string groupIcon = default(string), string groupId = default(string), string groupName = default(string), bool hasAvatar = default(bool), bool hasUdon = default(bool), List<Product> hydratedProducts = default(List<Product>), string id = default(string), string imageId = default(string), string imageUrl = default(string), ProductListingType listingType = default(ProductListingType), List<ProductListingVariant> listingVariants = default(List<ProductListingVariant>), bool permanent = default(bool), int priceTokens = default(int), List<string> productIds = default(List<string>), ProductType productType = default(ProductType), List<Object> products = default(List<Object>), bool quantifiable = default(bool), bool recurrable = default(bool), bool refundable = default(bool), string sellerDisplayName = default(string), string sellerId = default(string), bool stackable = default(bool), List<string> storeIds = default(List<string>), List<string> tags = default(List<string>))
+        public ProductListing(bool active = default, bool buyerRefundable = default, string description = default, string displayName = default, int? duration = default, string durationType = default, string groupIcon = default, string groupId = default, string groupName = default, bool hasAvatar = default, bool hasUdon = default, List<Product> hydratedProducts = default, string id = default, string imageId = default, string imageUrl = default, ProductListingType listingType = default, List<ProductListingVariant> listingVariants = default, bool permanent = default, int priceTokens = default, List<string> productIds = default, ProductType productType = default, List<Object> products = default, bool quantifiable = default, bool recurrable = default, bool refundable = default, string sellerDisplayName = default, string sellerId = default, bool stackable = default, List<string> storeIds = default, List<string> tags = default)
         {
             this.Active = active;
             this.BuyerRefundable = buyerRefundable;
@@ -194,12 +195,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets GroupIcon
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "groupIcon", EmitDefaultValue = false)]
         public string GroupIcon { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
@@ -230,12 +237,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "imageId", EmitDefaultValue = false)]
         public string ImageId { get; set; }
 
@@ -375,276 +388,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ProductListing);
-        }
-
-        /// <summary>
-        /// Returns true if ProductListing instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ProductListing to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ProductListing input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Active == input.Active ||
-                    this.Active.Equals(input.Active)
-                ) && 
-                (
-                    this.BuyerRefundable == input.BuyerRefundable ||
-                    this.BuyerRefundable.Equals(input.BuyerRefundable)
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.Duration == input.Duration ||
-                    (this.Duration != null &&
-                    this.Duration.Equals(input.Duration))
-                ) && 
-                (
-                    this.DurationType == input.DurationType ||
-                    (this.DurationType != null &&
-                    this.DurationType.Equals(input.DurationType))
-                ) && 
-                (
-                    this.GroupIcon == input.GroupIcon ||
-                    (this.GroupIcon != null &&
-                    this.GroupIcon.Equals(input.GroupIcon))
-                ) && 
-                (
-                    this.GroupId == input.GroupId ||
-                    (this.GroupId != null &&
-                    this.GroupId.Equals(input.GroupId))
-                ) && 
-                (
-                    this.GroupName == input.GroupName ||
-                    (this.GroupName != null &&
-                    this.GroupName.Equals(input.GroupName))
-                ) && 
-                (
-                    this.HasAvatar == input.HasAvatar ||
-                    this.HasAvatar.Equals(input.HasAvatar)
-                ) && 
-                (
-                    this.HasUdon == input.HasUdon ||
-                    this.HasUdon.Equals(input.HasUdon)
-                ) && 
-                (
-                    this.HydratedProducts == input.HydratedProducts ||
-                    this.HydratedProducts != null &&
-                    input.HydratedProducts != null &&
-                    this.HydratedProducts.SequenceEqual(input.HydratedProducts)
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ImageId == input.ImageId ||
-                    (this.ImageId != null &&
-                    this.ImageId.Equals(input.ImageId))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.ListingType == input.ListingType ||
-                    this.ListingType.Equals(input.ListingType)
-                ) && 
-                (
-                    this.ListingVariants == input.ListingVariants ||
-                    this.ListingVariants != null &&
-                    input.ListingVariants != null &&
-                    this.ListingVariants.SequenceEqual(input.ListingVariants)
-                ) && 
-                (
-                    this.Permanent == input.Permanent ||
-                    this.Permanent.Equals(input.Permanent)
-                ) && 
-                (
-                    this.PriceTokens == input.PriceTokens ||
-                    this.PriceTokens.Equals(input.PriceTokens)
-                ) && 
-                (
-                    this.ProductIds == input.ProductIds ||
-                    this.ProductIds != null &&
-                    input.ProductIds != null &&
-                    this.ProductIds.SequenceEqual(input.ProductIds)
-                ) && 
-                (
-                    this.ProductType == input.ProductType ||
-                    this.ProductType.Equals(input.ProductType)
-                ) && 
-                (
-                    this.Products == input.Products ||
-                    this.Products != null &&
-                    input.Products != null &&
-                    this.Products.SequenceEqual(input.Products)
-                ) && 
-                (
-                    this.Quantifiable == input.Quantifiable ||
-                    this.Quantifiable.Equals(input.Quantifiable)
-                ) && 
-                (
-                    this.Recurrable == input.Recurrable ||
-                    this.Recurrable.Equals(input.Recurrable)
-                ) && 
-                (
-                    this.Refundable == input.Refundable ||
-                    this.Refundable.Equals(input.Refundable)
-                ) && 
-                (
-                    this.SellerDisplayName == input.SellerDisplayName ||
-                    (this.SellerDisplayName != null &&
-                    this.SellerDisplayName.Equals(input.SellerDisplayName))
-                ) && 
-                (
-                    this.SellerId == input.SellerId ||
-                    (this.SellerId != null &&
-                    this.SellerId.Equals(input.SellerId))
-                ) && 
-                (
-                    this.Stackable == input.Stackable ||
-                    this.Stackable.Equals(input.Stackable)
-                ) && 
-                (
-                    this.StoreIds == input.StoreIds ||
-                    this.StoreIds != null &&
-                    input.StoreIds != null &&
-                    this.StoreIds.SequenceEqual(input.StoreIds)
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Active.GetHashCode();
-                hashCode = (hashCode * 59) + this.BuyerRefundable.GetHashCode();
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                if (this.Duration != null)
-                {
-                    hashCode = (hashCode * 59) + this.Duration.GetHashCode();
-                }
-                if (this.DurationType != null)
-                {
-                    hashCode = (hashCode * 59) + this.DurationType.GetHashCode();
-                }
-                if (this.GroupIcon != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupIcon.GetHashCode();
-                }
-                if (this.GroupId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
-                }
-                if (this.GroupName != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.HasAvatar.GetHashCode();
-                hashCode = (hashCode * 59) + this.HasUdon.GetHashCode();
-                if (this.HydratedProducts != null)
-                {
-                    hashCode = (hashCode * 59) + this.HydratedProducts.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.ImageId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ListingType.GetHashCode();
-                if (this.ListingVariants != null)
-                {
-                    hashCode = (hashCode * 59) + this.ListingVariants.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Permanent.GetHashCode();
-                hashCode = (hashCode * 59) + this.PriceTokens.GetHashCode();
-                if (this.ProductIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProductIds.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ProductType.GetHashCode();
-                if (this.Products != null)
-                {
-                    hashCode = (hashCode * 59) + this.Products.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Quantifiable.GetHashCode();
-                hashCode = (hashCode * 59) + this.Recurrable.GetHashCode();
-                hashCode = (hashCode * 59) + this.Refundable.GetHashCode();
-                if (this.SellerDisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.SellerDisplayName.GetHashCode();
-                }
-                if (this.SellerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SellerId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Stackable.GetHashCode();
-                if (this.StoreIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.StoreIds.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

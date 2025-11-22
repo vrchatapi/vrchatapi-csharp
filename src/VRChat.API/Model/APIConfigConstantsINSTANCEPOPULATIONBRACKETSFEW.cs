@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,14 +30,14 @@ namespace VRChat.API.Model
     /// Few population range
     /// </summary>
     [DataContract(Name = "APIConfigConstants_INSTANCE_POPULATION_BRACKETS_FEW")]
-    public partial class APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW : IEquatable<APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW>, IValidatableObject
+    public partial class APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW" /> class.
         /// </summary>
         /// <param name="max">Maximum population for a few instance.</param>
         /// <param name="min">Minimum population for a few instance.</param>
-        public APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW(int max = default(int), int min = default(int))
+        public APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW(int max = default, int min = default)
         {
             this.Max = max;
             this.Min = min;
@@ -80,58 +81,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Max == input.Max ||
-                    this.Max.Equals(input.Max)
-                ) && 
-                (
-                    this.Min == input.Min ||
-                    this.Min.Equals(input.Min)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Max.GetHashCode();
-                hashCode = (hashCode * 59) + this.Min.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// File
     /// </summary>
     [DataContract(Name = "File")]
-    public partial class File : IEquatable<File>, IValidatableObject
+    public partial class File : IValidatableObject
     {
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace VRChat.API.Model
         /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="tags">  (required).</param>
         /// <param name="versions">  (required).</param>
-        public File(string animationStyle = default(string), string maskTag = default(string), string extension = default(string), string id = default(string), MIMEType mimeType = default(MIMEType), string name = default(string), string ownerId = default(string), List<string> tags = default(List<string>), List<FileVersion> versions = default(List<FileVersion>))
+        public File(string animationStyle = default, string maskTag = default, string extension = default, string id = default, MIMEType mimeType = default, string name = default, string ownerId = default, List<string> tags = default, List<FileVersion> versions = default)
         {
             // to ensure "extension" is required (not null)
             if (extension == null)
@@ -100,30 +101,45 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AnimationStyle
         /// </summary>
+        /*
+        <example>bats</example>
+        */
         [DataMember(Name = "animationStyle", EmitDefaultValue = false)]
         public string AnimationStyle { get; set; }
 
         /// <summary>
         /// Gets or Sets MaskTag
         /// </summary>
+        /*
+        <example>square</example>
+        */
         [DataMember(Name = "maskTag", EmitDefaultValue = false)]
         public string MaskTag { get; set; }
 
         /// <summary>
         /// Gets or Sets Extension
         /// </summary>
+        /*
+        <example>.unitypackage</example>
+        */
         [DataMember(Name = "extension", IsRequired = true, EmitDefaultValue = true)]
         public string Extension { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
+        /*
+        <example>Example File</example>
+        */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
@@ -131,6 +147,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = true)]
         public string OwnerId { get; set; }
 
@@ -179,138 +198,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as File);
-        }
-
-        /// <summary>
-        /// Returns true if File instances are equal
-        /// </summary>
-        /// <param name="input">Instance of File to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(File input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AnimationStyle == input.AnimationStyle ||
-                    (this.AnimationStyle != null &&
-                    this.AnimationStyle.Equals(input.AnimationStyle))
-                ) && 
-                (
-                    this.MaskTag == input.MaskTag ||
-                    (this.MaskTag != null &&
-                    this.MaskTag.Equals(input.MaskTag))
-                ) && 
-                (
-                    this.Extension == input.Extension ||
-                    (this.Extension != null &&
-                    this.Extension.Equals(input.Extension))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.MimeType == input.MimeType ||
-                    this.MimeType.Equals(input.MimeType)
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.OwnerId == input.OwnerId ||
-                    (this.OwnerId != null &&
-                    this.OwnerId.Equals(input.OwnerId))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Versions == input.Versions ||
-                    this.Versions != null &&
-                    input.Versions != null &&
-                    this.Versions.SequenceEqual(input.Versions)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.AnimationStyle != null)
-                {
-                    hashCode = (hashCode * 59) + this.AnimationStyle.GetHashCode();
-                }
-                if (this.MaskTag != null)
-                {
-                    hashCode = (hashCode * 59) + this.MaskTag.GetHashCode();
-                }
-                if (this.Extension != null)
-                {
-                    hashCode = (hashCode * 59) + this.Extension.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.MimeType.GetHashCode();
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.OwnerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.Versions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Versions.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Extension (string) minLength
             if (this.Extension != null && this.Extension.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Extension, length must be greater than 1.", new [] { "Extension" });
+                yield return new ValidationResult("Invalid value for Extension, length must be greater than 1.", new [] { "Extension" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
             }
 
             yield break;

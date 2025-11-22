@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// FileData
     /// </summary>
     [DataContract(Name = "FileData")]
-    public partial class FileData : IEquatable<FileData>, IValidatableObject
+    public partial class FileData : IValidatableObject
     {
         /// <summary>
         /// Defines Category
@@ -54,7 +55,6 @@ namespace VRChat.API.Model
             /// </summary>
             [EnumMember(Value = "simple")]
             Simple = 3
-
         }
 
 
@@ -84,7 +84,7 @@ namespace VRChat.API.Model
         /// <param name="status">status (required).</param>
         /// <param name="uploadId">uploadId (required) (default to &quot;&quot;).</param>
         /// <param name="url">url (required).</param>
-        public FileData(CategoryEnum category = CategoryEnum.Queued, string fileName = default(string), string md5 = default(string), int sizeInBytes = default(int), FileStatus status = default(FileStatus), string uploadId = "", string url = default(string))
+        public FileData(CategoryEnum category = CategoryEnum.Queued, string fileName = default, string md5 = default, int sizeInBytes = default, FileStatus status = default, string uploadId = @"", string url = default)
         {
             this.Category = category;
             // to ensure "fileName" is required (not null)
@@ -169,128 +169,40 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as FileData);
-        }
-
-        /// <summary>
-        /// Returns true if FileData instances are equal
-        /// </summary>
-        /// <param name="input">Instance of FileData to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(FileData input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Category == input.Category ||
-                    this.Category.Equals(input.Category)
-                ) && 
-                (
-                    this.FileName == input.FileName ||
-                    (this.FileName != null &&
-                    this.FileName.Equals(input.FileName))
-                ) && 
-                (
-                    this.Md5 == input.Md5 ||
-                    (this.Md5 != null &&
-                    this.Md5.Equals(input.Md5))
-                ) && 
-                (
-                    this.SizeInBytes == input.SizeInBytes ||
-                    this.SizeInBytes.Equals(input.SizeInBytes)
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.UploadId == input.UploadId ||
-                    (this.UploadId != null &&
-                    this.UploadId.Equals(input.UploadId))
-                ) && 
-                (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Category.GetHashCode();
-                if (this.FileName != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileName.GetHashCode();
-                }
-                if (this.Md5 != null)
-                {
-                    hashCode = (hashCode * 59) + this.Md5.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.SizeInBytes.GetHashCode();
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.UploadId != null)
-                {
-                    hashCode = (hashCode * 59) + this.UploadId.GetHashCode();
-                }
-                if (this.Url != null)
-                {
-                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // FileName (string) minLength
             if (this.FileName != null && this.FileName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileName, length must be greater than 1.", new [] { "FileName" });
+                yield return new ValidationResult("Invalid value for FileName, length must be greater than 1.", new [] { "FileName" });
             }
 
             // Md5 (string) minLength
             if (this.Md5 != null && this.Md5.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Md5, length must be greater than 0.", new [] { "Md5" });
+                yield return new ValidationResult("Invalid value for Md5, length must be greater than 0.", new [] { "Md5" });
             }
 
             // SizeInBytes (int) minimum
             if (this.SizeInBytes < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SizeInBytes, must be a value greater than or equal to 0.", new [] { "SizeInBytes" });
+                yield return new ValidationResult("Invalid value for SizeInBytes, must be a value greater than or equal to 0.", new [] { "SizeInBytes" });
             }
 
             // UploadId (string) minLength
             if (this.UploadId != null && this.UploadId.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UploadId, length must be greater than 0.", new [] { "UploadId" });
+                yield return new ValidationResult("Invalid value for UploadId, length must be greater than 0.", new [] { "UploadId" });
             }
 
             // Url (string) minLength
             if (this.Url != null && this.Url.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
+                yield return new ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
             }
 
             yield break;

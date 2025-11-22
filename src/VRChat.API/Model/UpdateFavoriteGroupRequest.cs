@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateFavoriteGroupRequest
     /// </summary>
     [DataContract(Name = "UpdateFavoriteGroupRequest")]
-    public partial class UpdateFavoriteGroupRequest : IEquatable<UpdateFavoriteGroupRequest>, IValidatableObject
+    public partial class UpdateFavoriteGroupRequest : IValidatableObject
     {
 
         /// <summary>
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="displayName">displayName.</param>
         /// <param name="visibility">visibility.</param>
         /// <param name="tags">Tags on FavoriteGroups are believed to do nothing..</param>
-        public UpdateFavoriteGroupRequest(string displayName = default(string), FavoriteGroupVisibility? visibility = default(FavoriteGroupVisibility?), List<string> tags = default(List<string>))
+        public UpdateFavoriteGroupRequest(string displayName = default, FavoriteGroupVisibility? visibility = default, List<string> tags = default)
         {
             this.DisplayName = displayName;
             this.Visibility = visibility;
@@ -88,72 +89,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as UpdateFavoriteGroupRequest);
-        }
-
-        /// <summary>
-        /// Returns true if UpdateFavoriteGroupRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of UpdateFavoriteGroupRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(UpdateFavoriteGroupRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.Visibility == input.Visibility ||
-                    this.Visibility.Equals(input.Visibility)
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

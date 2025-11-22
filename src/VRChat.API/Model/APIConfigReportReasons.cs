@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Reasons available for reporting users
     /// </summary>
     [DataContract(Name = "APIConfig_reportReasons")]
-    public partial class APIConfigReportReasons : IEquatable<APIConfigReportReasons>, IValidatableObject
+    public partial class APIConfigReportReasons : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigReportReasons" /> class.
@@ -61,7 +62,7 @@ namespace VRChat.API.Model
         /// <param name="technical">technical.</param>
         /// <param name="threatening">threatening (required).</param>
         /// <param name="visuals">visuals (required).</param>
-        public APIConfigReportReasons(ReportReason billing = default(ReportReason), ReportReason botting = default(ReportReason), ReportReason cancellation = default(ReportReason), ReportReason copyright = default(ReportReason), ReportReason fraud = default(ReportReason), ReportReason gore = default(ReportReason), ReportReason hacking = default(ReportReason), ReportReason harassing = default(ReportReason), ReportReason hateful = default(ReportReason), ReportReason impersonation = default(ReportReason), ReportReason inappropriate = default(ReportReason), ReportReason leaking = default(ReportReason), ReportReason malicious = default(ReportReason), ReportReason missing = default(ReportReason), ReportReason nudity = default(ReportReason), ReportReason renewal = default(ReportReason), ReportReason security = default(ReportReason), ReportReason service = default(ReportReason), ReportReason sexual = default(ReportReason), ReportReason technical = default(ReportReason), ReportReason threatening = default(ReportReason), ReportReason visuals = default(ReportReason))
+        public APIConfigReportReasons(ReportReason billing = default, ReportReason botting = default, ReportReason cancellation = default, ReportReason copyright = default, ReportReason fraud = default, ReportReason gore = default, ReportReason hacking = default, ReportReason harassing = default, ReportReason hateful = default, ReportReason impersonation = default, ReportReason inappropriate = default, ReportReason leaking = default, ReportReason malicious = default, ReportReason missing = default, ReportReason nudity = default, ReportReason renewal = default, ReportReason security = default, ReportReason service = default, ReportReason sexual = default, ReportReason technical = default, ReportReason threatening = default, ReportReason visuals = default)
         {
             // to ensure "billing" is required (not null)
             if (billing == null)
@@ -358,246 +359,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigReportReasons);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigReportReasons instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigReportReasons to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigReportReasons input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Billing == input.Billing ||
-                    (this.Billing != null &&
-                    this.Billing.Equals(input.Billing))
-                ) && 
-                (
-                    this.Botting == input.Botting ||
-                    (this.Botting != null &&
-                    this.Botting.Equals(input.Botting))
-                ) && 
-                (
-                    this.Cancellation == input.Cancellation ||
-                    (this.Cancellation != null &&
-                    this.Cancellation.Equals(input.Cancellation))
-                ) && 
-                (
-                    this.Copyright == input.Copyright ||
-                    (this.Copyright != null &&
-                    this.Copyright.Equals(input.Copyright))
-                ) && 
-                (
-                    this.Fraud == input.Fraud ||
-                    (this.Fraud != null &&
-                    this.Fraud.Equals(input.Fraud))
-                ) && 
-                (
-                    this.Gore == input.Gore ||
-                    (this.Gore != null &&
-                    this.Gore.Equals(input.Gore))
-                ) && 
-                (
-                    this.Hacking == input.Hacking ||
-                    (this.Hacking != null &&
-                    this.Hacking.Equals(input.Hacking))
-                ) && 
-                (
-                    this.Harassing == input.Harassing ||
-                    (this.Harassing != null &&
-                    this.Harassing.Equals(input.Harassing))
-                ) && 
-                (
-                    this.Hateful == input.Hateful ||
-                    (this.Hateful != null &&
-                    this.Hateful.Equals(input.Hateful))
-                ) && 
-                (
-                    this.Impersonation == input.Impersonation ||
-                    (this.Impersonation != null &&
-                    this.Impersonation.Equals(input.Impersonation))
-                ) && 
-                (
-                    this.Inappropriate == input.Inappropriate ||
-                    (this.Inappropriate != null &&
-                    this.Inappropriate.Equals(input.Inappropriate))
-                ) && 
-                (
-                    this.Leaking == input.Leaking ||
-                    (this.Leaking != null &&
-                    this.Leaking.Equals(input.Leaking))
-                ) && 
-                (
-                    this.Malicious == input.Malicious ||
-                    (this.Malicious != null &&
-                    this.Malicious.Equals(input.Malicious))
-                ) && 
-                (
-                    this.Missing == input.Missing ||
-                    (this.Missing != null &&
-                    this.Missing.Equals(input.Missing))
-                ) && 
-                (
-                    this.Nudity == input.Nudity ||
-                    (this.Nudity != null &&
-                    this.Nudity.Equals(input.Nudity))
-                ) && 
-                (
-                    this.Renewal == input.Renewal ||
-                    (this.Renewal != null &&
-                    this.Renewal.Equals(input.Renewal))
-                ) && 
-                (
-                    this.Security == input.Security ||
-                    (this.Security != null &&
-                    this.Security.Equals(input.Security))
-                ) && 
-                (
-                    this.Service == input.Service ||
-                    (this.Service != null &&
-                    this.Service.Equals(input.Service))
-                ) && 
-                (
-                    this.Sexual == input.Sexual ||
-                    (this.Sexual != null &&
-                    this.Sexual.Equals(input.Sexual))
-                ) && 
-                (
-                    this.Technical == input.Technical ||
-                    (this.Technical != null &&
-                    this.Technical.Equals(input.Technical))
-                ) && 
-                (
-                    this.Threatening == input.Threatening ||
-                    (this.Threatening != null &&
-                    this.Threatening.Equals(input.Threatening))
-                ) && 
-                (
-                    this.Visuals == input.Visuals ||
-                    (this.Visuals != null &&
-                    this.Visuals.Equals(input.Visuals))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Billing != null)
-                {
-                    hashCode = (hashCode * 59) + this.Billing.GetHashCode();
-                }
-                if (this.Botting != null)
-                {
-                    hashCode = (hashCode * 59) + this.Botting.GetHashCode();
-                }
-                if (this.Cancellation != null)
-                {
-                    hashCode = (hashCode * 59) + this.Cancellation.GetHashCode();
-                }
-                if (this.Copyright != null)
-                {
-                    hashCode = (hashCode * 59) + this.Copyright.GetHashCode();
-                }
-                if (this.Fraud != null)
-                {
-                    hashCode = (hashCode * 59) + this.Fraud.GetHashCode();
-                }
-                if (this.Gore != null)
-                {
-                    hashCode = (hashCode * 59) + this.Gore.GetHashCode();
-                }
-                if (this.Hacking != null)
-                {
-                    hashCode = (hashCode * 59) + this.Hacking.GetHashCode();
-                }
-                if (this.Harassing != null)
-                {
-                    hashCode = (hashCode * 59) + this.Harassing.GetHashCode();
-                }
-                if (this.Hateful != null)
-                {
-                    hashCode = (hashCode * 59) + this.Hateful.GetHashCode();
-                }
-                if (this.Impersonation != null)
-                {
-                    hashCode = (hashCode * 59) + this.Impersonation.GetHashCode();
-                }
-                if (this.Inappropriate != null)
-                {
-                    hashCode = (hashCode * 59) + this.Inappropriate.GetHashCode();
-                }
-                if (this.Leaking != null)
-                {
-                    hashCode = (hashCode * 59) + this.Leaking.GetHashCode();
-                }
-                if (this.Malicious != null)
-                {
-                    hashCode = (hashCode * 59) + this.Malicious.GetHashCode();
-                }
-                if (this.Missing != null)
-                {
-                    hashCode = (hashCode * 59) + this.Missing.GetHashCode();
-                }
-                if (this.Nudity != null)
-                {
-                    hashCode = (hashCode * 59) + this.Nudity.GetHashCode();
-                }
-                if (this.Renewal != null)
-                {
-                    hashCode = (hashCode * 59) + this.Renewal.GetHashCode();
-                }
-                if (this.Security != null)
-                {
-                    hashCode = (hashCode * 59) + this.Security.GetHashCode();
-                }
-                if (this.Service != null)
-                {
-                    hashCode = (hashCode * 59) + this.Service.GetHashCode();
-                }
-                if (this.Sexual != null)
-                {
-                    hashCode = (hashCode * 59) + this.Sexual.GetHashCode();
-                }
-                if (this.Technical != null)
-                {
-                    hashCode = (hashCode * 59) + this.Technical.GetHashCode();
-                }
-                if (this.Threatening != null)
-                {
-                    hashCode = (hashCode * 59) + this.Threatening.GetHashCode();
-                }
-                if (this.Visuals != null)
-                {
-                    hashCode = (hashCode * 59) + this.Visuals.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

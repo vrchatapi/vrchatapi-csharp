@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Balance** | **int** |  | [default to 0]
+**VarBalance** | **int** |  | [default to 0]
 **NoTransactions** | **bool** |  | [optional] 
 **TiliaResponse** | **bool** |  | [optional] 
 

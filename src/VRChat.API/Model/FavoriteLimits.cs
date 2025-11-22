@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// FavoriteLimits
     /// </summary>
     [DataContract(Name = "FavoriteLimits")]
-    public partial class FavoriteLimits : IEquatable<FavoriteLimits>, IValidatableObject
+    public partial class FavoriteLimits : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FavoriteLimits" /> class.
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="defaultMaxFavoritesPerGroup">defaultMaxFavoritesPerGroup (required).</param>
         /// <param name="maxFavoriteGroups">maxFavoriteGroups (required).</param>
         /// <param name="maxFavoritesPerGroup">maxFavoritesPerGroup (required).</param>
-        public FavoriteLimits(int defaultMaxFavoriteGroups = default(int), int defaultMaxFavoritesPerGroup = default(int), FavoriteGroupLimits maxFavoriteGroups = default(FavoriteGroupLimits), FavoriteGroupLimits maxFavoritesPerGroup = default(FavoriteGroupLimits))
+        public FavoriteLimits(int defaultMaxFavoriteGroups = default, int defaultMaxFavoritesPerGroup = default, FavoriteGroupLimits maxFavoriteGroups = default, FavoriteGroupLimits maxFavoritesPerGroup = default)
         {
             this.DefaultMaxFavoriteGroups = defaultMaxFavoriteGroups;
             this.DefaultMaxFavoritesPerGroup = defaultMaxFavoritesPerGroup;
@@ -111,76 +112,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as FavoriteLimits);
-        }
-
-        /// <summary>
-        /// Returns true if FavoriteLimits instances are equal
-        /// </summary>
-        /// <param name="input">Instance of FavoriteLimits to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(FavoriteLimits input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.DefaultMaxFavoriteGroups == input.DefaultMaxFavoriteGroups ||
-                    this.DefaultMaxFavoriteGroups.Equals(input.DefaultMaxFavoriteGroups)
-                ) && 
-                (
-                    this.DefaultMaxFavoritesPerGroup == input.DefaultMaxFavoritesPerGroup ||
-                    this.DefaultMaxFavoritesPerGroup.Equals(input.DefaultMaxFavoritesPerGroup)
-                ) && 
-                (
-                    this.MaxFavoriteGroups == input.MaxFavoriteGroups ||
-                    (this.MaxFavoriteGroups != null &&
-                    this.MaxFavoriteGroups.Equals(input.MaxFavoriteGroups))
-                ) && 
-                (
-                    this.MaxFavoritesPerGroup == input.MaxFavoritesPerGroup ||
-                    (this.MaxFavoritesPerGroup != null &&
-                    this.MaxFavoritesPerGroup.Equals(input.MaxFavoritesPerGroup))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.DefaultMaxFavoriteGroups.GetHashCode();
-                hashCode = (hashCode * 59) + this.DefaultMaxFavoritesPerGroup.GetHashCode();
-                if (this.MaxFavoriteGroups != null)
-                {
-                    hashCode = (hashCode * 59) + this.MaxFavoriteGroups.GetHashCode();
-                }
-                if (this.MaxFavoritesPerGroup != null)
-                {
-                    hashCode = (hashCode * 59) + this.MaxFavoritesPerGroup.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

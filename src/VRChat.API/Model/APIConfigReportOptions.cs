@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Options for reporting content
     /// </summary>
     [DataContract(Name = "APIConfig_reportOptions")]
-    public partial class APIConfigReportOptions : IEquatable<APIConfigReportOptions>, IValidatableObject
+    public partial class APIConfigReportOptions : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigReportOptions" /> class.
@@ -38,7 +39,7 @@ namespace VRChat.API.Model
         /// <param name="group">group.</param>
         /// <param name="user">user.</param>
         /// <param name="world">world.</param>
-        public APIConfigReportOptions(APIConfigReportOptionsAvatar avatar = default(APIConfigReportOptionsAvatar), APIConfigReportOptionsGroup group = default(APIConfigReportOptionsGroup), APIConfigReportOptionsUser user = default(APIConfigReportOptionsUser), APIConfigReportOptionsWorld world = default(APIConfigReportOptionsWorld))
+        public APIConfigReportOptions(APIConfigReportOptionsAvatar avatar = default, APIConfigReportOptionsGroup group = default, APIConfigReportOptionsUser user = default, APIConfigReportOptionsWorld world = default)
         {
             this.Avatar = avatar;
             this.Group = group;
@@ -96,84 +97,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigReportOptions);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigReportOptions instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigReportOptions to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigReportOptions input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Avatar == input.Avatar ||
-                    (this.Avatar != null &&
-                    this.Avatar.Equals(input.Avatar))
-                ) && 
-                (
-                    this.Group == input.Group ||
-                    (this.Group != null &&
-                    this.Group.Equals(input.Group))
-                ) && 
-                (
-                    this.User == input.User ||
-                    (this.User != null &&
-                    this.User.Equals(input.User))
-                ) && 
-                (
-                    this.World == input.World ||
-                    (this.World != null &&
-                    this.World.Equals(input.World))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Avatar != null)
-                {
-                    hashCode = (hashCode * 59) + this.Avatar.GetHashCode();
-                }
-                if (this.Group != null)
-                {
-                    hashCode = (hashCode * 59) + this.Group.GetHashCode();
-                }
-                if (this.User != null)
-                {
-                    hashCode = (hashCode * 59) + this.User.GetHashCode();
-                }
-                if (this.World != null)
-                {
-                    hashCode = (hashCode * 59) + this.World.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

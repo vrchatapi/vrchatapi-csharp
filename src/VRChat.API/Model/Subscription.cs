@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Subscription
     /// </summary>
     [DataContract(Name = "Subscription")]
-    public partial class Subscription : IEquatable<Subscription>, IValidatableObject
+    public partial class Subscription : IValidatableObject
     {
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace VRChat.API.Model
         /// <param name="description">description (required).</param>
         /// <param name="period">period (required).</param>
         /// <param name="tier">tier (required).</param>
-        public Subscription(string id = default(string), string steamItemId = default(string), string oculusSku = default(string), string googleProductId = default(string), string googlePlanId = default(string), string picoSku = default(string), string appleProductId = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod period = default(SubscriptionPeriod), int tier = default(int))
+        public Subscription(string id = default, string steamItemId = default, string oculusSku = default, string googleProductId = default, string googlePlanId = default, string picoSku = default, string appleProductId = default, decimal amount = default, string description = default, SubscriptionPeriod period = default, int tier = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -179,170 +180,46 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Subscription);
-        }
-
-        /// <summary>
-        /// Returns true if Subscription instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Subscription to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Subscription input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.SteamItemId == input.SteamItemId ||
-                    (this.SteamItemId != null &&
-                    this.SteamItemId.Equals(input.SteamItemId))
-                ) && 
-                (
-                    this.OculusSku == input.OculusSku ||
-                    (this.OculusSku != null &&
-                    this.OculusSku.Equals(input.OculusSku))
-                ) && 
-                (
-                    this.GoogleProductId == input.GoogleProductId ||
-                    (this.GoogleProductId != null &&
-                    this.GoogleProductId.Equals(input.GoogleProductId))
-                ) && 
-                (
-                    this.GooglePlanId == input.GooglePlanId ||
-                    (this.GooglePlanId != null &&
-                    this.GooglePlanId.Equals(input.GooglePlanId))
-                ) && 
-                (
-                    this.PicoSku == input.PicoSku ||
-                    (this.PicoSku != null &&
-                    this.PicoSku.Equals(input.PicoSku))
-                ) && 
-                (
-                    this.AppleProductId == input.AppleProductId ||
-                    (this.AppleProductId != null &&
-                    this.AppleProductId.Equals(input.AppleProductId))
-                ) && 
-                (
-                    this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Period == input.Period ||
-                    this.Period.Equals(input.Period)
-                ) && 
-                (
-                    this.Tier == input.Tier ||
-                    this.Tier.Equals(input.Tier)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.SteamItemId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SteamItemId.GetHashCode();
-                }
-                if (this.OculusSku != null)
-                {
-                    hashCode = (hashCode * 59) + this.OculusSku.GetHashCode();
-                }
-                if (this.GoogleProductId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GoogleProductId.GetHashCode();
-                }
-                if (this.GooglePlanId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GooglePlanId.GetHashCode();
-                }
-                if (this.PicoSku != null)
-                {
-                    hashCode = (hashCode * 59) + this.PicoSku.GetHashCode();
-                }
-                if (this.AppleProductId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AppleProductId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Period.GetHashCode();
-                hashCode = (hashCode * 59) + this.Tier.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // SteamItemId (string) minLength
             if (this.SteamItemId != null && this.SteamItemId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SteamItemId, length must be greater than 1.", new [] { "SteamItemId" });
+                yield return new ValidationResult("Invalid value for SteamItemId, length must be greater than 1.", new [] { "SteamItemId" });
             }
 
             // OculusSku (string) minLength
             if (this.OculusSku != null && this.OculusSku.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OculusSku, length must be greater than 1.", new [] { "OculusSku" });
+                yield return new ValidationResult("Invalid value for OculusSku, length must be greater than 1.", new [] { "OculusSku" });
             }
 
             // GoogleProductId (string) minLength
             if (this.GoogleProductId != null && this.GoogleProductId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GoogleProductId, length must be greater than 1.", new [] { "GoogleProductId" });
+                yield return new ValidationResult("Invalid value for GoogleProductId, length must be greater than 1.", new [] { "GoogleProductId" });
             }
 
             // PicoSku (string) minLength
             if (this.PicoSku != null && this.PicoSku.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PicoSku, length must be greater than 1.", new [] { "PicoSku" });
+                yield return new ValidationResult("Invalid value for PicoSku, length must be greater than 1.", new [] { "PicoSku" });
             }
 
             // AppleProductId (string) minLength
             if (this.AppleProductId != null && this.AppleProductId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AppleProductId, length must be greater than 1.", new [] { "AppleProductId" });
+                yield return new ValidationResult("Invalid value for AppleProductId, length must be greater than 1.", new [] { "AppleProductId" });
             }
 
             yield break;

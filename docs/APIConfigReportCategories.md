@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Behavior** | [**ReportCategory**](ReportCategory.md) |  | 
 **Chat** | [**ReportCategory**](ReportCategory.md) |  | 
 **Emoji** | [**ReportCategory**](ReportCategory.md) |  | [optional] 
-**Environment** | [**ReportCategory**](ReportCategory.md) |  | 
+**VarEnvironment** | [**ReportCategory**](ReportCategory.md) |  | 
 **Groupstore** | [**ReportCategory**](ReportCategory.md) |  | 
 **Image** | [**ReportCategory**](ReportCategory.md) |  | 
 **Text** | [**ReportCategory**](ReportCategory.md) |  | 

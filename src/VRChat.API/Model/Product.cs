@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Product
     /// </summary>
     [DataContract(Name = "Product")]
-    public partial class Product : IEquatable<Product>, IValidatableObject
+    public partial class Product : IValidatableObject
     {
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace VRChat.API.Model
         /// <param name="tags">tags (required).</param>
         /// <param name="updated">updated (required).</param>
         /// <param name="useForSubscriberList">useForSubscriberList (default to false).</param>
-        public Product(bool archived = default(bool), DateTime created = default(DateTime), string description = default(string), string displayName = default(string), bool groupAccess = false, bool groupAccessRemove = false, string groupId = default(string), string groupRoleId = default(string), string id = default(string), string imageId = default(string), List<string> parentListings = default(List<string>), ProductType productType = default(ProductType), string sellerDisplayName = default(string), string sellerId = default(string), List<string> tags = default(List<string>), DateTime? updated = default(DateTime?), bool useForSubscriberList = false)
+        public Product(bool archived = default, DateTime created = default, string description = default, string displayName = default, bool groupAccess = false, bool groupAccessRemove = false, string groupId = default, string groupRoleId = default, string id = default, string imageId = default, List<string> parentListings = default, ProductType productType = default, string sellerDisplayName = default, string sellerId = default, List<string> tags = default, DateTime? updated = default, bool useForSubscriberList = false)
         {
             this.Archived = archived;
             this.Created = created;
@@ -167,24 +168,36 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupRoleId
         /// </summary>
+        /*
+        <example>grol_459d3911-f672-44bc-b84d-e54ffe7960fe</example>
+        */
         [DataMember(Name = "groupRoleId", EmitDefaultValue = false)]
         public string GroupRoleId { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "imageId", IsRequired = true, EmitDefaultValue = true)]
         public string ImageId { get; set; }
 
@@ -263,183 +276,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Product);
-        }
-
-        /// <summary>
-        /// Returns true if Product instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Product to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Product input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Archived == input.Archived ||
-                    this.Archived.Equals(input.Archived)
-                ) && 
-                (
-                    this.Created == input.Created ||
-                    (this.Created != null &&
-                    this.Created.Equals(input.Created))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.GroupAccess == input.GroupAccess ||
-                    this.GroupAccess.Equals(input.GroupAccess)
-                ) && 
-                (
-                    this.GroupAccessRemove == input.GroupAccessRemove ||
-                    this.GroupAccessRemove.Equals(input.GroupAccessRemove)
-                ) && 
-                (
-                    this.GroupId == input.GroupId ||
-                    (this.GroupId != null &&
-                    this.GroupId.Equals(input.GroupId))
-                ) && 
-                (
-                    this.GroupRoleId == input.GroupRoleId ||
-                    (this.GroupRoleId != null &&
-                    this.GroupRoleId.Equals(input.GroupRoleId))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ImageId == input.ImageId ||
-                    (this.ImageId != null &&
-                    this.ImageId.Equals(input.ImageId))
-                ) && 
-                (
-                    this.ParentListings == input.ParentListings ||
-                    this.ParentListings != null &&
-                    input.ParentListings != null &&
-                    this.ParentListings.SequenceEqual(input.ParentListings)
-                ) && 
-                (
-                    this.ProductType == input.ProductType ||
-                    this.ProductType.Equals(input.ProductType)
-                ) && 
-                (
-                    this.SellerDisplayName == input.SellerDisplayName ||
-                    (this.SellerDisplayName != null &&
-                    this.SellerDisplayName.Equals(input.SellerDisplayName))
-                ) && 
-                (
-                    this.SellerId == input.SellerId ||
-                    (this.SellerId != null &&
-                    this.SellerId.Equals(input.SellerId))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Updated == input.Updated ||
-                    (this.Updated != null &&
-                    this.Updated.Equals(input.Updated))
-                ) && 
-                (
-                    this.UseForSubscriberList == input.UseForSubscriberList ||
-                    this.UseForSubscriberList.Equals(input.UseForSubscriberList)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Archived.GetHashCode();
-                if (this.Created != null)
-                {
-                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.GroupAccess.GetHashCode();
-                hashCode = (hashCode * 59) + this.GroupAccessRemove.GetHashCode();
-                if (this.GroupId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
-                }
-                if (this.GroupRoleId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupRoleId.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.ImageId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
-                }
-                if (this.ParentListings != null)
-                {
-                    hashCode = (hashCode * 59) + this.ParentListings.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ProductType.GetHashCode();
-                if (this.SellerDisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.SellerDisplayName.GetHashCode();
-                }
-                if (this.SellerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SellerId.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.Updated != null)
-                {
-                    hashCode = (hashCode * 59) + this.Updated.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.UseForSubscriberList.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// UserNote
     /// </summary>
     [DataContract(Name = "UserNote")]
-    public partial class UserNote : IEquatable<UserNote>, IValidatableObject
+    public partial class UserNote : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UserNote" /> class.
@@ -45,7 +46,7 @@ namespace VRChat.API.Model
         /// <param name="targetUser">targetUser.</param>
         /// <param name="targetUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        public UserNote(DateTime createdAt = default(DateTime), string id = default(string), string note = default(string), UserNoteTargetUser targetUser = default(UserNoteTargetUser), string targetUserId = default(string), string userId = default(string))
+        public UserNote(DateTime createdAt = default, string id = default, string note = default, UserNoteTargetUser targetUser = default, string targetUserId = default, string userId = default)
         {
             this.CreatedAt = createdAt;
             // to ensure "id" is required (not null)
@@ -84,6 +85,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>unt_e9074848-d107-4019-b4aa-bbd19e67660d</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -103,6 +107,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "targetUserId", IsRequired = true, EmitDefaultValue = true)]
         public string TargetUserId { get; set; }
 
@@ -110,6 +117,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public string UserId { get; set; }
 
@@ -141,102 +151,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as UserNote);
-        }
-
-        /// <summary>
-        /// Returns true if UserNote instances are equal
-        /// </summary>
-        /// <param name="input">Instance of UserNote to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(UserNote input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Note == input.Note ||
-                    (this.Note != null &&
-                    this.Note.Equals(input.Note))
-                ) && 
-                (
-                    this.TargetUser == input.TargetUser ||
-                    (this.TargetUser != null &&
-                    this.TargetUser.Equals(input.TargetUser))
-                ) && 
-                (
-                    this.TargetUserId == input.TargetUserId ||
-                    (this.TargetUserId != null &&
-                    this.TargetUserId.Equals(input.TargetUserId))
-                ) && 
-                (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Note != null)
-                {
-                    hashCode = (hashCode * 59) + this.Note.GetHashCode();
-                }
-                if (this.TargetUser != null)
-                {
-                    hashCode = (hashCode * 59) + this.TargetUser.GetHashCode();
-                }
-                if (this.TargetUserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TargetUserId.GetHashCode();
-                }
-                if (this.UserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

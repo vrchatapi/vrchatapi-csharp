@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InventoryMetadata
     /// </summary>
     [DataContract(Name = "InventoryMetadata")]
-    public partial class InventoryMetadata : IEquatable<InventoryMetadata>, IValidatableObject
+    public partial class InventoryMetadata : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InventoryMetadata" /> class.
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="maskTag">maskTag.</param>
         /// <param name="propId">propId.</param>
-        public InventoryMetadata(List<string> inventoryItemsToInstantiate = default(List<string>), bool animated = default(bool), string animationStyle = default(string), string assetBundleId = default(string), string fileId = default(string), string imageUrl = default(string), string maskTag = default(string), string propId = default(string))
+        public InventoryMetadata(List<string> inventoryItemsToInstantiate = default, bool animated = default, string animationStyle = default, string assetBundleId = default, string fileId = default, string imageUrl = default, string maskTag = default, string propId = default)
         {
             this.InventoryItemsToInstantiate = inventoryItemsToInstantiate;
             this.Animated = animated;
@@ -100,6 +101,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PropId
         /// </summary>
+        /*
+        <example>prop_829ba6f6-b837-49d9-b9a9-056b82103b58</example>
+        */
         [DataMember(Name = "propId", EmitDefaultValue = false)]
         public string PropId { get; set; }
 
@@ -133,117 +137,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InventoryMetadata);
-        }
-
-        /// <summary>
-        /// Returns true if InventoryMetadata instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InventoryMetadata to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InventoryMetadata input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.InventoryItemsToInstantiate == input.InventoryItemsToInstantiate ||
-                    this.InventoryItemsToInstantiate != null &&
-                    input.InventoryItemsToInstantiate != null &&
-                    this.InventoryItemsToInstantiate.SequenceEqual(input.InventoryItemsToInstantiate)
-                ) && 
-                (
-                    this.Animated == input.Animated ||
-                    this.Animated.Equals(input.Animated)
-                ) && 
-                (
-                    this.AnimationStyle == input.AnimationStyle ||
-                    (this.AnimationStyle != null &&
-                    this.AnimationStyle.Equals(input.AnimationStyle))
-                ) && 
-                (
-                    this.AssetBundleId == input.AssetBundleId ||
-                    (this.AssetBundleId != null &&
-                    this.AssetBundleId.Equals(input.AssetBundleId))
-                ) && 
-                (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.MaskTag == input.MaskTag ||
-                    (this.MaskTag != null &&
-                    this.MaskTag.Equals(input.MaskTag))
-                ) && 
-                (
-                    this.PropId == input.PropId ||
-                    (this.PropId != null &&
-                    this.PropId.Equals(input.PropId))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.InventoryItemsToInstantiate != null)
-                {
-                    hashCode = (hashCode * 59) + this.InventoryItemsToInstantiate.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Animated.GetHashCode();
-                if (this.AnimationStyle != null)
-                {
-                    hashCode = (hashCode * 59) + this.AnimationStyle.GetHashCode();
-                }
-                if (this.AssetBundleId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetBundleId.GetHashCode();
-                }
-                if (this.FileId != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileId.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                if (this.MaskTag != null)
-                {
-                    hashCode = (hashCode * 59) + this.MaskTag.GetHashCode();
-                }
-                if (this.PropId != null)
-                {
-                    hashCode = (hashCode * 59) + this.PropId.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

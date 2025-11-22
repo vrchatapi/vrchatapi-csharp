@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,14 +30,14 @@ namespace VRChat.API.Model
     /// GetUserGroupInstances200Response
     /// </summary>
     [DataContract(Name = "getUserGroupInstances_200_response")]
-    public partial class GetUserGroupInstances200Response : IEquatable<GetUserGroupInstances200Response>, IValidatableObject
+    public partial class GetUserGroupInstances200Response : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetUserGroupInstances200Response" /> class.
         /// </summary>
         /// <param name="fetchedAt">fetchedAt.</param>
         /// <param name="instances">instances.</param>
-        public GetUserGroupInstances200Response(DateTime fetchedAt = default(DateTime), List<Instance> instances = default(List<Instance>))
+        public GetUserGroupInstances200Response(DateTime fetchedAt = default, List<Instance> instances = default)
         {
             this.FetchedAt = fetchedAt;
             this.Instances = instances;
@@ -78,67 +79,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as GetUserGroupInstances200Response);
-        }
-
-        /// <summary>
-        /// Returns true if GetUserGroupInstances200Response instances are equal
-        /// </summary>
-        /// <param name="input">Instance of GetUserGroupInstances200Response to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(GetUserGroupInstances200Response input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.FetchedAt == input.FetchedAt ||
-                    (this.FetchedAt != null &&
-                    this.FetchedAt.Equals(input.FetchedAt))
-                ) && 
-                (
-                    this.Instances == input.Instances ||
-                    this.Instances != null &&
-                    input.Instances != null &&
-                    this.Instances.SequenceEqual(input.Instances)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.FetchedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.FetchedAt.GetHashCode();
-                }
-                if (this.Instances != null)
-                {
-                    hashCode = (hashCode * 59) + this.Instances.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

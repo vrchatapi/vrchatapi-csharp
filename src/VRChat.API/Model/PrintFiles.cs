@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,14 +30,14 @@ namespace VRChat.API.Model
     /// PrintFiles
     /// </summary>
     [DataContract(Name = "Print_files")]
-    public partial class PrintFiles : IEquatable<PrintFiles>, IValidatableObject
+    public partial class PrintFiles : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PrintFiles" /> class.
         /// </summary>
         /// <param name="fileId">fileId.</param>
         /// <param name="image">Link to file, e.g. https://api.vrchat.cloud/api/1/file/file_66fe782d-f2bd-4462-9761-1d766d7b2b26/1/file.</param>
-        public PrintFiles(string fileId = default(string), string image = default(string))
+        public PrintFiles(string fileId = default, string image = default)
         {
             this.FileId = fileId;
             this.Image = image;
@@ -45,6 +46,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets FileId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "fileId", EmitDefaultValue = false)]
         public string FileId { get; set; }
 
@@ -79,66 +83,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as PrintFiles);
-        }
-
-        /// <summary>
-        /// Returns true if PrintFiles instances are equal
-        /// </summary>
-        /// <param name="input">Instance of PrintFiles to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(PrintFiles input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
-                ) && 
-                (
-                    this.Image == input.Image ||
-                    (this.Image != null &&
-                    this.Image.Equals(input.Image))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.FileId != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileId.GetHashCode();
-                }
-                if (this.Image != null)
-                {
-                    hashCode = (hashCode * 59) + this.Image.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -49,7 +49,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**UpdateGroupRepresentation**](GroupsApi.md#updategrouprepresentation) | **PUT** /groups/{groupId}/representation | Update Group Representation |
 | [**UpdateGroupRole**](GroupsApi.md#updategrouprole) | **PUT** /groups/{groupId}/roles/{groupRoleId} | Update Group Role |
 
-<a name="addgroupgalleryimage"></a>
+<a id="addgroupgalleryimage"></a>
 # **AddGroupGalleryImage**
 > GroupGalleryImage AddGroupGalleryImage (string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest)
 
@@ -61,6 +61,7 @@ Adds an image to a Group gallery.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -78,7 +79,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var groupGalleryId = ggal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group gallery ID.
             var addGroupGalleryImageRequest = new AddGroupGalleryImageRequest(); // AddGroupGalleryImageRequest | 
@@ -151,7 +155,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="addgroupmemberrole"></a>
+<a id="addgroupmemberrole"></a>
 # **AddGroupMemberRole**
 > List&lt;string&gt; AddGroupMemberRole (string groupId, string userId, string groupRoleId)
 
@@ -163,6 +167,7 @@ Adds a Role to a Group Member
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -180,7 +185,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var userId = "userId_example";  // string | Must be a valid user ID.
             var groupRoleId = grol_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group role ID.
@@ -253,7 +261,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="addgrouppost"></a>
+<a id="addgrouppost"></a>
 # **AddGroupPost**
 > GroupPost AddGroupPost (string groupId, CreateGroupPostRequest createGroupPostRequest)
 
@@ -265,6 +273,7 @@ Create a post in a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -282,7 +291,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var createGroupPostRequest = new CreateGroupPostRequest(); // CreateGroupPostRequest | 
 
@@ -352,7 +364,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bangroupmember"></a>
+<a id="bangroupmember"></a>
 # **BanGroupMember**
 > GroupMember BanGroupMember (string groupId, BanGroupMemberRequest banGroupMemberRequest)
 
@@ -364,6 +376,7 @@ Bans a user from a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -381,7 +394,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var banGroupMemberRequest = new BanGroupMemberRequest(); // BanGroupMemberRequest | 
 
@@ -453,7 +469,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cancelgrouprequest"></a>
+<a id="cancelgrouprequest"></a>
 # **CancelGroupRequest**
 > void CancelGroupRequest (string groupId)
 
@@ -465,6 +481,7 @@ Cancels a request sent to join the group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -482,7 +499,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
 
             try
@@ -548,7 +568,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="creategroup"></a>
+<a id="creategroup"></a>
 # **CreateGroup**
 > Group CreateGroup (CreateGroupRequest createGroupRequest)
 
@@ -560,6 +580,7 @@ Creates a Group and returns a Group object. **Requires VRC+ Subscription.**
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -577,7 +598,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var createGroupRequest = new CreateGroupRequest(); // CreateGroupRequest | 
 
             try
@@ -645,7 +669,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="creategroupannouncement"></a>
+<a id="creategroupannouncement"></a>
 # **CreateGroupAnnouncement**
 > GroupAnnouncement CreateGroupAnnouncement (string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest)
 
@@ -657,6 +681,7 @@ Creates an Announcement for a Group. Warning: This will also remove all announce
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -674,7 +699,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var createGroupAnnouncementRequest = new CreateGroupAnnouncementRequest(); // CreateGroupAnnouncementRequest | 
 
@@ -745,7 +773,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="creategroupgallery"></a>
+<a id="creategroupgallery"></a>
 # **CreateGroupGallery**
 > GroupGallery CreateGroupGallery (string groupId, CreateGroupGalleryRequest createGroupGalleryRequest)
 
@@ -757,6 +785,7 @@ Creates a gallery for a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -774,7 +803,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var createGroupGalleryRequest = new CreateGroupGalleryRequest(); // CreateGroupGalleryRequest | 
 
@@ -845,7 +877,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="creategroupinvite"></a>
+<a id="creategroupinvite"></a>
 # **CreateGroupInvite**
 > void CreateGroupInvite (string groupId, CreateGroupInviteRequest createGroupInviteRequest)
 
@@ -857,6 +889,7 @@ Sends an invite to a user to join the group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -874,7 +907,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var createGroupInviteRequest = new CreateGroupInviteRequest(); // CreateGroupInviteRequest | 
 
@@ -943,7 +979,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="creategrouprole"></a>
+<a id="creategrouprole"></a>
 # **CreateGroupRole**
 > GroupRole CreateGroupRole (string groupId, CreateGroupRoleRequest createGroupRoleRequest)
 
@@ -955,6 +991,7 @@ Create a Group role.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -972,7 +1009,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var createGroupRoleRequest = new CreateGroupRoleRequest(); // CreateGroupRoleRequest | 
 
@@ -1043,7 +1083,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletegroup"></a>
+<a id="deletegroup"></a>
 # **DeleteGroup**
 > Success DeleteGroup (string groupId)
 
@@ -1055,6 +1095,7 @@ Deletes a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1072,7 +1113,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
 
             try
@@ -1141,7 +1185,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletegroupannouncement"></a>
+<a id="deletegroupannouncement"></a>
 # **DeleteGroupAnnouncement**
 > Success DeleteGroupAnnouncement (string groupId)
 
@@ -1153,6 +1197,7 @@ Deletes the announcement for a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1170,7 +1215,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
 
             try
@@ -1239,7 +1287,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletegroupgallery"></a>
+<a id="deletegroupgallery"></a>
 # **DeleteGroupGallery**
 > Success DeleteGroupGallery (string groupId, string groupGalleryId)
 
@@ -1251,6 +1299,7 @@ Deletes a gallery for a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1268,7 +1317,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var groupGalleryId = ggal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group gallery ID.
 
@@ -1339,7 +1391,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletegroupgalleryimage"></a>
+<a id="deletegroupgalleryimage"></a>
 # **DeleteGroupGalleryImage**
 > Success DeleteGroupGalleryImage (string groupId, string groupGalleryId, string groupGalleryImageId)
 
@@ -1351,6 +1403,7 @@ Deletes an image from a Group gallery.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1368,7 +1421,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var groupGalleryId = ggal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group gallery ID.
             var groupGalleryImageId = ggim_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group gallery image ID.
@@ -1442,7 +1498,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletegroupinvite"></a>
+<a id="deletegroupinvite"></a>
 # **DeleteGroupInvite**
 > void DeleteGroupInvite (string groupId, string userId)
 
@@ -1454,6 +1510,7 @@ Deletes an Group invite sent to a User
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1471,7 +1528,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var userId = "userId_example";  // string | Must be a valid user ID.
 
@@ -1538,7 +1598,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletegrouppost"></a>
+<a id="deletegrouppost"></a>
 # **DeleteGroupPost**
 > Success DeleteGroupPost (string groupId, string notificationId)
 
@@ -1550,6 +1610,7 @@ Delete a Group post
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1567,7 +1628,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
 
@@ -1638,7 +1702,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletegrouprole"></a>
+<a id="deletegrouprole"></a>
 # **DeleteGroupRole**
 > List&lt;GroupRole&gt; DeleteGroupRole (string groupId, string groupRoleId)
 
@@ -1650,6 +1714,7 @@ Deletes a Group Role by ID and returns the remaining roles.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1667,7 +1732,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var groupRoleId = grol_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group role ID.
 
@@ -1738,7 +1806,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroup"></a>
+<a id="getgroup"></a>
 # **GetGroup**
 > Group GetGroup (string groupId, bool? includeRoles = null)
 
@@ -1750,6 +1818,7 @@ Returns a single Group by ID.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1767,7 +1836,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var includeRoles = true;  // bool? | Include roles for the Group object. Defaults to false. (optional) 
 
@@ -1838,7 +1910,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupannouncements"></a>
+<a id="getgroupannouncements"></a>
 # **GetGroupAnnouncements**
 > GroupAnnouncement GetGroupAnnouncements (string groupId)
 
@@ -1850,6 +1922,7 @@ Returns the announcement for a Group. If no announcement has been made, then it 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1867,7 +1940,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
 
             try
@@ -1936,9 +2012,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupauditlogs"></a>
+<a id="getgroupauditlogs"></a>
 # **GetGroupAuditLogs**
-> PaginatedGroupAuditLogEntryList GetGroupAuditLogs (string groupId, int? n = null, int? offset = null, DateTime? startDate = null, DateTime? endDate = null, string actorIds = null, string eventTypes = null, string targetIds = null)
+> PaginatedGroupAuditLogEntryList GetGroupAuditLogs (string groupId, int? n = null, int? offset = null, DateTime? startDate = null, DateTime? endDate = null, string? actorIds = null, string? eventTypes = null, string? targetIds = null)
 
 Get Group Audit Logs
 
@@ -1948,6 +2024,7 @@ Returns a list of audit logs for a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1965,15 +2042,18 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var startDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | The start date of the search range. (optional) 
             var endDate = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime? | The end date of the search range. (optional) 
-            var actorIds = usr_00000000-0000-0000-0000-000000000000,usr_11111111-1111-1111-1111-111111111111;  // string | The comma-separated actor ids to search for. (optional) 
-            var eventTypes = group.member.remove,group.instance.kick;  // string | The comma-separated event types to search for. (optional) 
-            var targetIds = usr_00000000-0000-0000-0000-000000000000,usr_11111111-1111-1111-1111-111111111111;  // string | The comma-separated target ids to search for. (optional) 
+            var actorIds = usr_00000000-0000-0000-0000-000000000000,usr_11111111-1111-1111-1111-111111111111;  // string? | The comma-separated actor ids to search for. (optional) 
+            var eventTypes = group.member.remove,group.instance.kick;  // string? | The comma-separated event types to search for. (optional) 
+            var targetIds = usr_00000000-0000-0000-0000-000000000000,usr_11111111-1111-1111-1111-111111111111;  // string? | The comma-separated target ids to search for. (optional) 
 
             try
             {
@@ -2021,9 +2101,9 @@ catch (ApiException e)
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 | **startDate** | **DateTime?** | The start date of the search range. | [optional]  |
 | **endDate** | **DateTime?** | The end date of the search range. | [optional]  |
-| **actorIds** | **string** | The comma-separated actor ids to search for. | [optional]  |
-| **eventTypes** | **string** | The comma-separated event types to search for. | [optional]  |
-| **targetIds** | **string** | The comma-separated target ids to search for. | [optional]  |
+| **actorIds** | **string?** | The comma-separated actor ids to search for. | [optional]  |
+| **eventTypes** | **string?** | The comma-separated event types to search for. | [optional]  |
+| **targetIds** | **string?** | The comma-separated target ids to search for. | [optional]  |
 
 ### Return type
 
@@ -2048,7 +2128,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupbans"></a>
+<a id="getgroupbans"></a>
 # **GetGroupBans**
 > List&lt;GroupMember&gt; GetGroupBans (string groupId, int? n = null, int? offset = null)
 
@@ -2060,6 +2140,7 @@ Returns a list of banned users for a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -2077,7 +2158,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
@@ -2151,7 +2235,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupgalleryimages"></a>
+<a id="getgroupgalleryimages"></a>
 # **GetGroupGalleryImages**
 > List&lt;GroupGalleryImage&gt; GetGroupGalleryImages (string groupId, string groupGalleryId, int? n = null, int? offset = null, bool? approved = null)
 
@@ -2163,6 +2247,7 @@ Returns a list of images for a Group gallery.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -2180,7 +2265,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var groupGalleryId = ggal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group gallery ID.
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
@@ -2257,7 +2345,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupinstances"></a>
+<a id="getgroupinstances"></a>
 # **GetGroupInstances**
 > List&lt;GroupInstance&gt; GetGroupInstances (string groupId)
 
@@ -2269,6 +2357,7 @@ Returns a list of group instances
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -2286,7 +2375,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
 
             try
@@ -2355,7 +2447,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupinvites"></a>
+<a id="getgroupinvites"></a>
 # **GetGroupInvites**
 > List&lt;GroupMember&gt; GetGroupInvites (string groupId, int? n = null, int? offset = null)
 
@@ -2367,6 +2459,7 @@ Returns a list of members that have been invited to the Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -2384,7 +2477,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
@@ -2458,7 +2554,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupmember"></a>
+<a id="getgroupmember"></a>
 # **GetGroupMember**
 > GroupLimitedMember GetGroupMember (string groupId, string userId)
 
@@ -2470,6 +2566,7 @@ Returns a LimitedGroup Member.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -2487,7 +2584,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var userId = "userId_example";  // string | Must be a valid user ID.
 
@@ -2559,9 +2659,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupmembers"></a>
+<a id="getgroupmembers"></a>
 # **GetGroupMembers**
-> List&lt;GroupMember&gt; GetGroupMembers (string groupId, int? n = null, int? offset = null, GroupSearchSort? sort = null, string roleId = null)
+> List&lt;GroupMember&gt; GetGroupMembers (string groupId, int? n = null, int? offset = null, GroupSearchSort? sort = null, string? roleId = null)
 
 List Group Members
 
@@ -2571,6 +2671,7 @@ Returns a List of all **other** Group Members. This endpoint will never return t
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -2588,12 +2689,15 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var sort = (GroupSearchSort) "joinedAt:asc";  // GroupSearchSort? | The sort order of Group Member results (optional) 
-            var roleId = "roleId_example";  // string | Only returns members with a specific groupRoleId (optional) 
+            var sort = new GroupSearchSort?(); // GroupSearchSort? | The sort order of Group Member results (optional) 
+            var roleId = "roleId_example";  // string? | Only returns members with a specific groupRoleId (optional) 
 
             try
             {
@@ -2639,8 +2743,8 @@ catch (ApiException e)
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **sort** | **GroupSearchSort?** | The sort order of Group Member results | [optional]  |
-| **roleId** | **string** | Only returns members with a specific groupRoleId | [optional]  |
+| **sort** | [**GroupSearchSort?**](GroupSearchSort?.md) | The sort order of Group Member results | [optional]  |
+| **roleId** | **string?** | Only returns members with a specific groupRoleId | [optional]  |
 
 ### Return type
 
@@ -2666,7 +2770,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgrouppermissions"></a>
+<a id="getgrouppermissions"></a>
 # **GetGroupPermissions**
 > List&lt;GroupPermission&gt; GetGroupPermissions (string groupId)
 
@@ -2678,6 +2782,7 @@ Returns a List of all possible/available permissions for a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -2695,7 +2800,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
 
             try
@@ -2765,7 +2873,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgroupposts"></a>
+<a id="getgroupposts"></a>
 # **GetGroupPosts**
 > GetGroupPosts200Response GetGroupPosts (string groupId, int? n = null, int? offset = null, bool? publicOnly = null)
 
@@ -2777,6 +2885,7 @@ Get posts from a Group
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -2794,7 +2903,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
@@ -2868,7 +2980,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgrouprequests"></a>
+<a id="getgrouprequests"></a>
 # **GetGroupRequests**
 > List&lt;GroupMember&gt; GetGroupRequests (string groupId, int? n = null, int? offset = null, bool? blocked = null)
 
@@ -2880,6 +2992,7 @@ Returns a list of members that have requested to join the Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -2897,7 +3010,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
@@ -2973,7 +3089,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgrouproletemplates"></a>
+<a id="getgrouproletemplates"></a>
 # **GetGroupRoleTemplates**
 > Dictionary&lt;string, GroupRoleTemplateValues&gt; GetGroupRoleTemplates ()
 
@@ -2985,6 +3101,7 @@ Obtain predefined templates for group roles
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3002,7 +3119,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -3065,7 +3185,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getgrouproles"></a>
+<a id="getgrouproles"></a>
 # **GetGroupRoles**
 > List&lt;GroupRole&gt; GetGroupRoles (string groupId)
 
@@ -3077,6 +3197,7 @@ Returns a Group Role by ID.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3094,7 +3215,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
 
             try
@@ -3163,7 +3287,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="joingroup"></a>
+<a id="joingroup"></a>
 # **JoinGroup**
 > GroupMember JoinGroup (string groupId)
 
@@ -3175,6 +3299,7 @@ Join a Group by ID and returns the member object.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3192,7 +3317,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
 
             try
@@ -3262,7 +3390,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="kickgroupmember"></a>
+<a id="kickgroupmember"></a>
 # **KickGroupMember**
 > void KickGroupMember (string groupId, string userId)
 
@@ -3274,6 +3402,7 @@ Kicks a Group Member from the Group. The current user must have the \"Remove Gro
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3291,7 +3420,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var userId = "userId_example";  // string | Must be a valid user ID.
 
@@ -3359,7 +3491,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="leavegroup"></a>
+<a id="leavegroup"></a>
 # **LeaveGroup**
 > void LeaveGroup (string groupId)
 
@@ -3371,6 +3503,7 @@ Leave a group by ID.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3388,7 +3521,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
 
             try
@@ -3453,7 +3589,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="removegroupmemberrole"></a>
+<a id="removegroupmemberrole"></a>
 # **RemoveGroupMemberRole**
 > List&lt;string&gt; RemoveGroupMemberRole (string groupId, string userId, string groupRoleId)
 
@@ -3465,6 +3601,7 @@ Removes a Role from a Group Member
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3482,7 +3619,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var userId = "userId_example";  // string | Must be a valid user ID.
             var groupRoleId = grol_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group role ID.
@@ -3555,7 +3695,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="respondgroupjoinrequest"></a>
+<a id="respondgroupjoinrequest"></a>
 # **RespondGroupJoinRequest**
 > void RespondGroupJoinRequest (string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest)
 
@@ -3567,6 +3707,7 @@ Responds to a Group Join Request with Accept/Deny
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3584,7 +3725,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var userId = "userId_example";  // string | Must be a valid user ID.
             var respondGroupJoinRequest = new RespondGroupJoinRequest(); // RespondGroupJoinRequest | 
@@ -3653,9 +3797,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="searchgroups"></a>
+<a id="searchgroups"></a>
 # **SearchGroups**
-> List&lt;LimitedGroup&gt; SearchGroups (string query = null, int? offset = null, int? n = null)
+> List&lt;LimitedGroup&gt; SearchGroups (string? query = null, int? offset = null, int? n = null)
 
 Search Group
 
@@ -3665,6 +3809,7 @@ Searches Groups by name or shortCode
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3677,8 +3822,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new GroupsApi(config);
-            var query = "query_example";  // string | Query to search for, can be either Group Name or Group shortCode (optional) 
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
+            var query = "query_example";  // string? | Query to search for, can be either Group Name or Group shortCode (optional) 
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
 
@@ -3723,7 +3871,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string** | Query to search for, can be either Group Name or Group shortCode | [optional]  |
+| **query** | **string?** | Query to search for, can be either Group Name or Group shortCode | [optional]  |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 
@@ -3749,7 +3897,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="unbangroupmember"></a>
+<a id="unbangroupmember"></a>
 # **UnbanGroupMember**
 > GroupMember UnbanGroupMember (string groupId, string userId)
 
@@ -3761,6 +3909,7 @@ Unbans a user from a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3778,7 +3927,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var userId = "userId_example";  // string | Must be a valid user ID.
 
@@ -3849,9 +4001,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updategroup"></a>
+<a id="updategroup"></a>
 # **UpdateGroup**
-> Group UpdateGroup (string groupId, UpdateGroupRequest updateGroupRequest = null)
+> Group UpdateGroup (string groupId, UpdateGroupRequest? updateGroupRequest = null)
 
 Update Group
 
@@ -3861,6 +4013,7 @@ Updates a Group and returns it.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3878,9 +4031,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var updateGroupRequest = new UpdateGroupRequest(); // UpdateGroupRequest |  (optional) 
+            var updateGroupRequest = new UpdateGroupRequest?(); // UpdateGroupRequest? |  (optional) 
 
             try
             {
@@ -3924,7 +4080,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **updateGroupRequest** | [**UpdateGroupRequest**](UpdateGroupRequest.md) |  | [optional]  |
+| **updateGroupRequest** | [**UpdateGroupRequest?**](UpdateGroupRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -3949,9 +4105,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updategroupgallery"></a>
+<a id="updategroupgallery"></a>
 # **UpdateGroupGallery**
-> GroupGallery UpdateGroupGallery (string groupId, string groupGalleryId, UpdateGroupGalleryRequest updateGroupGalleryRequest = null)
+> GroupGallery UpdateGroupGallery (string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = null)
 
 Update Group Gallery
 
@@ -3961,6 +4117,7 @@ Updates a gallery for a Group.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -3978,10 +4135,13 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var groupGalleryId = ggal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group gallery ID.
-            var updateGroupGalleryRequest = new UpdateGroupGalleryRequest(); // UpdateGroupGalleryRequest |  (optional) 
+            var updateGroupGalleryRequest = new UpdateGroupGalleryRequest?(); // UpdateGroupGalleryRequest? |  (optional) 
 
             try
             {
@@ -4026,7 +4186,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **groupGalleryId** | **string** | Must be a valid group gallery ID. |  |
-| **updateGroupGalleryRequest** | [**UpdateGroupGalleryRequest**](UpdateGroupGalleryRequest.md) |  | [optional]  |
+| **updateGroupGalleryRequest** | [**UpdateGroupGalleryRequest?**](UpdateGroupGalleryRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -4051,9 +4211,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updategroupmember"></a>
+<a id="updategroupmember"></a>
 # **UpdateGroupMember**
-> GroupLimitedMember UpdateGroupMember (string groupId, string userId, UpdateGroupMemberRequest updateGroupMemberRequest = null)
+> GroupLimitedMember UpdateGroupMember (string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = null)
 
 Update Group Member
 
@@ -4063,6 +4223,7 @@ Updates a Group Member
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -4080,10 +4241,13 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var userId = "userId_example";  // string | Must be a valid user ID.
-            var updateGroupMemberRequest = new UpdateGroupMemberRequest(); // UpdateGroupMemberRequest |  (optional) 
+            var updateGroupMemberRequest = new UpdateGroupMemberRequest?(); // UpdateGroupMemberRequest? |  (optional) 
 
             try
             {
@@ -4128,7 +4292,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **userId** | **string** | Must be a valid user ID. |  |
-| **updateGroupMemberRequest** | [**UpdateGroupMemberRequest**](UpdateGroupMemberRequest.md) |  | [optional]  |
+| **updateGroupMemberRequest** | [**UpdateGroupMemberRequest?**](UpdateGroupMemberRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -4153,7 +4317,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updategrouppost"></a>
+<a id="updategrouppost"></a>
 # **UpdateGroupPost**
 > GroupPost UpdateGroupPost (string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest)
 
@@ -4165,6 +4329,7 @@ Edits a Group post
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -4182,7 +4347,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
             var createGroupPostRequest = new CreateGroupPostRequest(); // CreateGroupPostRequest | 
@@ -4255,7 +4423,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updategrouprepresentation"></a>
+<a id="updategrouprepresentation"></a>
 # **UpdateGroupRepresentation**
 > Success UpdateGroupRepresentation (string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest)
 
@@ -4267,6 +4435,7 @@ Updates whether the user is representing the group.  When `isRepresenting` is se
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -4284,7 +4453,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var updateGroupRepresentationRequest = new UpdateGroupRepresentationRequest(); // UpdateGroupRepresentationRequest | 
 
@@ -4355,9 +4527,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updategrouprole"></a>
+<a id="updategrouprole"></a>
 # **UpdateGroupRole**
-> List&lt;GroupRole&gt; UpdateGroupRole (string groupId, string groupRoleId, UpdateGroupRoleRequest updateGroupRoleRequest = null)
+> List&lt;GroupRole&gt; UpdateGroupRole (string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = null)
 
 Update Group Role
 
@@ -4367,6 +4539,7 @@ Updates a group role by ID.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -4384,10 +4557,13 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new GroupsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var groupRoleId = grol_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group role ID.
-            var updateGroupRoleRequest = new UpdateGroupRoleRequest(); // UpdateGroupRoleRequest |  (optional) 
+            var updateGroupRoleRequest = new UpdateGroupRoleRequest?(); // UpdateGroupRoleRequest? |  (optional) 
 
             try
             {
@@ -4432,7 +4608,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **groupRoleId** | **string** | Must be a valid group role ID. |  |
-| **updateGroupRoleRequest** | [**UpdateGroupRoleRequest**](UpdateGroupRoleRequest.md) |  | [optional]  |
+| **updateGroupRoleRequest** | [**UpdateGroupRoleRequest?**](UpdateGroupRoleRequest?.md) |  | [optional]  |
 
 ### Return type
 

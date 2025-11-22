@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// GroupRoleTemplateValues
     /// </summary>
     [DataContract(Name = "GroupRoleTemplateValues")]
-    public partial class GroupRoleTemplateValues : IEquatable<GroupRoleTemplateValues>, IValidatableObject
+    public partial class GroupRoleTemplateValues : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupRoleTemplateValues" /> class.
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="description">description (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="roles">roles (required).</param>
-        public GroupRoleTemplateValues(List<GroupPermissions> basePermissions = default(List<GroupPermissions>), string description = default(string), string name = default(string), GroupRoleTemplateValuesRoles roles = default(GroupRoleTemplateValuesRoles))
+        public GroupRoleTemplateValues(List<GroupPermissions> basePermissions = default, string description = default, string name = default, GroupRoleTemplateValuesRoles roles = default)
         {
             // to ensure "basePermissions" is required (not null)
             if (basePermissions == null)
@@ -121,85 +122,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as GroupRoleTemplateValues);
-        }
-
-        /// <summary>
-        /// Returns true if GroupRoleTemplateValues instances are equal
-        /// </summary>
-        /// <param name="input">Instance of GroupRoleTemplateValues to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(GroupRoleTemplateValues input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.BasePermissions == input.BasePermissions ||
-                    this.BasePermissions != null &&
-                    input.BasePermissions != null &&
-                    this.BasePermissions.SequenceEqual(input.BasePermissions)
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Roles == input.Roles ||
-                    (this.Roles != null &&
-                    this.Roles.Equals(input.Roles))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.BasePermissions != null)
-                {
-                    hashCode = (hashCode * 59) + this.BasePermissions.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Roles != null)
-                {
-                    hashCode = (hashCode * 59) + this.Roles.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

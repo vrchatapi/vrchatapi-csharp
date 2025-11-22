@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// APIConfig
     /// </summary>
     [DataContract(Name = "APIConfig")]
-    public partial class APIConfig : IEquatable<APIConfig>, IValidatableObject
+    public partial class APIConfig : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfig" /> class.
@@ -152,7 +153,7 @@ namespace VRChat.API.Model
         /// <param name="websocketMaxFriendsRefreshDelay">Unknown (required) (default to 900).</param>
         /// <param name="websocketQuickReconnectTime">Unknown (required) (default to 2).</param>
         /// <param name="websocketReconnectMaxDelay">Unknown (required) (default to 2).</param>
-        public APIConfig(bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, APIConfigAccessLogsUrls accessLogsUrls = default(APIConfigAccessLogsUrls), string address = default(string), bool ageVerificationInviteVisible = default(bool), bool ageVerificationP = default(bool), bool ageVerificationStatusVisible = default(bool), int analysisMaxRetries = default(int), int analysisRetryInterval = default(int), List<APIConfigAnnouncement> announcements = default(List<APIConfigAnnouncement>), int analyticsSegmentNewUIPctOfUsers = default(int), string analyticsSegmentNewUISalt = default(string), List<string> availableLanguageCodes = default(List<string>), List<string> availableLanguages = default(List<string>), APIConfigAvatarPerfLimiter avatarPerfLimiter = default(APIConfigAvatarPerfLimiter), int chatboxLogBufferSeconds = 40, string clientApiKey = default(string), int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, bool clientNetDispatchThread = false, bool clientNetDispatchThreadMobile = true, bool clientNetInThread = false, bool clientNetInThread2 = false, bool clientNetInThreadMobile = false, bool clientNetInThreadMobile2 = false, bool clientNetOutThread = false, bool clientNetOutThread2 = false, bool clientNetOutThreadMobile = false, bool clientNetOutThreadMobile2 = false, int clientQR = 1, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, APIConfigConstants constants = default(APIConfigConstants), string contactEmail = default(string), string copyrightEmail = default(string), int currentPrivacyVersion = 1, int currentTOSVersion = default(int), string defaultAvatar = default(string), string defaultStickerSet = default(string), List<string> devLanguageCodes = default(List<string>), string devSdkUrl = default(string), string devSdkVersion = default(string), DateTime disCountdown = default(DateTime), bool disableAVProInProton = false, bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableCaptcha = true, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableGiftDrops = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default(string), APIConfigDownloadURLList downloadUrls = default(APIConfigDownloadURLList), List<DynamicContentRow> dynamicWorldRows = default(List<DynamicContentRow>), string economyPauseEnd = default(string), string economyPauseStart = default(string), int economyState = 1, APIConfigEvents events = default(APIConfigEvents), bool forceUseLatestWorld = true, string giftDisplayType = default(string), string googleApiClientId = "827942544393-r2ouvckvouldn9dg9uruseje575e878f.apps.googleusercontent.com", string homeWorldId = default(string), string homepageRedirectTarget = "https://hello.vrchat.com", string hubWorldId = default(string), List<string> imageHostUrlList = default(List<string>), string jobsEmail = default(string), APIConfigMinSupportedClientBuildNumber minSupportedClientBuildNumber = default(APIConfigMinSupportedClientBuildNumber), string minimumUnityVersionForUploads = "2019.0.0f1", string moderationEmail = default(string), string notAllowedToSelectAvatarInPrivateWorldMessage = default(string), APIConfigOfflineAnalysis offlineAnalysis = default(APIConfigOfflineAnalysis), List<string> photonNameserverOverrides = default(List<string>), List<string> photonPublicKeys = default(List<string>), APIConfigReportCategories reportCategories = default(APIConfigReportCategories), string reportFormUrl = "https://help.vrchat.com/hc/en-us/requests/new?ticket_form_id=1500000182242&tf_360056455174=user_report&tf_360057451993={userId}&tf_1500001445142={reportedId}&tf_subject={reason} {category} By {contentType} {reportedName}&tf_description={description}", APIConfigReportOptions reportOptions = default(APIConfigReportOptions), APIConfigReportReasons reportReasons = default(APIConfigReportReasons), bool requireAgeVerificationBetaTag = default(bool), string sdkDeveloperFaqUrl = default(string), string sdkDiscordUrl = default(string), string sdkNotAllowedToPublishMessage = default(string), string sdkUnityVersion = default(string), List<string> stringHostUrlList = default(List<string>), string supportEmail = default(string), string supportFormUrl = default(string), bool timekeeping = true, string timeOutWorldId = default(string), string tutorialWorldId = default(string), int updateRateMsMaximum = default(int), int updateRateMsMinimum = default(int), int updateRateMsNormal = default(int), int updateRateMsUdonManual = default(int), int uploadAnalysisPercent = default(int), List<string> urlList = default(List<string>), bool useReliableUdpForVoice = false, string viveWindowsUrl = default(string), List<string> whiteListedAssetUrls = default(List<string>), string playerUrlResolverVersion = default(string), string playerUrlResolverSha1 = default(string), string publicKey = default(string), int websocketMaxFriendsRefreshDelay = 900, int websocketQuickReconnectTime = 2, int websocketReconnectMaxDelay = 2)
+        public APIConfig(bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, APIConfigAccessLogsUrls accessLogsUrls = default, string address = default, bool ageVerificationInviteVisible = default, bool ageVerificationP = default, bool ageVerificationStatusVisible = default, int analysisMaxRetries = default, int analysisRetryInterval = default, List<APIConfigAnnouncement> announcements = default, int analyticsSegmentNewUIPctOfUsers = default, string analyticsSegmentNewUISalt = default, List<string> availableLanguageCodes = default, List<string> availableLanguages = default, APIConfigAvatarPerfLimiter avatarPerfLimiter = default, int chatboxLogBufferSeconds = 40, string clientApiKey = default, int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, bool clientNetDispatchThread = false, bool clientNetDispatchThreadMobile = true, bool clientNetInThread = false, bool clientNetInThread2 = false, bool clientNetInThreadMobile = false, bool clientNetInThreadMobile2 = false, bool clientNetOutThread = false, bool clientNetOutThread2 = false, bool clientNetOutThreadMobile = false, bool clientNetOutThreadMobile2 = false, int clientQR = 1, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, APIConfigConstants constants = default, string contactEmail = default, string copyrightEmail = default, int currentPrivacyVersion = 1, int currentTOSVersion = default, string defaultAvatar = default, string defaultStickerSet = default, List<string> devLanguageCodes = default, string devSdkUrl = default, string devSdkVersion = default, DateTime disCountdown = default, bool disableAVProInProton = false, bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableCaptcha = true, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableGiftDrops = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default, APIConfigDownloadURLList downloadUrls = default, List<DynamicContentRow> dynamicWorldRows = default, string economyPauseEnd = default, string economyPauseStart = default, int economyState = 1, APIConfigEvents events = default, bool forceUseLatestWorld = true, string giftDisplayType = default, string googleApiClientId = @"827942544393-r2ouvckvouldn9dg9uruseje575e878f.apps.googleusercontent.com", string homeWorldId = default, string homepageRedirectTarget = @"https://hello.vrchat.com", string hubWorldId = default, List<string> imageHostUrlList = default, string jobsEmail = default, APIConfigMinSupportedClientBuildNumber minSupportedClientBuildNumber = default, string minimumUnityVersionForUploads = @"2019.0.0f1", string moderationEmail = default, string notAllowedToSelectAvatarInPrivateWorldMessage = default, APIConfigOfflineAnalysis offlineAnalysis = default, List<string> photonNameserverOverrides = default, List<string> photonPublicKeys = default, APIConfigReportCategories reportCategories = default, string reportFormUrl = @"https://help.vrchat.com/hc/en-us/requests/new?ticket_form_id=1500000182242&tf_360056455174=user_report&tf_360057451993={userId}&tf_1500001445142={reportedId}&tf_subject={reason} {category} By {contentType} {reportedName}&tf_description={description}", APIConfigReportOptions reportOptions = default, APIConfigReportReasons reportReasons = default, bool requireAgeVerificationBetaTag = default, string sdkDeveloperFaqUrl = default, string sdkDiscordUrl = default, string sdkNotAllowedToPublishMessage = default, string sdkUnityVersion = default, List<string> stringHostUrlList = default, string supportEmail = default, string supportFormUrl = default, bool timekeeping = true, string timeOutWorldId = default, string tutorialWorldId = default, int updateRateMsMaximum = default, int updateRateMsMinimum = default, int updateRateMsNormal = default, int updateRateMsUdonManual = default, int uploadAnalysisPercent = default, List<string> urlList = default, bool useReliableUdpForVoice = false, string viveWindowsUrl = default, List<string> whiteListedAssetUrls = default, string playerUrlResolverVersion = default, string playerUrlResolverSha1 = default, string publicKey = default, int websocketMaxFriendsRefreshDelay = 900, int websocketQuickReconnectTime = 2, int websocketReconnectMaxDelay = 2)
         {
             this.VoiceEnableDegradation = voiceEnableDegradation;
             this.VoiceEnableReceiverLimiting = voiceEnableReceiverLimiting;
@@ -779,12 +780,18 @@ namespace VRChat.API.Model
         /// Current version number of the Terms of Service
         /// </summary>
         /// <value>Current version number of the Terms of Service</value>
+        /*
+        <example>7</example>
+        */
         [DataMember(Name = "currentTOSVersion", IsRequired = true, EmitDefaultValue = true)]
         public int CurrentTOSVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultAvatar
         /// </summary>
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
         [DataMember(Name = "defaultAvatar", IsRequired = true, EmitDefaultValue = true)]
         public string DefaultAvatar { get; set; }
 
@@ -1023,6 +1030,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "homeWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string HomeWorldId { get; set; }
 
@@ -1037,6 +1047,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "hubWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string HubWorldId { get; set; }
 
@@ -1192,6 +1205,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "timeOutWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string TimeOutWorldId { get; set; }
 
@@ -1199,6 +1215,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "tutorialWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string TutorialWorldId { get; set; }
 
@@ -1442,967 +1461,130 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfig);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfig instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfig to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfig input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.VoiceEnableDegradation == input.VoiceEnableDegradation ||
-                    this.VoiceEnableDegradation.Equals(input.VoiceEnableDegradation)
-                ) && 
-                (
-                    this.VoiceEnableReceiverLimiting == input.VoiceEnableReceiverLimiting ||
-                    this.VoiceEnableReceiverLimiting.Equals(input.VoiceEnableReceiverLimiting)
-                ) && 
-                (
-                    this.AccessLogsUrls == input.AccessLogsUrls ||
-                    (this.AccessLogsUrls != null &&
-                    this.AccessLogsUrls.Equals(input.AccessLogsUrls))
-                ) && 
-                (
-                    this.Address == input.Address ||
-                    (this.Address != null &&
-                    this.Address.Equals(input.Address))
-                ) && 
-                (
-                    this.AgeVerificationInviteVisible == input.AgeVerificationInviteVisible ||
-                    this.AgeVerificationInviteVisible.Equals(input.AgeVerificationInviteVisible)
-                ) && 
-                (
-                    this.AgeVerificationP == input.AgeVerificationP ||
-                    this.AgeVerificationP.Equals(input.AgeVerificationP)
-                ) && 
-                (
-                    this.AgeVerificationStatusVisible == input.AgeVerificationStatusVisible ||
-                    this.AgeVerificationStatusVisible.Equals(input.AgeVerificationStatusVisible)
-                ) && 
-                (
-                    this.AnalysisMaxRetries == input.AnalysisMaxRetries ||
-                    this.AnalysisMaxRetries.Equals(input.AnalysisMaxRetries)
-                ) && 
-                (
-                    this.AnalysisRetryInterval == input.AnalysisRetryInterval ||
-                    this.AnalysisRetryInterval.Equals(input.AnalysisRetryInterval)
-                ) && 
-                (
-                    this.Announcements == input.Announcements ||
-                    this.Announcements != null &&
-                    input.Announcements != null &&
-                    this.Announcements.SequenceEqual(input.Announcements)
-                ) && 
-                (
-                    this.AnalyticsSegmentNewUIPctOfUsers == input.AnalyticsSegmentNewUIPctOfUsers ||
-                    this.AnalyticsSegmentNewUIPctOfUsers.Equals(input.AnalyticsSegmentNewUIPctOfUsers)
-                ) && 
-                (
-                    this.AnalyticsSegmentNewUISalt == input.AnalyticsSegmentNewUISalt ||
-                    (this.AnalyticsSegmentNewUISalt != null &&
-                    this.AnalyticsSegmentNewUISalt.Equals(input.AnalyticsSegmentNewUISalt))
-                ) && 
-                (
-                    this.AvailableLanguageCodes == input.AvailableLanguageCodes ||
-                    this.AvailableLanguageCodes != null &&
-                    input.AvailableLanguageCodes != null &&
-                    this.AvailableLanguageCodes.SequenceEqual(input.AvailableLanguageCodes)
-                ) && 
-                (
-                    this.AvailableLanguages == input.AvailableLanguages ||
-                    this.AvailableLanguages != null &&
-                    input.AvailableLanguages != null &&
-                    this.AvailableLanguages.SequenceEqual(input.AvailableLanguages)
-                ) && 
-                (
-                    this.AvatarPerfLimiter == input.AvatarPerfLimiter ||
-                    (this.AvatarPerfLimiter != null &&
-                    this.AvatarPerfLimiter.Equals(input.AvatarPerfLimiter))
-                ) && 
-                (
-                    this.ChatboxLogBufferSeconds == input.ChatboxLogBufferSeconds ||
-                    this.ChatboxLogBufferSeconds.Equals(input.ChatboxLogBufferSeconds)
-                ) && 
-                (
-                    this.ClientApiKey == input.ClientApiKey ||
-                    (this.ClientApiKey != null &&
-                    this.ClientApiKey.Equals(input.ClientApiKey))
-                ) && 
-                (
-                    this.ClientBPSCeiling == input.ClientBPSCeiling ||
-                    this.ClientBPSCeiling.Equals(input.ClientBPSCeiling)
-                ) && 
-                (
-                    this.ClientDisconnectTimeout == input.ClientDisconnectTimeout ||
-                    this.ClientDisconnectTimeout.Equals(input.ClientDisconnectTimeout)
-                ) && 
-                (
-                    this.ClientNetDispatchThread == input.ClientNetDispatchThread ||
-                    this.ClientNetDispatchThread.Equals(input.ClientNetDispatchThread)
-                ) && 
-                (
-                    this.ClientNetDispatchThreadMobile == input.ClientNetDispatchThreadMobile ||
-                    this.ClientNetDispatchThreadMobile.Equals(input.ClientNetDispatchThreadMobile)
-                ) && 
-                (
-                    this.ClientNetInThread == input.ClientNetInThread ||
-                    this.ClientNetInThread.Equals(input.ClientNetInThread)
-                ) && 
-                (
-                    this.ClientNetInThread2 == input.ClientNetInThread2 ||
-                    this.ClientNetInThread2.Equals(input.ClientNetInThread2)
-                ) && 
-                (
-                    this.ClientNetInThreadMobile == input.ClientNetInThreadMobile ||
-                    this.ClientNetInThreadMobile.Equals(input.ClientNetInThreadMobile)
-                ) && 
-                (
-                    this.ClientNetInThreadMobile2 == input.ClientNetInThreadMobile2 ||
-                    this.ClientNetInThreadMobile2.Equals(input.ClientNetInThreadMobile2)
-                ) && 
-                (
-                    this.ClientNetOutThread == input.ClientNetOutThread ||
-                    this.ClientNetOutThread.Equals(input.ClientNetOutThread)
-                ) && 
-                (
-                    this.ClientNetOutThread2 == input.ClientNetOutThread2 ||
-                    this.ClientNetOutThread2.Equals(input.ClientNetOutThread2)
-                ) && 
-                (
-                    this.ClientNetOutThreadMobile == input.ClientNetOutThreadMobile ||
-                    this.ClientNetOutThreadMobile.Equals(input.ClientNetOutThreadMobile)
-                ) && 
-                (
-                    this.ClientNetOutThreadMobile2 == input.ClientNetOutThreadMobile2 ||
-                    this.ClientNetOutThreadMobile2.Equals(input.ClientNetOutThreadMobile2)
-                ) && 
-                (
-                    this.ClientQR == input.ClientQR ||
-                    this.ClientQR.Equals(input.ClientQR)
-                ) && 
-                (
-                    this.ClientReservedPlayerBPS == input.ClientReservedPlayerBPS ||
-                    this.ClientReservedPlayerBPS.Equals(input.ClientReservedPlayerBPS)
-                ) && 
-                (
-                    this.ClientSentCountAllowance == input.ClientSentCountAllowance ||
-                    this.ClientSentCountAllowance.Equals(input.ClientSentCountAllowance)
-                ) && 
-                (
-                    this.Constants == input.Constants ||
-                    (this.Constants != null &&
-                    this.Constants.Equals(input.Constants))
-                ) && 
-                (
-                    this.ContactEmail == input.ContactEmail ||
-                    (this.ContactEmail != null &&
-                    this.ContactEmail.Equals(input.ContactEmail))
-                ) && 
-                (
-                    this.CopyrightEmail == input.CopyrightEmail ||
-                    (this.CopyrightEmail != null &&
-                    this.CopyrightEmail.Equals(input.CopyrightEmail))
-                ) && 
-                (
-                    this.CurrentPrivacyVersion == input.CurrentPrivacyVersion ||
-                    this.CurrentPrivacyVersion.Equals(input.CurrentPrivacyVersion)
-                ) && 
-                (
-                    this.CurrentTOSVersion == input.CurrentTOSVersion ||
-                    this.CurrentTOSVersion.Equals(input.CurrentTOSVersion)
-                ) && 
-                (
-                    this.DefaultAvatar == input.DefaultAvatar ||
-                    (this.DefaultAvatar != null &&
-                    this.DefaultAvatar.Equals(input.DefaultAvatar))
-                ) && 
-                (
-                    this.DefaultStickerSet == input.DefaultStickerSet ||
-                    (this.DefaultStickerSet != null &&
-                    this.DefaultStickerSet.Equals(input.DefaultStickerSet))
-                ) && 
-                (
-                    this.DevLanguageCodes == input.DevLanguageCodes ||
-                    this.DevLanguageCodes != null &&
-                    input.DevLanguageCodes != null &&
-                    this.DevLanguageCodes.SequenceEqual(input.DevLanguageCodes)
-                ) && 
-                (
-                    this.DevSdkUrl == input.DevSdkUrl ||
-                    (this.DevSdkUrl != null &&
-                    this.DevSdkUrl.Equals(input.DevSdkUrl))
-                ) && 
-                (
-                    this.DevSdkVersion == input.DevSdkVersion ||
-                    (this.DevSdkVersion != null &&
-                    this.DevSdkVersion.Equals(input.DevSdkVersion))
-                ) && 
-                (
-                    this.DisCountdown == input.DisCountdown ||
-                    (this.DisCountdown != null &&
-                    this.DisCountdown.Equals(input.DisCountdown))
-                ) && 
-                (
-                    this.DisableAVProInProton == input.DisableAVProInProton ||
-                    this.DisableAVProInProton.Equals(input.DisableAVProInProton)
-                ) && 
-                (
-                    this.DisableAvatarCopying == input.DisableAvatarCopying ||
-                    this.DisableAvatarCopying.Equals(input.DisableAvatarCopying)
-                ) && 
-                (
-                    this.DisableAvatarGating == input.DisableAvatarGating ||
-                    this.DisableAvatarGating.Equals(input.DisableAvatarGating)
-                ) && 
-                (
-                    this.DisableCommunityLabs == input.DisableCommunityLabs ||
-                    this.DisableCommunityLabs.Equals(input.DisableCommunityLabs)
-                ) && 
-                (
-                    this.DisableCommunityLabsPromotion == input.DisableCommunityLabsPromotion ||
-                    this.DisableCommunityLabsPromotion.Equals(input.DisableCommunityLabsPromotion)
-                ) && 
-                (
-                    this.DisableEmail == input.DisableEmail ||
-                    this.DisableEmail.Equals(input.DisableEmail)
-                ) && 
-                (
-                    this.DisableCaptcha == input.DisableCaptcha ||
-                    this.DisableCaptcha.Equals(input.DisableCaptcha)
-                ) && 
-                (
-                    this.DisableEventStream == input.DisableEventStream ||
-                    this.DisableEventStream.Equals(input.DisableEventStream)
-                ) && 
-                (
-                    this.DisableFeedbackGating == input.DisableFeedbackGating ||
-                    this.DisableFeedbackGating.Equals(input.DisableFeedbackGating)
-                ) && 
-                (
-                    this.DisableFrontendBuilds == input.DisableFrontendBuilds ||
-                    this.DisableFrontendBuilds.Equals(input.DisableFrontendBuilds)
-                ) && 
-                (
-                    this.DisableGiftDrops == input.DisableGiftDrops ||
-                    this.DisableGiftDrops.Equals(input.DisableGiftDrops)
-                ) && 
-                (
-                    this.DisableHello == input.DisableHello ||
-                    this.DisableHello.Equals(input.DisableHello)
-                ) && 
-                (
-                    this.DisableOculusSubs == input.DisableOculusSubs ||
-                    this.DisableOculusSubs.Equals(input.DisableOculusSubs)
-                ) && 
-                (
-                    this.DisableRegistration == input.DisableRegistration ||
-                    this.DisableRegistration.Equals(input.DisableRegistration)
-                ) && 
-                (
-                    this.DisableSteamNetworking == input.DisableSteamNetworking ||
-                    this.DisableSteamNetworking.Equals(input.DisableSteamNetworking)
-                ) && 
-                (
-                    this.DisableTwoFactorAuth == input.DisableTwoFactorAuth ||
-                    this.DisableTwoFactorAuth.Equals(input.DisableTwoFactorAuth)
-                ) && 
-                (
-                    this.DisableUdon == input.DisableUdon ||
-                    this.DisableUdon.Equals(input.DisableUdon)
-                ) && 
-                (
-                    this.DisableUpgradeAccount == input.DisableUpgradeAccount ||
-                    this.DisableUpgradeAccount.Equals(input.DisableUpgradeAccount)
-                ) && 
-                (
-                    this.DownloadLinkWindows == input.DownloadLinkWindows ||
-                    (this.DownloadLinkWindows != null &&
-                    this.DownloadLinkWindows.Equals(input.DownloadLinkWindows))
-                ) && 
-                (
-                    this.DownloadUrls == input.DownloadUrls ||
-                    (this.DownloadUrls != null &&
-                    this.DownloadUrls.Equals(input.DownloadUrls))
-                ) && 
-                (
-                    this.DynamicWorldRows == input.DynamicWorldRows ||
-                    this.DynamicWorldRows != null &&
-                    input.DynamicWorldRows != null &&
-                    this.DynamicWorldRows.SequenceEqual(input.DynamicWorldRows)
-                ) && 
-                (
-                    this.EconomyPauseEnd == input.EconomyPauseEnd ||
-                    (this.EconomyPauseEnd != null &&
-                    this.EconomyPauseEnd.Equals(input.EconomyPauseEnd))
-                ) && 
-                (
-                    this.EconomyPauseStart == input.EconomyPauseStart ||
-                    (this.EconomyPauseStart != null &&
-                    this.EconomyPauseStart.Equals(input.EconomyPauseStart))
-                ) && 
-                (
-                    this.EconomyState == input.EconomyState ||
-                    this.EconomyState.Equals(input.EconomyState)
-                ) && 
-                (
-                    this.Events == input.Events ||
-                    (this.Events != null &&
-                    this.Events.Equals(input.Events))
-                ) && 
-                (
-                    this.ForceUseLatestWorld == input.ForceUseLatestWorld ||
-                    this.ForceUseLatestWorld.Equals(input.ForceUseLatestWorld)
-                ) && 
-                (
-                    this.GiftDisplayType == input.GiftDisplayType ||
-                    (this.GiftDisplayType != null &&
-                    this.GiftDisplayType.Equals(input.GiftDisplayType))
-                ) && 
-                (
-                    this.GoogleApiClientId == input.GoogleApiClientId ||
-                    (this.GoogleApiClientId != null &&
-                    this.GoogleApiClientId.Equals(input.GoogleApiClientId))
-                ) && 
-                (
-                    this.HomeWorldId == input.HomeWorldId ||
-                    (this.HomeWorldId != null &&
-                    this.HomeWorldId.Equals(input.HomeWorldId))
-                ) && 
-                (
-                    this.HomepageRedirectTarget == input.HomepageRedirectTarget ||
-                    (this.HomepageRedirectTarget != null &&
-                    this.HomepageRedirectTarget.Equals(input.HomepageRedirectTarget))
-                ) && 
-                (
-                    this.HubWorldId == input.HubWorldId ||
-                    (this.HubWorldId != null &&
-                    this.HubWorldId.Equals(input.HubWorldId))
-                ) && 
-                (
-                    this.ImageHostUrlList == input.ImageHostUrlList ||
-                    this.ImageHostUrlList != null &&
-                    input.ImageHostUrlList != null &&
-                    this.ImageHostUrlList.SequenceEqual(input.ImageHostUrlList)
-                ) && 
-                (
-                    this.JobsEmail == input.JobsEmail ||
-                    (this.JobsEmail != null &&
-                    this.JobsEmail.Equals(input.JobsEmail))
-                ) && 
-                (
-                    this.MinSupportedClientBuildNumber == input.MinSupportedClientBuildNumber ||
-                    (this.MinSupportedClientBuildNumber != null &&
-                    this.MinSupportedClientBuildNumber.Equals(input.MinSupportedClientBuildNumber))
-                ) && 
-                (
-                    this.MinimumUnityVersionForUploads == input.MinimumUnityVersionForUploads ||
-                    (this.MinimumUnityVersionForUploads != null &&
-                    this.MinimumUnityVersionForUploads.Equals(input.MinimumUnityVersionForUploads))
-                ) && 
-                (
-                    this.ModerationEmail == input.ModerationEmail ||
-                    (this.ModerationEmail != null &&
-                    this.ModerationEmail.Equals(input.ModerationEmail))
-                ) && 
-                (
-                    this.NotAllowedToSelectAvatarInPrivateWorldMessage == input.NotAllowedToSelectAvatarInPrivateWorldMessage ||
-                    (this.NotAllowedToSelectAvatarInPrivateWorldMessage != null &&
-                    this.NotAllowedToSelectAvatarInPrivateWorldMessage.Equals(input.NotAllowedToSelectAvatarInPrivateWorldMessage))
-                ) && 
-                (
-                    this.OfflineAnalysis == input.OfflineAnalysis ||
-                    (this.OfflineAnalysis != null &&
-                    this.OfflineAnalysis.Equals(input.OfflineAnalysis))
-                ) && 
-                (
-                    this.PhotonNameserverOverrides == input.PhotonNameserverOverrides ||
-                    this.PhotonNameserverOverrides != null &&
-                    input.PhotonNameserverOverrides != null &&
-                    this.PhotonNameserverOverrides.SequenceEqual(input.PhotonNameserverOverrides)
-                ) && 
-                (
-                    this.PhotonPublicKeys == input.PhotonPublicKeys ||
-                    this.PhotonPublicKeys != null &&
-                    input.PhotonPublicKeys != null &&
-                    this.PhotonPublicKeys.SequenceEqual(input.PhotonPublicKeys)
-                ) && 
-                (
-                    this.ReportCategories == input.ReportCategories ||
-                    (this.ReportCategories != null &&
-                    this.ReportCategories.Equals(input.ReportCategories))
-                ) && 
-                (
-                    this.ReportFormUrl == input.ReportFormUrl ||
-                    (this.ReportFormUrl != null &&
-                    this.ReportFormUrl.Equals(input.ReportFormUrl))
-                ) && 
-                (
-                    this.ReportOptions == input.ReportOptions ||
-                    (this.ReportOptions != null &&
-                    this.ReportOptions.Equals(input.ReportOptions))
-                ) && 
-                (
-                    this.ReportReasons == input.ReportReasons ||
-                    (this.ReportReasons != null &&
-                    this.ReportReasons.Equals(input.ReportReasons))
-                ) && 
-                (
-                    this.RequireAgeVerificationBetaTag == input.RequireAgeVerificationBetaTag ||
-                    this.RequireAgeVerificationBetaTag.Equals(input.RequireAgeVerificationBetaTag)
-                ) && 
-                (
-                    this.SdkDeveloperFaqUrl == input.SdkDeveloperFaqUrl ||
-                    (this.SdkDeveloperFaqUrl != null &&
-                    this.SdkDeveloperFaqUrl.Equals(input.SdkDeveloperFaqUrl))
-                ) && 
-                (
-                    this.SdkDiscordUrl == input.SdkDiscordUrl ||
-                    (this.SdkDiscordUrl != null &&
-                    this.SdkDiscordUrl.Equals(input.SdkDiscordUrl))
-                ) && 
-                (
-                    this.SdkNotAllowedToPublishMessage == input.SdkNotAllowedToPublishMessage ||
-                    (this.SdkNotAllowedToPublishMessage != null &&
-                    this.SdkNotAllowedToPublishMessage.Equals(input.SdkNotAllowedToPublishMessage))
-                ) && 
-                (
-                    this.SdkUnityVersion == input.SdkUnityVersion ||
-                    (this.SdkUnityVersion != null &&
-                    this.SdkUnityVersion.Equals(input.SdkUnityVersion))
-                ) && 
-                (
-                    this.StringHostUrlList == input.StringHostUrlList ||
-                    this.StringHostUrlList != null &&
-                    input.StringHostUrlList != null &&
-                    this.StringHostUrlList.SequenceEqual(input.StringHostUrlList)
-                ) && 
-                (
-                    this.SupportEmail == input.SupportEmail ||
-                    (this.SupportEmail != null &&
-                    this.SupportEmail.Equals(input.SupportEmail))
-                ) && 
-                (
-                    this.SupportFormUrl == input.SupportFormUrl ||
-                    (this.SupportFormUrl != null &&
-                    this.SupportFormUrl.Equals(input.SupportFormUrl))
-                ) && 
-                (
-                    this.Timekeeping == input.Timekeeping ||
-                    this.Timekeeping.Equals(input.Timekeeping)
-                ) && 
-                (
-                    this.TimeOutWorldId == input.TimeOutWorldId ||
-                    (this.TimeOutWorldId != null &&
-                    this.TimeOutWorldId.Equals(input.TimeOutWorldId))
-                ) && 
-                (
-                    this.TutorialWorldId == input.TutorialWorldId ||
-                    (this.TutorialWorldId != null &&
-                    this.TutorialWorldId.Equals(input.TutorialWorldId))
-                ) && 
-                (
-                    this.UpdateRateMsMaximum == input.UpdateRateMsMaximum ||
-                    this.UpdateRateMsMaximum.Equals(input.UpdateRateMsMaximum)
-                ) && 
-                (
-                    this.UpdateRateMsMinimum == input.UpdateRateMsMinimum ||
-                    this.UpdateRateMsMinimum.Equals(input.UpdateRateMsMinimum)
-                ) && 
-                (
-                    this.UpdateRateMsNormal == input.UpdateRateMsNormal ||
-                    this.UpdateRateMsNormal.Equals(input.UpdateRateMsNormal)
-                ) && 
-                (
-                    this.UpdateRateMsUdonManual == input.UpdateRateMsUdonManual ||
-                    this.UpdateRateMsUdonManual.Equals(input.UpdateRateMsUdonManual)
-                ) && 
-                (
-                    this.UploadAnalysisPercent == input.UploadAnalysisPercent ||
-                    this.UploadAnalysisPercent.Equals(input.UploadAnalysisPercent)
-                ) && 
-                (
-                    this.UrlList == input.UrlList ||
-                    this.UrlList != null &&
-                    input.UrlList != null &&
-                    this.UrlList.SequenceEqual(input.UrlList)
-                ) && 
-                (
-                    this.UseReliableUdpForVoice == input.UseReliableUdpForVoice ||
-                    this.UseReliableUdpForVoice.Equals(input.UseReliableUdpForVoice)
-                ) && 
-                (
-                    this.ViveWindowsUrl == input.ViveWindowsUrl ||
-                    (this.ViveWindowsUrl != null &&
-                    this.ViveWindowsUrl.Equals(input.ViveWindowsUrl))
-                ) && 
-                (
-                    this.WhiteListedAssetUrls == input.WhiteListedAssetUrls ||
-                    this.WhiteListedAssetUrls != null &&
-                    input.WhiteListedAssetUrls != null &&
-                    this.WhiteListedAssetUrls.SequenceEqual(input.WhiteListedAssetUrls)
-                ) && 
-                (
-                    this.PlayerUrlResolverVersion == input.PlayerUrlResolverVersion ||
-                    (this.PlayerUrlResolverVersion != null &&
-                    this.PlayerUrlResolverVersion.Equals(input.PlayerUrlResolverVersion))
-                ) && 
-                (
-                    this.PlayerUrlResolverSha1 == input.PlayerUrlResolverSha1 ||
-                    (this.PlayerUrlResolverSha1 != null &&
-                    this.PlayerUrlResolverSha1.Equals(input.PlayerUrlResolverSha1))
-                ) && 
-                (
-                    this.PublicKey == input.PublicKey ||
-                    (this.PublicKey != null &&
-                    this.PublicKey.Equals(input.PublicKey))
-                ) && 
-                (
-                    this.WebsocketMaxFriendsRefreshDelay == input.WebsocketMaxFriendsRefreshDelay ||
-                    this.WebsocketMaxFriendsRefreshDelay.Equals(input.WebsocketMaxFriendsRefreshDelay)
-                ) && 
-                (
-                    this.WebsocketQuickReconnectTime == input.WebsocketQuickReconnectTime ||
-                    this.WebsocketQuickReconnectTime.Equals(input.WebsocketQuickReconnectTime)
-                ) && 
-                (
-                    this.WebsocketReconnectMaxDelay == input.WebsocketReconnectMaxDelay ||
-                    this.WebsocketReconnectMaxDelay.Equals(input.WebsocketReconnectMaxDelay)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.VoiceEnableDegradation.GetHashCode();
-                hashCode = (hashCode * 59) + this.VoiceEnableReceiverLimiting.GetHashCode();
-                if (this.AccessLogsUrls != null)
-                {
-                    hashCode = (hashCode * 59) + this.AccessLogsUrls.GetHashCode();
-                }
-                if (this.Address != null)
-                {
-                    hashCode = (hashCode * 59) + this.Address.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AgeVerificationInviteVisible.GetHashCode();
-                hashCode = (hashCode * 59) + this.AgeVerificationP.GetHashCode();
-                hashCode = (hashCode * 59) + this.AgeVerificationStatusVisible.GetHashCode();
-                hashCode = (hashCode * 59) + this.AnalysisMaxRetries.GetHashCode();
-                hashCode = (hashCode * 59) + this.AnalysisRetryInterval.GetHashCode();
-                if (this.Announcements != null)
-                {
-                    hashCode = (hashCode * 59) + this.Announcements.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AnalyticsSegmentNewUIPctOfUsers.GetHashCode();
-                if (this.AnalyticsSegmentNewUISalt != null)
-                {
-                    hashCode = (hashCode * 59) + this.AnalyticsSegmentNewUISalt.GetHashCode();
-                }
-                if (this.AvailableLanguageCodes != null)
-                {
-                    hashCode = (hashCode * 59) + this.AvailableLanguageCodes.GetHashCode();
-                }
-                if (this.AvailableLanguages != null)
-                {
-                    hashCode = (hashCode * 59) + this.AvailableLanguages.GetHashCode();
-                }
-                if (this.AvatarPerfLimiter != null)
-                {
-                    hashCode = (hashCode * 59) + this.AvatarPerfLimiter.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ChatboxLogBufferSeconds.GetHashCode();
-                if (this.ClientApiKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientApiKey.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ClientBPSCeiling.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientDisconnectTimeout.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientNetDispatchThread.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientNetDispatchThreadMobile.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientNetInThread.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientNetInThread2.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientNetInThreadMobile.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientNetInThreadMobile2.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientNetOutThread.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientNetOutThread2.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientNetOutThreadMobile.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientNetOutThreadMobile2.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientQR.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientReservedPlayerBPS.GetHashCode();
-                hashCode = (hashCode * 59) + this.ClientSentCountAllowance.GetHashCode();
-                if (this.Constants != null)
-                {
-                    hashCode = (hashCode * 59) + this.Constants.GetHashCode();
-                }
-                if (this.ContactEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContactEmail.GetHashCode();
-                }
-                if (this.CopyrightEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.CopyrightEmail.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.CurrentPrivacyVersion.GetHashCode();
-                hashCode = (hashCode * 59) + this.CurrentTOSVersion.GetHashCode();
-                if (this.DefaultAvatar != null)
-                {
-                    hashCode = (hashCode * 59) + this.DefaultAvatar.GetHashCode();
-                }
-                if (this.DefaultStickerSet != null)
-                {
-                    hashCode = (hashCode * 59) + this.DefaultStickerSet.GetHashCode();
-                }
-                if (this.DevLanguageCodes != null)
-                {
-                    hashCode = (hashCode * 59) + this.DevLanguageCodes.GetHashCode();
-                }
-                if (this.DevSdkUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.DevSdkUrl.GetHashCode();
-                }
-                if (this.DevSdkVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.DevSdkVersion.GetHashCode();
-                }
-                if (this.DisCountdown != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisCountdown.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.DisableAVProInProton.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableAvatarCopying.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableAvatarGating.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableCommunityLabs.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableCommunityLabsPromotion.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableEmail.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableCaptcha.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableEventStream.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableFeedbackGating.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableFrontendBuilds.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableGiftDrops.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableHello.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableOculusSubs.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableRegistration.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableSteamNetworking.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableTwoFactorAuth.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableUdon.GetHashCode();
-                hashCode = (hashCode * 59) + this.DisableUpgradeAccount.GetHashCode();
-                if (this.DownloadLinkWindows != null)
-                {
-                    hashCode = (hashCode * 59) + this.DownloadLinkWindows.GetHashCode();
-                }
-                if (this.DownloadUrls != null)
-                {
-                    hashCode = (hashCode * 59) + this.DownloadUrls.GetHashCode();
-                }
-                if (this.DynamicWorldRows != null)
-                {
-                    hashCode = (hashCode * 59) + this.DynamicWorldRows.GetHashCode();
-                }
-                if (this.EconomyPauseEnd != null)
-                {
-                    hashCode = (hashCode * 59) + this.EconomyPauseEnd.GetHashCode();
-                }
-                if (this.EconomyPauseStart != null)
-                {
-                    hashCode = (hashCode * 59) + this.EconomyPauseStart.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.EconomyState.GetHashCode();
-                if (this.Events != null)
-                {
-                    hashCode = (hashCode * 59) + this.Events.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ForceUseLatestWorld.GetHashCode();
-                if (this.GiftDisplayType != null)
-                {
-                    hashCode = (hashCode * 59) + this.GiftDisplayType.GetHashCode();
-                }
-                if (this.GoogleApiClientId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GoogleApiClientId.GetHashCode();
-                }
-                if (this.HomeWorldId != null)
-                {
-                    hashCode = (hashCode * 59) + this.HomeWorldId.GetHashCode();
-                }
-                if (this.HomepageRedirectTarget != null)
-                {
-                    hashCode = (hashCode * 59) + this.HomepageRedirectTarget.GetHashCode();
-                }
-                if (this.HubWorldId != null)
-                {
-                    hashCode = (hashCode * 59) + this.HubWorldId.GetHashCode();
-                }
-                if (this.ImageHostUrlList != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageHostUrlList.GetHashCode();
-                }
-                if (this.JobsEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.JobsEmail.GetHashCode();
-                }
-                if (this.MinSupportedClientBuildNumber != null)
-                {
-                    hashCode = (hashCode * 59) + this.MinSupportedClientBuildNumber.GetHashCode();
-                }
-                if (this.MinimumUnityVersionForUploads != null)
-                {
-                    hashCode = (hashCode * 59) + this.MinimumUnityVersionForUploads.GetHashCode();
-                }
-                if (this.ModerationEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.ModerationEmail.GetHashCode();
-                }
-                if (this.NotAllowedToSelectAvatarInPrivateWorldMessage != null)
-                {
-                    hashCode = (hashCode * 59) + this.NotAllowedToSelectAvatarInPrivateWorldMessage.GetHashCode();
-                }
-                if (this.OfflineAnalysis != null)
-                {
-                    hashCode = (hashCode * 59) + this.OfflineAnalysis.GetHashCode();
-                }
-                if (this.PhotonNameserverOverrides != null)
-                {
-                    hashCode = (hashCode * 59) + this.PhotonNameserverOverrides.GetHashCode();
-                }
-                if (this.PhotonPublicKeys != null)
-                {
-                    hashCode = (hashCode * 59) + this.PhotonPublicKeys.GetHashCode();
-                }
-                if (this.ReportCategories != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReportCategories.GetHashCode();
-                }
-                if (this.ReportFormUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReportFormUrl.GetHashCode();
-                }
-                if (this.ReportOptions != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReportOptions.GetHashCode();
-                }
-                if (this.ReportReasons != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReportReasons.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.RequireAgeVerificationBetaTag.GetHashCode();
-                if (this.SdkDeveloperFaqUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.SdkDeveloperFaqUrl.GetHashCode();
-                }
-                if (this.SdkDiscordUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.SdkDiscordUrl.GetHashCode();
-                }
-                if (this.SdkNotAllowedToPublishMessage != null)
-                {
-                    hashCode = (hashCode * 59) + this.SdkNotAllowedToPublishMessage.GetHashCode();
-                }
-                if (this.SdkUnityVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.SdkUnityVersion.GetHashCode();
-                }
-                if (this.StringHostUrlList != null)
-                {
-                    hashCode = (hashCode * 59) + this.StringHostUrlList.GetHashCode();
-                }
-                if (this.SupportEmail != null)
-                {
-                    hashCode = (hashCode * 59) + this.SupportEmail.GetHashCode();
-                }
-                if (this.SupportFormUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.SupportFormUrl.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Timekeeping.GetHashCode();
-                if (this.TimeOutWorldId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TimeOutWorldId.GetHashCode();
-                }
-                if (this.TutorialWorldId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TutorialWorldId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.UpdateRateMsMaximum.GetHashCode();
-                hashCode = (hashCode * 59) + this.UpdateRateMsMinimum.GetHashCode();
-                hashCode = (hashCode * 59) + this.UpdateRateMsNormal.GetHashCode();
-                hashCode = (hashCode * 59) + this.UpdateRateMsUdonManual.GetHashCode();
-                hashCode = (hashCode * 59) + this.UploadAnalysisPercent.GetHashCode();
-                if (this.UrlList != null)
-                {
-                    hashCode = (hashCode * 59) + this.UrlList.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.UseReliableUdpForVoice.GetHashCode();
-                if (this.ViveWindowsUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ViveWindowsUrl.GetHashCode();
-                }
-                if (this.WhiteListedAssetUrls != null)
-                {
-                    hashCode = (hashCode * 59) + this.WhiteListedAssetUrls.GetHashCode();
-                }
-                if (this.PlayerUrlResolverVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.PlayerUrlResolverVersion.GetHashCode();
-                }
-                if (this.PlayerUrlResolverSha1 != null)
-                {
-                    hashCode = (hashCode * 59) + this.PlayerUrlResolverSha1.GetHashCode();
-                }
-                if (this.PublicKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.PublicKey.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.WebsocketMaxFriendsRefreshDelay.GetHashCode();
-                hashCode = (hashCode * 59) + this.WebsocketQuickReconnectTime.GetHashCode();
-                hashCode = (hashCode * 59) + this.WebsocketReconnectMaxDelay.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Address (string) minLength
             if (this.Address != null && this.Address.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address, length must be greater than 1.", new [] { "Address" });
+                yield return new ValidationResult("Invalid value for Address, length must be greater than 1.", new [] { "Address" });
             }
 
             // ClientApiKey (string) minLength
             if (this.ClientApiKey != null && this.ClientApiKey.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientApiKey, length must be greater than 1.", new [] { "ClientApiKey" });
+                yield return new ValidationResult("Invalid value for ClientApiKey, length must be greater than 1.", new [] { "ClientApiKey" });
             }
 
             // ContactEmail (string) minLength
             if (this.ContactEmail != null && this.ContactEmail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContactEmail, length must be greater than 1.", new [] { "ContactEmail" });
+                yield return new ValidationResult("Invalid value for ContactEmail, length must be greater than 1.", new [] { "ContactEmail" });
             }
 
             // CopyrightEmail (string) minLength
             if (this.CopyrightEmail != null && this.CopyrightEmail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CopyrightEmail, length must be greater than 1.", new [] { "CopyrightEmail" });
+                yield return new ValidationResult("Invalid value for CopyrightEmail, length must be greater than 1.", new [] { "CopyrightEmail" });
             }
 
             // CurrentTOSVersion (int) minimum
             if (this.CurrentTOSVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurrentTOSVersion, must be a value greater than or equal to 0.", new [] { "CurrentTOSVersion" });
+                yield return new ValidationResult("Invalid value for CurrentTOSVersion, must be a value greater than or equal to 0.", new [] { "CurrentTOSVersion" });
             }
 
             // DevSdkUrl (string) minLength
             if (this.DevSdkUrl != null && this.DevSdkUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevSdkUrl, length must be greater than 1.", new [] { "DevSdkUrl" });
+                yield return new ValidationResult("Invalid value for DevSdkUrl, length must be greater than 1.", new [] { "DevSdkUrl" });
             }
 
             // DevSdkVersion (string) minLength
             if (this.DevSdkVersion != null && this.DevSdkVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevSdkVersion, length must be greater than 1.", new [] { "DevSdkVersion" });
+                yield return new ValidationResult("Invalid value for DevSdkVersion, length must be greater than 1.", new [] { "DevSdkVersion" });
             }
 
             // DownloadLinkWindows (string) minLength
             if (this.DownloadLinkWindows != null && this.DownloadLinkWindows.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DownloadLinkWindows, length must be greater than 1.", new [] { "DownloadLinkWindows" });
+                yield return new ValidationResult("Invalid value for DownloadLinkWindows, length must be greater than 1.", new [] { "DownloadLinkWindows" });
             }
 
             // HomepageRedirectTarget (string) minLength
             if (this.HomepageRedirectTarget != null && this.HomepageRedirectTarget.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HomepageRedirectTarget, length must be greater than 1.", new [] { "HomepageRedirectTarget" });
+                yield return new ValidationResult("Invalid value for HomepageRedirectTarget, length must be greater than 1.", new [] { "HomepageRedirectTarget" });
             }
 
             // JobsEmail (string) minLength
             if (this.JobsEmail != null && this.JobsEmail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for JobsEmail, length must be greater than 1.", new [] { "JobsEmail" });
+                yield return new ValidationResult("Invalid value for JobsEmail, length must be greater than 1.", new [] { "JobsEmail" });
             }
 
             // ModerationEmail (string) minLength
             if (this.ModerationEmail != null && this.ModerationEmail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModerationEmail, length must be greater than 1.", new [] { "ModerationEmail" });
+                yield return new ValidationResult("Invalid value for ModerationEmail, length must be greater than 1.", new [] { "ModerationEmail" });
             }
 
             // NotAllowedToSelectAvatarInPrivateWorldMessage (string) minLength
             if (this.NotAllowedToSelectAvatarInPrivateWorldMessage != null && this.NotAllowedToSelectAvatarInPrivateWorldMessage.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAllowedToSelectAvatarInPrivateWorldMessage, length must be greater than 1.", new [] { "NotAllowedToSelectAvatarInPrivateWorldMessage" });
+                yield return new ValidationResult("Invalid value for NotAllowedToSelectAvatarInPrivateWorldMessage, length must be greater than 1.", new [] { "NotAllowedToSelectAvatarInPrivateWorldMessage" });
             }
 
             // SdkDeveloperFaqUrl (string) minLength
             if (this.SdkDeveloperFaqUrl != null && this.SdkDeveloperFaqUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkDeveloperFaqUrl, length must be greater than 1.", new [] { "SdkDeveloperFaqUrl" });
+                yield return new ValidationResult("Invalid value for SdkDeveloperFaqUrl, length must be greater than 1.", new [] { "SdkDeveloperFaqUrl" });
             }
 
             // SdkDiscordUrl (string) minLength
             if (this.SdkDiscordUrl != null && this.SdkDiscordUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkDiscordUrl, length must be greater than 1.", new [] { "SdkDiscordUrl" });
+                yield return new ValidationResult("Invalid value for SdkDiscordUrl, length must be greater than 1.", new [] { "SdkDiscordUrl" });
             }
 
             // SdkNotAllowedToPublishMessage (string) minLength
             if (this.SdkNotAllowedToPublishMessage != null && this.SdkNotAllowedToPublishMessage.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkNotAllowedToPublishMessage, length must be greater than 1.", new [] { "SdkNotAllowedToPublishMessage" });
+                yield return new ValidationResult("Invalid value for SdkNotAllowedToPublishMessage, length must be greater than 1.", new [] { "SdkNotAllowedToPublishMessage" });
             }
 
             // SdkUnityVersion (string) minLength
             if (this.SdkUnityVersion != null && this.SdkUnityVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkUnityVersion, length must be greater than 1.", new [] { "SdkUnityVersion" });
+                yield return new ValidationResult("Invalid value for SdkUnityVersion, length must be greater than 1.", new [] { "SdkUnityVersion" });
             }
 
             // SupportEmail (string) minLength
             if (this.SupportEmail != null && this.SupportEmail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SupportEmail, length must be greater than 1.", new [] { "SupportEmail" });
+                yield return new ValidationResult("Invalid value for SupportEmail, length must be greater than 1.", new [] { "SupportEmail" });
             }
 
             // ViveWindowsUrl (string) minLength
             if (this.ViveWindowsUrl != null && this.ViveWindowsUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ViveWindowsUrl, length must be greater than 1.", new [] { "ViveWindowsUrl" });
+                yield return new ValidationResult("Invalid value for ViveWindowsUrl, length must be greater than 1.", new [] { "ViveWindowsUrl" });
             }
 
             // PlayerUrlResolverVersion (string) minLength
             if (this.PlayerUrlResolverVersion != null && this.PlayerUrlResolverVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerUrlResolverVersion, length must be greater than 1.", new [] { "PlayerUrlResolverVersion" });
+                yield return new ValidationResult("Invalid value for PlayerUrlResolverVersion, length must be greater than 1.", new [] { "PlayerUrlResolverVersion" });
             }
 
             // PlayerUrlResolverSha1 (string) minLength
             if (this.PlayerUrlResolverSha1 != null && this.PlayerUrlResolverSha1.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerUrlResolverSha1, length must be greater than 1.", new [] { "PlayerUrlResolverSha1" });
+                yield return new ValidationResult("Invalid value for PlayerUrlResolverSha1, length must be greater than 1.", new [] { "PlayerUrlResolverSha1" });
             }
 
             yield break;

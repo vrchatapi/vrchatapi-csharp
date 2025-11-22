@@ -10,7 +10,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetUserPrints**](PrintsApi.md#getuserprints) | **GET** /prints/user/{userId} | Get Own Prints |
 | [**UploadPrint**](PrintsApi.md#uploadprint) | **POST** /prints | Upload Print |
 
-<a name="deleteprint"></a>
+<a id="deleteprint"></a>
 # **DeletePrint**
 > void DeletePrint (string printId)
 
@@ -22,6 +22,7 @@ Returns a print.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -39,7 +40,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new PrintsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PrintsApi(httpClient, config, httpClientHandler);
             var printId = prnt_0a0aa0a0-85ea-42eb-b2f7-4840d7f341fa;  // string | Print ID.
 
             try
@@ -103,9 +107,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="editprint"></a>
+<a id="editprint"></a>
 # **EditPrint**
-> Print EditPrint (string printId, System.IO.Stream image, string note = null)
+> Print EditPrint (string printId, FileParameter image, string? note = null)
 
 Edit Print
 
@@ -115,6 +119,7 @@ Edits a print.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -132,10 +137,13 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new PrintsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PrintsApi(httpClient, config, httpClientHandler);
             var printId = prnt_0a0aa0a0-85ea-42eb-b2f7-4840d7f341fa;  // string | Print ID.
-            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
-            var note = "note_example";  // string | The caption for the image. (optional) 
+            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The binary blob of the png file.
+            var note = "note_example";  // string? | The caption for the image. (optional) 
 
             try
             {
@@ -179,8 +187,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **printId** | **string** | Print ID. |  |
-| **image** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
-| **note** | **string** | The caption for the image. | [optional]  |
+| **image** | **FileParameter****FileParameter** | The binary blob of the png file. |  |
+| **note** | **string?** | The caption for the image. | [optional]  |
 
 ### Return type
 
@@ -204,7 +212,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getprint"></a>
+<a id="getprint"></a>
 # **GetPrint**
 > Print GetPrint (string printId)
 
@@ -216,6 +224,7 @@ Returns a print.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -233,7 +242,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new PrintsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PrintsApi(httpClient, config, httpClientHandler);
             var printId = prnt_0a0aa0a0-85ea-42eb-b2f7-4840d7f341fa;  // string | Print ID.
 
             try
@@ -301,7 +313,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getuserprints"></a>
+<a id="getuserprints"></a>
 # **GetUserPrints**
 > List&lt;Print&gt; GetUserPrints (string userId)
 
@@ -313,6 +325,7 @@ Returns a list of all prints of the user. User id has to be your own userId, as 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -330,7 +343,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new PrintsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PrintsApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
@@ -399,9 +415,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="uploadprint"></a>
+<a id="uploadprint"></a>
 # **UploadPrint**
-> Print UploadPrint (System.IO.Stream image, DateTime timestamp, string note = null, string worldId = null, string worldName = null)
+> Print UploadPrint (FileParameter image, DateTime timestamp, string? note = null, string? worldId = null, string? worldName = null)
 
 Upload Print
 
@@ -411,6 +427,7 @@ Uploads and creates a print.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -428,12 +445,15 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new PrintsApi(config);
-            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The binary blob of the png file.
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PrintsApi(httpClient, config, httpClientHandler);
+            var image = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The binary blob of the png file.
             var timestamp = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTime | The time the image was captured.
-            var note = "note_example";  // string | The caption for the image. (optional) 
-            var worldId = "worldId_example";  // string | The id of the world in which the image was captured. (optional) 
-            var worldName = "worldName_example";  // string | The name of the world in which the image was captured. (optional) 
+            var note = "note_example";  // string? | The caption for the image. (optional) 
+            var worldId = "worldId_example";  // string? | The id of the world in which the image was captured. (optional) 
+            var worldName = "worldName_example";  // string? | The name of the world in which the image was captured. (optional) 
 
             try
             {
@@ -476,11 +496,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **image** | **System.IO.Stream****System.IO.Stream** | The binary blob of the png file. |  |
+| **image** | **FileParameter****FileParameter** | The binary blob of the png file. |  |
 | **timestamp** | **DateTime** | The time the image was captured. |  |
-| **note** | **string** | The caption for the image. | [optional]  |
-| **worldId** | **string** | The id of the world in which the image was captured. | [optional]  |
-| **worldName** | **string** | The name of the world in which the image was captured. | [optional]  |
+| **note** | **string?** | The caption for the image. | [optional]  |
+| **worldId** | **string?** | The id of the world in which the image was captured. | [optional]  |
+| **worldName** | **string?** | The name of the world in which the image was captured. | [optional]  |
 
 ### Return type
 

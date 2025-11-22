@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InfoPushData
     /// </summary>
     [DataContract(Name = "InfoPushData")]
-    public partial class InfoPushData : IEquatable<InfoPushData>, IValidatableObject
+    public partial class InfoPushData : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushData" /> class.
@@ -40,9 +41,9 @@ namespace VRChat.API.Model
         /// <param name="name">name.</param>
         /// <param name="onPressed">onPressed.</param>
         /// <param name="template">template.</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="article">article.</param>
-        public InfoPushData(DynamicContentRow contentList = default(DynamicContentRow), string description = default(string), string imageUrl = default(string), string name = default(string), InfoPushDataClickable onPressed = default(InfoPushDataClickable), string template = default(string), string version = default(string), InfoPushDataArticle article = default(InfoPushDataArticle))
+        public InfoPushData(DynamicContentRow contentList = default, string description = default, string imageUrl = default, string name = default, InfoPushDataClickable onPressed = default, string template = default, string varVersion = default, InfoPushDataArticle article = default)
         {
             this.ContentList = contentList;
             this.Description = description;
@@ -50,7 +51,7 @@ namespace VRChat.API.Model
             this.Name = name;
             this.OnPressed = onPressed;
             this.Template = template;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Article = article;
         }
 
@@ -91,10 +92,13 @@ namespace VRChat.API.Model
         public string Template { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
+        /*
+        <example>2021.3.4</example>
+        */
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public string _Version { get; set; }
+        public string VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Article
@@ -116,7 +120,7 @@ namespace VRChat.API.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OnPressed: ").Append(OnPressed).Append("\n");
             sb.Append("  Template: ").Append(Template).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Article: ").Append(Article).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -132,131 +136,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InfoPushData);
-        }
-
-        /// <summary>
-        /// Returns true if InfoPushData instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InfoPushData to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InfoPushData input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.ContentList == input.ContentList ||
-                    (this.ContentList != null &&
-                    this.ContentList.Equals(input.ContentList))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.OnPressed == input.OnPressed ||
-                    (this.OnPressed != null &&
-                    this.OnPressed.Equals(input.OnPressed))
-                ) && 
-                (
-                    this.Template == input.Template ||
-                    (this.Template != null &&
-                    this.Template.Equals(input.Template))
-                ) && 
-                (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
-                ) && 
-                (
-                    this.Article == input.Article ||
-                    (this.Article != null &&
-                    this.Article.Equals(input.Article))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ContentList != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentList.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.OnPressed != null)
-                {
-                    hashCode = (hashCode * 59) + this.OnPressed.GetHashCode();
-                }
-                if (this.Template != null)
-                {
-                    hashCode = (hashCode * 59) + this.Template.GetHashCode();
-                }
-                if (this._Version != null)
-                {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
-                }
-                if (this.Article != null)
-                {
-                    hashCode = (hashCode * 59) + this.Article.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ImageUrl (string) minLength
             if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
+                yield return new ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
-            // _Version (string) minLength
-            if (this._Version != null && this._Version.Length < 1)
+            // VarVersion (string) minLength
+            if (this.VarVersion != null && this.VarVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be greater than 1.", new [] { "_Version" });
+                yield return new ValidationResult("Invalid value for VarVersion, length must be greater than 1.", new [] { "VarVersion" });
             }
 
             yield break;

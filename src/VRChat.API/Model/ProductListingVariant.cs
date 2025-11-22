@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// ProductListingVariant
     /// </summary>
     [DataContract(Name = "ProductListingVariant")]
-    public partial class ProductListingVariant : IEquatable<ProductListingVariant>, IValidatableObject
+    public partial class ProductListingVariant : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductListingVariant" /> class.
@@ -45,7 +46,7 @@ namespace VRChat.API.Model
         /// <param name="quantity">quantity (required).</param>
         /// <param name="sellerVariant">sellerVariant (required).</param>
         /// <param name="unitPriceTokens">unitPriceTokens (required).</param>
-        public ProductListingVariant(DateTime effectiveFrom = default(DateTime), string listingVariantId = default(string), bool nonRefundable = default(bool), int quantity = default(int), bool sellerVariant = default(bool), int unitPriceTokens = default(int))
+        public ProductListingVariant(DateTime effectiveFrom = default, string listingVariantId = default, bool nonRefundable = default, int quantity = default, bool sellerVariant = default, int unitPriceTokens = default)
         {
             // to ensure "listingVariantId" is required (not null)
             if (listingVariantId == null)
@@ -69,6 +70,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ListingVariantId
         /// </summary>
+        /*
+        <example>listvar_e8658b56-1662-436c-935a-afcf6a7d4fed</example>
+        */
         [DataMember(Name = "listingVariantId", IsRequired = true, EmitDefaultValue = true)]
         public string ListingVariantId { get; set; }
 
@@ -124,86 +128,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ProductListingVariant);
-        }
-
-        /// <summary>
-        /// Returns true if ProductListingVariant instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ProductListingVariant to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ProductListingVariant input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.EffectiveFrom == input.EffectiveFrom ||
-                    (this.EffectiveFrom != null &&
-                    this.EffectiveFrom.Equals(input.EffectiveFrom))
-                ) && 
-                (
-                    this.ListingVariantId == input.ListingVariantId ||
-                    (this.ListingVariantId != null &&
-                    this.ListingVariantId.Equals(input.ListingVariantId))
-                ) && 
-                (
-                    this.NonRefundable == input.NonRefundable ||
-                    this.NonRefundable.Equals(input.NonRefundable)
-                ) && 
-                (
-                    this.Quantity == input.Quantity ||
-                    this.Quantity.Equals(input.Quantity)
-                ) && 
-                (
-                    this.SellerVariant == input.SellerVariant ||
-                    this.SellerVariant.Equals(input.SellerVariant)
-                ) && 
-                (
-                    this.UnitPriceTokens == input.UnitPriceTokens ||
-                    this.UnitPriceTokens.Equals(input.UnitPriceTokens)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.EffectiveFrom != null)
-                {
-                    hashCode = (hashCode * 59) + this.EffectiveFrom.GetHashCode();
-                }
-                if (this.ListingVariantId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ListingVariantId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.NonRefundable.GetHashCode();
-                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
-                hashCode = (hashCode * 59) + this.SellerVariant.GetHashCode();
-                hashCode = (hashCode * 59) + this.UnitPriceTokens.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

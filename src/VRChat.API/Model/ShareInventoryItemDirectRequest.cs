@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// ShareInventoryItemDirectRequest
     /// </summary>
     [DataContract(Name = "ShareInventoryItemDirectRequest")]
-    public partial class ShareInventoryItemDirectRequest : IEquatable<ShareInventoryItemDirectRequest>, IValidatableObject
+    public partial class ShareInventoryItemDirectRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ShareInventoryItemDirectRequest" /> class.
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="itemId">itemId (required).</param>
         /// <param name="users">users (required).</param>
-        public ShareInventoryItemDirectRequest(string itemId = default(string), List<string> users = default(List<string>))
+        public ShareInventoryItemDirectRequest(string itemId = default, List<string> users = default)
         {
             // to ensure "itemId" is required (not null)
             if (itemId == null)
@@ -60,6 +61,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ItemId
         /// </summary>
+        /*
+        <example>inv_10bce5b0-2d2b-44e0-900d-db6534615162</example>
+        */
         [DataMember(Name = "itemId", IsRequired = true, EmitDefaultValue = true)]
         public string ItemId { get; set; }
 
@@ -93,67 +97,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ShareInventoryItemDirectRequest);
-        }
-
-        /// <summary>
-        /// Returns true if ShareInventoryItemDirectRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ShareInventoryItemDirectRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ShareInventoryItemDirectRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.ItemId == input.ItemId ||
-                    (this.ItemId != null &&
-                    this.ItemId.Equals(input.ItemId))
-                ) && 
-                (
-                    this.Users == input.Users ||
-                    this.Users != null &&
-                    input.Users != null &&
-                    this.Users.SequenceEqual(input.Users)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ItemId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ItemId.GetHashCode();
-                }
-                if (this.Users != null)
-                {
-                    hashCode = (hashCode * 59) + this.Users.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

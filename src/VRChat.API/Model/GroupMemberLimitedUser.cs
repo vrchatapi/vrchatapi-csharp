@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.
     /// </summary>
     [DataContract(Name = "GroupMemberLimitedUser")]
-    public partial class GroupMemberLimitedUser : IEquatable<GroupMemberLimitedUser>, IValidatableObject
+    public partial class GroupMemberLimitedUser : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupMemberLimitedUser" /> class.
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// <param name="profilePicOverride">profilePicOverride.</param>
         /// <param name="currentAvatarThumbnailImageUrl">currentAvatarThumbnailImageUrl.</param>
         /// <param name="currentAvatarTags">currentAvatarTags.</param>
-        public GroupMemberLimitedUser(string id = default(string), string displayName = default(string), string thumbnailUrl = default(string), string iconUrl = default(string), string profilePicOverride = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>))
+        public GroupMemberLimitedUser(string id = default, string displayName = default, string thumbnailUrl = default, string iconUrl = default, string profilePicOverride = default, string currentAvatarThumbnailImageUrl = default, List<string> currentAvatarTags = default)
         {
             this.Id = id;
             this.DisplayName = displayName;
@@ -56,6 +57,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -124,112 +128,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as GroupMemberLimitedUser);
-        }
-
-        /// <summary>
-        /// Returns true if GroupMemberLimitedUser instances are equal
-        /// </summary>
-        /// <param name="input">Instance of GroupMemberLimitedUser to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(GroupMemberLimitedUser input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.ThumbnailUrl == input.ThumbnailUrl ||
-                    (this.ThumbnailUrl != null &&
-                    this.ThumbnailUrl.Equals(input.ThumbnailUrl))
-                ) && 
-                (
-                    this.IconUrl == input.IconUrl ||
-                    (this.IconUrl != null &&
-                    this.IconUrl.Equals(input.IconUrl))
-                ) && 
-                (
-                    this.ProfilePicOverride == input.ProfilePicOverride ||
-                    (this.ProfilePicOverride != null &&
-                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
-                ) && 
-                (
-                    this.CurrentAvatarThumbnailImageUrl == input.CurrentAvatarThumbnailImageUrl ||
-                    (this.CurrentAvatarThumbnailImageUrl != null &&
-                    this.CurrentAvatarThumbnailImageUrl.Equals(input.CurrentAvatarThumbnailImageUrl))
-                ) && 
-                (
-                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
-                    this.CurrentAvatarTags != null &&
-                    input.CurrentAvatarTags != null &&
-                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                if (this.ThumbnailUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ThumbnailUrl.GetHashCode();
-                }
-                if (this.IconUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
-                }
-                if (this.ProfilePicOverride != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
-                }
-                if (this.CurrentAvatarThumbnailImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
-                }
-                if (this.CurrentAvatarTags != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

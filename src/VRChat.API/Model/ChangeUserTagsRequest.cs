@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// ChangeUserTagsRequest
     /// </summary>
     [DataContract(Name = "ChangeUserTagsRequest")]
-    public partial class ChangeUserTagsRequest : IEquatable<ChangeUserTagsRequest>, IValidatableObject
+    public partial class ChangeUserTagsRequest : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ChangeUserTagsRequest" /> class.
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="ChangeUserTagsRequest" /> class.
         /// </summary>
         /// <param name="tags">The tags being added or removed. (required).</param>
-        public ChangeUserTagsRequest(List<string> tags = default(List<string>))
+        public ChangeUserTagsRequest(List<string> tags = default)
         {
             // to ensure "tags" is required (not null)
             if (tags == null)
@@ -80,58 +81,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ChangeUserTagsRequest);
-        }
-
-        /// <summary>
-        /// Returns true if ChangeUserTagsRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ChangeUserTagsRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ChangeUserTagsRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

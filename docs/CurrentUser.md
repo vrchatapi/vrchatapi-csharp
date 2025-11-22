@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AcceptedTOSVersion** | **int** |  | 
 **AcceptedPrivacyVersion** | **int** |  | [optional] 
-**AccountDeletionDate** | **DateTime?** |  | [optional] 
+**AccountDeletionDate** | **DateOnly?** |  | [optional] 
 **AccountDeletionLog** | [**List&lt;AccountDeletionLog&gt;**](AccountDeletionLog.md) |   | [optional] 
 **ActiveFriends** | **List&lt;string&gt;** |   | [optional] 
 **AgeVerificationStatus** | **AgeVerificationStatus** |  | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **CurrentAvatarImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
 **CurrentAvatarThumbnailImageUrl** | **string** | When profilePicOverride is not empty, use it instead. | 
 **CurrentAvatarTags** | **List&lt;string&gt;** |  | 
-**DateJoined** | **DateTime** |  | 
+**DateJoined** | **DateOnly** |  | 
 **DeveloperType** | **DeveloperType** |  | 
 **DiscordDetails** | [**DiscordDetails**](DiscordDetails.md) |  | [optional] 
 **DiscordId** | **string** | https://discord.com/developers/docs/reference#snowflakes | [optional] 

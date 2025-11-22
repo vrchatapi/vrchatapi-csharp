@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// GroupGallery
     /// </summary>
     [DataContract(Name = "GroupGallery")]
-    public partial class GroupGallery : IEquatable<GroupGallery>, IValidatableObject
+    public partial class GroupGallery : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupGallery" /> class.
@@ -44,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="roleIdsToManage"> .</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public GroupGallery(string id = default(string), string name = default(string), string description = default(string), bool membersOnly = false, List<string> roleIdsToView = default(List<string>), List<string> roleIdsToSubmit = default(List<string>), List<string> roleIdsToAutoApprove = default(List<string>), List<string> roleIdsToManage = default(List<string>), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime))
+        public GroupGallery(string id = default, string name = default, string description = default, bool membersOnly = false, List<string> roleIdsToView = default, List<string> roleIdsToSubmit = default, List<string> roleIdsToAutoApprove = default, List<string> roleIdsToManage = default, DateTime createdAt = default, DateTime updatedAt = default)
         {
             this.Id = id;
             this.Name = name;
@@ -61,6 +62,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>ggal_a03a4b55-4ca6-4490-9519-40ba6351a233</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -68,6 +72,9 @@ namespace VRChat.API.Model
         /// Name of the gallery.
         /// </summary>
         /// <value>Name of the gallery.</value>
+        /*
+        <example>Example Gallery</example>
+        */
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
@@ -75,6 +82,9 @@ namespace VRChat.API.Model
         /// Description of the gallery.
         /// </summary>
         /// <value>Description of the gallery.</value>
+        /*
+        <example>Example Description</example>
+        */
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
@@ -82,6 +92,9 @@ namespace VRChat.API.Model
         /// Whether the gallery is members only.
         /// </summary>
         /// <value>Whether the gallery is members only.</value>
+        /*
+        <example>false</example>
+        */
         [DataMember(Name = "membersOnly", EmitDefaultValue = true)]
         public bool MembersOnly { get; set; }
 
@@ -157,149 +170,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as GroupGallery);
-        }
-
-        /// <summary>
-        /// Returns true if GroupGallery instances are equal
-        /// </summary>
-        /// <param name="input">Instance of GroupGallery to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(GroupGallery input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.MembersOnly == input.MembersOnly ||
-                    this.MembersOnly.Equals(input.MembersOnly)
-                ) && 
-                (
-                    this.RoleIdsToView == input.RoleIdsToView ||
-                    this.RoleIdsToView != null &&
-                    input.RoleIdsToView != null &&
-                    this.RoleIdsToView.SequenceEqual(input.RoleIdsToView)
-                ) && 
-                (
-                    this.RoleIdsToSubmit == input.RoleIdsToSubmit ||
-                    this.RoleIdsToSubmit != null &&
-                    input.RoleIdsToSubmit != null &&
-                    this.RoleIdsToSubmit.SequenceEqual(input.RoleIdsToSubmit)
-                ) && 
-                (
-                    this.RoleIdsToAutoApprove == input.RoleIdsToAutoApprove ||
-                    this.RoleIdsToAutoApprove != null &&
-                    input.RoleIdsToAutoApprove != null &&
-                    this.RoleIdsToAutoApprove.SequenceEqual(input.RoleIdsToAutoApprove)
-                ) && 
-                (
-                    this.RoleIdsToManage == input.RoleIdsToManage ||
-                    this.RoleIdsToManage != null &&
-                    input.RoleIdsToManage != null &&
-                    this.RoleIdsToManage.SequenceEqual(input.RoleIdsToManage)
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.MembersOnly.GetHashCode();
-                if (this.RoleIdsToView != null)
-                {
-                    hashCode = (hashCode * 59) + this.RoleIdsToView.GetHashCode();
-                }
-                if (this.RoleIdsToSubmit != null)
-                {
-                    hashCode = (hashCode * 59) + this.RoleIdsToSubmit.GetHashCode();
-                }
-                if (this.RoleIdsToAutoApprove != null)
-                {
-                    hashCode = (hashCode * 59) + this.RoleIdsToAutoApprove.GetHashCode();
-                }
-                if (this.RoleIdsToManage != null)
-                {
-                    hashCode = (hashCode * 59) + this.RoleIdsToManage.GetHashCode();
-                }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Description (string) minLength
             if (this.Description != null && this.Description.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
 
             yield break;

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// APIConfigReportOptionsAvatar
     /// </summary>
     [DataContract(Name = "APIConfig_reportOptions_avatar")]
-    public partial class APIConfigReportOptionsAvatar : IEquatable<APIConfigReportOptionsAvatar>, IValidatableObject
+    public partial class APIConfigReportOptionsAvatar : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigReportOptionsAvatar" /> class.
@@ -37,7 +38,7 @@ namespace VRChat.API.Model
         /// <param name="avatar">avatar.</param>
         /// <param name="avatarpage">avatarpage.</param>
         /// <param name="warnings">warnings.</param>
-        public APIConfigReportOptionsAvatar(List<string> avatar = default(List<string>), List<string> avatarpage = default(List<string>), List<string> warnings = default(List<string>))
+        public APIConfigReportOptionsAvatar(List<string> avatar = default, List<string> avatarpage = default, List<string> warnings = default)
         {
             this.Avatar = avatar;
             this.Avatarpage = avatarpage;
@@ -87,78 +88,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigReportOptionsAvatar);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigReportOptionsAvatar instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigReportOptionsAvatar to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigReportOptionsAvatar input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Avatar == input.Avatar ||
-                    this.Avatar != null &&
-                    input.Avatar != null &&
-                    this.Avatar.SequenceEqual(input.Avatar)
-                ) && 
-                (
-                    this.Avatarpage == input.Avatarpage ||
-                    this.Avatarpage != null &&
-                    input.Avatarpage != null &&
-                    this.Avatarpage.SequenceEqual(input.Avatarpage)
-                ) && 
-                (
-                    this.Warnings == input.Warnings ||
-                    this.Warnings != null &&
-                    input.Warnings != null &&
-                    this.Warnings.SequenceEqual(input.Warnings)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Avatar != null)
-                {
-                    hashCode = (hashCode * 59) + this.Avatar.GetHashCode();
-                }
-                if (this.Avatarpage != null)
-                {
-                    hashCode = (hashCode * 59) + this.Avatarpage.GetHashCode();
-                }
-                if (this.Warnings != null)
-                {
-                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

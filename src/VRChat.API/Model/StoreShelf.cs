@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// StoreShelf
     /// </summary>
     [DataContract(Name = "StoreShelf")]
-    public partial class StoreShelf : IEquatable<StoreShelf>, IValidatableObject
+    public partial class StoreShelf : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StoreShelf" /> class.
@@ -46,7 +47,7 @@ namespace VRChat.API.Model
         /// <param name="shelfLayout">shelfLayout (required).</param>
         /// <param name="shelfTitle">shelfTitle (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public StoreShelf(string id = default(string), List<string> listingIds = default(List<string>), List<ProductListing> listings = default(List<ProductListing>), string shelfDescription = default(string), string shelfLayout = default(string), string shelfTitle = default(string), string updatedAt = default(string))
+        public StoreShelf(string id = default, List<string> listingIds = default, List<ProductListing> listings = default, string shelfDescription = default, string shelfLayout = default, string shelfTitle = default, string updatedAt = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -90,6 +91,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>ess_964dd7aa-f881-4ba1-adf7-261e906b9189</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -158,113 +162,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as StoreShelf);
-        }
-
-        /// <summary>
-        /// Returns true if StoreShelf instances are equal
-        /// </summary>
-        /// <param name="input">Instance of StoreShelf to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(StoreShelf input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ListingIds == input.ListingIds ||
-                    this.ListingIds != null &&
-                    input.ListingIds != null &&
-                    this.ListingIds.SequenceEqual(input.ListingIds)
-                ) && 
-                (
-                    this.Listings == input.Listings ||
-                    this.Listings != null &&
-                    input.Listings != null &&
-                    this.Listings.SequenceEqual(input.Listings)
-                ) && 
-                (
-                    this.ShelfDescription == input.ShelfDescription ||
-                    (this.ShelfDescription != null &&
-                    this.ShelfDescription.Equals(input.ShelfDescription))
-                ) && 
-                (
-                    this.ShelfLayout == input.ShelfLayout ||
-                    (this.ShelfLayout != null &&
-                    this.ShelfLayout.Equals(input.ShelfLayout))
-                ) && 
-                (
-                    this.ShelfTitle == input.ShelfTitle ||
-                    (this.ShelfTitle != null &&
-                    this.ShelfTitle.Equals(input.ShelfTitle))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.ListingIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.ListingIds.GetHashCode();
-                }
-                if (this.Listings != null)
-                {
-                    hashCode = (hashCode * 59) + this.Listings.GetHashCode();
-                }
-                if (this.ShelfDescription != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShelfDescription.GetHashCode();
-                }
-                if (this.ShelfLayout != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShelfLayout.GetHashCode();
-                }
-                if (this.ShelfTitle != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShelfTitle.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

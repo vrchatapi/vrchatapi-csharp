@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// FileVersion
     /// </summary>
     [DataContract(Name = "FileVersion")]
-    public partial class FileVersion : IEquatable<FileVersion>, IValidatableObject
+    public partial class FileVersion : IValidatableObject
     {
 
         /// <summary>
@@ -51,12 +52,12 @@ namespace VRChat.API.Model
         /// <param name="file">file.</param>
         /// <param name="signature">signature.</param>
         /// <param name="status">status (required).</param>
-        /// <param name="version">Incremental version counter, can only be increased. (required) (default to 0).</param>
-        public FileVersion(DateTime createdAt = default(DateTime), bool deleted = true, FileData delta = default(FileData), FileData file = default(FileData), FileData signature = default(FileData), FileStatus status = default(FileStatus), int version = 0)
+        /// <param name="varVersion">Incremental version counter, can only be increased. (required) (default to 0).</param>
+        public FileVersion(DateTime createdAt = default, bool deleted = true, FileData delta = default, FileData file = default, FileData signature = default, FileStatus status = default, int varVersion = 0)
         {
             this.CreatedAt = createdAt;
             this.Status = status;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Deleted = deleted;
             this.Delta = delta;
             this.File = file;
@@ -99,7 +100,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <value>Incremental version counter, can only be increased.</value>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public int _Version { get; set; }
+        public int VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -115,7 +116,7 @@ namespace VRChat.API.Model
             sb.Append("  File: ").Append(File).Append("\n");
             sb.Append("  Signature: ").Append(Signature).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,104 +131,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as FileVersion);
-        }
-
-        /// <summary>
-        /// Returns true if FileVersion instances are equal
-        /// </summary>
-        /// <param name="input">Instance of FileVersion to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(FileVersion input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.Deleted == input.Deleted ||
-                    this.Deleted.Equals(input.Deleted)
-                ) && 
-                (
-                    this.Delta == input.Delta ||
-                    (this.Delta != null &&
-                    this.Delta.Equals(input.Delta))
-                ) && 
-                (
-                    this.File == input.File ||
-                    (this.File != null &&
-                    this.File.Equals(input.File))
-                ) && 
-                (
-                    this.Signature == input.Signature ||
-                    (this.Signature != null &&
-                    this.Signature.Equals(input.Signature))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this._Version == input._Version ||
-                    this._Version.Equals(input._Version)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
-                if (this.Delta != null)
-                {
-                    hashCode = (hashCode * 59) + this.Delta.GetHashCode();
-                }
-                if (this.File != null)
-                {
-                    hashCode = (hashCode * 59) + this.File.GetHashCode();
-                }
-                if (this.Signature != null)
-                {
-                    hashCode = (hashCode * 59) + this.Signature.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                hashCode = (hashCode * 59) + this._Version.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // _Version (int) minimum
-            if (this._Version < (int)0)
+            // VarVersion (int) minimum
+            if (this.VarVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
+                yield return new ValidationResult("Invalid value for VarVersion, must be a value greater than or equal to 0.", new [] { "VarVersion" });
             }
 
             yield break;

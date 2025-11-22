@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateGroupRequest
     /// </summary>
     [DataContract(Name = "UpdateGroupRequest")]
-    public partial class UpdateGroupRequest : IEquatable<UpdateGroupRequest>, IValidatableObject
+    public partial class UpdateGroupRequest : IValidatableObject
     {
 
         /// <summary>
@@ -50,7 +51,7 @@ namespace VRChat.API.Model
         /// <param name="links">links.</param>
         /// <param name="rules">rules.</param>
         /// <param name="tags"> .</param>
-        public UpdateGroupRequest(string name = default(string), string shortCode = default(string), string description = default(string), GroupJoinState? joinState = default(GroupJoinState?), string iconId = default(string), string bannerId = default(string), List<string> languages = default(List<string>), List<string> links = default(List<string>), string rules = default(string), List<string> tags = default(List<string>))
+        public UpdateGroupRequest(string name = default, string shortCode = default, string description = default, GroupJoinState? joinState = default, string iconId = default, string bannerId = default, List<string> languages = default, List<string> links = default, string rules = default, List<string> tags = default)
         {
             this.Name = name;
             this.ShortCode = shortCode;
@@ -152,172 +153,46 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as UpdateGroupRequest);
-        }
-
-        /// <summary>
-        /// Returns true if UpdateGroupRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of UpdateGroupRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(UpdateGroupRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.ShortCode == input.ShortCode ||
-                    (this.ShortCode != null &&
-                    this.ShortCode.Equals(input.ShortCode))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.JoinState == input.JoinState ||
-                    this.JoinState.Equals(input.JoinState)
-                ) && 
-                (
-                    this.IconId == input.IconId ||
-                    (this.IconId != null &&
-                    this.IconId.Equals(input.IconId))
-                ) && 
-                (
-                    this.BannerId == input.BannerId ||
-                    (this.BannerId != null &&
-                    this.BannerId.Equals(input.BannerId))
-                ) && 
-                (
-                    this.Languages == input.Languages ||
-                    this.Languages != null &&
-                    input.Languages != null &&
-                    this.Languages.SequenceEqual(input.Languages)
-                ) && 
-                (
-                    this.Links == input.Links ||
-                    this.Links != null &&
-                    input.Links != null &&
-                    this.Links.SequenceEqual(input.Links)
-                ) && 
-                (
-                    this.Rules == input.Rules ||
-                    (this.Rules != null &&
-                    this.Rules.Equals(input.Rules))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.ShortCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.JoinState.GetHashCode();
-                if (this.IconId != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconId.GetHashCode();
-                }
-                if (this.BannerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerId.GetHashCode();
-                }
-                if (this.Languages != null)
-                {
-                    hashCode = (hashCode * 59) + this.Languages.GetHashCode();
-                }
-                if (this.Links != null)
-                {
-                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
-                }
-                if (this.Rules != null)
-                {
-                    hashCode = (hashCode * 59) + this.Rules.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Name (string) maxLength
             if (this.Name != null && this.Name.Length > 64)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 64.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be less than 64.", new [] { "Name" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 3.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 3.", new [] { "Name" });
             }
 
             // ShortCode (string) maxLength
             if (this.ShortCode != null && this.ShortCode.Length > 6)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be less than 6.", new [] { "ShortCode" });
+                yield return new ValidationResult("Invalid value for ShortCode, length must be less than 6.", new [] { "ShortCode" });
             }
 
             // ShortCode (string) minLength
             if (this.ShortCode != null && this.ShortCode.Length < 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be greater than 3.", new [] { "ShortCode" });
+                yield return new ValidationResult("Invalid value for ShortCode, length must be greater than 3.", new [] { "ShortCode" });
             }
 
             // Description (string) maxLength
             if (this.Description != null && this.Description.Length > 250)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 250.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be less than 250.", new [] { "Description" });
             }
 
             // Description (string) minLength
             if (this.Description != null && this.Description.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
 
             yield break;

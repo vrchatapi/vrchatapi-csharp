@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [optional] 
 **OnPressed** | [**InfoPushDataClickable**](InfoPushDataClickable.md) |  | [optional] 
 **Template** | **string** |  | [optional] 
-**_Version** | **string** |  | [optional] 
+**VarVersion** | **string** |  | [optional] 
 **Article** | [**InfoPushDataArticle**](InfoPushDataArticle.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

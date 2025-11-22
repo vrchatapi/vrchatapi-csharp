@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Badge
     /// </summary>
     [DataContract(Name = "Badge")]
-    public partial class Badge : IEquatable<Badge>, IValidatableObject
+    public partial class Badge : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Badge" /> class.
@@ -47,7 +48,7 @@ namespace VRChat.API.Model
         /// <param name="hidden">only present in CurrentUser badges.</param>
         /// <param name="showcased">showcased (required).</param>
         /// <param name="updatedAt">only present in CurrentUser badges.</param>
-        public Badge(DateTime? assignedAt = default(DateTime?), string badgeDescription = default(string), string badgeId = default(string), string badgeImageUrl = default(string), string badgeName = default(string), bool? hidden = default(bool?), bool showcased = default(bool), DateTime? updatedAt = default(DateTime?))
+        public Badge(DateTime? assignedAt = default, string badgeDescription = default, string badgeId = default, string badgeImageUrl = default, string badgeName = default, bool? hidden = default, bool showcased = default, DateTime? updatedAt = default)
         {
             // to ensure "badgeDescription" is required (not null)
             if (badgeDescription == null)
@@ -95,6 +96,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets BadgeId
         /// </summary>
+        /*
+        <example>bdg_a60e514a-8cb7-4702-8f24-2786992be1a8</example>
+        */
         [DataMember(Name = "badgeId", IsRequired = true, EmitDefaultValue = true)]
         public string BadgeId { get; set; }
 
@@ -161,116 +165,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Badge);
-        }
-
-        /// <summary>
-        /// Returns true if Badge instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Badge to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Badge input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AssignedAt == input.AssignedAt ||
-                    (this.AssignedAt != null &&
-                    this.AssignedAt.Equals(input.AssignedAt))
-                ) && 
-                (
-                    this.BadgeDescription == input.BadgeDescription ||
-                    (this.BadgeDescription != null &&
-                    this.BadgeDescription.Equals(input.BadgeDescription))
-                ) && 
-                (
-                    this.BadgeId == input.BadgeId ||
-                    (this.BadgeId != null &&
-                    this.BadgeId.Equals(input.BadgeId))
-                ) && 
-                (
-                    this.BadgeImageUrl == input.BadgeImageUrl ||
-                    (this.BadgeImageUrl != null &&
-                    this.BadgeImageUrl.Equals(input.BadgeImageUrl))
-                ) && 
-                (
-                    this.BadgeName == input.BadgeName ||
-                    (this.BadgeName != null &&
-                    this.BadgeName.Equals(input.BadgeName))
-                ) && 
-                (
-                    this.Hidden == input.Hidden ||
-                    (this.Hidden != null &&
-                    this.Hidden.Equals(input.Hidden))
-                ) && 
-                (
-                    this.Showcased == input.Showcased ||
-                    this.Showcased.Equals(input.Showcased)
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.AssignedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssignedAt.GetHashCode();
-                }
-                if (this.BadgeDescription != null)
-                {
-                    hashCode = (hashCode * 59) + this.BadgeDescription.GetHashCode();
-                }
-                if (this.BadgeId != null)
-                {
-                    hashCode = (hashCode * 59) + this.BadgeId.GetHashCode();
-                }
-                if (this.BadgeImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.BadgeImageUrl.GetHashCode();
-                }
-                if (this.BadgeName != null)
-                {
-                    hashCode = (hashCode * 59) + this.BadgeName.GetHashCode();
-                }
-                if (this.Hidden != null)
-                {
-                    hashCode = (hashCode * 59) + this.Hidden.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Showcased.GetHashCode();
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

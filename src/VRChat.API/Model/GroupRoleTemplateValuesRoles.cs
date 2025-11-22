@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// GroupRoleTemplateValuesRoles
     /// </summary>
     [DataContract(Name = "GroupRoleTemplateValues_roles")]
-    public partial class GroupRoleTemplateValuesRoles : IEquatable<GroupRoleTemplateValuesRoles>, IValidatableObject
+    public partial class GroupRoleTemplateValuesRoles : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupRoleTemplateValuesRoles" /> class.
@@ -38,7 +39,7 @@ namespace VRChat.API.Model
         /// <param name="name">name.</param>
         /// <param name="basePermissions">basePermissions.</param>
         /// <param name="isAddedOnJoin">isAddedOnJoin (default to false).</param>
-        public GroupRoleTemplateValuesRoles(string description = default(string), string name = default(string), List<GroupPermissions> basePermissions = default(List<GroupPermissions>), bool isAddedOnJoin = false)
+        public GroupRoleTemplateValuesRoles(string description = default, string name = default, List<GroupPermissions> basePermissions = default, bool isAddedOnJoin = false)
         {
             this.Description = description;
             this.Name = name;
@@ -96,81 +97,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as GroupRoleTemplateValuesRoles);
-        }
-
-        /// <summary>
-        /// Returns true if GroupRoleTemplateValuesRoles instances are equal
-        /// </summary>
-        /// <param name="input">Instance of GroupRoleTemplateValuesRoles to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(GroupRoleTemplateValuesRoles input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.BasePermissions == input.BasePermissions ||
-                    this.BasePermissions != null &&
-                    input.BasePermissions != null &&
-                    this.BasePermissions.SequenceEqual(input.BasePermissions)
-                ) && 
-                (
-                    this.IsAddedOnJoin == input.IsAddedOnJoin ||
-                    this.IsAddedOnJoin.Equals(input.IsAddedOnJoin)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.BasePermissions != null)
-                {
-                    hashCode = (hashCode * 59) + this.BasePermissions.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsAddedOnJoin.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

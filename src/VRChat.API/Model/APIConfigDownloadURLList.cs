@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Download links for various development assets.
     /// </summary>
     [DataContract(Name = "APIConfigDownloadURLList")]
-    public partial class APIConfigDownloadURLList : IEquatable<APIConfigDownloadURLList>, IValidatableObject
+    public partial class APIConfigDownloadURLList : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigDownloadURLList" /> class.
@@ -44,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="sdk3Worlds">Download link for SDK3 for Worlds (required).</param>
         /// <param name="vcc">Download link for the Creator Companion (required).</param>
         /// <param name="bootstrap">Download link for ??? (required).</param>
-        public APIConfigDownloadURLList(string sdk2 = default(string), string sdk3Avatars = default(string), string sdk3Worlds = default(string), string vcc = default(string), string bootstrap = default(string))
+        public APIConfigDownloadURLList(string sdk2 = default, string sdk3Avatars = default, string sdk3Worlds = default, string vcc = default, string bootstrap = default)
         {
             // to ensure "sdk2" is required (not null)
             if (sdk2 == null)
@@ -141,122 +142,40 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigDownloadURLList);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigDownloadURLList instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigDownloadURLList to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigDownloadURLList input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Sdk2 == input.Sdk2 ||
-                    (this.Sdk2 != null &&
-                    this.Sdk2.Equals(input.Sdk2))
-                ) && 
-                (
-                    this.Sdk3Avatars == input.Sdk3Avatars ||
-                    (this.Sdk3Avatars != null &&
-                    this.Sdk3Avatars.Equals(input.Sdk3Avatars))
-                ) && 
-                (
-                    this.Sdk3Worlds == input.Sdk3Worlds ||
-                    (this.Sdk3Worlds != null &&
-                    this.Sdk3Worlds.Equals(input.Sdk3Worlds))
-                ) && 
-                (
-                    this.Vcc == input.Vcc ||
-                    (this.Vcc != null &&
-                    this.Vcc.Equals(input.Vcc))
-                ) && 
-                (
-                    this.Bootstrap == input.Bootstrap ||
-                    (this.Bootstrap != null &&
-                    this.Bootstrap.Equals(input.Bootstrap))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Sdk2 != null)
-                {
-                    hashCode = (hashCode * 59) + this.Sdk2.GetHashCode();
-                }
-                if (this.Sdk3Avatars != null)
-                {
-                    hashCode = (hashCode * 59) + this.Sdk3Avatars.GetHashCode();
-                }
-                if (this.Sdk3Worlds != null)
-                {
-                    hashCode = (hashCode * 59) + this.Sdk3Worlds.GetHashCode();
-                }
-                if (this.Vcc != null)
-                {
-                    hashCode = (hashCode * 59) + this.Vcc.GetHashCode();
-                }
-                if (this.Bootstrap != null)
-                {
-                    hashCode = (hashCode * 59) + this.Bootstrap.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Sdk2 (string) minLength
             if (this.Sdk2 != null && this.Sdk2.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk2, length must be greater than 1.", new [] { "Sdk2" });
+                yield return new ValidationResult("Invalid value for Sdk2, length must be greater than 1.", new [] { "Sdk2" });
             }
 
             // Sdk3Avatars (string) minLength
             if (this.Sdk3Avatars != null && this.Sdk3Avatars.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk3Avatars, length must be greater than 1.", new [] { "Sdk3Avatars" });
+                yield return new ValidationResult("Invalid value for Sdk3Avatars, length must be greater than 1.", new [] { "Sdk3Avatars" });
             }
 
             // Sdk3Worlds (string) minLength
             if (this.Sdk3Worlds != null && this.Sdk3Worlds.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk3Worlds, length must be greater than 1.", new [] { "Sdk3Worlds" });
+                yield return new ValidationResult("Invalid value for Sdk3Worlds, length must be greater than 1.", new [] { "Sdk3Worlds" });
             }
 
             // Vcc (string) minLength
             if (this.Vcc != null && this.Vcc.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Vcc, length must be greater than 1.", new [] { "Vcc" });
+                yield return new ValidationResult("Invalid value for Vcc, length must be greater than 1.", new [] { "Vcc" });
             }
 
             // Bootstrap (string) minLength
             if (this.Bootstrap != null && this.Bootstrap.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bootstrap, length must be greater than 1.", new [] { "Bootstrap" });
+                yield return new ValidationResult("Invalid value for Bootstrap, length must be greater than 1.", new [] { "Bootstrap" });
             }
 
             yield break;

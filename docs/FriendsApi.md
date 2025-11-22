@@ -10,7 +10,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetFriends**](FriendsApi.md#getfriends) | **GET** /auth/user/friends | List Friends |
 | [**Unfriend**](FriendsApi.md#unfriend) | **DELETE** /auth/user/friends/{userId} | Unfriend |
 
-<a name="deletefriendrequest"></a>
+<a id="deletefriendrequest"></a>
 # **DeleteFriendRequest**
 > Success DeleteFriendRequest (string userId)
 
@@ -22,6 +22,7 @@ Deletes an outgoing pending friend request to another user. To delete an incomin
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -39,7 +40,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FriendsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FriendsApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
@@ -108,7 +112,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="friend"></a>
+<a id="friend"></a>
 # **Friend**
 > Notification Friend (string userId)
 
@@ -120,6 +124,7 @@ Send a friend request to another user.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -137,7 +142,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FriendsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FriendsApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
@@ -207,7 +215,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfriendstatus"></a>
+<a id="getfriendstatus"></a>
 # **GetFriendStatus**
 > FriendStatus GetFriendStatus (string userId)
 
@@ -219,6 +227,7 @@ Retrieve if the user is currently a friend with a given user, if they have an ou
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -236,7 +245,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FriendsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FriendsApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
@@ -304,7 +316,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfriends"></a>
+<a id="getfriends"></a>
 # **GetFriends**
 > List&lt;LimitedUserFriend&gt; GetFriends (int? offset = null, int? n = null, bool? offline = null)
 
@@ -316,6 +328,7 @@ List information about friends.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -333,7 +346,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FriendsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FriendsApi(httpClient, config, httpClientHandler);
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offline = true;  // bool? | Returns *only* offline users if true, returns only online and active users if false (optional) 
@@ -405,7 +421,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="unfriend"></a>
+<a id="unfriend"></a>
 # **Unfriend**
 > Success Unfriend (string userId)
 
@@ -417,6 +433,7 @@ Unfriend a user by ID.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -434,7 +451,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new FriendsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FriendsApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
 
             try

@@ -23,7 +23,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**VerifyPending2FA**](AuthenticationApi.md#verifypending2fa) | **POST** /auth/twofactorauth/totp/pending/verify | Verify Pending 2FA code |
 | [**VerifyRecoveryCode**](AuthenticationApi.md#verifyrecoverycode) | **POST** /auth/twofactorauth/otp/verify | Verify 2FA code with Recovery code |
 
-<a name="cancelpending2fa"></a>
+<a id="cancelpending2fa"></a>
 # **CancelPending2FA**
 > Disable2FAResult CancelPending2FA ()
 
@@ -35,6 +35,7 @@ Cancels the sequence for enabling time-based 2FA.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -52,7 +53,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -115,9 +119,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="checkuserexists"></a>
+<a id="checkuserexists"></a>
 # **CheckUserExists**
-> UserExists CheckUserExists (string email = null, string displayName = null, string username = null, string excludeUserId = null)
+> UserExists CheckUserExists (string? email = null, string? displayName = null, string? username = null, string? excludeUserId = null)
 
 Check User Exists
 
@@ -127,6 +131,7 @@ Checks if a user by a given `username`, `displayName` or `email` exist. This is 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -139,11 +144,14 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new AuthenticationApi(config);
-            var email = "email_example";  // string | Filter by email. (optional) 
-            var displayName = "displayName_example";  // string | Filter by displayName. (optional) 
-            var username = "username_example";  // string | Filter by Username. (optional) 
-            var excludeUserId = "excludeUserId_example";  // string | Exclude by UserID. (optional) 
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
+            var email = "email_example";  // string? | Filter by email. (optional) 
+            var displayName = "displayName_example";  // string? | Filter by displayName. (optional) 
+            var username = "username_example";  // string? | Filter by Username. (optional) 
+            var excludeUserId = "excludeUserId_example";  // string? | Exclude by UserID. (optional) 
 
             try
             {
@@ -186,10 +194,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **email** | **string** | Filter by email. | [optional]  |
-| **displayName** | **string** | Filter by displayName. | [optional]  |
-| **username** | **string** | Filter by Username. | [optional]  |
-| **excludeUserId** | **string** | Exclude by UserID. | [optional]  |
+| **email** | **string?** | Filter by email. | [optional]  |
+| **displayName** | **string?** | Filter by displayName. | [optional]  |
+| **username** | **string?** | Filter by Username. | [optional]  |
+| **excludeUserId** | **string?** | Exclude by UserID. | [optional]  |
 
 ### Return type
 
@@ -213,7 +221,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="confirmemail"></a>
+<a id="confirmemail"></a>
 # **ConfirmEmail**
 > void ConfirmEmail (string id, string verifyEmail)
 
@@ -225,6 +233,7 @@ Confirms the email address for a user
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -237,7 +246,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var id = usr_00000000-0000-0000-0000-000000000000;  // string | Target user for which to verify email.
             var verifyEmail = eml_00000000-0000-0000-0000-000000000000;  // string | Token to verify email.
 
@@ -302,7 +314,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteuser"></a>
+<a id="deleteuser"></a>
 # **DeleteUser**
 > CurrentUser DeleteUser (string userId)
 
@@ -314,6 +326,7 @@ Deletes the account with given ID. Normal users only have permission to delete t
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -331,7 +344,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
@@ -399,7 +415,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="disable2fa"></a>
+<a id="disable2fa"></a>
 # **Disable2FA**
 > Disable2FAResult Disable2FA ()
 
@@ -411,6 +427,7 @@ Disables 2FA for the currently logged in account
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -428,7 +445,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -491,7 +511,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="enable2fa"></a>
+<a id="enable2fa"></a>
 # **Enable2FA**
 > Pending2FAResult Enable2FA ()
 
@@ -503,6 +523,7 @@ Begins the sequence for enabling time-based 2FA.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -520,7 +541,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -583,7 +607,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getcurrentuser"></a>
+<a id="getcurrentuser"></a>
 # **GetCurrentUser**
 > CurrentUser GetCurrentUser ()
 
@@ -595,6 +619,7 @@ This endpoint does the following two operations:   1) Checks if you are already 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -607,10 +632,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            // Configure API key authorization: authCookie
-            config.AddApiKey("auth", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("auth", "Bearer");
             // Configure HTTP basic authorization: authHeader
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -618,8 +639,15 @@ namespace Example
             config.AddApiKey("twoFactorAuth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("twoFactorAuth", "Bearer");
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -666,7 +694,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[authCookie](../README.md#authCookie), [authHeader](../README.md#authHeader), [twoFactorAuthCookie](../README.md#twoFactorAuthCookie)
+[authHeader](../README.md#authHeader), [twoFactorAuthCookie](../README.md#twoFactorAuthCookie), [authCookie](../README.md#authCookie)
 
 ### HTTP request headers
 
@@ -682,7 +710,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getglobalavatarmoderations"></a>
+<a id="getglobalavatarmoderations"></a>
 # **GetGlobalAvatarModerations**
 > List&lt;AvatarModeration&gt; GetGlobalAvatarModerations ()
 
@@ -694,6 +722,7 @@ Returns list of globally blocked avatars.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -711,7 +740,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -774,7 +806,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getrecoverycodes"></a>
+<a id="getrecoverycodes"></a>
 # **GetRecoveryCodes**
 > TwoFactorRecoveryCodes GetRecoveryCodes ()
 
@@ -786,6 +818,7 @@ Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -803,7 +836,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -866,7 +902,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="logout"></a>
+<a id="logout"></a>
 # **Logout**
 > Success Logout ()
 
@@ -878,6 +914,7 @@ Invalidates the login session.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -895,7 +932,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -958,7 +998,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="registeruseraccount"></a>
+<a id="registeruseraccount"></a>
 # **RegisterUserAccount**
 > CurrentUser RegisterUserAccount (RegisterUserAccountRequest registerUserAccountRequest)
 
@@ -970,6 +1010,7 @@ Register User Account
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -982,7 +1023,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var registerUserAccountRequest = new RegisterUserAccountRequest(); // RegisterUserAccountRequest | 
 
             try
@@ -1050,7 +1094,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="resendemailconfirmation"></a>
+<a id="resendemailconfirmation"></a>
 # **ResendEmailConfirmation**
 > Success ResendEmailConfirmation ()
 
@@ -1062,6 +1106,7 @@ Requests a resend of pending email address confirmation email
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1079,7 +1124,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -1142,7 +1190,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verify2fa"></a>
+<a id="verify2fa"></a>
 # **Verify2FA**
 > Verify2FAResult Verify2FA (TwoFactorAuthCode twoFactorAuthCode)
 
@@ -1154,6 +1202,7 @@ Finishes the login sequence with a normal 2FA-generated code for accounts with 2
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1171,7 +1220,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode | 
 
             try
@@ -1239,7 +1291,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verify2faemailcode"></a>
+<a id="verify2faemailcode"></a>
 # **Verify2FAEmailCode**
 > Verify2FAEmailCodeResult Verify2FAEmailCode (TwoFactorEmailCode twoFactorEmailCode)
 
@@ -1251,6 +1303,7 @@ Finishes the login sequence with an 2FA email code.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1268,7 +1321,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var twoFactorEmailCode = new TwoFactorEmailCode(); // TwoFactorEmailCode | 
 
             try
@@ -1336,7 +1392,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verifyauthtoken"></a>
+<a id="verifyauthtoken"></a>
 # **VerifyAuthToken**
 > VerifyAuthTokenResult VerifyAuthToken ()
 
@@ -1348,6 +1404,7 @@ Verify whether the currently provided Auth Token is valid.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1365,7 +1422,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -1428,9 +1488,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verifyloginplace"></a>
+<a id="verifyloginplace"></a>
 # **VerifyLoginPlace**
-> void VerifyLoginPlace (string token, string userId = null)
+> void VerifyLoginPlace (string token, string? userId = null)
 
 Verify Login Place
 
@@ -1440,6 +1500,7 @@ Verifies a login attempt for a user
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1452,9 +1513,12 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var token = "token_example";  // string | Token to verify login attempt.
-            var userId = "userId_example";  // string | Filter by UserID. (optional) 
+            var userId = "userId_example";  // string? | Filter by UserID. (optional) 
 
             try
             {
@@ -1494,7 +1558,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **token** | **string** | Token to verify login attempt. |  |
-| **userId** | **string** | Filter by UserID. | [optional]  |
+| **userId** | **string?** | Filter by UserID. | [optional]  |
 
 ### Return type
 
@@ -1517,7 +1581,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verifypending2fa"></a>
+<a id="verifypending2fa"></a>
 # **VerifyPending2FA**
 > Verify2FAResult VerifyPending2FA (TwoFactorAuthCode twoFactorAuthCode)
 
@@ -1529,6 +1593,7 @@ Finishes sequence for enabling time-based 2FA.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1546,7 +1611,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode | 
 
             try
@@ -1614,7 +1682,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="verifyrecoverycode"></a>
+<a id="verifyrecoverycode"></a>
 # **VerifyRecoveryCode**
 > Verify2FAResult VerifyRecoveryCode (TwoFactorAuthCode twoFactorAuthCode)
 
@@ -1626,6 +1694,7 @@ Finishes the login sequence with an OTP (One Time Password) recovery code for ac
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1643,7 +1712,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AuthenticationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode | 
 
             try

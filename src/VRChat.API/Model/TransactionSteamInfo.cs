@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// TransactionSteamInfo
     /// </summary>
     [DataContract(Name = "TransactionSteamInfo")]
-    public partial class TransactionSteamInfo : IEquatable<TransactionSteamInfo>, IValidatableObject
+    public partial class TransactionSteamInfo : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionSteamInfo" /> class.
@@ -44,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="orderId">Steam Order ID (required).</param>
         /// <param name="steamUrl">Empty (required).</param>
         /// <param name="transId">Steam Transaction ID, NOT the same as VRChat TransactionID (required).</param>
-        public TransactionSteamInfo(TransactionSteamWalletInfo walletInfo = default(TransactionSteamWalletInfo), string steamId = default(string), string orderId = default(string), string steamUrl = default(string), string transId = default(string))
+        public TransactionSteamInfo(TransactionSteamWalletInfo walletInfo = default, string steamId = default, string orderId = default, string steamUrl = default, string transId = default)
         {
             // to ensure "walletInfo" is required (not null)
             if (walletInfo == null)
@@ -139,110 +140,28 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TransactionSteamInfo);
-        }
-
-        /// <summary>
-        /// Returns true if TransactionSteamInfo instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TransactionSteamInfo to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TransactionSteamInfo input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.WalletInfo == input.WalletInfo ||
-                    (this.WalletInfo != null &&
-                    this.WalletInfo.Equals(input.WalletInfo))
-                ) && 
-                (
-                    this.SteamId == input.SteamId ||
-                    (this.SteamId != null &&
-                    this.SteamId.Equals(input.SteamId))
-                ) && 
-                (
-                    this.OrderId == input.OrderId ||
-                    (this.OrderId != null &&
-                    this.OrderId.Equals(input.OrderId))
-                ) && 
-                (
-                    this.SteamUrl == input.SteamUrl ||
-                    (this.SteamUrl != null &&
-                    this.SteamUrl.Equals(input.SteamUrl))
-                ) && 
-                (
-                    this.TransId == input.TransId ||
-                    (this.TransId != null &&
-                    this.TransId.Equals(input.TransId))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.WalletInfo != null)
-                {
-                    hashCode = (hashCode * 59) + this.WalletInfo.GetHashCode();
-                }
-                if (this.SteamId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SteamId.GetHashCode();
-                }
-                if (this.OrderId != null)
-                {
-                    hashCode = (hashCode * 59) + this.OrderId.GetHashCode();
-                }
-                if (this.SteamUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.SteamUrl.GetHashCode();
-                }
-                if (this.TransId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TransId.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // SteamId (string) minLength
             if (this.SteamId != null && this.SteamId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SteamId, length must be greater than 1.", new [] { "SteamId" });
+                yield return new ValidationResult("Invalid value for SteamId, length must be greater than 1.", new [] { "SteamId" });
             }
 
             // OrderId (string) minLength
             if (this.OrderId != null && this.OrderId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OrderId, length must be greater than 1.", new [] { "OrderId" });
+                yield return new ValidationResult("Invalid value for OrderId, length must be greater than 1.", new [] { "OrderId" });
             }
 
             // TransId (string) minLength
             if (this.TransId != null && this.TransId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransId, length must be greater than 1.", new [] { "TransId" });
+                yield return new ValidationResult("Invalid value for TransId, length must be greater than 1.", new [] { "TransId" });
             }
 
             yield break;

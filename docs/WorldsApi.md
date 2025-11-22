@@ -20,7 +20,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**UnpublishWorld**](WorldsApi.md#unpublishworld) | **DELETE** /worlds/{worldId}/publish | Unpublish World |
 | [**UpdateWorld**](WorldsApi.md#updateworld) | **PUT** /worlds/{worldId} | Update World |
 
-<a name="checkuserpersistenceexists"></a>
+<a id="checkuserpersistenceexists"></a>
 # **CheckUserPersistenceExists**
 > void CheckUserPersistenceExists (string userId, string worldId)
 
@@ -32,6 +32,7 @@ Checks whether the user has persistence data for a given world
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -49,7 +50,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
             var worldId = "worldId_example";  // string | Must be a valid world ID.
 
@@ -116,9 +120,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="createworld"></a>
+<a id="createworld"></a>
 # **CreateWorld**
-> World CreateWorld (CreateWorldRequest createWorldRequest = null)
+> World CreateWorld (CreateWorldRequest? createWorldRequest = null)
 
 Create World
 
@@ -128,6 +132,7 @@ Create a new world. This endpoint requires `assetUrl` to be a valid File object 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -140,8 +145,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new WorldsApi(config);
-            var createWorldRequest = new CreateWorldRequest(); // CreateWorldRequest |  (optional) 
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
+            var createWorldRequest = new CreateWorldRequest?(); // CreateWorldRequest? |  (optional) 
 
             try
             {
@@ -184,7 +192,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createWorldRequest** | [**CreateWorldRequest**](CreateWorldRequest.md) |  | [optional]  |
+| **createWorldRequest** | [**CreateWorldRequest?**](CreateWorldRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -209,7 +217,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteuserpersistence"></a>
+<a id="deleteuserpersistence"></a>
 # **DeleteUserPersistence**
 > void DeleteUserPersistence (string userId, string worldId)
 
@@ -221,6 +229,7 @@ Deletes the user's persistence data for a given world
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -238,7 +247,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
             var worldId = "worldId_example";  // string | Must be a valid world ID.
 
@@ -305,7 +317,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteworld"></a>
+<a id="deleteworld"></a>
 # **DeleteWorld**
 > void DeleteWorld (string worldId)
 
@@ -317,6 +329,7 @@ Delete a world. Notice a world is never fully \"deleted\", only its ReleaseStatu
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -334,7 +347,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
 
             try
@@ -399,9 +415,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getactiveworlds"></a>
+<a id="getactiveworlds"></a>
 # **GetActiveWorlds**
-> List&lt;LimitedWorld&gt; GetActiveWorlds (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
+> List&lt;LimitedWorld&gt; GetActiveWorlds (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string? search = null, string? tag = null, string? notag = null, ReleaseStatus? releaseStatus = null, string? maxUnityVersion = null, string? minUnityVersion = null, string? platform = null)
 
 List Active Worlds
 
@@ -411,6 +427,7 @@ Search and list currently Active worlds by query filters.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -428,19 +445,22 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var featured = true;  // bool? | Filters on featured results. (optional) 
-            var sort = (SortOption) "popularity";  // SortOption? | The sort order of the results. (optional) 
+            var sort = new SortOption?(); // SortOption? | The sort order of the results. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
-            var order = (OrderOption) "ascending";  // OrderOption? | Result ordering (optional) 
+            var order = new OrderOption?(); // OrderOption? | Result ordering (optional) 
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var search = "search_example";  // string | Filters by world name. (optional) 
-            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = (ReleaseStatus) "public";  // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
-            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
+            var search = "search_example";  // string? | Filters by world name. (optional) 
+            var tag = "tag_example";  // string? | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = "notag_example";  // string? | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = new ReleaseStatus?(); // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
+            var maxUnityVersion = "maxUnityVersion_example";  // string? | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = "minUnityVersion_example";  // string? | The minimum Unity version supported by the asset. (optional) 
+            var platform = "platform_example";  // string? | The platform the asset supports. (optional) 
 
             try
             {
@@ -484,17 +504,17 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **featured** | **bool?** | Filters on featured results. | [optional]  |
-| **sort** | **SortOption?** | The sort order of the results. | [optional]  |
+| **sort** | [**SortOption?**](SortOption?.md) | The sort order of the results. | [optional]  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
-| **order** | **OrderOption?** | Result ordering | [optional]  |
+| **order** | [**OrderOption?**](OrderOption?.md) | Result ordering | [optional]  |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **search** | **string** | Filters by world name. | [optional]  |
-| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
-| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
-| **releaseStatus** | **ReleaseStatus?** | Filter by ReleaseStatus. | [optional]  |
-| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
-| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
-| **platform** | **string** | The platform the asset supports. | [optional]  |
+| **search** | **string?** | Filters by world name. | [optional]  |
+| **tag** | **string?** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **notag** | **string?** | Tags to exclude (comma-separated). | [optional]  |
+| **releaseStatus** | [**ReleaseStatus?**](ReleaseStatus?.md) | Filter by ReleaseStatus. | [optional]  |
+| **maxUnityVersion** | **string?** | The maximum Unity version supported by the asset. | [optional]  |
+| **minUnityVersion** | **string?** | The minimum Unity version supported by the asset. | [optional]  |
+| **platform** | **string?** | The platform the asset supports. | [optional]  |
 
 ### Return type
 
@@ -518,9 +538,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfavoritedworlds"></a>
+<a id="getfavoritedworlds"></a>
 # **GetFavoritedWorlds**
-> List&lt;FavoritedWorld&gt; GetFavoritedWorlds (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
+> List&lt;FavoritedWorld&gt; GetFavoritedWorlds (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string? search = null, string? tag = null, string? notag = null, ReleaseStatus? releaseStatus = null, string? maxUnityVersion = null, string? minUnityVersion = null, string? platform = null, string? userId = null)
 
 List Favorited Worlds
 
@@ -530,6 +550,7 @@ Search and list favorited worlds by query filters.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -547,20 +568,23 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var featured = true;  // bool? | Filters on featured results. (optional) 
-            var sort = (SortOption) "popularity";  // SortOption? | The sort order of the results. (optional) 
+            var sort = new SortOption?(); // SortOption? | The sort order of the results. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
-            var order = (OrderOption) "ascending";  // OrderOption? | Result ordering (optional) 
+            var order = new OrderOption?(); // OrderOption? | Result ordering (optional) 
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var search = "search_example";  // string | Filters by world name. (optional) 
-            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = (ReleaseStatus) "public";  // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
-            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
-            var userId = "userId_example";  // string | Target user to see information on, admin-only. (optional) 
+            var search = "search_example";  // string? | Filters by world name. (optional) 
+            var tag = "tag_example";  // string? | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = "notag_example";  // string? | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = new ReleaseStatus?(); // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
+            var maxUnityVersion = "maxUnityVersion_example";  // string? | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = "minUnityVersion_example";  // string? | The minimum Unity version supported by the asset. (optional) 
+            var platform = "platform_example";  // string? | The platform the asset supports. (optional) 
+            var userId = "userId_example";  // string? | Target user to see information on, admin-only. (optional) 
 
             try
             {
@@ -604,18 +628,18 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **featured** | **bool?** | Filters on featured results. | [optional]  |
-| **sort** | **SortOption?** | The sort order of the results. | [optional]  |
+| **sort** | [**SortOption?**](SortOption?.md) | The sort order of the results. | [optional]  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
-| **order** | **OrderOption?** | Result ordering | [optional]  |
+| **order** | [**OrderOption?**](OrderOption?.md) | Result ordering | [optional]  |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **search** | **string** | Filters by world name. | [optional]  |
-| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
-| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
-| **releaseStatus** | **ReleaseStatus?** | Filter by ReleaseStatus. | [optional]  |
-| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
-| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
-| **platform** | **string** | The platform the asset supports. | [optional]  |
-| **userId** | **string** | Target user to see information on, admin-only. | [optional]  |
+| **search** | **string?** | Filters by world name. | [optional]  |
+| **tag** | **string?** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **notag** | **string?** | Tags to exclude (comma-separated). | [optional]  |
+| **releaseStatus** | [**ReleaseStatus?**](ReleaseStatus?.md) | Filter by ReleaseStatus. | [optional]  |
+| **maxUnityVersion** | **string?** | The maximum Unity version supported by the asset. | [optional]  |
+| **minUnityVersion** | **string?** | The minimum Unity version supported by the asset. | [optional]  |
+| **platform** | **string?** | The platform the asset supports. | [optional]  |
+| **userId** | **string?** | Target user to see information on, admin-only. | [optional]  |
 
 ### Return type
 
@@ -640,9 +664,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getrecentworlds"></a>
+<a id="getrecentworlds"></a>
 # **GetRecentWorlds**
-> List&lt;LimitedWorld&gt; GetRecentWorlds (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
+> List&lt;LimitedWorld&gt; GetRecentWorlds (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string? search = null, string? tag = null, string? notag = null, ReleaseStatus? releaseStatus = null, string? maxUnityVersion = null, string? minUnityVersion = null, string? platform = null, string? userId = null)
 
 List Recent Worlds
 
@@ -652,6 +676,7 @@ Search and list recently visited worlds by query filters.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -669,20 +694,23 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var featured = true;  // bool? | Filters on featured results. (optional) 
-            var sort = (SortOption) "popularity";  // SortOption? | The sort order of the results. (optional) 
+            var sort = new SortOption?(); // SortOption? | The sort order of the results. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
-            var order = (OrderOption) "ascending";  // OrderOption? | Result ordering (optional) 
+            var order = new OrderOption?(); // OrderOption? | Result ordering (optional) 
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var search = "search_example";  // string | Filters by world name. (optional) 
-            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = (ReleaseStatus) "public";  // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
-            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
-            var userId = "userId_example";  // string | Target user to see information on, admin-only. (optional) 
+            var search = "search_example";  // string? | Filters by world name. (optional) 
+            var tag = "tag_example";  // string? | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = "notag_example";  // string? | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = new ReleaseStatus?(); // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
+            var maxUnityVersion = "maxUnityVersion_example";  // string? | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = "minUnityVersion_example";  // string? | The minimum Unity version supported by the asset. (optional) 
+            var platform = "platform_example";  // string? | The platform the asset supports. (optional) 
+            var userId = "userId_example";  // string? | Target user to see information on, admin-only. (optional) 
 
             try
             {
@@ -726,18 +754,18 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **featured** | **bool?** | Filters on featured results. | [optional]  |
-| **sort** | **SortOption?** | The sort order of the results. | [optional]  |
+| **sort** | [**SortOption?**](SortOption?.md) | The sort order of the results. | [optional]  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
-| **order** | **OrderOption?** | Result ordering | [optional]  |
+| **order** | [**OrderOption?**](OrderOption?.md) | Result ordering | [optional]  |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **search** | **string** | Filters by world name. | [optional]  |
-| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
-| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
-| **releaseStatus** | **ReleaseStatus?** | Filter by ReleaseStatus. | [optional]  |
-| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
-| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
-| **platform** | **string** | The platform the asset supports. | [optional]  |
-| **userId** | **string** | Target user to see information on, admin-only. | [optional]  |
+| **search** | **string?** | Filters by world name. | [optional]  |
+| **tag** | **string?** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **notag** | **string?** | Tags to exclude (comma-separated). | [optional]  |
+| **releaseStatus** | [**ReleaseStatus?**](ReleaseStatus?.md) | Filter by ReleaseStatus. | [optional]  |
+| **maxUnityVersion** | **string?** | The maximum Unity version supported by the asset. | [optional]  |
+| **minUnityVersion** | **string?** | The minimum Unity version supported by the asset. | [optional]  |
+| **platform** | **string?** | The platform the asset supports. | [optional]  |
+| **userId** | **string?** | Target user to see information on, admin-only. | [optional]  |
 
 ### Return type
 
@@ -762,7 +790,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getworld"></a>
+<a id="getworld"></a>
 # **GetWorld**
 > World GetWorld (string worldId)
 
@@ -774,6 +802,7 @@ Get information about a specific World. Works unauthenticated but when so will a
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -786,7 +815,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
 
             try
@@ -854,7 +886,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getworldinstance"></a>
+<a id="getworldinstance"></a>
 # **GetWorldInstance**
 > Instance GetWorldInstance (string worldId, string instanceId)
 
@@ -866,6 +898,7 @@ Returns a worlds instance.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -883,7 +916,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
             var instanceId = "instanceId_example";  // string | Must be a valid instance ID.
 
@@ -953,7 +989,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getworldmetadata"></a>
+<a id="getworldmetadata"></a>
 # **GetWorldMetadata**
 > WorldMetadata GetWorldMetadata (string worldId)
 
@@ -965,6 +1001,7 @@ Return a worlds custom metadata. This is currently believed to be unused. Metada
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -982,7 +1019,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
 
             try
@@ -1050,7 +1090,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getworldpublishstatus"></a>
+<a id="getworldpublishstatus"></a>
 # **GetWorldPublishStatus**
 > WorldPublishStatus GetWorldPublishStatus (string worldId)
 
@@ -1062,6 +1102,7 @@ Returns a worlds publish status.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1079,7 +1120,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
 
             try
@@ -1148,7 +1192,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="publishworld"></a>
+<a id="publishworld"></a>
 # **PublishWorld**
 > void PublishWorld (string worldId)
 
@@ -1160,6 +1204,7 @@ Publish a world. You can only publish one world per week.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1177,7 +1222,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
 
             try
@@ -1242,9 +1290,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="searchworlds"></a>
+<a id="searchworlds"></a>
 # **SearchWorlds**
-> List&lt;LimitedWorld&gt; SearchWorlds (bool? featured = null, SortOption? sort = null, string user = null, string userId = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, bool? fuzzy = null)
+> List&lt;LimitedWorld&gt; SearchWorlds (bool? featured = null, SortOption? sort = null, string? user = null, string? userId = null, int? n = null, OrderOption? order = null, int? offset = null, string? search = null, string? tag = null, string? notag = null, ReleaseStatus? releaseStatus = null, string? maxUnityVersion = null, string? minUnityVersion = null, string? platform = null, bool? fuzzy = null)
 
 Search All Worlds
 
@@ -1254,6 +1302,7 @@ Search and list any worlds by query filters.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1271,21 +1320,24 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var featured = true;  // bool? | Filters on featured results. (optional) 
-            var sort = (SortOption) "popularity";  // SortOption? | The sort order of the results. (optional) 
-            var user = "me";  // string | Set to `me` for searching own worlds. (optional) 
-            var userId = "userId_example";  // string | Filter by UserID. (optional) 
+            var sort = new SortOption?(); // SortOption? | The sort order of the results. (optional) 
+            var user = "me";  // string? | Set to `me` for searching own worlds. (optional) 
+            var userId = "userId_example";  // string? | Filter by UserID. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
-            var order = (OrderOption) "ascending";  // OrderOption? | Result ordering (optional) 
+            var order = new OrderOption?(); // OrderOption? | Result ordering (optional) 
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var search = "search_example";  // string | Filters by world name. (optional) 
-            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = (ReleaseStatus) "public";  // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
-            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
+            var search = "search_example";  // string? | Filters by world name. (optional) 
+            var tag = "tag_example";  // string? | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = "notag_example";  // string? | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = new ReleaseStatus?(); // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
+            var maxUnityVersion = "maxUnityVersion_example";  // string? | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = "minUnityVersion_example";  // string? | The minimum Unity version supported by the asset. (optional) 
+            var platform = "platform_example";  // string? | The platform the asset supports. (optional) 
             var fuzzy = true;  // bool? |  (optional) 
 
             try
@@ -1330,19 +1382,19 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **featured** | **bool?** | Filters on featured results. | [optional]  |
-| **sort** | **SortOption?** | The sort order of the results. | [optional]  |
-| **user** | **string** | Set to &#x60;me&#x60; for searching own worlds. | [optional]  |
-| **userId** | **string** | Filter by UserID. | [optional]  |
+| **sort** | [**SortOption?**](SortOption?.md) | The sort order of the results. | [optional]  |
+| **user** | **string?** | Set to &#x60;me&#x60; for searching own worlds. | [optional]  |
+| **userId** | **string?** | Filter by UserID. | [optional]  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
-| **order** | **OrderOption?** | Result ordering | [optional]  |
+| **order** | [**OrderOption?**](OrderOption?.md) | Result ordering | [optional]  |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **search** | **string** | Filters by world name. | [optional]  |
-| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
-| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
-| **releaseStatus** | **ReleaseStatus?** | Filter by ReleaseStatus. | [optional]  |
-| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
-| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
-| **platform** | **string** | The platform the asset supports. | [optional]  |
+| **search** | **string?** | Filters by world name. | [optional]  |
+| **tag** | **string?** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **notag** | **string?** | Tags to exclude (comma-separated). | [optional]  |
+| **releaseStatus** | [**ReleaseStatus?**](ReleaseStatus?.md) | Filter by ReleaseStatus. | [optional]  |
+| **maxUnityVersion** | **string?** | The maximum Unity version supported by the asset. | [optional]  |
+| **minUnityVersion** | **string?** | The minimum Unity version supported by the asset. | [optional]  |
+| **platform** | **string?** | The platform the asset supports. | [optional]  |
 | **fuzzy** | **bool?** |  | [optional]  |
 
 ### Return type
@@ -1367,7 +1419,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="unpublishworld"></a>
+<a id="unpublishworld"></a>
 # **UnpublishWorld**
 > void UnpublishWorld (string worldId)
 
@@ -1379,6 +1431,7 @@ Unpublish a world.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1396,7 +1449,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
 
             try
@@ -1461,9 +1517,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateworld"></a>
+<a id="updateworld"></a>
 # **UpdateWorld**
-> World UpdateWorld (string worldId, UpdateWorldRequest updateWorldRequest = null)
+> World UpdateWorld (string worldId, UpdateWorldRequest? updateWorldRequest = null)
 
 Update World
 
@@ -1473,6 +1529,7 @@ Update information about a specific World.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1490,9 +1547,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new WorldsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorldsApi(httpClient, config, httpClientHandler);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
-            var updateWorldRequest = new UpdateWorldRequest(); // UpdateWorldRequest |  (optional) 
+            var updateWorldRequest = new UpdateWorldRequest?(); // UpdateWorldRequest? |  (optional) 
 
             try
             {
@@ -1536,7 +1596,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **worldId** | **string** | Must be a valid world ID. |  |
-| **updateWorldRequest** | [**UpdateWorldRequest**](UpdateWorldRequest.md) |  | [optional]  |
+| **updateWorldRequest** | [**UpdateWorldRequest?**](UpdateWorldRequest?.md) |  | [optional]  |
 
 ### Return type
 

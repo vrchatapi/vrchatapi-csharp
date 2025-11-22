@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **UnityPackages** | [**List&lt;UnityPackage&gt;**](UnityPackage.md) | Empty if unauthenticated. | [optional] 
 **UpdatedAt** | **DateTime** |  | 
 **UrlList** | **List&lt;string&gt;** |  | [optional] 
-**_Version** | **int** |  | [default to 0]
+**VarVersion** | **int** |  | [default to 0]
 **Visits** | **int** |  | [default to 0]
 **UdonProducts** | **List&lt;string&gt;** |  | [optional] 
 

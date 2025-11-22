@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// A category used for reporting content
     /// </summary>
     [DataContract(Name = "ReportCategory")]
-    public partial class ReportCategory : IEquatable<ReportCategory>, IValidatableObject
+    public partial class ReportCategory : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportCategory" /> class.
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="title">The title of the report category.</param>
         /// <param name="text">The label of the report category (required).</param>
         /// <param name="tooltip">The tooltip that describes the category (required).</param>
-        public ReportCategory(string description = default(string), string title = default(string), string text = default(string), string tooltip = default(string))
+        public ReportCategory(string description = default, string title = default, string text = default, string tooltip = default)
         {
             // to ensure "text" is required (not null)
             if (text == null)
@@ -115,84 +116,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ReportCategory);
-        }
-
-        /// <summary>
-        /// Returns true if ReportCategory instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ReportCategory to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ReportCategory input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.Text == input.Text ||
-                    (this.Text != null &&
-                    this.Text.Equals(input.Text))
-                ) && 
-                (
-                    this.Tooltip == input.Tooltip ||
-                    (this.Tooltip != null &&
-                    this.Tooltip.Equals(input.Tooltip))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.Text != null)
-                {
-                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
-                }
-                if (this.Tooltip != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tooltip.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

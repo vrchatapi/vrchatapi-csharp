@@ -1,4 +1,5 @@
 .gitignore
+api/openapi.yaml
 appveyor.yml
 docs/APIConfig.md
 docs/APIConfigAccessLogsUrls.md
@@ -288,8 +289,8 @@ src/VRChat.API/Client/ApiResponse.cs
 src/VRChat.API/Client/ClientUtils.cs
 src/VRChat.API/Client/Configuration.cs
 src/VRChat.API/Client/ExceptionFactory.cs
+src/VRChat.API/Client/FileParameter.cs
 src/VRChat.API/Client/GlobalConfiguration.cs
-src/VRChat.API/Client/HttpMethod.cs
 src/VRChat.API/Client/IApiAccessor.cs
 src/VRChat.API/Client/IAsynchronousClient.cs
 src/VRChat.API/Client/IReadableConfiguration.cs
@@ -298,6 +299,7 @@ src/VRChat.API/Client/Multimap.cs
 src/VRChat.API/Client/OpenAPIDateConverter.cs
 src/VRChat.API/Client/RequestOptions.cs
 src/VRChat.API/Client/RetryConfiguration.cs
+src/VRChat.API/Client/WebRequestPathBuilder.cs
 src/VRChat.API/Model/APIConfig.cs
 src/VRChat.API/Model/APIConfigAccessLogsUrls.cs
 src/VRChat.API/Model/APIConfigAnnouncement.cs

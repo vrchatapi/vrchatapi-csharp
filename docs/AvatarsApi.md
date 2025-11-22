@@ -19,9 +19,9 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**SelectFallbackAvatar**](AvatarsApi.md#selectfallbackavatar) | **PUT** /avatars/{avatarId}/selectFallback | Select Fallback Avatar |
 | [**UpdateAvatar**](AvatarsApi.md#updateavatar) | **PUT** /avatars/{avatarId} | Update Avatar |
 
-<a name="createavatar"></a>
+<a id="createavatar"></a>
 # **CreateAvatar**
-> Avatar CreateAvatar (CreateAvatarRequest createAvatarRequest = null)
+> Avatar CreateAvatar (CreateAvatarRequest? createAvatarRequest = null)
 
 Create Avatar
 
@@ -31,6 +31,7 @@ Create an avatar. It's possible to optionally specify a ID if you want a custom 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -48,8 +49,11 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
-            var createAvatarRequest = new CreateAvatarRequest(); // CreateAvatarRequest |  (optional) 
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
+            var createAvatarRequest = new CreateAvatarRequest?(); // CreateAvatarRequest? |  (optional) 
 
             try
             {
@@ -92,7 +96,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createAvatarRequest** | [**CreateAvatarRequest**](CreateAvatarRequest.md) |  | [optional]  |
+| **createAvatarRequest** | [**CreateAvatarRequest?**](CreateAvatarRequest?.md) |  | [optional]  |
 
 ### Return type
 
@@ -117,7 +121,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteavatar"></a>
+<a id="deleteavatar"></a>
 # **DeleteAvatar**
 > Avatar DeleteAvatar (string avatarId)
 
@@ -129,6 +133,7 @@ Delete an avatar. Notice an avatar is never fully \"deleted\", only its ReleaseS
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -146,7 +151,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var avatarId = "avatarId_example";  // string | Must be a valid avatar ID.
 
             try
@@ -215,7 +223,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deleteimpostor"></a>
+<a id="deleteimpostor"></a>
 # **DeleteImpostor**
 > void DeleteImpostor (string avatarId)
 
@@ -227,6 +235,7 @@ Delete generated Impostor for that avatar.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -244,7 +253,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var avatarId = "avatarId_example";  // string | Must be a valid avatar ID.
 
             try
@@ -309,7 +321,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="enqueueimpostor"></a>
+<a id="enqueueimpostor"></a>
 # **EnqueueImpostor**
 > ServiceStatus EnqueueImpostor (string avatarId)
 
@@ -321,6 +333,7 @@ Enqueue Impostor generation for that avatar.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -338,7 +351,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var avatarId = "avatarId_example";  // string | Must be a valid avatar ID.
 
             try
@@ -407,7 +423,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getavatar"></a>
+<a id="getavatar"></a>
 # **GetAvatar**
 > Avatar GetAvatar (string avatarId)
 
@@ -419,6 +435,7 @@ Get information about a specific Avatar.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -436,7 +453,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var avatarId = "avatarId_example";  // string | Must be a valid avatar ID.
 
             try
@@ -505,7 +525,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getavatarstyles"></a>
+<a id="getavatarstyles"></a>
 # **GetAvatarStyles**
 > List&lt;AvatarStyle&gt; GetAvatarStyles ()
 
@@ -517,6 +537,7 @@ List avatar styles.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -529,7 +550,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.vrchat.cloud/api/1";
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -591,9 +615,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getfavoritedavatars"></a>
+<a id="getfavoritedavatars"></a>
 # **GetFavoritedAvatars**
-> List&lt;Avatar&gt; GetFavoritedAvatars (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, string userId = null)
+> List&lt;Avatar&gt; GetFavoritedAvatars (bool? featured = null, SortOption? sort = null, int? n = null, OrderOption? order = null, int? offset = null, string? search = null, string? tag = null, string? notag = null, ReleaseStatus? releaseStatus = null, string? maxUnityVersion = null, string? minUnityVersion = null, string? platform = null, string? userId = null)
 
 List Favorited Avatars
 
@@ -603,6 +627,7 @@ Search and list favorited avatars by query filters.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -620,20 +645,23 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var featured = true;  // bool? | Filters on featured results. (optional) 
-            var sort = (SortOption) "popularity";  // SortOption? | The sort order of the results. (optional) 
+            var sort = new SortOption?(); // SortOption? | The sort order of the results. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
-            var order = (OrderOption) "ascending";  // OrderOption? | Result ordering (optional) 
+            var order = new OrderOption?(); // OrderOption? | Result ordering (optional) 
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var search = "search_example";  // string | Filters by world name. (optional) 
-            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = (ReleaseStatus) "public";  // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
-            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
-            var userId = "userId_example";  // string | Target user to see information on, admin-only. (optional) 
+            var search = "search_example";  // string? | Filters by world name. (optional) 
+            var tag = "tag_example";  // string? | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = "notag_example";  // string? | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = new ReleaseStatus?(); // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
+            var maxUnityVersion = "maxUnityVersion_example";  // string? | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = "minUnityVersion_example";  // string? | The minimum Unity version supported by the asset. (optional) 
+            var platform = "platform_example";  // string? | The platform the asset supports. (optional) 
+            var userId = "userId_example";  // string? | Target user to see information on, admin-only. (optional) 
 
             try
             {
@@ -677,18 +705,18 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **featured** | **bool?** | Filters on featured results. | [optional]  |
-| **sort** | **SortOption?** | The sort order of the results. | [optional]  |
+| **sort** | [**SortOption?**](SortOption?.md) | The sort order of the results. | [optional]  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
-| **order** | **OrderOption?** | Result ordering | [optional]  |
+| **order** | [**OrderOption?**](OrderOption?.md) | Result ordering | [optional]  |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **search** | **string** | Filters by world name. | [optional]  |
-| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
-| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
-| **releaseStatus** | **ReleaseStatus?** | Filter by ReleaseStatus. | [optional]  |
-| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
-| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
-| **platform** | **string** | The platform the asset supports. | [optional]  |
-| **userId** | **string** | Target user to see information on, admin-only. | [optional]  |
+| **search** | **string?** | Filters by world name. | [optional]  |
+| **tag** | **string?** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **notag** | **string?** | Tags to exclude (comma-separated). | [optional]  |
+| **releaseStatus** | [**ReleaseStatus?**](ReleaseStatus?.md) | Filter by ReleaseStatus. | [optional]  |
+| **maxUnityVersion** | **string?** | The maximum Unity version supported by the asset. | [optional]  |
+| **minUnityVersion** | **string?** | The minimum Unity version supported by the asset. | [optional]  |
+| **platform** | **string?** | The platform the asset supports. | [optional]  |
+| **userId** | **string?** | Target user to see information on, admin-only. | [optional]  |
 
 ### Return type
 
@@ -713,7 +741,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getimpostorqueuestats"></a>
+<a id="getimpostorqueuestats"></a>
 # **GetImpostorQueueStats**
 > ServiceQueueStats GetImpostorQueueStats ()
 
@@ -725,6 +753,7 @@ Gets service stats for queued impostor.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -742,7 +771,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -805,7 +837,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getlicensedavatars"></a>
+<a id="getlicensedavatars"></a>
 # **GetLicensedAvatars**
 > List&lt;Avatar&gt; GetLicensedAvatars (int? n = null, int? offset = null)
 
@@ -817,6 +849,7 @@ List licensed avatars.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -834,7 +867,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
@@ -904,7 +940,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getownavatar"></a>
+<a id="getownavatar"></a>
 # **GetOwnAvatar**
 > Avatar GetOwnAvatar (string userId)
 
@@ -916,6 +952,7 @@ Get the current avatar for the user. This will return an error for any other use
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -933,7 +970,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var userId = "userId_example";  // string | Must be a valid user ID.
 
             try
@@ -1002,9 +1042,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="searchavatars"></a>
+<a id="searchavatars"></a>
 # **SearchAvatars**
-> List&lt;Avatar&gt; SearchAvatars (bool? featured = null, SortOption? sort = null, string user = null, string userId = null, int? n = null, OrderOption? order = null, int? offset = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
+> List&lt;Avatar&gt; SearchAvatars (bool? featured = null, SortOption? sort = null, string? user = null, string? userId = null, int? n = null, OrderOption? order = null, int? offset = null, string? tag = null, string? notag = null, ReleaseStatus? releaseStatus = null, string? maxUnityVersion = null, string? minUnityVersion = null, string? platform = null)
 
 Search Avatars
 
@@ -1014,6 +1054,7 @@ Search and list avatars by query filters. You can only search your own or featur
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1031,20 +1072,23 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var featured = true;  // bool? | Filters on featured results. (optional) 
-            var sort = (SortOption) "popularity";  // SortOption? | The sort order of the results. (optional) 
-            var user = "me";  // string | Set to `me` for searching own avatars. (optional) 
-            var userId = "userId_example";  // string | Filter by UserID. (optional) 
+            var sort = new SortOption?(); // SortOption? | The sort order of the results. (optional) 
+            var user = "me";  // string? | Set to `me` for searching own avatars. (optional) 
+            var userId = "userId_example";  // string? | Filter by UserID. (optional) 
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
-            var order = (OrderOption) "ascending";  // OrderOption? | Result ordering (optional) 
+            var order = new OrderOption?(); // OrderOption? | Result ordering (optional) 
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var tag = "tag_example";  // string | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
-            var notag = "notag_example";  // string | Tags to exclude (comma-separated). (optional) 
-            var releaseStatus = (ReleaseStatus) "public";  // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
-            var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
-            var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
-            var platform = "platform_example";  // string | The platform the asset supports. (optional) 
+            var tag = "tag_example";  // string? | Tags to include (comma-separated). Any of the tags needs to be present. (optional) 
+            var notag = "notag_example";  // string? | Tags to exclude (comma-separated). (optional) 
+            var releaseStatus = new ReleaseStatus?(); // ReleaseStatus? | Filter by ReleaseStatus. (optional) 
+            var maxUnityVersion = "maxUnityVersion_example";  // string? | The maximum Unity version supported by the asset. (optional) 
+            var minUnityVersion = "minUnityVersion_example";  // string? | The minimum Unity version supported by the asset. (optional) 
+            var platform = "platform_example";  // string? | The platform the asset supports. (optional) 
 
             try
             {
@@ -1088,18 +1132,18 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **featured** | **bool?** | Filters on featured results. | [optional]  |
-| **sort** | **SortOption?** | The sort order of the results. | [optional]  |
-| **user** | **string** | Set to &#x60;me&#x60; for searching own avatars. | [optional]  |
-| **userId** | **string** | Filter by UserID. | [optional]  |
+| **sort** | [**SortOption?**](SortOption?.md) | The sort order of the results. | [optional]  |
+| **user** | **string?** | Set to &#x60;me&#x60; for searching own avatars. | [optional]  |
+| **userId** | **string?** | Filter by UserID. | [optional]  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
-| **order** | **OrderOption?** | Result ordering | [optional]  |
+| **order** | [**OrderOption?**](OrderOption?.md) | Result ordering | [optional]  |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **tag** | **string** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
-| **notag** | **string** | Tags to exclude (comma-separated). | [optional]  |
-| **releaseStatus** | **ReleaseStatus?** | Filter by ReleaseStatus. | [optional]  |
-| **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
-| **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
-| **platform** | **string** | The platform the asset supports. | [optional]  |
+| **tag** | **string?** | Tags to include (comma-separated). Any of the tags needs to be present. | [optional]  |
+| **notag** | **string?** | Tags to exclude (comma-separated). | [optional]  |
+| **releaseStatus** | [**ReleaseStatus?**](ReleaseStatus?.md) | Filter by ReleaseStatus. | [optional]  |
+| **maxUnityVersion** | **string?** | The maximum Unity version supported by the asset. | [optional]  |
+| **minUnityVersion** | **string?** | The minimum Unity version supported by the asset. | [optional]  |
+| **platform** | **string?** | The platform the asset supports. | [optional]  |
 
 ### Return type
 
@@ -1123,7 +1167,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="selectavatar"></a>
+<a id="selectavatar"></a>
 # **SelectAvatar**
 > CurrentUser SelectAvatar (string avatarId)
 
@@ -1135,6 +1179,7 @@ Switches into that avatar.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1152,7 +1197,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var avatarId = "avatarId_example";  // string | Must be a valid avatar ID.
 
             try
@@ -1221,7 +1269,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="selectfallbackavatar"></a>
+<a id="selectfallbackavatar"></a>
 # **SelectFallbackAvatar**
 > CurrentUser SelectFallbackAvatar (string avatarId)
 
@@ -1233,6 +1281,7 @@ Switches into that avatar as your fallback avatar.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1250,7 +1299,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var avatarId = "avatarId_example";  // string | Must be a valid avatar ID.
 
             try
@@ -1320,9 +1372,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateavatar"></a>
+<a id="updateavatar"></a>
 # **UpdateAvatar**
-> Avatar UpdateAvatar (string avatarId, UpdateAvatarRequest updateAvatarRequest = null)
+> Avatar UpdateAvatar (string avatarId, UpdateAvatarRequest? updateAvatarRequest = null)
 
 Update Avatar
 
@@ -1332,6 +1384,7 @@ Update information about a specific avatar.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -1349,9 +1402,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new AvatarsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AvatarsApi(httpClient, config, httpClientHandler);
             var avatarId = "avatarId_example";  // string | Must be a valid avatar ID.
-            var updateAvatarRequest = new UpdateAvatarRequest(); // UpdateAvatarRequest |  (optional) 
+            var updateAvatarRequest = new UpdateAvatarRequest?(); // UpdateAvatarRequest? |  (optional) 
 
             try
             {
@@ -1395,7 +1451,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **avatarId** | **string** | Must be a valid avatar ID. |  |
-| **updateAvatarRequest** | [**UpdateAvatarRequest**](UpdateAvatarRequest.md) |  | [optional]  |
+| **updateAvatarRequest** | [**UpdateAvatarRequest?**](UpdateAvatarRequest?.md) |  | [optional]  |
 
 ### Return type
 

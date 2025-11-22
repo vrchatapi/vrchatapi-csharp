@@ -13,9 +13,9 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**SpawnInventoryItem**](InventoryApi.md#spawninventoryitem) | **GET** /inventory/spawn | Spawn Inventory Item |
 | [**UpdateOwnInventoryItem**](InventoryApi.md#updateowninventoryitem) | **PUT** /inventory/{inventoryItemId} | Update Own Inventory Item |
 
-<a name="getinventory"></a>
+<a id="getinventory"></a>
 # **GetInventory**
-> Inventory GetInventory (int? n = null, int? offset = null, string order = null, string tags = null, InventoryItemType? types = null, InventoryFlag? flags = null, InventoryItemType? notTypes = null, InventoryFlag? notFlags = null, bool? archived = null)
+> Inventory GetInventory (int? n = null, int? offset = null, string? order = null, string? tags = null, InventoryItemType? types = null, InventoryFlag? flags = null, InventoryItemType? notTypes = null, InventoryFlag? notFlags = null, bool? archived = null)
 
 Get Inventory
 
@@ -25,6 +25,7 @@ Returns an Inventory object.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -42,15 +43,18 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InventoryApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InventoryApi(httpClient, config, httpClientHandler);
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
-            var order = "newest";  // string | Sort order for inventory retrieval. (optional) 
-            var tags = "tags_example";  // string | Filter tags for inventory retrieval (comma-separated). (optional) 
-            var types = (InventoryItemType) "bundle";  // InventoryItemType? | Filter for inventory retrieval. (optional) 
-            var flags = (InventoryFlag) "instantiatable";  // InventoryFlag? | Filter flags for inventory retrieval (comma-separated). (optional) 
-            var notTypes = (InventoryItemType) "bundle";  // InventoryItemType? | Filter out types for inventory retrieval (comma-separated). (optional) 
-            var notFlags = (InventoryFlag) "instantiatable";  // InventoryFlag? | Filter out flags for inventory retrieval (comma-separated). (optional) 
+            var order = "newest";  // string? | Sort order for inventory retrieval. (optional) 
+            var tags = "tags_example";  // string? | Filter tags for inventory retrieval (comma-separated). (optional) 
+            var types = new InventoryItemType?(); // InventoryItemType? | Filter for inventory retrieval. (optional) 
+            var flags = new InventoryFlag?(); // InventoryFlag? | Filter flags for inventory retrieval (comma-separated). (optional) 
+            var notTypes = new InventoryItemType?(); // InventoryItemType? | Filter out types for inventory retrieval (comma-separated). (optional) 
+            var notFlags = new InventoryFlag?(); // InventoryFlag? | Filter out flags for inventory retrieval (comma-separated). (optional) 
             var archived = true;  // bool? | Filter archived status for inventory retrieval. (optional) 
 
             try
@@ -96,12 +100,12 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
-| **order** | **string** | Sort order for inventory retrieval. | [optional]  |
-| **tags** | **string** | Filter tags for inventory retrieval (comma-separated). | [optional]  |
-| **types** | **InventoryItemType?** | Filter for inventory retrieval. | [optional]  |
-| **flags** | **InventoryFlag?** | Filter flags for inventory retrieval (comma-separated). | [optional]  |
-| **notTypes** | **InventoryItemType?** | Filter out types for inventory retrieval (comma-separated). | [optional]  |
-| **notFlags** | **InventoryFlag?** | Filter out flags for inventory retrieval (comma-separated). | [optional]  |
+| **order** | **string?** | Sort order for inventory retrieval. | [optional]  |
+| **tags** | **string?** | Filter tags for inventory retrieval (comma-separated). | [optional]  |
+| **types** | [**InventoryItemType?**](InventoryItemType?.md) | Filter for inventory retrieval. | [optional]  |
+| **flags** | [**InventoryFlag?**](InventoryFlag?.md) | Filter flags for inventory retrieval (comma-separated). | [optional]  |
+| **notTypes** | [**InventoryItemType?**](InventoryItemType?.md) | Filter out types for inventory retrieval (comma-separated). | [optional]  |
+| **notFlags** | [**InventoryFlag?**](InventoryFlag?.md) | Filter out flags for inventory retrieval (comma-separated). | [optional]  |
 | **archived** | **bool?** | Filter archived status for inventory retrieval. | [optional]  |
 
 ### Return type
@@ -126,7 +130,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinventorydrops"></a>
+<a id="getinventorydrops"></a>
 # **GetInventoryDrops**
 > List&lt;InventoryDrop&gt; GetInventoryDrops (bool? active = null)
 
@@ -138,6 +142,7 @@ Returns a list of InventoryDrop objects.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -155,7 +160,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InventoryApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InventoryApi(httpClient, config, httpClientHandler);
             var active = true;  // bool? | Filter for users' listings and inventory bundles. (optional) 
 
             try
@@ -223,7 +231,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getinventorytemplate"></a>
+<a id="getinventorytemplate"></a>
 # **GetInventoryTemplate**
 > InventoryTemplate GetInventoryTemplate (string inventoryTemplateId)
 
@@ -235,6 +243,7 @@ Returns an InventoryTemplate object.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -252,7 +261,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InventoryApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InventoryApi(httpClient, config, httpClientHandler);
             var inventoryTemplateId = invt_00000000-0000-0000-0000-000000000000;  // string | Must be a valid inventory template ID.
 
             try
@@ -320,7 +332,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getowninventoryitem"></a>
+<a id="getowninventoryitem"></a>
 # **GetOwnInventoryItem**
 > InventoryItem GetOwnInventoryItem (string inventoryItemId)
 
@@ -332,6 +344,7 @@ Returns an InventoryItem object held by the currently logged in user.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -349,7 +362,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InventoryApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InventoryApi(httpClient, config, httpClientHandler);
             var inventoryItemId = inv_00000000-0000-0000-0000-000000000000;  // string | Must be a valid inventory item ID.
 
             try
@@ -417,7 +433,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="shareinventoryitemdirect"></a>
+<a id="shareinventoryitemdirect"></a>
 # **ShareInventoryItemDirect**
 > OkStatus ShareInventoryItemDirect (string itemId, int duration, ShareInventoryItemDirectRequest shareInventoryItemDirectRequest)
 
@@ -429,6 +445,7 @@ Share content directly with other users.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -446,7 +463,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InventoryApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InventoryApi(httpClient, config, httpClientHandler);
             var itemId = "itemId_example";  // string | Id for inventory item sharing.
             var duration = 90;  // int | The duration before the sharing pedestal despawns. (default to 90)
             var shareInventoryItemDirectRequest = new ShareInventoryItemDirectRequest(); // ShareInventoryItemDirectRequest | 
@@ -518,7 +538,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="shareinventoryitempedestal"></a>
+<a id="shareinventoryitempedestal"></a>
 # **ShareInventoryItemPedestal**
 > InventorySpawn ShareInventoryItemPedestal (string itemId, int duration)
 
@@ -530,6 +550,7 @@ Returns an InventorySpawn object.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -547,7 +568,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InventoryApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InventoryApi(httpClient, config, httpClientHandler);
             var itemId = "itemId_example";  // string | Id for inventory item sharing.
             var duration = 90;  // int | The duration before the sharing pedestal despawns. (default to 90)
 
@@ -617,7 +641,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="spawninventoryitem"></a>
+<a id="spawninventoryitem"></a>
 # **SpawnInventoryItem**
 > InventorySpawn SpawnInventoryItem (string id)
 
@@ -629,6 +653,7 @@ Returns an InventorySpawn object.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -646,7 +671,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InventoryApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InventoryApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | Id for inventory item spawning.
 
             try
@@ -714,9 +742,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updateowninventoryitem"></a>
+<a id="updateowninventoryitem"></a>
 # **UpdateOwnInventoryItem**
-> InventoryItem UpdateOwnInventoryItem (string inventoryItemId, UpdateInventoryItemRequest updateInventoryItemRequest = null)
+> InventoryItem UpdateOwnInventoryItem (string inventoryItemId, UpdateInventoryItemRequest? updateInventoryItemRequest = null)
 
 Update Own Inventory Item
 
@@ -726,6 +754,7 @@ Returns the modified InventoryItem object as held by the currently logged in use
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -743,9 +772,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new InventoryApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InventoryApi(httpClient, config, httpClientHandler);
             var inventoryItemId = inv_00000000-0000-0000-0000-000000000000;  // string | Must be a valid inventory item ID.
-            var updateInventoryItemRequest = new UpdateInventoryItemRequest(); // UpdateInventoryItemRequest |  (optional) 
+            var updateInventoryItemRequest = new UpdateInventoryItemRequest?(); // UpdateInventoryItemRequest? |  (optional) 
 
             try
             {
@@ -789,7 +821,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **inventoryItemId** | **string** | Must be a valid inventory item ID. |  |
-| **updateInventoryItemRequest** | [**UpdateInventoryItemRequest**](UpdateInventoryItemRequest.md) |  | [optional]  |
+| **updateInventoryItemRequest** | [**UpdateInventoryItemRequest?**](UpdateInventoryItemRequest?.md) |  | [optional]  |
 
 ### Return type
 

@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 **UpdatedAt** | **DateTime** |  | 
 **UrlList** | **List&lt;string&gt;** |  | 
 **UdonProducts** | **List&lt;string&gt;** |  | [optional] 
-**_Version** | **int** |  | 
+**VarVersion** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Categories available for reporting objectionable content
     /// </summary>
     [DataContract(Name = "APIConfig_reportCategories")]
-    public partial class APIConfigReportCategories : IEquatable<APIConfigReportCategories>, IValidatableObject
+    public partial class APIConfigReportCategories : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigReportCategories" /> class.
@@ -44,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="behavior">behavior (required).</param>
         /// <param name="chat">chat (required).</param>
         /// <param name="emoji">emoji.</param>
-        /// <param name="environment">environment (required).</param>
+        /// <param name="varEnvironment">varEnvironment (required).</param>
         /// <param name="groupstore">groupstore (required).</param>
         /// <param name="image">image (required).</param>
         /// <param name="text">text (required).</param>
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="warnings">warnings (required).</param>
         /// <param name="worldimage">worldimage (required).</param>
         /// <param name="worldstore">worldstore (required).</param>
-        public APIConfigReportCategories(ReportCategory avatar = default(ReportCategory), ReportCategory avatarpage = default(ReportCategory), ReportCategory behavior = default(ReportCategory), ReportCategory chat = default(ReportCategory), ReportCategory emoji = default(ReportCategory), ReportCategory environment = default(ReportCategory), ReportCategory groupstore = default(ReportCategory), ReportCategory image = default(ReportCategory), ReportCategory text = default(ReportCategory), ReportCategory sticker = default(ReportCategory), ReportCategory warnings = default(ReportCategory), ReportCategory worldimage = default(ReportCategory), ReportCategory worldstore = default(ReportCategory))
+        public APIConfigReportCategories(ReportCategory avatar = default, ReportCategory avatarpage = default, ReportCategory behavior = default, ReportCategory chat = default, ReportCategory emoji = default, ReportCategory varEnvironment = default, ReportCategory groupstore = default, ReportCategory image = default, ReportCategory text = default, ReportCategory sticker = default, ReportCategory warnings = default, ReportCategory worldimage = default, ReportCategory worldstore = default)
         {
             // to ensure "avatar" is required (not null)
             if (avatar == null)
@@ -72,12 +73,12 @@ namespace VRChat.API.Model
                 throw new ArgumentNullException("chat is a required property for APIConfigReportCategories and cannot be null");
             }
             this.Chat = chat;
-            // to ensure "environment" is required (not null)
-            if (environment == null)
+            // to ensure "varEnvironment" is required (not null)
+            if (varEnvironment == null)
             {
-                throw new ArgumentNullException("environment is a required property for APIConfigReportCategories and cannot be null");
+                throw new ArgumentNullException("varEnvironment is a required property for APIConfigReportCategories and cannot be null");
             }
-            this.Environment = environment;
+            this.VarEnvironment = varEnvironment;
             // to ensure "groupstore" is required (not null)
             if (groupstore == null)
             {
@@ -150,10 +151,10 @@ namespace VRChat.API.Model
         public ReportCategory Emoji { get; set; }
 
         /// <summary>
-        /// Gets or Sets Environment
+        /// Gets or Sets VarEnvironment
         /// </summary>
         [DataMember(Name = "environment", IsRequired = true, EmitDefaultValue = true)]
-        public ReportCategory Environment { get; set; }
+        public ReportCategory VarEnvironment { get; set; }
 
         /// <summary>
         /// Gets or Sets Groupstore
@@ -210,7 +211,7 @@ namespace VRChat.API.Model
             sb.Append("  Behavior: ").Append(Behavior).Append("\n");
             sb.Append("  Chat: ").Append(Chat).Append("\n");
             sb.Append("  Emoji: ").Append(Emoji).Append("\n");
-            sb.Append("  Environment: ").Append(Environment).Append("\n");
+            sb.Append("  VarEnvironment: ").Append(VarEnvironment).Append("\n");
             sb.Append("  Groupstore: ").Append(Groupstore).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
@@ -232,165 +233,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigReportCategories);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigReportCategories instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigReportCategories to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigReportCategories input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Avatar == input.Avatar ||
-                    (this.Avatar != null &&
-                    this.Avatar.Equals(input.Avatar))
-                ) && 
-                (
-                    this.Avatarpage == input.Avatarpage ||
-                    (this.Avatarpage != null &&
-                    this.Avatarpage.Equals(input.Avatarpage))
-                ) && 
-                (
-                    this.Behavior == input.Behavior ||
-                    (this.Behavior != null &&
-                    this.Behavior.Equals(input.Behavior))
-                ) && 
-                (
-                    this.Chat == input.Chat ||
-                    (this.Chat != null &&
-                    this.Chat.Equals(input.Chat))
-                ) && 
-                (
-                    this.Emoji == input.Emoji ||
-                    (this.Emoji != null &&
-                    this.Emoji.Equals(input.Emoji))
-                ) && 
-                (
-                    this.Environment == input.Environment ||
-                    (this.Environment != null &&
-                    this.Environment.Equals(input.Environment))
-                ) && 
-                (
-                    this.Groupstore == input.Groupstore ||
-                    (this.Groupstore != null &&
-                    this.Groupstore.Equals(input.Groupstore))
-                ) && 
-                (
-                    this.Image == input.Image ||
-                    (this.Image != null &&
-                    this.Image.Equals(input.Image))
-                ) && 
-                (
-                    this.Text == input.Text ||
-                    (this.Text != null &&
-                    this.Text.Equals(input.Text))
-                ) && 
-                (
-                    this.Sticker == input.Sticker ||
-                    (this.Sticker != null &&
-                    this.Sticker.Equals(input.Sticker))
-                ) && 
-                (
-                    this.Warnings == input.Warnings ||
-                    (this.Warnings != null &&
-                    this.Warnings.Equals(input.Warnings))
-                ) && 
-                (
-                    this.Worldimage == input.Worldimage ||
-                    (this.Worldimage != null &&
-                    this.Worldimage.Equals(input.Worldimage))
-                ) && 
-                (
-                    this.Worldstore == input.Worldstore ||
-                    (this.Worldstore != null &&
-                    this.Worldstore.Equals(input.Worldstore))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Avatar != null)
-                {
-                    hashCode = (hashCode * 59) + this.Avatar.GetHashCode();
-                }
-                if (this.Avatarpage != null)
-                {
-                    hashCode = (hashCode * 59) + this.Avatarpage.GetHashCode();
-                }
-                if (this.Behavior != null)
-                {
-                    hashCode = (hashCode * 59) + this.Behavior.GetHashCode();
-                }
-                if (this.Chat != null)
-                {
-                    hashCode = (hashCode * 59) + this.Chat.GetHashCode();
-                }
-                if (this.Emoji != null)
-                {
-                    hashCode = (hashCode * 59) + this.Emoji.GetHashCode();
-                }
-                if (this.Environment != null)
-                {
-                    hashCode = (hashCode * 59) + this.Environment.GetHashCode();
-                }
-                if (this.Groupstore != null)
-                {
-                    hashCode = (hashCode * 59) + this.Groupstore.GetHashCode();
-                }
-                if (this.Image != null)
-                {
-                    hashCode = (hashCode * 59) + this.Image.GetHashCode();
-                }
-                if (this.Text != null)
-                {
-                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
-                }
-                if (this.Sticker != null)
-                {
-                    hashCode = (hashCode * 59) + this.Sticker.GetHashCode();
-                }
-                if (this.Warnings != null)
-                {
-                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
-                }
-                if (this.Worldimage != null)
-                {
-                    hashCode = (hashCode * 59) + this.Worldimage.GetHashCode();
-                }
-                if (this.Worldstore != null)
-                {
-                    hashCode = (hashCode * 59) + this.Worldstore.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

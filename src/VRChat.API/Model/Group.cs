@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Group
     /// </summary>
     [DataContract(Name = "Group")]
-    public partial class Group : IEquatable<Group>, IValidatableObject
+    public partial class Group : IValidatableObject
     {
 
         /// <summary>
@@ -84,7 +85,7 @@ namespace VRChat.API.Model
         /// <param name="membershipStatus">membershipStatus.</param>
         /// <param name="myMember">myMember.</param>
         /// <param name="roles">Only returned if ?includeRoles&#x3D;true is specified..</param>
-        public Group(bool ageVerificationSlotsAvailable = default(bool), string ageVerificationBetaCode = default(string), decimal ageVerificationBetaSlots = default(decimal), List<string> badges = default(List<string>), string id = default(string), string name = default(string), string shortCode = default(string), string discriminator = default(string), string description = default(string), string iconUrl = default(string), string bannerUrl = default(string), GroupPrivacy? privacy = default(GroupPrivacy?), string ownerId = default(string), string rules = default(string), List<string> links = default(List<string>), List<string> languages = default(List<string>), string iconId = default(string), string bannerId = default(string), int memberCount = default(int), DateTime memberCountSyncedAt = default(DateTime), bool isVerified = false, GroupJoinState? joinState = default(GroupJoinState?), List<string> tags = default(List<string>), string transferTargetId = default(string), List<GroupGallery> galleries = default(List<GroupGallery>), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), DateTime? lastPostCreatedAt = default(DateTime?), int onlineMemberCount = default(int), GroupMemberStatus? membershipStatus = default(GroupMemberStatus?), GroupMyMember myMember = default(GroupMyMember), List<GroupRole> roles = default(List<GroupRole>))
+        public Group(bool ageVerificationSlotsAvailable = default, string ageVerificationBetaCode = default, decimal ageVerificationBetaSlots = default, List<string> badges = default, string id = default, string name = default, string shortCode = default, string discriminator = default, string description = default, string iconUrl = default, string bannerUrl = default, GroupPrivacy? privacy = default, string ownerId = default, string rules = default, List<string> links = default, List<string> languages = default, string iconId = default, string bannerId = default, int memberCount = default, DateTime memberCountSyncedAt = default, bool isVerified = false, GroupJoinState? joinState = default, List<string> tags = default, string transferTargetId = default, List<GroupGallery> galleries = default, DateTime createdAt = default, DateTime updatedAt = default, DateTime? lastPostCreatedAt = default, int onlineMemberCount = default, GroupMemberStatus? membershipStatus = default, GroupMyMember myMember = default, List<GroupRole> roles = default)
         {
             this.AgeVerificationSlotsAvailable = ageVerificationSlotsAvailable;
             this.AgeVerificationBetaCode = ageVerificationBetaCode;
@@ -129,12 +130,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AgeVerificationBetaCode
         /// </summary>
+        /*
+        <example>abc1234</example>
+        */
         [DataMember(Name = "ageVerificationBetaCode", EmitDefaultValue = false)]
         public string AgeVerificationBetaCode { get; set; }
 
         /// <summary>
         /// Gets or Sets AgeVerificationBetaSlots
         /// </summary>
+        /*
+        <example>500</example>
+        */
         [DataMember(Name = "ageVerificationBetaSlots", EmitDefaultValue = false)]
         public decimal AgeVerificationBetaSlots { get; set; }
 
@@ -147,6 +154,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -159,12 +169,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ShortCode
         /// </summary>
+        /*
+        <example>ABC123</example>
+        */
         [DataMember(Name = "shortCode", EmitDefaultValue = false)]
         public string ShortCode { get; set; }
 
         /// <summary>
         /// Gets or Sets Discriminator
         /// </summary>
+        /*
+        <example>1234</example>
+        */
         [DataMember(Name = "discriminator", EmitDefaultValue = false)]
         public string Discriminator { get; set; }
 
@@ -190,6 +206,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public string OwnerId { get; set; }
 
@@ -251,6 +270,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "transferTargetId", EmitDefaultValue = false)]
         public string TransferTargetId { get; set; }
 
@@ -351,310 +373,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Group);
-        }
-
-        /// <summary>
-        /// Returns true if Group instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Group to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Group input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AgeVerificationSlotsAvailable == input.AgeVerificationSlotsAvailable ||
-                    this.AgeVerificationSlotsAvailable.Equals(input.AgeVerificationSlotsAvailable)
-                ) && 
-                (
-                    this.AgeVerificationBetaCode == input.AgeVerificationBetaCode ||
-                    (this.AgeVerificationBetaCode != null &&
-                    this.AgeVerificationBetaCode.Equals(input.AgeVerificationBetaCode))
-                ) && 
-                (
-                    this.AgeVerificationBetaSlots == input.AgeVerificationBetaSlots ||
-                    this.AgeVerificationBetaSlots.Equals(input.AgeVerificationBetaSlots)
-                ) && 
-                (
-                    this.Badges == input.Badges ||
-                    this.Badges != null &&
-                    input.Badges != null &&
-                    this.Badges.SequenceEqual(input.Badges)
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.ShortCode == input.ShortCode ||
-                    (this.ShortCode != null &&
-                    this.ShortCode.Equals(input.ShortCode))
-                ) && 
-                (
-                    this.Discriminator == input.Discriminator ||
-                    (this.Discriminator != null &&
-                    this.Discriminator.Equals(input.Discriminator))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.IconUrl == input.IconUrl ||
-                    (this.IconUrl != null &&
-                    this.IconUrl.Equals(input.IconUrl))
-                ) && 
-                (
-                    this.BannerUrl == input.BannerUrl ||
-                    (this.BannerUrl != null &&
-                    this.BannerUrl.Equals(input.BannerUrl))
-                ) && 
-                (
-                    this.Privacy == input.Privacy ||
-                    this.Privacy.Equals(input.Privacy)
-                ) && 
-                (
-                    this.OwnerId == input.OwnerId ||
-                    (this.OwnerId != null &&
-                    this.OwnerId.Equals(input.OwnerId))
-                ) && 
-                (
-                    this.Rules == input.Rules ||
-                    (this.Rules != null &&
-                    this.Rules.Equals(input.Rules))
-                ) && 
-                (
-                    this.Links == input.Links ||
-                    this.Links != null &&
-                    input.Links != null &&
-                    this.Links.SequenceEqual(input.Links)
-                ) && 
-                (
-                    this.Languages == input.Languages ||
-                    this.Languages != null &&
-                    input.Languages != null &&
-                    this.Languages.SequenceEqual(input.Languages)
-                ) && 
-                (
-                    this.IconId == input.IconId ||
-                    (this.IconId != null &&
-                    this.IconId.Equals(input.IconId))
-                ) && 
-                (
-                    this.BannerId == input.BannerId ||
-                    (this.BannerId != null &&
-                    this.BannerId.Equals(input.BannerId))
-                ) && 
-                (
-                    this.MemberCount == input.MemberCount ||
-                    this.MemberCount.Equals(input.MemberCount)
-                ) && 
-                (
-                    this.MemberCountSyncedAt == input.MemberCountSyncedAt ||
-                    (this.MemberCountSyncedAt != null &&
-                    this.MemberCountSyncedAt.Equals(input.MemberCountSyncedAt))
-                ) && 
-                (
-                    this.IsVerified == input.IsVerified ||
-                    this.IsVerified.Equals(input.IsVerified)
-                ) && 
-                (
-                    this.JoinState == input.JoinState ||
-                    this.JoinState.Equals(input.JoinState)
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.TransferTargetId == input.TransferTargetId ||
-                    (this.TransferTargetId != null &&
-                    this.TransferTargetId.Equals(input.TransferTargetId))
-                ) && 
-                (
-                    this.Galleries == input.Galleries ||
-                    this.Galleries != null &&
-                    input.Galleries != null &&
-                    this.Galleries.SequenceEqual(input.Galleries)
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                ) && 
-                (
-                    this.LastPostCreatedAt == input.LastPostCreatedAt ||
-                    (this.LastPostCreatedAt != null &&
-                    this.LastPostCreatedAt.Equals(input.LastPostCreatedAt))
-                ) && 
-                (
-                    this.OnlineMemberCount == input.OnlineMemberCount ||
-                    this.OnlineMemberCount.Equals(input.OnlineMemberCount)
-                ) && 
-                (
-                    this.MembershipStatus == input.MembershipStatus ||
-                    this.MembershipStatus.Equals(input.MembershipStatus)
-                ) && 
-                (
-                    this.MyMember == input.MyMember ||
-                    (this.MyMember != null &&
-                    this.MyMember.Equals(input.MyMember))
-                ) && 
-                (
-                    this.Roles == input.Roles ||
-                    this.Roles != null &&
-                    input.Roles != null &&
-                    this.Roles.SequenceEqual(input.Roles)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.AgeVerificationSlotsAvailable.GetHashCode();
-                if (this.AgeVerificationBetaCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.AgeVerificationBetaCode.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AgeVerificationBetaSlots.GetHashCode();
-                if (this.Badges != null)
-                {
-                    hashCode = (hashCode * 59) + this.Badges.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.ShortCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
-                }
-                if (this.Discriminator != null)
-                {
-                    hashCode = (hashCode * 59) + this.Discriminator.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.IconUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
-                }
-                if (this.BannerUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Privacy.GetHashCode();
-                if (this.OwnerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
-                }
-                if (this.Rules != null)
-                {
-                    hashCode = (hashCode * 59) + this.Rules.GetHashCode();
-                }
-                if (this.Links != null)
-                {
-                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
-                }
-                if (this.Languages != null)
-                {
-                    hashCode = (hashCode * 59) + this.Languages.GetHashCode();
-                }
-                if (this.IconId != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconId.GetHashCode();
-                }
-                if (this.BannerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.MemberCount.GetHashCode();
-                if (this.MemberCountSyncedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.MemberCountSyncedAt.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsVerified.GetHashCode();
-                hashCode = (hashCode * 59) + this.JoinState.GetHashCode();
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.TransferTargetId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TransferTargetId.GetHashCode();
-                }
-                if (this.Galleries != null)
-                {
-                    hashCode = (hashCode * 59) + this.Galleries.GetHashCode();
-                }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                if (this.LastPostCreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastPostCreatedAt.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.OnlineMemberCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.MembershipStatus.GetHashCode();
-                if (this.MyMember != null)
-                {
-                    hashCode = (hashCode * 59) + this.MyMember.GetHashCode();
-                }
-                if (this.Roles != null)
-                {
-                    hashCode = (hashCode * 59) + this.Roles.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

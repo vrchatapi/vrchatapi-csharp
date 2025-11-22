@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Types of dynamic user content permitted in an instance
     /// </summary>
     [DataContract(Name = "InstanceContentSettings")]
-    public partial class InstanceContentSettings : IEquatable<InstanceContentSettings>, IValidatableObject
+    public partial class InstanceContentSettings : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceContentSettings" /> class.
@@ -114,78 +115,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InstanceContentSettings);
-        }
-
-        /// <summary>
-        /// Returns true if InstanceContentSettings instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InstanceContentSettings to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InstanceContentSettings input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Drones == input.Drones ||
-                    this.Drones.Equals(input.Drones)
-                ) && 
-                (
-                    this.Emoji == input.Emoji ||
-                    this.Emoji.Equals(input.Emoji)
-                ) && 
-                (
-                    this.Pedestals == input.Pedestals ||
-                    this.Pedestals.Equals(input.Pedestals)
-                ) && 
-                (
-                    this.Prints == input.Prints ||
-                    this.Prints.Equals(input.Prints)
-                ) && 
-                (
-                    this.Stickers == input.Stickers ||
-                    this.Stickers.Equals(input.Stickers)
-                ) && 
-                (
-                    this.Props == input.Props ||
-                    this.Props.Equals(input.Props)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Drones.GetHashCode();
-                hashCode = (hashCode * 59) + this.Emoji.GetHashCode();
-                hashCode = (hashCode * 59) + this.Pedestals.GetHashCode();
-                hashCode = (hashCode * 59) + this.Prints.GetHashCode();
-                hashCode = (hashCode * 59) + this.Stickers.GetHashCode();
-                hashCode = (hashCode * 59) + this.Props.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

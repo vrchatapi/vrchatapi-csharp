@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// FavoriteGroup
     /// </summary>
     [DataContract(Name = "FavoriteGroup")]
-    public partial class FavoriteGroup : IEquatable<FavoriteGroup>, IValidatableObject
+    public partial class FavoriteGroup : IValidatableObject
     {
 
         /// <summary>
@@ -59,7 +60,7 @@ namespace VRChat.API.Model
         /// <param name="tags">  (required).</param>
         /// <param name="type">type (required).</param>
         /// <param name="visibility">visibility (required).</param>
-        public FavoriteGroup(string displayName = default(string), string id = default(string), string name = default(string), string ownerDisplayName = default(string), string ownerId = default(string), List<string> tags = default(List<string>), FavoriteType type = default(FavoriteType), FavoriteGroupVisibility visibility = default(FavoriteGroupVisibility))
+        public FavoriteGroup(string displayName = default, string id = default, string name = default, string ownerDisplayName = default, string ownerId = default, List<string> tags = default, FavoriteType type = default, FavoriteGroupVisibility visibility = default)
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -110,6 +111,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>fvgrp_8a02a44b-dc3a-4a9a-bc77-77fa37996fc7</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -129,6 +133,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = true)]
         public string OwnerId { get; set; }
 
@@ -169,130 +176,28 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as FavoriteGroup);
-        }
-
-        /// <summary>
-        /// Returns true if FavoriteGroup instances are equal
-        /// </summary>
-        /// <param name="input">Instance of FavoriteGroup to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(FavoriteGroup input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.OwnerDisplayName == input.OwnerDisplayName ||
-                    (this.OwnerDisplayName != null &&
-                    this.OwnerDisplayName.Equals(input.OwnerDisplayName))
-                ) && 
-                (
-                    this.OwnerId == input.OwnerId ||
-                    (this.OwnerId != null &&
-                    this.OwnerId.Equals(input.OwnerId))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                ) && 
-                (
-                    this.Visibility == input.Visibility ||
-                    this.Visibility.Equals(input.Visibility)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.OwnerDisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerDisplayName.GetHashCode();
-                }
-                if (this.OwnerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // DisplayName (string) minLength
             if (this.DisplayName != null && this.DisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+                yield return new ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // OwnerDisplayName (string) minLength
             if (this.OwnerDisplayName != null && this.OwnerDisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OwnerDisplayName, length must be greater than 1.", new [] { "OwnerDisplayName" });
+                yield return new ValidationResult("Invalid value for OwnerDisplayName, length must be greater than 1.", new [] { "OwnerDisplayName" });
             }
 
             yield break;

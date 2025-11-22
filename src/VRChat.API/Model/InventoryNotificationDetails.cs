@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InventoryNotificationDetails
     /// </summary>
     [DataContract(Name = "InventoryNotificationDetails")]
-    public partial class InventoryNotificationDetails : IEquatable<InventoryNotificationDetails>, IValidatableObject
+    public partial class InventoryNotificationDetails : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InventoryNotificationDetails" /> class.
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="body">body (required).</param>
         /// <param name="imageUrl">imageUrl (required).</param>
         /// <param name="title">title (required).</param>
-        public InventoryNotificationDetails(string body = default(string), string imageUrl = default(string), string title = default(string))
+        public InventoryNotificationDetails(string body = default, string imageUrl = default, string title = default)
         {
             // to ensure "body" is required (not null)
             if (body == null)
@@ -107,75 +108,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InventoryNotificationDetails);
-        }
-
-        /// <summary>
-        /// Returns true if InventoryNotificationDetails instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InventoryNotificationDetails to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InventoryNotificationDetails input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Body == input.Body ||
-                    (this.Body != null &&
-                    this.Body.Equals(input.Body))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Body != null)
-                {
-                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

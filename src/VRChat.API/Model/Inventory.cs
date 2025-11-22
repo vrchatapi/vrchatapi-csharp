@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Inventory
     /// </summary>
     [DataContract(Name = "Inventory")]
-    public partial class Inventory : IEquatable<Inventory>, IValidatableObject
+    public partial class Inventory : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Inventory" /> class.
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="totalCount">totalCount (required).</param>
-        public Inventory(List<InventoryItem> data = default(List<InventoryItem>), int totalCount = default(int))
+        public Inventory(List<InventoryItem> data = default, int totalCount = default)
         {
             // to ensure "data" is required (not null)
             if (data == null)
@@ -88,63 +89,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Inventory);
-        }
-
-        /// <summary>
-        /// Returns true if Inventory instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Inventory to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Inventory input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
-                ) && 
-                (
-                    this.TotalCount == input.TotalCount ||
-                    this.TotalCount.Equals(input.TotalCount)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

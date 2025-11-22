@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// LimitedWorld
     /// </summary>
     [DataContract(Name = "LimitedWorld")]
-    public partial class LimitedWorld : IEquatable<LimitedWorld>, IValidatableObject
+    public partial class LimitedWorld : IValidatableObject
     {
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace VRChat.API.Model
         /// <param name="unityPackages">  (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="udonProducts">udonProducts.</param>
-        public LimitedWorld(string authorId = default(string), string authorName = default(string), int capacity = default(int), int recommendedCapacity = default(int), DateTime createdAt = default(DateTime), InstanceContentSettings defaultContentSettings = default(InstanceContentSettings), int favorites = 0, int visits = 0, int heat = 0, string id = default(string), string imageUrl = default(string), string labsPublicationDate = default(string), string name = default(string), int occupants = 0, string organization = "vrchat", int popularity = 0, string previewYoutubeId = default(string), string publicationDate = default(string), ReleaseStatus releaseStatus = default(ReleaseStatus), string storeId = default(string), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), List<LimitedUnityPackage> unityPackages = default(List<LimitedUnityPackage>), DateTime updatedAt = default(DateTime), List<string> udonProducts = default(List<string>))
+        public LimitedWorld(string authorId = default, string authorName = default, int capacity = default, int recommendedCapacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, int favorites = 0, int visits = 0, int heat = 0, string id = default, string imageUrl = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, string publicationDate = default, ReleaseStatus releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<LimitedUnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> udonProducts = default)
         {
             // to ensure "authorId" is required (not null)
             if (authorId == null)
@@ -158,6 +159,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorId { get; set; }
 
@@ -170,12 +174,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
+        /*
+        <example>8</example>
+        */
         [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = true)]
         public int Capacity { get; set; }
 
         /// <summary>
         /// Gets or Sets RecommendedCapacity
         /// </summary>
+        /*
+        <example>16</example>
+        */
         [DataMember(Name = "recommendedCapacity", EmitDefaultValue = false)]
         public int RecommendedCapacity { get; set; }
 
@@ -194,18 +204,27 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Favorites
         /// </summary>
+        /*
+        <example>12024</example>
+        */
         [DataMember(Name = "favorites", IsRequired = true, EmitDefaultValue = true)]
         public int Favorites { get; set; }
 
         /// <summary>
         /// Gets or Sets Visits
         /// </summary>
+        /*
+        <example>9988675</example>
+        */
         [DataMember(Name = "visits", EmitDefaultValue = false)]
         public int Visits { get; set; }
 
         /// <summary>
         /// Gets or Sets Heat
         /// </summary>
+        /*
+        <example>5</example>
+        */
         [DataMember(Name = "heat", IsRequired = true, EmitDefaultValue = true)]
         public int Heat { get; set; }
 
@@ -213,6 +232,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -225,6 +247,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LabsPublicationDate
         /// </summary>
+        /*
+        <example>none</example>
+        */
         [DataMember(Name = "labsPublicationDate", IsRequired = true, EmitDefaultValue = true)]
         public string LabsPublicationDate { get; set; }
 
@@ -237,6 +262,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Occupants
         /// </summary>
+        /*
+        <example>47</example>
+        */
         [DataMember(Name = "occupants", IsRequired = true, EmitDefaultValue = true)]
         public int Occupants { get; set; }
 
@@ -249,6 +277,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Popularity
         /// </summary>
+        /*
+        <example>8</example>
+        */
         [DataMember(Name = "popularity", IsRequired = true, EmitDefaultValue = true)]
         public int Popularity { get; set; }
 
@@ -261,12 +292,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PublicationDate
         /// </summary>
+        /*
+        <example>none</example>
+        */
         [DataMember(Name = "publicationDate", IsRequired = true, EmitDefaultValue = true)]
         public string PublicationDate { get; set; }
 
         /// <summary>
         /// Gets or Sets StoreId
         /// </summary>
+        /*
+        <example>esto_713b247d-2b5d-41a0-bba3-50db28dc1498</example>
+        */
         [DataMember(Name = "storeId", EmitDefaultValue = false)]
         public string StoreId { get; set; }
 
@@ -349,315 +386,82 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as LimitedWorld);
-        }
-
-        /// <summary>
-        /// Returns true if LimitedWorld instances are equal
-        /// </summary>
-        /// <param name="input">Instance of LimitedWorld to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(LimitedWorld input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AuthorId == input.AuthorId ||
-                    (this.AuthorId != null &&
-                    this.AuthorId.Equals(input.AuthorId))
-                ) && 
-                (
-                    this.AuthorName == input.AuthorName ||
-                    (this.AuthorName != null &&
-                    this.AuthorName.Equals(input.AuthorName))
-                ) && 
-                (
-                    this.Capacity == input.Capacity ||
-                    this.Capacity.Equals(input.Capacity)
-                ) && 
-                (
-                    this.RecommendedCapacity == input.RecommendedCapacity ||
-                    this.RecommendedCapacity.Equals(input.RecommendedCapacity)
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.DefaultContentSettings == input.DefaultContentSettings ||
-                    (this.DefaultContentSettings != null &&
-                    this.DefaultContentSettings.Equals(input.DefaultContentSettings))
-                ) && 
-                (
-                    this.Favorites == input.Favorites ||
-                    this.Favorites.Equals(input.Favorites)
-                ) && 
-                (
-                    this.Visits == input.Visits ||
-                    this.Visits.Equals(input.Visits)
-                ) && 
-                (
-                    this.Heat == input.Heat ||
-                    this.Heat.Equals(input.Heat)
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.LabsPublicationDate == input.LabsPublicationDate ||
-                    (this.LabsPublicationDate != null &&
-                    this.LabsPublicationDate.Equals(input.LabsPublicationDate))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Occupants == input.Occupants ||
-                    this.Occupants.Equals(input.Occupants)
-                ) && 
-                (
-                    this.Organization == input.Organization ||
-                    (this.Organization != null &&
-                    this.Organization.Equals(input.Organization))
-                ) && 
-                (
-                    this.Popularity == input.Popularity ||
-                    this.Popularity.Equals(input.Popularity)
-                ) && 
-                (
-                    this.PreviewYoutubeId == input.PreviewYoutubeId ||
-                    (this.PreviewYoutubeId != null &&
-                    this.PreviewYoutubeId.Equals(input.PreviewYoutubeId))
-                ) && 
-                (
-                    this.PublicationDate == input.PublicationDate ||
-                    (this.PublicationDate != null &&
-                    this.PublicationDate.Equals(input.PublicationDate))
-                ) && 
-                (
-                    this.ReleaseStatus == input.ReleaseStatus ||
-                    this.ReleaseStatus.Equals(input.ReleaseStatus)
-                ) && 
-                (
-                    this.StoreId == input.StoreId ||
-                    (this.StoreId != null &&
-                    this.StoreId.Equals(input.StoreId))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.ThumbnailImageUrl == input.ThumbnailImageUrl ||
-                    (this.ThumbnailImageUrl != null &&
-                    this.ThumbnailImageUrl.Equals(input.ThumbnailImageUrl))
-                ) && 
-                (
-                    this.UnityPackages == input.UnityPackages ||
-                    this.UnityPackages != null &&
-                    input.UnityPackages != null &&
-                    this.UnityPackages.SequenceEqual(input.UnityPackages)
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                ) && 
-                (
-                    this.UdonProducts == input.UdonProducts ||
-                    this.UdonProducts != null &&
-                    input.UdonProducts != null &&
-                    this.UdonProducts.SequenceEqual(input.UdonProducts)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.AuthorId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
-                }
-                if (this.AuthorName != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Capacity.GetHashCode();
-                hashCode = (hashCode * 59) + this.RecommendedCapacity.GetHashCode();
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.DefaultContentSettings != null)
-                {
-                    hashCode = (hashCode * 59) + this.DefaultContentSettings.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Favorites.GetHashCode();
-                hashCode = (hashCode * 59) + this.Visits.GetHashCode();
-                hashCode = (hashCode * 59) + this.Heat.GetHashCode();
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                if (this.LabsPublicationDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.LabsPublicationDate.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Occupants.GetHashCode();
-                if (this.Organization != null)
-                {
-                    hashCode = (hashCode * 59) + this.Organization.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Popularity.GetHashCode();
-                if (this.PreviewYoutubeId != null)
-                {
-                    hashCode = (hashCode * 59) + this.PreviewYoutubeId.GetHashCode();
-                }
-                if (this.PublicationDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.PublicationDate.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
-                if (this.StoreId != null)
-                {
-                    hashCode = (hashCode * 59) + this.StoreId.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.ThumbnailImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
-                }
-                if (this.UnityPackages != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityPackages.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                if (this.UdonProducts != null)
-                {
-                    hashCode = (hashCode * 59) + this.UdonProducts.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AuthorName (string) minLength
             if (this.AuthorName != null && this.AuthorName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
+                yield return new ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
 
             // Favorites (int) minimum
             if (this.Favorites < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Favorites, must be a value greater than or equal to 0.", new [] { "Favorites" });
+                yield return new ValidationResult("Invalid value for Favorites, must be a value greater than or equal to 0.", new [] { "Favorites" });
             }
 
             // Visits (int) minimum
             if (this.Visits < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Visits, must be a value greater than or equal to 0.", new [] { "Visits" });
+                yield return new ValidationResult("Invalid value for Visits, must be a value greater than or equal to 0.", new [] { "Visits" });
             }
 
             // Heat (int) minimum
             if (this.Heat < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Heat, must be a value greater than or equal to 0.", new [] { "Heat" });
+                yield return new ValidationResult("Invalid value for Heat, must be a value greater than or equal to 0.", new [] { "Heat" });
             }
 
             // ImageUrl (string) minLength
             if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
+                yield return new ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // LabsPublicationDate (string) minLength
             if (this.LabsPublicationDate != null && this.LabsPublicationDate.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LabsPublicationDate, length must be greater than 1.", new [] { "LabsPublicationDate" });
+                yield return new ValidationResult("Invalid value for LabsPublicationDate, length must be greater than 1.", new [] { "LabsPublicationDate" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Occupants (int) minimum
             if (this.Occupants < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Occupants, must be a value greater than or equal to 0.", new [] { "Occupants" });
+                yield return new ValidationResult("Invalid value for Occupants, must be a value greater than or equal to 0.", new [] { "Occupants" });
             }
 
             // Organization (string) minLength
             if (this.Organization != null && this.Organization.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Organization, length must be greater than 1.", new [] { "Organization" });
+                yield return new ValidationResult("Invalid value for Organization, length must be greater than 1.", new [] { "Organization" });
             }
 
             // Popularity (int) minimum
             if (this.Popularity < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Popularity, must be a value greater than or equal to 0.", new [] { "Popularity" });
+                yield return new ValidationResult("Invalid value for Popularity, must be a value greater than or equal to 0.", new [] { "Popularity" });
             }
 
             // PublicationDate (string) minLength
             if (this.PublicationDate != null && this.PublicationDate.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicationDate, length must be greater than 1.", new [] { "PublicationDate" });
+                yield return new ValidationResult("Invalid value for PublicationDate, length must be greater than 1.", new [] { "PublicationDate" });
             }
 
             // ThumbnailImageUrl (string) minLength
             if (this.ThumbnailImageUrl != null && this.ThumbnailImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
+                yield return new ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
             }
 
             yield break;

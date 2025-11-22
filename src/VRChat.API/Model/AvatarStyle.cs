@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// AvatarStyle
     /// </summary>
     [DataContract(Name = "AvatarStyle")]
-    public partial class AvatarStyle : IEquatable<AvatarStyle>, IValidatableObject
+    public partial class AvatarStyle : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AvatarStyle" /> class.
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="styleName">styleName (required).</param>
-        public AvatarStyle(string id = default(string), string styleName = default(string))
+        public AvatarStyle(string id = default, string styleName = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -60,6 +61,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>avst_f0659ed2-094d-48fb-9e40-de05564d96c7</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -93,66 +97,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as AvatarStyle);
-        }
-
-        /// <summary>
-        /// Returns true if AvatarStyle instances are equal
-        /// </summary>
-        /// <param name="input">Instance of AvatarStyle to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(AvatarStyle input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.StyleName == input.StyleName ||
-                    (this.StyleName != null &&
-                    this.StyleName.Equals(input.StyleName))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.StyleName != null)
-                {
-                    hashCode = (hashCode * 59) + this.StyleName.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

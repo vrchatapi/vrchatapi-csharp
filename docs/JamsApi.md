@@ -8,7 +8,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**GetJamSubmissions**](JamsApi.md#getjamsubmissions) | **GET** /jams/{jamId}/submissions | Show jam submissions |
 | [**GetJams**](JamsApi.md#getjams) | **GET** /jams | Show jams list |
 
-<a name="getjam"></a>
+<a id="getjam"></a>
 # **GetJam**
 > Jam GetJam (string jamId)
 
@@ -20,6 +20,7 @@ Returns a jam.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -37,7 +38,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new JamsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new JamsApi(httpClient, config, httpClientHandler);
             var jamId = jam_0b7e3f6d-4647-4648-b2a1-1431e76906d9;  // string | Must be a valid query ID.
 
             try
@@ -105,7 +109,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getjamsubmissions"></a>
+<a id="getjamsubmissions"></a>
 # **GetJamSubmissions**
 > List&lt;Submission&gt; GetJamSubmissions (string jamId)
 
@@ -117,6 +121,7 @@ Returns all submissions of a jam.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -134,7 +139,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new JamsApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new JamsApi(httpClient, config, httpClientHandler);
             var jamId = jam_0b7e3f6d-4647-4648-b2a1-1431e76906d9;  // string | Must be a valid query ID.
 
             try
@@ -202,9 +210,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getjams"></a>
+<a id="getjams"></a>
 # **GetJams**
-> List&lt;Jam&gt; GetJams (string type = null)
+> List&lt;Jam&gt; GetJams (string? type = null)
 
 Show jams list
 
@@ -214,6 +222,7 @@ Lists World Jams or Avatar Jams, both currently running and ones that have ended
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -231,8 +240,11 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new JamsApi(config);
-            var type = avatar;  // string | Only show jams of this type (`avatar` or `world`). (optional) 
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new JamsApi(httpClient, config, httpClientHandler);
+            var type = avatar;  // string? | Only show jams of this type (`avatar` or `world`). (optional) 
 
             try
             {
@@ -275,7 +287,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **type** | **string** | Only show jams of this type (&#x60;avatar&#x60; or &#x60;world&#x60;). | [optional]  |
+| **type** | **string?** | Only show jams of this type (&#x60;avatar&#x60; or &#x60;world&#x60;). | [optional]  |
 
 ### Return type
 

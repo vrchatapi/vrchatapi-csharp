@@ -9,7 +9,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**ModerateUser**](PlayermoderationApi.md#moderateuser) | **POST** /auth/user/playermoderations | Moderate User |
 | [**UnmoderateUser**](PlayermoderationApi.md#unmoderateuser) | **PUT** /auth/user/unplayermoderate | Unmoderate User |
 
-<a name="clearallplayermoderations"></a>
+<a id="clearallplayermoderations"></a>
 # **ClearAllPlayerModerations**
 > Success ClearAllPlayerModerations ()
 
@@ -21,6 +21,7 @@ Clear All Player Moderations
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -38,7 +39,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new PlayermoderationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PlayermoderationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -101,9 +105,9 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getplayermoderations"></a>
+<a id="getplayermoderations"></a>
 # **GetPlayerModerations**
-> List&lt;PlayerModeration&gt; GetPlayerModerations (PlayerModerationType? type = null, string sourceUserId = null, string targetUserId = null)
+> List&lt;PlayerModeration&gt; GetPlayerModerations (PlayerModerationType? type = null, string? sourceUserId = null, string? targetUserId = null)
 
 Search Player Moderations
 
@@ -113,6 +117,7 @@ Returns a list of all player moderations made by **you**.  This endpoint does no
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -130,10 +135,13 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new PlayermoderationApi(config);
-            var type = (PlayerModerationType) "block";  // PlayerModerationType? | Must be one of PlayerModerationType. (optional) 
-            var sourceUserId = "sourceUserId_example";  // string | Must be valid UserID. Trying to view someone else's moderations results with \"Can't view someone else's player moderations\" error. (optional) 
-            var targetUserId = "targetUserId_example";  // string | Must be valid UserID. (optional) 
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PlayermoderationApi(httpClient, config, httpClientHandler);
+            var type = new PlayerModerationType?(); // PlayerModerationType? | Must be one of PlayerModerationType. (optional) 
+            var sourceUserId = "sourceUserId_example";  // string? | Must be valid UserID. Trying to view someone else's moderations results with \"Can't view someone else's player moderations\" error. (optional) 
+            var targetUserId = "targetUserId_example";  // string? | Must be valid UserID. (optional) 
 
             try
             {
@@ -176,9 +184,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **type** | **PlayerModerationType?** | Must be one of PlayerModerationType. | [optional]  |
-| **sourceUserId** | **string** | Must be valid UserID. Trying to view someone else&#39;s moderations results with \&quot;Can&#39;t view someone else&#39;s player moderations\&quot; error. | [optional]  |
-| **targetUserId** | **string** | Must be valid UserID. | [optional]  |
+| **type** | [**PlayerModerationType?**](PlayerModerationType?.md) | Must be one of PlayerModerationType. | [optional]  |
+| **sourceUserId** | **string?** | Must be valid UserID. Trying to view someone else&#39;s moderations results with \&quot;Can&#39;t view someone else&#39;s player moderations\&quot; error. | [optional]  |
+| **targetUserId** | **string?** | Must be valid UserID. | [optional]  |
 
 ### Return type
 
@@ -202,7 +210,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="moderateuser"></a>
+<a id="moderateuser"></a>
 # **ModerateUser**
 > PlayerModeration ModerateUser (ModerateUserRequest moderateUserRequest)
 
@@ -214,6 +222,7 @@ Moderate a user, e.g. unmute them or show their avatar.  Please see the [Player 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -231,7 +240,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new PlayermoderationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PlayermoderationApi(httpClient, config, httpClientHandler);
             var moderateUserRequest = new ModerateUserRequest(); // ModerateUserRequest | 
 
             try
@@ -299,7 +311,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="unmoderateuser"></a>
+<a id="unmoderateuser"></a>
 # **UnmoderateUser**
 > Success UnmoderateUser (ModerateUserRequest moderateUserRequest)
 
@@ -311,6 +323,7 @@ Removes a player moderation previously added through `moderateUser`. E.g if you 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using VRChat.API.Api;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -328,7 +341,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
-            var apiInstance = new PlayermoderationApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new PlayermoderationApi(httpClient, config, httpClientHandler);
             var moderateUserRequest = new ModerateUserRequest(); // ModerateUserRequest | 
 
             try

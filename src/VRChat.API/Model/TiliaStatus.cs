@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// TiliaStatus
     /// </summary>
     [DataContract(Name = "TiliaStatus")]
-    public partial class TiliaStatus : IEquatable<TiliaStatus>, IValidatableObject
+    public partial class TiliaStatus : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TiliaStatus" /> class.
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="economyState">economyState.</param>
         /// <param name="plannedOfflineWindowStart">plannedOfflineWindowStart.</param>
         /// <param name="plannedOfflineWindowEnd">plannedOfflineWindowEnd.</param>
-        public TiliaStatus(bool economyOnline = default(bool), int economyState = default(int), DateTime plannedOfflineWindowStart = default(DateTime), DateTime plannedOfflineWindowEnd = default(DateTime))
+        public TiliaStatus(bool economyOnline = default, int economyState = default, DateTime plannedOfflineWindowStart = default, DateTime plannedOfflineWindowEnd = default)
         {
             this.EconomyOnline = economyOnline;
             this.EconomyState = economyState;
@@ -101,76 +102,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TiliaStatus);
-        }
-
-        /// <summary>
-        /// Returns true if TiliaStatus instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TiliaStatus to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TiliaStatus input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.EconomyOnline == input.EconomyOnline ||
-                    this.EconomyOnline.Equals(input.EconomyOnline)
-                ) && 
-                (
-                    this.EconomyState == input.EconomyState ||
-                    this.EconomyState.Equals(input.EconomyState)
-                ) && 
-                (
-                    this.PlannedOfflineWindowStart == input.PlannedOfflineWindowStart ||
-                    (this.PlannedOfflineWindowStart != null &&
-                    this.PlannedOfflineWindowStart.Equals(input.PlannedOfflineWindowStart))
-                ) && 
-                (
-                    this.PlannedOfflineWindowEnd == input.PlannedOfflineWindowEnd ||
-                    (this.PlannedOfflineWindowEnd != null &&
-                    this.PlannedOfflineWindowEnd.Equals(input.PlannedOfflineWindowEnd))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.EconomyOnline.GetHashCode();
-                hashCode = (hashCode * 59) + this.EconomyState.GetHashCode();
-                if (this.PlannedOfflineWindowStart != null)
-                {
-                    hashCode = (hashCode * 59) + this.PlannedOfflineWindowStart.GetHashCode();
-                }
-                if (this.PlannedOfflineWindowEnd != null)
-                {
-                    hashCode = (hashCode * 59) + this.PlannedOfflineWindowEnd.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

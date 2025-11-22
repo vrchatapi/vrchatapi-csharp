@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InfoPushDataClickable
     /// </summary>
     [DataContract(Name = "InfoPushDataClickable")]
-    public partial class InfoPushDataClickable : IEquatable<InfoPushDataClickable>, IValidatableObject
+    public partial class InfoPushDataClickable : IValidatableObject
     {
         /// <summary>
         /// Defines Command
@@ -60,13 +61,15 @@ namespace VRChat.API.Model
             /// </summary>
             [EnumMember(Value = "CannedWorldSearch")]
             CannedWorldSearch = 4
-
         }
 
 
         /// <summary>
         /// Gets or Sets Command
         /// </summary>
+        /*
+        <example>OpenURL</example>
+        */
         [DataMember(Name = "command", IsRequired = true, EmitDefaultValue = true)]
         public CommandEnum Command { get; set; }
         /// <summary>
@@ -79,7 +82,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="command">command (required).</param>
         /// <param name="parameters">In case of OpenURL, this would contain the link..</param>
-        public InfoPushDataClickable(CommandEnum command = default(CommandEnum), List<string> parameters = default(List<string>))
+        public InfoPushDataClickable(CommandEnum command = default, List<string> parameters = default)
         {
             this.Command = command;
             this.Parameters = parameters;
@@ -116,63 +119,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InfoPushDataClickable);
-        }
-
-        /// <summary>
-        /// Returns true if InfoPushDataClickable instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InfoPushDataClickable to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InfoPushDataClickable input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Command == input.Command ||
-                    this.Command.Equals(input.Command)
-                ) && 
-                (
-                    this.Parameters == input.Parameters ||
-                    this.Parameters != null &&
-                    input.Parameters != null &&
-                    this.Parameters.SequenceEqual(input.Parameters)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Command.GetHashCode();
-                if (this.Parameters != null)
-                {
-                    hashCode = (hashCode * 59) + this.Parameters.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

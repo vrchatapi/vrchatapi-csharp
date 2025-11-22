@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// AvatarModeration
     /// </summary>
     [DataContract(Name = "AvatarModeration")]
-    public partial class AvatarModeration : IEquatable<AvatarModeration>, IValidatableObject
+    public partial class AvatarModeration : IValidatableObject
     {
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="avatarModerationType">avatarModerationType (required).</param>
         /// <param name="created">created (required).</param>
         /// <param name="targetAvatarId">targetAvatarId (required).</param>
-        public AvatarModeration(AvatarModerationType avatarModerationType = default(AvatarModerationType), DateTime created = default(DateTime), string targetAvatarId = default(string))
+        public AvatarModeration(AvatarModerationType avatarModerationType = default, DateTime created = default, string targetAvatarId = default)
         {
             this.AvatarModerationType = avatarModerationType;
             this.Created = created;
@@ -69,6 +70,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets TargetAvatarId
         /// </summary>
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
         [DataMember(Name = "targetAvatarId", IsRequired = true, EmitDefaultValue = true)]
         public string TargetAvatarId { get; set; }
 
@@ -97,71 +101,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as AvatarModeration);
-        }
-
-        /// <summary>
-        /// Returns true if AvatarModeration instances are equal
-        /// </summary>
-        /// <param name="input">Instance of AvatarModeration to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(AvatarModeration input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AvatarModerationType == input.AvatarModerationType ||
-                    this.AvatarModerationType.Equals(input.AvatarModerationType)
-                ) && 
-                (
-                    this.Created == input.Created ||
-                    (this.Created != null &&
-                    this.Created.Equals(input.Created))
-                ) && 
-                (
-                    this.TargetAvatarId == input.TargetAvatarId ||
-                    (this.TargetAvatarId != null &&
-                    this.TargetAvatarId.Equals(input.TargetAvatarId))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.AvatarModerationType.GetHashCode();
-                if (this.Created != null)
-                {
-                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
-                }
-                if (this.TargetAvatarId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TargetAvatarId.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

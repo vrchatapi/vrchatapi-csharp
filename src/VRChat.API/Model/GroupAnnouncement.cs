@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// GroupAnnouncement
     /// </summary>
     [DataContract(Name = "GroupAnnouncement")]
-    public partial class GroupAnnouncement : IEquatable<GroupAnnouncement>, IValidatableObject
+    public partial class GroupAnnouncement : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupAnnouncement" /> class.
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public GroupAnnouncement(string id = default(string), string groupId = default(string), string authorId = default(string), string title = default(string), string text = default(string), string imageId = default(string), string imageUrl = default(string), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?))
+        public GroupAnnouncement(string id = default, string groupId = default, string authorId = default, string title = default, string text = default, string imageId = default, string imageUrl = default, DateTime? createdAt = default, DateTime? updatedAt = default)
         {
             this.Id = id;
             this.GroupId = groupId;
@@ -59,12 +60,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>gpos_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
@@ -72,6 +79,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "authorId", EmitDefaultValue = false)]
         public string AuthorId { get; set; }
 
@@ -90,6 +100,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "imageId", EmitDefaultValue = false)]
         public string ImageId { get; set; }
 
@@ -142,129 +155,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as GroupAnnouncement);
-        }
-
-        /// <summary>
-        /// Returns true if GroupAnnouncement instances are equal
-        /// </summary>
-        /// <param name="input">Instance of GroupAnnouncement to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(GroupAnnouncement input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.GroupId == input.GroupId ||
-                    (this.GroupId != null &&
-                    this.GroupId.Equals(input.GroupId))
-                ) && 
-                (
-                    this.AuthorId == input.AuthorId ||
-                    (this.AuthorId != null &&
-                    this.AuthorId.Equals(input.AuthorId))
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.Text == input.Text ||
-                    (this.Text != null &&
-                    this.Text.Equals(input.Text))
-                ) && 
-                (
-                    this.ImageId == input.ImageId ||
-                    (this.ImageId != null &&
-                    this.ImageId.Equals(input.ImageId))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.GroupId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
-                }
-                if (this.AuthorId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
-                }
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.Text != null)
-                {
-                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
-                }
-                if (this.ImageId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InventoryTemplate
     /// </summary>
     [DataContract(Name = "InventoryTemplate")]
-    public partial class InventoryTemplate : IEquatable<InventoryTemplate>, IValidatableObject
+    public partial class InventoryTemplate : IValidatableObject
     {
 
         /// <summary>
@@ -60,7 +61,7 @@ namespace VRChat.API.Model
         /// <param name="status">status (required).</param>
         /// <param name="tags">tags (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public InventoryTemplate(string authorId = default(string), List<string> collections = default(List<string>), DateTime createdAt = default(DateTime), string description = default(string), List<string> flags = default(List<string>), string id = default(string), string imageUrl = default(string), InventoryItemType itemType = default(InventoryItemType), string itemTypeLabel = default(string), InventoryMetadata metadata = default(InventoryMetadata), string name = default(string), InventoryNotificationDetails notificationDetails = default(InventoryNotificationDetails), string status = default(string), List<string> tags = default(List<string>), DateTime updatedAt = default(DateTime))
+        public InventoryTemplate(string authorId = default, List<string> collections = default, DateTime createdAt = default, string description = default, List<string> flags = default, string id = default, string imageUrl = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, InventoryNotificationDetails notificationDetails = default, string status = default, List<string> tags = default, DateTime updatedAt = default)
         {
             // to ensure "authorId" is required (not null)
             if (authorId == null)
@@ -133,6 +134,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorId { get; set; }
 
@@ -145,6 +149,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
+        /*
+        <example>2025-06-12T20:21:15.056Z</example>
+        */
         [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedAt { get; set; }
 
@@ -163,6 +170,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>invt_b80ce14b-038b-4f56-b970-d232771d62e3</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -199,6 +209,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
+        /*
+        <example>live</example>
+        */
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
@@ -211,6 +224,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
+        /*
+        <example>2025-06-10T20:37:31.837Z</example>
+        */
         [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime UpdatedAt { get; set; }
 
@@ -251,182 +267,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InventoryTemplate);
-        }
-
-        /// <summary>
-        /// Returns true if InventoryTemplate instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InventoryTemplate to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InventoryTemplate input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AuthorId == input.AuthorId ||
-                    (this.AuthorId != null &&
-                    this.AuthorId.Equals(input.AuthorId))
-                ) && 
-                (
-                    this.Collections == input.Collections ||
-                    this.Collections != null &&
-                    input.Collections != null &&
-                    this.Collections.SequenceEqual(input.Collections)
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Flags == input.Flags ||
-                    this.Flags != null &&
-                    input.Flags != null &&
-                    this.Flags.SequenceEqual(input.Flags)
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.ItemType == input.ItemType ||
-                    this.ItemType.Equals(input.ItemType)
-                ) && 
-                (
-                    this.ItemTypeLabel == input.ItemTypeLabel ||
-                    (this.ItemTypeLabel != null &&
-                    this.ItemTypeLabel.Equals(input.ItemTypeLabel))
-                ) && 
-                (
-                    this.Metadata == input.Metadata ||
-                    (this.Metadata != null &&
-                    this.Metadata.Equals(input.Metadata))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.NotificationDetails == input.NotificationDetails ||
-                    (this.NotificationDetails != null &&
-                    this.NotificationDetails.Equals(input.NotificationDetails))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.AuthorId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
-                }
-                if (this.Collections != null)
-                {
-                    hashCode = (hashCode * 59) + this.Collections.GetHashCode();
-                }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Flags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Flags.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
-                if (this.ItemTypeLabel != null)
-                {
-                    hashCode = (hashCode * 59) + this.ItemTypeLabel.GetHashCode();
-                }
-                if (this.Metadata != null)
-                {
-                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.NotificationDetails != null)
-                {
-                    hashCode = (hashCode * 59) + this.NotificationDetails.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

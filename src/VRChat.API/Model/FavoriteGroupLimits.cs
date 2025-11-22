@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// FavoriteGroupLimits
     /// </summary>
     [DataContract(Name = "FavoriteGroupLimits")]
-    public partial class FavoriteGroupLimits : IEquatable<FavoriteGroupLimits>, IValidatableObject
+    public partial class FavoriteGroupLimits : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FavoriteGroupLimits" /> class.
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="avatar">avatar (required).</param>
         /// <param name="friend">friend (required).</param>
         /// <param name="world">world (required).</param>
-        public FavoriteGroupLimits(int avatar = default(int), int friend = default(int), int world = default(int))
+        public FavoriteGroupLimits(int avatar = default, int friend = default, int world = default)
         {
             this.Avatar = avatar;
             this.Friend = friend;
@@ -92,63 +93,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as FavoriteGroupLimits);
-        }
-
-        /// <summary>
-        /// Returns true if FavoriteGroupLimits instances are equal
-        /// </summary>
-        /// <param name="input">Instance of FavoriteGroupLimits to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(FavoriteGroupLimits input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Avatar == input.Avatar ||
-                    this.Avatar.Equals(input.Avatar)
-                ) && 
-                (
-                    this.Friend == input.Friend ||
-                    this.Friend.Equals(input.Friend)
-                ) && 
-                (
-                    this.World == input.World ||
-                    this.World.Equals(input.World)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Avatar.GetHashCode();
-                hashCode = (hashCode * 59) + this.Friend.GetHashCode();
-                hashCode = (hashCode * 59) + this.World.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

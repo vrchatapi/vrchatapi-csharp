@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **ImageUrl** | **string** |  | 
 **ThumbnailImageUrl** | **string** |  | [optional] 
 **ReleaseStatus** | **ReleaseStatus** |  | [optional] 
-**_Version** | **int** |  | [optional] [default to 1]
+**VarVersion** | **int** |  | [optional] [default to 1]
 **Featured** | **bool** | Enabling featured tag requires Admin Credentials. | [optional] 
 **UnityPackageUrl** | **string** |  | [optional] 
 **UnityVersion** | **string** |  | [optional] [default to "5.3.4p1"]

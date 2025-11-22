@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Group-related constants
     /// </summary>
     [DataContract(Name = "APIConfigConstants_GROUPS")]
-    public partial class APIConfigConstantsGROUPS : IEquatable<APIConfigConstantsGROUPS>, IValidatableObject
+    public partial class APIConfigConstantsGROUPS : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigConstantsGROUPS" /> class.
@@ -44,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="mAXMANAGEMENTROLES">Maximum number of management roles in a group (default to 5).</param>
         /// <param name="mAXOWNED">Maximum number of groups a user can own (default to 5).</param>
         /// <param name="mAXROLES">Maximum number of roles in a group (default to 50).</param>
-        public APIConfigConstantsGROUPS(int cAPACITY = 100000, List<string> gROUPTRANSFERREQUIREMENTS = default(List<string>), int mAXINVITESREQUESTS = 50, int mAXJOINED = 100, int mAXJOINEDPLUS = 200, int mAXLANGUAGES = 10, int mAXLINKS = 3, int mAXMANAGEMENTROLES = 5, int mAXOWNED = 5, int mAXROLES = 50)
+        public APIConfigConstantsGROUPS(int cAPACITY = 100000, List<string> gROUPTRANSFERREQUIREMENTS = default, int mAXINVITESREQUESTS = 50, int mAXJOINED = 100, int mAXJOINEDPLUS = 200, int mAXLANGUAGES = 10, int mAXLINKS = 3, int mAXMANAGEMENTROLES = 5, int mAXOWNED = 5, int mAXROLES = 50)
         {
             this.CAPACITY = cAPACITY;
             this.GROUP_TRANSFER_REQUIREMENTS = gROUPTRANSFERREQUIREMENTS;
@@ -160,103 +161,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as APIConfigConstantsGROUPS);
-        }
-
-        /// <summary>
-        /// Returns true if APIConfigConstantsGROUPS instances are equal
-        /// </summary>
-        /// <param name="input">Instance of APIConfigConstantsGROUPS to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(APIConfigConstantsGROUPS input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CAPACITY == input.CAPACITY ||
-                    this.CAPACITY.Equals(input.CAPACITY)
-                ) && 
-                (
-                    this.GROUP_TRANSFER_REQUIREMENTS == input.GROUP_TRANSFER_REQUIREMENTS ||
-                    this.GROUP_TRANSFER_REQUIREMENTS != null &&
-                    input.GROUP_TRANSFER_REQUIREMENTS != null &&
-                    this.GROUP_TRANSFER_REQUIREMENTS.SequenceEqual(input.GROUP_TRANSFER_REQUIREMENTS)
-                ) && 
-                (
-                    this.MAX_INVITES_REQUESTS == input.MAX_INVITES_REQUESTS ||
-                    this.MAX_INVITES_REQUESTS.Equals(input.MAX_INVITES_REQUESTS)
-                ) && 
-                (
-                    this.MAX_JOINED == input.MAX_JOINED ||
-                    this.MAX_JOINED.Equals(input.MAX_JOINED)
-                ) && 
-                (
-                    this.MAX_JOINED_PLUS == input.MAX_JOINED_PLUS ||
-                    this.MAX_JOINED_PLUS.Equals(input.MAX_JOINED_PLUS)
-                ) && 
-                (
-                    this.MAX_LANGUAGES == input.MAX_LANGUAGES ||
-                    this.MAX_LANGUAGES.Equals(input.MAX_LANGUAGES)
-                ) && 
-                (
-                    this.MAX_LINKS == input.MAX_LINKS ||
-                    this.MAX_LINKS.Equals(input.MAX_LINKS)
-                ) && 
-                (
-                    this.MAX_MANAGEMENT_ROLES == input.MAX_MANAGEMENT_ROLES ||
-                    this.MAX_MANAGEMENT_ROLES.Equals(input.MAX_MANAGEMENT_ROLES)
-                ) && 
-                (
-                    this.MAX_OWNED == input.MAX_OWNED ||
-                    this.MAX_OWNED.Equals(input.MAX_OWNED)
-                ) && 
-                (
-                    this.MAX_ROLES == input.MAX_ROLES ||
-                    this.MAX_ROLES.Equals(input.MAX_ROLES)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.CAPACITY.GetHashCode();
-                if (this.GROUP_TRANSFER_REQUIREMENTS != null)
-                {
-                    hashCode = (hashCode * 59) + this.GROUP_TRANSFER_REQUIREMENTS.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.MAX_INVITES_REQUESTS.GetHashCode();
-                hashCode = (hashCode * 59) + this.MAX_JOINED.GetHashCode();
-                hashCode = (hashCode * 59) + this.MAX_JOINED_PLUS.GetHashCode();
-                hashCode = (hashCode * 59) + this.MAX_LANGUAGES.GetHashCode();
-                hashCode = (hashCode * 59) + this.MAX_LINKS.GetHashCode();
-                hashCode = (hashCode * 59) + this.MAX_MANAGEMENT_ROLES.GetHashCode();
-                hashCode = (hashCode * 59) + this.MAX_OWNED.GetHashCode();
-                hashCode = (hashCode * 59) + this.MAX_ROLES.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

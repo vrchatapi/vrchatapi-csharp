@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateUserRequest
     /// </summary>
     [DataContract(Name = "UpdateUserRequest")]
-    public partial class UpdateUserRequest : IEquatable<UpdateUserRequest>, IValidatableObject
+    public partial class UpdateUserRequest : IValidatableObject
     {
 
         /// <summary>
@@ -57,7 +58,7 @@ namespace VRChat.API.Model
         /// <param name="revertDisplayName">MUST specify currentPassword as well to revert display name.</param>
         /// <param name="password">MUST specify currentPassword as well to change password.</param>
         /// <param name="currentPassword">currentPassword.</param>
-        public UpdateUserRequest(string email = default(string), bool unsubscribe = default(bool), DateTime birthday = default(DateTime), int acceptedTOSVersion = default(int), List<string> tags = default(List<string>), UserStatus? status = default(UserStatus?), string statusDescription = default(string), string bio = default(string), List<string> bioLinks = default(List<string>), string pronouns = default(string), bool isBoopingEnabled = default(bool), string userIcon = default(string), List<string> contentFilters = default(List<string>), string displayName = default(string), bool revertDisplayName = default(bool), string password = default(string), string currentPassword = default(string))
+        public UpdateUserRequest(string email = default, bool unsubscribe = default, DateOnly birthday = default, int acceptedTOSVersion = default, List<string> tags = default, UserStatus? status = default, string statusDescription = default, string bio = default, List<string> bioLinks = default, string pronouns = default, bool isBoopingEnabled = default, string userIcon = default, List<string> contentFilters = default, string displayName = default, bool revertDisplayName = default, string password = default, string currentPassword = default)
         {
             this.Email = email;
             this.Unsubscribe = unsubscribe;
@@ -94,8 +95,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Birthday
         /// </summary>
         [DataMember(Name = "birthday", EmitDefaultValue = false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Birthday { get; set; }
+        public DateOnly Birthday { get; set; }
 
         /// <summary>
         /// Gets or Sets AcceptedTOSVersion
@@ -144,6 +144,9 @@ namespace VRChat.API.Model
         /// MUST be a valid VRChat /file/ url.
         /// </summary>
         /// <value>MUST be a valid VRChat /file/ url.</value>
+        /*
+        <example>https://api.vrchat.cloud/api/1/file/file_76dc2964-0ce8-41df-b2e7-8edf994fee31/1</example>
+        */
         [DataMember(Name = "userIcon", EmitDefaultValue = false)]
         public string UserIcon { get; set; }
 
@@ -220,207 +223,34 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as UpdateUserRequest);
-        }
-
-        /// <summary>
-        /// Returns true if UpdateUserRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of UpdateUserRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(UpdateUserRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Email == input.Email ||
-                    (this.Email != null &&
-                    this.Email.Equals(input.Email))
-                ) && 
-                (
-                    this.Unsubscribe == input.Unsubscribe ||
-                    this.Unsubscribe.Equals(input.Unsubscribe)
-                ) && 
-                (
-                    this.Birthday == input.Birthday ||
-                    (this.Birthday != null &&
-                    this.Birthday.Equals(input.Birthday))
-                ) && 
-                (
-                    this.AcceptedTOSVersion == input.AcceptedTOSVersion ||
-                    this.AcceptedTOSVersion.Equals(input.AcceptedTOSVersion)
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.StatusDescription == input.StatusDescription ||
-                    (this.StatusDescription != null &&
-                    this.StatusDescription.Equals(input.StatusDescription))
-                ) && 
-                (
-                    this.Bio == input.Bio ||
-                    (this.Bio != null &&
-                    this.Bio.Equals(input.Bio))
-                ) && 
-                (
-                    this.BioLinks == input.BioLinks ||
-                    this.BioLinks != null &&
-                    input.BioLinks != null &&
-                    this.BioLinks.SequenceEqual(input.BioLinks)
-                ) && 
-                (
-                    this.Pronouns == input.Pronouns ||
-                    (this.Pronouns != null &&
-                    this.Pronouns.Equals(input.Pronouns))
-                ) && 
-                (
-                    this.IsBoopingEnabled == input.IsBoopingEnabled ||
-                    this.IsBoopingEnabled.Equals(input.IsBoopingEnabled)
-                ) && 
-                (
-                    this.UserIcon == input.UserIcon ||
-                    (this.UserIcon != null &&
-                    this.UserIcon.Equals(input.UserIcon))
-                ) && 
-                (
-                    this.ContentFilters == input.ContentFilters ||
-                    this.ContentFilters != null &&
-                    input.ContentFilters != null &&
-                    this.ContentFilters.SequenceEqual(input.ContentFilters)
-                ) && 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
-                ) && 
-                (
-                    this.RevertDisplayName == input.RevertDisplayName ||
-                    this.RevertDisplayName.Equals(input.RevertDisplayName)
-                ) && 
-                (
-                    this.Password == input.Password ||
-                    (this.Password != null &&
-                    this.Password.Equals(input.Password))
-                ) && 
-                (
-                    this.CurrentPassword == input.CurrentPassword ||
-                    (this.CurrentPassword != null &&
-                    this.CurrentPassword.Equals(input.CurrentPassword))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Email != null)
-                {
-                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Unsubscribe.GetHashCode();
-                if (this.Birthday != null)
-                {
-                    hashCode = (hashCode * 59) + this.Birthday.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.StatusDescription != null)
-                {
-                    hashCode = (hashCode * 59) + this.StatusDescription.GetHashCode();
-                }
-                if (this.Bio != null)
-                {
-                    hashCode = (hashCode * 59) + this.Bio.GetHashCode();
-                }
-                if (this.BioLinks != null)
-                {
-                    hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
-                }
-                if (this.Pronouns != null)
-                {
-                    hashCode = (hashCode * 59) + this.Pronouns.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsBoopingEnabled.GetHashCode();
-                if (this.UserIcon != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
-                }
-                if (this.ContentFilters != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentFilters.GetHashCode();
-                }
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.RevertDisplayName.GetHashCode();
-                if (this.Password != null)
-                {
-                    hashCode = (hashCode * 59) + this.Password.GetHashCode();
-                }
-                if (this.CurrentPassword != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentPassword.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Bio (string) minLength
             if (this.Bio != null && this.Bio.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bio, length must be greater than 0.", new [] { "Bio" });
+                yield return new ValidationResult("Invalid value for Bio, length must be greater than 0.", new [] { "Bio" });
             }
 
             // Pronouns (string) maxLength
             if (this.Pronouns != null && this.Pronouns.Length > 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pronouns, length must be less than 32.", new [] { "Pronouns" });
+                yield return new ValidationResult("Invalid value for Pronouns, length must be less than 32.", new [] { "Pronouns" });
             }
 
             // Pronouns (string) minLength
             if (this.Pronouns != null && this.Pronouns.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pronouns, length must be greater than 0.", new [] { "Pronouns" });
+                yield return new ValidationResult("Invalid value for Pronouns, length must be greater than 0.", new [] { "Pronouns" });
             }
 
             // UserIcon (string) minLength
             if (this.UserIcon != null && this.UserIcon.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserIcon, length must be greater than 0.", new [] { "UserIcon" });
+                yield return new ValidationResult("Invalid value for UserIcon, length must be greater than 0.", new [] { "UserIcon" });
             }
 
             yield break;

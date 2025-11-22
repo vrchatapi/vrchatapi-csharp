@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// VerifyAuthTokenResult
     /// </summary>
     [DataContract(Name = "VerifyAuthTokenResult")]
-    public partial class VerifyAuthTokenResult : IEquatable<VerifyAuthTokenResult>, IValidatableObject
+    public partial class VerifyAuthTokenResult : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VerifyAuthTokenResult" /> class.
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="ok">ok (required).</param>
         /// <param name="token">token (required).</param>
-        public VerifyAuthTokenResult(bool ok = default(bool), string token = default(string))
+        public VerifyAuthTokenResult(bool ok = default, string token = default)
         {
             this.Ok = ok;
             // to ensure "token" is required (not null)
@@ -88,67 +89,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as VerifyAuthTokenResult);
-        }
-
-        /// <summary>
-        /// Returns true if VerifyAuthTokenResult instances are equal
-        /// </summary>
-        /// <param name="input">Instance of VerifyAuthTokenResult to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(VerifyAuthTokenResult input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Ok == input.Ok ||
-                    this.Ok.Equals(input.Ok)
-                ) && 
-                (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Ok.GetHashCode();
-                if (this.Token != null)
-                {
-                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Token (string) minLength
             if (this.Token != null && this.Token.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Token, length must be greater than 1.", new [] { "Token" });
+                yield return new ValidationResult("Invalid value for Token, length must be greater than 1.", new [] { "Token" });
             }
 
             yield break;

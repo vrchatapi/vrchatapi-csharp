@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateWorldRequest
     /// </summary>
     [DataContract(Name = "UpdateWorldRequest")]
-    public partial class UpdateWorldRequest : IEquatable<UpdateWorldRequest>, IValidatableObject
+    public partial class UpdateWorldRequest : IValidatableObject
     {
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace VRChat.API.Model
         /// <param name="tags"> .</param>
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
-        public UpdateWorldRequest(string assetUrl = default(string), string assetVersion = default(string), string authorId = default(string), string authorName = default(string), int capacity = default(int), string description = default(string), string imageUrl = default(string), string name = default(string), string platform = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), List<string> tags = default(List<string>), string unityPackageUrl = default(string), string unityVersion = "5.3.4p1")
+        public UpdateWorldRequest(string assetUrl = default, string assetVersion = default, string authorId = default, string authorName = default, int capacity = default, string description = default, string imageUrl = default, string name = default, string platform = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1")
         {
             this.AssetUrl = assetUrl;
             this.AssetVersion = assetVersion;
@@ -68,7 +69,7 @@ namespace VRChat.API.Model
             this.Tags = tags;
             this.UnityPackageUrl = unityPackageUrl;
             // use default value if no "unityVersion" provided
-            this.UnityVersion = unityVersion ?? "5.3.4p1";
+            this.UnityVersion = unityVersion ?? @"5.3.4p1";
         }
 
         /// <summary>
@@ -87,6 +88,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "authorId", EmitDefaultValue = false)]
         public string AuthorId { get; set; }
 
@@ -99,6 +103,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
+        /*
+        <example>8</example>
+        */
         [DataMember(Name = "capacity", EmitDefaultValue = false)]
         public int Capacity { get; set; }
 
@@ -124,6 +131,9 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
@@ -143,6 +153,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
+        /*
+        <example>2022.3.6f1</example>
+        */
         [DataMember(Name = "unityVersion", EmitDefaultValue = false)]
         public string UnityVersion { get; set; }
 
@@ -181,211 +194,64 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as UpdateWorldRequest);
-        }
-
-        /// <summary>
-        /// Returns true if UpdateWorldRequest instances are equal
-        /// </summary>
-        /// <param name="input">Instance of UpdateWorldRequest to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(UpdateWorldRequest input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.AssetUrl == input.AssetUrl ||
-                    (this.AssetUrl != null &&
-                    this.AssetUrl.Equals(input.AssetUrl))
-                ) && 
-                (
-                    this.AssetVersion == input.AssetVersion ||
-                    (this.AssetVersion != null &&
-                    this.AssetVersion.Equals(input.AssetVersion))
-                ) && 
-                (
-                    this.AuthorId == input.AuthorId ||
-                    (this.AuthorId != null &&
-                    this.AuthorId.Equals(input.AuthorId))
-                ) && 
-                (
-                    this.AuthorName == input.AuthorName ||
-                    (this.AuthorName != null &&
-                    this.AuthorName.Equals(input.AuthorName))
-                ) && 
-                (
-                    this.Capacity == input.Capacity ||
-                    this.Capacity.Equals(input.Capacity)
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Platform == input.Platform ||
-                    (this.Platform != null &&
-                    this.Platform.Equals(input.Platform))
-                ) && 
-                (
-                    this.ReleaseStatus == input.ReleaseStatus ||
-                    this.ReleaseStatus.Equals(input.ReleaseStatus)
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.UnityPackageUrl == input.UnityPackageUrl ||
-                    (this.UnityPackageUrl != null &&
-                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
-                ) && 
-                (
-                    this.UnityVersion == input.UnityVersion ||
-                    (this.UnityVersion != null &&
-                    this.UnityVersion.Equals(input.UnityVersion))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.AssetUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetUrl.GetHashCode();
-                }
-                if (this.AssetVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.AssetVersion.GetHashCode();
-                }
-                if (this.AuthorId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
-                }
-                if (this.AuthorName != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Capacity.GetHashCode();
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Platform != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.UnityPackageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
-                }
-                if (this.UnityVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.UnityVersion.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AssetUrl (string) minLength
             if (this.AssetUrl != null && this.AssetUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
+                yield return new ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
             }
 
             // AssetVersion (string) minLength
             if (this.AssetVersion != null && this.AssetVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetVersion, length must be greater than 1.", new [] { "AssetVersion" });
+                yield return new ValidationResult("Invalid value for AssetVersion, length must be greater than 1.", new [] { "AssetVersion" });
             }
 
             // AuthorName (string) minLength
             if (this.AuthorName != null && this.AuthorName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
+                yield return new ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
 
             // Capacity (int) maximum
             if (this.Capacity > (int)40)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value less than or equal to 40.", new [] { "Capacity" });
+                yield return new ValidationResult("Invalid value for Capacity, must be a value less than or equal to 40.", new [] { "Capacity" });
             }
 
             // Capacity (int) minimum
             if (this.Capacity < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value greater than or equal to 0.", new [] { "Capacity" });
+                yield return new ValidationResult("Invalid value for Capacity, must be a value greater than or equal to 0.", new [] { "Capacity" });
             }
 
             // ImageUrl (string) minLength
             if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
+                yield return new ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // UnityPackageUrl (string) minLength
             if (this.UnityPackageUrl != null && this.UnityPackageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityPackageUrl, length must be greater than 1.", new [] { "UnityPackageUrl" });
+                yield return new ValidationResult("Invalid value for UnityPackageUrl, length must be greater than 1.", new [] { "UnityPackageUrl" });
             }
 
             // UnityVersion (string) minLength
             if (this.UnityVersion != null && this.UnityVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
+                yield return new ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }
 
             yield break;

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Notification
     /// </summary>
     [DataContract(Name = "Notification")]
-    public partial class Notification : IEquatable<Notification>, IValidatableObject
+    public partial class Notification : IValidatableObject
     {
 
         /// <summary>
@@ -54,7 +55,7 @@ namespace VRChat.API.Model
         /// <param name="senderUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="senderUsername">-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
         /// <param name="type">type (required).</param>
-        public Notification(DateTime createdAt = default(DateTime), string details = "{}", string id = default(string), string message = default(string), bool seen = false, string receiverUserId = default(string), string senderUserId = default(string), string senderUsername = default(string), NotificationType type = default(NotificationType))
+        public Notification(DateTime createdAt = default, string details = @"{}", string id = default, string message = default, bool seen = false, string receiverUserId = default, string senderUserId = default, string senderUsername = default, NotificationType type = default)
         {
             this.CreatedAt = createdAt;
             // to ensure "details" is required (not null)
@@ -97,6 +98,9 @@ namespace VRChat.API.Model
         /// **NOTICE:** This is not a JSON object when received from the REST API, but it is when received from the Websocket API. When received from the REST API, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.
         /// </summary>
         /// <value>**NOTICE:** This is not a JSON object when received from the REST API, but it is when received from the Websocket API. When received from the REST API, this is a json **encoded** object, meaning you have to json-de-encode to get the NotificationDetail object depending on the NotificationType.</value>
+        /*
+        <example>OneOf: {}, NotificationDetailInvite, NotificationDetailInviteResponse, NotificationDetailRequestInvite, NotificationDetailRequestInviteResponse, NotificationDetailVoteToKick</example>
+        */
         [DataMember(Name = "details", IsRequired = true, EmitDefaultValue = true)]
         public string Details { get; set; }
 
@@ -109,6 +113,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
+        /*
+        <example>This is a generated invite to VRChat Hub</example>
+        */
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public string Message { get; set; }
 
@@ -123,6 +130,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "receiverUserId", EmitDefaultValue = false)]
         public string ReceiverUserId { get; set; }
 
@@ -130,6 +140,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "senderUserId", IsRequired = true, EmitDefaultValue = true)]
         public string SenderUserId { get; set; }
 
@@ -172,132 +185,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Notification);
-        }
-
-        /// <summary>
-        /// Returns true if Notification instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Notification to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Notification input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.Details == input.Details ||
-                    (this.Details != null &&
-                    this.Details.Equals(input.Details))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.Seen == input.Seen ||
-                    this.Seen.Equals(input.Seen)
-                ) && 
-                (
-                    this.ReceiverUserId == input.ReceiverUserId ||
-                    (this.ReceiverUserId != null &&
-                    this.ReceiverUserId.Equals(input.ReceiverUserId))
-                ) && 
-                (
-                    this.SenderUserId == input.SenderUserId ||
-                    (this.SenderUserId != null &&
-                    this.SenderUserId.Equals(input.SenderUserId))
-                ) && 
-                (
-                    this.SenderUsername == input.SenderUsername ||
-                    (this.SenderUsername != null &&
-                    this.SenderUsername.Equals(input.SenderUsername))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.Details != null)
-                {
-                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Seen.GetHashCode();
-                if (this.ReceiverUserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReceiverUserId.GetHashCode();
-                }
-                if (this.SenderUserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SenderUserId.GetHashCode();
-                }
-                if (this.SenderUsername != null)
-                {
-                    hashCode = (hashCode * 59) + this.SenderUsername.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // SenderUsername (string) minLength
             if (this.SenderUsername != null && this.SenderUsername.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SenderUsername, length must be greater than 1.", new [] { "SenderUsername" });
+                yield return new ValidationResult("Invalid value for SenderUsername, length must be greater than 1.", new [] { "SenderUsername" });
             }
 
             yield break;

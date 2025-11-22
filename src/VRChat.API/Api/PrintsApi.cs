@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -34,9 +35,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void DeletePrint(string printId, int operationIndex = 0);
+        void DeletePrint(string printId);
 
         /// <summary>
         /// Delete Print
@@ -46,9 +46,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeletePrintWithHttpInfo(string printId, int operationIndex = 0);
+        ApiResponse<Object> DeletePrintWithHttpInfo(string printId);
         /// <summary>
         /// Edit Print
         /// </summary>
@@ -59,9 +58,8 @@ namespace VRChat.API.Api
         /// <param name="printId">Print ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="note">The caption for the image. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Print</returns>
-        Print EditPrint(string printId, System.IO.Stream image, string note = default(string), int operationIndex = 0);
+        Print EditPrint(string printId, FileParameter image, string? note = default);
 
         /// <summary>
         /// Edit Print
@@ -73,9 +71,8 @@ namespace VRChat.API.Api
         /// <param name="printId">Print ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="note">The caption for the image. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Print</returns>
-        ApiResponse<Print> EditPrintWithHttpInfo(string printId, System.IO.Stream image, string note = default(string), int operationIndex = 0);
+        ApiResponse<Print> EditPrintWithHttpInfo(string printId, FileParameter image, string? note = default);
         /// <summary>
         /// Get Print
         /// </summary>
@@ -84,9 +81,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Print</returns>
-        Print GetPrint(string printId, int operationIndex = 0);
+        Print GetPrint(string printId);
 
         /// <summary>
         /// Get Print
@@ -96,9 +92,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Print</returns>
-        ApiResponse<Print> GetPrintWithHttpInfo(string printId, int operationIndex = 0);
+        ApiResponse<Print> GetPrintWithHttpInfo(string printId);
         /// <summary>
         /// Get Own Prints
         /// </summary>
@@ -107,9 +102,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Print&gt;</returns>
-        List<Print> GetUserPrints(string userId, int operationIndex = 0);
+        List<Print> GetUserPrints(string userId);
 
         /// <summary>
         /// Get Own Prints
@@ -119,9 +113,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Print&gt;</returns>
-        ApiResponse<List<Print>> GetUserPrintsWithHttpInfo(string userId, int operationIndex = 0);
+        ApiResponse<List<Print>> GetUserPrintsWithHttpInfo(string userId);
         /// <summary>
         /// Upload Print
         /// </summary>
@@ -134,9 +127,8 @@ namespace VRChat.API.Api
         /// <param name="note">The caption for the image. (optional)</param>
         /// <param name="worldId">The id of the world in which the image was captured. (optional)</param>
         /// <param name="worldName">The name of the world in which the image was captured. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Print</returns>
-        Print UploadPrint(System.IO.Stream image, DateTime timestamp, string note = default(string), string worldId = default(string), string worldName = default(string), int operationIndex = 0);
+        Print UploadPrint(FileParameter image, DateTime timestamp, string? note = default, string? worldId = default, string? worldName = default);
 
         /// <summary>
         /// Upload Print
@@ -150,9 +142,8 @@ namespace VRChat.API.Api
         /// <param name="note">The caption for the image. (optional)</param>
         /// <param name="worldId">The id of the world in which the image was captured. (optional)</param>
         /// <param name="worldName">The name of the world in which the image was captured. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Print</returns>
-        ApiResponse<Print> UploadPrintWithHttpInfo(System.IO.Stream image, DateTime timestamp, string note = default(string), string worldId = default(string), string worldName = default(string), int operationIndex = 0);
+        ApiResponse<Print> UploadPrintWithHttpInfo(FileParameter image, DateTime timestamp, string? note = default, string? worldId = default, string? worldName = default);
         #endregion Synchronous Operations
     }
 
@@ -170,10 +161,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeletePrintAsync(string printId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeletePrintAsync(string printId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Print
@@ -183,10 +173,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePrintWithHttpInfoAsync(string printId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePrintWithHttpInfoAsync(string printId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Edit Print
         /// </summary>
@@ -197,10 +186,9 @@ namespace VRChat.API.Api
         /// <param name="printId">Print ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="note">The caption for the image. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Print</returns>
-        System.Threading.Tasks.Task<Print> EditPrintAsync(string printId, System.IO.Stream image, string note = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Print> EditPrintAsync(string printId, FileParameter image, string? note = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Edit Print
@@ -212,10 +200,9 @@ namespace VRChat.API.Api
         /// <param name="printId">Print ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="note">The caption for the image. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Print)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Print>> EditPrintWithHttpInfoAsync(string printId, System.IO.Stream image, string note = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Print>> EditPrintWithHttpInfoAsync(string printId, FileParameter image, string? note = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Print
         /// </summary>
@@ -224,10 +211,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Print</returns>
-        System.Threading.Tasks.Task<Print> GetPrintAsync(string printId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Print> GetPrintAsync(string printId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Print
@@ -237,10 +223,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Print)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Print>> GetPrintWithHttpInfoAsync(string printId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Print>> GetPrintWithHttpInfoAsync(string printId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Own Prints
         /// </summary>
@@ -249,10 +234,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Print&gt;</returns>
-        System.Threading.Tasks.Task<List<Print>> GetUserPrintsAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Print>> GetUserPrintsAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Own Prints
@@ -262,10 +246,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Print&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Print>>> GetUserPrintsWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Print>>> GetUserPrintsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload Print
         /// </summary>
@@ -278,10 +261,9 @@ namespace VRChat.API.Api
         /// <param name="note">The caption for the image. (optional)</param>
         /// <param name="worldId">The id of the world in which the image was captured. (optional)</param>
         /// <param name="worldName">The name of the world in which the image was captured. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Print</returns>
-        System.Threading.Tasks.Task<Print> UploadPrintAsync(System.IO.Stream image, DateTime timestamp, string note = default(string), string worldId = default(string), string worldName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Print> UploadPrintAsync(FileParameter image, DateTime timestamp, string? note = default, string? worldId = default, string? worldName = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload Print
@@ -295,10 +277,9 @@ namespace VRChat.API.Api
         /// <param name="note">The caption for the image. (optional)</param>
         /// <param name="worldId">The id of the world in which the image was captured. (optional)</param>
         /// <param name="worldName">The name of the world in which the image was captured. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Print)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Print>> UploadPrintWithHttpInfoAsync(System.IO.Stream image, DateTime timestamp, string note = default(string), string worldId = default(string), string worldName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Print>> UploadPrintWithHttpInfoAsync(FileParameter image, DateTime timestamp, string? note = default, string? worldId = default, string? worldName = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -313,12 +294,14 @@ namespace VRChat.API.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class PrintsApi : IPrintsApi
+    public partial class PrintsApi : IDisposable, IPrintsApi
     {
         private VRChat.API.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PrintsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public PrintsApi() : this((string)null)
@@ -327,7 +310,11 @@ namespace VRChat.API.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PrintsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public PrintsApi(string basePath)
         {
@@ -335,16 +322,19 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 new VRChat.API.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PrintsApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="PrintsApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public PrintsApi(VRChat.API.Client.Configuration configuration)
         {
@@ -354,8 +344,78 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PrintsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public PrintsApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PrintsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public PrintsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                new VRChat.API.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PrintsApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public PrintsApi(HttpClient client, VRChat.API.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -366,6 +426,7 @@ namespace VRChat.API.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public PrintsApi(VRChat.API.Client.ISynchronousClient client, VRChat.API.Client.IAsynchronousClient asyncClient, VRChat.API.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -377,6 +438,19 @@ namespace VRChat.API.Api
             this.Configuration = configuration;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public VRChat.API.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -424,9 +498,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void DeletePrint(string printId, int operationIndex = 0)
+        public void DeletePrint(string printId)
         {
             DeletePrintWithHttpInfo(printId);
         }
@@ -436,15 +509,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> DeletePrintWithHttpInfo(string printId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> DeletePrintWithHttpInfo(string printId)
         {
             // verify the required parameter 'printId' is set
             if (printId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'printId' when calling PrintsApi->DeletePrint");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -457,21 +527,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("printId", VRChat.API.Client.ClientUtils.ParameterToString(printId)); // path parameter
-
-            localVarRequestOptions.Operation = "PrintsApi.DeletePrint";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -482,13 +543,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Object>("/prints/{printId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeletePrint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -499,12 +558,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeletePrintAsync(string printId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeletePrintAsync(string printId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await DeletePrintWithHttpInfoAsync(printId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await DeletePrintWithHttpInfoAsync(printId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -512,16 +570,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeletePrintWithHttpInfoAsync(string printId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeletePrintWithHttpInfoAsync(string printId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'printId' is set
             if (printId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'printId' when calling PrintsApi->DeletePrint");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -534,22 +589,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("printId", VRChat.API.Client.ClientUtils.ParameterToString(printId)); // path parameter
-
-            localVarRequestOptions.Operation = "PrintsApi.DeletePrint";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -559,15 +606,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/prints/{printId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeletePrint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -580,9 +625,8 @@ namespace VRChat.API.Api
         /// <param name="printId">Print ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="note">The caption for the image. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Print</returns>
-        public Print EditPrint(string printId, System.IO.Stream image, string note = default(string), int operationIndex = 0)
+        public Print EditPrint(string printId, FileParameter image, string? note = default)
         {
             VRChat.API.Client.ApiResponse<Print> localVarResponse = EditPrintWithHttpInfo(printId, image, note);
             return localVarResponse.Data;
@@ -595,21 +639,16 @@ namespace VRChat.API.Api
         /// <param name="printId">Print ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="note">The caption for the image. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Print</returns>
-        public VRChat.API.Client.ApiResponse<Print> EditPrintWithHttpInfo(string printId, System.IO.Stream image, string note = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Print> EditPrintWithHttpInfo(string printId, FileParameter image, string? note = default)
         {
             // verify the required parameter 'printId' is set
             if (printId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'printId' when calling PrintsApi->EditPrint");
-            }
 
             // verify the required parameter 'image' is set
             if (image == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'image' when calling PrintsApi->EditPrint");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -623,16 +662,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("printId", VRChat.API.Client.ClientUtils.ParameterToString(printId)); // path parameter
             localVarRequestOptions.FileParameters.Add("image", image);
@@ -640,9 +673,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.FormParameters.Add("note", VRChat.API.Client.ClientUtils.ParameterToString(note)); // form parameter
             }
-
-            localVarRequestOptions.Operation = "PrintsApi.EditPrint";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -653,13 +683,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EditPrint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -672,12 +700,11 @@ namespace VRChat.API.Api
         /// <param name="printId">Print ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="note">The caption for the image. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Print</returns>
-        public async System.Threading.Tasks.Task<Print> EditPrintAsync(string printId, System.IO.Stream image, string note = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Print> EditPrintAsync(string printId, FileParameter image, string? note = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Print> localVarResponse = await EditPrintWithHttpInfoAsync(printId, image, note, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Print> localVarResponse = await EditPrintWithHttpInfoAsync(printId, image, note, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -688,22 +715,17 @@ namespace VRChat.API.Api
         /// <param name="printId">Print ID.</param>
         /// <param name="image">The binary blob of the png file.</param>
         /// <param name="note">The caption for the image. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Print)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Print>> EditPrintWithHttpInfoAsync(string printId, System.IO.Stream image, string note = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Print>> EditPrintWithHttpInfoAsync(string printId, FileParameter image, string? note = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'printId' is set
             if (printId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'printId' when calling PrintsApi->EditPrint");
-            }
 
             // verify the required parameter 'image' is set
             if (image == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'image' when calling PrintsApi->EditPrint");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -717,17 +739,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("printId", VRChat.API.Client.ClientUtils.ParameterToString(printId)); // path parameter
             localVarRequestOptions.FileParameters.Add("image", image);
@@ -735,9 +752,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.FormParameters.Add("note", VRChat.API.Client.ClientUtils.ParameterToString(note)); // form parameter
             }
-
-            localVarRequestOptions.Operation = "PrintsApi.EditPrint";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -747,15 +761,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EditPrint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -766,9 +778,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Print</returns>
-        public Print GetPrint(string printId, int operationIndex = 0)
+        public Print GetPrint(string printId)
         {
             VRChat.API.Client.ApiResponse<Print> localVarResponse = GetPrintWithHttpInfo(printId);
             return localVarResponse.Data;
@@ -779,15 +790,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Print</returns>
-        public VRChat.API.Client.ApiResponse<Print> GetPrintWithHttpInfo(string printId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Print> GetPrintWithHttpInfo(string printId)
         {
             // verify the required parameter 'printId' is set
             if (printId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'printId' when calling PrintsApi->GetPrint");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -800,21 +808,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("printId", VRChat.API.Client.ClientUtils.ParameterToString(printId)); // path parameter
-
-            localVarRequestOptions.Operation = "PrintsApi.GetPrint";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -825,13 +824,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPrint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -842,12 +839,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Print</returns>
-        public async System.Threading.Tasks.Task<Print> GetPrintAsync(string printId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Print> GetPrintAsync(string printId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Print> localVarResponse = await GetPrintWithHttpInfoAsync(printId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Print> localVarResponse = await GetPrintWithHttpInfoAsync(printId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -856,16 +852,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="printId">Print ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Print)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Print>> GetPrintWithHttpInfoAsync(string printId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Print>> GetPrintWithHttpInfoAsync(string printId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'printId' is set
             if (printId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'printId' when calling PrintsApi->GetPrint");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -878,22 +871,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("printId", VRChat.API.Client.ClientUtils.ParameterToString(printId)); // path parameter
-
-            localVarRequestOptions.Operation = "PrintsApi.GetPrint";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -903,15 +888,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPrint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -922,9 +905,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Print&gt;</returns>
-        public List<Print> GetUserPrints(string userId, int operationIndex = 0)
+        public List<Print> GetUserPrints(string userId)
         {
             VRChat.API.Client.ApiResponse<List<Print>> localVarResponse = GetUserPrintsWithHttpInfo(userId);
             return localVarResponse.Data;
@@ -935,15 +917,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Print&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Print>> GetUserPrintsWithHttpInfo(string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<Print>> GetUserPrintsWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling PrintsApi->GetUserPrints");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -956,21 +935,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "PrintsApi.GetUserPrints";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -981,13 +951,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<Print>>("/prints/user/{userId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserPrints", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -998,12 +966,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Print&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Print>> GetUserPrintsAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Print>> GetUserPrintsAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<Print>> localVarResponse = await GetUserPrintsWithHttpInfoAsync(userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<Print>> localVarResponse = await GetUserPrintsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1012,16 +979,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Print&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Print>>> GetUserPrintsWithHttpInfoAsync(string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Print>>> GetUserPrintsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling PrintsApi->GetUserPrints");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1034,22 +998,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "PrintsApi.GetUserPrints";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1059,15 +1015,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Print>>("/prints/user/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserPrints", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1082,9 +1036,8 @@ namespace VRChat.API.Api
         /// <param name="note">The caption for the image. (optional)</param>
         /// <param name="worldId">The id of the world in which the image was captured. (optional)</param>
         /// <param name="worldName">The name of the world in which the image was captured. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Print</returns>
-        public Print UploadPrint(System.IO.Stream image, DateTime timestamp, string note = default(string), string worldId = default(string), string worldName = default(string), int operationIndex = 0)
+        public Print UploadPrint(FileParameter image, DateTime timestamp, string? note = default, string? worldId = default, string? worldName = default)
         {
             VRChat.API.Client.ApiResponse<Print> localVarResponse = UploadPrintWithHttpInfo(image, timestamp, note, worldId, worldName);
             return localVarResponse.Data;
@@ -1099,15 +1052,12 @@ namespace VRChat.API.Api
         /// <param name="note">The caption for the image. (optional)</param>
         /// <param name="worldId">The id of the world in which the image was captured. (optional)</param>
         /// <param name="worldName">The name of the world in which the image was captured. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Print</returns>
-        public VRChat.API.Client.ApiResponse<Print> UploadPrintWithHttpInfo(System.IO.Stream image, DateTime timestamp, string note = default(string), string worldId = default(string), string worldName = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Print> UploadPrintWithHttpInfo(FileParameter image, DateTime timestamp, string? note = default, string? worldId = default, string? worldName = default)
         {
             // verify the required parameter 'image' is set
             if (image == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'image' when calling PrintsApi->UploadPrint");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1121,16 +1071,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.FileParameters.Add("image", image);
             localVarRequestOptions.FormParameters.Add("timestamp", VRChat.API.Client.ClientUtils.ParameterToString(timestamp)); // form parameter
@@ -1147,9 +1091,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.FormParameters.Add("worldName", VRChat.API.Client.ClientUtils.ParameterToString(worldName)); // form parameter
             }
 
-            localVarRequestOptions.Operation = "PrintsApi.UploadPrint";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -1159,13 +1100,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Print>("/prints", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UploadPrint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1180,12 +1119,11 @@ namespace VRChat.API.Api
         /// <param name="note">The caption for the image. (optional)</param>
         /// <param name="worldId">The id of the world in which the image was captured. (optional)</param>
         /// <param name="worldName">The name of the world in which the image was captured. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Print</returns>
-        public async System.Threading.Tasks.Task<Print> UploadPrintAsync(System.IO.Stream image, DateTime timestamp, string note = default(string), string worldId = default(string), string worldName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Print> UploadPrintAsync(FileParameter image, DateTime timestamp, string? note = default, string? worldId = default, string? worldName = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Print> localVarResponse = await UploadPrintWithHttpInfoAsync(image, timestamp, note, worldId, worldName, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Print> localVarResponse = await UploadPrintWithHttpInfoAsync(image, timestamp, note, worldId, worldName, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1198,16 +1136,13 @@ namespace VRChat.API.Api
         /// <param name="note">The caption for the image. (optional)</param>
         /// <param name="worldId">The id of the world in which the image was captured. (optional)</param>
         /// <param name="worldName">The name of the world in which the image was captured. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Print)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Print>> UploadPrintWithHttpInfoAsync(System.IO.Stream image, DateTime timestamp, string note = default(string), string worldId = default(string), string worldName = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Print>> UploadPrintWithHttpInfoAsync(FileParameter image, DateTime timestamp, string? note = default, string? worldId = default, string? worldName = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'image' is set
             if (image == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'image' when calling PrintsApi->UploadPrint");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1221,17 +1156,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.FileParameters.Add("image", image);
             localVarRequestOptions.FormParameters.Add("timestamp", VRChat.API.Client.ClientUtils.ParameterToString(timestamp)); // form parameter
@@ -1248,9 +1178,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.FormParameters.Add("worldName", VRChat.API.Client.ClientUtils.ParameterToString(worldName)); // form parameter
             }
 
-            localVarRequestOptions.Operation = "PrintsApi.UploadPrint";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -1259,15 +1186,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Print>("/prints", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UploadPrint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

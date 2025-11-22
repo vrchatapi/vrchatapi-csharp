@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// Build information for a platform
     /// </summary>
     [DataContract(Name = "PlatformBuildInfo")]
-    public partial class PlatformBuildInfo : IEquatable<PlatformBuildInfo>, IValidatableObject
+    public partial class PlatformBuildInfo : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PlatformBuildInfo" /> class.
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="minBuildNumber">Minimum build number required for the platform (required).</param>
         /// <param name="redirectionAddress">Redirection URL for updating the app.</param>
-        public PlatformBuildInfo(int minBuildNumber = default(int), string redirectionAddress = default(string))
+        public PlatformBuildInfo(int minBuildNumber = default, string redirectionAddress = default)
         {
             this.MinBuildNumber = minBuildNumber;
             this.RedirectionAddress = redirectionAddress;
@@ -85,62 +86,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as PlatformBuildInfo);
-        }
-
-        /// <summary>
-        /// Returns true if PlatformBuildInfo instances are equal
-        /// </summary>
-        /// <param name="input">Instance of PlatformBuildInfo to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(PlatformBuildInfo input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.MinBuildNumber == input.MinBuildNumber ||
-                    this.MinBuildNumber.Equals(input.MinBuildNumber)
-                ) && 
-                (
-                    this.RedirectionAddress == input.RedirectionAddress ||
-                    (this.RedirectionAddress != null &&
-                    this.RedirectionAddress.Equals(input.RedirectionAddress))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.MinBuildNumber.GetHashCode();
-                if (this.RedirectionAddress != null)
-                {
-                    hashCode = (hashCode * 59) + this.RedirectionAddress.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

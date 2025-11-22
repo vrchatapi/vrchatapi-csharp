@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -29,7 +30,7 @@ namespace VRChat.API.Model
     /// InfoPush
     /// </summary>
     [DataContract(Name = "InfoPush")]
-    public partial class InfoPush : IEquatable<InfoPush>, IValidatableObject
+    public partial class InfoPush : IValidatableObject
     {
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="startDate">startDate.</param>
         /// <param name="endDate">endDate.</param>
-        public InfoPush(string id = default(string), bool isEnabled = true, ReleaseStatus releaseStatus = default(ReleaseStatus), int priority = default(int), List<string> tags = default(List<string>), InfoPushData data = default(InfoPushData), string hash = default(string), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), DateTime startDate = default(DateTime), DateTime endDate = default(DateTime))
+        public InfoPush(string id = default, bool isEnabled = true, ReleaseStatus releaseStatus = default, int priority = default, List<string> tags = default, InfoPushData data = default, string hash = default, DateTime createdAt = default, DateTime updatedAt = default, DateTime startDate = default, DateTime endDate = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -94,6 +95,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>launch-beta</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -186,147 +190,22 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as InfoPush);
-        }
-
-        /// <summary>
-        /// Returns true if InfoPush instances are equal
-        /// </summary>
-        /// <param name="input">Instance of InfoPush to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(InfoPush input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.IsEnabled == input.IsEnabled ||
-                    this.IsEnabled.Equals(input.IsEnabled)
-                ) && 
-                (
-                    this.ReleaseStatus == input.ReleaseStatus ||
-                    this.ReleaseStatus.Equals(input.ReleaseStatus)
-                ) && 
-                (
-                    this.Priority == input.Priority ||
-                    this.Priority.Equals(input.Priority)
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
-                ) && 
-                (
-                    this.Hash == input.Hash ||
-                    (this.Hash != null &&
-                    this.Hash.Equals(input.Hash))
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    (this.CreatedAt != null &&
-                    this.CreatedAt.Equals(input.CreatedAt))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    (this.UpdatedAt != null &&
-                    this.UpdatedAt.Equals(input.UpdatedAt))
-                ) && 
-                (
-                    this.StartDate == input.StartDate ||
-                    (this.StartDate != null &&
-                    this.StartDate.Equals(input.StartDate))
-                ) && 
-                (
-                    this.EndDate == input.EndDate ||
-                    (this.EndDate != null &&
-                    this.EndDate.Equals(input.EndDate))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsEnabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this.Priority.GetHashCode();
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                if (this.Hash != null)
-                {
-                    hashCode = (hashCode * 59) + this.Hash.GetHashCode();
-                }
-                if (this.CreatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                }
-                if (this.UpdatedAt != null)
-                {
-                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                }
-                if (this.StartDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
-                }
-                if (this.EndDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // Hash (string) minLength
             if (this.Hash != null && this.Hash.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hash, length must be greater than 1.", new [] { "Hash" });
+                yield return new ValidationResult("Invalid value for Hash, length must be greater than 1.", new [] { "Hash" });
             }
 
             yield break;
