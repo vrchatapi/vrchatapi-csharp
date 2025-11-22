@@ -9,7 +9,7 @@ curl https://raw.githubusercontent.com/vrchatapi/specification/gh-pages/openapi.
 SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
 
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
--g csharp-netcore \
+-g csharp \
 --library httpclient \
 --additional-properties=packageName=VRChat.API,packageTags=vrchat,packageVersion=$SPEC_VERSION,targetFramework=net8.0,licenseId=MIT \
 --git-user-id=vrchatapi \
