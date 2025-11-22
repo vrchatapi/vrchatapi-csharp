@@ -271,7 +271,7 @@ namespace VRChat.API.Client
             {
                 response = await this.Authentication.GetCurrentUserWithHttpInfoAsync(cancellationToken: ct);
 
-                if (response.StatusCode != HttpStatusCode.Unauthorized)
+                if (response.StatusCode == HttpStatusCode.Unauthorized)
                 {
                     throw new UnauthorizedAccessException("401 Unauthorized");
                 }
