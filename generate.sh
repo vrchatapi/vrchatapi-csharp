@@ -41,6 +41,9 @@ sed -i 's/No Copyright/Copyright © 2021 Owners of GitHub organisation "vrchatap
 sed -i 's/OpenAPI/VRChat API Docs Community/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 
+# Fix failure to compile
+sed -i 's/<GenerateAssemblyInfo>false<\/GenerateAssemblyInfo>/<GenerateAssemblyInfo>true<\/GenerateAssemblyInfo>/' src/VRChat.API/VRChat.API.csproj
+
 # Add README.md to fields
 sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj
 sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\\README.md" Pack="true" PackagePath="\\"/>' src/VRChat.API/VRChat.API.csproj

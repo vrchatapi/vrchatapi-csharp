@@ -20,8 +20,7 @@ namespace VRChat.API.Examples.AspNetCore
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
-                .WithStaticAssets();
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
