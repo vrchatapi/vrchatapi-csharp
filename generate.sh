@@ -22,16 +22,6 @@ rm openapi.yaml
 
 rmdir src/VRChat.API.Test/
 
-#
-# Enable global cookie storage
-#
-# Create global CookieContainer
-sed -i '/readonly string _baseUrl/a \        public static readonly CookieContainer CookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
-# Replace "var cookies = new CookieContainer()" with "var cookies = CookieContainer"
-sed -i 's/cookies = new CookieContainer()/cookies = CookieContainer/' ./src/VRChat.API/Client/ApiClient.cs
-# Add result to CookieContainer
-sed -i '/result.Cookies.Add(cookie);/a \                    client.CookieContainer.Add(cookie);' ./src/VRChat.API/Client/ApiClient.cs
-
 for file in $(find ./src/VRChat.API -name '*.cs'); do
     sed -i 's/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"))/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "\/", "vrchat.com")/g' $file
     sed -i 's/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"))/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"), "\/", "vrchat.com")/g' $file
@@ -40,9 +30,6 @@ done
 
 # Fix username and password encoding
 sed -i 's/VRChat.API.Client.ClientUtils.Base64Encode(this.Configuration.Username + \":\" + this.Configuration.Password)/VRChat.API.Client.ClientUtils.Base64Encode(System.Web.HttpUtility.UrlEncode(this.Configuration.Username) + ":" + System.Web.HttpUtility.UrlEncode(this.Configuration.Password))/g' src/VRChat.API/Api/AuthenticationApi.cs
-
-# Disable URL encoding for path parameters
-sed -i 's/request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment)/request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment, false)/g' src/VRChat.API/Client/ApiClient.cs
 
 # Fix fields in csproj
 sed -i 's/OpenAPI Library/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj
@@ -54,28 +41,6 @@ sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 # Add README.md to fields
 sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj
 sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\\README.md" Pack="true" PackagePath="\\"/>' src/VRChat.API/VRChat.API.csproj
-
-sed -i '/var baseUrl = configuration\.GetOperationServerUrl(options\.Operation, options\.OperationIndex) ?? _baseUrl;/,/\};/c \
-            var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;\
-            \
-            var cookies = CookieContainer;\
-            \
-            if (options.Cookies != null && options.Cookies.Count > 0)\
-            {\
-                foreach (var cookie in options.Cookies)\
-                {\
-                    cookies.Add(new Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Domain));\
-                }\
-            }\
-            \
-            var clientOptions = new RestClientOptions(baseUrl)\
-            {\
-                ClientCertificates = configuration.ClientCertificates,\
-                CookieContainer = cookies,\
-                MaxTimeout = configuration.Timeout,\
-                Proxy = configuration.Proxy,\
-                UserAgent = configuration.UserAgent\
-            };' src/VRChat.API/Client/ApiClient.cs
 
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
