@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Security.AccessControl;
 using System.Threading;
 using System.Threading.Tasks;
 using VRChat.API.Api;
@@ -272,7 +271,12 @@ namespace VRChat.API.Client
             {
                 response = await this.Authentication.GetCurrentUserWithHttpInfoAsync(cancellationToken: ct);
 
-                if(response.RawContent.Contains("totp"))
+                if (response.StatusCode != HttpStatusCode.Unauthorized)
+                {
+                    throw new UnauthorizedAccessException("401 Unauthorized");
+                }
+
+                if (response.Data.RequiresTwoFactorAuth != null && response.Data.RequiresTwoFactorAuth.Contains("totp"))
                 {
                     var totp = new Totp(Base32Encoding.ToBytes(_twoFactorSecret));
                     var twoFactorResponse = await this.Authentication.Verify2FAWithHttpInfoAsync(new TwoFactorAuthCode(totp.ComputeTotp()), ct);
@@ -282,6 +286,8 @@ namespace VRChat.API.Client
 
                     response = await this.Authentication.GetCurrentUserWithHttpInfoAsync(ct);
                 }
+                else if (response.Data.RequiresTwoFactorAuth != null)
+                    throw new InvalidOperationException("This account does not have TOTP Two Factor Authentication set up on it. This method only supports Two-Factor TOTP authentication");
             }
             catch
             {
