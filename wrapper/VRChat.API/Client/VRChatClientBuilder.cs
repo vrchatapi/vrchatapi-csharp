@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Net.Http;
 
 namespace VRChat.API.Client
 {
@@ -12,6 +13,8 @@ namespace VRChat.API.Client
         private const string _defaultUserAgent = "VRChat.API/1.0 (.NET) net8.0 (https://dot.net) VRChat.API/HttpClient";
         private Configuration _configuration;
         private ApiClient _client;
+        private HttpClient _httpClient;
+        private HttpClientHandler _httpClientHandler;
 
         private string _twoFactorSecret;
 
@@ -28,7 +31,15 @@ namespace VRChat.API.Client
         /// <param name="incomingClient">The <see cref="ApiClient"/> to initialize with as a base</param>
         public VRChatClientBuilder(Configuration incomingConfiguration, ApiClient incomingClient)
         {
-            _client = incomingClient ?? new ApiClient();
+            _httpClientHandler = new HttpClientHandler()
+            {
+                UseCookies = true,
+                CookieContainer = new CookieContainer()
+            };
+
+            _httpClient = new HttpClient(_httpClientHandler);
+            _client = incomingClient ?? new ApiClient(_httpClient, _httpClientHandler);
+
             _configuration = incomingConfiguration ?? new Configuration();
             if (_configuration.UserAgent == null)
                 this.WithUserAgent(_defaultUserAgent);
@@ -141,7 +152,7 @@ namespace VRChat.API.Client
         /// <returns></returns>
         public VRChatClientBuilder WithTimeout(TimeSpan timeout)
         {
-            _configuration.Timeout = (int)timeout.TotalMilliseconds; // Using Miliseconds over TotalMilliseconds can cause issues when the timespan is empty
+            _configuration.Timeout = timeout; // Using Miliseconds over TotalMilliseconds can cause issues when the timespan is empty
             return this;
         }
 
