@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateFavoriteGroupRequest
     /// </summary>
     [DataContract(Name = "UpdateFavoriteGroupRequest")]
-    public partial class UpdateFavoriteGroupRequest : IValidatableObject
+    public partial class UpdateFavoriteGroupRequest : IEquatable<UpdateFavoriteGroupRequest>, IValidatableObject
     {
 
         /// <summary>
@@ -86,6 +86,67 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UpdateFavoriteGroupRequest);
+        }
+
+        /// <summary>
+        /// Returns true if UpdateFavoriteGroupRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UpdateFavoriteGroupRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UpdateFavoriteGroupRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Visibility == input.Visibility ||
+                    this.Visibility.Equals(input.Visibility)
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

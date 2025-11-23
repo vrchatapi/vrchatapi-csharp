@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InventoryTemplate
     /// </summary>
     [DataContract(Name = "InventoryTemplate")]
-    public partial class InventoryTemplate : IValidatableObject
+    public partial class InventoryTemplate : IEquatable<InventoryTemplate>, IValidatableObject
     {
 
         /// <summary>
@@ -264,6 +264,177 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InventoryTemplate);
+        }
+
+        /// <summary>
+        /// Returns true if InventoryTemplate instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InventoryTemplate to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InventoryTemplate input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AuthorId == input.AuthorId ||
+                    (this.AuthorId != null &&
+                    this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
+                    this.Collections == input.Collections ||
+                    this.Collections != null &&
+                    input.Collections != null &&
+                    this.Collections.SequenceEqual(input.Collections)
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Flags == input.Flags ||
+                    this.Flags != null &&
+                    input.Flags != null &&
+                    this.Flags.SequenceEqual(input.Flags)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.ItemType == input.ItemType ||
+                    this.ItemType.Equals(input.ItemType)
+                ) && 
+                (
+                    this.ItemTypeLabel == input.ItemTypeLabel ||
+                    (this.ItemTypeLabel != null &&
+                    this.ItemTypeLabel.Equals(input.ItemTypeLabel))
+                ) && 
+                (
+                    this.Metadata == input.Metadata ||
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.NotificationDetails == input.NotificationDetails ||
+                    (this.NotificationDetails != null &&
+                    this.NotificationDetails.Equals(input.NotificationDetails))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.AuthorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
+                if (this.Collections != null)
+                {
+                    hashCode = (hashCode * 59) + this.Collections.GetHashCode();
+                }
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.Flags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Flags.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
+                if (this.ItemTypeLabel != null)
+                {
+                    hashCode = (hashCode * 59) + this.ItemTypeLabel.GetHashCode();
+                }
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.NotificationDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotificationDetails.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

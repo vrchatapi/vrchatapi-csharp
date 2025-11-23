@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// LicenseGroup
     /// </summary>
     [DataContract(Name = "LicenseGroup")]
-    public partial class LicenseGroup : IValidatableObject
+    public partial class LicenseGroup : IEquatable<LicenseGroup>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LicenseGroup" /> class.
@@ -122,6 +122,80 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as LicenseGroup);
+        }
+
+        /// <summary>
+        /// Returns true if LicenseGroup instances are equal
+        /// </summary>
+        /// <param name="input">Instance of LicenseGroup to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(LicenseGroup input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Licenses == input.Licenses ||
+                    this.Licenses != null &&
+                    input.Licenses != null &&
+                    this.Licenses.SequenceEqual(input.Licenses)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.Licenses != null)
+                {
+                    hashCode = (hashCode * 59) + this.Licenses.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CurrentUser
     /// </summary>
     [DataContract(Name = "CurrentUser")]
-    public partial class CurrentUser : IValidatableObject
+    public partial class CurrentUser : IEquatable<CurrentUser>, IValidatableObject
     {
 
         /// <summary>
@@ -932,6 +932,649 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CurrentUser);
+        }
+
+        /// <summary>
+        /// Returns true if CurrentUser instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CurrentUser to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CurrentUser input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AcceptedTOSVersion == input.AcceptedTOSVersion ||
+                    this.AcceptedTOSVersion.Equals(input.AcceptedTOSVersion)
+                ) && 
+                (
+                    this.AcceptedPrivacyVersion == input.AcceptedPrivacyVersion ||
+                    this.AcceptedPrivacyVersion.Equals(input.AcceptedPrivacyVersion)
+                ) && 
+                (
+                    this.AccountDeletionDate == input.AccountDeletionDate ||
+                    (this.AccountDeletionDate != null &&
+                    this.AccountDeletionDate.Equals(input.AccountDeletionDate))
+                ) && 
+                (
+                    this.AccountDeletionLog == input.AccountDeletionLog ||
+                    this.AccountDeletionLog != null &&
+                    input.AccountDeletionLog != null &&
+                    this.AccountDeletionLog.SequenceEqual(input.AccountDeletionLog)
+                ) && 
+                (
+                    this.ActiveFriends == input.ActiveFriends ||
+                    this.ActiveFriends != null &&
+                    input.ActiveFriends != null &&
+                    this.ActiveFriends.SequenceEqual(input.ActiveFriends)
+                ) && 
+                (
+                    this.AgeVerificationStatus == input.AgeVerificationStatus ||
+                    this.AgeVerificationStatus.Equals(input.AgeVerificationStatus)
+                ) && 
+                (
+                    this.AgeVerified == input.AgeVerified ||
+                    this.AgeVerified.Equals(input.AgeVerified)
+                ) && 
+                (
+                    this.AllowAvatarCopying == input.AllowAvatarCopying ||
+                    this.AllowAvatarCopying.Equals(input.AllowAvatarCopying)
+                ) && 
+                (
+                    this.AuthToken == input.AuthToken ||
+                    (this.AuthToken != null &&
+                    this.AuthToken.Equals(input.AuthToken))
+                ) && 
+                (
+                    this.Badges == input.Badges ||
+                    this.Badges != null &&
+                    input.Badges != null &&
+                    this.Badges.SequenceEqual(input.Badges)
+                ) && 
+                (
+                    this.Bio == input.Bio ||
+                    (this.Bio != null &&
+                    this.Bio.Equals(input.Bio))
+                ) && 
+                (
+                    this.BioLinks == input.BioLinks ||
+                    this.BioLinks != null &&
+                    input.BioLinks != null &&
+                    this.BioLinks.SequenceEqual(input.BioLinks)
+                ) && 
+                (
+                    this.ContentFilters == input.ContentFilters ||
+                    this.ContentFilters != null &&
+                    input.ContentFilters != null &&
+                    this.ContentFilters.SequenceEqual(input.ContentFilters)
+                ) && 
+                (
+                    this.CurrentAvatar == input.CurrentAvatar ||
+                    (this.CurrentAvatar != null &&
+                    this.CurrentAvatar.Equals(input.CurrentAvatar))
+                ) && 
+                (
+                    this.CurrentAvatarImageUrl == input.CurrentAvatarImageUrl ||
+                    (this.CurrentAvatarImageUrl != null &&
+                    this.CurrentAvatarImageUrl.Equals(input.CurrentAvatarImageUrl))
+                ) && 
+                (
+                    this.CurrentAvatarThumbnailImageUrl == input.CurrentAvatarThumbnailImageUrl ||
+                    (this.CurrentAvatarThumbnailImageUrl != null &&
+                    this.CurrentAvatarThumbnailImageUrl.Equals(input.CurrentAvatarThumbnailImageUrl))
+                ) && 
+                (
+                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
+                    this.CurrentAvatarTags != null &&
+                    input.CurrentAvatarTags != null &&
+                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
+                ) && 
+                (
+                    this.DateJoined == input.DateJoined ||
+                    (this.DateJoined != null &&
+                    this.DateJoined.Equals(input.DateJoined))
+                ) && 
+                (
+                    this.DeveloperType == input.DeveloperType ||
+                    this.DeveloperType.Equals(input.DeveloperType)
+                ) && 
+                (
+                    this.DiscordDetails == input.DiscordDetails ||
+                    (this.DiscordDetails != null &&
+                    this.DiscordDetails.Equals(input.DiscordDetails))
+                ) && 
+                (
+                    this.DiscordId == input.DiscordId ||
+                    (this.DiscordId != null &&
+                    this.DiscordId.Equals(input.DiscordId))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.EmailVerified == input.EmailVerified ||
+                    this.EmailVerified.Equals(input.EmailVerified)
+                ) && 
+                (
+                    this.FallbackAvatar == input.FallbackAvatar ||
+                    (this.FallbackAvatar != null &&
+                    this.FallbackAvatar.Equals(input.FallbackAvatar))
+                ) && 
+                (
+                    this.FriendGroupNames == input.FriendGroupNames ||
+                    this.FriendGroupNames != null &&
+                    input.FriendGroupNames != null &&
+                    this.FriendGroupNames.SequenceEqual(input.FriendGroupNames)
+                ) && 
+                (
+                    this.FriendKey == input.FriendKey ||
+                    (this.FriendKey != null &&
+                    this.FriendKey.Equals(input.FriendKey))
+                ) && 
+                (
+                    this.Friends == input.Friends ||
+                    this.Friends != null &&
+                    input.Friends != null &&
+                    this.Friends.SequenceEqual(input.Friends)
+                ) && 
+                (
+                    this.HasBirthday == input.HasBirthday ||
+                    this.HasBirthday.Equals(input.HasBirthday)
+                ) && 
+                (
+                    this.HideContentFilterSettings == input.HideContentFilterSettings ||
+                    this.HideContentFilterSettings.Equals(input.HideContentFilterSettings)
+                ) && 
+                (
+                    this.UserLanguage == input.UserLanguage ||
+                    (this.UserLanguage != null &&
+                    this.UserLanguage.Equals(input.UserLanguage))
+                ) && 
+                (
+                    this.UserLanguageCode == input.UserLanguageCode ||
+                    (this.UserLanguageCode != null &&
+                    this.UserLanguageCode.Equals(input.UserLanguageCode))
+                ) && 
+                (
+                    this.HasEmail == input.HasEmail ||
+                    this.HasEmail.Equals(input.HasEmail)
+                ) && 
+                (
+                    this.HasLoggedInFromClient == input.HasLoggedInFromClient ||
+                    this.HasLoggedInFromClient.Equals(input.HasLoggedInFromClient)
+                ) && 
+                (
+                    this.HasPendingEmail == input.HasPendingEmail ||
+                    this.HasPendingEmail.Equals(input.HasPendingEmail)
+                ) && 
+                (
+                    this.HomeLocation == input.HomeLocation ||
+                    (this.HomeLocation != null &&
+                    this.HomeLocation.Equals(input.HomeLocation))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.IsAdult == input.IsAdult ||
+                    this.IsAdult.Equals(input.IsAdult)
+                ) && 
+                (
+                    this.IsBoopingEnabled == input.IsBoopingEnabled ||
+                    this.IsBoopingEnabled.Equals(input.IsBoopingEnabled)
+                ) && 
+                (
+                    this.IsFriend == input.IsFriend ||
+                    this.IsFriend.Equals(input.IsFriend)
+                ) && 
+                (
+                    this.LastActivity == input.LastActivity ||
+                    (this.LastActivity != null &&
+                    this.LastActivity.Equals(input.LastActivity))
+                ) && 
+                (
+                    this.LastLogin == input.LastLogin ||
+                    (this.LastLogin != null &&
+                    this.LastLogin.Equals(input.LastLogin))
+                ) && 
+                (
+                    this.LastMobile == input.LastMobile ||
+                    (this.LastMobile != null &&
+                    this.LastMobile.Equals(input.LastMobile))
+                ) && 
+                (
+                    this.LastPlatform == input.LastPlatform ||
+                    (this.LastPlatform != null &&
+                    this.LastPlatform.Equals(input.LastPlatform))
+                ) && 
+                (
+                    this.ObfuscatedEmail == input.ObfuscatedEmail ||
+                    (this.ObfuscatedEmail != null &&
+                    this.ObfuscatedEmail.Equals(input.ObfuscatedEmail))
+                ) && 
+                (
+                    this.ObfuscatedPendingEmail == input.ObfuscatedPendingEmail ||
+                    (this.ObfuscatedPendingEmail != null &&
+                    this.ObfuscatedPendingEmail.Equals(input.ObfuscatedPendingEmail))
+                ) && 
+                (
+                    this.OculusId == input.OculusId ||
+                    (this.OculusId != null &&
+                    this.OculusId.Equals(input.OculusId))
+                ) && 
+                (
+                    this.GoogleId == input.GoogleId ||
+                    (this.GoogleId != null &&
+                    this.GoogleId.Equals(input.GoogleId))
+                ) && 
+                (
+                    this.GoogleDetails == input.GoogleDetails ||
+                    (this.GoogleDetails != null &&
+                    this.GoogleDetails.Equals(input.GoogleDetails))
+                ) && 
+                (
+                    this.PicoId == input.PicoId ||
+                    (this.PicoId != null &&
+                    this.PicoId.Equals(input.PicoId))
+                ) && 
+                (
+                    this.ViveId == input.ViveId ||
+                    (this.ViveId != null &&
+                    this.ViveId.Equals(input.ViveId))
+                ) && 
+                (
+                    this.OfflineFriends == input.OfflineFriends ||
+                    this.OfflineFriends != null &&
+                    input.OfflineFriends != null &&
+                    this.OfflineFriends.SequenceEqual(input.OfflineFriends)
+                ) && 
+                (
+                    this.OnlineFriends == input.OnlineFriends ||
+                    this.OnlineFriends != null &&
+                    input.OnlineFriends != null &&
+                    this.OnlineFriends.SequenceEqual(input.OnlineFriends)
+                ) && 
+                (
+                    this.PastDisplayNames == input.PastDisplayNames ||
+                    this.PastDisplayNames != null &&
+                    input.PastDisplayNames != null &&
+                    this.PastDisplayNames.SequenceEqual(input.PastDisplayNames)
+                ) && 
+                (
+                    this.Presence == input.Presence ||
+                    (this.Presence != null &&
+                    this.Presence.Equals(input.Presence))
+                ) && 
+                (
+                    this.PlatformHistory == input.PlatformHistory ||
+                    this.PlatformHistory != null &&
+                    input.PlatformHistory != null &&
+                    this.PlatformHistory.SequenceEqual(input.PlatformHistory)
+                ) && 
+                (
+                    this.ProfilePicOverride == input.ProfilePicOverride ||
+                    (this.ProfilePicOverride != null &&
+                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
+                ) && 
+                (
+                    this.ProfilePicOverrideThumbnail == input.ProfilePicOverrideThumbnail ||
+                    (this.ProfilePicOverrideThumbnail != null &&
+                    this.ProfilePicOverrideThumbnail.Equals(input.ProfilePicOverrideThumbnail))
+                ) && 
+                (
+                    this.Pronouns == input.Pronouns ||
+                    (this.Pronouns != null &&
+                    this.Pronouns.Equals(input.Pronouns))
+                ) && 
+                (
+                    this.PronounsHistory == input.PronounsHistory ||
+                    this.PronounsHistory != null &&
+                    input.PronounsHistory != null &&
+                    this.PronounsHistory.SequenceEqual(input.PronounsHistory)
+                ) && 
+                (
+                    this.QueuedInstance == input.QueuedInstance ||
+                    (this.QueuedInstance != null &&
+                    this.QueuedInstance.Equals(input.QueuedInstance))
+                ) && 
+                (
+                    this.ReceiveMobileInvitations == input.ReceiveMobileInvitations ||
+                    this.ReceiveMobileInvitations.Equals(input.ReceiveMobileInvitations)
+                ) && 
+                (
+                    this.State == input.State ||
+                    this.State.Equals(input.State)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.StatusDescription == input.StatusDescription ||
+                    (this.StatusDescription != null &&
+                    this.StatusDescription.Equals(input.StatusDescription))
+                ) && 
+                (
+                    this.StatusFirstTime == input.StatusFirstTime ||
+                    this.StatusFirstTime.Equals(input.StatusFirstTime)
+                ) && 
+                (
+                    this.StatusHistory == input.StatusHistory ||
+                    this.StatusHistory != null &&
+                    input.StatusHistory != null &&
+                    this.StatusHistory.SequenceEqual(input.StatusHistory)
+                ) && 
+                (
+                    this.SteamDetails == input.SteamDetails ||
+                    (this.SteamDetails != null &&
+                    this.SteamDetails.Equals(input.SteamDetails))
+                ) && 
+                (
+                    this.SteamId == input.SteamId ||
+                    (this.SteamId != null &&
+                    this.SteamId.Equals(input.SteamId))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.TwoFactorAuthEnabled == input.TwoFactorAuthEnabled ||
+                    this.TwoFactorAuthEnabled.Equals(input.TwoFactorAuthEnabled)
+                ) && 
+                (
+                    this.TwoFactorAuthEnabledDate == input.TwoFactorAuthEnabledDate ||
+                    (this.TwoFactorAuthEnabledDate != null &&
+                    this.TwoFactorAuthEnabledDate.Equals(input.TwoFactorAuthEnabledDate))
+                ) && 
+                (
+                    this.Unsubscribe == input.Unsubscribe ||
+                    this.Unsubscribe.Equals(input.Unsubscribe)
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.UserIcon == input.UserIcon ||
+                    (this.UserIcon != null &&
+                    this.UserIcon.Equals(input.UserIcon))
+                ) && 
+                (
+                    this.Username == input.Username ||
+                    (this.Username != null &&
+                    this.Username.Equals(input.Username))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
+                hashCode = (hashCode * 59) + this.AcceptedPrivacyVersion.GetHashCode();
+                if (this.AccountDeletionDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountDeletionDate.GetHashCode();
+                }
+                if (this.AccountDeletionLog != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountDeletionLog.GetHashCode();
+                }
+                if (this.ActiveFriends != null)
+                {
+                    hashCode = (hashCode * 59) + this.ActiveFriends.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AgeVerificationStatus.GetHashCode();
+                hashCode = (hashCode * 59) + this.AgeVerified.GetHashCode();
+                hashCode = (hashCode * 59) + this.AllowAvatarCopying.GetHashCode();
+                if (this.AuthToken != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthToken.GetHashCode();
+                }
+                if (this.Badges != null)
+                {
+                    hashCode = (hashCode * 59) + this.Badges.GetHashCode();
+                }
+                if (this.Bio != null)
+                {
+                    hashCode = (hashCode * 59) + this.Bio.GetHashCode();
+                }
+                if (this.BioLinks != null)
+                {
+                    hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
+                }
+                if (this.ContentFilters != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentFilters.GetHashCode();
+                }
+                if (this.CurrentAvatar != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatar.GetHashCode();
+                }
+                if (this.CurrentAvatarImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarImageUrl.GetHashCode();
+                }
+                if (this.CurrentAvatarThumbnailImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
+                }
+                if (this.CurrentAvatarTags != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
+                }
+                if (this.DateJoined != null)
+                {
+                    hashCode = (hashCode * 59) + this.DateJoined.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DeveloperType.GetHashCode();
+                if (this.DiscordDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.DiscordDetails.GetHashCode();
+                }
+                if (this.DiscordId != null)
+                {
+                    hashCode = (hashCode * 59) + this.DiscordId.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EmailVerified.GetHashCode();
+                if (this.FallbackAvatar != null)
+                {
+                    hashCode = (hashCode * 59) + this.FallbackAvatar.GetHashCode();
+                }
+                if (this.FriendGroupNames != null)
+                {
+                    hashCode = (hashCode * 59) + this.FriendGroupNames.GetHashCode();
+                }
+                if (this.FriendKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.FriendKey.GetHashCode();
+                }
+                if (this.Friends != null)
+                {
+                    hashCode = (hashCode * 59) + this.Friends.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.HasBirthday.GetHashCode();
+                hashCode = (hashCode * 59) + this.HideContentFilterSettings.GetHashCode();
+                if (this.UserLanguage != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserLanguage.GetHashCode();
+                }
+                if (this.UserLanguageCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserLanguageCode.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.HasEmail.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasLoggedInFromClient.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasPendingEmail.GetHashCode();
+                if (this.HomeLocation != null)
+                {
+                    hashCode = (hashCode * 59) + this.HomeLocation.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsAdult.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsBoopingEnabled.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsFriend.GetHashCode();
+                if (this.LastActivity != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastActivity.GetHashCode();
+                }
+                if (this.LastLogin != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastLogin.GetHashCode();
+                }
+                if (this.LastMobile != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastMobile.GetHashCode();
+                }
+                if (this.LastPlatform != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastPlatform.GetHashCode();
+                }
+                if (this.ObfuscatedEmail != null)
+                {
+                    hashCode = (hashCode * 59) + this.ObfuscatedEmail.GetHashCode();
+                }
+                if (this.ObfuscatedPendingEmail != null)
+                {
+                    hashCode = (hashCode * 59) + this.ObfuscatedPendingEmail.GetHashCode();
+                }
+                if (this.OculusId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OculusId.GetHashCode();
+                }
+                if (this.GoogleId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GoogleId.GetHashCode();
+                }
+                if (this.GoogleDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.GoogleDetails.GetHashCode();
+                }
+                if (this.PicoId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PicoId.GetHashCode();
+                }
+                if (this.ViveId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ViveId.GetHashCode();
+                }
+                if (this.OfflineFriends != null)
+                {
+                    hashCode = (hashCode * 59) + this.OfflineFriends.GetHashCode();
+                }
+                if (this.OnlineFriends != null)
+                {
+                    hashCode = (hashCode * 59) + this.OnlineFriends.GetHashCode();
+                }
+                if (this.PastDisplayNames != null)
+                {
+                    hashCode = (hashCode * 59) + this.PastDisplayNames.GetHashCode();
+                }
+                if (this.Presence != null)
+                {
+                    hashCode = (hashCode * 59) + this.Presence.GetHashCode();
+                }
+                if (this.PlatformHistory != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlatformHistory.GetHashCode();
+                }
+                if (this.ProfilePicOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
+                }
+                if (this.ProfilePicOverrideThumbnail != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProfilePicOverrideThumbnail.GetHashCode();
+                }
+                if (this.Pronouns != null)
+                {
+                    hashCode = (hashCode * 59) + this.Pronouns.GetHashCode();
+                }
+                if (this.PronounsHistory != null)
+                {
+                    hashCode = (hashCode * 59) + this.PronounsHistory.GetHashCode();
+                }
+                if (this.QueuedInstance != null)
+                {
+                    hashCode = (hashCode * 59) + this.QueuedInstance.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ReceiveMobileInvitations.GetHashCode();
+                hashCode = (hashCode * 59) + this.State.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.StatusDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.StatusDescription.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.StatusFirstTime.GetHashCode();
+                if (this.StatusHistory != null)
+                {
+                    hashCode = (hashCode * 59) + this.StatusHistory.GetHashCode();
+                }
+                if (this.SteamDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.SteamDetails.GetHashCode();
+                }
+                if (this.SteamId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SteamId.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TwoFactorAuthEnabled.GetHashCode();
+                if (this.TwoFactorAuthEnabledDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.TwoFactorAuthEnabledDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Unsubscribe.GetHashCode();
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                if (this.UserIcon != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
+                }
+                if (this.Username != null)
+                {
+                    hashCode = (hashCode * 59) + this.Username.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// GroupAuditLogEntry
     /// </summary>
     [DataContract(Name = "GroupAuditLogEntry")]
-    public partial class GroupAuditLogEntry : IValidatableObject
+    public partial class GroupAuditLogEntry : IEquatable<GroupAuditLogEntry>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupAuditLogEntry" /> class.
@@ -163,6 +163,124 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as GroupAuditLogEntry);
+        }
+
+        /// <summary>
+        /// Returns true if GroupAuditLogEntry instances are equal
+        /// </summary>
+        /// <param name="input">Instance of GroupAuditLogEntry to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(GroupAuditLogEntry input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
+                ) && 
+                (
+                    this.ActorId == input.ActorId ||
+                    (this.ActorId != null &&
+                    this.ActorId.Equals(input.ActorId))
+                ) && 
+                (
+                    this.ActorDisplayName == input.ActorDisplayName ||
+                    (this.ActorDisplayName != null &&
+                    this.ActorDisplayName.Equals(input.ActorDisplayName))
+                ) && 
+                (
+                    this.TargetId == input.TargetId ||
+                    (this.TargetId != null &&
+                    this.TargetId.Equals(input.TargetId))
+                ) && 
+                (
+                    this.EventType == input.EventType ||
+                    (this.EventType != null &&
+                    this.EventType.Equals(input.EventType))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.GroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
+                if (this.ActorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ActorId.GetHashCode();
+                }
+                if (this.ActorDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ActorDisplayName.GetHashCode();
+                }
+                if (this.TargetId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TargetId.GetHashCode();
+                }
+                if (this.EventType != null)
+                {
+                    hashCode = (hashCode * 59) + this.EventType.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.Data != null)
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

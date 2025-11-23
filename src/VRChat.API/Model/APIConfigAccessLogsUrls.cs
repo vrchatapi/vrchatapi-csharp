@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// APIConfigAccessLogsUrls
     /// </summary>
     [DataContract(Name = "APIConfig_accessLogsUrls")]
-    public partial class APIConfigAccessLogsUrls : IValidatableObject
+    public partial class APIConfigAccessLogsUrls : IEquatable<APIConfigAccessLogsUrls>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigAccessLogsUrls" /> class.
@@ -106,6 +106,79 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigAccessLogsUrls);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigAccessLogsUrls instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigAccessLogsUrls to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigAccessLogsUrls input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Default == input.Default ||
+                    (this.Default != null &&
+                    this.Default.Equals(input.Default))
+                ) && 
+                (
+                    this.Pico == input.Pico ||
+                    (this.Pico != null &&
+                    this.Pico.Equals(input.Pico))
+                ) && 
+                (
+                    this.Quest == input.Quest ||
+                    (this.Quest != null &&
+                    this.Quest.Equals(input.Quest))
+                ) && 
+                (
+                    this.XRElite == input.XRElite ||
+                    (this.XRElite != null &&
+                    this.XRElite.Equals(input.XRElite))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Default != null)
+                {
+                    hashCode = (hashCode * 59) + this.Default.GetHashCode();
+                }
+                if (this.Pico != null)
+                {
+                    hashCode = (hashCode * 59) + this.Pico.GetHashCode();
+                }
+                if (this.Quest != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quest.GetHashCode();
+                }
+                if (this.XRElite != null)
+                {
+                    hashCode = (hashCode * 59) + this.XRElite.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

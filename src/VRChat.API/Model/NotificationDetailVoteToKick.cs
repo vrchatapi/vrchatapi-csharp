@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// NotificationDetailVoteToKick
     /// </summary>
     [DataContract(Name = "NotificationDetailVoteToKick")]
-    public partial class NotificationDetailVoteToKick : IValidatableObject
+    public partial class NotificationDetailVoteToKick : IEquatable<NotificationDetailVoteToKick>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationDetailVoteToKick" /> class.
@@ -99,6 +99,61 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as NotificationDetailVoteToKick);
+        }
+
+        /// <summary>
+        /// Returns true if NotificationDetailVoteToKick instances are equal
+        /// </summary>
+        /// <param name="input">Instance of NotificationDetailVoteToKick to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(NotificationDetailVoteToKick input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.InitiatorUserId == input.InitiatorUserId ||
+                    (this.InitiatorUserId != null &&
+                    this.InitiatorUserId.Equals(input.InitiatorUserId))
+                ) && 
+                (
+                    this.UserToKickId == input.UserToKickId ||
+                    (this.UserToKickId != null &&
+                    this.UserToKickId.Equals(input.UserToKickId))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.InitiatorUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.InitiatorUserId.GetHashCode();
+                }
+                if (this.UserToKickId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserToKickId.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

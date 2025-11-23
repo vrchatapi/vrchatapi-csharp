@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// APIConfig
     /// </summary>
     [DataContract(Name = "APIConfig")]
-    public partial class APIConfig : IValidatableObject
+    public partial class APIConfig : IEquatable<APIConfig>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfig" /> class.
@@ -1458,6 +1458,843 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfig);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfig instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfig to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfig input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.VoiceEnableDegradation == input.VoiceEnableDegradation ||
+                    this.VoiceEnableDegradation.Equals(input.VoiceEnableDegradation)
+                ) && 
+                (
+                    this.VoiceEnableReceiverLimiting == input.VoiceEnableReceiverLimiting ||
+                    this.VoiceEnableReceiverLimiting.Equals(input.VoiceEnableReceiverLimiting)
+                ) && 
+                (
+                    this.AccessLogsUrls == input.AccessLogsUrls ||
+                    (this.AccessLogsUrls != null &&
+                    this.AccessLogsUrls.Equals(input.AccessLogsUrls))
+                ) && 
+                (
+                    this.Address == input.Address ||
+                    (this.Address != null &&
+                    this.Address.Equals(input.Address))
+                ) && 
+                (
+                    this.AgeVerificationInviteVisible == input.AgeVerificationInviteVisible ||
+                    this.AgeVerificationInviteVisible.Equals(input.AgeVerificationInviteVisible)
+                ) && 
+                (
+                    this.AgeVerificationP == input.AgeVerificationP ||
+                    this.AgeVerificationP.Equals(input.AgeVerificationP)
+                ) && 
+                (
+                    this.AgeVerificationStatusVisible == input.AgeVerificationStatusVisible ||
+                    this.AgeVerificationStatusVisible.Equals(input.AgeVerificationStatusVisible)
+                ) && 
+                (
+                    this.AnalysisMaxRetries == input.AnalysisMaxRetries ||
+                    this.AnalysisMaxRetries.Equals(input.AnalysisMaxRetries)
+                ) && 
+                (
+                    this.AnalysisRetryInterval == input.AnalysisRetryInterval ||
+                    this.AnalysisRetryInterval.Equals(input.AnalysisRetryInterval)
+                ) && 
+                (
+                    this.Announcements == input.Announcements ||
+                    this.Announcements != null &&
+                    input.Announcements != null &&
+                    this.Announcements.SequenceEqual(input.Announcements)
+                ) && 
+                (
+                    this.AnalyticsSegmentNewUIPctOfUsers == input.AnalyticsSegmentNewUIPctOfUsers ||
+                    this.AnalyticsSegmentNewUIPctOfUsers.Equals(input.AnalyticsSegmentNewUIPctOfUsers)
+                ) && 
+                (
+                    this.AnalyticsSegmentNewUISalt == input.AnalyticsSegmentNewUISalt ||
+                    (this.AnalyticsSegmentNewUISalt != null &&
+                    this.AnalyticsSegmentNewUISalt.Equals(input.AnalyticsSegmentNewUISalt))
+                ) && 
+                (
+                    this.AvailableLanguageCodes == input.AvailableLanguageCodes ||
+                    this.AvailableLanguageCodes != null &&
+                    input.AvailableLanguageCodes != null &&
+                    this.AvailableLanguageCodes.SequenceEqual(input.AvailableLanguageCodes)
+                ) && 
+                (
+                    this.AvailableLanguages == input.AvailableLanguages ||
+                    this.AvailableLanguages != null &&
+                    input.AvailableLanguages != null &&
+                    this.AvailableLanguages.SequenceEqual(input.AvailableLanguages)
+                ) && 
+                (
+                    this.AvatarPerfLimiter == input.AvatarPerfLimiter ||
+                    (this.AvatarPerfLimiter != null &&
+                    this.AvatarPerfLimiter.Equals(input.AvatarPerfLimiter))
+                ) && 
+                (
+                    this.ChatboxLogBufferSeconds == input.ChatboxLogBufferSeconds ||
+                    this.ChatboxLogBufferSeconds.Equals(input.ChatboxLogBufferSeconds)
+                ) && 
+                (
+                    this.ClientApiKey == input.ClientApiKey ||
+                    (this.ClientApiKey != null &&
+                    this.ClientApiKey.Equals(input.ClientApiKey))
+                ) && 
+                (
+                    this.ClientBPSCeiling == input.ClientBPSCeiling ||
+                    this.ClientBPSCeiling.Equals(input.ClientBPSCeiling)
+                ) && 
+                (
+                    this.ClientDisconnectTimeout == input.ClientDisconnectTimeout ||
+                    this.ClientDisconnectTimeout.Equals(input.ClientDisconnectTimeout)
+                ) && 
+                (
+                    this.ClientNetDispatchThread == input.ClientNetDispatchThread ||
+                    this.ClientNetDispatchThread.Equals(input.ClientNetDispatchThread)
+                ) && 
+                (
+                    this.ClientNetDispatchThreadMobile == input.ClientNetDispatchThreadMobile ||
+                    this.ClientNetDispatchThreadMobile.Equals(input.ClientNetDispatchThreadMobile)
+                ) && 
+                (
+                    this.ClientNetInThread == input.ClientNetInThread ||
+                    this.ClientNetInThread.Equals(input.ClientNetInThread)
+                ) && 
+                (
+                    this.ClientNetInThread2 == input.ClientNetInThread2 ||
+                    this.ClientNetInThread2.Equals(input.ClientNetInThread2)
+                ) && 
+                (
+                    this.ClientNetInThreadMobile == input.ClientNetInThreadMobile ||
+                    this.ClientNetInThreadMobile.Equals(input.ClientNetInThreadMobile)
+                ) && 
+                (
+                    this.ClientNetInThreadMobile2 == input.ClientNetInThreadMobile2 ||
+                    this.ClientNetInThreadMobile2.Equals(input.ClientNetInThreadMobile2)
+                ) && 
+                (
+                    this.ClientNetOutThread == input.ClientNetOutThread ||
+                    this.ClientNetOutThread.Equals(input.ClientNetOutThread)
+                ) && 
+                (
+                    this.ClientNetOutThread2 == input.ClientNetOutThread2 ||
+                    this.ClientNetOutThread2.Equals(input.ClientNetOutThread2)
+                ) && 
+                (
+                    this.ClientNetOutThreadMobile == input.ClientNetOutThreadMobile ||
+                    this.ClientNetOutThreadMobile.Equals(input.ClientNetOutThreadMobile)
+                ) && 
+                (
+                    this.ClientNetOutThreadMobile2 == input.ClientNetOutThreadMobile2 ||
+                    this.ClientNetOutThreadMobile2.Equals(input.ClientNetOutThreadMobile2)
+                ) && 
+                (
+                    this.ClientQR == input.ClientQR ||
+                    this.ClientQR.Equals(input.ClientQR)
+                ) && 
+                (
+                    this.ClientReservedPlayerBPS == input.ClientReservedPlayerBPS ||
+                    this.ClientReservedPlayerBPS.Equals(input.ClientReservedPlayerBPS)
+                ) && 
+                (
+                    this.ClientSentCountAllowance == input.ClientSentCountAllowance ||
+                    this.ClientSentCountAllowance.Equals(input.ClientSentCountAllowance)
+                ) && 
+                (
+                    this.Constants == input.Constants ||
+                    (this.Constants != null &&
+                    this.Constants.Equals(input.Constants))
+                ) && 
+                (
+                    this.ContactEmail == input.ContactEmail ||
+                    (this.ContactEmail != null &&
+                    this.ContactEmail.Equals(input.ContactEmail))
+                ) && 
+                (
+                    this.CopyrightEmail == input.CopyrightEmail ||
+                    (this.CopyrightEmail != null &&
+                    this.CopyrightEmail.Equals(input.CopyrightEmail))
+                ) && 
+                (
+                    this.CurrentPrivacyVersion == input.CurrentPrivacyVersion ||
+                    this.CurrentPrivacyVersion.Equals(input.CurrentPrivacyVersion)
+                ) && 
+                (
+                    this.CurrentTOSVersion == input.CurrentTOSVersion ||
+                    this.CurrentTOSVersion.Equals(input.CurrentTOSVersion)
+                ) && 
+                (
+                    this.DefaultAvatar == input.DefaultAvatar ||
+                    (this.DefaultAvatar != null &&
+                    this.DefaultAvatar.Equals(input.DefaultAvatar))
+                ) && 
+                (
+                    this.DefaultStickerSet == input.DefaultStickerSet ||
+                    (this.DefaultStickerSet != null &&
+                    this.DefaultStickerSet.Equals(input.DefaultStickerSet))
+                ) && 
+                (
+                    this.DevLanguageCodes == input.DevLanguageCodes ||
+                    this.DevLanguageCodes != null &&
+                    input.DevLanguageCodes != null &&
+                    this.DevLanguageCodes.SequenceEqual(input.DevLanguageCodes)
+                ) && 
+                (
+                    this.DevSdkUrl == input.DevSdkUrl ||
+                    (this.DevSdkUrl != null &&
+                    this.DevSdkUrl.Equals(input.DevSdkUrl))
+                ) && 
+                (
+                    this.DevSdkVersion == input.DevSdkVersion ||
+                    (this.DevSdkVersion != null &&
+                    this.DevSdkVersion.Equals(input.DevSdkVersion))
+                ) && 
+                (
+                    this.DisCountdown == input.DisCountdown ||
+                    (this.DisCountdown != null &&
+                    this.DisCountdown.Equals(input.DisCountdown))
+                ) && 
+                (
+                    this.DisableAVProInProton == input.DisableAVProInProton ||
+                    this.DisableAVProInProton.Equals(input.DisableAVProInProton)
+                ) && 
+                (
+                    this.DisableAvatarCopying == input.DisableAvatarCopying ||
+                    this.DisableAvatarCopying.Equals(input.DisableAvatarCopying)
+                ) && 
+                (
+                    this.DisableAvatarGating == input.DisableAvatarGating ||
+                    this.DisableAvatarGating.Equals(input.DisableAvatarGating)
+                ) && 
+                (
+                    this.DisableCommunityLabs == input.DisableCommunityLabs ||
+                    this.DisableCommunityLabs.Equals(input.DisableCommunityLabs)
+                ) && 
+                (
+                    this.DisableCommunityLabsPromotion == input.DisableCommunityLabsPromotion ||
+                    this.DisableCommunityLabsPromotion.Equals(input.DisableCommunityLabsPromotion)
+                ) && 
+                (
+                    this.DisableEmail == input.DisableEmail ||
+                    this.DisableEmail.Equals(input.DisableEmail)
+                ) && 
+                (
+                    this.DisableCaptcha == input.DisableCaptcha ||
+                    this.DisableCaptcha.Equals(input.DisableCaptcha)
+                ) && 
+                (
+                    this.DisableEventStream == input.DisableEventStream ||
+                    this.DisableEventStream.Equals(input.DisableEventStream)
+                ) && 
+                (
+                    this.DisableFeedbackGating == input.DisableFeedbackGating ||
+                    this.DisableFeedbackGating.Equals(input.DisableFeedbackGating)
+                ) && 
+                (
+                    this.DisableFrontendBuilds == input.DisableFrontendBuilds ||
+                    this.DisableFrontendBuilds.Equals(input.DisableFrontendBuilds)
+                ) && 
+                (
+                    this.DisableGiftDrops == input.DisableGiftDrops ||
+                    this.DisableGiftDrops.Equals(input.DisableGiftDrops)
+                ) && 
+                (
+                    this.DisableHello == input.DisableHello ||
+                    this.DisableHello.Equals(input.DisableHello)
+                ) && 
+                (
+                    this.DisableOculusSubs == input.DisableOculusSubs ||
+                    this.DisableOculusSubs.Equals(input.DisableOculusSubs)
+                ) && 
+                (
+                    this.DisableRegistration == input.DisableRegistration ||
+                    this.DisableRegistration.Equals(input.DisableRegistration)
+                ) && 
+                (
+                    this.DisableSteamNetworking == input.DisableSteamNetworking ||
+                    this.DisableSteamNetworking.Equals(input.DisableSteamNetworking)
+                ) && 
+                (
+                    this.DisableTwoFactorAuth == input.DisableTwoFactorAuth ||
+                    this.DisableTwoFactorAuth.Equals(input.DisableTwoFactorAuth)
+                ) && 
+                (
+                    this.DisableUdon == input.DisableUdon ||
+                    this.DisableUdon.Equals(input.DisableUdon)
+                ) && 
+                (
+                    this.DisableUpgradeAccount == input.DisableUpgradeAccount ||
+                    this.DisableUpgradeAccount.Equals(input.DisableUpgradeAccount)
+                ) && 
+                (
+                    this.DownloadLinkWindows == input.DownloadLinkWindows ||
+                    (this.DownloadLinkWindows != null &&
+                    this.DownloadLinkWindows.Equals(input.DownloadLinkWindows))
+                ) && 
+                (
+                    this.DownloadUrls == input.DownloadUrls ||
+                    (this.DownloadUrls != null &&
+                    this.DownloadUrls.Equals(input.DownloadUrls))
+                ) && 
+                (
+                    this.DynamicWorldRows == input.DynamicWorldRows ||
+                    this.DynamicWorldRows != null &&
+                    input.DynamicWorldRows != null &&
+                    this.DynamicWorldRows.SequenceEqual(input.DynamicWorldRows)
+                ) && 
+                (
+                    this.EconomyPauseEnd == input.EconomyPauseEnd ||
+                    (this.EconomyPauseEnd != null &&
+                    this.EconomyPauseEnd.Equals(input.EconomyPauseEnd))
+                ) && 
+                (
+                    this.EconomyPauseStart == input.EconomyPauseStart ||
+                    (this.EconomyPauseStart != null &&
+                    this.EconomyPauseStart.Equals(input.EconomyPauseStart))
+                ) && 
+                (
+                    this.EconomyState == input.EconomyState ||
+                    this.EconomyState.Equals(input.EconomyState)
+                ) && 
+                (
+                    this.Events == input.Events ||
+                    (this.Events != null &&
+                    this.Events.Equals(input.Events))
+                ) && 
+                (
+                    this.ForceUseLatestWorld == input.ForceUseLatestWorld ||
+                    this.ForceUseLatestWorld.Equals(input.ForceUseLatestWorld)
+                ) && 
+                (
+                    this.GiftDisplayType == input.GiftDisplayType ||
+                    (this.GiftDisplayType != null &&
+                    this.GiftDisplayType.Equals(input.GiftDisplayType))
+                ) && 
+                (
+                    this.GoogleApiClientId == input.GoogleApiClientId ||
+                    (this.GoogleApiClientId != null &&
+                    this.GoogleApiClientId.Equals(input.GoogleApiClientId))
+                ) && 
+                (
+                    this.HomeWorldId == input.HomeWorldId ||
+                    (this.HomeWorldId != null &&
+                    this.HomeWorldId.Equals(input.HomeWorldId))
+                ) && 
+                (
+                    this.HomepageRedirectTarget == input.HomepageRedirectTarget ||
+                    (this.HomepageRedirectTarget != null &&
+                    this.HomepageRedirectTarget.Equals(input.HomepageRedirectTarget))
+                ) && 
+                (
+                    this.HubWorldId == input.HubWorldId ||
+                    (this.HubWorldId != null &&
+                    this.HubWorldId.Equals(input.HubWorldId))
+                ) && 
+                (
+                    this.ImageHostUrlList == input.ImageHostUrlList ||
+                    this.ImageHostUrlList != null &&
+                    input.ImageHostUrlList != null &&
+                    this.ImageHostUrlList.SequenceEqual(input.ImageHostUrlList)
+                ) && 
+                (
+                    this.JobsEmail == input.JobsEmail ||
+                    (this.JobsEmail != null &&
+                    this.JobsEmail.Equals(input.JobsEmail))
+                ) && 
+                (
+                    this.MinSupportedClientBuildNumber == input.MinSupportedClientBuildNumber ||
+                    (this.MinSupportedClientBuildNumber != null &&
+                    this.MinSupportedClientBuildNumber.Equals(input.MinSupportedClientBuildNumber))
+                ) && 
+                (
+                    this.MinimumUnityVersionForUploads == input.MinimumUnityVersionForUploads ||
+                    (this.MinimumUnityVersionForUploads != null &&
+                    this.MinimumUnityVersionForUploads.Equals(input.MinimumUnityVersionForUploads))
+                ) && 
+                (
+                    this.ModerationEmail == input.ModerationEmail ||
+                    (this.ModerationEmail != null &&
+                    this.ModerationEmail.Equals(input.ModerationEmail))
+                ) && 
+                (
+                    this.NotAllowedToSelectAvatarInPrivateWorldMessage == input.NotAllowedToSelectAvatarInPrivateWorldMessage ||
+                    (this.NotAllowedToSelectAvatarInPrivateWorldMessage != null &&
+                    this.NotAllowedToSelectAvatarInPrivateWorldMessage.Equals(input.NotAllowedToSelectAvatarInPrivateWorldMessage))
+                ) && 
+                (
+                    this.OfflineAnalysis == input.OfflineAnalysis ||
+                    (this.OfflineAnalysis != null &&
+                    this.OfflineAnalysis.Equals(input.OfflineAnalysis))
+                ) && 
+                (
+                    this.PhotonNameserverOverrides == input.PhotonNameserverOverrides ||
+                    this.PhotonNameserverOverrides != null &&
+                    input.PhotonNameserverOverrides != null &&
+                    this.PhotonNameserverOverrides.SequenceEqual(input.PhotonNameserverOverrides)
+                ) && 
+                (
+                    this.PhotonPublicKeys == input.PhotonPublicKeys ||
+                    this.PhotonPublicKeys != null &&
+                    input.PhotonPublicKeys != null &&
+                    this.PhotonPublicKeys.SequenceEqual(input.PhotonPublicKeys)
+                ) && 
+                (
+                    this.ReportCategories == input.ReportCategories ||
+                    (this.ReportCategories != null &&
+                    this.ReportCategories.Equals(input.ReportCategories))
+                ) && 
+                (
+                    this.ReportFormUrl == input.ReportFormUrl ||
+                    (this.ReportFormUrl != null &&
+                    this.ReportFormUrl.Equals(input.ReportFormUrl))
+                ) && 
+                (
+                    this.ReportOptions == input.ReportOptions ||
+                    (this.ReportOptions != null &&
+                    this.ReportOptions.Equals(input.ReportOptions))
+                ) && 
+                (
+                    this.ReportReasons == input.ReportReasons ||
+                    (this.ReportReasons != null &&
+                    this.ReportReasons.Equals(input.ReportReasons))
+                ) && 
+                (
+                    this.RequireAgeVerificationBetaTag == input.RequireAgeVerificationBetaTag ||
+                    this.RequireAgeVerificationBetaTag.Equals(input.RequireAgeVerificationBetaTag)
+                ) && 
+                (
+                    this.SdkDeveloperFaqUrl == input.SdkDeveloperFaqUrl ||
+                    (this.SdkDeveloperFaqUrl != null &&
+                    this.SdkDeveloperFaqUrl.Equals(input.SdkDeveloperFaqUrl))
+                ) && 
+                (
+                    this.SdkDiscordUrl == input.SdkDiscordUrl ||
+                    (this.SdkDiscordUrl != null &&
+                    this.SdkDiscordUrl.Equals(input.SdkDiscordUrl))
+                ) && 
+                (
+                    this.SdkNotAllowedToPublishMessage == input.SdkNotAllowedToPublishMessage ||
+                    (this.SdkNotAllowedToPublishMessage != null &&
+                    this.SdkNotAllowedToPublishMessage.Equals(input.SdkNotAllowedToPublishMessage))
+                ) && 
+                (
+                    this.SdkUnityVersion == input.SdkUnityVersion ||
+                    (this.SdkUnityVersion != null &&
+                    this.SdkUnityVersion.Equals(input.SdkUnityVersion))
+                ) && 
+                (
+                    this.StringHostUrlList == input.StringHostUrlList ||
+                    this.StringHostUrlList != null &&
+                    input.StringHostUrlList != null &&
+                    this.StringHostUrlList.SequenceEqual(input.StringHostUrlList)
+                ) && 
+                (
+                    this.SupportEmail == input.SupportEmail ||
+                    (this.SupportEmail != null &&
+                    this.SupportEmail.Equals(input.SupportEmail))
+                ) && 
+                (
+                    this.SupportFormUrl == input.SupportFormUrl ||
+                    (this.SupportFormUrl != null &&
+                    this.SupportFormUrl.Equals(input.SupportFormUrl))
+                ) && 
+                (
+                    this.Timekeeping == input.Timekeeping ||
+                    this.Timekeeping.Equals(input.Timekeeping)
+                ) && 
+                (
+                    this.TimeOutWorldId == input.TimeOutWorldId ||
+                    (this.TimeOutWorldId != null &&
+                    this.TimeOutWorldId.Equals(input.TimeOutWorldId))
+                ) && 
+                (
+                    this.TutorialWorldId == input.TutorialWorldId ||
+                    (this.TutorialWorldId != null &&
+                    this.TutorialWorldId.Equals(input.TutorialWorldId))
+                ) && 
+                (
+                    this.UpdateRateMsMaximum == input.UpdateRateMsMaximum ||
+                    this.UpdateRateMsMaximum.Equals(input.UpdateRateMsMaximum)
+                ) && 
+                (
+                    this.UpdateRateMsMinimum == input.UpdateRateMsMinimum ||
+                    this.UpdateRateMsMinimum.Equals(input.UpdateRateMsMinimum)
+                ) && 
+                (
+                    this.UpdateRateMsNormal == input.UpdateRateMsNormal ||
+                    this.UpdateRateMsNormal.Equals(input.UpdateRateMsNormal)
+                ) && 
+                (
+                    this.UpdateRateMsUdonManual == input.UpdateRateMsUdonManual ||
+                    this.UpdateRateMsUdonManual.Equals(input.UpdateRateMsUdonManual)
+                ) && 
+                (
+                    this.UploadAnalysisPercent == input.UploadAnalysisPercent ||
+                    this.UploadAnalysisPercent.Equals(input.UploadAnalysisPercent)
+                ) && 
+                (
+                    this.UrlList == input.UrlList ||
+                    this.UrlList != null &&
+                    input.UrlList != null &&
+                    this.UrlList.SequenceEqual(input.UrlList)
+                ) && 
+                (
+                    this.UseReliableUdpForVoice == input.UseReliableUdpForVoice ||
+                    this.UseReliableUdpForVoice.Equals(input.UseReliableUdpForVoice)
+                ) && 
+                (
+                    this.ViveWindowsUrl == input.ViveWindowsUrl ||
+                    (this.ViveWindowsUrl != null &&
+                    this.ViveWindowsUrl.Equals(input.ViveWindowsUrl))
+                ) && 
+                (
+                    this.WhiteListedAssetUrls == input.WhiteListedAssetUrls ||
+                    this.WhiteListedAssetUrls != null &&
+                    input.WhiteListedAssetUrls != null &&
+                    this.WhiteListedAssetUrls.SequenceEqual(input.WhiteListedAssetUrls)
+                ) && 
+                (
+                    this.PlayerUrlResolverVersion == input.PlayerUrlResolverVersion ||
+                    (this.PlayerUrlResolverVersion != null &&
+                    this.PlayerUrlResolverVersion.Equals(input.PlayerUrlResolverVersion))
+                ) && 
+                (
+                    this.PlayerUrlResolverSha1 == input.PlayerUrlResolverSha1 ||
+                    (this.PlayerUrlResolverSha1 != null &&
+                    this.PlayerUrlResolverSha1.Equals(input.PlayerUrlResolverSha1))
+                ) && 
+                (
+                    this.PublicKey == input.PublicKey ||
+                    (this.PublicKey != null &&
+                    this.PublicKey.Equals(input.PublicKey))
+                ) && 
+                (
+                    this.WebsocketMaxFriendsRefreshDelay == input.WebsocketMaxFriendsRefreshDelay ||
+                    this.WebsocketMaxFriendsRefreshDelay.Equals(input.WebsocketMaxFriendsRefreshDelay)
+                ) && 
+                (
+                    this.WebsocketQuickReconnectTime == input.WebsocketQuickReconnectTime ||
+                    this.WebsocketQuickReconnectTime.Equals(input.WebsocketQuickReconnectTime)
+                ) && 
+                (
+                    this.WebsocketReconnectMaxDelay == input.WebsocketReconnectMaxDelay ||
+                    this.WebsocketReconnectMaxDelay.Equals(input.WebsocketReconnectMaxDelay)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.VoiceEnableDegradation.GetHashCode();
+                hashCode = (hashCode * 59) + this.VoiceEnableReceiverLimiting.GetHashCode();
+                if (this.AccessLogsUrls != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccessLogsUrls.GetHashCode();
+                }
+                if (this.Address != null)
+                {
+                    hashCode = (hashCode * 59) + this.Address.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AgeVerificationInviteVisible.GetHashCode();
+                hashCode = (hashCode * 59) + this.AgeVerificationP.GetHashCode();
+                hashCode = (hashCode * 59) + this.AgeVerificationStatusVisible.GetHashCode();
+                hashCode = (hashCode * 59) + this.AnalysisMaxRetries.GetHashCode();
+                hashCode = (hashCode * 59) + this.AnalysisRetryInterval.GetHashCode();
+                if (this.Announcements != null)
+                {
+                    hashCode = (hashCode * 59) + this.Announcements.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AnalyticsSegmentNewUIPctOfUsers.GetHashCode();
+                if (this.AnalyticsSegmentNewUISalt != null)
+                {
+                    hashCode = (hashCode * 59) + this.AnalyticsSegmentNewUISalt.GetHashCode();
+                }
+                if (this.AvailableLanguageCodes != null)
+                {
+                    hashCode = (hashCode * 59) + this.AvailableLanguageCodes.GetHashCode();
+                }
+                if (this.AvailableLanguages != null)
+                {
+                    hashCode = (hashCode * 59) + this.AvailableLanguages.GetHashCode();
+                }
+                if (this.AvatarPerfLimiter != null)
+                {
+                    hashCode = (hashCode * 59) + this.AvatarPerfLimiter.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ChatboxLogBufferSeconds.GetHashCode();
+                if (this.ClientApiKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClientApiKey.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ClientBPSCeiling.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientDisconnectTimeout.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientNetDispatchThread.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientNetDispatchThreadMobile.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientNetInThread.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientNetInThread2.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientNetInThreadMobile.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientNetInThreadMobile2.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientNetOutThread.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientNetOutThread2.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientNetOutThreadMobile.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientNetOutThreadMobile2.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientQR.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientReservedPlayerBPS.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientSentCountAllowance.GetHashCode();
+                if (this.Constants != null)
+                {
+                    hashCode = (hashCode * 59) + this.Constants.GetHashCode();
+                }
+                if (this.ContactEmail != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContactEmail.GetHashCode();
+                }
+                if (this.CopyrightEmail != null)
+                {
+                    hashCode = (hashCode * 59) + this.CopyrightEmail.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CurrentPrivacyVersion.GetHashCode();
+                hashCode = (hashCode * 59) + this.CurrentTOSVersion.GetHashCode();
+                if (this.DefaultAvatar != null)
+                {
+                    hashCode = (hashCode * 59) + this.DefaultAvatar.GetHashCode();
+                }
+                if (this.DefaultStickerSet != null)
+                {
+                    hashCode = (hashCode * 59) + this.DefaultStickerSet.GetHashCode();
+                }
+                if (this.DevLanguageCodes != null)
+                {
+                    hashCode = (hashCode * 59) + this.DevLanguageCodes.GetHashCode();
+                }
+                if (this.DevSdkUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.DevSdkUrl.GetHashCode();
+                }
+                if (this.DevSdkVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.DevSdkVersion.GetHashCode();
+                }
+                if (this.DisCountdown != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisCountdown.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DisableAVProInProton.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableAvatarCopying.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableAvatarGating.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableCommunityLabs.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableCommunityLabsPromotion.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableEmail.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableCaptcha.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableEventStream.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableFeedbackGating.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableFrontendBuilds.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableGiftDrops.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableHello.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableOculusSubs.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableRegistration.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableSteamNetworking.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableTwoFactorAuth.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableUdon.GetHashCode();
+                hashCode = (hashCode * 59) + this.DisableUpgradeAccount.GetHashCode();
+                if (this.DownloadLinkWindows != null)
+                {
+                    hashCode = (hashCode * 59) + this.DownloadLinkWindows.GetHashCode();
+                }
+                if (this.DownloadUrls != null)
+                {
+                    hashCode = (hashCode * 59) + this.DownloadUrls.GetHashCode();
+                }
+                if (this.DynamicWorldRows != null)
+                {
+                    hashCode = (hashCode * 59) + this.DynamicWorldRows.GetHashCode();
+                }
+                if (this.EconomyPauseEnd != null)
+                {
+                    hashCode = (hashCode * 59) + this.EconomyPauseEnd.GetHashCode();
+                }
+                if (this.EconomyPauseStart != null)
+                {
+                    hashCode = (hashCode * 59) + this.EconomyPauseStart.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EconomyState.GetHashCode();
+                if (this.Events != null)
+                {
+                    hashCode = (hashCode * 59) + this.Events.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ForceUseLatestWorld.GetHashCode();
+                if (this.GiftDisplayType != null)
+                {
+                    hashCode = (hashCode * 59) + this.GiftDisplayType.GetHashCode();
+                }
+                if (this.GoogleApiClientId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GoogleApiClientId.GetHashCode();
+                }
+                if (this.HomeWorldId != null)
+                {
+                    hashCode = (hashCode * 59) + this.HomeWorldId.GetHashCode();
+                }
+                if (this.HomepageRedirectTarget != null)
+                {
+                    hashCode = (hashCode * 59) + this.HomepageRedirectTarget.GetHashCode();
+                }
+                if (this.HubWorldId != null)
+                {
+                    hashCode = (hashCode * 59) + this.HubWorldId.GetHashCode();
+                }
+                if (this.ImageHostUrlList != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageHostUrlList.GetHashCode();
+                }
+                if (this.JobsEmail != null)
+                {
+                    hashCode = (hashCode * 59) + this.JobsEmail.GetHashCode();
+                }
+                if (this.MinSupportedClientBuildNumber != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinSupportedClientBuildNumber.GetHashCode();
+                }
+                if (this.MinimumUnityVersionForUploads != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinimumUnityVersionForUploads.GetHashCode();
+                }
+                if (this.ModerationEmail != null)
+                {
+                    hashCode = (hashCode * 59) + this.ModerationEmail.GetHashCode();
+                }
+                if (this.NotAllowedToSelectAvatarInPrivateWorldMessage != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotAllowedToSelectAvatarInPrivateWorldMessage.GetHashCode();
+                }
+                if (this.OfflineAnalysis != null)
+                {
+                    hashCode = (hashCode * 59) + this.OfflineAnalysis.GetHashCode();
+                }
+                if (this.PhotonNameserverOverrides != null)
+                {
+                    hashCode = (hashCode * 59) + this.PhotonNameserverOverrides.GetHashCode();
+                }
+                if (this.PhotonPublicKeys != null)
+                {
+                    hashCode = (hashCode * 59) + this.PhotonPublicKeys.GetHashCode();
+                }
+                if (this.ReportCategories != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportCategories.GetHashCode();
+                }
+                if (this.ReportFormUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportFormUrl.GetHashCode();
+                }
+                if (this.ReportOptions != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportOptions.GetHashCode();
+                }
+                if (this.ReportReasons != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportReasons.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RequireAgeVerificationBetaTag.GetHashCode();
+                if (this.SdkDeveloperFaqUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.SdkDeveloperFaqUrl.GetHashCode();
+                }
+                if (this.SdkDiscordUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.SdkDiscordUrl.GetHashCode();
+                }
+                if (this.SdkNotAllowedToPublishMessage != null)
+                {
+                    hashCode = (hashCode * 59) + this.SdkNotAllowedToPublishMessage.GetHashCode();
+                }
+                if (this.SdkUnityVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.SdkUnityVersion.GetHashCode();
+                }
+                if (this.StringHostUrlList != null)
+                {
+                    hashCode = (hashCode * 59) + this.StringHostUrlList.GetHashCode();
+                }
+                if (this.SupportEmail != null)
+                {
+                    hashCode = (hashCode * 59) + this.SupportEmail.GetHashCode();
+                }
+                if (this.SupportFormUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.SupportFormUrl.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Timekeeping.GetHashCode();
+                if (this.TimeOutWorldId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeOutWorldId.GetHashCode();
+                }
+                if (this.TutorialWorldId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TutorialWorldId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UpdateRateMsMaximum.GetHashCode();
+                hashCode = (hashCode * 59) + this.UpdateRateMsMinimum.GetHashCode();
+                hashCode = (hashCode * 59) + this.UpdateRateMsNormal.GetHashCode();
+                hashCode = (hashCode * 59) + this.UpdateRateMsUdonManual.GetHashCode();
+                hashCode = (hashCode * 59) + this.UploadAnalysisPercent.GetHashCode();
+                if (this.UrlList != null)
+                {
+                    hashCode = (hashCode * 59) + this.UrlList.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UseReliableUdpForVoice.GetHashCode();
+                if (this.ViveWindowsUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ViveWindowsUrl.GetHashCode();
+                }
+                if (this.WhiteListedAssetUrls != null)
+                {
+                    hashCode = (hashCode * 59) + this.WhiteListedAssetUrls.GetHashCode();
+                }
+                if (this.PlayerUrlResolverVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlayerUrlResolverVersion.GetHashCode();
+                }
+                if (this.PlayerUrlResolverSha1 != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlayerUrlResolverSha1.GetHashCode();
+                }
+                if (this.PublicKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.PublicKey.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.WebsocketMaxFriendsRefreshDelay.GetHashCode();
+                hashCode = (hashCode * 59) + this.WebsocketQuickReconnectTime.GetHashCode();
+                hashCode = (hashCode * 59) + this.WebsocketReconnectMaxDelay.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

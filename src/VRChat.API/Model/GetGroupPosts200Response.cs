@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// GetGroupPosts200Response
     /// </summary>
     [DataContract(Name = "getGroupPosts_200_response")]
-    public partial class GetGroupPosts200Response : IValidatableObject
+    public partial class GetGroupPosts200Response : IEquatable<GetGroupPosts200Response>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetGroupPosts200Response" /> class.
@@ -67,6 +67,53 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as GetGroupPosts200Response);
+        }
+
+        /// <summary>
+        /// Returns true if GetGroupPosts200Response instances are equal
+        /// </summary>
+        /// <param name="input">Instance of GetGroupPosts200Response to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(GetGroupPosts200Response input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Posts == input.Posts ||
+                    this.Posts != null &&
+                    input.Posts != null &&
+                    this.Posts.SequenceEqual(input.Posts)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Posts != null)
+                {
+                    hashCode = (hashCode * 59) + this.Posts.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

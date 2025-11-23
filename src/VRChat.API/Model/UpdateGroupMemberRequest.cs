@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateGroupMemberRequest
     /// </summary>
     [DataContract(Name = "UpdateGroupMemberRequest")]
-    public partial class UpdateGroupMemberRequest : IValidatableObject
+    public partial class UpdateGroupMemberRequest : IEquatable<UpdateGroupMemberRequest>, IValidatableObject
     {
 
         /// <summary>
@@ -94,6 +94,67 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UpdateGroupMemberRequest);
+        }
+
+        /// <summary>
+        /// Returns true if UpdateGroupMemberRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UpdateGroupMemberRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UpdateGroupMemberRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Visibility == input.Visibility ||
+                    this.Visibility.Equals(input.Visibility)
+                ) && 
+                (
+                    this.IsSubscribedToAnnouncements == input.IsSubscribedToAnnouncements ||
+                    this.IsSubscribedToAnnouncements.Equals(input.IsSubscribedToAnnouncements)
+                ) && 
+                (
+                    this.IsSubscribedToEventAnnouncements == input.IsSubscribedToEventAnnouncements ||
+                    this.IsSubscribedToEventAnnouncements.Equals(input.IsSubscribedToEventAnnouncements)
+                ) && 
+                (
+                    this.ManagerNotes == input.ManagerNotes ||
+                    (this.ManagerNotes != null &&
+                    this.ManagerNotes.Equals(input.ManagerNotes))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsSubscribedToAnnouncements.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsSubscribedToEventAnnouncements.GetHashCode();
+                if (this.ManagerNotes != null)
+                {
+                    hashCode = (hashCode * 59) + this.ManagerNotes.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// ShareInventoryItemDirectRequest
     /// </summary>
     [DataContract(Name = "ShareInventoryItemDirectRequest")]
-    public partial class ShareInventoryItemDirectRequest : IValidatableObject
+    public partial class ShareInventoryItemDirectRequest : IEquatable<ShareInventoryItemDirectRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ShareInventoryItemDirectRequest" /> class.
@@ -94,6 +94,62 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as ShareInventoryItemDirectRequest);
+        }
+
+        /// <summary>
+        /// Returns true if ShareInventoryItemDirectRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of ShareInventoryItemDirectRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(ShareInventoryItemDirectRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.ItemId == input.ItemId ||
+                    (this.ItemId != null &&
+                    this.ItemId.Equals(input.ItemId))
+                ) && 
+                (
+                    this.Users == input.Users ||
+                    this.Users != null &&
+                    input.Users != null &&
+                    this.Users.SequenceEqual(input.Users)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.ItemId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ItemId.GetHashCode();
+                }
+                if (this.Users != null)
+                {
+                    hashCode = (hashCode * 59) + this.Users.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

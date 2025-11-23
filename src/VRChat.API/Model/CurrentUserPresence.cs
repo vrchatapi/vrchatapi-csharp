@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CurrentUserPresence
     /// </summary>
     [DataContract(Name = "CurrentUserPresence")]
-    public partial class CurrentUserPresence : IValidatableObject
+    public partial class CurrentUserPresence : IEquatable<CurrentUserPresence>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentUserPresence" /> class.
@@ -51,7 +51,7 @@ namespace VRChat.API.Model
         /// <param name="travelingToWorld">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list..</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="world">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUserPresence(string avatarThumbnail = default, string[] currentAvatarTags = default, string displayName = default, string debugflag = default, List<string> groups = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string platform = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
+        public CurrentUserPresence(string avatarThumbnail = default, List<string> currentAvatarTags = default, string displayName = default, string debugflag = default, List<string> groups = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string platform = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
         {
             this.AvatarThumbnail = avatarThumbnail;
             this.CurrentAvatarTags = currentAvatarTags;
@@ -81,7 +81,7 @@ namespace VRChat.API.Model
         /// Gets or Sets CurrentAvatarTags
         /// </summary>
         [DataMember(Name = "currentAvatarTags", EmitDefaultValue = false)]
-        public string[] CurrentAvatarTags { get; set; }
+        public List<string> CurrentAvatarTags { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
@@ -217,6 +217,189 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CurrentUserPresence);
+        }
+
+        /// <summary>
+        /// Returns true if CurrentUserPresence instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CurrentUserPresence to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CurrentUserPresence input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AvatarThumbnail == input.AvatarThumbnail ||
+                    (this.AvatarThumbnail != null &&
+                    this.AvatarThumbnail.Equals(input.AvatarThumbnail))
+                ) && 
+                (
+                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
+                    this.CurrentAvatarTags != null &&
+                    input.CurrentAvatarTags != null &&
+                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Debugflag == input.Debugflag ||
+                    (this.Debugflag != null &&
+                    this.Debugflag.Equals(input.Debugflag))
+                ) && 
+                (
+                    this.Groups == input.Groups ||
+                    this.Groups != null &&
+                    input.Groups != null &&
+                    this.Groups.SequenceEqual(input.Groups)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Instance == input.Instance ||
+                    (this.Instance != null &&
+                    this.Instance.Equals(input.Instance))
+                ) && 
+                (
+                    this.InstanceType == input.InstanceType ||
+                    (this.InstanceType != null &&
+                    this.InstanceType.Equals(input.InstanceType))
+                ) && 
+                (
+                    this.IsRejoining == input.IsRejoining ||
+                    (this.IsRejoining != null &&
+                    this.IsRejoining.Equals(input.IsRejoining))
+                ) && 
+                (
+                    this.Platform == input.Platform ||
+                    (this.Platform != null &&
+                    this.Platform.Equals(input.Platform))
+                ) && 
+                (
+                    this.ProfilePicOverride == input.ProfilePicOverride ||
+                    (this.ProfilePicOverride != null &&
+                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.TravelingToInstance == input.TravelingToInstance ||
+                    (this.TravelingToInstance != null &&
+                    this.TravelingToInstance.Equals(input.TravelingToInstance))
+                ) && 
+                (
+                    this.TravelingToWorld == input.TravelingToWorld ||
+                    (this.TravelingToWorld != null &&
+                    this.TravelingToWorld.Equals(input.TravelingToWorld))
+                ) && 
+                (
+                    this.UserIcon == input.UserIcon ||
+                    (this.UserIcon != null &&
+                    this.UserIcon.Equals(input.UserIcon))
+                ) && 
+                (
+                    this.World == input.World ||
+                    (this.World != null &&
+                    this.World.Equals(input.World))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.AvatarThumbnail != null)
+                {
+                    hashCode = (hashCode * 59) + this.AvatarThumbnail.GetHashCode();
+                }
+                if (this.CurrentAvatarTags != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Debugflag != null)
+                {
+                    hashCode = (hashCode * 59) + this.Debugflag.GetHashCode();
+                }
+                if (this.Groups != null)
+                {
+                    hashCode = (hashCode * 59) + this.Groups.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Instance != null)
+                {
+                    hashCode = (hashCode * 59) + this.Instance.GetHashCode();
+                }
+                if (this.InstanceType != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstanceType.GetHashCode();
+                }
+                if (this.IsRejoining != null)
+                {
+                    hashCode = (hashCode * 59) + this.IsRejoining.GetHashCode();
+                }
+                if (this.Platform != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                }
+                if (this.ProfilePicOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.TravelingToInstance != null)
+                {
+                    hashCode = (hashCode * 59) + this.TravelingToInstance.GetHashCode();
+                }
+                if (this.TravelingToWorld != null)
+                {
+                    hashCode = (hashCode * 59) + this.TravelingToWorld.GetHashCode();
+                }
+                if (this.UserIcon != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
+                }
+                if (this.World != null)
+                {
+                    hashCode = (hashCode * 59) + this.World.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

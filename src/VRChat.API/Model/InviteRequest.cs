@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InviteRequest
     /// </summary>
     [DataContract(Name = "InviteRequest")]
-    public partial class InviteRequest : IValidatableObject
+    public partial class InviteRequest : IEquatable<InviteRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InviteRequest" /> class.
@@ -90,6 +90,57 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InviteRequest);
+        }
+
+        /// <summary>
+        /// Returns true if InviteRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InviteRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InviteRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.InstanceId == input.InstanceId ||
+                    (this.InstanceId != null &&
+                    this.InstanceId.Equals(input.InstanceId))
+                ) && 
+                (
+                    this.MessageSlot == input.MessageSlot ||
+                    this.MessageSlot.Equals(input.MessageSlot)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.InstanceId != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MessageSlot.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

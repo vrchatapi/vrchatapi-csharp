@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InviteResponse
     /// </summary>
     [DataContract(Name = "InviteResponse")]
-    public partial class InviteResponse : IValidatableObject
+    public partial class InviteResponse : IEquatable<InviteResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InviteResponse" /> class.
@@ -72,6 +72,48 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InviteResponse);
+        }
+
+        /// <summary>
+        /// Returns true if InviteResponse instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InviteResponse to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InviteResponse input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.ResponseSlot == input.ResponseSlot ||
+                    this.ResponseSlot.Equals(input.ResponseSlot)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.ResponseSlot.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

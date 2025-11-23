@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UserNoteTargetUser
     /// </summary>
     [DataContract(Name = "UserNote_targetUser")]
-    public partial class UserNoteTargetUser : IValidatableObject
+    public partial class UserNoteTargetUser : IEquatable<UserNoteTargetUser>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UserNoteTargetUser" /> class.
@@ -119,6 +119,98 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UserNoteTargetUser);
+        }
+
+        /// <summary>
+        /// Returns true if UserNoteTargetUser instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UserNoteTargetUser to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UserNoteTargetUser input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
+                    this.CurrentAvatarTags != null &&
+                    input.CurrentAvatarTags != null &&
+                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
+                ) && 
+                (
+                    this.CurrentAvatarThumbnailImageUrl == input.CurrentAvatarThumbnailImageUrl ||
+                    (this.CurrentAvatarThumbnailImageUrl != null &&
+                    this.CurrentAvatarThumbnailImageUrl.Equals(input.CurrentAvatarThumbnailImageUrl))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.ProfilePicOverride == input.ProfilePicOverride ||
+                    (this.ProfilePicOverride != null &&
+                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
+                ) && 
+                (
+                    this.UserIcon == input.UserIcon ||
+                    (this.UserIcon != null &&
+                    this.UserIcon.Equals(input.UserIcon))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.CurrentAvatarTags != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
+                }
+                if (this.CurrentAvatarThumbnailImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.ProfilePicOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
+                }
+                if (this.UserIcon != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

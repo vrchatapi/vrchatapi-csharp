@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Crowded population range
     /// </summary>
     [DataContract(Name = "APIConfigConstants_INSTANCE_POPULATION_BRACKETS_CROWDED")]
-    public partial class APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED : IValidatableObject
+    public partial class APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED : IEquatable<APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED" /> class.
@@ -78,6 +78,53 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Max == input.Max ||
+                    this.Max.Equals(input.Max)
+                ) && 
+                (
+                    this.Min == input.Min ||
+                    this.Min.Equals(input.Min)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Max.GetHashCode();
+                hashCode = (hashCode * 59) + this.Min.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

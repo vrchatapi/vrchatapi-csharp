@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// PlayerModeration
     /// </summary>
     [DataContract(Name = "PlayerModeration")]
-    public partial class PlayerModeration : IValidatableObject
+    public partial class PlayerModeration : IEquatable<PlayerModeration>, IValidatableObject
     {
 
         /// <summary>
@@ -162,6 +162,102 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as PlayerModeration);
+        }
+
+        /// <summary>
+        /// Returns true if PlayerModeration instances are equal
+        /// </summary>
+        /// <param name="input">Instance of PlayerModeration to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(PlayerModeration input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.SourceDisplayName == input.SourceDisplayName ||
+                    (this.SourceDisplayName != null &&
+                    this.SourceDisplayName.Equals(input.SourceDisplayName))
+                ) && 
+                (
+                    this.SourceUserId == input.SourceUserId ||
+                    (this.SourceUserId != null &&
+                    this.SourceUserId.Equals(input.SourceUserId))
+                ) && 
+                (
+                    this.TargetDisplayName == input.TargetDisplayName ||
+                    (this.TargetDisplayName != null &&
+                    this.TargetDisplayName.Equals(input.TargetDisplayName))
+                ) && 
+                (
+                    this.TargetUserId == input.TargetUserId ||
+                    (this.TargetUserId != null &&
+                    this.TargetUserId.Equals(input.TargetUserId))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Created != null)
+                {
+                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.SourceDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.SourceDisplayName.GetHashCode();
+                }
+                if (this.SourceUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SourceUserId.GetHashCode();
+                }
+                if (this.TargetDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.TargetDisplayName.GetHashCode();
+                }
+                if (this.TargetUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TargetUserId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

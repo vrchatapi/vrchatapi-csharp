@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// TiliaStatus
     /// </summary>
     [DataContract(Name = "TiliaStatus")]
-    public partial class TiliaStatus : IValidatableObject
+    public partial class TiliaStatus : IEquatable<TiliaStatus>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TiliaStatus" /> class.
@@ -99,6 +99,71 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as TiliaStatus);
+        }
+
+        /// <summary>
+        /// Returns true if TiliaStatus instances are equal
+        /// </summary>
+        /// <param name="input">Instance of TiliaStatus to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(TiliaStatus input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.EconomyOnline == input.EconomyOnline ||
+                    this.EconomyOnline.Equals(input.EconomyOnline)
+                ) && 
+                (
+                    this.EconomyState == input.EconomyState ||
+                    this.EconomyState.Equals(input.EconomyState)
+                ) && 
+                (
+                    this.PlannedOfflineWindowStart == input.PlannedOfflineWindowStart ||
+                    (this.PlannedOfflineWindowStart != null &&
+                    this.PlannedOfflineWindowStart.Equals(input.PlannedOfflineWindowStart))
+                ) && 
+                (
+                    this.PlannedOfflineWindowEnd == input.PlannedOfflineWindowEnd ||
+                    (this.PlannedOfflineWindowEnd != null &&
+                    this.PlannedOfflineWindowEnd.Equals(input.PlannedOfflineWindowEnd))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.EconomyOnline.GetHashCode();
+                hashCode = (hashCode * 59) + this.EconomyState.GetHashCode();
+                if (this.PlannedOfflineWindowStart != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlannedOfflineWindowStart.GetHashCode();
+                }
+                if (this.PlannedOfflineWindowEnd != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlannedOfflineWindowEnd.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

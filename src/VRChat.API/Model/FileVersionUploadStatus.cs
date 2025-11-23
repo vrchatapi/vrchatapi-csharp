@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// FileVersionUploadStatus
     /// </summary>
     [DataContract(Name = "FileVersionUploadStatus")]
-    public partial class FileVersionUploadStatus : IValidatableObject
+    public partial class FileVersionUploadStatus : IEquatable<FileVersionUploadStatus>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FileVersionUploadStatus" /> class.
@@ -150,6 +150,91 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as FileVersionUploadStatus);
+        }
+
+        /// <summary>
+        /// Returns true if FileVersionUploadStatus instances are equal
+        /// </summary>
+        /// <param name="input">Instance of FileVersionUploadStatus to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(FileVersionUploadStatus input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.UploadId == input.UploadId ||
+                    (this.UploadId != null &&
+                    this.UploadId.Equals(input.UploadId))
+                ) && 
+                (
+                    this.FileName == input.FileName ||
+                    (this.FileName != null &&
+                    this.FileName.Equals(input.FileName))
+                ) && 
+                (
+                    this.NextPartNumber == input.NextPartNumber ||
+                    this.NextPartNumber.Equals(input.NextPartNumber)
+                ) && 
+                (
+                    this.MaxParts == input.MaxParts ||
+                    this.MaxParts.Equals(input.MaxParts)
+                ) && 
+                (
+                    this.Parts == input.Parts ||
+                    this.Parts != null &&
+                    input.Parts != null &&
+                    this.Parts.SequenceEqual(input.Parts)
+                ) && 
+                (
+                    this.Etags == input.Etags ||
+                    this.Etags != null &&
+                    input.Etags != null &&
+                    this.Etags.SequenceEqual(input.Etags)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.UploadId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UploadId.GetHashCode();
+                }
+                if (this.FileName != null)
+                {
+                    hashCode = (hashCode * 59) + this.FileName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.NextPartNumber.GetHashCode();
+                hashCode = (hashCode * 59) + this.MaxParts.GetHashCode();
+                if (this.Parts != null)
+                {
+                    hashCode = (hashCode * 59) + this.Parts.GetHashCode();
+                }
+                if (this.Etags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Etags.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UserSubscription
     /// </summary>
     [DataContract(Name = "UserSubscription")]
-    public partial class UserSubscription : IValidatableObject
+    public partial class UserSubscription : IEquatable<UserSubscription>, IValidatableObject
     {
 
         /// <summary>
@@ -263,6 +263,169 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UserSubscription);
+        }
+
+        /// <summary>
+        /// Returns true if UserSubscription instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UserSubscription to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UserSubscription input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.TransactionId == input.TransactionId ||
+                    (this.TransactionId != null &&
+                    this.TransactionId.Equals(input.TransactionId))
+                ) && 
+                (
+                    this.Store == input.Store ||
+                    (this.Store != null &&
+                    this.Store.Equals(input.Store))
+                ) && 
+                (
+                    this.SteamItemId == input.SteamItemId ||
+                    (this.SteamItemId != null &&
+                    this.SteamItemId.Equals(input.SteamItemId))
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    this.Amount.Equals(input.Amount)
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Period == input.Period ||
+                    this.Period.Equals(input.Period)
+                ) && 
+                (
+                    this.Tier == input.Tier ||
+                    this.Tier.Equals(input.Tier)
+                ) && 
+                (
+                    this.Active == input.Active ||
+                    this.Active.Equals(input.Active)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.Starts == input.Starts ||
+                    (this.Starts != null &&
+                    this.Starts.Equals(input.Starts))
+                ) && 
+                (
+                    this.Expires == input.Expires ||
+                    (this.Expires != null &&
+                    this.Expires.Equals(input.Expires))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.LicenseGroups == input.LicenseGroups ||
+                    this.LicenseGroups != null &&
+                    input.LicenseGroups != null &&
+                    this.LicenseGroups.SequenceEqual(input.LicenseGroups)
+                ) && 
+                (
+                    this.IsGift == input.IsGift ||
+                    this.IsGift.Equals(input.IsGift)
+                ) && 
+                (
+                    this.IsBulkGift == input.IsBulkGift ||
+                    this.IsBulkGift.Equals(input.IsBulkGift)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.TransactionId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransactionId.GetHashCode();
+                }
+                if (this.Store != null)
+                {
+                    hashCode = (hashCode * 59) + this.Store.GetHashCode();
+                }
+                if (this.SteamItemId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SteamItemId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Period.GetHashCode();
+                hashCode = (hashCode * 59) + this.Tier.GetHashCode();
+                hashCode = (hashCode * 59) + this.Active.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Starts != null)
+                {
+                    hashCode = (hashCode * 59) + this.Starts.GetHashCode();
+                }
+                if (this.Expires != null)
+                {
+                    hashCode = (hashCode * 59) + this.Expires.GetHashCode();
+                }
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                if (this.LicenseGroups != null)
+                {
+                    hashCode = (hashCode * 59) + this.LicenseGroups.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsGift.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsBulkGift.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

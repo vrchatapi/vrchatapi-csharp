@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// ProductListingVariant
     /// </summary>
     [DataContract(Name = "ProductListingVariant")]
-    public partial class ProductListingVariant : IValidatableObject
+    public partial class ProductListingVariant : IEquatable<ProductListingVariant>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductListingVariant" /> class.
@@ -125,6 +125,81 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as ProductListingVariant);
+        }
+
+        /// <summary>
+        /// Returns true if ProductListingVariant instances are equal
+        /// </summary>
+        /// <param name="input">Instance of ProductListingVariant to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(ProductListingVariant input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.EffectiveFrom == input.EffectiveFrom ||
+                    (this.EffectiveFrom != null &&
+                    this.EffectiveFrom.Equals(input.EffectiveFrom))
+                ) && 
+                (
+                    this.ListingVariantId == input.ListingVariantId ||
+                    (this.ListingVariantId != null &&
+                    this.ListingVariantId.Equals(input.ListingVariantId))
+                ) && 
+                (
+                    this.NonRefundable == input.NonRefundable ||
+                    this.NonRefundable.Equals(input.NonRefundable)
+                ) && 
+                (
+                    this.Quantity == input.Quantity ||
+                    this.Quantity.Equals(input.Quantity)
+                ) && 
+                (
+                    this.SellerVariant == input.SellerVariant ||
+                    this.SellerVariant.Equals(input.SellerVariant)
+                ) && 
+                (
+                    this.UnitPriceTokens == input.UnitPriceTokens ||
+                    this.UnitPriceTokens.Equals(input.UnitPriceTokens)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.EffectiveFrom != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveFrom.GetHashCode();
+                }
+                if (this.ListingVariantId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ListingVariantId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.NonRefundable.GetHashCode();
+                hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                hashCode = (hashCode * 59) + this.SellerVariant.GetHashCode();
+                hashCode = (hashCode * 59) + this.UnitPriceTokens.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

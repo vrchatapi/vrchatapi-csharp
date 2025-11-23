@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// AvatarPerformance
     /// </summary>
     [DataContract(Name = "Avatar_performance")]
-    public partial class AvatarPerformance : IValidatableObject
+    public partial class AvatarPerformance : IEquatable<AvatarPerformance>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AvatarPerformance" /> class.
@@ -112,6 +112,85 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as AvatarPerformance);
+        }
+
+        /// <summary>
+        /// Returns true if AvatarPerformance instances are equal
+        /// </summary>
+        /// <param name="input">Instance of AvatarPerformance to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(AvatarPerformance input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Android == input.Android ||
+                    (this.Android != null &&
+                    this.Android.Equals(input.Android))
+                ) && 
+                (
+                    this.AndroidSort == input.AndroidSort ||
+                    this.AndroidSort.Equals(input.AndroidSort)
+                ) && 
+                (
+                    this.Ios == input.Ios ||
+                    (this.Ios != null &&
+                    this.Ios.Equals(input.Ios))
+                ) && 
+                (
+                    this.IosSort == input.IosSort ||
+                    this.IosSort.Equals(input.IosSort)
+                ) && 
+                (
+                    this.Standalonewindows == input.Standalonewindows ||
+                    (this.Standalonewindows != null &&
+                    this.Standalonewindows.Equals(input.Standalonewindows))
+                ) && 
+                (
+                    this.StandalonewindowsSort == input.StandalonewindowsSort ||
+                    this.StandalonewindowsSort.Equals(input.StandalonewindowsSort)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Android != null)
+                {
+                    hashCode = (hashCode * 59) + this.Android.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AndroidSort.GetHashCode();
+                if (this.Ios != null)
+                {
+                    hashCode = (hashCode * 59) + this.Ios.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IosSort.GetHashCode();
+                if (this.Standalonewindows != null)
+                {
+                    hashCode = (hashCode * 59) + this.Standalonewindows.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.StandalonewindowsSort.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

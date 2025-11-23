@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// NotificationDetailInviteResponse
     /// </summary>
     [DataContract(Name = "NotificationDetailInviteResponse")]
-    public partial class NotificationDetailInviteResponse : IValidatableObject
+    public partial class NotificationDetailInviteResponse : IEquatable<NotificationDetailInviteResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationDetailInviteResponse" /> class.
@@ -94,6 +94,61 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as NotificationDetailInviteResponse);
+        }
+
+        /// <summary>
+        /// Returns true if NotificationDetailInviteResponse instances are equal
+        /// </summary>
+        /// <param name="input">Instance of NotificationDetailInviteResponse to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(NotificationDetailInviteResponse input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.InResponseTo == input.InResponseTo ||
+                    (this.InResponseTo != null &&
+                    this.InResponseTo.Equals(input.InResponseTo))
+                ) && 
+                (
+                    this.ResponseMessage == input.ResponseMessage ||
+                    (this.ResponseMessage != null &&
+                    this.ResponseMessage.Equals(input.ResponseMessage))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.InResponseTo != null)
+                {
+                    hashCode = (hashCode * 59) + this.InResponseTo.GetHashCode();
+                }
+                if (this.ResponseMessage != null)
+                {
+                    hashCode = (hashCode * 59) + this.ResponseMessage.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

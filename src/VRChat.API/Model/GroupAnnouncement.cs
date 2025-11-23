@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// GroupAnnouncement
     /// </summary>
     [DataContract(Name = "GroupAnnouncement")]
-    public partial class GroupAnnouncement : IValidatableObject
+    public partial class GroupAnnouncement : IEquatable<GroupAnnouncement>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupAnnouncement" /> class.
@@ -152,6 +152,124 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as GroupAnnouncement);
+        }
+
+        /// <summary>
+        /// Returns true if GroupAnnouncement instances are equal
+        /// </summary>
+        /// <param name="input">Instance of GroupAnnouncement to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(GroupAnnouncement input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
+                ) && 
+                (
+                    this.AuthorId == input.AuthorId ||
+                    (this.AuthorId != null &&
+                    this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.ImageId == input.ImageId ||
+                    (this.ImageId != null &&
+                    this.ImageId.Equals(input.ImageId))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.GroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
+                if (this.AuthorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
+                if (this.Title != null)
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.Text != null)
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                if (this.ImageId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

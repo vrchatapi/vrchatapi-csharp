@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// FavoriteGroup
     /// </summary>
     [DataContract(Name = "FavoriteGroup")]
-    public partial class FavoriteGroup : IValidatableObject
+    public partial class FavoriteGroup : IEquatable<FavoriteGroup>, IValidatableObject
     {
 
         /// <summary>
@@ -173,6 +173,108 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as FavoriteGroup);
+        }
+
+        /// <summary>
+        /// Returns true if FavoriteGroup instances are equal
+        /// </summary>
+        /// <param name="input">Instance of FavoriteGroup to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(FavoriteGroup input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.OwnerDisplayName == input.OwnerDisplayName ||
+                    (this.OwnerDisplayName != null &&
+                    this.OwnerDisplayName.Equals(input.OwnerDisplayName))
+                ) && 
+                (
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this.Visibility == input.Visibility ||
+                    this.Visibility.Equals(input.Visibility)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.OwnerDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerDisplayName.GetHashCode();
+                }
+                if (this.OwnerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

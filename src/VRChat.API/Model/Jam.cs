@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Jam
     /// </summary>
     [DataContract(Name = "Jam")]
-    public partial class Jam : IValidatableObject
+    public partial class Jam : IEquatable<Jam>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Jam" /> class.
@@ -192,6 +192,125 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Jam);
+        }
+
+        /// <summary>
+        /// Returns true if Jam instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Jam to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Jam input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.IsVisible == input.IsVisible ||
+                    this.IsVisible.Equals(input.IsVisible)
+                ) && 
+                (
+                    this.MoreInfo == input.MoreInfo ||
+                    (this.MoreInfo != null &&
+                    this.MoreInfo.Equals(input.MoreInfo))
+                ) && 
+                (
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
+                ) && 
+                (
+                    this.StateChangeDates == input.StateChangeDates ||
+                    (this.StateChangeDates != null &&
+                    this.StateChangeDates.Equals(input.StateChangeDates))
+                ) && 
+                (
+                    this.SubmissionContentGateDate == input.SubmissionContentGateDate ||
+                    (this.SubmissionContentGateDate != null &&
+                    this.SubmissionContentGateDate.Equals(input.SubmissionContentGateDate))
+                ) && 
+                (
+                    this.SubmissionContentGated == input.SubmissionContentGated ||
+                    this.SubmissionContentGated.Equals(input.SubmissionContentGated)
+                ) && 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsVisible.GetHashCode();
+                if (this.MoreInfo != null)
+                {
+                    hashCode = (hashCode * 59) + this.MoreInfo.GetHashCode();
+                }
+                if (this.State != null)
+                {
+                    hashCode = (hashCode * 59) + this.State.GetHashCode();
+                }
+                if (this.StateChangeDates != null)
+                {
+                    hashCode = (hashCode * 59) + this.StateChangeDates.GetHashCode();
+                }
+                if (this.SubmissionContentGateDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubmissionContentGateDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SubmissionContentGated.GetHashCode();
+                if (this.Title != null)
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

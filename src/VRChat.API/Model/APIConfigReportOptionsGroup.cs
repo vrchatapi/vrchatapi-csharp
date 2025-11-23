@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// APIConfigReportOptionsGroup
     /// </summary>
     [DataContract(Name = "APIConfig_reportOptions_group")]
-    public partial class APIConfigReportOptionsGroup : IValidatableObject
+    public partial class APIConfigReportOptionsGroup : IEquatable<APIConfigReportOptionsGroup>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigReportOptionsGroup" /> class.
@@ -85,6 +85,73 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigReportOptionsGroup);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigReportOptionsGroup instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigReportOptionsGroup to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigReportOptionsGroup input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Groupstore == input.Groupstore ||
+                    this.Groupstore != null &&
+                    input.Groupstore != null &&
+                    this.Groupstore.SequenceEqual(input.Groupstore)
+                ) && 
+                (
+                    this.Image == input.Image ||
+                    this.Image != null &&
+                    input.Image != null &&
+                    this.Image.SequenceEqual(input.Image)
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    this.Text != null &&
+                    input.Text != null &&
+                    this.Text.SequenceEqual(input.Text)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Groupstore != null)
+                {
+                    hashCode = (hashCode * 59) + this.Groupstore.GetHashCode();
+                }
+                if (this.Image != null)
+                {
+                    hashCode = (hashCode * 59) + this.Image.GetHashCode();
+                }
+                if (this.Text != null)
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Favorite
     /// </summary>
     [DataContract(Name = "Favorite")]
-    public partial class Favorite : IValidatableObject
+    public partial class Favorite : IEquatable<Favorite>, IValidatableObject
     {
 
         /// <summary>
@@ -119,6 +119,76 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Favorite);
+        }
+
+        /// <summary>
+        /// Returns true if Favorite instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Favorite to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Favorite input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.FavoriteId == input.FavoriteId ||
+                    (this.FavoriteId != null &&
+                    this.FavoriteId.Equals(input.FavoriteId))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.FavoriteId != null)
+                {
+                    hashCode = (hashCode * 59) + this.FavoriteId.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Download links for various development assets.
     /// </summary>
     [DataContract(Name = "APIConfigDownloadURLList")]
-    public partial class APIConfigDownloadURLList : IValidatableObject
+    public partial class APIConfigDownloadURLList : IEquatable<APIConfigDownloadURLList>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigDownloadURLList" /> class.
@@ -139,6 +139,88 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigDownloadURLList);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigDownloadURLList instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigDownloadURLList to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigDownloadURLList input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Sdk2 == input.Sdk2 ||
+                    (this.Sdk2 != null &&
+                    this.Sdk2.Equals(input.Sdk2))
+                ) && 
+                (
+                    this.Sdk3Avatars == input.Sdk3Avatars ||
+                    (this.Sdk3Avatars != null &&
+                    this.Sdk3Avatars.Equals(input.Sdk3Avatars))
+                ) && 
+                (
+                    this.Sdk3Worlds == input.Sdk3Worlds ||
+                    (this.Sdk3Worlds != null &&
+                    this.Sdk3Worlds.Equals(input.Sdk3Worlds))
+                ) && 
+                (
+                    this.Vcc == input.Vcc ||
+                    (this.Vcc != null &&
+                    this.Vcc.Equals(input.Vcc))
+                ) && 
+                (
+                    this.Bootstrap == input.Bootstrap ||
+                    (this.Bootstrap != null &&
+                    this.Bootstrap.Equals(input.Bootstrap))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Sdk2 != null)
+                {
+                    hashCode = (hashCode * 59) + this.Sdk2.GetHashCode();
+                }
+                if (this.Sdk3Avatars != null)
+                {
+                    hashCode = (hashCode * 59) + this.Sdk3Avatars.GetHashCode();
+                }
+                if (this.Sdk3Worlds != null)
+                {
+                    hashCode = (hashCode * 59) + this.Sdk3Worlds.GetHashCode();
+                }
+                if (this.Vcc != null)
+                {
+                    hashCode = (hashCode * 59) + this.Vcc.GetHashCode();
+                }
+                if (this.Bootstrap != null)
+                {
+                    hashCode = (hashCode * 59) + this.Bootstrap.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

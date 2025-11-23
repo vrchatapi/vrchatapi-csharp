@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// APIConfigEvents
     /// </summary>
     [DataContract(Name = "APIConfigEvents")]
-    public partial class APIConfigEvents : IValidatableObject
+    public partial class APIConfigEvents : IEquatable<APIConfigEvents>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigEvents" /> class.
@@ -163,6 +163,93 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigEvents);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigEvents instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigEvents to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigEvents input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.DistanceClose == input.DistanceClose ||
+                    this.DistanceClose.Equals(input.DistanceClose)
+                ) && 
+                (
+                    this.DistanceFactor == input.DistanceFactor ||
+                    this.DistanceFactor.Equals(input.DistanceFactor)
+                ) && 
+                (
+                    this.DistanceFar == input.DistanceFar ||
+                    this.DistanceFar.Equals(input.DistanceFar)
+                ) && 
+                (
+                    this.GroupDistance == input.GroupDistance ||
+                    this.GroupDistance.Equals(input.GroupDistance)
+                ) && 
+                (
+                    this.MaximumBunchSize == input.MaximumBunchSize ||
+                    this.MaximumBunchSize.Equals(input.MaximumBunchSize)
+                ) && 
+                (
+                    this.NotVisibleFactor == input.NotVisibleFactor ||
+                    this.NotVisibleFactor.Equals(input.NotVisibleFactor)
+                ) && 
+                (
+                    this.PlayerOrderBucketSize == input.PlayerOrderBucketSize ||
+                    this.PlayerOrderBucketSize.Equals(input.PlayerOrderBucketSize)
+                ) && 
+                (
+                    this.PlayerOrderFactor == input.PlayerOrderFactor ||
+                    this.PlayerOrderFactor.Equals(input.PlayerOrderFactor)
+                ) && 
+                (
+                    this.SlowUpdateFactorThreshold == input.SlowUpdateFactorThreshold ||
+                    this.SlowUpdateFactorThreshold.Equals(input.SlowUpdateFactorThreshold)
+                ) && 
+                (
+                    this.ViewSegmentLength == input.ViewSegmentLength ||
+                    this.ViewSegmentLength.Equals(input.ViewSegmentLength)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.DistanceClose.GetHashCode();
+                hashCode = (hashCode * 59) + this.DistanceFactor.GetHashCode();
+                hashCode = (hashCode * 59) + this.DistanceFar.GetHashCode();
+                hashCode = (hashCode * 59) + this.GroupDistance.GetHashCode();
+                hashCode = (hashCode * 59) + this.MaximumBunchSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.NotVisibleFactor.GetHashCode();
+                hashCode = (hashCode * 59) + this.PlayerOrderBucketSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.PlayerOrderFactor.GetHashCode();
+                hashCode = (hashCode * 59) + this.SlowUpdateFactorThreshold.GetHashCode();
+                hashCode = (hashCode * 59) + this.ViewSegmentLength.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

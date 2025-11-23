@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InventoryDrop
     /// </summary>
     [DataContract(Name = "InventoryDrop")]
-    public partial class InventoryDrop : IValidatableObject
+    public partial class InventoryDrop : IEquatable<InventoryDrop>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InventoryDrop" /> class.
@@ -250,6 +250,162 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InventoryDrop);
+        }
+
+        /// <summary>
+        /// Returns true if InventoryDrop instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InventoryDrop to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InventoryDrop input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AuthorId == input.AuthorId ||
+                    (this.AuthorId != null &&
+                    this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.DropExpiryDate == input.DropExpiryDate ||
+                    (this.DropExpiryDate != null &&
+                    this.DropExpiryDate.Equals(input.DropExpiryDate))
+                ) && 
+                (
+                    this.EndDropDate == input.EndDropDate ||
+                    (this.EndDropDate != null &&
+                    this.EndDropDate.Equals(input.EndDropDate))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.NotificationDetails == input.NotificationDetails ||
+                    (this.NotificationDetails != null &&
+                    this.NotificationDetails.Equals(input.NotificationDetails))
+                ) && 
+                (
+                    this.StartDropDate == input.StartDropDate ||
+                    (this.StartDropDate != null &&
+                    this.StartDropDate.Equals(input.StartDropDate))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.TargetGroup == input.TargetGroup ||
+                    (this.TargetGroup != null &&
+                    this.TargetGroup.Equals(input.TargetGroup))
+                ) && 
+                (
+                    this.TemplateIds == input.TemplateIds ||
+                    this.TemplateIds != null &&
+                    input.TemplateIds != null &&
+                    this.TemplateIds.SequenceEqual(input.TemplateIds)
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.AuthorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.DropExpiryDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.DropExpiryDate.GetHashCode();
+                }
+                if (this.EndDropDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.EndDropDate.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.NotificationDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotificationDetails.GetHashCode();
+                }
+                if (this.StartDropDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.StartDropDate.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.TargetGroup != null)
+                {
+                    hashCode = (hashCode * 59) + this.TargetGroup.GetHashCode();
+                }
+                if (this.TemplateIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.TemplateIds.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

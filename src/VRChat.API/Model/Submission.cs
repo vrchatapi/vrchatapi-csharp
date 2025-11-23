@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Submission
     /// </summary>
     [DataContract(Name = "Submission")]
-    public partial class Submission : IValidatableObject
+    public partial class Submission : IEquatable<Submission>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Submission" /> class.
@@ -162,6 +162,102 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Submission);
+        }
+
+        /// <summary>
+        /// Returns true if Submission instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Submission to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Submission input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.ContentId == input.ContentId ||
+                    (this.ContentId != null &&
+                    this.ContentId.Equals(input.ContentId))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.JamId == input.JamId ||
+                    (this.JamId != null &&
+                    this.JamId.Equals(input.JamId))
+                ) && 
+                (
+                    this.RatingScore == input.RatingScore ||
+                    this.RatingScore.Equals(input.RatingScore)
+                ) && 
+                (
+                    this.SubmitterId == input.SubmitterId ||
+                    (this.SubmitterId != null &&
+                    this.SubmitterId.Equals(input.SubmitterId))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.ContentId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentId.GetHashCode();
+                }
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.JamId != null)
+                {
+                    hashCode = (hashCode * 59) + this.JamId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RatingScore.GetHashCode();
+                if (this.SubmitterId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubmitterId.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

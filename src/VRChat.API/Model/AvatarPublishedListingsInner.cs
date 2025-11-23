@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// AvatarPublishedListingsInner
     /// </summary>
     [DataContract(Name = "Avatar_publishedListings_inner")]
-    public partial class AvatarPublishedListingsInner : IValidatableObject
+    public partial class AvatarPublishedListingsInner : IEquatable<AvatarPublishedListingsInner>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AvatarPublishedListingsInner" /> class.
@@ -112,6 +112,93 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as AvatarPublishedListingsInner);
+        }
+
+        /// <summary>
+        /// Returns true if AvatarPublishedListingsInner instances are equal
+        /// </summary>
+        /// <param name="input">Instance of AvatarPublishedListingsInner to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(AvatarPublishedListingsInner input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.ImageId == input.ImageId ||
+                    (this.ImageId != null &&
+                    this.ImageId.Equals(input.ImageId))
+                ) && 
+                (
+                    this.ListingId == input.ListingId ||
+                    (this.ListingId != null &&
+                    this.ListingId.Equals(input.ListingId))
+                ) && 
+                (
+                    this.ListingType == input.ListingType ||
+                    (this.ListingType != null &&
+                    this.ListingType.Equals(input.ListingType))
+                ) && 
+                (
+                    this.PriceTokens == input.PriceTokens ||
+                    this.PriceTokens.Equals(input.PriceTokens)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.ImageId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
+                }
+                if (this.ListingId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ListingId.GetHashCode();
+                }
+                if (this.ListingType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ListingType.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PriceTokens.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

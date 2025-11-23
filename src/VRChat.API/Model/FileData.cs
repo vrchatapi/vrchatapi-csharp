@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// FileData
     /// </summary>
     [DataContract(Name = "FileData")]
-    public partial class FileData : IValidatableObject
+    public partial class FileData : IEquatable<FileData>, IValidatableObject
     {
         /// <summary>
         /// Defines Category
@@ -166,6 +166,94 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as FileData);
+        }
+
+        /// <summary>
+        /// Returns true if FileData instances are equal
+        /// </summary>
+        /// <param name="input">Instance of FileData to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(FileData input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Category == input.Category ||
+                    this.Category.Equals(input.Category)
+                ) && 
+                (
+                    this.FileName == input.FileName ||
+                    (this.FileName != null &&
+                    this.FileName.Equals(input.FileName))
+                ) && 
+                (
+                    this.Md5 == input.Md5 ||
+                    (this.Md5 != null &&
+                    this.Md5.Equals(input.Md5))
+                ) && 
+                (
+                    this.SizeInBytes == input.SizeInBytes ||
+                    this.SizeInBytes.Equals(input.SizeInBytes)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.UploadId == input.UploadId ||
+                    (this.UploadId != null &&
+                    this.UploadId.Equals(input.UploadId))
+                ) && 
+                (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                if (this.FileName != null)
+                {
+                    hashCode = (hashCode * 59) + this.FileName.GetHashCode();
+                }
+                if (this.Md5 != null)
+                {
+                    hashCode = (hashCode * 59) + this.Md5.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SizeInBytes.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.UploadId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UploadId.GetHashCode();
+                }
+                if (this.Url != null)
+                {
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

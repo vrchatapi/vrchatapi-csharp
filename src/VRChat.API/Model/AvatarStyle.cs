@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// AvatarStyle
     /// </summary>
     [DataContract(Name = "AvatarStyle")]
-    public partial class AvatarStyle : IValidatableObject
+    public partial class AvatarStyle : IEquatable<AvatarStyle>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AvatarStyle" /> class.
@@ -94,6 +94,61 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as AvatarStyle);
+        }
+
+        /// <summary>
+        /// Returns true if AvatarStyle instances are equal
+        /// </summary>
+        /// <param name="input">Instance of AvatarStyle to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(AvatarStyle input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.StyleName == input.StyleName ||
+                    (this.StyleName != null &&
+                    this.StyleName.Equals(input.StyleName))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.StyleName != null)
+                {
+                    hashCode = (hashCode * 59) + this.StyleName.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

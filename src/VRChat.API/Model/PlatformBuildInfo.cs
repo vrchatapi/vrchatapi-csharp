@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Build information for a platform
     /// </summary>
     [DataContract(Name = "PlatformBuildInfo")]
-    public partial class PlatformBuildInfo : IValidatableObject
+    public partial class PlatformBuildInfo : IEquatable<PlatformBuildInfo>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PlatformBuildInfo" /> class.
@@ -83,6 +83,57 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as PlatformBuildInfo);
+        }
+
+        /// <summary>
+        /// Returns true if PlatformBuildInfo instances are equal
+        /// </summary>
+        /// <param name="input">Instance of PlatformBuildInfo to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(PlatformBuildInfo input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.MinBuildNumber == input.MinBuildNumber ||
+                    this.MinBuildNumber.Equals(input.MinBuildNumber)
+                ) && 
+                (
+                    this.RedirectionAddress == input.RedirectionAddress ||
+                    (this.RedirectionAddress != null &&
+                    this.RedirectionAddress.Equals(input.RedirectionAddress))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.MinBuildNumber.GetHashCode();
+                if (this.RedirectionAddress != null)
+                {
+                    hashCode = (hashCode * 59) + this.RedirectionAddress.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

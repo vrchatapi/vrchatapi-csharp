@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Subscription
     /// </summary>
     [DataContract(Name = "Subscription")]
-    public partial class Subscription : IValidatableObject
+    public partial class Subscription : IEquatable<Subscription>, IValidatableObject
     {
 
         /// <summary>
@@ -177,6 +177,130 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Subscription);
+        }
+
+        /// <summary>
+        /// Returns true if Subscription instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Subscription to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Subscription input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.SteamItemId == input.SteamItemId ||
+                    (this.SteamItemId != null &&
+                    this.SteamItemId.Equals(input.SteamItemId))
+                ) && 
+                (
+                    this.OculusSku == input.OculusSku ||
+                    (this.OculusSku != null &&
+                    this.OculusSku.Equals(input.OculusSku))
+                ) && 
+                (
+                    this.GoogleProductId == input.GoogleProductId ||
+                    (this.GoogleProductId != null &&
+                    this.GoogleProductId.Equals(input.GoogleProductId))
+                ) && 
+                (
+                    this.GooglePlanId == input.GooglePlanId ||
+                    (this.GooglePlanId != null &&
+                    this.GooglePlanId.Equals(input.GooglePlanId))
+                ) && 
+                (
+                    this.PicoSku == input.PicoSku ||
+                    (this.PicoSku != null &&
+                    this.PicoSku.Equals(input.PicoSku))
+                ) && 
+                (
+                    this.AppleProductId == input.AppleProductId ||
+                    (this.AppleProductId != null &&
+                    this.AppleProductId.Equals(input.AppleProductId))
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    this.Amount.Equals(input.Amount)
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Period == input.Period ||
+                    this.Period.Equals(input.Period)
+                ) && 
+                (
+                    this.Tier == input.Tier ||
+                    this.Tier.Equals(input.Tier)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.SteamItemId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SteamItemId.GetHashCode();
+                }
+                if (this.OculusSku != null)
+                {
+                    hashCode = (hashCode * 59) + this.OculusSku.GetHashCode();
+                }
+                if (this.GoogleProductId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GoogleProductId.GetHashCode();
+                }
+                if (this.GooglePlanId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GooglePlanId.GetHashCode();
+                }
+                if (this.PicoSku != null)
+                {
+                    hashCode = (hashCode * 59) + this.PicoSku.GetHashCode();
+                }
+                if (this.AppleProductId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AppleProductId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Period.GetHashCode();
+                hashCode = (hashCode * 59) + this.Tier.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

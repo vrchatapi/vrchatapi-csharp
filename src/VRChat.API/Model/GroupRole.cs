@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// GroupRole
     /// </summary>
     [DataContract(Name = "GroupRole")]
-    public partial class GroupRole : IValidatableObject
+    public partial class GroupRole : IEquatable<GroupRole>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupRole" /> class.
@@ -172,6 +172,132 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as GroupRole);
+        }
+
+        /// <summary>
+        /// Returns true if GroupRole instances are equal
+        /// </summary>
+        /// <param name="input">Instance of GroupRole to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(GroupRole input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.IsSelfAssignable == input.IsSelfAssignable ||
+                    this.IsSelfAssignable.Equals(input.IsSelfAssignable)
+                ) && 
+                (
+                    this.Permissions == input.Permissions ||
+                    this.Permissions != null &&
+                    input.Permissions != null &&
+                    this.Permissions.SequenceEqual(input.Permissions)
+                ) && 
+                (
+                    this.IsManagementRole == input.IsManagementRole ||
+                    this.IsManagementRole.Equals(input.IsManagementRole)
+                ) && 
+                (
+                    this.RequiresTwoFactor == input.RequiresTwoFactor ||
+                    this.RequiresTwoFactor.Equals(input.RequiresTwoFactor)
+                ) && 
+                (
+                    this.RequiresPurchase == input.RequiresPurchase ||
+                    this.RequiresPurchase.Equals(input.RequiresPurchase)
+                ) && 
+                (
+                    this.Order == input.Order ||
+                    this.Order.Equals(input.Order)
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.GroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsSelfAssignable.GetHashCode();
+                if (this.Permissions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsManagementRole.GetHashCode();
+                hashCode = (hashCode * 59) + this.RequiresTwoFactor.GetHashCode();
+                hashCode = (hashCode * 59) + this.RequiresPurchase.GetHashCode();
+                hashCode = (hashCode * 59) + this.Order.GetHashCode();
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

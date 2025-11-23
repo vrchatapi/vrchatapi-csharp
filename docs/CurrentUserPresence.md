@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AvatarThumbnail** | **string** |  | [optional] 
-**CurrentAvatarTags** | **string** |  | [optional] 
+**CurrentAvatarTags** | **List&lt;string&gt;** |  | [optional] 
 **DisplayName** | **string** |  | [optional] 
 **Debugflag** | **string** |  | [optional] 
 **Groups** | **List&lt;string&gt;** |  | [optional] 

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InstanceShortNameResponse
     /// </summary>
     [DataContract(Name = "InstanceShortNameResponse")]
-    public partial class InstanceShortNameResponse : IValidatableObject
+    public partial class InstanceShortNameResponse : IEquatable<InstanceShortNameResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InstanceShortNameResponse" /> class.
@@ -92,6 +92,61 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InstanceShortNameResponse);
+        }
+
+        /// <summary>
+        /// Returns true if InstanceShortNameResponse instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InstanceShortNameResponse to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InstanceShortNameResponse input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.SecureName == input.SecureName ||
+                    (this.SecureName != null &&
+                    this.SecureName.Equals(input.SecureName))
+                ) && 
+                (
+                    this.ShortName == input.ShortName ||
+                    (this.ShortName != null &&
+                    this.ShortName.Equals(input.ShortName))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.SecureName != null)
+                {
+                    hashCode = (hashCode * 59) + this.SecureName.GetHashCode();
+                }
+                if (this.ShortName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

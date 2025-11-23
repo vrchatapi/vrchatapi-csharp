@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// GetUserGroupInstances200Response
     /// </summary>
     [DataContract(Name = "getUserGroupInstances_200_response")]
-    public partial class GetUserGroupInstances200Response : IValidatableObject
+    public partial class GetUserGroupInstances200Response : IEquatable<GetUserGroupInstances200Response>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetUserGroupInstances200Response" /> class.
@@ -76,6 +76,62 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as GetUserGroupInstances200Response);
+        }
+
+        /// <summary>
+        /// Returns true if GetUserGroupInstances200Response instances are equal
+        /// </summary>
+        /// <param name="input">Instance of GetUserGroupInstances200Response to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(GetUserGroupInstances200Response input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.FetchedAt == input.FetchedAt ||
+                    (this.FetchedAt != null &&
+                    this.FetchedAt.Equals(input.FetchedAt))
+                ) && 
+                (
+                    this.Instances == input.Instances ||
+                    this.Instances != null &&
+                    input.Instances != null &&
+                    this.Instances.SequenceEqual(input.Instances)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.FetchedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.FetchedAt.GetHashCode();
+                }
+                if (this.Instances != null)
+                {
+                    hashCode = (hashCode * 59) + this.Instances.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// PastDisplayName
     /// </summary>
     [DataContract(Name = "PastDisplayName")]
-    public partial class PastDisplayName : IValidatableObject
+    public partial class PastDisplayName : IEquatable<PastDisplayName>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
@@ -86,6 +86,61 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as PastDisplayName);
+        }
+
+        /// <summary>
+        /// Returns true if PastDisplayName instances are equal
+        /// </summary>
+        /// <param name="input">Instance of PastDisplayName to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(PastDisplayName input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

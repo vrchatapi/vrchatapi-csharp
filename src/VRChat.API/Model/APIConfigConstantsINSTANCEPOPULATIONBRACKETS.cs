@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Population brackets based on instance population
     /// </summary>
     [DataContract(Name = "APIConfigConstants_INSTANCE_POPULATION_BRACKETS")]
-    public partial class APIConfigConstantsINSTANCEPOPULATIONBRACKETS : IValidatableObject
+    public partial class APIConfigConstantsINSTANCEPOPULATIONBRACKETS : IEquatable<APIConfigConstantsINSTANCEPOPULATIONBRACKETS>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigConstantsINSTANCEPOPULATIONBRACKETS" /> class.
@@ -85,6 +85,70 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigConstantsINSTANCEPOPULATIONBRACKETS);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigConstantsINSTANCEPOPULATIONBRACKETS instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigConstantsINSTANCEPOPULATIONBRACKETS to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigConstantsINSTANCEPOPULATIONBRACKETS input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CROWDED == input.CROWDED ||
+                    (this.CROWDED != null &&
+                    this.CROWDED.Equals(input.CROWDED))
+                ) && 
+                (
+                    this.FEW == input.FEW ||
+                    (this.FEW != null &&
+                    this.FEW.Equals(input.FEW))
+                ) && 
+                (
+                    this.MANY == input.MANY ||
+                    (this.MANY != null &&
+                    this.MANY.Equals(input.MANY))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.CROWDED != null)
+                {
+                    hashCode = (hashCode * 59) + this.CROWDED.GetHashCode();
+                }
+                if (this.FEW != null)
+                {
+                    hashCode = (hashCode * 59) + this.FEW.GetHashCode();
+                }
+                if (this.MANY != null)
+                {
+                    hashCode = (hashCode * 59) + this.MANY.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

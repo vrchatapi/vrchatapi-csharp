@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InfoPushDataArticle
     /// </summary>
     [DataContract(Name = "InfoPushDataArticle")]
-    public partial class InfoPushDataArticle : IValidatableObject
+    public partial class InfoPushDataArticle : IEquatable<InfoPushDataArticle>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushDataArticle" /> class.
@@ -67,6 +67,52 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InfoPushDataArticle);
+        }
+
+        /// <summary>
+        /// Returns true if InfoPushDataArticle instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InfoPushDataArticle to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InfoPushDataArticle input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Content == input.Content ||
+                    (this.Content != null &&
+                    this.Content.Equals(input.Content))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Content != null)
+                {
+                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

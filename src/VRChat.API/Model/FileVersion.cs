@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// FileVersion
     /// </summary>
     [DataContract(Name = "FileVersion")]
-    public partial class FileVersion : IValidatableObject
+    public partial class FileVersion : IEquatable<FileVersion>, IValidatableObject
     {
 
         /// <summary>
@@ -128,6 +128,94 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as FileVersion);
+        }
+
+        /// <summary>
+        /// Returns true if FileVersion instances are equal
+        /// </summary>
+        /// <param name="input">Instance of FileVersion to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(FileVersion input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.Deleted == input.Deleted ||
+                    this.Deleted.Equals(input.Deleted)
+                ) && 
+                (
+                    this.Delta == input.Delta ||
+                    (this.Delta != null &&
+                    this.Delta.Equals(input.Delta))
+                ) && 
+                (
+                    this.File == input.File ||
+                    (this.File != null &&
+                    this.File.Equals(input.File))
+                ) && 
+                (
+                    this.Signature == input.Signature ||
+                    (this.Signature != null &&
+                    this.Signature.Equals(input.Signature))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Deleted.GetHashCode();
+                if (this.Delta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Delta.GetHashCode();
+                }
+                if (this.File != null)
+                {
+                    hashCode = (hashCode * 59) + this.File.GetHashCode();
+                }
+                if (this.Signature != null)
+                {
+                    hashCode = (hashCode * 59) + this.Signature.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

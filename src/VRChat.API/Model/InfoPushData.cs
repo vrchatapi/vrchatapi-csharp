@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InfoPushData
     /// </summary>
     [DataContract(Name = "InfoPushData")]
-    public partial class InfoPushData : IValidatableObject
+    public partial class InfoPushData : IEquatable<InfoPushData>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushData" /> class.
@@ -133,6 +133,115 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InfoPushData);
+        }
+
+        /// <summary>
+        /// Returns true if InfoPushData instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InfoPushData to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InfoPushData input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.ContentList == input.ContentList ||
+                    (this.ContentList != null &&
+                    this.ContentList.Equals(input.ContentList))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.OnPressed == input.OnPressed ||
+                    (this.OnPressed != null &&
+                    this.OnPressed.Equals(input.OnPressed))
+                ) && 
+                (
+                    this.Template == input.Template ||
+                    (this.Template != null &&
+                    this.Template.Equals(input.Template))
+                ) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
+                ) && 
+                (
+                    this.Article == input.Article ||
+                    (this.Article != null &&
+                    this.Article.Equals(input.Article))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.ContentList != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentList.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.OnPressed != null)
+                {
+                    hashCode = (hashCode * 59) + this.OnPressed.GetHashCode();
+                }
+                if (this.Template != null)
+                {
+                    hashCode = (hashCode * 59) + this.Template.GetHashCode();
+                }
+                if (this.VarVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.Article != null)
+                {
+                    hashCode = (hashCode * 59) + this.Article.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

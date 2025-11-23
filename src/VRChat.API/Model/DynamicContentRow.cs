@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// DynamicContentRow
     /// </summary>
     [DataContract(Name = "DynamicContentRow")]
-    public partial class DynamicContentRow : IValidatableObject
+    public partial class DynamicContentRow : IEquatable<DynamicContentRow>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DynamicContentRow" /> class.
@@ -166,6 +166,111 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as DynamicContentRow);
+        }
+
+        /// <summary>
+        /// Returns true if DynamicContentRow instances are equal
+        /// </summary>
+        /// <param name="input">Instance of DynamicContentRow to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(DynamicContentRow input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Index == input.Index ||
+                    this.Index.Equals(input.Index)
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Platform == input.Platform ||
+                    (this.Platform != null &&
+                    this.Platform.Equals(input.Platform))
+                ) && 
+                (
+                    this.SortHeading == input.SortHeading ||
+                    (this.SortHeading != null &&
+                    this.SortHeading.Equals(input.SortHeading))
+                ) && 
+                (
+                    this.SortOrder == input.SortOrder ||
+                    (this.SortOrder != null &&
+                    this.SortOrder.Equals(input.SortOrder))
+                ) && 
+                (
+                    this.SortOwnership == input.SortOwnership ||
+                    (this.SortOwnership != null &&
+                    this.SortOwnership.Equals(input.SortOwnership))
+                ) && 
+                (
+                    this.Tag == input.Tag ||
+                    (this.Tag != null &&
+                    this.Tag.Equals(input.Tag))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Index.GetHashCode();
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.Platform != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                }
+                if (this.SortHeading != null)
+                {
+                    hashCode = (hashCode * 59) + this.SortHeading.GetHashCode();
+                }
+                if (this.SortOrder != null)
+                {
+                    hashCode = (hashCode * 59) + this.SortOrder.GetHashCode();
+                }
+                if (this.SortOwnership != null)
+                {
+                    hashCode = (hashCode * 59) + this.SortOwnership.GetHashCode();
+                }
+                if (this.Tag != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tag.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

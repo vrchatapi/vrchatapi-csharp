@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// StoreShelf
     /// </summary>
     [DataContract(Name = "StoreShelf")]
-    public partial class StoreShelf : IValidatableObject
+    public partial class StoreShelf : IEquatable<StoreShelf>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StoreShelf" /> class.
@@ -159,6 +159,108 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as StoreShelf);
+        }
+
+        /// <summary>
+        /// Returns true if StoreShelf instances are equal
+        /// </summary>
+        /// <param name="input">Instance of StoreShelf to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(StoreShelf input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.ListingIds == input.ListingIds ||
+                    this.ListingIds != null &&
+                    input.ListingIds != null &&
+                    this.ListingIds.SequenceEqual(input.ListingIds)
+                ) && 
+                (
+                    this.Listings == input.Listings ||
+                    this.Listings != null &&
+                    input.Listings != null &&
+                    this.Listings.SequenceEqual(input.Listings)
+                ) && 
+                (
+                    this.ShelfDescription == input.ShelfDescription ||
+                    (this.ShelfDescription != null &&
+                    this.ShelfDescription.Equals(input.ShelfDescription))
+                ) && 
+                (
+                    this.ShelfLayout == input.ShelfLayout ||
+                    (this.ShelfLayout != null &&
+                    this.ShelfLayout.Equals(input.ShelfLayout))
+                ) && 
+                (
+                    this.ShelfTitle == input.ShelfTitle ||
+                    (this.ShelfTitle != null &&
+                    this.ShelfTitle.Equals(input.ShelfTitle))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.ListingIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.ListingIds.GetHashCode();
+                }
+                if (this.Listings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Listings.GetHashCode();
+                }
+                if (this.ShelfDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShelfDescription.GetHashCode();
+                }
+                if (this.ShelfLayout != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShelfLayout.GetHashCode();
+                }
+                if (this.ShelfTitle != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShelfTitle.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

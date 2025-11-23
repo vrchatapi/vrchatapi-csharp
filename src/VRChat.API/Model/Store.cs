@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Store
     /// </summary>
     [DataContract(Name = "Store")]
-    public partial class Store : IValidatableObject
+    public partial class Store : IEquatable<Store>, IValidatableObject
     {
 
         /// <summary>
@@ -245,6 +245,170 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Store);
+        }
+
+        /// <summary>
+        /// Returns true if Store instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Store to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Store input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.SellerDisplayName == input.SellerDisplayName ||
+                    (this.SellerDisplayName != null &&
+                    this.SellerDisplayName.Equals(input.SellerDisplayName))
+                ) && 
+                (
+                    this.SellerId == input.SellerId ||
+                    (this.SellerId != null &&
+                    this.SellerId.Equals(input.SellerId))
+                ) && 
+                (
+                    this.StoreId == input.StoreId ||
+                    (this.StoreId != null &&
+                    this.StoreId.Equals(input.StoreId))
+                ) && 
+                (
+                    this.StoreType == input.StoreType ||
+                    this.StoreType.Equals(input.StoreType)
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.ListingIds == input.ListingIds ||
+                    this.ListingIds != null &&
+                    input.ListingIds != null &&
+                    this.ListingIds.SequenceEqual(input.ListingIds)
+                ) && 
+                (
+                    this.Listings == input.Listings ||
+                    this.Listings != null &&
+                    input.Listings != null &&
+                    this.Listings.SequenceEqual(input.Listings)
+                ) && 
+                (
+                    this.WorldId == input.WorldId ||
+                    (this.WorldId != null &&
+                    this.WorldId.Equals(input.WorldId))
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
+                ) && 
+                (
+                    this.ShelfIds == input.ShelfIds ||
+                    this.ShelfIds != null &&
+                    input.ShelfIds != null &&
+                    this.ShelfIds.SequenceEqual(input.ShelfIds)
+                ) && 
+                (
+                    this.Shelves == input.Shelves ||
+                    this.Shelves != null &&
+                    input.Shelves != null &&
+                    this.Shelves.SequenceEqual(input.Shelves)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.SellerDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.SellerDisplayName.GetHashCode();
+                }
+                if (this.SellerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SellerId.GetHashCode();
+                }
+                if (this.StoreId != null)
+                {
+                    hashCode = (hashCode * 59) + this.StoreId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.StoreType.GetHashCode();
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.ListingIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.ListingIds.GetHashCode();
+                }
+                if (this.Listings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Listings.GetHashCode();
+                }
+                if (this.WorldId != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorldId.GetHashCode();
+                }
+                if (this.GroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
+                if (this.ShelfIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShelfIds.GetHashCode();
+                }
+                if (this.Shelves != null)
+                {
+                    hashCode = (hashCode * 59) + this.Shelves.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

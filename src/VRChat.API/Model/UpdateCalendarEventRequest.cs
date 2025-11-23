@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateCalendarEventRequest
     /// </summary>
     [DataContract(Name = "UpdateCalendarEventRequest")]
-    public partial class UpdateCalendarEventRequest : IValidatableObject
+    public partial class UpdateCalendarEventRequest : IEquatable<UpdateCalendarEventRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateCalendarEventRequest" /> class.
@@ -248,6 +248,181 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UpdateCalendarEventRequest);
+        }
+
+        /// <summary>
+        /// Returns true if UpdateCalendarEventRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UpdateCalendarEventRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UpdateCalendarEventRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.StartsAt == input.StartsAt ||
+                    (this.StartsAt != null &&
+                    this.StartsAt.Equals(input.StartsAt))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.EndsAt == input.EndsAt ||
+                    (this.EndsAt != null &&
+                    this.EndsAt.Equals(input.EndsAt))
+                ) && 
+                (
+                    this.Category == input.Category ||
+                    (this.Category != null &&
+                    this.Category.Equals(input.Category))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.IsDraft == input.IsDraft ||
+                    this.IsDraft.Equals(input.IsDraft)
+                ) && 
+                (
+                    this.ImageId == input.ImageId ||
+                    (this.ImageId != null &&
+                    this.ImageId.Equals(input.ImageId))
+                ) && 
+                (
+                    this.RoleIds == input.RoleIds ||
+                    this.RoleIds != null &&
+                    input.RoleIds != null &&
+                    this.RoleIds.SequenceEqual(input.RoleIds)
+                ) && 
+                (
+                    this.ParentId == input.ParentId ||
+                    (this.ParentId != null &&
+                    this.ParentId.Equals(input.ParentId))
+                ) && 
+                (
+                    this.Platforms == input.Platforms ||
+                    this.Platforms != null &&
+                    input.Platforms != null &&
+                    this.Platforms.SequenceEqual(input.Platforms)
+                ) && 
+                (
+                    this.Languages == input.Languages ||
+                    this.Languages != null &&
+                    input.Languages != null &&
+                    this.Languages.SequenceEqual(input.Languages)
+                ) && 
+                (
+                    this.SendCreationNotification == input.SendCreationNotification ||
+                    this.SendCreationNotification.Equals(input.SendCreationNotification)
+                ) && 
+                (
+                    this.Featured == input.Featured ||
+                    this.Featured.Equals(input.Featured)
+                ) && 
+                (
+                    this.HostEarlyJoinMinutes == input.HostEarlyJoinMinutes ||
+                    this.HostEarlyJoinMinutes.Equals(input.HostEarlyJoinMinutes)
+                ) && 
+                (
+                    this.GuestEarlyJoinMinutes == input.GuestEarlyJoinMinutes ||
+                    this.GuestEarlyJoinMinutes.Equals(input.GuestEarlyJoinMinutes)
+                ) && 
+                (
+                    this.CloseInstanceAfterEndMinutes == input.CloseInstanceAfterEndMinutes ||
+                    this.CloseInstanceAfterEndMinutes.Equals(input.CloseInstanceAfterEndMinutes)
+                ) && 
+                (
+                    this.UsesInstanceOverflow == input.UsesInstanceOverflow ||
+                    this.UsesInstanceOverflow.Equals(input.UsesInstanceOverflow)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Title != null)
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.StartsAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.StartsAt.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.EndsAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.EndsAt.GetHashCode();
+                }
+                if (this.Category != null)
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsDraft.GetHashCode();
+                if (this.ImageId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
+                }
+                if (this.RoleIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
+                }
+                if (this.ParentId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParentId.GetHashCode();
+                }
+                if (this.Platforms != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platforms.GetHashCode();
+                }
+                if (this.Languages != null)
+                {
+                    hashCode = (hashCode * 59) + this.Languages.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SendCreationNotification.GetHashCode();
+                hashCode = (hashCode * 59) + this.Featured.GetHashCode();
+                hashCode = (hashCode * 59) + this.HostEarlyJoinMinutes.GetHashCode();
+                hashCode = (hashCode * 59) + this.GuestEarlyJoinMinutes.GetHashCode();
+                hashCode = (hashCode * 59) + this.CloseInstanceAfterEndMinutes.GetHashCode();
+                hashCode = (hashCode * 59) + this.UsesInstanceOverflow.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

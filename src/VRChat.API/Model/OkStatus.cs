@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// A status response consisting of solely a string description of whether the result of an operation was ok.
     /// </summary>
     [DataContract(Name = "OkStatus")]
-    public partial class OkStatus : IValidatableObject
+    public partial class OkStatus : IEquatable<OkStatus>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OkStatus" /> class.
@@ -78,6 +78,52 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as OkStatus);
+        }
+
+        /// <summary>
+        /// Returns true if OkStatus instances are equal
+        /// </summary>
+        /// <param name="input">Instance of OkStatus to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(OkStatus input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Ok == input.Ok ||
+                    (this.Ok != null &&
+                    this.Ok.Equals(input.Ok))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Ok != null)
+                {
+                    hashCode = (hashCode * 59) + this.Ok.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

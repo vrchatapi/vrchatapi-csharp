@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CreateGroupRequest
     /// </summary>
     [DataContract(Name = "CreateGroupRequest")]
-    public partial class CreateGroupRequest : IValidatableObject
+    public partial class CreateGroupRequest : IEquatable<CreateGroupRequest>, IValidatableObject
     {
 
         /// <summary>
@@ -145,6 +145,103 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CreateGroupRequest);
+        }
+
+        /// <summary>
+        /// Returns true if CreateGroupRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CreateGroupRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CreateGroupRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.ShortCode == input.ShortCode ||
+                    (this.ShortCode != null &&
+                    this.ShortCode.Equals(input.ShortCode))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.JoinState == input.JoinState ||
+                    this.JoinState.Equals(input.JoinState)
+                ) && 
+                (
+                    this.IconId == input.IconId ||
+                    (this.IconId != null &&
+                    this.IconId.Equals(input.IconId))
+                ) && 
+                (
+                    this.BannerId == input.BannerId ||
+                    (this.BannerId != null &&
+                    this.BannerId.Equals(input.BannerId))
+                ) && 
+                (
+                    this.Privacy == input.Privacy ||
+                    this.Privacy.Equals(input.Privacy)
+                ) && 
+                (
+                    this.RoleTemplate == input.RoleTemplate ||
+                    this.RoleTemplate.Equals(input.RoleTemplate)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.ShortCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.JoinState.GetHashCode();
+                if (this.IconId != null)
+                {
+                    hashCode = (hashCode * 59) + this.IconId.GetHashCode();
+                }
+                if (this.BannerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.BannerId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Privacy.GetHashCode();
+                hashCode = (hashCode * 59) + this.RoleTemplate.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// APIConfigAvatarPerfLimiter
     /// </summary>
     [DataContract(Name = "APIConfig_avatarPerfLimiter")]
-    public partial class APIConfigAvatarPerfLimiter : IValidatableObject
+    public partial class APIConfigAvatarPerfLimiter : IEquatable<APIConfigAvatarPerfLimiter>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigAvatarPerfLimiter" /> class.
@@ -147,6 +147,97 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigAvatarPerfLimiter);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigAvatarPerfLimiter instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigAvatarPerfLimiter to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigAvatarPerfLimiter input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AndroidMobile == input.AndroidMobile ||
+                    (this.AndroidMobile != null &&
+                    this.AndroidMobile.Equals(input.AndroidMobile))
+                ) && 
+                (
+                    this.PC == input.PC ||
+                    (this.PC != null &&
+                    this.PC.Equals(input.PC))
+                ) && 
+                (
+                    this.Pico == input.Pico ||
+                    (this.Pico != null &&
+                    this.Pico.Equals(input.Pico))
+                ) && 
+                (
+                    this.Quest == input.Quest ||
+                    (this.Quest != null &&
+                    this.Quest.Equals(input.Quest))
+                ) && 
+                (
+                    this.XRElite == input.XRElite ||
+                    (this.XRElite != null &&
+                    this.XRElite.Equals(input.XRElite))
+                ) && 
+                (
+                    this.IOSMobile == input.IOSMobile ||
+                    (this.IOSMobile != null &&
+                    this.IOSMobile.Equals(input.IOSMobile))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.AndroidMobile != null)
+                {
+                    hashCode = (hashCode * 59) + this.AndroidMobile.GetHashCode();
+                }
+                if (this.PC != null)
+                {
+                    hashCode = (hashCode * 59) + this.PC.GetHashCode();
+                }
+                if (this.Pico != null)
+                {
+                    hashCode = (hashCode * 59) + this.Pico.GetHashCode();
+                }
+                if (this.Quest != null)
+                {
+                    hashCode = (hashCode * 59) + this.Quest.GetHashCode();
+                }
+                if (this.XRElite != null)
+                {
+                    hashCode = (hashCode * 59) + this.XRElite.GetHashCode();
+                }
+                if (this.IOSMobile != null)
+                {
+                    hashCode = (hashCode * 59) + this.IOSMobile.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

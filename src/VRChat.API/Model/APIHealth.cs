@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// APIHealth
     /// </summary>
     [DataContract(Name = "APIHealth")]
-    public partial class APIHealth : IValidatableObject
+    public partial class APIHealth : IEquatable<APIHealth>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIHealth" /> class.
@@ -100,6 +100,66 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIHealth);
+        }
+
+        /// <summary>
+        /// Returns true if APIHealth instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIHealth to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIHealth input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Ok == input.Ok ||
+                    this.Ok.Equals(input.Ok)
+                ) && 
+                (
+                    this.ServerName == input.ServerName ||
+                    (this.ServerName != null &&
+                    this.ServerName.Equals(input.ServerName))
+                ) && 
+                (
+                    this.BuildVersionTag == input.BuildVersionTag ||
+                    (this.BuildVersionTag != null &&
+                    this.BuildVersionTag.Equals(input.BuildVersionTag))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Ok.GetHashCode();
+                if (this.ServerName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ServerName.GetHashCode();
+                }
+                if (this.BuildVersionTag != null)
+                {
+                    hashCode = (hashCode * 59) + this.BuildVersionTag.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

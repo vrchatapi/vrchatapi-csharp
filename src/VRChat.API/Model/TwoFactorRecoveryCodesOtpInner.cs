@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// TwoFactorRecoveryCodesOtpInner
     /// </summary>
     [DataContract(Name = "TwoFactorRecoveryCodes_otp_inner")]
-    public partial class TwoFactorRecoveryCodesOtpInner : IValidatableObject
+    public partial class TwoFactorRecoveryCodesOtpInner : IEquatable<TwoFactorRecoveryCodesOtpInner>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TwoFactorRecoveryCodesOtpInner" /> class.
@@ -86,6 +86,57 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as TwoFactorRecoveryCodesOtpInner);
+        }
+
+        /// <summary>
+        /// Returns true if TwoFactorRecoveryCodesOtpInner instances are equal
+        /// </summary>
+        /// <param name="input">Instance of TwoFactorRecoveryCodesOtpInner to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(TwoFactorRecoveryCodesOtpInner input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
+                    this.Used == input.Used ||
+                    this.Used.Equals(input.Used)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Used.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

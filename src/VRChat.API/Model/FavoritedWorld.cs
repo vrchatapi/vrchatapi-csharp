@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// FavoritedWorld
     /// </summary>
     [DataContract(Name = "FavoritedWorld")]
-    public partial class FavoritedWorld : IValidatableObject
+    public partial class FavoritedWorld : IEquatable<FavoritedWorld>, IValidatableObject
     {
 
         /// <summary>
@@ -443,6 +443,277 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as FavoritedWorld);
+        }
+
+        /// <summary>
+        /// Returns true if FavoritedWorld instances are equal
+        /// </summary>
+        /// <param name="input">Instance of FavoritedWorld to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(FavoritedWorld input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AuthorId == input.AuthorId ||
+                    (this.AuthorId != null &&
+                    this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
+                    this.AuthorName == input.AuthorName ||
+                    (this.AuthorName != null &&
+                    this.AuthorName.Equals(input.AuthorName))
+                ) && 
+                (
+                    this.Capacity == input.Capacity ||
+                    this.Capacity.Equals(input.Capacity)
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.RecommendedCapacity == input.RecommendedCapacity ||
+                    this.RecommendedCapacity.Equals(input.RecommendedCapacity)
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.DefaultContentSettings == input.DefaultContentSettings ||
+                    (this.DefaultContentSettings != null &&
+                    this.DefaultContentSettings.Equals(input.DefaultContentSettings))
+                ) && 
+                (
+                    this.Favorites == input.Favorites ||
+                    this.Favorites.Equals(input.Favorites)
+                ) && 
+                (
+                    this.FavoriteGroup == input.FavoriteGroup ||
+                    (this.FavoriteGroup != null &&
+                    this.FavoriteGroup.Equals(input.FavoriteGroup))
+                ) && 
+                (
+                    this.FavoriteId == input.FavoriteId ||
+                    (this.FavoriteId != null &&
+                    this.FavoriteId.Equals(input.FavoriteId))
+                ) && 
+                (
+                    this.Featured == input.Featured ||
+                    this.Featured.Equals(input.Featured)
+                ) && 
+                (
+                    this.Visits == input.Visits ||
+                    this.Visits.Equals(input.Visits)
+                ) && 
+                (
+                    this.Heat == input.Heat ||
+                    this.Heat.Equals(input.Heat)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.LabsPublicationDate == input.LabsPublicationDate ||
+                    (this.LabsPublicationDate != null &&
+                    this.LabsPublicationDate.Equals(input.LabsPublicationDate))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Occupants == input.Occupants ||
+                    this.Occupants.Equals(input.Occupants)
+                ) && 
+                (
+                    this.Organization == input.Organization ||
+                    (this.Organization != null &&
+                    this.Organization.Equals(input.Organization))
+                ) && 
+                (
+                    this.Popularity == input.Popularity ||
+                    this.Popularity.Equals(input.Popularity)
+                ) && 
+                (
+                    this.PreviewYoutubeId == input.PreviewYoutubeId ||
+                    (this.PreviewYoutubeId != null &&
+                    this.PreviewYoutubeId.Equals(input.PreviewYoutubeId))
+                ) && 
+                (
+                    this.PublicationDate == input.PublicationDate ||
+                    (this.PublicationDate != null &&
+                    this.PublicationDate.Equals(input.PublicationDate))
+                ) && 
+                (
+                    this.ReleaseStatus == input.ReleaseStatus ||
+                    this.ReleaseStatus.Equals(input.ReleaseStatus)
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.ThumbnailImageUrl == input.ThumbnailImageUrl ||
+                    (this.ThumbnailImageUrl != null &&
+                    this.ThumbnailImageUrl.Equals(input.ThumbnailImageUrl))
+                ) && 
+                (
+                    this.UnityPackages == input.UnityPackages ||
+                    this.UnityPackages != null &&
+                    input.UnityPackages != null &&
+                    this.UnityPackages.SequenceEqual(input.UnityPackages)
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.UrlList == input.UrlList ||
+                    this.UrlList != null &&
+                    input.UrlList != null &&
+                    this.UrlList.SequenceEqual(input.UrlList)
+                ) && 
+                (
+                    this.UdonProducts == input.UdonProducts ||
+                    this.UdonProducts != null &&
+                    input.UdonProducts != null &&
+                    this.UdonProducts.SequenceEqual(input.UdonProducts)
+                ) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.AuthorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
+                if (this.AuthorName != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Capacity.GetHashCode();
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RecommendedCapacity.GetHashCode();
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.DefaultContentSettings != null)
+                {
+                    hashCode = (hashCode * 59) + this.DefaultContentSettings.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Favorites.GetHashCode();
+                if (this.FavoriteGroup != null)
+                {
+                    hashCode = (hashCode * 59) + this.FavoriteGroup.GetHashCode();
+                }
+                if (this.FavoriteId != null)
+                {
+                    hashCode = (hashCode * 59) + this.FavoriteId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Featured.GetHashCode();
+                hashCode = (hashCode * 59) + this.Visits.GetHashCode();
+                hashCode = (hashCode * 59) + this.Heat.GetHashCode();
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                if (this.LabsPublicationDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.LabsPublicationDate.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Occupants.GetHashCode();
+                if (this.Organization != null)
+                {
+                    hashCode = (hashCode * 59) + this.Organization.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Popularity.GetHashCode();
+                if (this.PreviewYoutubeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviewYoutubeId.GetHashCode();
+                }
+                if (this.PublicationDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PublicationDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.ThumbnailImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
+                }
+                if (this.UnityPackages != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackages.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                if (this.UrlList != null)
+                {
+                    hashCode = (hashCode * 59) + this.UrlList.GetHashCode();
+                }
+                if (this.UdonProducts != null)
+                {
+                    hashCode = (hashCode * 59) + this.UdonProducts.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

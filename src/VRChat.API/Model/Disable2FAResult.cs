@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Disable2FAResult
     /// </summary>
     [DataContract(Name = "Disable2FAResult")]
-    public partial class Disable2FAResult : IValidatableObject
+    public partial class Disable2FAResult : IEquatable<Disable2FAResult>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Disable2FAResult" /> class.
@@ -72,6 +72,48 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Disable2FAResult);
+        }
+
+        /// <summary>
+        /// Returns true if Disable2FAResult instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Disable2FAResult to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Disable2FAResult input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Removed == input.Removed ||
+                    this.Removed.Equals(input.Removed)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Removed.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

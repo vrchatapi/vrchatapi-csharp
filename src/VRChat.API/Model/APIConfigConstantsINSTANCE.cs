@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Instance-related constants
     /// </summary>
     [DataContract(Name = "APIConfigConstants_INSTANCE")]
-    public partial class APIConfigConstantsINSTANCE : IValidatableObject
+    public partial class APIConfigConstantsINSTANCE : IEquatable<APIConfigConstantsINSTANCE>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigConstantsINSTANCE" /> class.
@@ -67,6 +67,52 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigConstantsINSTANCE);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigConstantsINSTANCE instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigConstantsINSTANCE to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigConstantsINSTANCE input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.POPULATION_BRACKETS == input.POPULATION_BRACKETS ||
+                    (this.POPULATION_BRACKETS != null &&
+                    this.POPULATION_BRACKETS.Equals(input.POPULATION_BRACKETS))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.POPULATION_BRACKETS != null)
+                {
+                    hashCode = (hashCode * 59) + this.POPULATION_BRACKETS.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

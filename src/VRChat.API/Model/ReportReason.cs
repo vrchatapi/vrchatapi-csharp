@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// A reason used for reporting users
     /// </summary>
     [DataContract(Name = "ReportReason")]
-    public partial class ReportReason : IValidatableObject
+    public partial class ReportReason : IEquatable<ReportReason>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportReason" /> class.
@@ -93,6 +93,61 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as ReportReason);
+        }
+
+        /// <summary>
+        /// Returns true if ReportReason instances are equal
+        /// </summary>
+        /// <param name="input">Instance of ReportReason to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(ReportReason input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.Tooltip == input.Tooltip ||
+                    (this.Tooltip != null &&
+                    this.Tooltip.Equals(input.Tooltip))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Text != null)
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                if (this.Tooltip != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tooltip.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

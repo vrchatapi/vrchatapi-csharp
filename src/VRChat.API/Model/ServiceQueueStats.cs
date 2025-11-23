@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Statistics about the user&#39;s currently queued service request
     /// </summary>
     [DataContract(Name = "ServiceQueueStats")]
-    public partial class ServiceQueueStats : IValidatableObject
+    public partial class ServiceQueueStats : IEquatable<ServiceQueueStats>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceQueueStats" /> class.
@@ -72,6 +72,48 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as ServiceQueueStats);
+        }
+
+        /// <summary>
+        /// Returns true if ServiceQueueStats instances are equal
+        /// </summary>
+        /// <param name="input">Instance of ServiceQueueStats to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(ServiceQueueStats input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.EstimatedServiceDurationSeconds == input.EstimatedServiceDurationSeconds ||
+                    this.EstimatedServiceDurationSeconds.Equals(input.EstimatedServiceDurationSeconds)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.EstimatedServiceDurationSeconds.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

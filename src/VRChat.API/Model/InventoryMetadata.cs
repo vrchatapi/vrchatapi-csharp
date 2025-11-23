@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InventoryMetadata
     /// </summary>
     [DataContract(Name = "InventoryMetadata")]
-    public partial class InventoryMetadata : IValidatableObject
+    public partial class InventoryMetadata : IEquatable<InventoryMetadata>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InventoryMetadata" /> class.
@@ -134,6 +134,112 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InventoryMetadata);
+        }
+
+        /// <summary>
+        /// Returns true if InventoryMetadata instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InventoryMetadata to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InventoryMetadata input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.InventoryItemsToInstantiate == input.InventoryItemsToInstantiate ||
+                    this.InventoryItemsToInstantiate != null &&
+                    input.InventoryItemsToInstantiate != null &&
+                    this.InventoryItemsToInstantiate.SequenceEqual(input.InventoryItemsToInstantiate)
+                ) && 
+                (
+                    this.Animated == input.Animated ||
+                    this.Animated.Equals(input.Animated)
+                ) && 
+                (
+                    this.AnimationStyle == input.AnimationStyle ||
+                    (this.AnimationStyle != null &&
+                    this.AnimationStyle.Equals(input.AnimationStyle))
+                ) && 
+                (
+                    this.AssetBundleId == input.AssetBundleId ||
+                    (this.AssetBundleId != null &&
+                    this.AssetBundleId.Equals(input.AssetBundleId))
+                ) && 
+                (
+                    this.FileId == input.FileId ||
+                    (this.FileId != null &&
+                    this.FileId.Equals(input.FileId))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.MaskTag == input.MaskTag ||
+                    (this.MaskTag != null &&
+                    this.MaskTag.Equals(input.MaskTag))
+                ) && 
+                (
+                    this.PropId == input.PropId ||
+                    (this.PropId != null &&
+                    this.PropId.Equals(input.PropId))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.InventoryItemsToInstantiate != null)
+                {
+                    hashCode = (hashCode * 59) + this.InventoryItemsToInstantiate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Animated.GetHashCode();
+                if (this.AnimationStyle != null)
+                {
+                    hashCode = (hashCode * 59) + this.AnimationStyle.GetHashCode();
+                }
+                if (this.AssetBundleId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AssetBundleId.GetHashCode();
+                }
+                if (this.FileId != null)
+                {
+                    hashCode = (hashCode * 59) + this.FileId.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                if (this.MaskTag != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaskTag.GetHashCode();
+                }
+                if (this.PropId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PropId.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

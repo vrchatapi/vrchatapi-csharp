@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InviteMessage
     /// </summary>
     [DataContract(Name = "InviteMessage")]
-    public partial class InviteMessage : IValidatableObject
+    public partial class InviteMessage : IEquatable<InviteMessage>, IValidatableObject
     {
 
         /// <summary>
@@ -140,6 +140,90 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InviteMessage);
+        }
+
+        /// <summary>
+        /// Returns true if InviteMessage instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InviteMessage to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InviteMessage input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CanBeUpdated == input.CanBeUpdated ||
+                    this.CanBeUpdated.Equals(input.CanBeUpdated)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
+                ) && 
+                (
+                    this.MessageType == input.MessageType ||
+                    this.MessageType.Equals(input.MessageType)
+                ) && 
+                (
+                    this.RemainingCooldownMinutes == input.RemainingCooldownMinutes ||
+                    this.RemainingCooldownMinutes.Equals(input.RemainingCooldownMinutes)
+                ) && 
+                (
+                    this.Slot == input.Slot ||
+                    this.Slot.Equals(input.Slot)
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.CanBeUpdated.GetHashCode();
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Message != null)
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MessageType.GetHashCode();
+                hashCode = (hashCode * 59) + this.RemainingCooldownMinutes.GetHashCode();
+                hashCode = (hashCode * 59) + this.Slot.GetHashCode();
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

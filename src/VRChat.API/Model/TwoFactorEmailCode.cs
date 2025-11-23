@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// TwoFactorEmailCode
     /// </summary>
     [DataContract(Name = "TwoFactorEmailCode")]
-    public partial class TwoFactorEmailCode : IValidatableObject
+    public partial class TwoFactorEmailCode : IEquatable<TwoFactorEmailCode>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
@@ -77,6 +77,52 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as TwoFactorEmailCode);
+        }
+
+        /// <summary>
+        /// Returns true if TwoFactorEmailCode instances are equal
+        /// </summary>
+        /// <param name="input">Instance of TwoFactorEmailCode to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(TwoFactorEmailCode input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Code != null)
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

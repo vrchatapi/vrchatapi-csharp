@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// SentNotification
     /// </summary>
     [DataContract(Name = "SentNotification")]
-    public partial class SentNotification : IValidatableObject
+    public partial class SentNotification : IEquatable<SentNotification>, IValidatableObject
     {
 
         /// <summary>
@@ -176,6 +176,111 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as SentNotification);
+        }
+
+        /// <summary>
+        /// Returns true if SentNotification instances are equal
+        /// </summary>
+        /// <param name="input">Instance of SentNotification to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(SentNotification input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.Details == input.Details ||
+                    (this.Details != null &&
+                    this.Details.Equals(input.Details))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
+                ) && 
+                (
+                    this.ReceiverUserId == input.ReceiverUserId ||
+                    (this.ReceiverUserId != null &&
+                    this.ReceiverUserId.Equals(input.ReceiverUserId))
+                ) && 
+                (
+                    this.SenderUserId == input.SenderUserId ||
+                    (this.SenderUserId != null &&
+                    this.SenderUserId.Equals(input.SenderUserId))
+                ) && 
+                (
+                    this.SenderUsername == input.SenderUsername ||
+                    (this.SenderUsername != null &&
+                    this.SenderUsername.Equals(input.SenderUsername))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.Details != null)
+                {
+                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Message != null)
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                if (this.ReceiverUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReceiverUserId.GetHashCode();
+                }
+                if (this.SenderUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SenderUserId.GetHashCode();
+                }
+                if (this.SenderUsername != null)
+                {
+                    hashCode = (hashCode * 59) + this.SenderUsername.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

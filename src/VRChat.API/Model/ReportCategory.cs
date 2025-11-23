@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// A category used for reporting content
     /// </summary>
     [DataContract(Name = "ReportCategory")]
-    public partial class ReportCategory : IValidatableObject
+    public partial class ReportCategory : IEquatable<ReportCategory>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportCategory" /> class.
@@ -113,6 +113,79 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as ReportCategory);
+        }
+
+        /// <summary>
+        /// Returns true if ReportCategory instances are equal
+        /// </summary>
+        /// <param name="input">Instance of ReportCategory to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(ReportCategory input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.Tooltip == input.Tooltip ||
+                    (this.Tooltip != null &&
+                    this.Tooltip.Equals(input.Tooltip))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.Title != null)
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.Text != null)
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                if (this.Tooltip != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tooltip.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

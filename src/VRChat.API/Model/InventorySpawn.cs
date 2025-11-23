@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InventorySpawn
     /// </summary>
     [DataContract(Name = "InventorySpawn")]
-    public partial class InventorySpawn : IValidatableObject
+    public partial class InventorySpawn : IEquatable<InventorySpawn>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InventorySpawn" /> class.
@@ -86,6 +86,57 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InventorySpawn);
+        }
+
+        /// <summary>
+        /// Returns true if InventorySpawn instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InventorySpawn to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InventorySpawn input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Token == input.Token ||
+                    (this.Token != null &&
+                    this.Token.Equals(input.Token))
+                ) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Token != null)
+                {
+                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Feedback
     /// </summary>
     [DataContract(Name = "Feedback")]
-    public partial class Feedback : IValidatableObject
+    public partial class Feedback : IEquatable<Feedback>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Feedback" /> class.
@@ -246,6 +246,161 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Feedback);
+        }
+
+        /// <summary>
+        /// Returns true if Feedback instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Feedback to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Feedback input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CommenterId == input.CommenterId ||
+                    (this.CommenterId != null &&
+                    this.CommenterId.Equals(input.CommenterId))
+                ) && 
+                (
+                    this.CommenterName == input.CommenterName ||
+                    (this.CommenterName != null &&
+                    this.CommenterName.Equals(input.CommenterName))
+                ) && 
+                (
+                    this.ContentAuthorId == input.ContentAuthorId ||
+                    (this.ContentAuthorId != null &&
+                    this.ContentAuthorId.Equals(input.ContentAuthorId))
+                ) && 
+                (
+                    this.ContentAuthorName == input.ContentAuthorName ||
+                    (this.ContentAuthorName != null &&
+                    this.ContentAuthorName.Equals(input.ContentAuthorName))
+                ) && 
+                (
+                    this.ContentId == input.ContentId ||
+                    (this.ContentId != null &&
+                    this.ContentId.Equals(input.ContentId))
+                ) && 
+                (
+                    this.ContentName == input.ContentName ||
+                    (this.ContentName != null &&
+                    this.ContentName.Equals(input.ContentName))
+                ) && 
+                (
+                    this.ContentType == input.ContentType ||
+                    (this.ContentType != null &&
+                    this.ContentType.Equals(input.ContentType))
+                ) && 
+                (
+                    this.ContentVersion == input.ContentVersion ||
+                    (this.ContentVersion != null &&
+                    this.ContentVersion.Equals(input.ContentVersion))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.CommenterId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CommenterId.GetHashCode();
+                }
+                if (this.CommenterName != null)
+                {
+                    hashCode = (hashCode * 59) + this.CommenterName.GetHashCode();
+                }
+                if (this.ContentAuthorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentAuthorId.GetHashCode();
+                }
+                if (this.ContentAuthorName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentAuthorName.GetHashCode();
+                }
+                if (this.ContentId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentId.GetHashCode();
+                }
+                if (this.ContentName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentName.GetHashCode();
+                }
+                if (this.ContentType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentType.GetHashCode();
+                }
+                if (this.ContentVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentVersion.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Reason != null)
+                {
+                    hashCode = (hashCode * 59) + this.Reason.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

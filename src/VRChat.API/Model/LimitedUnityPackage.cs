@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// LimitedUnityPackage
     /// </summary>
     [DataContract(Name = "LimitedUnityPackage")]
-    public partial class LimitedUnityPackage : IValidatableObject
+    public partial class LimitedUnityPackage : IEquatable<LimitedUnityPackage>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LimitedUnityPackage" /> class.
@@ -112,6 +112,70 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as LimitedUnityPackage);
+        }
+
+        /// <summary>
+        /// Returns true if LimitedUnityPackage instances are equal
+        /// </summary>
+        /// <param name="input">Instance of LimitedUnityPackage to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(LimitedUnityPackage input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.Platform == input.Platform ||
+                    (this.Platform != null &&
+                    this.Platform.Equals(input.Platform))
+                ) && 
+                (
+                    this.UnityVersion == input.UnityVersion ||
+                    (this.UnityVersion != null &&
+                    this.UnityVersion.Equals(input.UnityVersion))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.Platform != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                }
+                if (this.UnityVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnityVersion.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// File
     /// </summary>
     [DataContract(Name = "File")]
-    public partial class File : IValidatableObject
+    public partial class File : IEquatable<File>, IValidatableObject
     {
 
         /// <summary>
@@ -195,6 +195,122 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as File);
+        }
+
+        /// <summary>
+        /// Returns true if File instances are equal
+        /// </summary>
+        /// <param name="input">Instance of File to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(File input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AnimationStyle == input.AnimationStyle ||
+                    (this.AnimationStyle != null &&
+                    this.AnimationStyle.Equals(input.AnimationStyle))
+                ) && 
+                (
+                    this.MaskTag == input.MaskTag ||
+                    (this.MaskTag != null &&
+                    this.MaskTag.Equals(input.MaskTag))
+                ) && 
+                (
+                    this.Extension == input.Extension ||
+                    (this.Extension != null &&
+                    this.Extension.Equals(input.Extension))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.MimeType == input.MimeType ||
+                    this.MimeType.Equals(input.MimeType)
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.Versions == input.Versions ||
+                    this.Versions != null &&
+                    input.Versions != null &&
+                    this.Versions.SequenceEqual(input.Versions)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.AnimationStyle != null)
+                {
+                    hashCode = (hashCode * 59) + this.AnimationStyle.GetHashCode();
+                }
+                if (this.MaskTag != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaskTag.GetHashCode();
+                }
+                if (this.Extension != null)
+                {
+                    hashCode = (hashCode * 59) + this.Extension.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MimeType.GetHashCode();
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.OwnerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.Versions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Versions.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

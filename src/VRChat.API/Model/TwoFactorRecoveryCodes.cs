@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// TwoFactorRecoveryCodes
     /// </summary>
     [DataContract(Name = "TwoFactorRecoveryCodes")]
-    public partial class TwoFactorRecoveryCodes : IValidatableObject
+    public partial class TwoFactorRecoveryCodes : IEquatable<TwoFactorRecoveryCodes>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TwoFactorRecoveryCodes" /> class.
@@ -76,6 +76,63 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as TwoFactorRecoveryCodes);
+        }
+
+        /// <summary>
+        /// Returns true if TwoFactorRecoveryCodes instances are equal
+        /// </summary>
+        /// <param name="input">Instance of TwoFactorRecoveryCodes to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(TwoFactorRecoveryCodes input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.RequiresTwoFactorAuth == input.RequiresTwoFactorAuth ||
+                    this.RequiresTwoFactorAuth != null &&
+                    input.RequiresTwoFactorAuth != null &&
+                    this.RequiresTwoFactorAuth.SequenceEqual(input.RequiresTwoFactorAuth)
+                ) && 
+                (
+                    this.Otp == input.Otp ||
+                    this.Otp != null &&
+                    input.Otp != null &&
+                    this.Otp.SequenceEqual(input.Otp)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.RequiresTwoFactorAuth != null)
+                {
+                    hashCode = (hashCode * 59) + this.RequiresTwoFactorAuth.GetHashCode();
+                }
+                if (this.Otp != null)
+                {
+                    hashCode = (hashCode * 59) + this.Otp.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

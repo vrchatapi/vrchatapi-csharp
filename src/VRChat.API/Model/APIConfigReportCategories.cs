@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Categories available for reporting objectionable content
     /// </summary>
     [DataContract(Name = "APIConfig_reportCategories")]
-    public partial class APIConfigReportCategories : IValidatableObject
+    public partial class APIConfigReportCategories : IEquatable<APIConfigReportCategories>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigReportCategories" /> class.
@@ -230,6 +230,160 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigReportCategories);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigReportCategories instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigReportCategories to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigReportCategories input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Avatar == input.Avatar ||
+                    (this.Avatar != null &&
+                    this.Avatar.Equals(input.Avatar))
+                ) && 
+                (
+                    this.Avatarpage == input.Avatarpage ||
+                    (this.Avatarpage != null &&
+                    this.Avatarpage.Equals(input.Avatarpage))
+                ) && 
+                (
+                    this.Behavior == input.Behavior ||
+                    (this.Behavior != null &&
+                    this.Behavior.Equals(input.Behavior))
+                ) && 
+                (
+                    this.Chat == input.Chat ||
+                    (this.Chat != null &&
+                    this.Chat.Equals(input.Chat))
+                ) && 
+                (
+                    this.Emoji == input.Emoji ||
+                    (this.Emoji != null &&
+                    this.Emoji.Equals(input.Emoji))
+                ) && 
+                (
+                    this.VarEnvironment == input.VarEnvironment ||
+                    (this.VarEnvironment != null &&
+                    this.VarEnvironment.Equals(input.VarEnvironment))
+                ) && 
+                (
+                    this.Groupstore == input.Groupstore ||
+                    (this.Groupstore != null &&
+                    this.Groupstore.Equals(input.Groupstore))
+                ) && 
+                (
+                    this.Image == input.Image ||
+                    (this.Image != null &&
+                    this.Image.Equals(input.Image))
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.Sticker == input.Sticker ||
+                    (this.Sticker != null &&
+                    this.Sticker.Equals(input.Sticker))
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    (this.Warnings != null &&
+                    this.Warnings.Equals(input.Warnings))
+                ) && 
+                (
+                    this.Worldimage == input.Worldimage ||
+                    (this.Worldimage != null &&
+                    this.Worldimage.Equals(input.Worldimage))
+                ) && 
+                (
+                    this.Worldstore == input.Worldstore ||
+                    (this.Worldstore != null &&
+                    this.Worldstore.Equals(input.Worldstore))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Avatar != null)
+                {
+                    hashCode = (hashCode * 59) + this.Avatar.GetHashCode();
+                }
+                if (this.Avatarpage != null)
+                {
+                    hashCode = (hashCode * 59) + this.Avatarpage.GetHashCode();
+                }
+                if (this.Behavior != null)
+                {
+                    hashCode = (hashCode * 59) + this.Behavior.GetHashCode();
+                }
+                if (this.Chat != null)
+                {
+                    hashCode = (hashCode * 59) + this.Chat.GetHashCode();
+                }
+                if (this.Emoji != null)
+                {
+                    hashCode = (hashCode * 59) + this.Emoji.GetHashCode();
+                }
+                if (this.VarEnvironment != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarEnvironment.GetHashCode();
+                }
+                if (this.Groupstore != null)
+                {
+                    hashCode = (hashCode * 59) + this.Groupstore.GetHashCode();
+                }
+                if (this.Image != null)
+                {
+                    hashCode = (hashCode * 59) + this.Image.GetHashCode();
+                }
+                if (this.Text != null)
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                if (this.Sticker != null)
+                {
+                    hashCode = (hashCode * 59) + this.Sticker.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
+                }
+                if (this.Worldimage != null)
+                {
+                    hashCode = (hashCode * 59) + this.Worldimage.GetHashCode();
+                }
+                if (this.Worldstore != null)
+                {
+                    hashCode = (hashCode * 59) + this.Worldstore.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

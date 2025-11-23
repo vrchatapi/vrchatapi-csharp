@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// User object received when querying your own instance
     /// </summary>
     [DataContract(Name = "LimitedUserInstance")]
-    public partial class LimitedUserInstance : IValidatableObject
+    public partial class LimitedUserInstance : IEquatable<LimitedUserInstance>, IValidatableObject
     {
 
         /// <summary>
@@ -389,6 +389,261 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as LimitedUserInstance);
+        }
+
+        /// <summary>
+        /// Returns true if LimitedUserInstance instances are equal
+        /// </summary>
+        /// <param name="input">Instance of LimitedUserInstance to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(LimitedUserInstance input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AgeVerificationStatus == input.AgeVerificationStatus ||
+                    this.AgeVerificationStatus.Equals(input.AgeVerificationStatus)
+                ) && 
+                (
+                    this.AgeVerified == input.AgeVerified ||
+                    this.AgeVerified.Equals(input.AgeVerified)
+                ) && 
+                (
+                    this.AllowAvatarCopying == input.AllowAvatarCopying ||
+                    this.AllowAvatarCopying.Equals(input.AllowAvatarCopying)
+                ) && 
+                (
+                    this.Bio == input.Bio ||
+                    (this.Bio != null &&
+                    this.Bio.Equals(input.Bio))
+                ) && 
+                (
+                    this.BioLinks == input.BioLinks ||
+                    this.BioLinks != null &&
+                    input.BioLinks != null &&
+                    this.BioLinks.SequenceEqual(input.BioLinks)
+                ) && 
+                (
+                    this.CurrentAvatarImageUrl == input.CurrentAvatarImageUrl ||
+                    (this.CurrentAvatarImageUrl != null &&
+                    this.CurrentAvatarImageUrl.Equals(input.CurrentAvatarImageUrl))
+                ) && 
+                (
+                    this.CurrentAvatarThumbnailImageUrl == input.CurrentAvatarThumbnailImageUrl ||
+                    (this.CurrentAvatarThumbnailImageUrl != null &&
+                    this.CurrentAvatarThumbnailImageUrl.Equals(input.CurrentAvatarThumbnailImageUrl))
+                ) && 
+                (
+                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
+                    this.CurrentAvatarTags != null &&
+                    input.CurrentAvatarTags != null &&
+                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
+                ) && 
+                (
+                    this.DateJoined == input.DateJoined ||
+                    (this.DateJoined != null &&
+                    this.DateJoined.Equals(input.DateJoined))
+                ) && 
+                (
+                    this.DeveloperType == input.DeveloperType ||
+                    this.DeveloperType.Equals(input.DeveloperType)
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.FriendKey == input.FriendKey ||
+                    (this.FriendKey != null &&
+                    this.FriendKey.Equals(input.FriendKey))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.IsFriend == input.IsFriend ||
+                    this.IsFriend.Equals(input.IsFriend)
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.LastPlatform == input.LastPlatform ||
+                    (this.LastPlatform != null &&
+                    this.LastPlatform.Equals(input.LastPlatform))
+                ) && 
+                (
+                    this.LastActivity == input.LastActivity ||
+                    (this.LastActivity != null &&
+                    this.LastActivity.Equals(input.LastActivity))
+                ) && 
+                (
+                    this.LastMobile == input.LastMobile ||
+                    (this.LastMobile != null &&
+                    this.LastMobile.Equals(input.LastMobile))
+                ) && 
+                (
+                    this.Platform == input.Platform ||
+                    (this.Platform != null &&
+                    this.Platform.Equals(input.Platform))
+                ) && 
+                (
+                    this.ProfilePicOverride == input.ProfilePicOverride ||
+                    (this.ProfilePicOverride != null &&
+                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
+                ) && 
+                (
+                    this.ProfilePicOverrideThumbnail == input.ProfilePicOverrideThumbnail ||
+                    (this.ProfilePicOverrideThumbnail != null &&
+                    this.ProfilePicOverrideThumbnail.Equals(input.ProfilePicOverrideThumbnail))
+                ) && 
+                (
+                    this.Pronouns == input.Pronouns ||
+                    (this.Pronouns != null &&
+                    this.Pronouns.Equals(input.Pronouns))
+                ) && 
+                (
+                    this.State == input.State ||
+                    this.State.Equals(input.State)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.StatusDescription == input.StatusDescription ||
+                    (this.StatusDescription != null &&
+                    this.StatusDescription.Equals(input.StatusDescription))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.UserIcon == input.UserIcon ||
+                    (this.UserIcon != null &&
+                    this.UserIcon.Equals(input.UserIcon))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.AgeVerificationStatus.GetHashCode();
+                hashCode = (hashCode * 59) + this.AgeVerified.GetHashCode();
+                hashCode = (hashCode * 59) + this.AllowAvatarCopying.GetHashCode();
+                if (this.Bio != null)
+                {
+                    hashCode = (hashCode * 59) + this.Bio.GetHashCode();
+                }
+                if (this.BioLinks != null)
+                {
+                    hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
+                }
+                if (this.CurrentAvatarImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarImageUrl.GetHashCode();
+                }
+                if (this.CurrentAvatarThumbnailImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
+                }
+                if (this.CurrentAvatarTags != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
+                }
+                if (this.DateJoined != null)
+                {
+                    hashCode = (hashCode * 59) + this.DateJoined.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DeveloperType.GetHashCode();
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.FriendKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.FriendKey.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsFriend.GetHashCode();
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                if (this.LastPlatform != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastPlatform.GetHashCode();
+                }
+                if (this.LastActivity != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastActivity.GetHashCode();
+                }
+                if (this.LastMobile != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastMobile.GetHashCode();
+                }
+                if (this.Platform != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                }
+                if (this.ProfilePicOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
+                }
+                if (this.ProfilePicOverrideThumbnail != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProfilePicOverrideThumbnail.GetHashCode();
+                }
+                if (this.Pronouns != null)
+                {
+                    hashCode = (hashCode * 59) + this.Pronouns.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.State.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.StatusDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.StatusDescription.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.UserIcon != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

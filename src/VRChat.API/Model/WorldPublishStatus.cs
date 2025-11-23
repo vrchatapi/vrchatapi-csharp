@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// WorldPublishStatus
     /// </summary>
     [DataContract(Name = "WorldPublishStatus")]
-    public partial class WorldPublishStatus : IValidatableObject
+    public partial class WorldPublishStatus : IEquatable<WorldPublishStatus>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WorldPublishStatus" /> class.
@@ -72,6 +72,48 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as WorldPublishStatus);
+        }
+
+        /// <summary>
+        /// Returns true if WorldPublishStatus instances are equal
+        /// </summary>
+        /// <param name="input">Instance of WorldPublishStatus to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(WorldPublishStatus input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CanPublish == input.CanPublish ||
+                    this.CanPublish.Equals(input.CanPublish)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.CanPublish.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// FileAnalysisAvatarStats
     /// </summary>
     [DataContract(Name = "FileAnalysisAvatarStats")]
-    public partial class FileAnalysisAvatarStats : IValidatableObject
+    public partial class FileAnalysisAvatarStats : IEquatable<FileAnalysisAvatarStats>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FileAnalysisAvatarStats" /> class.
@@ -464,6 +464,268 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as FileAnalysisAvatarStats);
+        }
+
+        /// <summary>
+        /// Returns true if FileAnalysisAvatarStats instances are equal
+        /// </summary>
+        /// <param name="input">Instance of FileAnalysisAvatarStats to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(FileAnalysisAvatarStats input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AnimatorCount == input.AnimatorCount ||
+                    this.AnimatorCount.Equals(input.AnimatorCount)
+                ) && 
+                (
+                    this.AudioSourceCount == input.AudioSourceCount ||
+                    this.AudioSourceCount.Equals(input.AudioSourceCount)
+                ) && 
+                (
+                    this.BlendShapeCount == input.BlendShapeCount ||
+                    this.BlendShapeCount.Equals(input.BlendShapeCount)
+                ) && 
+                (
+                    this.BoneCount == input.BoneCount ||
+                    this.BoneCount.Equals(input.BoneCount)
+                ) && 
+                (
+                    this.Bounds == input.Bounds ||
+                    this.Bounds != null &&
+                    input.Bounds != null &&
+                    this.Bounds.SequenceEqual(input.Bounds)
+                ) && 
+                (
+                    this.CameraCount == input.CameraCount ||
+                    this.CameraCount.Equals(input.CameraCount)
+                ) && 
+                (
+                    this.ClothCount == input.ClothCount ||
+                    this.ClothCount.Equals(input.ClothCount)
+                ) && 
+                (
+                    this.ConstraintCount == input.ConstraintCount ||
+                    this.ConstraintCount.Equals(input.ConstraintCount)
+                ) && 
+                (
+                    this.ConstraintDepth == input.ConstraintDepth ||
+                    this.ConstraintDepth.Equals(input.ConstraintDepth)
+                ) && 
+                (
+                    this.ContactCount == input.ContactCount ||
+                    this.ContactCount.Equals(input.ContactCount)
+                ) && 
+                (
+                    this.CustomExpressions == input.CustomExpressions ||
+                    this.CustomExpressions.Equals(input.CustomExpressions)
+                ) && 
+                (
+                    this.CustomizeAnimationLayers == input.CustomizeAnimationLayers ||
+                    this.CustomizeAnimationLayers.Equals(input.CustomizeAnimationLayers)
+                ) && 
+                (
+                    this.EnableEyeLook == input.EnableEyeLook ||
+                    this.EnableEyeLook.Equals(input.EnableEyeLook)
+                ) && 
+                (
+                    this.LightCount == input.LightCount ||
+                    this.LightCount.Equals(input.LightCount)
+                ) && 
+                (
+                    this.LineRendererCount == input.LineRendererCount ||
+                    this.LineRendererCount.Equals(input.LineRendererCount)
+                ) && 
+                (
+                    this.LipSync == input.LipSync ||
+                    this.LipSync.Equals(input.LipSync)
+                ) && 
+                (
+                    this.MaterialCount == input.MaterialCount ||
+                    this.MaterialCount.Equals(input.MaterialCount)
+                ) && 
+                (
+                    this.MaterialSlotsUsed == input.MaterialSlotsUsed ||
+                    this.MaterialSlotsUsed.Equals(input.MaterialSlotsUsed)
+                ) && 
+                (
+                    this.MeshCount == input.MeshCount ||
+                    this.MeshCount.Equals(input.MeshCount)
+                ) && 
+                (
+                    this.MeshIndices == input.MeshIndices ||
+                    this.MeshIndices.Equals(input.MeshIndices)
+                ) && 
+                (
+                    this.MeshParticleMaxPolygons == input.MeshParticleMaxPolygons ||
+                    this.MeshParticleMaxPolygons.Equals(input.MeshParticleMaxPolygons)
+                ) && 
+                (
+                    this.MeshPolygons == input.MeshPolygons ||
+                    this.MeshPolygons.Equals(input.MeshPolygons)
+                ) && 
+                (
+                    this.MeshVertices == input.MeshVertices ||
+                    this.MeshVertices.Equals(input.MeshVertices)
+                ) && 
+                (
+                    this.ParticleCollisionEnabled == input.ParticleCollisionEnabled ||
+                    this.ParticleCollisionEnabled.Equals(input.ParticleCollisionEnabled)
+                ) && 
+                (
+                    this.ParticleSystemCount == input.ParticleSystemCount ||
+                    this.ParticleSystemCount.Equals(input.ParticleSystemCount)
+                ) && 
+                (
+                    this.ParticleTrailsEnabled == input.ParticleTrailsEnabled ||
+                    this.ParticleTrailsEnabled.Equals(input.ParticleTrailsEnabled)
+                ) && 
+                (
+                    this.PhysBoneColliderCount == input.PhysBoneColliderCount ||
+                    this.PhysBoneColliderCount.Equals(input.PhysBoneColliderCount)
+                ) && 
+                (
+                    this.PhysBoneCollisionCheckCount == input.PhysBoneCollisionCheckCount ||
+                    this.PhysBoneCollisionCheckCount.Equals(input.PhysBoneCollisionCheckCount)
+                ) && 
+                (
+                    this.PhysBoneComponentCount == input.PhysBoneComponentCount ||
+                    this.PhysBoneComponentCount.Equals(input.PhysBoneComponentCount)
+                ) && 
+                (
+                    this.PhysBoneTransformCount == input.PhysBoneTransformCount ||
+                    this.PhysBoneTransformCount.Equals(input.PhysBoneTransformCount)
+                ) && 
+                (
+                    this.PhysicsColliders == input.PhysicsColliders ||
+                    this.PhysicsColliders.Equals(input.PhysicsColliders)
+                ) && 
+                (
+                    this.PhysicsRigidbodies == input.PhysicsRigidbodies ||
+                    this.PhysicsRigidbodies.Equals(input.PhysicsRigidbodies)
+                ) && 
+                (
+                    this.SkinnedMeshCount == input.SkinnedMeshCount ||
+                    this.SkinnedMeshCount.Equals(input.SkinnedMeshCount)
+                ) && 
+                (
+                    this.SkinnedMeshIndices == input.SkinnedMeshIndices ||
+                    this.SkinnedMeshIndices.Equals(input.SkinnedMeshIndices)
+                ) && 
+                (
+                    this.SkinnedMeshPolygons == input.SkinnedMeshPolygons ||
+                    this.SkinnedMeshPolygons.Equals(input.SkinnedMeshPolygons)
+                ) && 
+                (
+                    this.SkinnedMeshVertices == input.SkinnedMeshVertices ||
+                    this.SkinnedMeshVertices.Equals(input.SkinnedMeshVertices)
+                ) && 
+                (
+                    this.TotalClothVertices == input.TotalClothVertices ||
+                    this.TotalClothVertices.Equals(input.TotalClothVertices)
+                ) && 
+                (
+                    this.TotalIndices == input.TotalIndices ||
+                    this.TotalIndices.Equals(input.TotalIndices)
+                ) && 
+                (
+                    this.TotalMaxParticles == input.TotalMaxParticles ||
+                    this.TotalMaxParticles.Equals(input.TotalMaxParticles)
+                ) && 
+                (
+                    this.TotalPolygons == input.TotalPolygons ||
+                    this.TotalPolygons.Equals(input.TotalPolygons)
+                ) && 
+                (
+                    this.TotalTextureUsage == input.TotalTextureUsage ||
+                    this.TotalTextureUsage.Equals(input.TotalTextureUsage)
+                ) && 
+                (
+                    this.TotalVertices == input.TotalVertices ||
+                    this.TotalVertices.Equals(input.TotalVertices)
+                ) && 
+                (
+                    this.TrailRendererCount == input.TrailRendererCount ||
+                    this.TrailRendererCount.Equals(input.TrailRendererCount)
+                ) && 
+                (
+                    this.WriteDefaultsUsed == input.WriteDefaultsUsed ||
+                    this.WriteDefaultsUsed.Equals(input.WriteDefaultsUsed)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.AnimatorCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.AudioSourceCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.BlendShapeCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.BoneCount.GetHashCode();
+                if (this.Bounds != null)
+                {
+                    hashCode = (hashCode * 59) + this.Bounds.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CameraCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClothCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.ConstraintCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.ConstraintDepth.GetHashCode();
+                hashCode = (hashCode * 59) + this.ContactCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.CustomExpressions.GetHashCode();
+                hashCode = (hashCode * 59) + this.CustomizeAnimationLayers.GetHashCode();
+                hashCode = (hashCode * 59) + this.EnableEyeLook.GetHashCode();
+                hashCode = (hashCode * 59) + this.LightCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.LineRendererCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.LipSync.GetHashCode();
+                hashCode = (hashCode * 59) + this.MaterialCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.MaterialSlotsUsed.GetHashCode();
+                hashCode = (hashCode * 59) + this.MeshCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.MeshIndices.GetHashCode();
+                hashCode = (hashCode * 59) + this.MeshParticleMaxPolygons.GetHashCode();
+                hashCode = (hashCode * 59) + this.MeshPolygons.GetHashCode();
+                hashCode = (hashCode * 59) + this.MeshVertices.GetHashCode();
+                hashCode = (hashCode * 59) + this.ParticleCollisionEnabled.GetHashCode();
+                hashCode = (hashCode * 59) + this.ParticleSystemCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.ParticleTrailsEnabled.GetHashCode();
+                hashCode = (hashCode * 59) + this.PhysBoneColliderCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.PhysBoneCollisionCheckCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.PhysBoneComponentCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.PhysBoneTransformCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.PhysicsColliders.GetHashCode();
+                hashCode = (hashCode * 59) + this.PhysicsRigidbodies.GetHashCode();
+                hashCode = (hashCode * 59) + this.SkinnedMeshCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.SkinnedMeshIndices.GetHashCode();
+                hashCode = (hashCode * 59) + this.SkinnedMeshPolygons.GetHashCode();
+                hashCode = (hashCode * 59) + this.SkinnedMeshVertices.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalClothVertices.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalIndices.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalMaxParticles.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalPolygons.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalTextureUsage.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalVertices.GetHashCode();
+                hashCode = (hashCode * 59) + this.TrailRendererCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.WriteDefaultsUsed.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

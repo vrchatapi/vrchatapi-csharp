@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// * &#x60;hidden&#x60; field is only present if InstanceType is &#x60;hidden&#x60; aka \&quot;Friends+\&quot;, and is instance creator. * &#x60;friends&#x60; field is only present if InstanceType is &#x60;friends&#x60; aka \&quot;Friends\&quot;, and is instance creator. * &#x60;private&#x60; field is only present if InstanceType is &#x60;private&#x60; aka \&quot;Invite\&quot; or \&quot;Invite+\&quot;, and is instance creator.
     /// </summary>
     [DataContract(Name = "Instance")]
-    public partial class Instance : IValidatableObject
+    public partial class Instance : IEquatable<Instance>, IValidatableObject
     {
 
         /// <summary>
@@ -560,6 +560,351 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Instance);
+        }
+
+        /// <summary>
+        /// Returns true if Instance instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Instance to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Instance input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Active == input.Active ||
+                    this.Active.Equals(input.Active)
+                ) && 
+                (
+                    this.AgeGate == input.AgeGate ||
+                    (this.AgeGate != null &&
+                    this.AgeGate.Equals(input.AgeGate))
+                ) && 
+                (
+                    this.CanRequestInvite == input.CanRequestInvite ||
+                    this.CanRequestInvite.Equals(input.CanRequestInvite)
+                ) && 
+                (
+                    this.Capacity == input.Capacity ||
+                    this.Capacity.Equals(input.Capacity)
+                ) && 
+                (
+                    this.ClientNumber == input.ClientNumber ||
+                    (this.ClientNumber != null &&
+                    this.ClientNumber.Equals(input.ClientNumber))
+                ) && 
+                (
+                    this.ContentSettings == input.ContentSettings ||
+                    (this.ContentSettings != null &&
+                    this.ContentSettings.Equals(input.ContentSettings))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Full == input.Full ||
+                    this.Full.Equals(input.Full)
+                ) && 
+                (
+                    this.GameServerVersion == input.GameServerVersion ||
+                    this.GameServerVersion.Equals(input.GameServerVersion)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.InstanceId == input.InstanceId ||
+                    (this.InstanceId != null &&
+                    this.InstanceId.Equals(input.InstanceId))
+                ) && 
+                (
+                    this.InstancePersistenceEnabled == input.InstancePersistenceEnabled ||
+                    (this.InstancePersistenceEnabled != null &&
+                    this.InstancePersistenceEnabled.Equals(input.InstancePersistenceEnabled))
+                ) && 
+                (
+                    this.Location == input.Location ||
+                    (this.Location != null &&
+                    this.Location.Equals(input.Location))
+                ) && 
+                (
+                    this.NUsers == input.NUsers ||
+                    this.NUsers.Equals(input.NUsers)
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
+                ) && 
+                (
+                    this.Permanent == input.Permanent ||
+                    this.Permanent.Equals(input.Permanent)
+                ) && 
+                (
+                    this.PhotonRegion == input.PhotonRegion ||
+                    this.PhotonRegion.Equals(input.PhotonRegion)
+                ) && 
+                (
+                    this.Platforms == input.Platforms ||
+                    (this.Platforms != null &&
+                    this.Platforms.Equals(input.Platforms))
+                ) && 
+                (
+                    this.PlayerPersistenceEnabled == input.PlayerPersistenceEnabled ||
+                    (this.PlayerPersistenceEnabled != null &&
+                    this.PlayerPersistenceEnabled.Equals(input.PlayerPersistenceEnabled))
+                ) && 
+                (
+                    this.Region == input.Region ||
+                    this.Region.Equals(input.Region)
+                ) && 
+                (
+                    this.SecureName == input.SecureName ||
+                    (this.SecureName != null &&
+                    this.SecureName.Equals(input.SecureName))
+                ) && 
+                (
+                    this.ShortName == input.ShortName ||
+                    (this.ShortName != null &&
+                    this.ShortName.Equals(input.ShortName))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this.WorldId == input.WorldId ||
+                    (this.WorldId != null &&
+                    this.WorldId.Equals(input.WorldId))
+                ) && 
+                (
+                    this.Hidden == input.Hidden ||
+                    (this.Hidden != null &&
+                    this.Hidden.Equals(input.Hidden))
+                ) && 
+                (
+                    this.Friends == input.Friends ||
+                    (this.Friends != null &&
+                    this.Friends.Equals(input.Friends))
+                ) && 
+                (
+                    this.Private == input.Private ||
+                    (this.Private != null &&
+                    this.Private.Equals(input.Private))
+                ) && 
+                (
+                    this.QueueEnabled == input.QueueEnabled ||
+                    this.QueueEnabled.Equals(input.QueueEnabled)
+                ) && 
+                (
+                    this.QueueSize == input.QueueSize ||
+                    this.QueueSize.Equals(input.QueueSize)
+                ) && 
+                (
+                    this.RecommendedCapacity == input.RecommendedCapacity ||
+                    this.RecommendedCapacity.Equals(input.RecommendedCapacity)
+                ) && 
+                (
+                    this.RoleRestricted == input.RoleRestricted ||
+                    this.RoleRestricted.Equals(input.RoleRestricted)
+                ) && 
+                (
+                    this.Strict == input.Strict ||
+                    this.Strict.Equals(input.Strict)
+                ) && 
+                (
+                    this.UserCount == input.UserCount ||
+                    this.UserCount.Equals(input.UserCount)
+                ) && 
+                (
+                    this.World == input.World ||
+                    (this.World != null &&
+                    this.World.Equals(input.World))
+                ) && 
+                (
+                    this.Users == input.Users ||
+                    this.Users != null &&
+                    input.Users != null &&
+                    this.Users.SequenceEqual(input.Users)
+                ) && 
+                (
+                    this.GroupAccessType == input.GroupAccessType ||
+                    this.GroupAccessType.Equals(input.GroupAccessType)
+                ) && 
+                (
+                    this.HasCapacityForYou == input.HasCapacityForYou ||
+                    this.HasCapacityForYou.Equals(input.HasCapacityForYou)
+                ) && 
+                (
+                    this.Nonce == input.Nonce ||
+                    (this.Nonce != null &&
+                    this.Nonce.Equals(input.Nonce))
+                ) && 
+                (
+                    this.ClosedAt == input.ClosedAt ||
+                    (this.ClosedAt != null &&
+                    this.ClosedAt.Equals(input.ClosedAt))
+                ) && 
+                (
+                    this.HardClose == input.HardClose ||
+                    (this.HardClose != null &&
+                    this.HardClose.Equals(input.HardClose))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Active.GetHashCode();
+                if (this.AgeGate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AgeGate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CanRequestInvite.GetHashCode();
+                hashCode = (hashCode * 59) + this.Capacity.GetHashCode();
+                if (this.ClientNumber != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClientNumber.GetHashCode();
+                }
+                if (this.ContentSettings != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentSettings.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Full.GetHashCode();
+                hashCode = (hashCode * 59) + this.GameServerVersion.GetHashCode();
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.InstanceId != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();
+                }
+                if (this.InstancePersistenceEnabled != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstancePersistenceEnabled.GetHashCode();
+                }
+                if (this.Location != null)
+                {
+                    hashCode = (hashCode * 59) + this.Location.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.NUsers.GetHashCode();
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.OwnerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Permanent.GetHashCode();
+                hashCode = (hashCode * 59) + this.PhotonRegion.GetHashCode();
+                if (this.Platforms != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platforms.GetHashCode();
+                }
+                if (this.PlayerPersistenceEnabled != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlayerPersistenceEnabled.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Region.GetHashCode();
+                if (this.SecureName != null)
+                {
+                    hashCode = (hashCode * 59) + this.SecureName.GetHashCode();
+                }
+                if (this.ShortName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.WorldId != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorldId.GetHashCode();
+                }
+                if (this.Hidden != null)
+                {
+                    hashCode = (hashCode * 59) + this.Hidden.GetHashCode();
+                }
+                if (this.Friends != null)
+                {
+                    hashCode = (hashCode * 59) + this.Friends.GetHashCode();
+                }
+                if (this.Private != null)
+                {
+                    hashCode = (hashCode * 59) + this.Private.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.QueueEnabled.GetHashCode();
+                hashCode = (hashCode * 59) + this.QueueSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.RecommendedCapacity.GetHashCode();
+                hashCode = (hashCode * 59) + this.RoleRestricted.GetHashCode();
+                hashCode = (hashCode * 59) + this.Strict.GetHashCode();
+                hashCode = (hashCode * 59) + this.UserCount.GetHashCode();
+                if (this.World != null)
+                {
+                    hashCode = (hashCode * 59) + this.World.GetHashCode();
+                }
+                if (this.Users != null)
+                {
+                    hashCode = (hashCode * 59) + this.Users.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.GroupAccessType.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasCapacityForYou.GetHashCode();
+                if (this.Nonce != null)
+                {
+                    hashCode = (hashCode * 59) + this.Nonce.GetHashCode();
+                }
+                if (this.ClosedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClosedAt.GetHashCode();
+                }
+                if (this.HardClose != null)
+                {
+                    hashCode = (hashCode * 59) + this.HardClose.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

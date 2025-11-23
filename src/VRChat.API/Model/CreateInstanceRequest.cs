@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CreateInstanceRequest
     /// </summary>
     [DataContract(Name = "CreateInstanceRequest")]
-    public partial class CreateInstanceRequest : IValidatableObject
+    public partial class CreateInstanceRequest : IEquatable<CreateInstanceRequest>, IValidatableObject
     {
 
         /// <summary>
@@ -215,6 +215,147 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CreateInstanceRequest);
+        }
+
+        /// <summary>
+        /// Returns true if CreateInstanceRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CreateInstanceRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CreateInstanceRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.WorldId == input.WorldId ||
+                    (this.WorldId != null &&
+                    this.WorldId.Equals(input.WorldId))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this.Region == input.Region ||
+                    this.Region.Equals(input.Region)
+                ) && 
+                (
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
+                ) && 
+                (
+                    this.RoleIds == input.RoleIds ||
+                    this.RoleIds != null &&
+                    input.RoleIds != null &&
+                    this.RoleIds.SequenceEqual(input.RoleIds)
+                ) && 
+                (
+                    this.GroupAccessType == input.GroupAccessType ||
+                    this.GroupAccessType.Equals(input.GroupAccessType)
+                ) && 
+                (
+                    this.QueueEnabled == input.QueueEnabled ||
+                    this.QueueEnabled.Equals(input.QueueEnabled)
+                ) && 
+                (
+                    this.ClosedAt == input.ClosedAt ||
+                    (this.ClosedAt != null &&
+                    this.ClosedAt.Equals(input.ClosedAt))
+                ) && 
+                (
+                    this.CanRequestInvite == input.CanRequestInvite ||
+                    this.CanRequestInvite.Equals(input.CanRequestInvite)
+                ) && 
+                (
+                    this.HardClose == input.HardClose ||
+                    this.HardClose.Equals(input.HardClose)
+                ) && 
+                (
+                    this.InviteOnly == input.InviteOnly ||
+                    this.InviteOnly.Equals(input.InviteOnly)
+                ) && 
+                (
+                    this.AgeGate == input.AgeGate ||
+                    this.AgeGate.Equals(input.AgeGate)
+                ) && 
+                (
+                    this.InstancePersistenceEnabled == input.InstancePersistenceEnabled ||
+                    (this.InstancePersistenceEnabled != null &&
+                    this.InstancePersistenceEnabled.Equals(input.InstancePersistenceEnabled))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.ContentSettings == input.ContentSettings ||
+                    (this.ContentSettings != null &&
+                    this.ContentSettings.Equals(input.ContentSettings))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.WorldId != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorldId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                hashCode = (hashCode * 59) + this.Region.GetHashCode();
+                if (this.OwnerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
+                if (this.RoleIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.GroupAccessType.GetHashCode();
+                hashCode = (hashCode * 59) + this.QueueEnabled.GetHashCode();
+                if (this.ClosedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClosedAt.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CanRequestInvite.GetHashCode();
+                hashCode = (hashCode * 59) + this.HardClose.GetHashCode();
+                hashCode = (hashCode * 59) + this.InviteOnly.GetHashCode();
+                hashCode = (hashCode * 59) + this.AgeGate.GetHashCode();
+                if (this.InstancePersistenceEnabled != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstancePersistenceEnabled.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.ContentSettings != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentSettings.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

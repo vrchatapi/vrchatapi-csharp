@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// TransactionSteamInfo
     /// </summary>
     [DataContract(Name = "TransactionSteamInfo")]
-    public partial class TransactionSteamInfo : IValidatableObject
+    public partial class TransactionSteamInfo : IEquatable<TransactionSteamInfo>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionSteamInfo" /> class.
@@ -137,6 +137,88 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as TransactionSteamInfo);
+        }
+
+        /// <summary>
+        /// Returns true if TransactionSteamInfo instances are equal
+        /// </summary>
+        /// <param name="input">Instance of TransactionSteamInfo to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(TransactionSteamInfo input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.WalletInfo == input.WalletInfo ||
+                    (this.WalletInfo != null &&
+                    this.WalletInfo.Equals(input.WalletInfo))
+                ) && 
+                (
+                    this.SteamId == input.SteamId ||
+                    (this.SteamId != null &&
+                    this.SteamId.Equals(input.SteamId))
+                ) && 
+                (
+                    this.OrderId == input.OrderId ||
+                    (this.OrderId != null &&
+                    this.OrderId.Equals(input.OrderId))
+                ) && 
+                (
+                    this.SteamUrl == input.SteamUrl ||
+                    (this.SteamUrl != null &&
+                    this.SteamUrl.Equals(input.SteamUrl))
+                ) && 
+                (
+                    this.TransId == input.TransId ||
+                    (this.TransId != null &&
+                    this.TransId.Equals(input.TransId))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.WalletInfo != null)
+                {
+                    hashCode = (hashCode * 59) + this.WalletInfo.GetHashCode();
+                }
+                if (this.SteamId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SteamId.GetHashCode();
+                }
+                if (this.OrderId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OrderId.GetHashCode();
+                }
+                if (this.SteamUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.SteamUrl.GetHashCode();
+                }
+                if (this.TransId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TransId.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

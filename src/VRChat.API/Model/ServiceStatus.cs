@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Status information for a service request
     /// </summary>
     [DataContract(Name = "ServiceStatus")]
-    public partial class ServiceStatus : IValidatableObject
+    public partial class ServiceStatus : IEquatable<ServiceStatus>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceStatus" /> class.
@@ -187,6 +187,125 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as ServiceStatus);
+        }
+
+        /// <summary>
+        /// Returns true if ServiceStatus instances are equal
+        /// </summary>
+        /// <param name="input">Instance of ServiceStatus to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(ServiceStatus input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Progress == input.Progress ||
+                    this.Progress != null &&
+                    input.Progress != null &&
+                    this.Progress.SequenceEqual(input.Progress)
+                ) && 
+                (
+                    this.RequesterUserId == input.RequesterUserId ||
+                    (this.RequesterUserId != null &&
+                    this.RequesterUserId.Equals(input.RequesterUserId))
+                ) && 
+                (
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
+                ) && 
+                (
+                    this.SubjectId == input.SubjectId ||
+                    (this.SubjectId != null &&
+                    this.SubjectId.Equals(input.SubjectId))
+                ) && 
+                (
+                    this.SubjectType == input.SubjectType ||
+                    (this.SubjectType != null &&
+                    this.SubjectType.Equals(input.SubjectType))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Progress != null)
+                {
+                    hashCode = (hashCode * 59) + this.Progress.GetHashCode();
+                }
+                if (this.RequesterUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.RequesterUserId.GetHashCode();
+                }
+                if (this.State != null)
+                {
+                    hashCode = (hashCode * 59) + this.State.GetHashCode();
+                }
+                if (this.SubjectId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubjectId.GetHashCode();
+                }
+                if (this.SubjectType != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubjectType.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

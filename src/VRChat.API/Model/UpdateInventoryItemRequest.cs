@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateInventoryItemRequest
     /// </summary>
     [DataContract(Name = "UpdateInventoryItemRequest")]
-    public partial class UpdateInventoryItemRequest : IValidatableObject
+    public partial class UpdateInventoryItemRequest : IEquatable<UpdateInventoryItemRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateInventoryItemRequest" /> class.
@@ -67,6 +67,48 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UpdateInventoryItemRequest);
+        }
+
+        /// <summary>
+        /// Returns true if UpdateInventoryItemRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UpdateInventoryItemRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UpdateInventoryItemRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.IsArchived == input.IsArchived ||
+                    this.IsArchived.Equals(input.IsArchived)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.IsArchived.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

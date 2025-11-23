@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CalendarEvent
     /// </summary>
     [DataContract(Name = "CalendarEvent")]
-    public partial class CalendarEvent : IValidatableObject
+    public partial class CalendarEvent : IEquatable<CalendarEvent>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalendarEvent" /> class.
@@ -344,6 +344,253 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CalendarEvent);
+        }
+
+        /// <summary>
+        /// Returns true if CalendarEvent instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CalendarEvent to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CalendarEvent input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AccessType == input.AccessType ||
+                    (this.AccessType != null &&
+                    this.AccessType.Equals(input.AccessType))
+                ) && 
+                (
+                    this.Category == input.Category ||
+                    (this.Category != null &&
+                    this.Category.Equals(input.Category))
+                ) && 
+                (
+                    this.CloseInstanceAfterEndMinutes == input.CloseInstanceAfterEndMinutes ||
+                    this.CloseInstanceAfterEndMinutes.Equals(input.CloseInstanceAfterEndMinutes)
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.DeletedAt == input.DeletedAt ||
+                    (this.DeletedAt != null &&
+                    this.DeletedAt.Equals(input.DeletedAt))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.EndsAt == input.EndsAt ||
+                    (this.EndsAt != null &&
+                    this.EndsAt.Equals(input.EndsAt))
+                ) && 
+                (
+                    this.Featured == input.Featured ||
+                    this.Featured.Equals(input.Featured)
+                ) && 
+                (
+                    this.GuestEarlyJoinMinutes == input.GuestEarlyJoinMinutes ||
+                    this.GuestEarlyJoinMinutes.Equals(input.GuestEarlyJoinMinutes)
+                ) && 
+                (
+                    this.HostEarlyJoinMinutes == input.HostEarlyJoinMinutes ||
+                    this.HostEarlyJoinMinutes.Equals(input.HostEarlyJoinMinutes)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.ImageId == input.ImageId ||
+                    (this.ImageId != null &&
+                    this.ImageId.Equals(input.ImageId))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.InterestedUserCount == input.InterestedUserCount ||
+                    this.InterestedUserCount.Equals(input.InterestedUserCount)
+                ) && 
+                (
+                    this.IsDraft == input.IsDraft ||
+                    this.IsDraft.Equals(input.IsDraft)
+                ) && 
+                (
+                    this.Languages == input.Languages ||
+                    this.Languages != null &&
+                    input.Languages != null &&
+                    this.Languages.SequenceEqual(input.Languages)
+                ) && 
+                (
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
+                ) && 
+                (
+                    this.Platforms == input.Platforms ||
+                    this.Platforms != null &&
+                    input.Platforms != null &&
+                    this.Platforms.SequenceEqual(input.Platforms)
+                ) && 
+                (
+                    this.RoleIds == input.RoleIds ||
+                    this.RoleIds != null &&
+                    input.RoleIds != null &&
+                    this.RoleIds.SequenceEqual(input.RoleIds)
+                ) && 
+                (
+                    this.StartsAt == input.StartsAt ||
+                    (this.StartsAt != null &&
+                    this.StartsAt.Equals(input.StartsAt))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.UsesInstanceOverflow == input.UsesInstanceOverflow ||
+                    this.UsesInstanceOverflow.Equals(input.UsesInstanceOverflow)
+                ) && 
+                (
+                    this.UserInterest == input.UserInterest ||
+                    (this.UserInterest != null &&
+                    this.UserInterest.Equals(input.UserInterest))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.AccessType != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccessType.GetHashCode();
+                }
+                if (this.Category != null)
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CloseInstanceAfterEndMinutes.GetHashCode();
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.DeletedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeletedAt.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.EndsAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.EndsAt.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Featured.GetHashCode();
+                hashCode = (hashCode * 59) + this.GuestEarlyJoinMinutes.GetHashCode();
+                hashCode = (hashCode * 59) + this.HostEarlyJoinMinutes.GetHashCode();
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.ImageId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.InterestedUserCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsDraft.GetHashCode();
+                if (this.Languages != null)
+                {
+                    hashCode = (hashCode * 59) + this.Languages.GetHashCode();
+                }
+                if (this.OwnerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
+                if (this.Platforms != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platforms.GetHashCode();
+                }
+                if (this.RoleIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
+                }
+                if (this.StartsAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.StartsAt.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.Title != null)
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UsesInstanceOverflow.GetHashCode();
+                if (this.UserInterest != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserInterest.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

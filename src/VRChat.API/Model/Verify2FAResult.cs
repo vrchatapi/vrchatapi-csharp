@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Verify2FAResult
     /// </summary>
     [DataContract(Name = "Verify2FAResult")]
-    public partial class Verify2FAResult : IValidatableObject
+    public partial class Verify2FAResult : IEquatable<Verify2FAResult>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Verify2FAResult" /> class.
@@ -81,6 +81,53 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Verify2FAResult);
+        }
+
+        /// <summary>
+        /// Returns true if Verify2FAResult instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Verify2FAResult to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Verify2FAResult input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Verified == input.Verified ||
+                    this.Verified.Equals(input.Verified)
+                ) && 
+                (
+                    this.Enabled == input.Enabled ||
+                    this.Enabled.Equals(input.Enabled)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.Verified.GetHashCode();
+                hashCode = (hashCode * 59) + this.Enabled.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

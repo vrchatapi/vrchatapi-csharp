@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Represents a single Transaction, which is likely between VRChat and Steam.
     /// </summary>
     [DataContract(Name = "TransactionAgreement")]
-    public partial class TransactionAgreement : IValidatableObject
+    public partial class TransactionAgreement : IEquatable<TransactionAgreement>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionAgreement" /> class.
@@ -281,6 +281,177 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as TransactionAgreement);
+        }
+
+        /// <summary>
+        /// Returns true if TransactionAgreement instances are equal
+        /// </summary>
+        /// <param name="input">Instance of TransactionAgreement to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(TransactionAgreement input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AgreementId == input.AgreementId ||
+                    (this.AgreementId != null &&
+                    this.AgreementId.Equals(input.AgreementId))
+                ) && 
+                (
+                    this.ItemId == input.ItemId ||
+                    this.ItemId.Equals(input.ItemId)
+                ) && 
+                (
+                    this.Agreement == input.Agreement ||
+                    (this.Agreement != null &&
+                    this.Agreement.Equals(input.Agreement))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Period == input.Period ||
+                    (this.Period != null &&
+                    this.Period.Equals(input.Period))
+                ) && 
+                (
+                    this.Frequency == input.Frequency ||
+                    this.Frequency.Equals(input.Frequency)
+                ) && 
+                (
+                    this.BillingType == input.BillingType ||
+                    (this.BillingType != null &&
+                    this.BillingType.Equals(input.BillingType))
+                ) && 
+                (
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
+                ) && 
+                (
+                    this.EndDate == input.EndDate ||
+                    (this.EndDate != null &&
+                    this.EndDate.Equals(input.EndDate))
+                ) && 
+                (
+                    this.RecurringAmt == input.RecurringAmt ||
+                    this.RecurringAmt.Equals(input.RecurringAmt)
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.TimeCreated == input.TimeCreated ||
+                    (this.TimeCreated != null &&
+                    this.TimeCreated.Equals(input.TimeCreated))
+                ) && 
+                (
+                    this.NextPayment == input.NextPayment ||
+                    (this.NextPayment != null &&
+                    this.NextPayment.Equals(input.NextPayment))
+                ) && 
+                (
+                    this.LastPayment == input.LastPayment ||
+                    (this.LastPayment != null &&
+                    this.LastPayment.Equals(input.LastPayment))
+                ) && 
+                (
+                    this.LastAmount == input.LastAmount ||
+                    this.LastAmount.Equals(input.LastAmount)
+                ) && 
+                (
+                    this.LastAmountVat == input.LastAmountVat ||
+                    this.LastAmountVat.Equals(input.LastAmountVat)
+                ) && 
+                (
+                    this.Outstanding == input.Outstanding ||
+                    this.Outstanding.Equals(input.Outstanding)
+                ) && 
+                (
+                    this.FailedAttempts == input.FailedAttempts ||
+                    this.FailedAttempts.Equals(input.FailedAttempts)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.AgreementId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AgreementId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ItemId.GetHashCode();
+                if (this.Agreement != null)
+                {
+                    hashCode = (hashCode * 59) + this.Agreement.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.Period != null)
+                {
+                    hashCode = (hashCode * 59) + this.Period.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
+                if (this.BillingType != null)
+                {
+                    hashCode = (hashCode * 59) + this.BillingType.GetHashCode();
+                }
+                if (this.StartDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
+                if (this.EndDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RecurringAmt.GetHashCode();
+                if (this.Currency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                if (this.TimeCreated != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeCreated.GetHashCode();
+                }
+                if (this.NextPayment != null)
+                {
+                    hashCode = (hashCode * 59) + this.NextPayment.GetHashCode();
+                }
+                if (this.LastPayment != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastPayment.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.LastAmount.GetHashCode();
+                hashCode = (hashCode * 59) + this.LastAmountVat.GetHashCode();
+                hashCode = (hashCode * 59) + this.Outstanding.GetHashCode();
+                hashCode = (hashCode * 59) + this.FailedAttempts.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

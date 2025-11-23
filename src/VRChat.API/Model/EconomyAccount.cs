@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// EconomyAccount
     /// </summary>
     [DataContract(Name = "EconomyAccount")]
-    public partial class EconomyAccount : IValidatableObject
+    public partial class EconomyAccount : IEquatable<EconomyAccount>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EconomyAccount" /> class.
@@ -141,6 +141,89 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as EconomyAccount);
+        }
+
+        /// <summary>
+        /// Returns true if EconomyAccount instances are equal
+        /// </summary>
+        /// <param name="input">Instance of EconomyAccount to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(EconomyAccount input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AccountActivatedOn == input.AccountActivatedOn ||
+                    (this.AccountActivatedOn != null &&
+                    this.AccountActivatedOn.Equals(input.AccountActivatedOn))
+                ) && 
+                (
+                    this.AccountId == input.AccountId ||
+                    (this.AccountId != null &&
+                    this.AccountId.Equals(input.AccountId))
+                ) && 
+                (
+                    this.Blocked == input.Blocked ||
+                    this.Blocked.Equals(input.Blocked)
+                ) && 
+                (
+                    this.CanSpend == input.CanSpend ||
+                    this.CanSpend.Equals(input.CanSpend)
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
+                ) && 
+                (
+                    this.UserId == input.UserId ||
+                    (this.UserId != null &&
+                    this.UserId.Equals(input.UserId))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.AccountActivatedOn != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountActivatedOn.GetHashCode();
+                }
+                if (this.AccountId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Blocked.GetHashCode();
+                hashCode = (hashCode * 59) + this.CanSpend.GetHashCode();
+                if (this.Source != null)
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
+                if (this.UserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

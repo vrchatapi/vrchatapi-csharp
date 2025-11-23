@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// TiliaTOS
     /// </summary>
     [DataContract(Name = "TiliaTOS")]
-    public partial class TiliaTOS : IValidatableObject
+    public partial class TiliaTOS : IEquatable<TiliaTOS>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TiliaTOS" /> class.
@@ -72,6 +72,48 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as TiliaTOS);
+        }
+
+        /// <summary>
+        /// Returns true if TiliaTOS instances are equal
+        /// </summary>
+        /// <param name="input">Instance of TiliaTOS to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(TiliaTOS input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.SignedTos == input.SignedTos ||
+                    this.SignedTos.Equals(input.SignedTos)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.SignedTos.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

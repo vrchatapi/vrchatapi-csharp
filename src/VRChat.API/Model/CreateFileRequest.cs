@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CreateFileRequest
     /// </summary>
     [DataContract(Name = "CreateFileRequest")]
-    public partial class CreateFileRequest : IValidatableObject
+    public partial class CreateFileRequest : IEquatable<CreateFileRequest>, IValidatableObject
     {
 
         /// <summary>
@@ -110,6 +110,76 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CreateFileRequest);
+        }
+
+        /// <summary>
+        /// Returns true if CreateFileRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CreateFileRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CreateFileRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.MimeType == input.MimeType ||
+                    this.MimeType.Equals(input.MimeType)
+                ) && 
+                (
+                    this.Extension == input.Extension ||
+                    (this.Extension != null &&
+                    this.Extension.Equals(input.Extension))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MimeType.GetHashCode();
+                if (this.Extension != null)
+                {
+                    hashCode = (hashCode * 59) + this.Extension.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

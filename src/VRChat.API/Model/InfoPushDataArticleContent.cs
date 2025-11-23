@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// InfoPushDataArticleContent
     /// </summary>
     [DataContract(Name = "InfoPushDataArticleContent")]
-    public partial class InfoPushDataArticleContent : IValidatableObject
+    public partial class InfoPushDataArticleContent : IEquatable<InfoPushDataArticleContent>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushDataArticleContent" /> class.
@@ -85,6 +85,70 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as InfoPushDataArticleContent);
+        }
+
+        /// <summary>
+        /// Returns true if InfoPushDataArticleContent instances are equal
+        /// </summary>
+        /// <param name="input">Instance of InfoPushDataArticleContent to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(InfoPushDataArticleContent input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.OnPressed == input.OnPressed ||
+                    (this.OnPressed != null &&
+                    this.OnPressed.Equals(input.OnPressed))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Text != null)
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                if (this.OnPressed != null)
+                {
+                    hashCode = (hashCode * 59) + this.OnPressed.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

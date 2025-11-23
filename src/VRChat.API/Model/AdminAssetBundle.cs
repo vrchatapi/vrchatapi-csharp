@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// AdminAssetBundle
     /// </summary>
     [DataContract(Name = "AdminAssetBundle")]
-    public partial class AdminAssetBundle : IValidatableObject
+    public partial class AdminAssetBundle : IEquatable<AdminAssetBundle>, IValidatableObject
     {
 
         /// <summary>
@@ -234,6 +234,158 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as AdminAssetBundle);
+        }
+
+        /// <summary>
+        /// Returns true if AdminAssetBundle instances are equal
+        /// </summary>
+        /// <param name="input">Instance of AdminAssetBundle to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(AdminAssetBundle input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.AssetType == input.AssetType ||
+                    (this.AssetType != null &&
+                    this.AssetType.Equals(input.AssetType))
+                ) && 
+                (
+                    this.AuthorId == input.AuthorId ||
+                    (this.AuthorId != null &&
+                    this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
+                    this.AuthorName == input.AuthorName ||
+                    (this.AuthorName != null &&
+                    this.AuthorName.Equals(input.AuthorName))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.ReleaseStatus == input.ReleaseStatus ||
+                    this.ReleaseStatus.Equals(input.ReleaseStatus)
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.ThumbnailImageUrl == input.ThumbnailImageUrl ||
+                    (this.ThumbnailImageUrl != null &&
+                    this.ThumbnailImageUrl.Equals(input.ThumbnailImageUrl))
+                ) && 
+                (
+                    this.UnityPackageUrl == input.UnityPackageUrl ||
+                    (this.UnityPackageUrl != null &&
+                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
+                ) && 
+                (
+                    this.UnityPackages == input.UnityPackages ||
+                    this.UnityPackages != null &&
+                    input.UnityPackages != null &&
+                    this.UnityPackages.SequenceEqual(input.UnityPackages)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                if (this.AssetType != null)
+                {
+                    hashCode = (hashCode * 59) + this.AssetType.GetHashCode();
+                }
+                if (this.AuthorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
+                if (this.AuthorName != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.ThumbnailImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
+                }
+                if (this.UnityPackageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
+                }
+                if (this.UnityPackages != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackages.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

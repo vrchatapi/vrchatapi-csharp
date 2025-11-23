@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// RepresentedGroup
     /// </summary>
     [DataContract(Name = "representedGroup")]
-    public partial class RepresentedGroup : IValidatableObject
+    public partial class RepresentedGroup : IEquatable<RepresentedGroup>, IValidatableObject
     {
 
         /// <summary>
@@ -197,6 +197,153 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as RepresentedGroup);
+        }
+
+        /// <summary>
+        /// Returns true if RepresentedGroup instances are equal
+        /// </summary>
+        /// <param name="input">Instance of RepresentedGroup to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(RepresentedGroup input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.ShortCode == input.ShortCode ||
+                    (this.ShortCode != null &&
+                    this.ShortCode.Equals(input.ShortCode))
+                ) && 
+                (
+                    this.Discriminator == input.Discriminator ||
+                    (this.Discriminator != null &&
+                    this.Discriminator.Equals(input.Discriminator))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.IconId == input.IconId ||
+                    (this.IconId != null &&
+                    this.IconId.Equals(input.IconId))
+                ) && 
+                (
+                    this.IconUrl == input.IconUrl ||
+                    (this.IconUrl != null &&
+                    this.IconUrl.Equals(input.IconUrl))
+                ) && 
+                (
+                    this.BannerId == input.BannerId ||
+                    (this.BannerId != null &&
+                    this.BannerId.Equals(input.BannerId))
+                ) && 
+                (
+                    this.BannerUrl == input.BannerUrl ||
+                    (this.BannerUrl != null &&
+                    this.BannerUrl.Equals(input.BannerUrl))
+                ) && 
+                (
+                    this.Privacy == input.Privacy ||
+                    this.Privacy.Equals(input.Privacy)
+                ) && 
+                (
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
+                ) && 
+                (
+                    this.MemberCount == input.MemberCount ||
+                    this.MemberCount.Equals(input.MemberCount)
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
+                ) && 
+                (
+                    this.MemberVisibility == input.MemberVisibility ||
+                    this.MemberVisibility.Equals(input.MemberVisibility)
+                ) && 
+                (
+                    this.IsRepresenting == input.IsRepresenting ||
+                    this.IsRepresenting.Equals(input.IsRepresenting)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.ShortCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
+                }
+                if (this.Discriminator != null)
+                {
+                    hashCode = (hashCode * 59) + this.Discriminator.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.IconId != null)
+                {
+                    hashCode = (hashCode * 59) + this.IconId.GetHashCode();
+                }
+                if (this.IconUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
+                }
+                if (this.BannerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.BannerId.GetHashCode();
+                }
+                if (this.BannerUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Privacy.GetHashCode();
+                if (this.OwnerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MemberCount.GetHashCode();
+                if (this.GroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MemberVisibility.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsRepresenting.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

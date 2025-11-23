@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// License
     /// </summary>
     [DataContract(Name = "License")]
-    public partial class License : IValidatableObject
+    public partial class License : IEquatable<License>, IValidatableObject
     {
 
         /// <summary>
@@ -110,6 +110,71 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as License);
+        }
+
+        /// <summary>
+        /// Returns true if License instances are equal
+        /// </summary>
+        /// <param name="input">Instance of License to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(License input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.ForId == input.ForId ||
+                    (this.ForId != null &&
+                    this.ForId.Equals(input.ForId))
+                ) && 
+                (
+                    this.ForType == input.ForType ||
+                    this.ForType.Equals(input.ForType)
+                ) && 
+                (
+                    this.ForName == input.ForName ||
+                    (this.ForName != null &&
+                    this.ForName.Equals(input.ForName))
+                ) && 
+                (
+                    this.ForAction == input.ForAction ||
+                    this.ForAction.Equals(input.ForAction)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.ForId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ForId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ForType.GetHashCode();
+                if (this.ForName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ForName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ForAction.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

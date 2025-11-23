@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// NotificationDetailInvite
     /// </summary>
     [DataContract(Name = "NotificationDetailInvite")]
-    public partial class NotificationDetailInvite : IValidatableObject
+    public partial class NotificationDetailInvite : IEquatable<NotificationDetailInvite>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationDetailInvite" /> class.
@@ -104,6 +104,70 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as NotificationDetailInvite);
+        }
+
+        /// <summary>
+        /// Returns true if NotificationDetailInvite instances are equal
+        /// </summary>
+        /// <param name="input">Instance of NotificationDetailInvite to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(NotificationDetailInvite input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.InviteMessage == input.InviteMessage ||
+                    (this.InviteMessage != null &&
+                    this.InviteMessage.Equals(input.InviteMessage))
+                ) && 
+                (
+                    this.WorldId == input.WorldId ||
+                    (this.WorldId != null &&
+                    this.WorldId.Equals(input.WorldId))
+                ) && 
+                (
+                    this.WorldName == input.WorldName ||
+                    (this.WorldName != null &&
+                    this.WorldName.Equals(input.WorldName))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.InviteMessage != null)
+                {
+                    hashCode = (hashCode * 59) + this.InviteMessage.GetHashCode();
+                }
+                if (this.WorldId != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorldId.GetHashCode();
+                }
+                if (this.WorldName != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorldName.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

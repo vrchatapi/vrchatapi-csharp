@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CreateGroupAnnouncementRequest
     /// </summary>
     [DataContract(Name = "CreateGroupAnnouncementRequest")]
-    public partial class CreateGroupAnnouncementRequest : IValidatableObject
+    public partial class CreateGroupAnnouncementRequest : IEquatable<CreateGroupAnnouncementRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateGroupAnnouncementRequest" /> class.
@@ -119,6 +119,75 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CreateGroupAnnouncementRequest);
+        }
+
+        /// <summary>
+        /// Returns true if CreateGroupAnnouncementRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CreateGroupAnnouncementRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CreateGroupAnnouncementRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.ImageId == input.ImageId ||
+                    (this.ImageId != null &&
+                    this.ImageId.Equals(input.ImageId))
+                ) && 
+                (
+                    this.SendNotification == input.SendNotification ||
+                    this.SendNotification.Equals(input.SendNotification)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Title != null)
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.Text != null)
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                if (this.ImageId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SendNotification.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

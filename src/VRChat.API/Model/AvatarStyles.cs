@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// AvatarStyles
     /// </summary>
     [DataContract(Name = "Avatar_styles")]
-    public partial class AvatarStyles : IValidatableObject
+    public partial class AvatarStyles : IEquatable<AvatarStyles>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AvatarStyles" /> class.
@@ -85,6 +85,71 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as AvatarStyles);
+        }
+
+        /// <summary>
+        /// Returns true if AvatarStyles instances are equal
+        /// </summary>
+        /// <param name="input">Instance of AvatarStyles to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(AvatarStyles input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Primary == input.Primary ||
+                    (this.Primary != null &&
+                    this.Primary.Equals(input.Primary))
+                ) && 
+                (
+                    this.Secondary == input.Secondary ||
+                    (this.Secondary != null &&
+                    this.Secondary.Equals(input.Secondary))
+                ) && 
+                (
+                    this.Supplementary == input.Supplementary ||
+                    this.Supplementary != null &&
+                    input.Supplementary != null &&
+                    this.Supplementary.SequenceEqual(input.Supplementary)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Primary != null)
+                {
+                    hashCode = (hashCode * 59) + this.Primary.GetHashCode();
+                }
+                if (this.Secondary != null)
+                {
+                    hashCode = (hashCode * 59) + this.Secondary.GetHashCode();
+                }
+                if (this.Supplementary != null)
+                {
+                    hashCode = (hashCode * 59) + this.Supplementary.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

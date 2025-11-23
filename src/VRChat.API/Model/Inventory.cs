@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Inventory
     /// </summary>
     [DataContract(Name = "Inventory")]
-    public partial class Inventory : IValidatableObject
+    public partial class Inventory : IEquatable<Inventory>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Inventory" /> class.
@@ -86,6 +86,58 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Inventory);
+        }
+
+        /// <summary>
+        /// Returns true if Inventory instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Inventory to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Inventory input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
+                ) && 
+                (
+                    this.TotalCount == input.TotalCount ||
+                    this.TotalCount.Equals(input.TotalCount)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Data != null)
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Avatar
     /// </summary>
     [DataContract(Name = "Avatar")]
-    public partial class Avatar : IValidatableObject
+    public partial class Avatar : IEquatable<Avatar>, IValidatableObject
     {
 
         /// <summary>
@@ -399,6 +399,270 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Avatar);
+        }
+
+        /// <summary>
+        /// Returns true if Avatar instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Avatar to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Avatar input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Acknowledgements == input.Acknowledgements ||
+                    (this.Acknowledgements != null &&
+                    this.Acknowledgements.Equals(input.Acknowledgements))
+                ) && 
+                (
+                    this.AssetUrl == input.AssetUrl ||
+                    (this.AssetUrl != null &&
+                    this.AssetUrl.Equals(input.AssetUrl))
+                ) && 
+                (
+                    this.AssetUrlObject == input.AssetUrlObject ||
+                    (this.AssetUrlObject != null &&
+                    this.AssetUrlObject.Equals(input.AssetUrlObject))
+                ) && 
+                (
+                    this.AuthorId == input.AuthorId ||
+                    (this.AuthorId != null &&
+                    this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
+                    this.AuthorName == input.AuthorName ||
+                    (this.AuthorName != null &&
+                    this.AuthorName.Equals(input.AuthorName))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Featured == input.Featured ||
+                    this.Featured.Equals(input.Featured)
+                ) && 
+                (
+                    this.HighestPrice == input.HighestPrice ||
+                    this.HighestPrice.Equals(input.HighestPrice)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.ListingDate == input.ListingDate ||
+                    (this.ListingDate != null &&
+                    this.ListingDate.Equals(input.ListingDate))
+                ) && 
+                (
+                    this.Lock == input.Lock ||
+                    this.Lock.Equals(input.Lock)
+                ) && 
+                (
+                    this.LowestPrice == input.LowestPrice ||
+                    this.LowestPrice.Equals(input.LowestPrice)
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Performance == input.Performance ||
+                    (this.Performance != null &&
+                    this.Performance.Equals(input.Performance))
+                ) && 
+                (
+                    this.ProductId == input.ProductId ||
+                    (this.ProductId != null &&
+                    this.ProductId.Equals(input.ProductId))
+                ) && 
+                (
+                    this.PublishedListings == input.PublishedListings ||
+                    this.PublishedListings != null &&
+                    input.PublishedListings != null &&
+                    this.PublishedListings.SequenceEqual(input.PublishedListings)
+                ) && 
+                (
+                    this.ReleaseStatus == input.ReleaseStatus ||
+                    this.ReleaseStatus.Equals(input.ReleaseStatus)
+                ) && 
+                (
+                    this.Searchable == input.Searchable ||
+                    this.Searchable.Equals(input.Searchable)
+                ) && 
+                (
+                    this.Styles == input.Styles ||
+                    (this.Styles != null &&
+                    this.Styles.Equals(input.Styles))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.ThumbnailImageUrl == input.ThumbnailImageUrl ||
+                    (this.ThumbnailImageUrl != null &&
+                    this.ThumbnailImageUrl.Equals(input.ThumbnailImageUrl))
+                ) && 
+                (
+                    this.UnityPackageUrl == input.UnityPackageUrl ||
+                    (this.UnityPackageUrl != null &&
+                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
+                ) && 
+                (
+                    this.UnityPackageUrlObject == input.UnityPackageUrlObject ||
+                    (this.UnityPackageUrlObject != null &&
+                    this.UnityPackageUrlObject.Equals(input.UnityPackageUrlObject))
+                ) && 
+                (
+                    this.UnityPackages == input.UnityPackages ||
+                    this.UnityPackages != null &&
+                    input.UnityPackages != null &&
+                    this.UnityPackages.SequenceEqual(input.UnityPackages)
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Acknowledgements != null)
+                {
+                    hashCode = (hashCode * 59) + this.Acknowledgements.GetHashCode();
+                }
+                if (this.AssetUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.AssetUrl.GetHashCode();
+                }
+                if (this.AssetUrlObject != null)
+                {
+                    hashCode = (hashCode * 59) + this.AssetUrlObject.GetHashCode();
+                }
+                if (this.AuthorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
+                if (this.AuthorName != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
+                }
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Featured.GetHashCode();
+                hashCode = (hashCode * 59) + this.HighestPrice.GetHashCode();
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                if (this.ListingDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ListingDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Lock.GetHashCode();
+                hashCode = (hashCode * 59) + this.LowestPrice.GetHashCode();
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.Performance != null)
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
+                if (this.ProductId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProductId.GetHashCode();
+                }
+                if (this.PublishedListings != null)
+                {
+                    hashCode = (hashCode * 59) + this.PublishedListings.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
+                hashCode = (hashCode * 59) + this.Searchable.GetHashCode();
+                if (this.Styles != null)
+                {
+                    hashCode = (hashCode * 59) + this.Styles.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.ThumbnailImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
+                }
+                if (this.UnityPackageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
+                }
+                if (this.UnityPackageUrlObject != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackageUrlObject.GetHashCode();
+                }
+                if (this.UnityPackages != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackages.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

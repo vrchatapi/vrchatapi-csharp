@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.
     /// </summary>
     [DataContract(Name = "GroupMemberLimitedUser")]
-    public partial class GroupMemberLimitedUser : IValidatableObject
+    public partial class GroupMemberLimitedUser : IEquatable<GroupMemberLimitedUser>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupMemberLimitedUser" /> class.
@@ -125,6 +125,107 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as GroupMemberLimitedUser);
+        }
+
+        /// <summary>
+        /// Returns true if GroupMemberLimitedUser instances are equal
+        /// </summary>
+        /// <param name="input">Instance of GroupMemberLimitedUser to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(GroupMemberLimitedUser input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.ThumbnailUrl == input.ThumbnailUrl ||
+                    (this.ThumbnailUrl != null &&
+                    this.ThumbnailUrl.Equals(input.ThumbnailUrl))
+                ) && 
+                (
+                    this.IconUrl == input.IconUrl ||
+                    (this.IconUrl != null &&
+                    this.IconUrl.Equals(input.IconUrl))
+                ) && 
+                (
+                    this.ProfilePicOverride == input.ProfilePicOverride ||
+                    (this.ProfilePicOverride != null &&
+                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
+                ) && 
+                (
+                    this.CurrentAvatarThumbnailImageUrl == input.CurrentAvatarThumbnailImageUrl ||
+                    (this.CurrentAvatarThumbnailImageUrl != null &&
+                    this.CurrentAvatarThumbnailImageUrl.Equals(input.CurrentAvatarThumbnailImageUrl))
+                ) && 
+                (
+                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
+                    this.CurrentAvatarTags != null &&
+                    input.CurrentAvatarTags != null &&
+                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.ThumbnailUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ThumbnailUrl.GetHashCode();
+                }
+                if (this.IconUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
+                }
+                if (this.ProfilePicOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
+                }
+                if (this.CurrentAvatarThumbnailImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
+                }
+                if (this.CurrentAvatarTags != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

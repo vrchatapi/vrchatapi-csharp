@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateUserNoteRequest
     /// </summary>
     [DataContract(Name = "UpdateUserNoteRequest")]
-    public partial class UpdateUserNoteRequest : IValidatableObject
+    public partial class UpdateUserNoteRequest : IEquatable<UpdateUserNoteRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateUserNoteRequest" /> class.
@@ -95,6 +95,61 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UpdateUserNoteRequest);
+        }
+
+        /// <summary>
+        /// Returns true if UpdateUserNoteRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UpdateUserNoteRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UpdateUserNoteRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.TargetUserId == input.TargetUserId ||
+                    (this.TargetUserId != null &&
+                    this.TargetUserId.Equals(input.TargetUserId))
+                ) && 
+                (
+                    this.Note == input.Note ||
+                    (this.Note != null &&
+                    this.Note.Equals(input.Note))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.TargetUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TargetUserId.GetHashCode();
+                }
+                if (this.Note != null)
+                {
+                    hashCode = (hashCode * 59) + this.Note.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

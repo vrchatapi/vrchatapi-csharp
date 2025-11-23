@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Error
     /// </summary>
     [DataContract(Name = "Error")]
-    public partial class Error : IValidatableObject
+    public partial class Error : IEquatable<Error>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Error" /> class.
@@ -67,6 +67,52 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Error);
+        }
+
+        /// <summary>
+        /// Returns true if Error instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Error to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Error input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.VarError == input.VarError ||
+                    (this.VarError != null &&
+                    this.VarError.Equals(input.VarError))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.VarError != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarError.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

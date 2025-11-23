@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CurrentUserPlatformHistoryInner
     /// </summary>
     [DataContract(Name = "CurrentUser_platform_history_inner")]
-    public partial class CurrentUserPlatformHistoryInner : IValidatableObject
+    public partial class CurrentUserPlatformHistoryInner : IEquatable<CurrentUserPlatformHistoryInner>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentUserPlatformHistoryInner" /> class.
@@ -85,6 +85,66 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CurrentUserPlatformHistoryInner);
+        }
+
+        /// <summary>
+        /// Returns true if CurrentUserPlatformHistoryInner instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CurrentUserPlatformHistoryInner to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CurrentUserPlatformHistoryInner input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.IsMobile == input.IsMobile ||
+                    this.IsMobile.Equals(input.IsMobile)
+                ) && 
+                (
+                    this.Platform == input.Platform ||
+                    (this.Platform != null &&
+                    this.Platform.Equals(input.Platform))
+                ) && 
+                (
+                    this.Recorded == input.Recorded ||
+                    (this.Recorded != null &&
+                    this.Recorded.Equals(input.Recorded))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.IsMobile.GetHashCode();
+                if (this.Platform != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                }
+                if (this.Recorded != null)
+                {
+                    hashCode = (hashCode * 59) + this.Recorded.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

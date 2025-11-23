@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CreateGroupRoleRequest
     /// </summary>
     [DataContract(Name = "CreateGroupRoleRequest")]
-    public partial class CreateGroupRoleRequest : IValidatableObject
+    public partial class CreateGroupRoleRequest : IEquatable<CreateGroupRoleRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateGroupRoleRequest" /> class.
@@ -103,6 +103,85 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CreateGroupRoleRequest);
+        }
+
+        /// <summary>
+        /// Returns true if CreateGroupRoleRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CreateGroupRoleRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CreateGroupRoleRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.IsSelfAssignable == input.IsSelfAssignable ||
+                    this.IsSelfAssignable.Equals(input.IsSelfAssignable)
+                ) && 
+                (
+                    this.Permissions == input.Permissions ||
+                    this.Permissions != null &&
+                    input.Permissions != null &&
+                    this.Permissions.SequenceEqual(input.Permissions)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsSelfAssignable.GetHashCode();
+                if (this.Permissions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

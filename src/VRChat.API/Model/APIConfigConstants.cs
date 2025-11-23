@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Constants
     /// </summary>
     [DataContract(Name = "APIConfigConstants")]
-    public partial class APIConfigConstants : IValidatableObject
+    public partial class APIConfigConstants : IEquatable<APIConfigConstants>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigConstants" /> class.
@@ -105,6 +105,70 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigConstants);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigConstants instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigConstants to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigConstants input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.GROUPS == input.GROUPS ||
+                    (this.GROUPS != null &&
+                    this.GROUPS.Equals(input.GROUPS))
+                ) && 
+                (
+                    this.INSTANCE == input.INSTANCE ||
+                    (this.INSTANCE != null &&
+                    this.INSTANCE.Equals(input.INSTANCE))
+                ) && 
+                (
+                    this.LANGUAGE == input.LANGUAGE ||
+                    (this.LANGUAGE != null &&
+                    this.LANGUAGE.Equals(input.LANGUAGE))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.GROUPS != null)
+                {
+                    hashCode = (hashCode * 59) + this.GROUPS.GetHashCode();
+                }
+                if (this.INSTANCE != null)
+                {
+                    hashCode = (hashCode * 59) + this.INSTANCE.GetHashCode();
+                }
+                if (this.LANGUAGE != null)
+                {
+                    hashCode = (hashCode * 59) + this.LANGUAGE.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

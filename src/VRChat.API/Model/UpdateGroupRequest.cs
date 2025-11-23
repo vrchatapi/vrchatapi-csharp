@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateGroupRequest
     /// </summary>
     [DataContract(Name = "UpdateGroupRequest")]
-    public partial class UpdateGroupRequest : IValidatableObject
+    public partial class UpdateGroupRequest : IEquatable<UpdateGroupRequest>, IValidatableObject
     {
 
         /// <summary>
@@ -150,6 +150,132 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UpdateGroupRequest);
+        }
+
+        /// <summary>
+        /// Returns true if UpdateGroupRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UpdateGroupRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UpdateGroupRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.ShortCode == input.ShortCode ||
+                    (this.ShortCode != null &&
+                    this.ShortCode.Equals(input.ShortCode))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.JoinState == input.JoinState ||
+                    this.JoinState.Equals(input.JoinState)
+                ) && 
+                (
+                    this.IconId == input.IconId ||
+                    (this.IconId != null &&
+                    this.IconId.Equals(input.IconId))
+                ) && 
+                (
+                    this.BannerId == input.BannerId ||
+                    (this.BannerId != null &&
+                    this.BannerId.Equals(input.BannerId))
+                ) && 
+                (
+                    this.Languages == input.Languages ||
+                    this.Languages != null &&
+                    input.Languages != null &&
+                    this.Languages.SequenceEqual(input.Languages)
+                ) && 
+                (
+                    this.Links == input.Links ||
+                    this.Links != null &&
+                    input.Links != null &&
+                    this.Links.SequenceEqual(input.Links)
+                ) && 
+                (
+                    this.Rules == input.Rules ||
+                    (this.Rules != null &&
+                    this.Rules.Equals(input.Rules))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.ShortCode != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.JoinState.GetHashCode();
+                if (this.IconId != null)
+                {
+                    hashCode = (hashCode * 59) + this.IconId.GetHashCode();
+                }
+                if (this.BannerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.BannerId.GetHashCode();
+                }
+                if (this.Languages != null)
+                {
+                    hashCode = (hashCode * 59) + this.Languages.GetHashCode();
+                }
+                if (this.Links != null)
+                {
+                    hashCode = (hashCode * 59) + this.Links.GetHashCode();
+                }
+                if (this.Rules != null)
+                {
+                    hashCode = (hashCode * 59) + this.Rules.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

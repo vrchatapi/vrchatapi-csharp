@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// AvatarModeration
     /// </summary>
     [DataContract(Name = "AvatarModeration")]
-    public partial class AvatarModeration : IValidatableObject
+    public partial class AvatarModeration : IEquatable<AvatarModeration>, IValidatableObject
     {
 
         /// <summary>
@@ -98,6 +98,66 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as AvatarModeration);
+        }
+
+        /// <summary>
+        /// Returns true if AvatarModeration instances are equal
+        /// </summary>
+        /// <param name="input">Instance of AvatarModeration to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(AvatarModeration input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AvatarModerationType == input.AvatarModerationType ||
+                    this.AvatarModerationType.Equals(input.AvatarModerationType)
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.TargetAvatarId == input.TargetAvatarId ||
+                    (this.TargetAvatarId != null &&
+                    this.TargetAvatarId.Equals(input.TargetAvatarId))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.AvatarModerationType.GetHashCode();
+                if (this.Created != null)
+                {
+                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
+                }
+                if (this.TargetAvatarId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TargetAvatarId.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

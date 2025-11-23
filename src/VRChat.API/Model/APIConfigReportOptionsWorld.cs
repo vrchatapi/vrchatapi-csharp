@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// APIConfigReportOptionsWorld
     /// </summary>
     [DataContract(Name = "APIConfig_reportOptions_world")]
-    public partial class APIConfigReportOptionsWorld : IValidatableObject
+    public partial class APIConfigReportOptionsWorld : IEquatable<APIConfigReportOptionsWorld>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigReportOptionsWorld" /> class.
@@ -103,6 +103,93 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as APIConfigReportOptionsWorld);
+        }
+
+        /// <summary>
+        /// Returns true if APIConfigReportOptionsWorld instances are equal
+        /// </summary>
+        /// <param name="input">Instance of APIConfigReportOptionsWorld to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(APIConfigReportOptionsWorld input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.VarEnvironment == input.VarEnvironment ||
+                    this.VarEnvironment != null &&
+                    input.VarEnvironment != null &&
+                    this.VarEnvironment.SequenceEqual(input.VarEnvironment)
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    this.Text != null &&
+                    input.Text != null &&
+                    this.Text.SequenceEqual(input.Text)
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
+                ) && 
+                (
+                    this.Worldimage == input.Worldimage ||
+                    this.Worldimage != null &&
+                    input.Worldimage != null &&
+                    this.Worldimage.SequenceEqual(input.Worldimage)
+                ) && 
+                (
+                    this.Worldstore == input.Worldstore ||
+                    this.Worldstore != null &&
+                    input.Worldstore != null &&
+                    this.Worldstore.SequenceEqual(input.Worldstore)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.VarEnvironment != null)
+                {
+                    hashCode = (hashCode * 59) + this.VarEnvironment.GetHashCode();
+                }
+                if (this.Text != null)
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                if (this.Warnings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
+                }
+                if (this.Worldimage != null)
+                {
+                    hashCode = (hashCode * 59) + this.Worldimage.GetHashCode();
+                }
+                if (this.Worldstore != null)
+                {
+                    hashCode = (hashCode * 59) + this.Worldstore.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

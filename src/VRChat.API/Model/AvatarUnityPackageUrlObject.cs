@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// **Deprecation:** &#x60;Object&#x60; has unknown usage/fields, and is always empty. Use normal &#x60;Url&#x60; field instead.
     /// </summary>
     [DataContract(Name = "Avatar_unityPackageUrlObject")]
-    public partial class AvatarUnityPackageUrlObject : IValidatableObject
+    public partial class AvatarUnityPackageUrlObject : IEquatable<AvatarUnityPackageUrlObject>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AvatarUnityPackageUrlObject" /> class.
@@ -67,6 +67,52 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as AvatarUnityPackageUrlObject);
+        }
+
+        /// <summary>
+        /// Returns true if AvatarUnityPackageUrlObject instances are equal
+        /// </summary>
+        /// <param name="input">Instance of AvatarUnityPackageUrlObject to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(AvatarUnityPackageUrlObject input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.UnityPackageUrl == input.UnityPackageUrl ||
+                    (this.UnityPackageUrl != null &&
+                    this.UnityPackageUrl.Equals(input.UnityPackageUrl))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.UnityPackageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackageUrl.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

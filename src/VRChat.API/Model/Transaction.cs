@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Transaction
     /// </summary>
     [DataContract(Name = "Transaction")]
-    public partial class Transaction : IValidatableObject
+    public partial class Transaction : IEquatable<Transaction>, IValidatableObject
     {
 
         /// <summary>
@@ -202,6 +202,144 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Transaction);
+        }
+
+        /// <summary>
+        /// Returns true if Transaction instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Transaction to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Transaction input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.UserId == input.UserId ||
+                    (this.UserId != null &&
+                    this.UserId.Equals(input.UserId))
+                ) && 
+                (
+                    this.UserDisplayName == input.UserDisplayName ||
+                    (this.UserDisplayName != null &&
+                    this.UserDisplayName.Equals(input.UserDisplayName))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.Subscription == input.Subscription ||
+                    (this.Subscription != null &&
+                    this.Subscription.Equals(input.Subscription))
+                ) && 
+                (
+                    this.Sandbox == input.Sandbox ||
+                    this.Sandbox.Equals(input.Sandbox)
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.Steam == input.Steam ||
+                    (this.Steam != null &&
+                    this.Steam.Equals(input.Steam))
+                ) && 
+                (
+                    this.Agreement == input.Agreement ||
+                    (this.Agreement != null &&
+                    this.Agreement.Equals(input.Agreement))
+                ) && 
+                (
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
+                ) && 
+                (
+                    this.IsGift == input.IsGift ||
+                    this.IsGift.Equals(input.IsGift)
+                ) && 
+                (
+                    this.IsTokens == input.IsTokens ||
+                    this.IsTokens.Equals(input.IsTokens)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.UserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
+                }
+                if (this.UserDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserDisplayName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Subscription != null)
+                {
+                    hashCode = (hashCode * 59) + this.Subscription.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Sandbox.GetHashCode();
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.UpdatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                if (this.Steam != null)
+                {
+                    hashCode = (hashCode * 59) + this.Steam.GetHashCode();
+                }
+                if (this.Agreement != null)
+                {
+                    hashCode = (hashCode * 59) + this.Agreement.GetHashCode();
+                }
+                if (this.Error != null)
+                {
+                    hashCode = (hashCode * 59) + this.Error.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsGift.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsTokens.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UpdateUserRequest
     /// </summary>
     [DataContract(Name = "UpdateUserRequest")]
-    public partial class UpdateUserRequest : IValidatableObject
+    public partial class UpdateUserRequest : IEquatable<UpdateUserRequest>, IValidatableObject
     {
 
         /// <summary>
@@ -220,6 +220,179 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UpdateUserRequest);
+        }
+
+        /// <summary>
+        /// Returns true if UpdateUserRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UpdateUserRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UpdateUserRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
+                ) && 
+                (
+                    this.Unsubscribe == input.Unsubscribe ||
+                    this.Unsubscribe.Equals(input.Unsubscribe)
+                ) && 
+                (
+                    this.Birthday == input.Birthday ||
+                    (this.Birthday != null &&
+                    this.Birthday.Equals(input.Birthday))
+                ) && 
+                (
+                    this.AcceptedTOSVersion == input.AcceptedTOSVersion ||
+                    this.AcceptedTOSVersion.Equals(input.AcceptedTOSVersion)
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.StatusDescription == input.StatusDescription ||
+                    (this.StatusDescription != null &&
+                    this.StatusDescription.Equals(input.StatusDescription))
+                ) && 
+                (
+                    this.Bio == input.Bio ||
+                    (this.Bio != null &&
+                    this.Bio.Equals(input.Bio))
+                ) && 
+                (
+                    this.BioLinks == input.BioLinks ||
+                    this.BioLinks != null &&
+                    input.BioLinks != null &&
+                    this.BioLinks.SequenceEqual(input.BioLinks)
+                ) && 
+                (
+                    this.Pronouns == input.Pronouns ||
+                    (this.Pronouns != null &&
+                    this.Pronouns.Equals(input.Pronouns))
+                ) && 
+                (
+                    this.IsBoopingEnabled == input.IsBoopingEnabled ||
+                    this.IsBoopingEnabled.Equals(input.IsBoopingEnabled)
+                ) && 
+                (
+                    this.UserIcon == input.UserIcon ||
+                    (this.UserIcon != null &&
+                    this.UserIcon.Equals(input.UserIcon))
+                ) && 
+                (
+                    this.ContentFilters == input.ContentFilters ||
+                    this.ContentFilters != null &&
+                    input.ContentFilters != null &&
+                    this.ContentFilters.SequenceEqual(input.ContentFilters)
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.RevertDisplayName == input.RevertDisplayName ||
+                    this.RevertDisplayName.Equals(input.RevertDisplayName)
+                ) && 
+                (
+                    this.Password == input.Password ||
+                    (this.Password != null &&
+                    this.Password.Equals(input.Password))
+                ) && 
+                (
+                    this.CurrentPassword == input.CurrentPassword ||
+                    (this.CurrentPassword != null &&
+                    this.CurrentPassword.Equals(input.CurrentPassword))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Email != null)
+                {
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Unsubscribe.GetHashCode();
+                if (this.Birthday != null)
+                {
+                    hashCode = (hashCode * 59) + this.Birthday.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.StatusDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.StatusDescription.GetHashCode();
+                }
+                if (this.Bio != null)
+                {
+                    hashCode = (hashCode * 59) + this.Bio.GetHashCode();
+                }
+                if (this.BioLinks != null)
+                {
+                    hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
+                }
+                if (this.Pronouns != null)
+                {
+                    hashCode = (hashCode * 59) + this.Pronouns.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsBoopingEnabled.GetHashCode();
+                if (this.UserIcon != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
+                }
+                if (this.ContentFilters != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentFilters.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RevertDisplayName.GetHashCode();
+                if (this.Password != null)
+                {
+                    hashCode = (hashCode * 59) + this.Password.GetHashCode();
+                }
+                if (this.CurrentPassword != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentPassword.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

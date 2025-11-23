@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CreatePermissionRequest
     /// </summary>
     [DataContract(Name = "createPermission_request")]
-    public partial class CreatePermissionRequest : IValidatableObject
+    public partial class CreatePermissionRequest : IEquatable<CreatePermissionRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreatePermissionRequest" /> class.
@@ -90,6 +90,61 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CreatePermissionRequest);
+        }
+
+        /// <summary>
+        /// Returns true if CreatePermissionRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CreatePermissionRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CreatePermissionRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.OwnerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UnityPackage
     /// </summary>
     [DataContract(Name = "UnityPackage")]
-    public partial class UnityPackage : IValidatableObject
+    public partial class UnityPackage : IEquatable<UnityPackage>, IValidatableObject
     {
 
         /// <summary>
@@ -256,6 +256,175 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UnityPackage);
+        }
+
+        /// <summary>
+        /// Returns true if UnityPackage instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UnityPackage to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UnityPackage input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.AssetUrl == input.AssetUrl ||
+                    (this.AssetUrl != null &&
+                    this.AssetUrl.Equals(input.AssetUrl))
+                ) && 
+                (
+                    this.AssetUrlObject == input.AssetUrlObject ||
+                    (this.AssetUrlObject != null &&
+                    this.AssetUrlObject.Equals(input.AssetUrlObject))
+                ) && 
+                (
+                    this.AssetVersion == input.AssetVersion ||
+                    this.AssetVersion.Equals(input.AssetVersion)
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.ImpostorizerVersion == input.ImpostorizerVersion ||
+                    (this.ImpostorizerVersion != null &&
+                    this.ImpostorizerVersion.Equals(input.ImpostorizerVersion))
+                ) && 
+                (
+                    this.PerformanceRating == input.PerformanceRating ||
+                    this.PerformanceRating.Equals(input.PerformanceRating)
+                ) && 
+                (
+                    this.Platform == input.Platform ||
+                    (this.Platform != null &&
+                    this.Platform.Equals(input.Platform))
+                ) && 
+                (
+                    this.PluginUrl == input.PluginUrl ||
+                    (this.PluginUrl != null &&
+                    this.PluginUrl.Equals(input.PluginUrl))
+                ) && 
+                (
+                    this.PluginUrlObject == input.PluginUrlObject ||
+                    (this.PluginUrlObject != null &&
+                    this.PluginUrlObject.Equals(input.PluginUrlObject))
+                ) && 
+                (
+                    this.UnitySortNumber == input.UnitySortNumber ||
+                    this.UnitySortNumber.Equals(input.UnitySortNumber)
+                ) && 
+                (
+                    this.UnityVersion == input.UnityVersion ||
+                    (this.UnityVersion != null &&
+                    this.UnityVersion.Equals(input.UnityVersion))
+                ) && 
+                (
+                    this.WorldSignature == input.WorldSignature ||
+                    (this.WorldSignature != null &&
+                    this.WorldSignature.Equals(input.WorldSignature))
+                ) && 
+                (
+                    this.ImpostorUrl == input.ImpostorUrl ||
+                    (this.ImpostorUrl != null &&
+                    this.ImpostorUrl.Equals(input.ImpostorUrl))
+                ) && 
+                (
+                    this.ScanStatus == input.ScanStatus ||
+                    (this.ScanStatus != null &&
+                    this.ScanStatus.Equals(input.ScanStatus))
+                ) && 
+                (
+                    this.Variant == input.Variant ||
+                    (this.Variant != null &&
+                    this.Variant.Equals(input.Variant))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.AssetUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.AssetUrl.GetHashCode();
+                }
+                if (this.AssetUrlObject != null)
+                {
+                    hashCode = (hashCode * 59) + this.AssetUrlObject.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AssetVersion.GetHashCode();
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.ImpostorizerVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImpostorizerVersion.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PerformanceRating.GetHashCode();
+                if (this.Platform != null)
+                {
+                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                }
+                if (this.PluginUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.PluginUrl.GetHashCode();
+                }
+                if (this.PluginUrlObject != null)
+                {
+                    hashCode = (hashCode * 59) + this.PluginUrlObject.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UnitySortNumber.GetHashCode();
+                if (this.UnityVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnityVersion.GetHashCode();
+                }
+                if (this.WorldSignature != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorldSignature.GetHashCode();
+                }
+                if (this.ImpostorUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImpostorUrl.GetHashCode();
+                }
+                if (this.ScanStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.ScanStatus.GetHashCode();
+                }
+                if (this.Variant != null)
+                {
+                    hashCode = (hashCode * 59) + this.Variant.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

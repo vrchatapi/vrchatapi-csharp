@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// UserNote
     /// </summary>
     [DataContract(Name = "UserNote")]
-    public partial class UserNote : IValidatableObject
+    public partial class UserNote : IEquatable<UserNote>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UserNote" /> class.
@@ -148,6 +148,97 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as UserNote);
+        }
+
+        /// <summary>
+        /// Returns true if UserNote instances are equal
+        /// </summary>
+        /// <param name="input">Instance of UserNote to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(UserNote input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Note == input.Note ||
+                    (this.Note != null &&
+                    this.Note.Equals(input.Note))
+                ) && 
+                (
+                    this.TargetUser == input.TargetUser ||
+                    (this.TargetUser != null &&
+                    this.TargetUser.Equals(input.TargetUser))
+                ) && 
+                (
+                    this.TargetUserId == input.TargetUserId ||
+                    (this.TargetUserId != null &&
+                    this.TargetUserId.Equals(input.TargetUserId))
+                ) && 
+                (
+                    this.UserId == input.UserId ||
+                    (this.UserId != null &&
+                    this.UserId.Equals(input.UserId))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Note != null)
+                {
+                    hashCode = (hashCode * 59) + this.Note.GetHashCode();
+                }
+                if (this.TargetUser != null)
+                {
+                    hashCode = (hashCode * 59) + this.TargetUser.GetHashCode();
+                }
+                if (this.TargetUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TargetUserId.GetHashCode();
+                }
+                if (this.UserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

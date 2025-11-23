@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// WorldMetadata
     /// </summary>
     [DataContract(Name = "WorldMetadata")]
-    public partial class WorldMetadata : IValidatableObject
+    public partial class WorldMetadata : IEquatable<WorldMetadata>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WorldMetadata" /> class.
@@ -95,6 +95,61 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as WorldMetadata);
+        }
+
+        /// <summary>
+        /// Returns true if WorldMetadata instances are equal
+        /// </summary>
+        /// <param name="input">Instance of WorldMetadata to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(WorldMetadata input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Metadata == input.Metadata ||
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

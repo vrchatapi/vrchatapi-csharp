@@ -134,8 +134,9 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        List<LimitedWorld> GetActiveWorlds(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default);
+        List<LimitedWorld> GetActiveWorlds(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default);
 
         /// <summary>
         /// List Active Worlds
@@ -156,8 +157,9 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        ApiResponse<List<LimitedWorld>> GetActiveWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default);
+        ApiResponse<List<LimitedWorld>> GetActiveWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default);
         /// <summary>
         /// List Favorited Worlds
         /// </summary>
@@ -378,9 +380,11 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        List<LimitedWorld> SearchWorlds(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? fuzzy = default);
+        List<LimitedWorld> SearchWorlds(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default);
 
         /// <summary>
         /// Search All Worlds
@@ -403,9 +407,11 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? fuzzy = default);
+        ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default);
         /// <summary>
         /// Unpublish World
         /// </summary>
@@ -574,9 +580,10 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        System.Threading.Tasks.Task<List<LimitedWorld>> GetActiveWorldsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<LimitedWorld>> GetActiveWorldsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Active Worlds
@@ -597,9 +604,10 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> GetActiveWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> GetActiveWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Favorited Worlds
         /// </summary>
@@ -834,10 +842,12 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? fuzzy = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search All Worlds
@@ -860,10 +870,12 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? fuzzy = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Unpublish World
         /// </summary>
@@ -1653,10 +1665,11 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        public List<LimitedWorld> GetActiveWorlds(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default)
+        public List<LimitedWorld> GetActiveWorlds(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = GetActiveWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
+            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = GetActiveWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, noplatform);
             return localVarResponse.Data;
         }
 
@@ -1676,8 +1689,9 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> GetActiveWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default)
+        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> GetActiveWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1742,6 +1756,10 @@ namespace VRChat.API.Api
             if (platform != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
+            }
+            if (noplatform != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "noplatform", noplatform));
             }
 
             // authentication (authCookie) required
@@ -1779,11 +1797,12 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LimitedWorld>> GetActiveWorldsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<LimitedWorld>> GetActiveWorldsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await GetActiveWorldsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await GetActiveWorldsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, noplatform, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1803,9 +1822,10 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> GetActiveWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> GetActiveWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1872,6 +1892,10 @@ namespace VRChat.API.Api
             if (platform != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
+            }
+            if (noplatform != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "noplatform", noplatform));
             }
 
             // authentication (authCookie) required
@@ -3089,11 +3113,13 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        public List<LimitedWorld> SearchWorlds(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? fuzzy = default)
+        public List<LimitedWorld> SearchWorlds(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = SearchWorldsWithHttpInfo(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, fuzzy);
+            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = SearchWorldsWithHttpInfo(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, noplatform, fuzzy, avatarSpecific);
             return localVarResponse.Data;
         }
 
@@ -3115,9 +3141,11 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? fuzzy = default)
+        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3191,9 +3219,17 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
             }
+            if (noplatform != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "noplatform", noplatform));
+            }
             if (fuzzy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "fuzzy", fuzzy));
+            }
+            if (avatarSpecific != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "avatarSpecific", avatarSpecific));
             }
 
             // authentication (authCookie) required
@@ -3233,12 +3269,14 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? fuzzy = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await SearchWorldsWithHttpInfoAsync(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, fuzzy, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await SearchWorldsWithHttpInfoAsync(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, noplatform, fuzzy, avatarSpecific, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3260,10 +3298,12 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? fuzzy = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3339,9 +3379,17 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
             }
+            if (noplatform != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "noplatform", noplatform));
+            }
             if (fuzzy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "fuzzy", fuzzy));
+            }
+            if (avatarSpecific != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "avatarSpecific", avatarSpecific));
             }
 
             // authentication (authCookie) required

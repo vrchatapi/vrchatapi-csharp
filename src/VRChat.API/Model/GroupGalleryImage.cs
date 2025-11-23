@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// GroupGalleryImage
     /// </summary>
     [DataContract(Name = "GroupGalleryImage")]
-    public partial class GroupGalleryImage : IValidatableObject
+    public partial class GroupGalleryImage : IEquatable<GroupGalleryImage>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupGalleryImage" /> class.
@@ -174,6 +174,129 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as GroupGalleryImage);
+        }
+
+        /// <summary>
+        /// Returns true if GroupGalleryImage instances are equal
+        /// </summary>
+        /// <param name="input">Instance of GroupGalleryImage to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(GroupGalleryImage input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
+                ) && 
+                (
+                    this.GalleryId == input.GalleryId ||
+                    (this.GalleryId != null &&
+                    this.GalleryId.Equals(input.GalleryId))
+                ) && 
+                (
+                    this.FileId == input.FileId ||
+                    (this.FileId != null &&
+                    this.FileId.Equals(input.FileId))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.SubmittedByUserId == input.SubmittedByUserId ||
+                    (this.SubmittedByUserId != null &&
+                    this.SubmittedByUserId.Equals(input.SubmittedByUserId))
+                ) && 
+                (
+                    this.Approved == input.Approved ||
+                    this.Approved.Equals(input.Approved)
+                ) && 
+                (
+                    this.ApprovedByUserId == input.ApprovedByUserId ||
+                    (this.ApprovedByUserId != null &&
+                    this.ApprovedByUserId.Equals(input.ApprovedByUserId))
+                ) && 
+                (
+                    this.ApprovedAt == input.ApprovedAt ||
+                    (this.ApprovedAt != null &&
+                    this.ApprovedAt.Equals(input.ApprovedAt))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.GroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
+                if (this.GalleryId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GalleryId.GetHashCode();
+                }
+                if (this.FileId != null)
+                {
+                    hashCode = (hashCode * 59) + this.FileId.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.SubmittedByUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubmittedByUserId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Approved.GetHashCode();
+                if (this.ApprovedByUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApprovedByUserId.GetHashCode();
+                }
+                if (this.ApprovedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.ApprovedAt.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Info about a print
     /// </summary>
     [DataContract(Name = "Print")]
-    public partial class Print : IValidatableObject
+    public partial class Print : IEquatable<Print>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Print" /> class.
@@ -203,6 +203,133 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Print);
+        }
+
+        /// <summary>
+        /// Returns true if Print instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Print to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Print input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.AuthorId == input.AuthorId ||
+                    (this.AuthorId != null &&
+                    this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
+                    this.AuthorName == input.AuthorName ||
+                    (this.AuthorName != null &&
+                    this.AuthorName.Equals(input.AuthorName))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.Files == input.Files ||
+                    (this.Files != null &&
+                    this.Files.Equals(input.Files))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Note == input.Note ||
+                    (this.Note != null &&
+                    this.Note.Equals(input.Note))
+                ) && 
+                (
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
+                ) && 
+                (
+                    this.Timestamp == input.Timestamp ||
+                    (this.Timestamp != null &&
+                    this.Timestamp.Equals(input.Timestamp))
+                ) && 
+                (
+                    this.WorldId == input.WorldId ||
+                    (this.WorldId != null &&
+                    this.WorldId.Equals(input.WorldId))
+                ) && 
+                (
+                    this.WorldName == input.WorldName ||
+                    (this.WorldName != null &&
+                    this.WorldName.Equals(input.WorldName))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.AuthorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
+                if (this.AuthorName != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
+                }
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
+                if (this.Files != null)
+                {
+                    hashCode = (hashCode * 59) + this.Files.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Note != null)
+                {
+                    hashCode = (hashCode * 59) + this.Note.GetHashCode();
+                }
+                if (this.OwnerId != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
+                if (this.Timestamp != null)
+                {
+                    hashCode = (hashCode * 59) + this.Timestamp.GetHashCode();
+                }
+                if (this.WorldId != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorldId.GetHashCode();
+                }
+                if (this.WorldName != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorldName.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>

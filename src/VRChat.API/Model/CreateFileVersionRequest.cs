@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// CreateFileVersionRequest
     /// </summary>
     [DataContract(Name = "CreateFileVersionRequest")]
-    public partial class CreateFileVersionRequest : IValidatableObject
+    public partial class CreateFileVersionRequest : IEquatable<CreateFileVersionRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateFileVersionRequest" /> class.
@@ -104,6 +104,71 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as CreateFileVersionRequest);
+        }
+
+        /// <summary>
+        /// Returns true if CreateFileVersionRequest instances are equal
+        /// </summary>
+        /// <param name="input">Instance of CreateFileVersionRequest to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(CreateFileVersionRequest input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.SignatureMd5 == input.SignatureMd5 ||
+                    (this.SignatureMd5 != null &&
+                    this.SignatureMd5.Equals(input.SignatureMd5))
+                ) && 
+                (
+                    this.SignatureSizeInBytes == input.SignatureSizeInBytes ||
+                    this.SignatureSizeInBytes.Equals(input.SignatureSizeInBytes)
+                ) && 
+                (
+                    this.FileMd5 == input.FileMd5 ||
+                    (this.FileMd5 != null &&
+                    this.FileMd5.Equals(input.FileMd5))
+                ) && 
+                (
+                    this.FileSizeInBytes == input.FileSizeInBytes ||
+                    this.FileSizeInBytes.Equals(input.FileSizeInBytes)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.SignatureMd5 != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignatureMd5.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SignatureSizeInBytes.GetHashCode();
+                if (this.FileMd5 != null)
+                {
+                    hashCode = (hashCode * 59) + this.FileMd5.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.FileSizeInBytes.GetHashCode();
+                return hashCode;
+            }
         }
 
         /// <summary>

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// Pending2FAResult
     /// </summary>
     [DataContract(Name = "Pending2FAResult")]
-    public partial class Pending2FAResult : IValidatableObject
+    public partial class Pending2FAResult : IEquatable<Pending2FAResult>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Pending2FAResult" /> class.
@@ -91,6 +91,61 @@ namespace VRChat.API.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as Pending2FAResult);
+        }
+
+        /// <summary>
+        /// Returns true if Pending2FAResult instances are equal
+        /// </summary>
+        /// <param name="input">Instance of Pending2FAResult to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(Pending2FAResult input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.QrCodeDataUrl == input.QrCodeDataUrl ||
+                    (this.QrCodeDataUrl != null &&
+                    this.QrCodeDataUrl.Equals(input.QrCodeDataUrl))
+                ) && 
+                (
+                    this.Secret == input.Secret ||
+                    (this.Secret != null &&
+                    this.Secret.Equals(input.Secret))
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.QrCodeDataUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.QrCodeDataUrl.GetHashCode();
+                }
+                if (this.Secret != null)
+                {
+                    hashCode = (hashCode * 59) + this.Secret.GetHashCode();
+                }
+                return hashCode;
+            }
         }
 
         /// <summary>
