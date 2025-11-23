@@ -57,17 +57,8 @@ IVRChat vrchat = new VRChatClientBuilder() // More options available
 // Reccomended to set up 2FA on your account for seamless login
 
 // There is also IVRChat.TryLoginAsync()
-// Set throwOnFail to false if you want no errors
-var user = await vrchat.LoginAsync(throwOnFail: true);
-
-if (user == null)
-{
-    Console.WriteLine("Failed to login to VRChat!");
-}
-else
-{
-    Console.WriteLine($"Logged in as {user.DisplayName}!");
-}
+var user = await vrchat.LoginAsync();
+Console.WriteLine($"Logged in as {user.DisplayName}!");
 ```
 
 The builder is quite flexible and will let you customize as you see fit.
