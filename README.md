@@ -132,7 +132,7 @@ public class MyController : Controller
 
 # Example Projects
 
-Console app (login): see [VRChat.APi.Examples.Console](examples/VRChat.API.Examples.Console/)
+Console app (login): see [VRChat.API.Examples.Console](examples/VRChat.API.Examples.Console/)
 
 ASP.NET Core (depedency injection): see [VRChat.API.Examples.AspNetCore](examples/VRChat.API.Examples.AspNetCore/)
 
