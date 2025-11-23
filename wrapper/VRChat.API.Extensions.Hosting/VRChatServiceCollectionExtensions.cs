@@ -35,6 +35,9 @@ namespace VRChat.API.Extensions.Hosting // Maybe we should change the namespace 
             {
                 builder.WithCredentials(options.Username, options.Password);
 
+                if(options.TwoFactorSecret != null)
+                    builder.WithTwoFactorSecret(options.TwoFactorSecret);
+
                 if (options.Proxy != null)
                 {
                     var webProxy = new WebProxy()

@@ -12,8 +12,4 @@
     <ProjectReference Include="..\..\wrapper\VRChat.API.Extensions.Hosting\VRChat.API.Extensions.Hosting.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>
