@@ -11,7 +11,7 @@ SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
 -g csharp \
 --library httpclient \
---additional-properties=packageName=VRChat.API,packageTags=vrchat,packageVersion=$SPEC_VERSION,targetFramework=net8.0,licenseId=MIT \
+--additional-properties=packageGuid=1c420561-97f1-4810-ad2d-cd344d27170a,packageName=VRChat.API,packageTags=vrchat,packageVersion=$SPEC_VERSION,targetFramework=net8.0,licenseId=MIT,equatable=true \
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-csharp \
 -o . \
