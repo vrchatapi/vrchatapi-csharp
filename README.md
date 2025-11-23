@@ -205,7 +205,7 @@ catch (ApiException ex)
 }
 ```
 
-## Cookies (Wrapper API)
+## Cookies (Generated API)
 Cookies can be displayed after logging in using:
 ```csharp
 ApiClient.CookieContainer.GetAllCookies().ToList().ForEach(x => Console.WriteLine($"{x.Name}={x.Value}"));
