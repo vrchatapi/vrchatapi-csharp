@@ -18,7 +18,7 @@ namespace VRChat.API.Examples.AspNetCore
 
             var logger = app.Services.GetRequiredService<ILogger<Program>>();
             var vrchat = app.Services.GetRequiredService<IVRChat>();
-            var user = await vrchat.LoginAsync(throwOnFail: true);
+            var user = await vrchat.LoginAsync();
 
             logger.LogInformation("Logged into VRChat as {user} ({id})", user.DisplayName, user.Id);
 

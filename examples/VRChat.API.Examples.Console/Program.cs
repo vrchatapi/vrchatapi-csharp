@@ -20,17 +20,9 @@ namespace VRChat.API.Examples.Console
                 .WithApplication("VRChatAPIExample", "1.0.0", "contact@vrchat.community")
                 .Build();
 
-            var user = await vrchat.LoginAsync(throwOnFail: true);
+            var user = await vrchat.LoginAsync();
 
-            if (user == null)
-            {
-                System.Console.WriteLine("Failed to login to VRChat!");
-            }
-            else
-            {
-                System.Console.WriteLine($"Logged in as {user.DisplayName}!");
-            }
-
+            System.Console.WriteLine($"Logged in as {user.DisplayName}!");
             System.Console.ReadLine();
         }
     }
