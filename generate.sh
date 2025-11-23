@@ -20,6 +20,7 @@ SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
 
 rm openapi.yaml
 
+rmdir api/
 rmdir src/VRChat.API.Test/
 
 # Move wrapper code to src/VRChat.API/Client/
