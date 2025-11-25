@@ -42,7 +42,7 @@ Install-Package VRChat.API.Extensions.Hosting
 
 The following example code authenticates you with the API, fetches your join-date, and prints the name of a world.
 
-If you use manual two-factor authentication, scroll to the Manual Authentication section below for an example.
+If you use manual or email-based two-factor authentication, scroll to the Manual Authentication section below for an example.
 
 ```cs
 using System;
