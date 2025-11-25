@@ -51,7 +51,7 @@ IVRChat vrchat = new VRChatClientBuilder() // More options available
     .WithUsername("username")
     .WithPassword("password")
     .WithTwoFactorSecret("twoFactorSecret") 
-    .WithApplication("Example", "1.0.0", "CONTACT_EMAIL")
+    .WithApplication(name: "Example", version: "1.0.0", contact: "CONTACT_EMAIL")
     .Build();
 
 // Reccomended to set up 2FA on your account for seamless login
@@ -78,7 +78,7 @@ IVRChat vrchat = new VRChatClientBuilder()
     .WithUsername("username")
     .WithPassword("password")
     .WithTwoFactorSecret("twoFactorSecret") 
-    .WithApplication("Example", "1.0.0", "CONTACT_EMAIL")
+    .WithApplication(name: "Example", version: "1.0.0", contact: "CONTACT_EMAIL")
     .WithAuthCookie("auth cookie", "twoFactorAuth cookie")
     .Build();
 ```
@@ -206,10 +206,6 @@ And they can be used by editing the config at the start of your program like thi
 ```csharp
 config.DefaultHeaders.Add("Cookie", "auth=[AUTH_COOKIE_HERE]; twoFactorAuth=[TWO_FACTOR_AUTH_COOKIE_HERE]");
 ```
-
-## Documentation
-
- - [docs](docs/)
 
 ## Contributing
 
