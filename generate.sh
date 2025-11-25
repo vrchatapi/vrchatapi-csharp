@@ -8,18 +8,18 @@ curl https://raw.githubusercontent.com/vrchatapi/specification/gh-pages/openapi.
 
 SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
 
-version=$(yq '.info.version' openapi.yaml | tr -d '"')
+vrchat_sdk_version=$(yq '.info.version' openapi.yaml | tr -d '"')
 
 major=$(echo $version | cut -d. -f1)
 minor=$(echo $version | cut -d. -f2)
 patch=$(echo $version | cut -d. -f3)
 
-version="$((major+1)).$minor.$patch"
+vrchat_sdk_version="$((major+1)).$minor.$patch"
 
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
 -g csharp \
 --library httpclient \
---additional-properties=packageGuid=1c420561-97f1-4810-ad2d-cd344d27170a,packageName=VRChat.API,packageTags=vrchat,packageVersion=$version,targetFramework=net8.0,licenseId=MIT,equatable=true \
+--additional-properties=packageGuid=1c420561-97f1-4810-ad2d-cd344d27170a,packageName=VRChat.API,packageTags=vrchat,packageVersion=$vrchat_sdk_version,targetFramework=net8.0,licenseId=MIT,equatable=true \
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-csharp \
 -o . \
@@ -34,6 +34,7 @@ rm git_push.sh
 rm mono_nunit_test.sh
 rm nuget.exe
 
+rm -rf docs/
 rm -rf api/
 rm -rf src/VRChat.API.Test/
 
@@ -60,7 +61,7 @@ sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/<GenerateAssemblyInfo>false<\/GenerateAssemblyInfo>/<GenerateAssemblyInfo>true<\/GenerateAssemblyInfo>/' src/VRChat.API/VRChat.API.csproj
 
 # Update VRChat.API.Extensions.Hosting version
-sed -i "s|<Version>[^<]*</Version>|<Version>$version</Version>|g" wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
+sed -i "s|<Version>[^<]*</Version>|<Version>$vrchat_sdk_version</Version>|g" wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
 
 # Add README.md to fields
 sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj

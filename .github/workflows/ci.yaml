@@ -12,9 +12,13 @@ jobs:
     runs-on: ubuntu-22.04
     name: Generate VRChat API SDK
     steps:
+      - name: Install yq via apt
+        run: sudo apt install -y yq
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+
       - uses: actions/checkout@v3
       - name: 'Cache node_modules'
         uses: actions/cache@v3
@@ -23,30 +27,46 @@ jobs:
           key: ${{ runner.os }}-node-v18-${{ hashFiles('**/generate.sh') }}
           restore-keys: |
             ${{ runner.os }}-node-v18
+
       - name: Install OpenAPI Generator CLI
         run: npm install @openapitools/openapi-generator-cli
+
       - name: Set OpenAPI Generator version
         run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 7.17.0
+
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1.1.1
+
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '5.0.x'
+          dotnet-version: '8.0.x'
+
       - name: Generate SDK Client
         run: bash ./generate.sh
+
       - name: Copy README.md into src/
         run: cp README.md src/
+
       - name: Check version number
         run: |
-          echo "spec_version=$(grep "version of the OpenAPI document" src/VRChat.API/Model/User.cs | cut -d " " -f 9)" >> $GITHUB_ENV
+          vrchat_sdk_version=$(yq '.info.version' openapi.yaml | tr -d '"')
+
+          major=$(echo $version | cut -d. -f1)
+          minor=$(echo $version | cut -d. -f2)
+          patch=$(echo $version | cut -d. -f3)
+
+          vrchat_sdk_version="$((major+1)).$minor.$patch"
+
       - name: Print version number
-        run: echo ${{ env.spec_version }}
+        run: echo ${{ env.vrchat_sdk_version }}
+
       - name: Deploy SDK back into main branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: main
           folder: .
-          commit-message: "Upgrade .NET SDK to spec ${{ env.spec_version }}"
+          commit-message: "Upgrade .NET SDK to spec ${{ env.vrchat_sdk_version }}"
+
       - name: Publish to VRChat.API to NuGet
         if: github.event_name != 'workflow_dispatch'
         uses: pairbit/publish-nuget@v2.5.8
@@ -61,6 +81,7 @@ jobs:
           # NUGET_SOURCE: https://api.nuget.org
           # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
           INCLUDE_SYMBOLS: true
+          
       - name: Publish to VRChat.API.Extensions.Hosting to NuGet
         if: github.event_name != 'workflow_dispatch'
         uses: pairbit/publish-nuget@v2.5.8
