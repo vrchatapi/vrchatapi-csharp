@@ -9,7 +9,7 @@ name: Generate VRChat API SDK
 
 jobs:
   generate:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     name: Generate VRChat API SDK
     steps:
       - name: Install yq via apt
