@@ -135,7 +135,7 @@ Console app (login): see [VRChat.API.Examples.Console](examples/VRChat.API.Examp
 
 ASP.NET Core (depedency injection): see [VRChat.API.Examples.AspNetCore](examples/VRChat.API.Examples.AspNetCore/)
 
-# Email-based two factor authentication
+# Manually authenticating
 
 Sometimes, we don't have two-factor authentication set up on our accounts. While it's **reccomended** for most bots or apps, your app may be a WPF/WinForms application that requires user credential input. In these cases, the `LoginAsync()` methods on `IVRChat` won't work, because they only support token-based two-factor authentication.
 
@@ -154,11 +154,20 @@ IVRChat vrchat = new VRChatClientBuilder() // More options available
     .Build();
 
 var response = await vrchat.Authentication.GetCurrentUserAsync();
+
 if(response.RequiresTwoFactorAuth.Contains("emailOtp"))
 {
+    Console.WriteLine("An verification code was sent to your email address!");
     Console.Write("Enter code: ");
     string code = Console.ReadLine();
     var otpResponse = await vrchat.Authentication.Verify2FAEmailCodeAsync(new TwoFactorEmailCode(code));
+}
+else if(response.RequiresTwoFactorAuth.Contains("totp"))
+{
+    Console.WriteLine("Please use your authenticator application to get the two-factor code.");
+    Console.Write("Enter code: ");
+    string code = Console.ReadLine();
+    var otpResponse = await vrchat.Authentication.Verify2FAAsync(new TwoFactorAuthCode(code));
 }
 
 var user = await vrchat.Authentication.GetCurrentUserAsync();
