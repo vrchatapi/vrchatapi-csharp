@@ -17,7 +17,7 @@ namespace VRChat.API.Examples.Console
                 .WithUsername(username)
                 .WithPassword(password)
                 .WithTwoFactorSecret(twoFactorSecret)
-                .WithApplication("Example", "1.0.0", "contact@vrchat.community")
+                .WithApplication(name: "Example", version: "1.0.0", contact: "contact@vrchat.community")
                 .Build();
 
             var user = await vrchat.LoginAsync();
