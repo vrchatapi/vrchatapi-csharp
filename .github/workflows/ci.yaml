@@ -46,7 +46,7 @@ jobs:
         with:
           branch: main
           folder: .
-          commit-message: "Upgrade C# SDK to spec ${{ env.spec_version }}"
+          commit-message: "Upgrade .NET SDK to spec ${{ env.spec_version }}"
       - name: Publish to VRChat.API to NuGet
         if: github.event_name != 'workflow_dispatch'
         uses: pairbit/publish-nuget@v2.5.8

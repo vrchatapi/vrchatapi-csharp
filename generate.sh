@@ -8,10 +8,18 @@ curl https://raw.githubusercontent.com/vrchatapi/specification/gh-pages/openapi.
 
 SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
 
+version=$(yq '.info.version' openapi.yaml | tr -d '"')
+
+major=$(echo $version | cut -d. -f1)
+minor=$(echo $version | cut -d. -f2)
+patch=$(echo $version | cut -d. -f3)
+
+version="$((major+1)).$minor.$patch"
+
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
 -g csharp \
 --library httpclient \
---additional-properties=packageGuid=1c420561-97f1-4810-ad2d-cd344d27170a,packageName=VRChat.API,packageTags=vrchat,packageVersion=$SPEC_VERSION,targetFramework=net8.0,licenseId=MIT,equatable=true \
+--additional-properties=packageGuid=1c420561-97f1-4810-ad2d-cd344d27170a,packageName=VRChat.API,packageTags=vrchat,packageVersion=$version,targetFramework=net8.0,licenseId=MIT,equatable=true \
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-csharp \
 -o . \
@@ -19,6 +27,12 @@ SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
 --http-user-agent="vrchatapi-csharp"
 
 rm openapi.yaml
+
+rm build.sh
+rm build.bat
+rm git_push.sh
+rm mono_nunit_test.sh
+rm nuget.exe
 
 rmdir api/
 rmdir src/VRChat.API.Test/
@@ -69,5 +83,3 @@ done
 
 cp README.md src/VRChat.API/
 cp README.md src/
-
-#bash ./build.sh
