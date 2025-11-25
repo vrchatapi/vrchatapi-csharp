@@ -47,7 +47,7 @@ jobs:
           branch: main
           folder: .
           commit-message: "Upgrade C# SDK to spec ${{ env.spec_version }}"
-      - name: Publish to NuGet
+      - name: Publish to VRChat.API to NuGet
         if: github.event_name != 'workflow_dispatch'
         uses: pairbit/publish-nuget@v2.5.8
         with:
@@ -55,6 +55,20 @@ jobs:
           PROJECT_FILE_PATH: src/VRChat.API/VRChat.API.csproj
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: VRChat.API
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_KEY}}
+          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
+          # NUGET_SOURCE: https://api.nuget.org
+          # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
+          INCLUDE_SYMBOLS: true
+      - name: Publish to VRChat.API.Extensions.Hosting to NuGet
+        if: github.event_name != 'workflow_dispatch'
+        uses: pairbit/publish-nuget@v2.5.8
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
+          # NuGet package id, used for version detection & defaults to project name
+          PACKAGE_NAME: VRChat.API.Extensions.Hosting
           # API key to authenticate with NuGet server
           NUGET_KEY: ${{secrets.NUGET_KEY}}
           # NuGet server uri hosting the packages, defaults to https://api.nuget.org
