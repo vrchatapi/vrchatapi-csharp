@@ -126,10 +126,10 @@ namespace VRChat.API.Client
         public VRChatClientBuilder WithAuthCookie(string auth, string twoFactorAuth = null)
         {
             if (auth != null)
-                _configuration.AddApiKey("auth", auth);
+                _configuration.AddApiKeyPrefix("auth", auth);
 
             if (twoFactorAuth != null)
-                _configuration.AddApiKey("twoFactorAuth", auth);
+                _configuration.AddApiKeyPrefix("twoFactorAuth", auth);
 
             return this;
         }
