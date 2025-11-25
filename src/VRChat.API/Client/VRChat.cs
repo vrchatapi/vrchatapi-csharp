@@ -133,6 +133,12 @@ namespace VRChat.API.Client
         IAuthenticationApi Authentication { get; }
 
         /// <summary>
+        /// Returns a list of cookies from the current client's CookieContainer.
+        /// </summary>
+        /// <returns>A <see cref="List{Cookie}"/> with the cookies of the current CookieContainer.</returns>
+        public List<Cookie> GetCookies();
+
+        /// <summary>
         /// Will be <c>true</c> if the current client is successfully logged in as a user.
         /// <br /> Otherwise, this will return <c>false</c>.
         /// <br /> <em>This property automatically updates when calling <see cref="IVRChat.TryLoginAsync(CancellationToken)"/> or <see cref="IVRChat.LoginAsync(bool, CancellationToken)"/></em>

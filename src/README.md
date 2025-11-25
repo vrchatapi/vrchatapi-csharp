@@ -42,6 +42,8 @@ Install-Package VRChat.API.Extensions.Hosting
 
 The following example code authenticates you with the API, fetches your join-date, and prints the name of a world.
 
+If you don't have two-factor authentication set up on your account, scroll below to see how to use email authentication.
+
 ```cs
 using System;
 using VRChat.API.Client;
@@ -51,14 +53,20 @@ IVRChat vrchat = new VRChatClientBuilder() // More options available
     .WithUsername("username")
     .WithPassword("password")
     .WithTwoFactorSecret("twoFactorSecret") 
-    .WithApplication("Example", "1.0.0", "CONTACT_EMAIL")
+    .WithApplication(name: "Example", version: "1.0.0", contact: "CONTACT_EMAIL")
     .Build();
 
 // Reccomended to set up 2FA on your account for seamless login
 
 // There is also IVRChat.TryLoginAsync()
-var user = await vrchat.LoginAsync();
-Console.WriteLine($"Logged in as {user.DisplayName}!");
+var currentUser = await vrchat.LoginAsync();
+Console.WriteLine($"Logged in as {currentUser.DisplayName}!");
+
+var user = await vrchat.Users.GetUserAsync("usr_f2049d71-e76b-42d2-a8bd-43deec9c004e");
+Console.WriteLine($"Found user {user.DisplayName}, joined at {user.DateJoined}");
+
+var world = await vrchat.Worlds.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
+Console.WriteLine($"Found world {world.Name}, with {world.Visits} visits");
 ```
 
 The builder is quite flexible and will let you customize as you see fit.
@@ -78,7 +86,7 @@ IVRChat vrchat = new VRChatClientBuilder()
     .WithUsername("username")
     .WithPassword("password")
     .WithTwoFactorSecret("twoFactorSecret") 
-    .WithApplication("Example", "1.0.0", "CONTACT_EMAIL")
+    .WithApplication(name: "Example", version: "1.0.0", contact: "CONTACT_EMAIL")
     .WithAuthCookie("auth cookie", "twoFactorAuth cookie")
     .Build();
 ```
@@ -126,6 +134,37 @@ public class MyController : Controller
 Console app (login): see [VRChat.API.Examples.Console](examples/VRChat.API.Examples.Console/)
 
 ASP.NET Core (depedency injection): see [VRChat.API.Examples.AspNetCore](examples/VRChat.API.Examples.AspNetCore/)
+
+# Email-based two factor authentication
+
+Sometimes, we don't have two-factor authentication set up on our accounts. While it's **reccomended** for most bots or apps, your app may be a WPF/WinForms application that requires user credential input. In these cases, the `LoginAsync()` methods on `IVRChat` won't work, because they only support token-based two-factor authentication.
+
+Here is an example of how you can implement this in the .NET SDK:
+
+```cs
+using System;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+// WithApplication or WithUserAgent is required or VRChat will reject your requests
+IVRChat vrchat = new VRChatClientBuilder() // More options available
+    .WithUsername("username")
+    .WithPassword("password")
+    .WithApplication(name: "Example", version: "1.0.0", contact: "CONTACT_EMAIL")
+    .Build();
+
+var response = await vrchat.Authentication.GetCurrentUserAsync();
+if(response.RequiresTwoFactorAuth.Contains("emailOtp"))
+{
+    Console.Write("Enter code: ");
+    string code = Console.ReadLine();
+    var otpResponse = await vrchat.Authentication.Verify2FAEmailCodeAsync(new TwoFactorEmailCode(code));
+}
+
+var user = await vrchat.Authentication.GetCurrentUserAsync();
+
+Console.WriteLine($"Logged in as {user.DisplayName}!");
+```
 
 # Working with the raw generated wrapper yourself
 
@@ -181,7 +220,7 @@ try
     CurrentUser currentUser = authApi.GetCurrentUser();
     Console.WriteLine("Logged in as {0}", currentUser.DisplayName);
 
-    User user = userApi.GetUser("usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469");
+    User user = userApi.GetUser("usr_f2049d71-e76b-42d2-a8bd-43deec9c004e");
     Console.WriteLine("Found user {0}, joined {1}", user.DisplayName, user.DateJoined);
 
     World world = worldApi.GetWorld("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
@@ -206,10 +245,6 @@ And they can be used by editing the config at the start of your program like thi
 ```csharp
 config.DefaultHeaders.Add("Cookie", "auth=[AUTH_COOKIE_HERE]; twoFactorAuth=[TWO_FACTOR_AUTH_COOKIE_HERE]");
 ```
-
-## Documentation
-
- - [docs](docs/)
 
 ## Contributing
 
