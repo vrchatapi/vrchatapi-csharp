@@ -51,14 +51,17 @@ jobs:
         run: |
           vrchat_sdk_version=$(yq '.info.version' openapi.yaml | tr -d '"')
 
-          major=$(echo $version | cut -d. -f1)
-          minor=$(echo $version | cut -d. -f2)
-          patch=$(echo $version | cut -d. -f3)
+          major=$(echo $vrchat_sdk_version | cut -d. -f1)
+          minor=$(echo $vrchat_sdk_version | cut -d. -f2)
+          patch=$(echo $vrchat_sdk_version | cut -d. -f3)
 
           vrchat_sdk_version="$((major+1)).$minor.$patch"
 
       - name: Print version number
         run: echo ${{ env.vrchat_sdk_version }}
+
+      - name: Delete openapi.yaml file
+        run: rm openapi.yaml
 
       - name: Deploy SDK back into main branch
         uses: JamesIves/github-pages-deploy-action@v4

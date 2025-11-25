@@ -10,9 +10,9 @@ SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
 
 vrchat_sdk_version=$(yq '.info.version' openapi.yaml | tr -d '"')
 
-major=$(echo $version | cut -d. -f1)
-minor=$(echo $version | cut -d. -f2)
-patch=$(echo $version | cut -d. -f3)
+major=$(echo $vrchat_sdk_version | cut -d. -f1)
+minor=$(echo $vrchat_sdk_version | cut -d. -f2)
+patch=$(echo $vrchat_sdk_version | cut -d. -f3)
 
 vrchat_sdk_version="$((major+1)).$minor.$patch"
 
@@ -26,13 +26,12 @@ vrchat_sdk_version="$((major+1)).$minor.$patch"
 -i openapi.yaml \
 --http-user-agent="vrchatapi-csharp"
 
-rm openapi.yaml
-
 rm build.sh
 rm build.bat
 rm git_push.sh
 rm mono_nunit_test.sh
 rm nuget.exe
+rm appveyor.yml
 
 rm -rf docs/
 rm -rf api/
