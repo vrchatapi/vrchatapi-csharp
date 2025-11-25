@@ -34,8 +34,8 @@ rm git_push.sh
 rm mono_nunit_test.sh
 rm nuget.exe
 
-rmdir api/
-rmdir src/VRChat.API.Test/
+rm -rf api/
+rm -rf src/VRChat.API.Test/
 
 # Move wrapper code to src/VRChat.API/Client/
 cp -r wrapper/VRChat.API/Client/* src/VRChat.API/Client/
@@ -58,6 +58,9 @@ sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 
 # Fix failure to compile
 sed -i 's/<GenerateAssemblyInfo>false<\/GenerateAssemblyInfo>/<GenerateAssemblyInfo>true<\/GenerateAssemblyInfo>/' src/VRChat.API/VRChat.API.csproj
+
+# Update VRChat.API.Extensions.Hosting version
+sed -i "s|<Version>[^<]*</Version>|<Version>$version</Version>|g" wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
 
 # Add README.md to fields
 sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj
