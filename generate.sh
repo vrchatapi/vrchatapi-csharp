@@ -40,11 +40,20 @@ rm -rf src/VRChat.API.Test/
 # Move wrapper code to src/VRChat.API/Client/
 cp -r wrapper/VRChat.API/Client/* src/VRChat.API/Client/
 
+cp wrapper/VRChat.API.Extensions.Hosting/vrc_cat.ico src/VRChat.API/vrc_cat.ico
+cp wrapper/VRChat.API.Extensions.Hosting/vrc_cat.png src/VRChat.API/vrc_cat.png
+
 for file in $(find ./src/VRChat.API -name '*.cs'); do
     sed -i 's/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"))/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "\/", "api.vrchat.cloud")/g' $file
     sed -i 's/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"))/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"), "\/", "api.vrchat.cloud")/g' $file
     sed -i 's/new Cookie(cookie.Name, cookie.Value)/new Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Domain)/g' $file
 done
+
+# Add icons and readme to package
+sed '/<ItemGroup>/,/<\/ItemGroup>/{ /<\/ItemGroup>/a\\n  <ItemGroup>\n\t  <Content Include="vrc_cat.ico" />\n\t</ItemGroup>\n\n\t<ItemGroup>\n\t  <None Include="..\\README.md">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t  <None Include="..\\vrc_cat.png">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t</ItemGroup>\n}' src/VRChat.API/VRChat.API.csproj
+
+# Adjust package tags
+sed 's/<PackageTags>vrchat<\/PackageTags>/<PackageTags>vrchat,vrcapi,vrc-api,vrc<\/PackageTags>/'
 
 # Fix username and password encoding
 sed -i 's/VRChat.API.Client.ClientUtils.Base64Encode(this.Configuration.Username + \":\" + this.Configuration.Password)/VRChat.API.Client.ClientUtils.Base64Encode(System.Web.HttpUtility.UrlEncode(this.Configuration.Username) + ":" + System.Web.HttpUtility.UrlEncode(this.Configuration.Password))/g' src/VRChat.API/Api/AuthenticationApi.cs

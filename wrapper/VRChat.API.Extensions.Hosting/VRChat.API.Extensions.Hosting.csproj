@@ -18,8 +18,9 @@
     <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
-    <PackageTags>vrchat</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>vrchat,vrcapi,microsoft.extensions.hosting,aspnetcore,servicecollection,vrc-api,vrc</PackageTags>
+    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +28,21 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+	  <Content Include="vrc_cat.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\vrc_cat.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\VRChat.API\VRChat.API.csproj" />
