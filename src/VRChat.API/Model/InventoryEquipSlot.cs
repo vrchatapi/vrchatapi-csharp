@@ -27,46 +27,28 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Defines InventoryItemType
+    /// Defines InventoryEquipSlot
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum InventoryItemType
+    public enum InventoryEquipSlot
     {
         /// <summary>
-        /// Enum Bundle for value: bundle
+        /// Enum Empty for value: 
         /// </summary>
-        [EnumMember(Value = "bundle")]
-        Bundle = 1,
+        [EnumMember(Value = "")]
+        Empty = 1,
 
         /// <summary>
-        /// Enum Prop for value: prop
+        /// Enum Drone for value: drone
         /// </summary>
-        [EnumMember(Value = "prop")]
-        Prop = 2,
+        [EnumMember(Value = "drone")]
+        Drone = 2,
 
         /// <summary>
-        /// Enum Emoji for value: emoji
+        /// Enum Portal for value: portal
         /// </summary>
-        [EnumMember(Value = "emoji")]
-        Emoji = 3,
-
-        /// <summary>
-        /// Enum Sticker for value: sticker
-        /// </summary>
-        [EnumMember(Value = "sticker")]
-        Sticker = 4,
-
-        /// <summary>
-        /// Enum Droneskin for value: droneskin
-        /// </summary>
-        [EnumMember(Value = "droneskin")]
-        Droneskin = 5,
-
-        /// <summary>
-        /// Enum Portalskin for value: portalskin
-        /// </summary>
-        [EnumMember(Value = "portalskin")]
-        Portalskin = 6
+        [EnumMember(Value = "portal")]
+        Portal = 3
     }
 
 }

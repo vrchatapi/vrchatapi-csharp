@@ -42,11 +42,11 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="index">index.</param>
         /// <param name="name">name (required).</param>
-        /// <param name="platform">Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers. (required).</param>
+        /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
         /// <param name="sortHeading">sortHeading (required).</param>
         /// <param name="sortOrder">sortOrder (required).</param>
         /// <param name="sortOwnership">sortOwnership (required).</param>
-        /// <param name="tag">Tag to filter content for this row..</param>
+        /// <param name="tag">Tags are a way to grant various access, assign restrictions or other kinds of metadata to various to objects such as worlds, users and avatars.  System tags starting with &#x60;system_&#x60; are granted automatically by the system, while admin tags with &#x60;admin_&#x60; are granted manually. More prefixes such as &#x60;language_ &#x60; (to indicate that a player can speak the tagged language), and &#x60;author_tag_&#x60; (provided by a world author for search and sorting) exist as well..</param>
         /// <param name="type">Type is not present if it is a world..</param>
         public DynamicContentRow(int index = default, string name = default, string platform = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string tag = default, string type = default)
         {
@@ -98,9 +98,12 @@ namespace VRChat.API.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers.
+        /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
-        /// <value>Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers.</value>
+        /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
         public string Platform { get; set; }
 
@@ -123,9 +126,9 @@ namespace VRChat.API.Model
         public string SortOwnership { get; set; }
 
         /// <summary>
-        /// Tag to filter content for this row.
+        /// Tags are a way to grant various access, assign restrictions or other kinds of metadata to various to objects such as worlds, users and avatars.  System tags starting with &#x60;system_&#x60; are granted automatically by the system, while admin tags with &#x60;admin_&#x60; are granted manually. More prefixes such as &#x60;language_ &#x60; (to indicate that a player can speak the tagged language), and &#x60;author_tag_&#x60; (provided by a world author for search and sorting) exist as well.
         /// </summary>
-        /// <value>Tag to filter content for this row.</value>
+        /// <value>Tags are a way to grant various access, assign restrictions or other kinds of metadata to various to objects such as worlds, users and avatars.  System tags starting with &#x60;system_&#x60; are granted automatically by the system, while admin tags with &#x60;admin_&#x60; are granted manually. More prefixes such as &#x60;language_ &#x60; (to indicate that a player can speak the tagged language), and &#x60;author_tag_&#x60; (provided by a world author for search and sorting) exist as well.</value>
         [DataMember(Name = "tag", EmitDefaultValue = false)]
         public string Tag { get; set; }
 
@@ -290,12 +293,6 @@ namespace VRChat.API.Model
             if (this.Name != null && this.Name.Length < 1)
             {
                 yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
-            }
-
-            // Platform (string) minLength
-            if (this.Platform != null && this.Platform.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for Platform, length must be greater than 1.", new [] { "Platform" });
             }
 
             // SortHeading (string) minLength

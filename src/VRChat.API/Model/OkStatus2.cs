@@ -27,35 +27,36 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// TwoFactorEmailCode
+    /// Another status response consisting of solely a string description of whether the result of an operation was ok.
     /// </summary>
-    [DataContract(Name = "TwoFactorEmailCode")]
-    public partial class TwoFactorEmailCode : IEquatable<TwoFactorEmailCode>, IValidatableObject, ITwoFactorCode
+    [DataContract(Name = "OkStatus2")]
+    public partial class OkStatus2 : IEquatable<OkStatus2>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Initializes a new instance of the <see cref="OkStatus2" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TwoFactorEmailCode() { }
+        protected OkStatus2() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Initializes a new instance of the <see cref="OkStatus2" /> class.
         /// </summary>
-        /// <param name="code">code (required).</param>
-        public TwoFactorEmailCode(string code = default)
+        /// <param name="oK">The actual status itself (required).</param>
+        public OkStatus2(string oK = default)
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
+            // to ensure "oK" is required (not null)
+            if (oK == null)
             {
-                throw new ArgumentNullException("code is a required property for TwoFactorEmailCode and cannot be null");
+                throw new ArgumentNullException("oK is a required property for OkStatus2 and cannot be null");
             }
-            this.Code = code;
+            this.OK = oK;
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// The actual status itself
         /// </summary>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
-        public string Code { get; set; }
+        /// <value>The actual status itself</value>
+        [DataMember(Name = "OK", IsRequired = true, EmitDefaultValue = true)]
+        public string OK { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +65,8 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TwoFactorEmailCode {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("class OkStatus2 {\n");
+            sb.Append("  OK: ").Append(OK).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +87,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TwoFactorEmailCode);
+            return this.Equals(input as OkStatus2);
         }
 
         /// <summary>
-        /// Returns true if TwoFactorEmailCode instances are equal
+        /// Returns true if OkStatus2 instances are equal
         /// </summary>
-        /// <param name="input">Instance of TwoFactorEmailCode to be compared</param>
+        /// <param name="input">Instance of OkStatus2 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TwoFactorEmailCode input)
+        public bool Equals(OkStatus2 input)
         {
             if (input == null)
             {
@@ -102,9 +103,9 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.OK == input.OK ||
+                    (this.OK != null &&
+                    this.OK.Equals(input.OK))
                 );
         }
 
@@ -117,9 +118,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
+                if (this.OK != null)
                 {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OK.GetHashCode();
                 }
                 return hashCode;
             }

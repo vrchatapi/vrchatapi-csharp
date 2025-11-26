@@ -82,7 +82,7 @@ namespace VRChat.API.Model
         /// <param name="lastPlatform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
         /// <param name="lastActivity">lastActivity (required).</param>
         /// <param name="lastMobile">lastMobile (required).</param>
-        /// <param name="platform">platform.</param>
+        /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
         /// <param name="profilePicOverride">profilePicOverride.</param>
         /// <param name="profilePicOverrideThumbnail">profilePicOverrideThumbnail.</param>
         /// <param name="pronouns">pronouns (required).</param>
@@ -302,8 +302,12 @@ namespace VRChat.API.Model
         public DateTime? LastMobile { get; set; }
 
         /// <summary>
-        /// Gets or Sets Platform
+        /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
+        /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 

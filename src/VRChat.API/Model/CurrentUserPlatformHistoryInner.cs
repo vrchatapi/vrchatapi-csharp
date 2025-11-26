@@ -36,7 +36,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="CurrentUserPlatformHistoryInner" /> class.
         /// </summary>
         /// <param name="isMobile">isMobile.</param>
-        /// <param name="platform">platform.</param>
+        /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
         /// <param name="recorded">recorded.</param>
         public CurrentUserPlatformHistoryInner(bool isMobile = default, string platform = default, DateTime recorded = default)
         {
@@ -52,9 +52,13 @@ namespace VRChat.API.Model
         public bool IsMobile { get; set; }
 
         /// <summary>
-        /// Gets or Sets Platform
+        /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
-        [DataMember(Name = "platform", EmitDefaultValue = true)]
+        /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
+        [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
         /// <summary>

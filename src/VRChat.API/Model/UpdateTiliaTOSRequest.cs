@@ -27,35 +27,30 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// TwoFactorEmailCode
+    /// UpdateTiliaTOSRequest
     /// </summary>
-    [DataContract(Name = "TwoFactorEmailCode")]
-    public partial class TwoFactorEmailCode : IEquatable<TwoFactorEmailCode>, IValidatableObject, ITwoFactorCode
+    [DataContract(Name = "UpdateTiliaTOSRequest")]
+    public partial class UpdateTiliaTOSRequest : IEquatable<UpdateTiliaTOSRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Initializes a new instance of the <see cref="UpdateTiliaTOSRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TwoFactorEmailCode() { }
+        protected UpdateTiliaTOSRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Initializes a new instance of the <see cref="UpdateTiliaTOSRequest" /> class.
         /// </summary>
-        /// <param name="code">code (required).</param>
-        public TwoFactorEmailCode(string code = default)
+        /// <param name="accepted">accepted (required).</param>
+        public UpdateTiliaTOSRequest(bool accepted = default)
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for TwoFactorEmailCode and cannot be null");
-            }
-            this.Code = code;
+            this.Accepted = accepted;
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Gets or Sets Accepted
         /// </summary>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
-        public string Code { get; set; }
+        [DataMember(Name = "accepted", IsRequired = true, EmitDefaultValue = true)]
+        public bool Accepted { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +59,8 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TwoFactorEmailCode {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("class UpdateTiliaTOSRequest {\n");
+            sb.Append("  Accepted: ").Append(Accepted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +81,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TwoFactorEmailCode);
+            return this.Equals(input as UpdateTiliaTOSRequest);
         }
 
         /// <summary>
-        /// Returns true if TwoFactorEmailCode instances are equal
+        /// Returns true if UpdateTiliaTOSRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of TwoFactorEmailCode to be compared</param>
+        /// <param name="input">Instance of UpdateTiliaTOSRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TwoFactorEmailCode input)
+        public bool Equals(UpdateTiliaTOSRequest input)
         {
             if (input == null)
             {
@@ -102,9 +97,8 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.Accepted == input.Accepted ||
+                    this.Accepted.Equals(input.Accepted)
                 );
         }
 
@@ -117,10 +111,7 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
-                {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Accepted.GetHashCode();
                 return hashCode;
             }
         }

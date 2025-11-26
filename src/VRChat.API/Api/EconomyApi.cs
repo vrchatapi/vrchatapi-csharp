@@ -89,6 +89,27 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Balance</returns>
         ApiResponse<Balance> GetBalanceEarningsWithHttpInfo(string userId);
         /// <summary>
+        /// Get Bulk Gift Purchases
+        /// </summary>
+        /// <remarks>
+        /// Get bulk gift purchases made by the user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mostRecent"> (optional)</param>
+        /// <returns>List&lt;Object&gt;</returns>
+        List<Object> GetBulkGiftPurchases(bool? mostRecent = default);
+
+        /// <summary>
+        /// Get Bulk Gift Purchases
+        /// </summary>
+        /// <remarks>
+        /// Get bulk gift purchases made by the user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mostRecent"> (optional)</param>
+        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        ApiResponse<List<Object>> GetBulkGiftPurchasesWithHttpInfo(bool? mostRecent = default);
+        /// <summary>
         /// Get Current Subscriptions
         /// </summary>
         /// <remarks>
@@ -203,6 +224,25 @@ namespace VRChat.API.Api
         /// <param name="active">Filter for users&#39; listings and inventory bundles. (optional)</param>
         /// <returns>ApiResponse of List&lt;ProductListing&gt;</returns>
         ApiResponse<List<ProductListing>> GetProductListingsWithHttpInfo(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default);
+        /// <summary>
+        /// Get Recent Subscription
+        /// </summary>
+        /// <remarks>
+        /// Get the most recent user subscription.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>UserSubscription</returns>
+        UserSubscription GetRecentSubscription();
+
+        /// <summary>
+        /// Get Recent Subscription
+        /// </summary>
+        /// <remarks>
+        /// Get the most recent user subscription.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of UserSubscription</returns>
+        ApiResponse<UserSubscription> GetRecentSubscriptionWithHttpInfo();
         /// <summary>
         /// Get Steam Transaction
         /// </summary>
@@ -374,6 +414,29 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of List&lt;TokenBundle&gt;</returns>
         ApiResponse<List<TokenBundle>> GetTokenBundlesWithHttpInfo();
         /// <summary>
+        /// Get User Credits Eligiblity
+        /// </summary>
+        /// <remarks>
+        /// Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <returns>UserCreditsEligible</returns>
+        UserCreditsEligible GetUserCreditsEligible(string userId, string subscriptionId);
+
+        /// <summary>
+        /// Get User Credits Eligiblity
+        /// </summary>
+        /// <remarks>
+        /// Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <returns>ApiResponse of UserCreditsEligible</returns>
+        ApiResponse<UserCreditsEligible> GetUserCreditsEligibleWithHttpInfo(string userId, string subscriptionId);
+        /// <summary>
         /// Get User Subscription Eligiblity
         /// </summary>
         /// <remarks>
@@ -396,6 +459,29 @@ namespace VRChat.API.Api
         /// <param name="steamId">The Steam ID of the user. (optional)</param>
         /// <returns>ApiResponse of UserSubscriptionEligible</returns>
         ApiResponse<UserSubscriptionEligible> GetUserSubscriptionEligibleWithHttpInfo(string userId, string? steamId = default);
+        /// <summary>
+        /// Update Tilia TOS Agreement Status
+        /// </summary>
+        /// <remarks>
+        /// Updates the status of the agreement of a user to the Tilia TOS
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <returns>Object</returns>
+        Object UpdateTiliaTos(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default);
+
+        /// <summary>
+        /// Update Tilia TOS Agreement Status
+        /// </summary>
+        /// <remarks>
+        /// Updates the status of the agreement of a user to the Tilia TOS
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> UpdateTiliaTosWithHttpInfo(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default);
         #endregion Synchronous Operations
     }
 
@@ -472,6 +558,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Balance)</returns>
         System.Threading.Tasks.Task<ApiResponse<Balance>> GetBalanceEarningsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Bulk Gift Purchases
+        /// </summary>
+        /// <remarks>
+        /// Get bulk gift purchases made by the user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mostRecent"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Object&gt;</returns>
+        System.Threading.Tasks.Task<List<Object>> GetBulkGiftPurchasesAsync(bool? mostRecent = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Bulk Gift Purchases
+        /// </summary>
+        /// <remarks>
+        /// Get bulk gift purchases made by the user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mostRecent"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Object>>> GetBulkGiftPurchasesWithHttpInfoAsync(bool? mostRecent = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Current Subscriptions
         /// </summary>
@@ -597,6 +706,27 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProductListing&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<ProductListing>>> GetProductListingsWithHttpInfoAsync(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Recent Subscription
+        /// </summary>
+        /// <remarks>
+        /// Get the most recent user subscription.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UserSubscription</returns>
+        System.Threading.Tasks.Task<UserSubscription> GetRecentSubscriptionAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Recent Subscription
+        /// </summary>
+        /// <remarks>
+        /// Get the most recent user subscription.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UserSubscription)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserSubscription>> GetRecentSubscriptionWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Steam Transaction
         /// </summary>
@@ -784,6 +914,31 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (List&lt;TokenBundle&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<TokenBundle>>> GetTokenBundlesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get User Credits Eligiblity
+        /// </summary>
+        /// <remarks>
+        /// Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UserCreditsEligible</returns>
+        System.Threading.Tasks.Task<UserCreditsEligible> GetUserCreditsEligibleAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get User Credits Eligiblity
+        /// </summary>
+        /// <remarks>
+        /// Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UserCreditsEligible)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserCreditsEligible>> GetUserCreditsEligibleWithHttpInfoAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get User Subscription Eligiblity
         /// </summary>
         /// <remarks>
@@ -808,6 +963,31 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserSubscriptionEligible)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserSubscriptionEligible>> GetUserSubscriptionEligibleWithHttpInfoAsync(string userId, string? steamId = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Tilia TOS Agreement Status
+        /// </summary>
+        /// <remarks>
+        /// Updates the status of the agreement of a user to the Tilia TOS
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> UpdateTiliaTosAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Update Tilia TOS Agreement Status
+        /// </summary>
+        /// <remarks>
+        /// Updates the status of the agreement of a user to the Tilia TOS
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateTiliaTosWithHttpInfoAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1382,6 +1562,131 @@ namespace VRChat.API.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBalanceEarnings", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Bulk Gift Purchases Get bulk gift purchases made by the user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mostRecent"> (optional)</param>
+        /// <returns>List&lt;Object&gt;</returns>
+        public List<Object> GetBulkGiftPurchases(bool? mostRecent = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Object>> localVarResponse = GetBulkGiftPurchasesWithHttpInfo(mostRecent);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Bulk Gift Purchases Get bulk gift purchases made by the user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mostRecent"> (optional)</param>
+        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<Object>> GetBulkGiftPurchasesWithHttpInfo(bool? mostRecent = default)
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (mostRecent != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "mostRecent", mostRecent));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<Object>>("/user/bulk/gift/purchases", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBulkGiftPurchases", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Bulk Gift Purchases Get bulk gift purchases made by the user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mostRecent"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Object&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Object>> GetBulkGiftPurchasesAsync(bool? mostRecent = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Object>> localVarResponse = await GetBulkGiftPurchasesWithHttpInfoAsync(mostRecent, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Bulk Gift Purchases Get bulk gift purchases made by the user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mostRecent"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Object>>> GetBulkGiftPurchasesWithHttpInfoAsync(bool? mostRecent = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (mostRecent != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "mostRecent", mostRecent));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Object>>("/user/bulk/gift/purchases", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBulkGiftPurchases", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2075,6 +2380,119 @@ namespace VRChat.API.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProductListings", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Recent Subscription Get the most recent user subscription.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>UserSubscription</returns>
+        public UserSubscription GetRecentSubscription()
+        {
+            VRChat.API.Client.ApiResponse<UserSubscription> localVarResponse = GetRecentSubscriptionWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Recent Subscription Get the most recent user subscription.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of UserSubscription</returns>
+        public VRChat.API.Client.ApiResponse<UserSubscription> GetRecentSubscriptionWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<UserSubscription>("/user/subscription/recent", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetRecentSubscription", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Recent Subscription Get the most recent user subscription.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UserSubscription</returns>
+        public async System.Threading.Tasks.Task<UserSubscription> GetRecentSubscriptionAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<UserSubscription> localVarResponse = await GetRecentSubscriptionWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Recent Subscription Get the most recent user subscription.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UserSubscription)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UserSubscription>> GetRecentSubscriptionWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UserSubscription>("/user/subscription/recent", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetRecentSubscription", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3094,6 +3512,147 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Get User Credits Eligiblity Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <returns>UserCreditsEligible</returns>
+        public UserCreditsEligible GetUserCreditsEligible(string userId, string subscriptionId)
+        {
+            VRChat.API.Client.ApiResponse<UserCreditsEligible> localVarResponse = GetUserCreditsEligibleWithHttpInfo(userId, subscriptionId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get User Credits Eligiblity Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <returns>ApiResponse of UserCreditsEligible</returns>
+        public VRChat.API.Client.ApiResponse<UserCreditsEligible> GetUserCreditsEligibleWithHttpInfo(string userId, string subscriptionId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetUserCreditsEligible");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling EconomyApi->GetUserCreditsEligible");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "subscriptionId", subscriptionId));
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<UserCreditsEligible>("/users/{userId}/credits/eligible", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserCreditsEligible", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get User Credits Eligiblity Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UserCreditsEligible</returns>
+        public async System.Threading.Tasks.Task<UserCreditsEligible> GetUserCreditsEligibleAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<UserCreditsEligible> localVarResponse = await GetUserCreditsEligibleWithHttpInfoAsync(userId, subscriptionId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get User Credits Eligiblity Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UserCreditsEligible)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UserCreditsEligible>> GetUserCreditsEligibleWithHttpInfoAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetUserCreditsEligible");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling EconomyApi->GetUserCreditsEligible");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "subscriptionId", subscriptionId));
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UserCreditsEligible>("/users/{userId}/credits/eligible", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserCreditsEligible", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get User Subscription Eligiblity Get the user&#39;s eligibility status for subscriptions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3226,6 +3785,141 @@ namespace VRChat.API.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserSubscriptionEligible", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update Tilia TOS Agreement Status Updates the status of the agreement of a user to the Tilia TOS
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <returns>Object</returns>
+        public Object UpdateTiliaTos(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default)
+        {
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = UpdateTiliaTosWithHttpInfo(userId, updateTiliaTOSRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Tilia TOS Agreement Status Updates the status of the agreement of a user to the Tilia TOS
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public VRChat.API.Client.ApiResponse<Object> UpdateTiliaTosWithHttpInfo(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->UpdateTiliaTos");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.Data = updateTiliaTOSRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<Object>("/user/{userId}/tilia/tos", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateTiliaTos", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update Tilia TOS Agreement Status Updates the status of the agreement of a user to the Tilia TOS
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> UpdateTiliaTosAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await UpdateTiliaTosWithHttpInfoAsync(userId, updateTiliaTOSRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Tilia TOS Agreement Status Updates the status of the agreement of a user to the Tilia TOS
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> UpdateTiliaTosWithHttpInfoAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->UpdateTiliaTos");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.Data = updateTiliaTOSRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/user/{userId}/tilia/tos", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateTiliaTos", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

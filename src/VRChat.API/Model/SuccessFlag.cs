@@ -27,35 +27,30 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// TwoFactorEmailCode
+    /// SuccessFlag
     /// </summary>
-    [DataContract(Name = "TwoFactorEmailCode")]
-    public partial class TwoFactorEmailCode : IEquatable<TwoFactorEmailCode>, IValidatableObject, ITwoFactorCode
+    [DataContract(Name = "SuccessFlag")]
+    public partial class SuccessFlag : IEquatable<SuccessFlag>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Initializes a new instance of the <see cref="SuccessFlag" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TwoFactorEmailCode() { }
+        protected SuccessFlag() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Initializes a new instance of the <see cref="SuccessFlag" /> class.
         /// </summary>
-        /// <param name="code">code (required).</param>
-        public TwoFactorEmailCode(string code = default)
+        /// <param name="success">success (required).</param>
+        public SuccessFlag(bool success = default)
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for TwoFactorEmailCode and cannot be null");
-            }
-            this.Code = code;
+            this.Success = success;
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Gets or Sets Success
         /// </summary>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
-        public string Code { get; set; }
+        [DataMember(Name = "success", IsRequired = true, EmitDefaultValue = true)]
+        public bool Success { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +59,8 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TwoFactorEmailCode {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("class SuccessFlag {\n");
+            sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +81,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TwoFactorEmailCode);
+            return this.Equals(input as SuccessFlag);
         }
 
         /// <summary>
-        /// Returns true if TwoFactorEmailCode instances are equal
+        /// Returns true if SuccessFlag instances are equal
         /// </summary>
-        /// <param name="input">Instance of TwoFactorEmailCode to be compared</param>
+        /// <param name="input">Instance of SuccessFlag to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TwoFactorEmailCode input)
+        public bool Equals(SuccessFlag input)
         {
             if (input == null)
             {
@@ -102,9 +97,8 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.Success == input.Success ||
+                    this.Success.Equals(input.Success)
                 );
         }
 
@@ -117,10 +111,7 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
-                {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Success.GetHashCode();
                 return hashCode;
             }
         }

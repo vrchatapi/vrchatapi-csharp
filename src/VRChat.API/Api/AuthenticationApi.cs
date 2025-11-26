@@ -97,6 +97,50 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ConfirmEmailWithHttpInfo(string id, string verifyEmail);
         /// <summary>
+        /// Create Global Avatar Moderation
+        /// </summary>
+        /// <remarks>
+        /// Globally moderates an avatar.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAvatarModerationRequest"></param>
+        /// <returns>AvatarModerationCreated</returns>
+        AvatarModerationCreated CreateGlobalAvatarModeration(CreateAvatarModerationRequest createAvatarModerationRequest);
+
+        /// <summary>
+        /// Create Global Avatar Moderation
+        /// </summary>
+        /// <remarks>
+        /// Globally moderates an avatar.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAvatarModerationRequest"></param>
+        /// <returns>ApiResponse of AvatarModerationCreated</returns>
+        ApiResponse<AvatarModerationCreated> CreateGlobalAvatarModerationWithHttpInfo(CreateAvatarModerationRequest createAvatarModerationRequest);
+        /// <summary>
+        /// Delete Global Avatar Moderation
+        /// </summary>
+        /// <remarks>
+        /// Globally unmoderates an avatar.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAvatarId">Must be a valid avatar ID.</param>
+        /// <param name="avatarModerationType">The avatar moderation type associated with the avatar.</param>
+        /// <returns>OkStatus2</returns>
+        OkStatus2 DeleteGlobalAvatarModeration(string targetAvatarId, AvatarModerationType avatarModerationType);
+
+        /// <summary>
+        /// Delete Global Avatar Moderation
+        /// </summary>
+        /// <remarks>
+        /// Globally unmoderates an avatar.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAvatarId">Must be a valid avatar ID.</param>
+        /// <param name="avatarModerationType">The avatar moderation type associated with the avatar.</param>
+        /// <returns>ApiResponse of OkStatus2</returns>
+        ApiResponse<OkStatus2> DeleteGlobalAvatarModerationWithHttpInfo(string targetAvatarId, AvatarModerationType avatarModerationType);
+        /// <summary>
         /// Delete User
         /// </summary>
         /// <remarks>
@@ -178,7 +222,7 @@ namespace VRChat.API.Api
         /// Get Global Avatar Moderations
         /// </summary>
         /// <remarks>
-        /// Returns list of globally blocked avatars.
+        /// Returns list of globally moderated avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;AvatarModeration&gt;</returns>
@@ -188,7 +232,7 @@ namespace VRChat.API.Api
         /// Get Global Avatar Moderations
         /// </summary>
         /// <remarks>
-        /// Returns list of globally blocked avatars.
+        /// Returns list of globally moderated avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;AvatarModeration&gt;</returns>
@@ -484,6 +528,54 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ConfirmEmailWithHttpInfoAsync(string id, string verifyEmail, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// Create Global Avatar Moderation
+        /// </summary>
+        /// <remarks>
+        /// Globally moderates an avatar.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAvatarModerationRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AvatarModerationCreated</returns>
+        System.Threading.Tasks.Task<AvatarModerationCreated> CreateGlobalAvatarModerationAsync(CreateAvatarModerationRequest createAvatarModerationRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Create Global Avatar Moderation
+        /// </summary>
+        /// <remarks>
+        /// Globally moderates an avatar.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAvatarModerationRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AvatarModerationCreated)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AvatarModerationCreated>> CreateGlobalAvatarModerationWithHttpInfoAsync(CreateAvatarModerationRequest createAvatarModerationRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Delete Global Avatar Moderation
+        /// </summary>
+        /// <remarks>
+        /// Globally unmoderates an avatar.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAvatarId">Must be a valid avatar ID.</param>
+        /// <param name="avatarModerationType">The avatar moderation type associated with the avatar.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of OkStatus2</returns>
+        System.Threading.Tasks.Task<OkStatus2> DeleteGlobalAvatarModerationAsync(string targetAvatarId, AvatarModerationType avatarModerationType, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete Global Avatar Moderation
+        /// </summary>
+        /// <remarks>
+        /// Globally unmoderates an avatar.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAvatarId">Must be a valid avatar ID.</param>
+        /// <param name="avatarModerationType">The avatar moderation type associated with the avatar.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (OkStatus2)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OkStatus2>> DeleteGlobalAvatarModerationWithHttpInfoAsync(string targetAvatarId, AvatarModerationType avatarModerationType, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Delete User
         /// </summary>
         /// <remarks>
@@ -573,7 +665,7 @@ namespace VRChat.API.Api
         /// Get Global Avatar Moderations
         /// </summary>
         /// <remarks>
-        /// Returns list of globally blocked avatars.
+        /// Returns list of globally moderated avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -584,7 +676,7 @@ namespace VRChat.API.Api
         /// Get Global Avatar Moderations
         /// </summary>
         /// <remarks>
-        /// Returns list of globally blocked avatars.
+        /// Returns list of globally moderated avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1417,6 +1509,268 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Create Global Avatar Moderation Globally moderates an avatar.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAvatarModerationRequest"></param>
+        /// <returns>AvatarModerationCreated</returns>
+        public AvatarModerationCreated CreateGlobalAvatarModeration(CreateAvatarModerationRequest createAvatarModerationRequest)
+        {
+            VRChat.API.Client.ApiResponse<AvatarModerationCreated> localVarResponse = CreateGlobalAvatarModerationWithHttpInfo(createAvatarModerationRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Global Avatar Moderation Globally moderates an avatar.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAvatarModerationRequest"></param>
+        /// <returns>ApiResponse of AvatarModerationCreated</returns>
+        public VRChat.API.Client.ApiResponse<AvatarModerationCreated> CreateGlobalAvatarModerationWithHttpInfo(CreateAvatarModerationRequest createAvatarModerationRequest)
+        {
+            // verify the required parameter 'createAvatarModerationRequest' is set
+            if (createAvatarModerationRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createAvatarModerationRequest' when calling AuthenticationApi->CreateGlobalAvatarModeration");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createAvatarModerationRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<AvatarModerationCreated>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGlobalAvatarModeration", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create Global Avatar Moderation Globally moderates an avatar.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAvatarModerationRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AvatarModerationCreated</returns>
+        public async System.Threading.Tasks.Task<AvatarModerationCreated> CreateGlobalAvatarModerationAsync(CreateAvatarModerationRequest createAvatarModerationRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<AvatarModerationCreated> localVarResponse = await CreateGlobalAvatarModerationWithHttpInfoAsync(createAvatarModerationRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Global Avatar Moderation Globally moderates an avatar.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createAvatarModerationRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AvatarModerationCreated)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<AvatarModerationCreated>> CreateGlobalAvatarModerationWithHttpInfoAsync(CreateAvatarModerationRequest createAvatarModerationRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'createAvatarModerationRequest' is set
+            if (createAvatarModerationRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createAvatarModerationRequest' when calling AuthenticationApi->CreateGlobalAvatarModeration");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createAvatarModerationRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AvatarModerationCreated>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGlobalAvatarModeration", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete Global Avatar Moderation Globally unmoderates an avatar.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAvatarId">Must be a valid avatar ID.</param>
+        /// <param name="avatarModerationType">The avatar moderation type associated with the avatar.</param>
+        /// <returns>OkStatus2</returns>
+        public OkStatus2 DeleteGlobalAvatarModeration(string targetAvatarId, AvatarModerationType avatarModerationType)
+        {
+            VRChat.API.Client.ApiResponse<OkStatus2> localVarResponse = DeleteGlobalAvatarModerationWithHttpInfo(targetAvatarId, avatarModerationType);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Global Avatar Moderation Globally unmoderates an avatar.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAvatarId">Must be a valid avatar ID.</param>
+        /// <param name="avatarModerationType">The avatar moderation type associated with the avatar.</param>
+        /// <returns>ApiResponse of OkStatus2</returns>
+        public VRChat.API.Client.ApiResponse<OkStatus2> DeleteGlobalAvatarModerationWithHttpInfo(string targetAvatarId, AvatarModerationType avatarModerationType)
+        {
+            // verify the required parameter 'targetAvatarId' is set
+            if (targetAvatarId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'targetAvatarId' when calling AuthenticationApi->DeleteGlobalAvatarModeration");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "targetAvatarId", targetAvatarId));
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "avatarModerationType", avatarModerationType));
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<OkStatus2>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGlobalAvatarModeration", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete Global Avatar Moderation Globally unmoderates an avatar.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAvatarId">Must be a valid avatar ID.</param>
+        /// <param name="avatarModerationType">The avatar moderation type associated with the avatar.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of OkStatus2</returns>
+        public async System.Threading.Tasks.Task<OkStatus2> DeleteGlobalAvatarModerationAsync(string targetAvatarId, AvatarModerationType avatarModerationType, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<OkStatus2> localVarResponse = await DeleteGlobalAvatarModerationWithHttpInfoAsync(targetAvatarId, avatarModerationType, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Global Avatar Moderation Globally unmoderates an avatar.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="targetAvatarId">Must be a valid avatar ID.</param>
+        /// <param name="avatarModerationType">The avatar moderation type associated with the avatar.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (OkStatus2)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<OkStatus2>> DeleteGlobalAvatarModerationWithHttpInfoAsync(string targetAvatarId, AvatarModerationType avatarModerationType, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'targetAvatarId' is set
+            if (targetAvatarId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'targetAvatarId' when calling AuthenticationApi->DeleteGlobalAvatarModeration");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "targetAvatarId", targetAvatarId));
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "avatarModerationType", avatarModerationType));
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<OkStatus2>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGlobalAvatarModeration", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Delete User Deletes the account with given ID. Normal users only have permission to delete their own account. Account deletion is 14 days from this request, and will be cancelled if you do an authenticated request with the account afterwards.  **VRC+ NOTE:** Despite the 14-days cooldown, any VRC+ subscription will be cancelled **immediately**.  **METHOD NOTE:** Despite this being a Delete action, the method type required is PUT.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1907,7 +2261,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Global Avatar Moderations Returns list of globally blocked avatars.
+        /// Get Global Avatar Moderations Returns list of globally moderated avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;AvatarModeration&gt;</returns>
@@ -1918,7 +2272,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Global Avatar Moderations Returns list of globally blocked avatars.
+        /// Get Global Avatar Moderations Returns list of globally moderated avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;AvatarModeration&gt;</returns>
@@ -1961,7 +2315,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Global Avatar Moderations Returns list of globally blocked avatars.
+        /// Get Global Avatar Moderations Returns list of globally moderated avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1973,7 +2327,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Global Avatar Moderations Returns list of globally blocked avatars.
+        /// Get Global Avatar Moderations Returns list of globally moderated avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

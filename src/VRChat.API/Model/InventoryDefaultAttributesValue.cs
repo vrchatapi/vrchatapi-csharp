@@ -27,35 +27,33 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// TwoFactorEmailCode
+    /// InventoryDefaultAttributesValue
     /// </summary>
-    [DataContract(Name = "TwoFactorEmailCode")]
-    public partial class TwoFactorEmailCode : IEquatable<TwoFactorEmailCode>, IValidatableObject, ITwoFactorCode
+    [DataContract(Name = "InventoryDefaultAttributes_value")]
+    public partial class InventoryDefaultAttributesValue : IEquatable<InventoryDefaultAttributesValue>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Initializes a new instance of the <see cref="InventoryDefaultAttributesValue" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected TwoFactorEmailCode() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
-        /// </summary>
-        /// <param name="code">code (required).</param>
-        public TwoFactorEmailCode(string code = default)
+        /// <param name="defaultValue">defaultValue.</param>
+        /// <param name="validator">validator.</param>
+        public InventoryDefaultAttributesValue(string defaultValue = default, InventoryDefaultAttributesValueValidator validator = default)
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for TwoFactorEmailCode and cannot be null");
-            }
-            this.Code = code;
+            this.DefaultValue = defaultValue;
+            this.Validator = validator;
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Gets or Sets DefaultValue
         /// </summary>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
-        public string Code { get; set; }
+        [DataMember(Name = "defaultValue", EmitDefaultValue = false)]
+        public string DefaultValue { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Validator
+        /// </summary>
+        [DataMember(Name = "validator", EmitDefaultValue = false)]
+        public InventoryDefaultAttributesValueValidator Validator { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +62,9 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TwoFactorEmailCode {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("class InventoryDefaultAttributesValue {\n");
+            sb.Append("  DefaultValue: ").Append(DefaultValue).Append("\n");
+            sb.Append("  Validator: ").Append(Validator).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +85,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TwoFactorEmailCode);
+            return this.Equals(input as InventoryDefaultAttributesValue);
         }
 
         /// <summary>
-        /// Returns true if TwoFactorEmailCode instances are equal
+        /// Returns true if InventoryDefaultAttributesValue instances are equal
         /// </summary>
-        /// <param name="input">Instance of TwoFactorEmailCode to be compared</param>
+        /// <param name="input">Instance of InventoryDefaultAttributesValue to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TwoFactorEmailCode input)
+        public bool Equals(InventoryDefaultAttributesValue input)
         {
             if (input == null)
             {
@@ -102,9 +101,14 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.DefaultValue == input.DefaultValue ||
+                    (this.DefaultValue != null &&
+                    this.DefaultValue.Equals(input.DefaultValue))
+                ) && 
+                (
+                    this.Validator == input.Validator ||
+                    (this.Validator != null &&
+                    this.Validator.Equals(input.Validator))
                 );
         }
 
@@ -117,9 +121,13 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
+                if (this.DefaultValue != null)
                 {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DefaultValue.GetHashCode();
+                }
+                if (this.Validator != null)
+                {
+                    hashCode = (hashCode * 59) + this.Validator.GetHashCode();
                 }
                 return hashCode;
             }

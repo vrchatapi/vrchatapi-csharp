@@ -66,7 +66,19 @@ namespace VRChat.API.Model
         /// Enum Ugc for value: ugc
         /// </summary>
         [EnumMember(Value = "ugc")]
-        Ugc = 6
+        Ugc = 6,
+
+        /// <summary>
+        /// Enum Equippable for value: equippable
+        /// </summary>
+        [EnumMember(Value = "equippable")]
+        Equippable = 7,
+
+        /// <summary>
+        /// Enum Unique for value: unique
+        /// </summary>
+        [EnumMember(Value = "unique")]
+        Unique = 8
     }
 
 }

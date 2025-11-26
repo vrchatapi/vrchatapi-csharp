@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationDetailRequestInvite" /> class.
         /// </summary>
-        /// <param name="platform">TODO: Does this still exist?.</param>
+        /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
         /// <param name="requestMessage">Used when using InviteMessage Slot..</param>
         public NotificationDetailRequestInvite(string platform = default, string requestMessage = default)
         {
@@ -44,9 +44,12 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// TODO: Does this still exist?
+        /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
-        /// <value>TODO: Does this still exist?</value>
+        /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
