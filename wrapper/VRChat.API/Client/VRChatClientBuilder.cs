@@ -204,7 +204,7 @@ namespace VRChat.API.Client
                 }
             }
 
-            return VRChatClient.CreateInternal(_configuration, _twoFactorSecret, _client, _httpClient, _httpClientHandler);
+            return VRChatClient.Create(_configuration, _twoFactorSecret, _client, _httpClient, _httpClientHandler);
         }
     }
 }
