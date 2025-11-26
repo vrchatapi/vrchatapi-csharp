@@ -10,7 +10,7 @@ namespace VRChat.API.Client
     /// </summary>
     public class VRChatClientBuilder
     {
-        private const string _defaultUserAgent = "VRChat.API/1.0 (.NET) net8.0 (https://dot.net) VRChat.API/HttpClient";
+        private const string _defaultUserAgent = "Example/1.0 (.NET) net8.0 (CONTACT_EMAIL)";
         private Configuration _configuration;
         private ApiClient _client;
         private HttpClient _httpClient;
