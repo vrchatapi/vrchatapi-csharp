@@ -50,7 +50,7 @@ for file in $(find ./src/VRChat.API -name '*.cs'); do
 done
 
 # Add icons and readme to package
-sed '/<ItemGroup>/,/<\/ItemGroup>/{ /<\/ItemGroup>/a\\n  <ItemGroup>\n\t  <Content Include="vrc_cat.ico" />\n\t</ItemGroup>\n\n\t<ItemGroup>\n\t  <None Include="..\\README.md">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t  <None Include="..\\vrc_cat.png">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t</ItemGroup>\n}' src/VRChat.API/VRChat.API.csproj
+sed '/<\/ItemGroup>/a\\n  <ItemGroup>\n\t  <Content Include="vrc_cat.ico" />\n\t</ItemGroup>\n\n\t<ItemGroup>\n\t  <None Include="..\\README.md">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t  <None Include="..\\vrc_cat.png">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t</ItemGroup>\n}' src/VRChat.API/VRChat.API.csproj
 
 # Adjust package tags
 sed 's/<PackageTags>vrchat<\/PackageTags>/<PackageTags>vrchat,vrcapi,vrc-api,vrc<\/PackageTags>/'
