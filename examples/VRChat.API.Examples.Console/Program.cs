@@ -18,18 +18,8 @@ namespace VRChat.API.Examples.Console
                 .WithApplication(name: "Example", version: "1.0.0", contact: "contact@vrchat.community")
                 .Build();
 
-            var currentUser2 = await vrchat.LoginWithExternalCodeAsync((modes) =>
-            {
-                if (modes.Contains("totp"))
-                {
-                    return (ITwoFactorCode)new TwoFactorAuthCode(System.Console.ReadLine());
-                }
-
-                return null;
-            });
-
-            //var currentUser = await vrchat.LoginAsync();
-            //System.Console.WriteLine($"Logged in as {currentUser.DisplayName}!");
+            var currentUser = await vrchat.LoginAsync();
+            System.Console.WriteLine($"Logged in as {currentUser.DisplayName}!");
 
             var user = await vrchat.Users.GetUserAsync("usr_f2049d71-e76b-42d2-a8bd-43deec9c004e");
             System.Console.WriteLine($"Found user {user.DisplayName}, joined at {user.DateJoined}");
