@@ -169,7 +169,7 @@ namespace VRChat.API.Client
         /// <summary>
         /// Will be <c>true</c> if the current client is successfully logged in as a user.
         /// <br /> Otherwise, this will return <c>false</c>.
-        /// <br /> <em>This property automatically updates when calling <see cref="IVRChat.TryLoginAsync(CancellationToken)"/> or <see cref="IVRChat.LoginAsync(bool, CancellationToken)"/></em>
+        /// <br /> <em>This property automatically updates when calling <see cref="IVRChat.TryLoginAsync(CancellationToken)"/> or <see cref="IVRChat.LoginAsync(CancellationToken)"/></em>
         /// </summary>
         bool IsLoggedIn { get; }
 
@@ -184,7 +184,6 @@ namespace VRChat.API.Client
         /// Logs in as the currently configured user. Will throw an exception unless <b><c>throwOnFail</c></b> is set to <b><c>true</c></b>.
         /// <br /> If successful, the <see cref="CurrentUser"/> will be returned, otherwise <b><c>null</c></b> (if <b><c>throwOnFail</c></b> is false).
         /// </summary>
-        /// <param name="throwOnFail">If you are simply checking for valid authentication, leave this as false</param>
         /// <param name="ct">Cancellation token for cancelling any asynchronous operations</param>
         /// <returns>A <see cref="Task"/> of <see cref="CurrentUser"/> with the currently logged in user, if successful.</returns>
         Task<CurrentUser> LoginAsync(CancellationToken ct = default);
