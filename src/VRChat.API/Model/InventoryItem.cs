@@ -34,6 +34,12 @@ namespace VRChat.API.Model
     {
 
         /// <summary>
+        /// Gets or Sets EquipSlot
+        /// </summary>
+        [DataMember(Name = "equipSlot", EmitDefaultValue = false)]
+        public InventoryEquipSlot? EquipSlot { get; set; }
+
+        /// <summary>
         /// Gets or Sets ItemType
         /// </summary>
         [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
@@ -48,7 +54,10 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="collections">collections (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
+        /// <param name="defaultAttributes">defaultAttributes (required).</param>
         /// <param name="description">description (required).</param>
+        /// <param name="equipSlot">equipSlot.</param>
+        /// <param name="equipSlots">equipSlots.</param>
         /// <param name="expiryDate">expiryDate (required).</param>
         /// <param name="flags">flags (required).</param>
         /// <param name="holderId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
@@ -65,7 +74,9 @@ namespace VRChat.API.Model
         /// <param name="templateCreatedAt">templateCreatedAt (required).</param>
         /// <param name="templateUpdatedAt">templateUpdatedAt (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public InventoryItem(List<string> collections = default, DateTime createdAt = default, string description = default, DateTime? expiryDate = default, List<string> flags = default, string holderId = default, string id = default, string imageUrl = default, bool isArchived = default, bool isSeen = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, List<string> tags = default, string templateId = default, DateTime templateCreatedAt = default, DateTime templateUpdatedAt = default, DateTime updatedAt = default)
+        /// <param name="userAttributes">userAttributes (required).</param>
+        /// <param name="validateUserAttributes">validateUserAttributes (required).</param>
+        public InventoryItem(List<string> collections = default, DateTime createdAt = default, Dictionary<string, InventoryDefaultAttributesValue> defaultAttributes = default, string description = default, InventoryEquipSlot? equipSlot = default, List<InventoryEquipSlot> equipSlots = default, DateTime? expiryDate = default, List<string> flags = default, string holderId = default, string id = default, string imageUrl = default, bool isArchived = default, bool isSeen = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, List<string> tags = default, string templateId = default, DateTime templateCreatedAt = default, DateTime templateUpdatedAt = default, DateTime updatedAt = default, InventoryUserAttributes userAttributes = default, bool validateUserAttributes = default)
         {
             // to ensure "collections" is required (not null)
             if (collections == null)
@@ -74,6 +85,12 @@ namespace VRChat.API.Model
             }
             this.Collections = collections;
             this.CreatedAt = createdAt;
+            // to ensure "defaultAttributes" is required (not null)
+            if (defaultAttributes == null)
+            {
+                throw new ArgumentNullException("defaultAttributes is a required property for InventoryItem and cannot be null");
+            }
+            this.DefaultAttributes = defaultAttributes;
             // to ensure "description" is required (not null)
             if (description == null)
             {
@@ -146,6 +163,15 @@ namespace VRChat.API.Model
             this.TemplateCreatedAt = templateCreatedAt;
             this.TemplateUpdatedAt = templateUpdatedAt;
             this.UpdatedAt = updatedAt;
+            // to ensure "userAttributes" is required (not null)
+            if (userAttributes == null)
+            {
+                throw new ArgumentNullException("userAttributes is a required property for InventoryItem and cannot be null");
+            }
+            this.UserAttributes = userAttributes;
+            this.ValidateUserAttributes = validateUserAttributes;
+            this.EquipSlot = equipSlot;
+            this.EquipSlots = equipSlots;
         }
 
         /// <summary>
@@ -164,10 +190,22 @@ namespace VRChat.API.Model
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
+        /// Gets or Sets DefaultAttributes
+        /// </summary>
+        [DataMember(Name = "defaultAttributes", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, InventoryDefaultAttributesValue> DefaultAttributes { get; set; }
+
+        /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EquipSlots
+        /// </summary>
+        [DataMember(Name = "equipSlots", EmitDefaultValue = false)]
+        public List<InventoryEquipSlot> EquipSlots { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiryDate
@@ -282,6 +320,18 @@ namespace VRChat.API.Model
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
+        /// Gets or Sets UserAttributes
+        /// </summary>
+        [DataMember(Name = "userAttributes", IsRequired = true, EmitDefaultValue = true)]
+        public InventoryUserAttributes UserAttributes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ValidateUserAttributes
+        /// </summary>
+        [DataMember(Name = "validateUserAttributes", IsRequired = true, EmitDefaultValue = true)]
+        public bool ValidateUserAttributes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -291,7 +341,10 @@ namespace VRChat.API.Model
             sb.Append("class InventoryItem {\n");
             sb.Append("  Collections: ").Append(Collections).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  DefaultAttributes: ").Append(DefaultAttributes).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  EquipSlot: ").Append(EquipSlot).Append("\n");
+            sb.Append("  EquipSlots: ").Append(EquipSlots).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  Flags: ").Append(Flags).Append("\n");
             sb.Append("  HolderId: ").Append(HolderId).Append("\n");
@@ -308,6 +361,8 @@ namespace VRChat.API.Model
             sb.Append("  TemplateCreatedAt: ").Append(TemplateCreatedAt).Append("\n");
             sb.Append("  TemplateUpdatedAt: ").Append(TemplateUpdatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  UserAttributes: ").Append(UserAttributes).Append("\n");
+            sb.Append("  ValidateUserAttributes: ").Append(ValidateUserAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -355,9 +410,25 @@ namespace VRChat.API.Model
                     this.CreatedAt.Equals(input.CreatedAt))
                 ) && 
                 (
+                    this.DefaultAttributes == input.DefaultAttributes ||
+                    this.DefaultAttributes != null &&
+                    input.DefaultAttributes != null &&
+                    this.DefaultAttributes.SequenceEqual(input.DefaultAttributes)
+                ) && 
+                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.EquipSlot == input.EquipSlot ||
+                    this.EquipSlot.Equals(input.EquipSlot)
+                ) && 
+                (
+                    this.EquipSlots == input.EquipSlots ||
+                    this.EquipSlots != null &&
+                    input.EquipSlots != null &&
+                    this.EquipSlots.SequenceEqual(input.EquipSlots)
                 ) && 
                 (
                     this.ExpiryDate == input.ExpiryDate ||
@@ -437,6 +508,15 @@ namespace VRChat.API.Model
                     this.UpdatedAt == input.UpdatedAt ||
                     (this.UpdatedAt != null &&
                     this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.UserAttributes == input.UserAttributes ||
+                    (this.UserAttributes != null &&
+                    this.UserAttributes.Equals(input.UserAttributes))
+                ) && 
+                (
+                    this.ValidateUserAttributes == input.ValidateUserAttributes ||
+                    this.ValidateUserAttributes.Equals(input.ValidateUserAttributes)
                 );
         }
 
@@ -457,9 +537,18 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
                 }
+                if (this.DefaultAttributes != null)
+                {
+                    hashCode = (hashCode * 59) + this.DefaultAttributes.GetHashCode();
+                }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EquipSlot.GetHashCode();
+                if (this.EquipSlots != null)
+                {
+                    hashCode = (hashCode * 59) + this.EquipSlots.GetHashCode();
                 }
                 if (this.ExpiryDate != null)
                 {
@@ -516,6 +605,11 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
                 }
+                if (this.UserAttributes != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserAttributes.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ValidateUserAttributes.GetHashCode();
                 return hashCode;
             }
         }

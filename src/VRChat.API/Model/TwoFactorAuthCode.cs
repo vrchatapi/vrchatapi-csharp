@@ -30,7 +30,7 @@ namespace VRChat.API.Model
     /// TwoFactorAuthCode
     /// </summary>
     [DataContract(Name = "TwoFactorAuthCode")]
-    public partial class TwoFactorAuthCode : IEquatable<TwoFactorAuthCode>, IValidatableObject
+    public partial class TwoFactorAuthCode : IEquatable<TwoFactorAuthCode>, IValidatableObject, ITwoFactorCode
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TwoFactorAuthCode" /> class.

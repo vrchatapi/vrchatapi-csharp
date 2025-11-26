@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Net;
 using System.Net.Http;
 
@@ -10,7 +11,7 @@ namespace VRChat.API.Client
     /// </summary>
     public class VRChatClientBuilder
     {
-        private const string _defaultUserAgent = "Example/1.0 (.NET) net8.0 (CONTACT_EMAIL)";
+        private const string _defaultUserAgent = "Example/0.0 (CONTACT_EMAIL), VRChat.API/net8.0 (https://vrchat.community/dotnet)";
         private Configuration _configuration;
         private ApiClient _client;
         private HttpClient _httpClient;
@@ -179,8 +180,12 @@ namespace VRChat.API.Client
 
         /// <summary>
         /// </summary>
-        public VRChatClientBuilder WithApplication(string name, string version, string contact) =>
-            this.WithUserAgent($"{name}/{version} ({contact}), VRChat.API/net8.0 (https://vrchat.community/discord)");
+        public VRChatClientBuilder WithApplication(string name, string version, string contact)
+        {
+            var libraryVersion = Assembly.GetExecutingAssembly().GetName().Version!.ToString();
+            this.WithUserAgent($"{name}/{version} ({contact}), VRChat.API/{libraryVersion} (https://vrchat.community/dotnet)");
+            return this;
+        }
 
         /// <summary>
         /// 
@@ -199,7 +204,7 @@ namespace VRChat.API.Client
                 }
             }
 
-            return VRChatClient.CreateInternal(_configuration, _twoFactorSecret, _client, _httpClient, _httpClientHandler);
+            return VRChatClient.Create(_configuration, _twoFactorSecret, _client, _httpClient, _httpClientHandler);
         }
     }
 }

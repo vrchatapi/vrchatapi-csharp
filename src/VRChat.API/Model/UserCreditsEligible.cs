@@ -27,35 +27,38 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// TwoFactorEmailCode
+    /// UserCreditsEligible
     /// </summary>
-    [DataContract(Name = "TwoFactorEmailCode")]
-    public partial class TwoFactorEmailCode : IEquatable<TwoFactorEmailCode>, IValidatableObject, ITwoFactorCode
+    [DataContract(Name = "UserCreditsEligible")]
+    public partial class UserCreditsEligible : IEquatable<UserCreditsEligible>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Initializes a new instance of the <see cref="UserCreditsEligible" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TwoFactorEmailCode() { }
+        protected UserCreditsEligible() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Initializes a new instance of the <see cref="UserCreditsEligible" /> class.
         /// </summary>
-        /// <param name="code">code (required).</param>
-        public TwoFactorEmailCode(string code = default)
+        /// <param name="eligible">eligible (required).</param>
+        /// <param name="reason">reason.</param>
+        public UserCreditsEligible(bool eligible = default, string reason = default)
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for TwoFactorEmailCode and cannot be null");
-            }
-            this.Code = code;
+            this.Eligible = eligible;
+            this.Reason = reason;
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Gets or Sets Eligible
         /// </summary>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
-        public string Code { get; set; }
+        [DataMember(Name = "eligible", IsRequired = true, EmitDefaultValue = true)]
+        public bool Eligible { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Reason
+        /// </summary>
+        [DataMember(Name = "reason", EmitDefaultValue = false)]
+        public string Reason { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +67,9 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TwoFactorEmailCode {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("class UserCreditsEligible {\n");
+            sb.Append("  Eligible: ").Append(Eligible).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +90,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TwoFactorEmailCode);
+            return this.Equals(input as UserCreditsEligible);
         }
 
         /// <summary>
-        /// Returns true if TwoFactorEmailCode instances are equal
+        /// Returns true if UserCreditsEligible instances are equal
         /// </summary>
-        /// <param name="input">Instance of TwoFactorEmailCode to be compared</param>
+        /// <param name="input">Instance of UserCreditsEligible to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TwoFactorEmailCode input)
+        public bool Equals(UserCreditsEligible input)
         {
             if (input == null)
             {
@@ -102,9 +106,13 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.Eligible == input.Eligible ||
+                    this.Eligible.Equals(input.Eligible)
+                ) && 
+                (
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 );
         }
 
@@ -117,9 +125,10 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
+                hashCode = (hashCode * 59) + this.Eligible.GetHashCode();
+                if (this.Reason != null)
                 {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Reason.GetHashCode();
                 }
                 return hashCode;
             }

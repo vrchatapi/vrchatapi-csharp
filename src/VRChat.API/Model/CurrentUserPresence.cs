@@ -44,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="instance">instance.</param>
         /// <param name="instanceType">either an InstanceType or an empty string.</param>
         /// <param name="isRejoining">isRejoining.</param>
-        /// <param name="platform">either a Platform or an empty string.</param>
+        /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
         /// <param name="profilePicOverride">profilePicOverride.</param>
         /// <param name="status">either a UserStatus or empty string.</param>
         /// <param name="travelingToInstance">travelingToInstance.</param>
@@ -131,10 +131,13 @@ namespace VRChat.API.Model
         public string IsRejoining { get; set; }
 
         /// <summary>
-        /// either a Platform or an empty string
+        /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
-        /// <value>either a Platform or an empty string</value>
-        [DataMember(Name = "platform", EmitDefaultValue = true)]
+        /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
+        [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
         /// <summary>

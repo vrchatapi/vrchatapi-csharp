@@ -27,35 +27,46 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// TwoFactorEmailCode
+    /// CreateAvatarModerationRequest
     /// </summary>
-    [DataContract(Name = "TwoFactorEmailCode")]
-    public partial class TwoFactorEmailCode : IEquatable<TwoFactorEmailCode>, IValidatableObject, ITwoFactorCode
+    [DataContract(Name = "CreateAvatarModerationRequest")]
+    public partial class CreateAvatarModerationRequest : IEquatable<CreateAvatarModerationRequest>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Gets or Sets AvatarModerationType
+        /// </summary>
+        [DataMember(Name = "avatarModerationType", IsRequired = true, EmitDefaultValue = true)]
+        public AvatarModerationType AvatarModerationType { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateAvatarModerationRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TwoFactorEmailCode() { }
+        protected CreateAvatarModerationRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TwoFactorEmailCode" /> class.
+        /// Initializes a new instance of the <see cref="CreateAvatarModerationRequest" /> class.
         /// </summary>
-        /// <param name="code">code (required).</param>
-        public TwoFactorEmailCode(string code = default)
+        /// <param name="targetAvatarId">targetAvatarId (required).</param>
+        /// <param name="avatarModerationType">avatarModerationType (required).</param>
+        public CreateAvatarModerationRequest(string targetAvatarId = default, AvatarModerationType avatarModerationType = default)
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
+            // to ensure "targetAvatarId" is required (not null)
+            if (targetAvatarId == null)
             {
-                throw new ArgumentNullException("code is a required property for TwoFactorEmailCode and cannot be null");
+                throw new ArgumentNullException("targetAvatarId is a required property for CreateAvatarModerationRequest and cannot be null");
             }
-            this.Code = code;
+            this.TargetAvatarId = targetAvatarId;
+            this.AvatarModerationType = avatarModerationType;
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Gets or Sets TargetAvatarId
         /// </summary>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
-        public string Code { get; set; }
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
+        [DataMember(Name = "targetAvatarId", IsRequired = true, EmitDefaultValue = true)]
+        public string TargetAvatarId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +75,9 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class TwoFactorEmailCode {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("class CreateAvatarModerationRequest {\n");
+            sb.Append("  TargetAvatarId: ").Append(TargetAvatarId).Append("\n");
+            sb.Append("  AvatarModerationType: ").Append(AvatarModerationType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +98,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TwoFactorEmailCode);
+            return this.Equals(input as CreateAvatarModerationRequest);
         }
 
         /// <summary>
-        /// Returns true if TwoFactorEmailCode instances are equal
+        /// Returns true if CreateAvatarModerationRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of TwoFactorEmailCode to be compared</param>
+        /// <param name="input">Instance of CreateAvatarModerationRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TwoFactorEmailCode input)
+        public bool Equals(CreateAvatarModerationRequest input)
         {
             if (input == null)
             {
@@ -102,9 +114,13 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
+                    this.TargetAvatarId == input.TargetAvatarId ||
+                    (this.TargetAvatarId != null &&
+                    this.TargetAvatarId.Equals(input.TargetAvatarId))
+                ) && 
+                (
+                    this.AvatarModerationType == input.AvatarModerationType ||
+                    this.AvatarModerationType.Equals(input.AvatarModerationType)
                 );
         }
 
@@ -117,10 +133,11 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
+                if (this.TargetAvatarId != null)
                 {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                    hashCode = (hashCode * 59) + this.TargetAvatarId.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.AvatarModerationType.GetHashCode();
                 return hashCode;
             }
         }

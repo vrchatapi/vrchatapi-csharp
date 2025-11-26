@@ -43,11 +43,16 @@ cp -r wrapper/VRChat.API/Client/* src/VRChat.API/Client/
 cp wrapper/VRChat.API.Extensions.Hosting/vrc_cat.ico src/VRChat.API/vrc_cat.ico
 cp wrapper/VRChat.API.Extensions.Hosting/vrc_cat.png src/VRChat.API/vrc_cat.png
 
+# Fix cookie handling
 for file in $(find ./src/VRChat.API -name '*.cs'); do
     sed -i 's/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"))/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "\/", "api.vrchat.cloud")/g' $file
     sed -i 's/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"))/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"), "\/", "api.vrchat.cloud")/g' $file
     sed -i 's/new Cookie(cookie.Name, cookie.Value)/new Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Domain)/g' $file
 done
+
+# Add ITwoFactorCode to two-factor authentication types
+sed -i 's/\(class.*IValidatableObject\)/\1, ITwoFactorCode/' src/VRChat.API/Model/TwoFactorAuthCode.cs
+sed -i 's/\(class.*IValidatableObject\)/\1, ITwoFactorCode/' src/VRChat.API/Model/TwoFactorEmailCode.cs
 
 # Add icons and readme to package
 sed -i ':a;N;$!ba;s|\(.*\)</ItemGroup>|\1\t  <Content Include="vrc_cat.ico" />\n\t  <None Include="..\\README.md">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t  <None Include="..\\vrc_cat.png">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n  </ItemGroup>|' src/VRChat.API/VRChat.API.csproj

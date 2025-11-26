@@ -28,6 +28,27 @@ namespace VRChat.API.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Delete Own Inventory Item
+        /// </summary>
+        /// <remarks>
+        /// Deletes an InventoryItem from the inventory of the currently logged in user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryItemId">Must be a valid inventory item ID.</param>
+        /// <returns>SuccessFlag</returns>
+        SuccessFlag DeleteOwnInventoryItem(string inventoryItemId);
+
+        /// <summary>
+        /// Delete Own Inventory Item
+        /// </summary>
+        /// <remarks>
+        /// Deletes an InventoryItem from the inventory of the currently logged in user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryItemId">Must be a valid inventory item ID.</param>
+        /// <returns>ApiResponse of SuccessFlag</returns>
+        ApiResponse<SuccessFlag> DeleteOwnInventoryItemWithHttpInfo(string inventoryItemId);
+        /// <summary>
         /// Get Inventory
         /// </summary>
         /// <remarks>
@@ -36,6 +57,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="holderId">The UserID of the owner of the inventory; defaults to the currently authenticated user. (optional)</param>
+        /// <param name="equipSlot">Filter for inventory retrieval. (optional)</param>
         /// <param name="order">Sort order for inventory retrieval. (optional)</param>
         /// <param name="tags">Filter tags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="types">Filter for inventory retrieval. (optional)</param>
@@ -44,7 +67,7 @@ namespace VRChat.API.Api
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
         /// <returns>Inventory</returns>
-        Inventory GetInventory(int? n = default, int? offset = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default);
+        Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default);
 
         /// <summary>
         /// Get Inventory
@@ -55,6 +78,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="holderId">The UserID of the owner of the inventory; defaults to the currently authenticated user. (optional)</param>
+        /// <param name="equipSlot">Filter for inventory retrieval. (optional)</param>
         /// <param name="order">Sort order for inventory retrieval. (optional)</param>
         /// <param name="tags">Filter tags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="types">Filter for inventory retrieval. (optional)</param>
@@ -63,7 +88,7 @@ namespace VRChat.API.Api
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
         /// <returns>ApiResponse of Inventory</returns>
-        ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default);
+        ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default);
         /// <summary>
         /// List Inventory Drops
         /// </summary>
@@ -229,6 +254,29 @@ namespace VRChat.API.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// Delete Own Inventory Item
+        /// </summary>
+        /// <remarks>
+        /// Deletes an InventoryItem from the inventory of the currently logged in user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryItemId">Must be a valid inventory item ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SuccessFlag</returns>
+        System.Threading.Tasks.Task<SuccessFlag> DeleteOwnInventoryItemAsync(string inventoryItemId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete Own Inventory Item
+        /// </summary>
+        /// <remarks>
+        /// Deletes an InventoryItem from the inventory of the currently logged in user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryItemId">Must be a valid inventory item ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SuccessFlag)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SuccessFlag>> DeleteOwnInventoryItemWithHttpInfoAsync(string inventoryItemId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get Inventory
         /// </summary>
         /// <remarks>
@@ -237,6 +285,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="holderId">The UserID of the owner of the inventory; defaults to the currently authenticated user. (optional)</param>
+        /// <param name="equipSlot">Filter for inventory retrieval. (optional)</param>
         /// <param name="order">Sort order for inventory retrieval. (optional)</param>
         /// <param name="tags">Filter tags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="types">Filter for inventory retrieval. (optional)</param>
@@ -246,7 +296,7 @@ namespace VRChat.API.Api
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Inventory</returns>
-        System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Inventory
@@ -257,6 +307,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="holderId">The UserID of the owner of the inventory; defaults to the currently authenticated user. (optional)</param>
+        /// <param name="equipSlot">Filter for inventory retrieval. (optional)</param>
         /// <param name="order">Sort order for inventory retrieval. (optional)</param>
         /// <param name="tags">Filter tags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="types">Filter for inventory retrieval. (optional)</param>
@@ -266,7 +318,7 @@ namespace VRChat.API.Api
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Inventory)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Inventory Drops
         /// </summary>
@@ -650,11 +702,140 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Delete Own Inventory Item Deletes an InventoryItem from the inventory of the currently logged in user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryItemId">Must be a valid inventory item ID.</param>
+        /// <returns>SuccessFlag</returns>
+        public SuccessFlag DeleteOwnInventoryItem(string inventoryItemId)
+        {
+            VRChat.API.Client.ApiResponse<SuccessFlag> localVarResponse = DeleteOwnInventoryItemWithHttpInfo(inventoryItemId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Own Inventory Item Deletes an InventoryItem from the inventory of the currently logged in user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryItemId">Must be a valid inventory item ID.</param>
+        /// <returns>ApiResponse of SuccessFlag</returns>
+        public VRChat.API.Client.ApiResponse<SuccessFlag> DeleteOwnInventoryItemWithHttpInfo(string inventoryItemId)
+        {
+            // verify the required parameter 'inventoryItemId' is set
+            if (inventoryItemId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'inventoryItemId' when calling InventoryApi->DeleteOwnInventoryItem");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("inventoryItemId", VRChat.API.Client.ClientUtils.ParameterToString(inventoryItemId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<SuccessFlag>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteOwnInventoryItem", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete Own Inventory Item Deletes an InventoryItem from the inventory of the currently logged in user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryItemId">Must be a valid inventory item ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SuccessFlag</returns>
+        public async System.Threading.Tasks.Task<SuccessFlag> DeleteOwnInventoryItemAsync(string inventoryItemId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<SuccessFlag> localVarResponse = await DeleteOwnInventoryItemWithHttpInfoAsync(inventoryItemId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Own Inventory Item Deletes an InventoryItem from the inventory of the currently logged in user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inventoryItemId">Must be a valid inventory item ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SuccessFlag)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SuccessFlag>> DeleteOwnInventoryItemWithHttpInfoAsync(string inventoryItemId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'inventoryItemId' is set
+            if (inventoryItemId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'inventoryItemId' when calling InventoryApi->DeleteOwnInventoryItem");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("inventoryItemId", VRChat.API.Client.ClientUtils.ParameterToString(inventoryItemId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<SuccessFlag>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteOwnInventoryItem", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get Inventory Returns an Inventory object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="holderId">The UserID of the owner of the inventory; defaults to the currently authenticated user. (optional)</param>
+        /// <param name="equipSlot">Filter for inventory retrieval. (optional)</param>
         /// <param name="order">Sort order for inventory retrieval. (optional)</param>
         /// <param name="tags">Filter tags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="types">Filter for inventory retrieval. (optional)</param>
@@ -663,9 +844,9 @@ namespace VRChat.API.Api
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
         /// <returns>Inventory</returns>
-        public Inventory GetInventory(int? n = default, int? offset = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default)
+        public Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default)
         {
-            VRChat.API.Client.ApiResponse<Inventory> localVarResponse = GetInventoryWithHttpInfo(n, offset, order, tags, types, flags, notTypes, notFlags, archived);
+            VRChat.API.Client.ApiResponse<Inventory> localVarResponse = GetInventoryWithHttpInfo(n, offset, holderId, equipSlot, order, tags, types, flags, notTypes, notFlags, archived);
             return localVarResponse.Data;
         }
 
@@ -675,6 +856,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="holderId">The UserID of the owner of the inventory; defaults to the currently authenticated user. (optional)</param>
+        /// <param name="equipSlot">Filter for inventory retrieval. (optional)</param>
         /// <param name="order">Sort order for inventory retrieval. (optional)</param>
         /// <param name="tags">Filter tags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="types">Filter for inventory retrieval. (optional)</param>
@@ -683,7 +866,7 @@ namespace VRChat.API.Api
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
         /// <returns>ApiResponse of Inventory</returns>
-        public VRChat.API.Client.ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default)
+        public VRChat.API.Client.ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -708,6 +891,14 @@ namespace VRChat.API.Api
             if (offset != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (holderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "holderId", holderId));
+            }
+            if (equipSlot != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "equipSlot", equipSlot));
             }
             if (order != null)
             {
@@ -742,7 +933,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -763,6 +954,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="holderId">The UserID of the owner of the inventory; defaults to the currently authenticated user. (optional)</param>
+        /// <param name="equipSlot">Filter for inventory retrieval. (optional)</param>
         /// <param name="order">Sort order for inventory retrieval. (optional)</param>
         /// <param name="tags">Filter tags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="types">Filter for inventory retrieval. (optional)</param>
@@ -772,9 +965,9 @@ namespace VRChat.API.Api
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Inventory</returns>
-        public async System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Inventory> localVarResponse = await GetInventoryWithHttpInfoAsync(n, offset, order, tags, types, flags, notTypes, notFlags, archived, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Inventory> localVarResponse = await GetInventoryWithHttpInfoAsync(n, offset, holderId, equipSlot, order, tags, types, flags, notTypes, notFlags, archived, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -784,6 +977,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="holderId">The UserID of the owner of the inventory; defaults to the currently authenticated user. (optional)</param>
+        /// <param name="equipSlot">Filter for inventory retrieval. (optional)</param>
         /// <param name="order">Sort order for inventory retrieval. (optional)</param>
         /// <param name="tags">Filter tags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="types">Filter for inventory retrieval. (optional)</param>
@@ -793,7 +988,7 @@ namespace VRChat.API.Api
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Inventory)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -820,6 +1015,14 @@ namespace VRChat.API.Api
             if (offset != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (holderId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "holderId", holderId));
+            }
+            if (equipSlot != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "equipSlot", equipSlot));
             }
             if (order != null)
             {
@@ -854,7 +1057,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -915,7 +1118,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -979,7 +1182,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1041,7 +1244,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1106,7 +1309,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1168,7 +1371,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1233,7 +1436,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1306,7 +1509,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1382,7 +1585,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1447,7 +1650,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1515,7 +1718,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1577,7 +1780,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1642,7 +1845,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1708,7 +1911,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request
@@ -1777,7 +1980,7 @@ namespace VRChat.API.Api
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
             }
 
             // make the HTTP request

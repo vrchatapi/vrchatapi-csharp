@@ -27,41 +27,41 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// UpdateInventoryItemRequest
+    /// InventoryUserAttributes
     /// </summary>
-    [DataContract(Name = "UpdateInventoryItemRequest")]
-    public partial class UpdateInventoryItemRequest : IEquatable<UpdateInventoryItemRequest>, IValidatableObject
+    [DataContract(Name = "InventoryUserAttributes")]
+    public partial class InventoryUserAttributes : IEquatable<InventoryUserAttributes>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateInventoryItemRequest" /> class.
+        /// Initializes a new instance of the <see cref="InventoryUserAttributes" /> class.
         /// </summary>
-        /// <param name="isArchived">isArchived.</param>
-        /// <param name="isSeen">isSeen.</param>
-        /// <param name="userAttributes">userAttributes.</param>
-        public UpdateInventoryItemRequest(bool isArchived = default, bool isSeen = default, InventoryUserAttributes userAttributes = default)
+        /// <param name="primaryColor">primaryColor.</param>
+        /// <param name="secondaryColor">secondaryColor.</param>
+        /// <param name="trailColor">trailColor.</param>
+        public InventoryUserAttributes(string primaryColor = default, string secondaryColor = default, string trailColor = default)
         {
-            this.IsArchived = isArchived;
-            this.IsSeen = isSeen;
-            this.UserAttributes = userAttributes;
+            this.PrimaryColor = primaryColor;
+            this.SecondaryColor = secondaryColor;
+            this.TrailColor = trailColor;
         }
 
         /// <summary>
-        /// Gets or Sets IsArchived
+        /// Gets or Sets PrimaryColor
         /// </summary>
-        [DataMember(Name = "isArchived", EmitDefaultValue = true)]
-        public bool IsArchived { get; set; }
+        [DataMember(Name = "primaryColor", EmitDefaultValue = false)]
+        public string PrimaryColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsSeen
+        /// Gets or Sets SecondaryColor
         /// </summary>
-        [DataMember(Name = "isSeen", EmitDefaultValue = true)]
-        public bool IsSeen { get; set; }
+        [DataMember(Name = "secondaryColor", EmitDefaultValue = false)]
+        public string SecondaryColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserAttributes
+        /// Gets or Sets TrailColor
         /// </summary>
-        [DataMember(Name = "userAttributes", EmitDefaultValue = false)]
-        public InventoryUserAttributes UserAttributes { get; set; }
+        [DataMember(Name = "trailColor", EmitDefaultValue = false)]
+        public string TrailColor { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,10 +70,10 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UpdateInventoryItemRequest {\n");
-            sb.Append("  IsArchived: ").Append(IsArchived).Append("\n");
-            sb.Append("  IsSeen: ").Append(IsSeen).Append("\n");
-            sb.Append("  UserAttributes: ").Append(UserAttributes).Append("\n");
+            sb.Append("class InventoryUserAttributes {\n");
+            sb.Append("  PrimaryColor: ").Append(PrimaryColor).Append("\n");
+            sb.Append("  SecondaryColor: ").Append(SecondaryColor).Append("\n");
+            sb.Append("  TrailColor: ").Append(TrailColor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,15 +94,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateInventoryItemRequest);
+            return this.Equals(input as InventoryUserAttributes);
         }
 
         /// <summary>
-        /// Returns true if UpdateInventoryItemRequest instances are equal
+        /// Returns true if InventoryUserAttributes instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateInventoryItemRequest to be compared</param>
+        /// <param name="input">Instance of InventoryUserAttributes to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateInventoryItemRequest input)
+        public bool Equals(InventoryUserAttributes input)
         {
             if (input == null)
             {
@@ -110,17 +110,19 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.IsArchived == input.IsArchived ||
-                    this.IsArchived.Equals(input.IsArchived)
+                    this.PrimaryColor == input.PrimaryColor ||
+                    (this.PrimaryColor != null &&
+                    this.PrimaryColor.Equals(input.PrimaryColor))
                 ) && 
                 (
-                    this.IsSeen == input.IsSeen ||
-                    this.IsSeen.Equals(input.IsSeen)
+                    this.SecondaryColor == input.SecondaryColor ||
+                    (this.SecondaryColor != null &&
+                    this.SecondaryColor.Equals(input.SecondaryColor))
                 ) && 
                 (
-                    this.UserAttributes == input.UserAttributes ||
-                    (this.UserAttributes != null &&
-                    this.UserAttributes.Equals(input.UserAttributes))
+                    this.TrailColor == input.TrailColor ||
+                    (this.TrailColor != null &&
+                    this.TrailColor.Equals(input.TrailColor))
                 );
         }
 
@@ -133,11 +135,17 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.IsArchived.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsSeen.GetHashCode();
-                if (this.UserAttributes != null)
+                if (this.PrimaryColor != null)
                 {
-                    hashCode = (hashCode * 59) + this.UserAttributes.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PrimaryColor.GetHashCode();
+                }
+                if (this.SecondaryColor != null)
+                {
+                    hashCode = (hashCode * 59) + this.SecondaryColor.GetHashCode();
+                }
+                if (this.TrailColor != null)
+                {
+                    hashCode = (hashCode * 59) + this.TrailColor.GetHashCode();
                 }
                 return hashCode;
             }

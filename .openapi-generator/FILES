@@ -34,6 +34,7 @@ docs/AgeVerificationStatus.md
 docs/AuthenticationApi.md
 docs/Avatar.md
 docs/AvatarModeration.md
+docs/AvatarModerationCreated.md
 docs/AvatarModerationType.md
 docs/AvatarPerformance.md
 docs/AvatarPublishedListingsInner.md
@@ -48,6 +49,7 @@ docs/CalendarApi.md
 docs/CalendarEvent.md
 docs/CalendarEventUserInterest.md
 docs/ChangeUserTagsRequest.md
+docs/CreateAvatarModerationRequest.md
 docs/CreateAvatarRequest.md
 docs/CreateCalendarEventRequest.md
 docs/CreateFileRequest.md
@@ -135,7 +137,10 @@ docs/InstanceType.md
 docs/InstancesApi.md
 docs/Inventory.md
 docs/InventoryApi.md
+docs/InventoryDefaultAttributesValue.md
+docs/InventoryDefaultAttributesValueValidator.md
 docs/InventoryDrop.md
+docs/InventoryEquipSlot.md
 docs/InventoryFlag.md
 docs/InventoryItem.md
 docs/InventoryItemType.md
@@ -143,6 +148,7 @@ docs/InventoryMetadata.md
 docs/InventoryNotificationDetails.md
 docs/InventorySpawn.md
 docs/InventoryTemplate.md
+docs/InventoryUserAttributes.md
 docs/InviteApi.md
 docs/InviteMessage.md
 docs/InviteMessageType.md
@@ -174,6 +180,7 @@ docs/NotificationDetailVoteToKick.md
 docs/NotificationType.md
 docs/NotificationsApi.md
 docs/OkStatus.md
+docs/OkStatus2.md
 docs/OrderOption.md
 docs/PaginatedCalendarEventList.md
 docs/PaginatedGroupAuditLogEntryList.md
@@ -219,6 +226,7 @@ docs/Submission.md
 docs/Subscription.md
 docs/SubscriptionPeriod.md
 docs/Success.md
+docs/SuccessFlag.md
 docs/TiliaStatus.md
 docs/TiliaTOS.md
 docs/TokenBundle.md
@@ -243,11 +251,13 @@ docs/UpdateGroupRoleRequest.md
 docs/UpdateInventoryItemRequest.md
 docs/UpdateInviteMessageRequest.md
 docs/UpdatePermissionRequest.md
+docs/UpdateTiliaTOSRequest.md
 docs/UpdateUserBadgeRequest.md
 docs/UpdateUserNoteRequest.md
 docs/UpdateUserRequest.md
 docs/UpdateWorldRequest.md
 docs/User.md
+docs/UserCreditsEligible.md
 docs/UserExists.md
 docs/UserNote.md
 docs/UserNoteTargetUser.md
@@ -333,6 +343,7 @@ src/VRChat.API/Model/AdminUnityPackage.cs
 src/VRChat.API/Model/AgeVerificationStatus.cs
 src/VRChat.API/Model/Avatar.cs
 src/VRChat.API/Model/AvatarModeration.cs
+src/VRChat.API/Model/AvatarModerationCreated.cs
 src/VRChat.API/Model/AvatarModerationType.cs
 src/VRChat.API/Model/AvatarPerformance.cs
 src/VRChat.API/Model/AvatarPublishedListingsInner.cs
@@ -345,6 +356,7 @@ src/VRChat.API/Model/BanGroupMemberRequest.cs
 src/VRChat.API/Model/CalendarEvent.cs
 src/VRChat.API/Model/CalendarEventUserInterest.cs
 src/VRChat.API/Model/ChangeUserTagsRequest.cs
+src/VRChat.API/Model/CreateAvatarModerationRequest.cs
 src/VRChat.API/Model/CreateAvatarRequest.cs
 src/VRChat.API/Model/CreateCalendarEventRequest.cs
 src/VRChat.API/Model/CreateFileRequest.cs
@@ -425,7 +437,10 @@ src/VRChat.API/Model/InstanceRegion.cs
 src/VRChat.API/Model/InstanceShortNameResponse.cs
 src/VRChat.API/Model/InstanceType.cs
 src/VRChat.API/Model/Inventory.cs
+src/VRChat.API/Model/InventoryDefaultAttributesValue.cs
+src/VRChat.API/Model/InventoryDefaultAttributesValueValidator.cs
 src/VRChat.API/Model/InventoryDrop.cs
+src/VRChat.API/Model/InventoryEquipSlot.cs
 src/VRChat.API/Model/InventoryFlag.cs
 src/VRChat.API/Model/InventoryItem.cs
 src/VRChat.API/Model/InventoryItemType.cs
@@ -433,6 +448,7 @@ src/VRChat.API/Model/InventoryMetadata.cs
 src/VRChat.API/Model/InventoryNotificationDetails.cs
 src/VRChat.API/Model/InventorySpawn.cs
 src/VRChat.API/Model/InventoryTemplate.cs
+src/VRChat.API/Model/InventoryUserAttributes.cs
 src/VRChat.API/Model/InviteMessage.cs
 src/VRChat.API/Model/InviteMessageType.cs
 src/VRChat.API/Model/InviteRequest.cs
@@ -460,6 +476,7 @@ src/VRChat.API/Model/NotificationDetailRequestInviteResponse.cs
 src/VRChat.API/Model/NotificationDetailVoteToKick.cs
 src/VRChat.API/Model/NotificationType.cs
 src/VRChat.API/Model/OkStatus.cs
+src/VRChat.API/Model/OkStatus2.cs
 src/VRChat.API/Model/OrderOption.cs
 src/VRChat.API/Model/PaginatedCalendarEventList.cs
 src/VRChat.API/Model/PaginatedGroupAuditLogEntryList.cs
@@ -502,6 +519,7 @@ src/VRChat.API/Model/Submission.cs
 src/VRChat.API/Model/Subscription.cs
 src/VRChat.API/Model/SubscriptionPeriod.cs
 src/VRChat.API/Model/Success.cs
+src/VRChat.API/Model/SuccessFlag.cs
 src/VRChat.API/Model/TiliaStatus.cs
 src/VRChat.API/Model/TiliaTOS.cs
 src/VRChat.API/Model/TokenBundle.cs
@@ -526,11 +544,13 @@ src/VRChat.API/Model/UpdateGroupRoleRequest.cs
 src/VRChat.API/Model/UpdateInventoryItemRequest.cs
 src/VRChat.API/Model/UpdateInviteMessageRequest.cs
 src/VRChat.API/Model/UpdatePermissionRequest.cs
+src/VRChat.API/Model/UpdateTiliaTOSRequest.cs
 src/VRChat.API/Model/UpdateUserBadgeRequest.cs
 src/VRChat.API/Model/UpdateUserNoteRequest.cs
 src/VRChat.API/Model/UpdateUserRequest.cs
 src/VRChat.API/Model/UpdateWorldRequest.cs
 src/VRChat.API/Model/User.cs
+src/VRChat.API/Model/UserCreditsEligible.cs
 src/VRChat.API/Model/UserExists.cs
 src/VRChat.API/Model/UserNote.cs
 src/VRChat.API/Model/UserNoteTargetUser.cs
