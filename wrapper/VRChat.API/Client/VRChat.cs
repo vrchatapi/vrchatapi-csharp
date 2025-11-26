@@ -177,8 +177,8 @@ namespace VRChat.API.Client
         /// Tries to login as the currently configured user, and returns a <see cref="bool"/> with the result.
         /// </summary>
         /// <param name="ct">Cancellation token for cancelling any asynchronous operations</param>
-        /// <returns>A <see cref="bool"/> specifying if the current client is logged in successfully.</returns>
-        Task<(bool, Exception)> TryLoginAsync(CancellationToken ct = default);
+        /// <returns>A <see cref="Task"/> with a <see cref="VRChatLoginResult"/> specifying if the current client is logged in successfully and any exceptions returned.</returns>
+        Task<VRChatLoginResult> TryLoginAsync(CancellationToken ct = default);
 
         /// <summary>
         /// Logs in as the currently configured user. Will throw an exception unless <b><c>throwOnFail</c></b> is set to <b><c>true</c></b>.
@@ -186,8 +186,22 @@ namespace VRChat.API.Client
         /// </summary>
         /// <param name="throwOnFail">If you are simply checking for valid authentication, leave this as false</param>
         /// <param name="ct">Cancellation token for cancelling any asynchronous operations</param>
-        /// <returns>A <see cref="CurrentUser"/> with the currently logged in user, if successful.</returns>
+        /// <returns>A <see cref="Task"/> of <see cref="CurrentUser"/> with the currently logged in user, if successful.</returns>
         Task<CurrentUser> LoginAsync(CancellationToken ct = default);
+
+        /// <summary>
+        /// Authenticates the current user using an external two-factor authentication code provider.
+        /// </summary>
+        /// <remarks>Use this method to log in when two-factor authentication is required and the code
+        /// must be obtained from an external source, such as an authenticator app or SMS. The <paramref
+        /// name="codeAction"/> callback is invoked to prompt the user for the code using the available
+        /// providers.</remarks>
+        /// <param name="codeAction">A callback function that receives a list of available two-factor authentication providers and returns an
+        /// implementation of <see cref="ITwoFactorCode"/> containing the code to use for authentication.</param>
+        /// <param name="ct">A cancellation token that can be used to cancel the login operation.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the authenticated <see
+        /// cref="CurrentUser"/> instance if login succeeds.</returns>
+        Task<CurrentUser> LoginWithExternalCodeAsync(Func<List<string>, ITwoFactorCode> codeAction, CancellationToken ct = default);
     }
 
     public class VRChatClient : IVRChat
@@ -289,7 +303,7 @@ namespace VRChat.API.Client
             return _httpClientHandler.CookieContainer?.GetAllCookies().ToList();
         }
 
-        public async Task<(bool, Exception)> TryLoginAsync(CancellationToken ct = default)
+        public async Task<VRChatLoginResult> TryLoginAsync(CancellationToken ct = default)
         {
             CurrentUser user = null;
             try
@@ -298,10 +312,10 @@ namespace VRChat.API.Client
             }
             catch(Exception exception)
             {
-                return (false, exception);
+                return new VRChatLoginResult(false, exception);
             }
 
-            return (user == null, null);
+            return new VRChatLoginResult(user == null, null);
         }
 
         public async Task<CurrentUser> LoginAsync(CancellationToken ct = default)
@@ -313,7 +327,7 @@ namespace VRChat.API.Client
 
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
-                throw new UnauthorizedAccessException("401 Unauthorized");
+                throw new UnauthorizedAccessException("401 Unauthorized", new Exception(response.RawContent));
             }
 
             if (response.Data.RequiresTwoFactorAuth != null && response.Data.RequiresTwoFactorAuth.Contains("totp"))
@@ -331,6 +345,42 @@ namespace VRChat.API.Client
 
             var user = response.Data;
 
+            this.IsLoggedIn = response.StatusCode == HttpStatusCode.OK && user != null;
+            return response.StatusCode == HttpStatusCode.OK ? user : null;
+        }
+
+        public async Task<CurrentUser> LoginWithExternalCodeAsync(Func<List<string>, ITwoFactorCode> codeAction, CancellationToken ct = default)
+        {
+            ApiResponse<CurrentUser> response = await this.Authentication.GetCurrentUserWithHttpInfoAsync(cancellationToken: ct);
+
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                throw new UnauthorizedAccessException("401 Unauthorized", new Exception(response.RawContent));
+            }
+
+            if (response.Data.RequiresTwoFactorAuth != null)
+            {
+                ITwoFactorCode code = codeAction?.Invoke(response.Data.RequiresTwoFactorAuth);
+
+                if(code is TwoFactorEmailCode emailCode)
+                {
+                    var twoFactorResponse = await this.Authentication.Verify2FAEmailCodeWithHttpInfoAsync(emailCode, ct);
+
+                    if (twoFactorResponse.StatusCode != HttpStatusCode.OK)
+                        throw new UnauthorizedAccessException("Failed to verify two-factor authentication with VRChat.", new Exception(twoFactorResponse.RawContent));
+                }
+                else if (code is TwoFactorAuthCode authCode)
+                {
+                    var twoFactorResponse = await this.Authentication.Verify2FAWithHttpInfoAsync(authCode, ct);
+
+                    if (twoFactorResponse.StatusCode != HttpStatusCode.OK)
+                        throw new UnauthorizedAccessException("Failed to verify two-factor authentication with VRChat.", new Exception(twoFactorResponse.RawContent));
+                }
+
+                response = await this.Authentication.GetCurrentUserWithHttpInfoAsync(ct);
+            }
+           
+            var user = response.Data;
             this.IsLoggedIn = response.StatusCode == HttpStatusCode.OK && user != null;
             return response.StatusCode == HttpStatusCode.OK ? user : null;
         }
