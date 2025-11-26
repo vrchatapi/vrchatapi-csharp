@@ -18,8 +18,9 @@
     <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
-    <PackageTags>vrchat</PackageTags>
+    <PackageTags>vrchat,vrcapi,vrc-api,vrc</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>
     <Nullable>annotations</Nullable>
     <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
   </PropertyGroup>
