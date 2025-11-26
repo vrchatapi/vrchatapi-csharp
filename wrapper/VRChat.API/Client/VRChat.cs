@@ -17,6 +17,34 @@ namespace VRChat.API.Client
     public interface IVRChat
     {
         /// <summary>
+        /// The VRChat <see cref="VRChat.API.Client.Configuration"/> used by this client. <br />
+        /// Can be used to modify default headers, base path, and other settings, and modify the VRChat configuration.
+        /// </summary>
+        public Configuration Configuration { get; }
+
+        /// <summary>
+        /// The VRChat <see cref="ApiClient"/> used by this client. <br />
+        /// Can be used to manually execute requests.
+        /// </summary>
+        public ApiClient Client { get; }
+
+        /// <summary>
+        /// Gets the underlying <see cref="System.Net.Http.HttpClient"/> instance used to send HTTP requests.
+        /// </summary>
+        /// <remarks>Use this property to configure default request headers, timeouts, or other settings
+        /// for outgoing HTTP requests. Changes to the <see cref="System.Net.Http.HttpClient"/> instance affect all requests sent
+        /// through this client.</remarks>
+        public HttpClient HttpClient { get; }
+
+        /// <summary>
+        /// Gets the underlying <see cref="System.Net.Http.HttpClientHandler"/> used to configure HTTP request and response processing.
+        /// </summary>
+        /// <remarks>Use this property to customize settings such as proxy, cookies, authentication, or
+        /// SSL options for HTTP requests made by the client. Changes to the handler may affect subsequent
+        /// requests.</remarks>
+        public HttpClientHandler HttpClientHandler { get; }
+
+        /// <summary>
         /// <b>The Jams API for VRChat.</b> <br />
         /// Documentation to be updated later.
         /// </summary>
