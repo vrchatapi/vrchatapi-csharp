@@ -29,7 +29,7 @@ namespace VRChat.API.Extensions.Hosting
         /// </summary>
         /// <param name="throwOnFail">Whether or not to throw an exception if any login fails.</param>
         /// <param name="ct">A <see cref="CancellationToken"/> to cancel the login operation.</param>
-        /// <returns>A <see cref="Task{TResult}"/> representing this asynchronous operation, containing a <see cref="Dictionary{TKey, TValue}"> that maps client names to <see cref="VRChatLoginResult"/> of success status and exception information.</returns>
+        /// <returns>A <see cref="Task{TResult}"/> representing this asynchronous operation, containing a <see cref="Dictionary{TKey, TValue}" /> that maps client names to <see cref="VRChatLoginResult"/> of success status and exception information.</returns>
         Task<Dictionary<string, VRChatLoginResult>> LoginAllClientsAsync(bool throwOnFail = false, CancellationToken ct = default);
 
         /// <summary>
