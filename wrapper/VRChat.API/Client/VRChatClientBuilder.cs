@@ -182,7 +182,7 @@ namespace VRChat.API.Client
         /// </summary>
         public VRChatClientBuilder WithApplication(string name, string version, string contact)
         {
-            var libraryVersion = Assembly.GetExecutingAssembly().GetName().Version;
+            var libraryVersion = Assembly.GetExecutingAssembly().GetName().Version!.ToString();
             this.WithUserAgent($"{name}/{version} ({contact}), VRChat.API/({libraryVersion}/net8.0) (https://vrchat.community/dotnet)");
             return this;
         }
