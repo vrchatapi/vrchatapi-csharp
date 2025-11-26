@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -74,8 +75,8 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="urlList">urlList (required).</param>
         /// <param name="udonProducts">udonProducts.</param>
-        /// <param name="version">version (required).</param>
-        public FavoritedWorld(string authorId = default(string), string authorName = default(string), int capacity = default(int), string description = default(string), int recommendedCapacity = default(int), DateTime createdAt = default(DateTime), InstanceContentSettings defaultContentSettings = default(InstanceContentSettings), int favorites = 0, string favoriteGroup = default(string), string favoriteId = default(string), bool featured = false, int visits = 0, int heat = 0, string id = default(string), string imageUrl = default(string), string labsPublicationDate = default(string), string name = default(string), int occupants = 0, string organization = "vrchat", int popularity = 0, string previewYoutubeId = default(string), string publicationDate = default(string), ReleaseStatus releaseStatus = default(ReleaseStatus), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), List<string> urlList = default(List<string>), List<string> udonProducts = default(List<string>), int version = default(int))
+        /// <param name="varVersion">varVersion (required).</param>
+        public FavoritedWorld(string authorId = default, string authorName = default, int capacity = default, string description = default, int recommendedCapacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, int favorites = 0, string favoriteGroup = default, string favoriteId = default, bool featured = false, int visits = 0, int heat = 0, string id = default, string imageUrl = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, string publicationDate = default, ReleaseStatus releaseStatus = default, List<string> tags = default, string thumbnailImageUrl = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, List<string> udonProducts = default, int varVersion = default)
         {
             // to ensure "authorName" is required (not null)
             if (authorName == null)
@@ -170,7 +171,7 @@ namespace VRChat.API.Model
                 throw new ArgumentNullException("urlList is a required property for FavoritedWorld and cannot be null");
             }
             this.UrlList = urlList;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.AuthorId = authorId;
             this.RecommendedCapacity = recommendedCapacity;
             this.DefaultContentSettings = defaultContentSettings;
@@ -183,6 +184,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "authorId", EmitDefaultValue = false)]
         public string AuthorId { get; set; }
 
@@ -195,6 +199,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
+        /*
+        <example>8</example>
+        */
         [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = true)]
         public int Capacity { get; set; }
 
@@ -207,6 +214,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets RecommendedCapacity
         /// </summary>
+        /*
+        <example>16</example>
+        */
         [DataMember(Name = "recommendedCapacity", EmitDefaultValue = false)]
         public int RecommendedCapacity { get; set; }
 
@@ -225,6 +235,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Favorites
         /// </summary>
+        /*
+        <example>12024</example>
+        */
         [DataMember(Name = "favorites", IsRequired = true, EmitDefaultValue = true)]
         public int Favorites { get; set; }
 
@@ -237,6 +250,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets FavoriteId
         /// </summary>
+        /*
+        <example>fvrt_9568d189-8776-44a5-a8c8-defc981e44de</example>
+        */
         [DataMember(Name = "favoriteId", IsRequired = true, EmitDefaultValue = true)]
         public string FavoriteId { get; set; }
 
@@ -249,12 +265,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Visits
         /// </summary>
+        /*
+        <example>9988675</example>
+        */
         [DataMember(Name = "visits", EmitDefaultValue = false)]
         public int Visits { get; set; }
 
         /// <summary>
         /// Gets or Sets Heat
         /// </summary>
+        /*
+        <example>5</example>
+        */
         [DataMember(Name = "heat", IsRequired = true, EmitDefaultValue = true)]
         public int Heat { get; set; }
 
@@ -262,6 +284,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -274,6 +299,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LabsPublicationDate
         /// </summary>
+        /*
+        <example>none</example>
+        */
         [DataMember(Name = "labsPublicationDate", IsRequired = true, EmitDefaultValue = true)]
         public string LabsPublicationDate { get; set; }
 
@@ -286,6 +314,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Occupants
         /// </summary>
+        /*
+        <example>47</example>
+        */
         [DataMember(Name = "occupants", IsRequired = true, EmitDefaultValue = true)]
         public int Occupants { get; set; }
 
@@ -298,6 +329,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Popularity
         /// </summary>
+        /*
+        <example>8</example>
+        */
         [DataMember(Name = "popularity", IsRequired = true, EmitDefaultValue = true)]
         public int Popularity { get; set; }
 
@@ -310,6 +344,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PublicationDate
         /// </summary>
+        /*
+        <example>none</example>
+        */
         [DataMember(Name = "publicationDate", IsRequired = true, EmitDefaultValue = true)]
         public string PublicationDate { get; set; }
 
@@ -352,10 +389,10 @@ namespace VRChat.API.Model
         public List<string> UdonProducts { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public int _Version { get; set; }
+        public int VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -394,7 +431,7 @@ namespace VRChat.API.Model
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  UrlList: ").Append(UrlList).Append("\n");
             sb.Append("  UdonProducts: ").Append(UdonProducts).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -571,8 +608,8 @@ namespace VRChat.API.Model
                     this.UdonProducts.SequenceEqual(input.UdonProducts)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    this._Version.Equals(input._Version)
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
                 );
         }
 
@@ -674,7 +711,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.UdonProducts.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 return hashCode;
             }
         }
@@ -684,96 +721,96 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AuthorName (string) minLength
             if (this.AuthorName != null && this.AuthorName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
+                yield return new ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
 
             // Description (string) minLength
             if (this.Description != null && this.Description.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             // Favorites (int) minimum
             if (this.Favorites < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Favorites, must be a value greater than or equal to 0.", new [] { "Favorites" });
+                yield return new ValidationResult("Invalid value for Favorites, must be a value greater than or equal to 0.", new [] { "Favorites" });
             }
 
             // FavoriteGroup (string) minLength
             if (this.FavoriteGroup != null && this.FavoriteGroup.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FavoriteGroup, length must be greater than 1.", new [] { "FavoriteGroup" });
+                yield return new ValidationResult("Invalid value for FavoriteGroup, length must be greater than 1.", new [] { "FavoriteGroup" });
             }
 
             // Visits (int) minimum
             if (this.Visits < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Visits, must be a value greater than or equal to 0.", new [] { "Visits" });
+                yield return new ValidationResult("Invalid value for Visits, must be a value greater than or equal to 0.", new [] { "Visits" });
             }
 
             // Heat (int) minimum
             if (this.Heat < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Heat, must be a value greater than or equal to 0.", new [] { "Heat" });
+                yield return new ValidationResult("Invalid value for Heat, must be a value greater than or equal to 0.", new [] { "Heat" });
             }
 
             // ImageUrl (string) minLength
             if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
+                yield return new ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // LabsPublicationDate (string) minLength
             if (this.LabsPublicationDate != null && this.LabsPublicationDate.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LabsPublicationDate, length must be greater than 1.", new [] { "LabsPublicationDate" });
+                yield return new ValidationResult("Invalid value for LabsPublicationDate, length must be greater than 1.", new [] { "LabsPublicationDate" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Occupants (int) minimum
             if (this.Occupants < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Occupants, must be a value greater than or equal to 0.", new [] { "Occupants" });
+                yield return new ValidationResult("Invalid value for Occupants, must be a value greater than or equal to 0.", new [] { "Occupants" });
             }
 
             // Organization (string) minLength
             if (this.Organization != null && this.Organization.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Organization, length must be greater than 1.", new [] { "Organization" });
+                yield return new ValidationResult("Invalid value for Organization, length must be greater than 1.", new [] { "Organization" });
             }
 
             // Popularity (int) minimum
             if (this.Popularity < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Popularity, must be a value greater than or equal to 0.", new [] { "Popularity" });
+                yield return new ValidationResult("Invalid value for Popularity, must be a value greater than or equal to 0.", new [] { "Popularity" });
             }
 
             // PublicationDate (string) minLength
             if (this.PublicationDate != null && this.PublicationDate.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PublicationDate, length must be greater than 1.", new [] { "PublicationDate" });
+                yield return new ValidationResult("Invalid value for PublicationDate, length must be greater than 1.", new [] { "PublicationDate" });
             }
 
             // ThumbnailImageUrl (string) minLength
             if (this.ThumbnailImageUrl != null && this.ThumbnailImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
+                yield return new ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
             }
 
-            // _Version (int) minimum
-            if (this._Version < (int)1)
+            // VarVersion (int) minimum
+            if (this.VarVersion < (int)1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 1.", new [] { "_Version" });
+                yield return new ValidationResult("Invalid value for VarVersion, must be a value greater than or equal to 1.", new [] { "VarVersion" });
             }
 
             yield break;

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -36,9 +37,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="addGroupGalleryImageRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupGalleryImage</returns>
-        GroupGalleryImage AddGroupGalleryImage(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, int operationIndex = 0);
+        GroupGalleryImage AddGroupGalleryImage(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest);
 
         /// <summary>
         /// Add Group Gallery Image
@@ -50,9 +50,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="addGroupGalleryImageRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupGalleryImage</returns>
-        ApiResponse<GroupGalleryImage> AddGroupGalleryImageWithHttpInfo(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, int operationIndex = 0);
+        ApiResponse<GroupGalleryImage> AddGroupGalleryImageWithHttpInfo(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest);
         /// <summary>
         /// Add Role to GroupMember
         /// </summary>
@@ -63,9 +62,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;string&gt;</returns>
-        List<string> AddGroupMemberRole(string groupId, string userId, string groupRoleId, int operationIndex = 0);
+        List<string> AddGroupMemberRole(string groupId, string userId, string groupRoleId);
 
         /// <summary>
         /// Add Role to GroupMember
@@ -77,9 +75,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        ApiResponse<List<string>> AddGroupMemberRoleWithHttpInfo(string groupId, string userId, string groupRoleId, int operationIndex = 0);
+        ApiResponse<List<string>> AddGroupMemberRoleWithHttpInfo(string groupId, string userId, string groupRoleId);
         /// <summary>
         /// Create a post in a Group
         /// </summary>
@@ -89,9 +86,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupPost</returns>
-        GroupPost AddGroupPost(string groupId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0);
+        GroupPost AddGroupPost(string groupId, CreateGroupPostRequest createGroupPostRequest);
 
         /// <summary>
         /// Create a post in a Group
@@ -102,9 +98,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupPost</returns>
-        ApiResponse<GroupPost> AddGroupPostWithHttpInfo(string groupId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0);
+        ApiResponse<GroupPost> AddGroupPostWithHttpInfo(string groupId, CreateGroupPostRequest createGroupPostRequest);
         /// <summary>
         /// Ban Group Member
         /// </summary>
@@ -114,9 +109,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="banGroupMemberRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupMember</returns>
-        GroupMember BanGroupMember(string groupId, BanGroupMemberRequest banGroupMemberRequest, int operationIndex = 0);
+        GroupMember BanGroupMember(string groupId, BanGroupMemberRequest banGroupMemberRequest);
 
         /// <summary>
         /// Ban Group Member
@@ -127,9 +121,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="banGroupMemberRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupMember</returns>
-        ApiResponse<GroupMember> BanGroupMemberWithHttpInfo(string groupId, BanGroupMemberRequest banGroupMemberRequest, int operationIndex = 0);
+        ApiResponse<GroupMember> BanGroupMemberWithHttpInfo(string groupId, BanGroupMemberRequest banGroupMemberRequest);
         /// <summary>
         /// Cancel Group Join Request
         /// </summary>
@@ -138,9 +131,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void CancelGroupRequest(string groupId, int operationIndex = 0);
+        void CancelGroupRequest(string groupId);
 
         /// <summary>
         /// Cancel Group Join Request
@@ -150,9 +142,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CancelGroupRequestWithHttpInfo(string groupId, int operationIndex = 0);
+        ApiResponse<Object> CancelGroupRequestWithHttpInfo(string groupId);
         /// <summary>
         /// Create Group
         /// </summary>
@@ -161,9 +152,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createGroupRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Group</returns>
-        Group CreateGroup(CreateGroupRequest createGroupRequest, int operationIndex = 0);
+        Group CreateGroup(CreateGroupRequest createGroupRequest);
 
         /// <summary>
         /// Create Group
@@ -173,9 +163,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createGroupRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Group</returns>
-        ApiResponse<Group> CreateGroupWithHttpInfo(CreateGroupRequest createGroupRequest, int operationIndex = 0);
+        ApiResponse<Group> CreateGroupWithHttpInfo(CreateGroupRequest createGroupRequest);
         /// <summary>
         /// Create Group Announcement
         /// </summary>
@@ -185,9 +174,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupAnnouncementRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupAnnouncement</returns>
-        GroupAnnouncement CreateGroupAnnouncement(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, int operationIndex = 0);
+        GroupAnnouncement CreateGroupAnnouncement(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest);
 
         /// <summary>
         /// Create Group Announcement
@@ -198,9 +186,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupAnnouncementRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupAnnouncement</returns>
-        ApiResponse<GroupAnnouncement> CreateGroupAnnouncementWithHttpInfo(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, int operationIndex = 0);
+        ApiResponse<GroupAnnouncement> CreateGroupAnnouncementWithHttpInfo(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest);
         /// <summary>
         /// Create Group Gallery
         /// </summary>
@@ -210,9 +197,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupGalleryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupGallery</returns>
-        GroupGallery CreateGroupGallery(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, int operationIndex = 0);
+        GroupGallery CreateGroupGallery(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest);
 
         /// <summary>
         /// Create Group Gallery
@@ -223,9 +209,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupGalleryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupGallery</returns>
-        ApiResponse<GroupGallery> CreateGroupGalleryWithHttpInfo(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, int operationIndex = 0);
+        ApiResponse<GroupGallery> CreateGroupGalleryWithHttpInfo(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest);
         /// <summary>
         /// Invite User to Group
         /// </summary>
@@ -235,9 +220,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void CreateGroupInvite(string groupId, CreateGroupInviteRequest createGroupInviteRequest, int operationIndex = 0);
+        void CreateGroupInvite(string groupId, CreateGroupInviteRequest createGroupInviteRequest);
 
         /// <summary>
         /// Invite User to Group
@@ -248,9 +232,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateGroupInviteWithHttpInfo(string groupId, CreateGroupInviteRequest createGroupInviteRequest, int operationIndex = 0);
+        ApiResponse<Object> CreateGroupInviteWithHttpInfo(string groupId, CreateGroupInviteRequest createGroupInviteRequest);
         /// <summary>
         /// Create GroupRole
         /// </summary>
@@ -260,9 +243,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupRoleRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupRole</returns>
-        GroupRole CreateGroupRole(string groupId, CreateGroupRoleRequest createGroupRoleRequest, int operationIndex = 0);
+        GroupRole CreateGroupRole(string groupId, CreateGroupRoleRequest createGroupRoleRequest);
 
         /// <summary>
         /// Create GroupRole
@@ -273,9 +255,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupRoleRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupRole</returns>
-        ApiResponse<GroupRole> CreateGroupRoleWithHttpInfo(string groupId, CreateGroupRoleRequest createGroupRoleRequest, int operationIndex = 0);
+        ApiResponse<GroupRole> CreateGroupRoleWithHttpInfo(string groupId, CreateGroupRoleRequest createGroupRoleRequest);
         /// <summary>
         /// Delete Group
         /// </summary>
@@ -284,9 +265,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success DeleteGroup(string groupId, int operationIndex = 0);
+        Success DeleteGroup(string groupId);
 
         /// <summary>
         /// Delete Group
@@ -296,9 +276,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> DeleteGroupWithHttpInfo(string groupId, int operationIndex = 0);
+        ApiResponse<Success> DeleteGroupWithHttpInfo(string groupId);
         /// <summary>
         /// Delete Group Announcement
         /// </summary>
@@ -307,9 +286,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success DeleteGroupAnnouncement(string groupId, int operationIndex = 0);
+        Success DeleteGroupAnnouncement(string groupId);
 
         /// <summary>
         /// Delete Group Announcement
@@ -319,9 +297,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> DeleteGroupAnnouncementWithHttpInfo(string groupId, int operationIndex = 0);
+        ApiResponse<Success> DeleteGroupAnnouncementWithHttpInfo(string groupId);
         /// <summary>
         /// Delete Group Gallery
         /// </summary>
@@ -331,9 +308,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success DeleteGroupGallery(string groupId, string groupGalleryId, int operationIndex = 0);
+        Success DeleteGroupGallery(string groupId, string groupGalleryId);
 
         /// <summary>
         /// Delete Group Gallery
@@ -344,9 +320,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> DeleteGroupGalleryWithHttpInfo(string groupId, string groupGalleryId, int operationIndex = 0);
+        ApiResponse<Success> DeleteGroupGalleryWithHttpInfo(string groupId, string groupGalleryId);
         /// <summary>
         /// Delete Group Gallery Image
         /// </summary>
@@ -357,9 +332,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="groupGalleryImageId">Must be a valid group gallery image ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success DeleteGroupGalleryImage(string groupId, string groupGalleryId, string groupGalleryImageId, int operationIndex = 0);
+        Success DeleteGroupGalleryImage(string groupId, string groupGalleryId, string groupGalleryImageId);
 
         /// <summary>
         /// Delete Group Gallery Image
@@ -371,9 +345,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="groupGalleryImageId">Must be a valid group gallery image ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> DeleteGroupGalleryImageWithHttpInfo(string groupId, string groupGalleryId, string groupGalleryImageId, int operationIndex = 0);
+        ApiResponse<Success> DeleteGroupGalleryImageWithHttpInfo(string groupId, string groupGalleryId, string groupGalleryImageId);
         /// <summary>
         /// Delete User Invite
         /// </summary>
@@ -383,9 +356,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void DeleteGroupInvite(string groupId, string userId, int operationIndex = 0);
+        void DeleteGroupInvite(string groupId, string userId);
 
         /// <summary>
         /// Delete User Invite
@@ -396,9 +368,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteGroupInviteWithHttpInfo(string groupId, string userId, int operationIndex = 0);
+        ApiResponse<Object> DeleteGroupInviteWithHttpInfo(string groupId, string userId);
         /// <summary>
         /// Delete a Group post
         /// </summary>
@@ -408,9 +379,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success DeleteGroupPost(string groupId, string notificationId, int operationIndex = 0);
+        Success DeleteGroupPost(string groupId, string notificationId);
 
         /// <summary>
         /// Delete a Group post
@@ -421,9 +391,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> DeleteGroupPostWithHttpInfo(string groupId, string notificationId, int operationIndex = 0);
+        ApiResponse<Success> DeleteGroupPostWithHttpInfo(string groupId, string notificationId);
         /// <summary>
         /// Delete Group Role
         /// </summary>
@@ -433,9 +402,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupRole&gt;</returns>
-        List<GroupRole> DeleteGroupRole(string groupId, string groupRoleId, int operationIndex = 0);
+        List<GroupRole> DeleteGroupRole(string groupId, string groupRoleId);
 
         /// <summary>
         /// Delete Group Role
@@ -446,9 +414,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupRole&gt;</returns>
-        ApiResponse<List<GroupRole>> DeleteGroupRoleWithHttpInfo(string groupId, string groupRoleId, int operationIndex = 0);
+        ApiResponse<List<GroupRole>> DeleteGroupRoleWithHttpInfo(string groupId, string groupRoleId);
         /// <summary>
         /// Get Group by ID
         /// </summary>
@@ -458,9 +425,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Group</returns>
-        Group GetGroup(string groupId, bool? includeRoles = default(bool?), int operationIndex = 0);
+        Group GetGroup(string groupId, bool? includeRoles = default);
 
         /// <summary>
         /// Get Group by ID
@@ -471,9 +437,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Group</returns>
-        ApiResponse<Group> GetGroupWithHttpInfo(string groupId, bool? includeRoles = default(bool?), int operationIndex = 0);
+        ApiResponse<Group> GetGroupWithHttpInfo(string groupId, bool? includeRoles = default);
         /// <summary>
         /// Get Group Announcement
         /// </summary>
@@ -482,9 +447,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupAnnouncement</returns>
-        GroupAnnouncement GetGroupAnnouncements(string groupId, int operationIndex = 0);
+        GroupAnnouncement GetGroupAnnouncements(string groupId);
 
         /// <summary>
         /// Get Group Announcement
@@ -494,9 +458,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupAnnouncement</returns>
-        ApiResponse<GroupAnnouncement> GetGroupAnnouncementsWithHttpInfo(string groupId, int operationIndex = 0);
+        ApiResponse<GroupAnnouncement> GetGroupAnnouncementsWithHttpInfo(string groupId);
         /// <summary>
         /// Get Group Audit Logs
         /// </summary>
@@ -512,9 +475,8 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedGroupAuditLogEntryList</returns>
-        PaginatedGroupAuditLogEntryList GetGroupAuditLogs(string groupId, int? n = default(int?), int? offset = default(int?), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string actorIds = default(string), string eventTypes = default(string), string targetIds = default(string), int operationIndex = 0);
+        PaginatedGroupAuditLogEntryList GetGroupAuditLogs(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default);
 
         /// <summary>
         /// Get Group Audit Logs
@@ -531,9 +493,8 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedGroupAuditLogEntryList</returns>
-        ApiResponse<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string actorIds = default(string), string eventTypes = default(string), string targetIds = default(string), int operationIndex = 0);
+        ApiResponse<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsWithHttpInfo(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default);
         /// <summary>
         /// Get Group Bans
         /// </summary>
@@ -544,9 +505,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupMember&gt;</returns>
-        List<GroupMember> GetGroupBans(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        List<GroupMember> GetGroupBans(string groupId, int? n = default, int? offset = default);
 
         /// <summary>
         /// Get Group Bans
@@ -558,9 +518,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupMember&gt;</returns>
-        ApiResponse<List<GroupMember>> GetGroupBansWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<List<GroupMember>> GetGroupBansWithHttpInfo(string groupId, int? n = default, int? offset = default);
         /// <summary>
         /// Get Group Gallery Images
         /// </summary>
@@ -573,9 +532,8 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupGalleryImage&gt;</returns>
-        List<GroupGalleryImage> GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default(int?), int? offset = default(int?), bool? approved = default(bool?), int operationIndex = 0);
+        List<GroupGalleryImage> GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default);
 
         /// <summary>
         /// Get Group Gallery Images
@@ -589,9 +547,8 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupGalleryImage&gt;</returns>
-        ApiResponse<List<GroupGalleryImage>> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default(int?), int? offset = default(int?), bool? approved = default(bool?), int operationIndex = 0);
+        ApiResponse<List<GroupGalleryImage>> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default);
         /// <summary>
         /// Get Group Instances
         /// </summary>
@@ -600,9 +557,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupInstance&gt;</returns>
-        List<GroupInstance> GetGroupInstances(string groupId, int operationIndex = 0);
+        List<GroupInstance> GetGroupInstances(string groupId);
 
         /// <summary>
         /// Get Group Instances
@@ -612,9 +568,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupInstance&gt;</returns>
-        ApiResponse<List<GroupInstance>> GetGroupInstancesWithHttpInfo(string groupId, int operationIndex = 0);
+        ApiResponse<List<GroupInstance>> GetGroupInstancesWithHttpInfo(string groupId);
         /// <summary>
         /// Get Group Invites Sent
         /// </summary>
@@ -625,9 +580,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupMember&gt;</returns>
-        List<GroupMember> GetGroupInvites(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        List<GroupMember> GetGroupInvites(string groupId, int? n = default, int? offset = default);
 
         /// <summary>
         /// Get Group Invites Sent
@@ -639,9 +593,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupMember&gt;</returns>
-        ApiResponse<List<GroupMember>> GetGroupInvitesWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<List<GroupMember>> GetGroupInvitesWithHttpInfo(string groupId, int? n = default, int? offset = default);
         /// <summary>
         /// Get Group Member
         /// </summary>
@@ -651,9 +604,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupLimitedMember</returns>
-        GroupLimitedMember GetGroupMember(string groupId, string userId, int operationIndex = 0);
+        GroupLimitedMember GetGroupMember(string groupId, string userId);
 
         /// <summary>
         /// Get Group Member
@@ -664,9 +616,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupLimitedMember</returns>
-        ApiResponse<GroupLimitedMember> GetGroupMemberWithHttpInfo(string groupId, string userId, int operationIndex = 0);
+        ApiResponse<GroupLimitedMember> GetGroupMemberWithHttpInfo(string groupId, string userId);
         /// <summary>
         /// List Group Members
         /// </summary>
@@ -679,9 +630,8 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="sort">The sort order of Group Member results (optional)</param>
         /// <param name="roleId">Only returns members with a specific groupRoleId (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupMember&gt;</returns>
-        List<GroupMember> GetGroupMembers(string groupId, int? n = default(int?), int? offset = default(int?), GroupSearchSort? sort = default(GroupSearchSort?), string roleId = default(string), int operationIndex = 0);
+        List<GroupMember> GetGroupMembers(string groupId, int? n = default, int? offset = default, GroupSearchSort? sort = default, string? roleId = default);
 
         /// <summary>
         /// List Group Members
@@ -695,9 +645,8 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="sort">The sort order of Group Member results (optional)</param>
         /// <param name="roleId">Only returns members with a specific groupRoleId (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupMember&gt;</returns>
-        ApiResponse<List<GroupMember>> GetGroupMembersWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), GroupSearchSort? sort = default(GroupSearchSort?), string roleId = default(string), int operationIndex = 0);
+        ApiResponse<List<GroupMember>> GetGroupMembersWithHttpInfo(string groupId, int? n = default, int? offset = default, GroupSearchSort? sort = default, string? roleId = default);
         /// <summary>
         /// List Group Permissions
         /// </summary>
@@ -706,9 +655,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupPermission&gt;</returns>
-        List<GroupPermission> GetGroupPermissions(string groupId, int operationIndex = 0);
+        List<GroupPermission> GetGroupPermissions(string groupId);
 
         /// <summary>
         /// List Group Permissions
@@ -718,9 +666,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupPermission&gt;</returns>
-        ApiResponse<List<GroupPermission>> GetGroupPermissionsWithHttpInfo(string groupId, int operationIndex = 0);
+        ApiResponse<List<GroupPermission>> GetGroupPermissionsWithHttpInfo(string groupId);
         /// <summary>
         /// Get posts from a Group
         /// </summary>
@@ -732,9 +679,8 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="publicOnly">See public posts only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetGroupPosts200Response</returns>
-        GetGroupPosts200Response GetGroupPosts(string groupId, int? n = default(int?), int? offset = default(int?), bool? publicOnly = default(bool?), int operationIndex = 0);
+        GetGroupPosts200Response GetGroupPosts(string groupId, int? n = default, int? offset = default, bool? publicOnly = default);
 
         /// <summary>
         /// Get posts from a Group
@@ -747,9 +693,8 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="publicOnly">See public posts only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetGroupPosts200Response</returns>
-        ApiResponse<GetGroupPosts200Response> GetGroupPostsWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), bool? publicOnly = default(bool?), int operationIndex = 0);
+        ApiResponse<GetGroupPosts200Response> GetGroupPostsWithHttpInfo(string groupId, int? n = default, int? offset = default, bool? publicOnly = default);
         /// <summary>
         /// Get Group Join Requests
         /// </summary>
@@ -761,9 +706,8 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="blocked">See blocked join requests (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupMember&gt;</returns>
-        List<GroupMember> GetGroupRequests(string groupId, int? n = default(int?), int? offset = default(int?), bool? blocked = default(bool?), int operationIndex = 0);
+        List<GroupMember> GetGroupRequests(string groupId, int? n = default, int? offset = default, bool? blocked = default);
 
         /// <summary>
         /// Get Group Join Requests
@@ -776,9 +720,8 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="blocked">See blocked join requests (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupMember&gt;</returns>
-        ApiResponse<List<GroupMember>> GetGroupRequestsWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), bool? blocked = default(bool?), int operationIndex = 0);
+        ApiResponse<List<GroupMember>> GetGroupRequestsWithHttpInfo(string groupId, int? n = default, int? offset = default, bool? blocked = default);
         /// <summary>
         /// Get Group Role Templates
         /// </summary>
@@ -786,9 +729,8 @@ namespace VRChat.API.Api
         /// Obtain predefined templates for group roles
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Dictionary&lt;string, GroupRoleTemplateValues&gt;</returns>
-        Dictionary<string, GroupRoleTemplateValues> GetGroupRoleTemplates(int operationIndex = 0);
+        Dictionary<string, GroupRoleTemplateValues> GetGroupRoleTemplates();
 
         /// <summary>
         /// Get Group Role Templates
@@ -797,9 +739,8 @@ namespace VRChat.API.Api
         /// Obtain predefined templates for group roles
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, GroupRoleTemplateValues&gt;</returns>
-        ApiResponse<Dictionary<string, GroupRoleTemplateValues>> GetGroupRoleTemplatesWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Dictionary<string, GroupRoleTemplateValues>> GetGroupRoleTemplatesWithHttpInfo();
         /// <summary>
         /// Get Group Roles
         /// </summary>
@@ -808,9 +749,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupRole&gt;</returns>
-        List<GroupRole> GetGroupRoles(string groupId, int operationIndex = 0);
+        List<GroupRole> GetGroupRoles(string groupId);
 
         /// <summary>
         /// Get Group Roles
@@ -820,9 +760,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupRole&gt;</returns>
-        ApiResponse<List<GroupRole>> GetGroupRolesWithHttpInfo(string groupId, int operationIndex = 0);
+        ApiResponse<List<GroupRole>> GetGroupRolesWithHttpInfo(string groupId);
         /// <summary>
         /// Join Group
         /// </summary>
@@ -831,9 +770,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupMember</returns>
-        GroupMember JoinGroup(string groupId, int operationIndex = 0);
+        GroupMember JoinGroup(string groupId);
 
         /// <summary>
         /// Join Group
@@ -843,9 +781,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupMember</returns>
-        ApiResponse<GroupMember> JoinGroupWithHttpInfo(string groupId, int operationIndex = 0);
+        ApiResponse<GroupMember> JoinGroupWithHttpInfo(string groupId);
         /// <summary>
         /// Kick Group Member
         /// </summary>
@@ -855,9 +792,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void KickGroupMember(string groupId, string userId, int operationIndex = 0);
+        void KickGroupMember(string groupId, string userId);
 
         /// <summary>
         /// Kick Group Member
@@ -868,9 +804,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> KickGroupMemberWithHttpInfo(string groupId, string userId, int operationIndex = 0);
+        ApiResponse<Object> KickGroupMemberWithHttpInfo(string groupId, string userId);
         /// <summary>
         /// Leave Group
         /// </summary>
@@ -879,9 +814,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void LeaveGroup(string groupId, int operationIndex = 0);
+        void LeaveGroup(string groupId);
 
         /// <summary>
         /// Leave Group
@@ -891,9 +825,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> LeaveGroupWithHttpInfo(string groupId, int operationIndex = 0);
+        ApiResponse<Object> LeaveGroupWithHttpInfo(string groupId);
         /// <summary>
         /// Remove Role from GroupMember
         /// </summary>
@@ -904,9 +837,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;string&gt;</returns>
-        List<string> RemoveGroupMemberRole(string groupId, string userId, string groupRoleId, int operationIndex = 0);
+        List<string> RemoveGroupMemberRole(string groupId, string userId, string groupRoleId);
 
         /// <summary>
         /// Remove Role from GroupMember
@@ -918,9 +850,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        ApiResponse<List<string>> RemoveGroupMemberRoleWithHttpInfo(string groupId, string userId, string groupRoleId, int operationIndex = 0);
+        ApiResponse<List<string>> RemoveGroupMemberRoleWithHttpInfo(string groupId, string userId, string groupRoleId);
         /// <summary>
         /// Respond Group Join request
         /// </summary>
@@ -931,9 +862,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="respondGroupJoinRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void RespondGroupJoinRequest(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, int operationIndex = 0);
+        void RespondGroupJoinRequest(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest);
 
         /// <summary>
         /// Respond Group Join request
@@ -945,9 +875,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="respondGroupJoinRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RespondGroupJoinRequestWithHttpInfo(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, int operationIndex = 0);
+        ApiResponse<Object> RespondGroupJoinRequestWithHttpInfo(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest);
         /// <summary>
         /// Search Group
         /// </summary>
@@ -958,9 +887,8 @@ namespace VRChat.API.Api
         /// <param name="query">Query to search for, can be either Group Name or Group shortCode (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LimitedGroup&gt;</returns>
-        List<LimitedGroup> SearchGroups(string query = default(string), int? offset = default(int?), int? n = default(int?), int operationIndex = 0);
+        List<LimitedGroup> SearchGroups(string? query = default, int? offset = default, int? n = default);
 
         /// <summary>
         /// Search Group
@@ -972,9 +900,8 @@ namespace VRChat.API.Api
         /// <param name="query">Query to search for, can be either Group Name or Group shortCode (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LimitedGroup&gt;</returns>
-        ApiResponse<List<LimitedGroup>> SearchGroupsWithHttpInfo(string query = default(string), int? offset = default(int?), int? n = default(int?), int operationIndex = 0);
+        ApiResponse<List<LimitedGroup>> SearchGroupsWithHttpInfo(string? query = default, int? offset = default, int? n = default);
         /// <summary>
         /// Unban Group Member
         /// </summary>
@@ -984,9 +911,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupMember</returns>
-        GroupMember UnbanGroupMember(string groupId, string userId, int operationIndex = 0);
+        GroupMember UnbanGroupMember(string groupId, string userId);
 
         /// <summary>
         /// Unban Group Member
@@ -997,9 +923,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupMember</returns>
-        ApiResponse<GroupMember> UnbanGroupMemberWithHttpInfo(string groupId, string userId, int operationIndex = 0);
+        ApiResponse<GroupMember> UnbanGroupMemberWithHttpInfo(string groupId, string userId);
         /// <summary>
         /// Update Group
         /// </summary>
@@ -1009,9 +934,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Group</returns>
-        Group UpdateGroup(string groupId, UpdateGroupRequest updateGroupRequest = default(UpdateGroupRequest), int operationIndex = 0);
+        Group UpdateGroup(string groupId, UpdateGroupRequest? updateGroupRequest = default);
 
         /// <summary>
         /// Update Group
@@ -1022,9 +946,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Group</returns>
-        ApiResponse<Group> UpdateGroupWithHttpInfo(string groupId, UpdateGroupRequest updateGroupRequest = default(UpdateGroupRequest), int operationIndex = 0);
+        ApiResponse<Group> UpdateGroupWithHttpInfo(string groupId, UpdateGroupRequest? updateGroupRequest = default);
         /// <summary>
         /// Update Group Gallery
         /// </summary>
@@ -1035,9 +958,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="updateGroupGalleryRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupGallery</returns>
-        GroupGallery UpdateGroupGallery(string groupId, string groupGalleryId, UpdateGroupGalleryRequest updateGroupGalleryRequest = default(UpdateGroupGalleryRequest), int operationIndex = 0);
+        GroupGallery UpdateGroupGallery(string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = default);
 
         /// <summary>
         /// Update Group Gallery
@@ -1049,9 +971,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="updateGroupGalleryRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupGallery</returns>
-        ApiResponse<GroupGallery> UpdateGroupGalleryWithHttpInfo(string groupId, string groupGalleryId, UpdateGroupGalleryRequest updateGroupGalleryRequest = default(UpdateGroupGalleryRequest), int operationIndex = 0);
+        ApiResponse<GroupGallery> UpdateGroupGalleryWithHttpInfo(string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = default);
         /// <summary>
         /// Update Group Member
         /// </summary>
@@ -1062,9 +983,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupLimitedMember</returns>
-        GroupLimitedMember UpdateGroupMember(string groupId, string userId, UpdateGroupMemberRequest updateGroupMemberRequest = default(UpdateGroupMemberRequest), int operationIndex = 0);
+        GroupLimitedMember UpdateGroupMember(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default);
 
         /// <summary>
         /// Update Group Member
@@ -1076,9 +996,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupLimitedMember</returns>
-        ApiResponse<GroupLimitedMember> UpdateGroupMemberWithHttpInfo(string groupId, string userId, UpdateGroupMemberRequest updateGroupMemberRequest = default(UpdateGroupMemberRequest), int operationIndex = 0);
+        ApiResponse<GroupLimitedMember> UpdateGroupMemberWithHttpInfo(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default);
         /// <summary>
         /// Edits a Group post
         /// </summary>
@@ -1089,9 +1008,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupPost</returns>
-        GroupPost UpdateGroupPost(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0);
+        GroupPost UpdateGroupPost(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest);
 
         /// <summary>
         /// Edits a Group post
@@ -1103,9 +1021,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupPost</returns>
-        ApiResponse<GroupPost> UpdateGroupPostWithHttpInfo(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0);
+        ApiResponse<GroupPost> UpdateGroupPostWithHttpInfo(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest);
         /// <summary>
         /// Update Group Representation
         /// </summary>
@@ -1115,9 +1032,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRepresentationRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        Success UpdateGroupRepresentation(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, int operationIndex = 0);
+        Success UpdateGroupRepresentation(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest);
 
         /// <summary>
         /// Update Group Representation
@@ -1128,9 +1044,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRepresentationRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> UpdateGroupRepresentationWithHttpInfo(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, int operationIndex = 0);
+        ApiResponse<Success> UpdateGroupRepresentationWithHttpInfo(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest);
         /// <summary>
         /// Update Group Role
         /// </summary>
@@ -1141,9 +1056,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
         /// <param name="updateGroupRoleRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupRole&gt;</returns>
-        List<GroupRole> UpdateGroupRole(string groupId, string groupRoleId, UpdateGroupRoleRequest updateGroupRoleRequest = default(UpdateGroupRoleRequest), int operationIndex = 0);
+        List<GroupRole> UpdateGroupRole(string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = default);
 
         /// <summary>
         /// Update Group Role
@@ -1155,9 +1069,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
         /// <param name="updateGroupRoleRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupRole&gt;</returns>
-        ApiResponse<List<GroupRole>> UpdateGroupRoleWithHttpInfo(string groupId, string groupRoleId, UpdateGroupRoleRequest updateGroupRoleRequest = default(UpdateGroupRoleRequest), int operationIndex = 0);
+        ApiResponse<List<GroupRole>> UpdateGroupRoleWithHttpInfo(string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = default);
         #endregion Synchronous Operations
     }
 
@@ -1177,10 +1090,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="addGroupGalleryImageRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupGalleryImage</returns>
-        System.Threading.Tasks.Task<GroupGalleryImage> AddGroupGalleryImageAsync(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupGalleryImage> AddGroupGalleryImageAsync(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Group Gallery Image
@@ -1192,10 +1104,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="addGroupGalleryImageRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupGalleryImage)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupGalleryImage>> AddGroupGalleryImageWithHttpInfoAsync(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupGalleryImage>> AddGroupGalleryImageWithHttpInfoAsync(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add Role to GroupMember
         /// </summary>
@@ -1206,10 +1117,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;string&gt;</returns>
-        System.Threading.Tasks.Task<List<string>> AddGroupMemberRoleAsync(string groupId, string userId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<string>> AddGroupMemberRoleAsync(string groupId, string userId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Role to GroupMember
@@ -1221,10 +1131,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<string>>> AddGroupMemberRoleWithHttpInfoAsync(string groupId, string userId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<string>>> AddGroupMemberRoleWithHttpInfoAsync(string groupId, string userId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a post in a Group
         /// </summary>
@@ -1234,10 +1143,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupPost</returns>
-        System.Threading.Tasks.Task<GroupPost> AddGroupPostAsync(string groupId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupPost> AddGroupPostAsync(string groupId, CreateGroupPostRequest createGroupPostRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a post in a Group
@@ -1248,10 +1156,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupPost)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupPost>> AddGroupPostWithHttpInfoAsync(string groupId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupPost>> AddGroupPostWithHttpInfoAsync(string groupId, CreateGroupPostRequest createGroupPostRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Ban Group Member
         /// </summary>
@@ -1261,10 +1168,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="banGroupMemberRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupMember</returns>
-        System.Threading.Tasks.Task<GroupMember> BanGroupMemberAsync(string groupId, BanGroupMemberRequest banGroupMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupMember> BanGroupMemberAsync(string groupId, BanGroupMemberRequest banGroupMemberRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Ban Group Member
@@ -1275,10 +1181,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="banGroupMemberRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupMember)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupMember>> BanGroupMemberWithHttpInfoAsync(string groupId, BanGroupMemberRequest banGroupMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupMember>> BanGroupMemberWithHttpInfoAsync(string groupId, BanGroupMemberRequest banGroupMemberRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Cancel Group Join Request
         /// </summary>
@@ -1287,10 +1192,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CancelGroupRequestAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task CancelGroupRequestAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Cancel Group Join Request
@@ -1300,10 +1204,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CancelGroupRequestWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> CancelGroupRequestWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Group
         /// </summary>
@@ -1312,10 +1215,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createGroupRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        System.Threading.Tasks.Task<Group> CreateGroupAsync(CreateGroupRequest createGroupRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Group> CreateGroupAsync(CreateGroupRequest createGroupRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Group
@@ -1325,10 +1227,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createGroupRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Group>> CreateGroupWithHttpInfoAsync(CreateGroupRequest createGroupRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Group>> CreateGroupWithHttpInfoAsync(CreateGroupRequest createGroupRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Group Announcement
         /// </summary>
@@ -1338,10 +1239,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupAnnouncementRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupAnnouncement</returns>
-        System.Threading.Tasks.Task<GroupAnnouncement> CreateGroupAnnouncementAsync(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupAnnouncement> CreateGroupAnnouncementAsync(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Group Announcement
@@ -1352,10 +1252,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupAnnouncementRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupAnnouncement)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupAnnouncement>> CreateGroupAnnouncementWithHttpInfoAsync(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupAnnouncement>> CreateGroupAnnouncementWithHttpInfoAsync(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Group Gallery
         /// </summary>
@@ -1365,10 +1264,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupGalleryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupGallery</returns>
-        System.Threading.Tasks.Task<GroupGallery> CreateGroupGalleryAsync(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupGallery> CreateGroupGalleryAsync(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Group Gallery
@@ -1379,10 +1277,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupGalleryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupGallery)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupGallery>> CreateGroupGalleryWithHttpInfoAsync(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupGallery>> CreateGroupGalleryWithHttpInfoAsync(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Invite User to Group
         /// </summary>
@@ -1392,10 +1289,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateGroupInviteAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task CreateGroupInviteAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite User to Group
@@ -1406,10 +1302,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateGroupInviteWithHttpInfoAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> CreateGroupInviteWithHttpInfoAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create GroupRole
         /// </summary>
@@ -1419,10 +1314,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupRoleRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupRole</returns>
-        System.Threading.Tasks.Task<GroupRole> CreateGroupRoleAsync(string groupId, CreateGroupRoleRequest createGroupRoleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupRole> CreateGroupRoleAsync(string groupId, CreateGroupRoleRequest createGroupRoleRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create GroupRole
@@ -1433,10 +1327,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupRoleRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupRole)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupRole>> CreateGroupRoleWithHttpInfoAsync(string groupId, CreateGroupRoleRequest createGroupRoleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupRole>> CreateGroupRoleWithHttpInfoAsync(string groupId, CreateGroupRoleRequest createGroupRoleRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete Group
         /// </summary>
@@ -1445,10 +1338,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> DeleteGroupAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> DeleteGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Group
@@ -1458,10 +1350,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete Group Announcement
         /// </summary>
@@ -1470,10 +1361,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> DeleteGroupAnnouncementAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> DeleteGroupAnnouncementAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Group Announcement
@@ -1483,10 +1373,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupAnnouncementWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupAnnouncementWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete Group Gallery
         /// </summary>
@@ -1496,10 +1385,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> DeleteGroupGalleryAsync(string groupId, string groupGalleryId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> DeleteGroupGalleryAsync(string groupId, string groupGalleryId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Group Gallery
@@ -1510,10 +1398,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupGalleryWithHttpInfoAsync(string groupId, string groupGalleryId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupGalleryWithHttpInfoAsync(string groupId, string groupGalleryId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete Group Gallery Image
         /// </summary>
@@ -1524,10 +1411,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="groupGalleryImageId">Must be a valid group gallery image ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> DeleteGroupGalleryImageAsync(string groupId, string groupGalleryId, string groupGalleryImageId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> DeleteGroupGalleryImageAsync(string groupId, string groupGalleryId, string groupGalleryImageId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Group Gallery Image
@@ -1539,10 +1425,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="groupGalleryImageId">Must be a valid group gallery image ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupGalleryImageWithHttpInfoAsync(string groupId, string groupGalleryId, string groupGalleryImageId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupGalleryImageWithHttpInfoAsync(string groupId, string groupGalleryId, string groupGalleryImageId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete User Invite
         /// </summary>
@@ -1552,10 +1437,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteGroupInviteAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteGroupInviteAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete User Invite
@@ -1566,10 +1450,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupInviteWithHttpInfoAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupInviteWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a Group post
         /// </summary>
@@ -1579,10 +1462,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> DeleteGroupPostAsync(string groupId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> DeleteGroupPostAsync(string groupId, string notificationId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a Group post
@@ -1593,10 +1475,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupPostWithHttpInfoAsync(string groupId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupPostWithHttpInfoAsync(string groupId, string notificationId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete Group Role
         /// </summary>
@@ -1606,10 +1487,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupRole&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupRole>> DeleteGroupRoleAsync(string groupId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GroupRole>> DeleteGroupRoleAsync(string groupId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Group Role
@@ -1620,10 +1500,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupRole&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupRole>>> DeleteGroupRoleWithHttpInfoAsync(string groupId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupRole>>> DeleteGroupRoleWithHttpInfoAsync(string groupId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group by ID
         /// </summary>
@@ -1633,10 +1512,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, bool? includeRoles = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, bool? includeRoles = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group by ID
@@ -1647,10 +1525,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, bool? includeRoles = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, bool? includeRoles = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Announcement
         /// </summary>
@@ -1659,10 +1536,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupAnnouncement</returns>
-        System.Threading.Tasks.Task<GroupAnnouncement> GetGroupAnnouncementsAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupAnnouncement> GetGroupAnnouncementsAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Announcement
@@ -1672,10 +1548,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupAnnouncement)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupAnnouncement>> GetGroupAnnouncementsWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupAnnouncement>> GetGroupAnnouncementsWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Audit Logs
         /// </summary>
@@ -1691,10 +1566,9 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedGroupAuditLogEntryList</returns>
-        System.Threading.Tasks.Task<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsAsync(string groupId, int? n = default(int?), int? offset = default(int?), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string actorIds = default(string), string eventTypes = default(string), string targetIds = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Audit Logs
@@ -1711,10 +1585,9 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedGroupAuditLogEntryList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaginatedGroupAuditLogEntryList>> GetGroupAuditLogsWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string actorIds = default(string), string eventTypes = default(string), string targetIds = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PaginatedGroupAuditLogEntryList>> GetGroupAuditLogsWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Bans
         /// </summary>
@@ -1725,10 +1598,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupMember&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupMember>> GetGroupBansAsync(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GroupMember>> GetGroupBansAsync(string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Bans
@@ -1740,10 +1612,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupMember&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupMember>>> GetGroupBansWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupMember>>> GetGroupBansWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Gallery Images
         /// </summary>
@@ -1756,10 +1627,9 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupGalleryImage&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupGalleryImage>> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default(int?), int? offset = default(int?), bool? approved = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GroupGalleryImage>> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Gallery Images
@@ -1773,10 +1643,9 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupGalleryImage&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupGalleryImage>>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default(int?), int? offset = default(int?), bool? approved = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupGalleryImage>>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Instances
         /// </summary>
@@ -1785,10 +1654,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupInstance&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupInstance>> GetGroupInstancesAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GroupInstance>> GetGroupInstancesAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Instances
@@ -1798,10 +1666,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupInstance&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupInstance>>> GetGroupInstancesWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupInstance>>> GetGroupInstancesWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Invites Sent
         /// </summary>
@@ -1812,10 +1679,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupMember&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupMember>> GetGroupInvitesAsync(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GroupMember>> GetGroupInvitesAsync(string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Invites Sent
@@ -1827,10 +1693,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupMember&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupMember>>> GetGroupInvitesWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupMember>>> GetGroupInvitesWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Member
         /// </summary>
@@ -1840,10 +1705,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupLimitedMember</returns>
-        System.Threading.Tasks.Task<GroupLimitedMember> GetGroupMemberAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupLimitedMember> GetGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Member
@@ -1854,10 +1718,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupLimitedMember)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupLimitedMember>> GetGroupMemberWithHttpInfoAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupLimitedMember>> GetGroupMemberWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Group Members
         /// </summary>
@@ -1870,10 +1733,9 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="sort">The sort order of Group Member results (optional)</param>
         /// <param name="roleId">Only returns members with a specific groupRoleId (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupMember&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupMember>> GetGroupMembersAsync(string groupId, int? n = default(int?), int? offset = default(int?), GroupSearchSort? sort = default(GroupSearchSort?), string roleId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GroupMember>> GetGroupMembersAsync(string groupId, int? n = default, int? offset = default, GroupSearchSort? sort = default, string? roleId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Group Members
@@ -1887,10 +1749,9 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="sort">The sort order of Group Member results (optional)</param>
         /// <param name="roleId">Only returns members with a specific groupRoleId (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupMember&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupMember>>> GetGroupMembersWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), GroupSearchSort? sort = default(GroupSearchSort?), string roleId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupMember>>> GetGroupMembersWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, GroupSearchSort? sort = default, string? roleId = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Group Permissions
         /// </summary>
@@ -1899,10 +1760,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupPermission&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupPermission>> GetGroupPermissionsAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GroupPermission>> GetGroupPermissionsAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Group Permissions
@@ -1912,10 +1772,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupPermission&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupPermission>>> GetGroupPermissionsWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupPermission>>> GetGroupPermissionsWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get posts from a Group
         /// </summary>
@@ -1927,10 +1786,9 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="publicOnly">See public posts only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetGroupPosts200Response</returns>
-        System.Threading.Tasks.Task<GetGroupPosts200Response> GetGroupPostsAsync(string groupId, int? n = default(int?), int? offset = default(int?), bool? publicOnly = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetGroupPosts200Response> GetGroupPostsAsync(string groupId, int? n = default, int? offset = default, bool? publicOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get posts from a Group
@@ -1943,10 +1801,9 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="publicOnly">See public posts only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetGroupPosts200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetGroupPosts200Response>> GetGroupPostsWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), bool? publicOnly = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetGroupPosts200Response>> GetGroupPostsWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, bool? publicOnly = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Join Requests
         /// </summary>
@@ -1958,10 +1815,9 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="blocked">See blocked join requests (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupMember&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupMember>> GetGroupRequestsAsync(string groupId, int? n = default(int?), int? offset = default(int?), bool? blocked = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GroupMember>> GetGroupRequestsAsync(string groupId, int? n = default, int? offset = default, bool? blocked = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Join Requests
@@ -1974,10 +1830,9 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="blocked">See blocked join requests (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupMember&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupMember>>> GetGroupRequestsWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), bool? blocked = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupMember>>> GetGroupRequestsWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, bool? blocked = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Role Templates
         /// </summary>
@@ -1985,10 +1840,9 @@ namespace VRChat.API.Api
         /// Obtain predefined templates for group roles
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Dictionary&lt;string, GroupRoleTemplateValues&gt;</returns>
-        System.Threading.Tasks.Task<Dictionary<string, GroupRoleTemplateValues>> GetGroupRoleTemplatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Dictionary<string, GroupRoleTemplateValues>> GetGroupRoleTemplatesAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Role Templates
@@ -1997,10 +1851,9 @@ namespace VRChat.API.Api
         /// Obtain predefined templates for group roles
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, GroupRoleTemplateValues&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, GroupRoleTemplateValues>>> GetGroupRoleTemplatesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, GroupRoleTemplateValues>>> GetGroupRoleTemplatesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Roles
         /// </summary>
@@ -2009,10 +1862,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupRole&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupRole>> GetGroupRolesAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GroupRole>> GetGroupRolesAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Roles
@@ -2022,10 +1874,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupRole&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupRole>>> GetGroupRolesWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupRole>>> GetGroupRolesWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Join Group
         /// </summary>
@@ -2034,10 +1885,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupMember</returns>
-        System.Threading.Tasks.Task<GroupMember> JoinGroupAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupMember> JoinGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Join Group
@@ -2047,10 +1897,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupMember)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupMember>> JoinGroupWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupMember>> JoinGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Kick Group Member
         /// </summary>
@@ -2060,10 +1909,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task KickGroupMemberAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task KickGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Kick Group Member
@@ -2074,10 +1922,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> KickGroupMemberWithHttpInfoAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> KickGroupMemberWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Leave Group
         /// </summary>
@@ -2086,10 +1933,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task LeaveGroupAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task LeaveGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Leave Group
@@ -2099,10 +1945,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> LeaveGroupWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> LeaveGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Remove Role from GroupMember
         /// </summary>
@@ -2113,10 +1958,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;string&gt;</returns>
-        System.Threading.Tasks.Task<List<string>> RemoveGroupMemberRoleAsync(string groupId, string userId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<string>> RemoveGroupMemberRoleAsync(string groupId, string userId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Role from GroupMember
@@ -2128,10 +1972,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<string>>> RemoveGroupMemberRoleWithHttpInfoAsync(string groupId, string userId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<string>>> RemoveGroupMemberRoleWithHttpInfoAsync(string groupId, string userId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Respond Group Join request
         /// </summary>
@@ -2142,10 +1985,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="respondGroupJoinRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RespondGroupJoinRequestAsync(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task RespondGroupJoinRequestAsync(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Respond Group Join request
@@ -2157,10 +1999,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="respondGroupJoinRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RespondGroupJoinRequestWithHttpInfoAsync(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> RespondGroupJoinRequestWithHttpInfoAsync(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search Group
         /// </summary>
@@ -2171,10 +2012,9 @@ namespace VRChat.API.Api
         /// <param name="query">Query to search for, can be either Group Name or Group shortCode (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedGroup&gt;</returns>
-        System.Threading.Tasks.Task<List<LimitedGroup>> SearchGroupsAsync(string query = default(string), int? offset = default(int?), int? n = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<LimitedGroup>> SearchGroupsAsync(string? query = default, int? offset = default, int? n = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Group
@@ -2186,10 +2026,9 @@ namespace VRChat.API.Api
         /// <param name="query">Query to search for, can be either Group Name or Group shortCode (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedGroup&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LimitedGroup>>> SearchGroupsWithHttpInfoAsync(string query = default(string), int? offset = default(int?), int? n = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<LimitedGroup>>> SearchGroupsWithHttpInfoAsync(string? query = default, int? offset = default, int? n = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Unban Group Member
         /// </summary>
@@ -2199,10 +2038,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupMember</returns>
-        System.Threading.Tasks.Task<GroupMember> UnbanGroupMemberAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupMember> UnbanGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Unban Group Member
@@ -2213,10 +2051,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupMember)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupMember>> UnbanGroupMemberWithHttpInfoAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupMember>> UnbanGroupMemberWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Group
         /// </summary>
@@ -2226,10 +2063,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        System.Threading.Tasks.Task<Group> UpdateGroupAsync(string groupId, UpdateGroupRequest updateGroupRequest = default(UpdateGroupRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Group> UpdateGroupAsync(string groupId, UpdateGroupRequest? updateGroupRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Group
@@ -2240,10 +2076,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Group>> UpdateGroupWithHttpInfoAsync(string groupId, UpdateGroupRequest updateGroupRequest = default(UpdateGroupRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Group>> UpdateGroupWithHttpInfoAsync(string groupId, UpdateGroupRequest? updateGroupRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Group Gallery
         /// </summary>
@@ -2254,10 +2089,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="updateGroupGalleryRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupGallery</returns>
-        System.Threading.Tasks.Task<GroupGallery> UpdateGroupGalleryAsync(string groupId, string groupGalleryId, UpdateGroupGalleryRequest updateGroupGalleryRequest = default(UpdateGroupGalleryRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupGallery> UpdateGroupGalleryAsync(string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Group Gallery
@@ -2269,10 +2103,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="updateGroupGalleryRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupGallery)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupGallery>> UpdateGroupGalleryWithHttpInfoAsync(string groupId, string groupGalleryId, UpdateGroupGalleryRequest updateGroupGalleryRequest = default(UpdateGroupGalleryRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupGallery>> UpdateGroupGalleryWithHttpInfoAsync(string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Group Member
         /// </summary>
@@ -2283,10 +2116,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupLimitedMember</returns>
-        System.Threading.Tasks.Task<GroupLimitedMember> UpdateGroupMemberAsync(string groupId, string userId, UpdateGroupMemberRequest updateGroupMemberRequest = default(UpdateGroupMemberRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupLimitedMember> UpdateGroupMemberAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Group Member
@@ -2298,10 +2130,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupLimitedMember)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupLimitedMember>> UpdateGroupMemberWithHttpInfoAsync(string groupId, string userId, UpdateGroupMemberRequest updateGroupMemberRequest = default(UpdateGroupMemberRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupLimitedMember>> UpdateGroupMemberWithHttpInfoAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Edits a Group post
         /// </summary>
@@ -2312,10 +2143,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupPost</returns>
-        System.Threading.Tasks.Task<GroupPost> UpdateGroupPostAsync(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GroupPost> UpdateGroupPostAsync(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Edits a Group post
@@ -2327,10 +2157,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupPost)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupPost>> UpdateGroupPostWithHttpInfoAsync(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GroupPost>> UpdateGroupPostWithHttpInfoAsync(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Group Representation
         /// </summary>
@@ -2340,10 +2169,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRepresentationRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> UpdateGroupRepresentationAsync(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Success> UpdateGroupRepresentationAsync(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Group Representation
@@ -2354,10 +2182,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRepresentationRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> UpdateGroupRepresentationWithHttpInfoAsync(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Success>> UpdateGroupRepresentationWithHttpInfoAsync(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Group Role
         /// </summary>
@@ -2368,10 +2195,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
         /// <param name="updateGroupRoleRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupRole&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupRole>> UpdateGroupRoleAsync(string groupId, string groupRoleId, UpdateGroupRoleRequest updateGroupRoleRequest = default(UpdateGroupRoleRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<GroupRole>> UpdateGroupRoleAsync(string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Group Role
@@ -2383,10 +2209,9 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
         /// <param name="updateGroupRoleRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupRole&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupRole>>> UpdateGroupRoleWithHttpInfoAsync(string groupId, string groupRoleId, UpdateGroupRoleRequest updateGroupRoleRequest = default(UpdateGroupRoleRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<GroupRole>>> UpdateGroupRoleWithHttpInfoAsync(string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -2401,12 +2226,14 @@ namespace VRChat.API.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class GroupsApi : IGroupsApi
+    public partial class GroupsApi : IDisposable, IGroupsApi
     {
         private VRChat.API.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public GroupsApi() : this((string)null)
@@ -2415,7 +2242,11 @@ namespace VRChat.API.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public GroupsApi(string basePath)
         {
@@ -2423,16 +2254,19 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 new VRChat.API.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupsApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="GroupsApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public GroupsApi(VRChat.API.Client.Configuration configuration)
         {
@@ -2442,8 +2276,78 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public GroupsApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public GroupsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                new VRChat.API.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupsApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public GroupsApi(HttpClient client, VRChat.API.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -2454,6 +2358,7 @@ namespace VRChat.API.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public GroupsApi(VRChat.API.Client.ISynchronousClient client, VRChat.API.Client.IAsynchronousClient asyncClient, VRChat.API.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -2465,6 +2370,19 @@ namespace VRChat.API.Api
             this.Configuration = configuration;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public VRChat.API.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -2514,9 +2432,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="addGroupGalleryImageRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupGalleryImage</returns>
-        public GroupGalleryImage AddGroupGalleryImage(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, int operationIndex = 0)
+        public GroupGalleryImage AddGroupGalleryImage(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest)
         {
             VRChat.API.Client.ApiResponse<GroupGalleryImage> localVarResponse = AddGroupGalleryImageWithHttpInfo(groupId, groupGalleryId, addGroupGalleryImageRequest);
             return localVarResponse.Data;
@@ -2529,27 +2446,20 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="addGroupGalleryImageRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupGalleryImage</returns>
-        public VRChat.API.Client.ApiResponse<GroupGalleryImage> AddGroupGalleryImageWithHttpInfo(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupGalleryImage> AddGroupGalleryImageWithHttpInfo(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->AddGroupGalleryImage");
-            }
 
             // verify the required parameter 'groupGalleryId' is set
             if (groupGalleryId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryId' when calling GroupsApi->AddGroupGalleryImage");
-            }
 
             // verify the required parameter 'addGroupGalleryImageRequest' is set
             if (addGroupGalleryImageRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'addGroupGalleryImageRequest' when calling GroupsApi->AddGroupGalleryImage");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2563,23 +2473,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryId)); // path parameter
             localVarRequestOptions.Data = addGroupGalleryImageRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.AddGroupGalleryImage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2590,13 +2491,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<GroupGalleryImage>("/groups/{groupId}/galleries/{groupGalleryId}/images", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddGroupGalleryImage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2609,12 +2508,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="addGroupGalleryImageRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupGalleryImage</returns>
-        public async System.Threading.Tasks.Task<GroupGalleryImage> AddGroupGalleryImageAsync(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupGalleryImage> AddGroupGalleryImageAsync(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupGalleryImage> localVarResponse = await AddGroupGalleryImageWithHttpInfoAsync(groupId, groupGalleryId, addGroupGalleryImageRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupGalleryImage> localVarResponse = await AddGroupGalleryImageWithHttpInfoAsync(groupId, groupGalleryId, addGroupGalleryImageRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2625,28 +2523,21 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="addGroupGalleryImageRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupGalleryImage)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupGalleryImage>> AddGroupGalleryImageWithHttpInfoAsync(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupGalleryImage>> AddGroupGalleryImageWithHttpInfoAsync(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->AddGroupGalleryImage");
-            }
 
             // verify the required parameter 'groupGalleryId' is set
             if (groupGalleryId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryId' when calling GroupsApi->AddGroupGalleryImage");
-            }
 
             // verify the required parameter 'addGroupGalleryImageRequest' is set
             if (addGroupGalleryImageRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'addGroupGalleryImageRequest' when calling GroupsApi->AddGroupGalleryImage");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2660,24 +2551,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryId)); // path parameter
             localVarRequestOptions.Data = addGroupGalleryImageRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.AddGroupGalleryImage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2687,15 +2570,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<GroupGalleryImage>("/groups/{groupId}/galleries/{groupGalleryId}/images", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddGroupGalleryImage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2708,9 +2589,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;string&gt;</returns>
-        public List<string> AddGroupMemberRole(string groupId, string userId, string groupRoleId, int operationIndex = 0)
+        public List<string> AddGroupMemberRole(string groupId, string userId, string groupRoleId)
         {
             VRChat.API.Client.ApiResponse<List<string>> localVarResponse = AddGroupMemberRoleWithHttpInfo(groupId, userId, groupRoleId);
             return localVarResponse.Data;
@@ -2723,27 +2603,20 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<string>> AddGroupMemberRoleWithHttpInfo(string groupId, string userId, string groupRoleId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<string>> AddGroupMemberRoleWithHttpInfo(string groupId, string userId, string groupRoleId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->AddGroupMemberRole");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->AddGroupMemberRole");
-            }
 
             // verify the required parameter 'groupRoleId' is set
             if (groupRoleId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupRoleId' when calling GroupsApi->AddGroupMemberRole");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2756,23 +2629,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupRoleId", VRChat.API.Client.ClientUtils.ParameterToString(groupRoleId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.AddGroupMemberRole";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2783,13 +2647,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddGroupMemberRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2802,12 +2664,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;string&gt;</returns>
-        public async System.Threading.Tasks.Task<List<string>> AddGroupMemberRoleAsync(string groupId, string userId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<string>> AddGroupMemberRoleAsync(string groupId, string userId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<string>> localVarResponse = await AddGroupMemberRoleWithHttpInfoAsync(groupId, userId, groupRoleId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<string>> localVarResponse = await AddGroupMemberRoleWithHttpInfoAsync(groupId, userId, groupRoleId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2818,28 +2679,21 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<string>>> AddGroupMemberRoleWithHttpInfoAsync(string groupId, string userId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<string>>> AddGroupMemberRoleWithHttpInfoAsync(string groupId, string userId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->AddGroupMemberRole");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->AddGroupMemberRole");
-            }
 
             // verify the required parameter 'groupRoleId' is set
             if (groupRoleId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupRoleId' when calling GroupsApi->AddGroupMemberRole");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2852,24 +2706,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupRoleId", VRChat.API.Client.ClientUtils.ParameterToString(groupRoleId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.AddGroupMemberRole";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2879,15 +2725,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddGroupMemberRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2899,9 +2743,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupPost</returns>
-        public GroupPost AddGroupPost(string groupId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0)
+        public GroupPost AddGroupPost(string groupId, CreateGroupPostRequest createGroupPostRequest)
         {
             VRChat.API.Client.ApiResponse<GroupPost> localVarResponse = AddGroupPostWithHttpInfo(groupId, createGroupPostRequest);
             return localVarResponse.Data;
@@ -2913,21 +2756,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupPost</returns>
-        public VRChat.API.Client.ApiResponse<GroupPost> AddGroupPostWithHttpInfo(string groupId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupPost> AddGroupPostWithHttpInfo(string groupId, CreateGroupPostRequest createGroupPostRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->AddGroupPost");
-            }
 
             // verify the required parameter 'createGroupPostRequest' is set
             if (createGroupPostRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupPostRequest' when calling GroupsApi->AddGroupPost");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2941,22 +2779,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createGroupPostRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.AddGroupPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2967,13 +2796,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<GroupPost>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddGroupPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2985,12 +2812,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupPost</returns>
-        public async System.Threading.Tasks.Task<GroupPost> AddGroupPostAsync(string groupId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupPost> AddGroupPostAsync(string groupId, CreateGroupPostRequest createGroupPostRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupPost> localVarResponse = await AddGroupPostWithHttpInfoAsync(groupId, createGroupPostRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupPost> localVarResponse = await AddGroupPostWithHttpInfoAsync(groupId, createGroupPostRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3000,22 +2826,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupPost)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupPost>> AddGroupPostWithHttpInfoAsync(string groupId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupPost>> AddGroupPostWithHttpInfoAsync(string groupId, CreateGroupPostRequest createGroupPostRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->AddGroupPost");
-            }
 
             // verify the required parameter 'createGroupPostRequest' is set
             if (createGroupPostRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupPostRequest' when calling GroupsApi->AddGroupPost");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3029,23 +2850,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createGroupPostRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.AddGroupPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3055,15 +2868,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<GroupPost>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddGroupPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3075,9 +2886,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="banGroupMemberRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupMember</returns>
-        public GroupMember BanGroupMember(string groupId, BanGroupMemberRequest banGroupMemberRequest, int operationIndex = 0)
+        public GroupMember BanGroupMember(string groupId, BanGroupMemberRequest banGroupMemberRequest)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = BanGroupMemberWithHttpInfo(groupId, banGroupMemberRequest);
             return localVarResponse.Data;
@@ -3089,21 +2899,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="banGroupMemberRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupMember</returns>
-        public VRChat.API.Client.ApiResponse<GroupMember> BanGroupMemberWithHttpInfo(string groupId, BanGroupMemberRequest banGroupMemberRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupMember> BanGroupMemberWithHttpInfo(string groupId, BanGroupMemberRequest banGroupMemberRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->BanGroupMember");
-            }
 
             // verify the required parameter 'banGroupMemberRequest' is set
             if (banGroupMemberRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'banGroupMemberRequest' when calling GroupsApi->BanGroupMember");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3117,22 +2922,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = banGroupMemberRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.BanGroupMember";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3143,13 +2939,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<GroupMember>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BanGroupMember", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3161,12 +2955,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="banGroupMemberRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupMember</returns>
-        public async System.Threading.Tasks.Task<GroupMember> BanGroupMemberAsync(string groupId, BanGroupMemberRequest banGroupMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupMember> BanGroupMemberAsync(string groupId, BanGroupMemberRequest banGroupMemberRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await BanGroupMemberWithHttpInfoAsync(groupId, banGroupMemberRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await BanGroupMemberWithHttpInfoAsync(groupId, banGroupMemberRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3176,22 +2969,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="banGroupMemberRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupMember)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupMember>> BanGroupMemberWithHttpInfoAsync(string groupId, BanGroupMemberRequest banGroupMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupMember>> BanGroupMemberWithHttpInfoAsync(string groupId, BanGroupMemberRequest banGroupMemberRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->BanGroupMember");
-            }
 
             // verify the required parameter 'banGroupMemberRequest' is set
             if (banGroupMemberRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'banGroupMemberRequest' when calling GroupsApi->BanGroupMember");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3205,23 +2993,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = banGroupMemberRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.BanGroupMember";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3231,15 +3011,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<GroupMember>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BanGroupMember", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3250,9 +3028,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void CancelGroupRequest(string groupId, int operationIndex = 0)
+        public void CancelGroupRequest(string groupId)
         {
             CancelGroupRequestWithHttpInfo(groupId);
         }
@@ -3262,15 +3039,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> CancelGroupRequestWithHttpInfo(string groupId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> CancelGroupRequestWithHttpInfo(string groupId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->CancelGroupRequest");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3283,21 +3057,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.CancelGroupRequest";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3308,13 +3073,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Object>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelGroupRequest", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3325,12 +3088,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CancelGroupRequestAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CancelGroupRequestAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await CancelGroupRequestWithHttpInfoAsync(groupId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await CancelGroupRequestWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -3338,16 +3100,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> CancelGroupRequestWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> CancelGroupRequestWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->CancelGroupRequest");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3360,22 +3119,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.CancelGroupRequest";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3385,15 +3136,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelGroupRequest", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3404,9 +3153,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createGroupRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Group</returns>
-        public Group CreateGroup(CreateGroupRequest createGroupRequest, int operationIndex = 0)
+        public Group CreateGroup(CreateGroupRequest createGroupRequest)
         {
             VRChat.API.Client.ApiResponse<Group> localVarResponse = CreateGroupWithHttpInfo(createGroupRequest);
             return localVarResponse.Data;
@@ -3417,15 +3165,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createGroupRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Group</returns>
-        public VRChat.API.Client.ApiResponse<Group> CreateGroupWithHttpInfo(CreateGroupRequest createGroupRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Group> CreateGroupWithHttpInfo(CreateGroupRequest createGroupRequest)
         {
             // verify the required parameter 'createGroupRequest' is set
             if (createGroupRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupRequest' when calling GroupsApi->CreateGroup");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3439,21 +3184,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = createGroupRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.CreateGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3464,13 +3200,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Group>("/groups", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3481,12 +3215,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createGroupRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        public async System.Threading.Tasks.Task<Group> CreateGroupAsync(CreateGroupRequest createGroupRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Group> CreateGroupAsync(CreateGroupRequest createGroupRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Group> localVarResponse = await CreateGroupWithHttpInfoAsync(createGroupRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Group> localVarResponse = await CreateGroupWithHttpInfoAsync(createGroupRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3495,16 +3228,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createGroupRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Group>> CreateGroupWithHttpInfoAsync(CreateGroupRequest createGroupRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Group>> CreateGroupWithHttpInfoAsync(CreateGroupRequest createGroupRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'createGroupRequest' is set
             if (createGroupRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupRequest' when calling GroupsApi->CreateGroup");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3518,22 +3248,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = createGroupRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.CreateGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3543,15 +3265,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Group>("/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3563,9 +3283,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupAnnouncementRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupAnnouncement</returns>
-        public GroupAnnouncement CreateGroupAnnouncement(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, int operationIndex = 0)
+        public GroupAnnouncement CreateGroupAnnouncement(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest)
         {
             VRChat.API.Client.ApiResponse<GroupAnnouncement> localVarResponse = CreateGroupAnnouncementWithHttpInfo(groupId, createGroupAnnouncementRequest);
             return localVarResponse.Data;
@@ -3577,21 +3296,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupAnnouncementRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupAnnouncement</returns>
-        public VRChat.API.Client.ApiResponse<GroupAnnouncement> CreateGroupAnnouncementWithHttpInfo(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupAnnouncement> CreateGroupAnnouncementWithHttpInfo(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->CreateGroupAnnouncement");
-            }
 
             // verify the required parameter 'createGroupAnnouncementRequest' is set
             if (createGroupAnnouncementRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupAnnouncementRequest' when calling GroupsApi->CreateGroupAnnouncement");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3605,22 +3319,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createGroupAnnouncementRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.CreateGroupAnnouncement";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3631,13 +3336,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupAnnouncement", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3649,12 +3352,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupAnnouncementRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupAnnouncement</returns>
-        public async System.Threading.Tasks.Task<GroupAnnouncement> CreateGroupAnnouncementAsync(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupAnnouncement> CreateGroupAnnouncementAsync(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupAnnouncement> localVarResponse = await CreateGroupAnnouncementWithHttpInfoAsync(groupId, createGroupAnnouncementRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupAnnouncement> localVarResponse = await CreateGroupAnnouncementWithHttpInfoAsync(groupId, createGroupAnnouncementRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3664,22 +3366,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupAnnouncementRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupAnnouncement)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupAnnouncement>> CreateGroupAnnouncementWithHttpInfoAsync(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupAnnouncement>> CreateGroupAnnouncementWithHttpInfoAsync(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->CreateGroupAnnouncement");
-            }
 
             // verify the required parameter 'createGroupAnnouncementRequest' is set
             if (createGroupAnnouncementRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupAnnouncementRequest' when calling GroupsApi->CreateGroupAnnouncement");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3693,23 +3390,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createGroupAnnouncementRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.CreateGroupAnnouncement";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3719,15 +3408,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupAnnouncement", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3739,9 +3426,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupGalleryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupGallery</returns>
-        public GroupGallery CreateGroupGallery(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, int operationIndex = 0)
+        public GroupGallery CreateGroupGallery(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest)
         {
             VRChat.API.Client.ApiResponse<GroupGallery> localVarResponse = CreateGroupGalleryWithHttpInfo(groupId, createGroupGalleryRequest);
             return localVarResponse.Data;
@@ -3753,21 +3439,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupGalleryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupGallery</returns>
-        public VRChat.API.Client.ApiResponse<GroupGallery> CreateGroupGalleryWithHttpInfo(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupGallery> CreateGroupGalleryWithHttpInfo(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->CreateGroupGallery");
-            }
 
             // verify the required parameter 'createGroupGalleryRequest' is set
             if (createGroupGalleryRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupGalleryRequest' when calling GroupsApi->CreateGroupGallery");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3781,22 +3462,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createGroupGalleryRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.CreateGroupGallery";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3807,13 +3479,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<GroupGallery>("/groups/{groupId}/galleries", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupGallery", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3825,12 +3495,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupGalleryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupGallery</returns>
-        public async System.Threading.Tasks.Task<GroupGallery> CreateGroupGalleryAsync(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupGallery> CreateGroupGalleryAsync(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupGallery> localVarResponse = await CreateGroupGalleryWithHttpInfoAsync(groupId, createGroupGalleryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupGallery> localVarResponse = await CreateGroupGalleryWithHttpInfoAsync(groupId, createGroupGalleryRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3840,22 +3509,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupGalleryRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupGallery)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupGallery>> CreateGroupGalleryWithHttpInfoAsync(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupGallery>> CreateGroupGalleryWithHttpInfoAsync(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->CreateGroupGallery");
-            }
 
             // verify the required parameter 'createGroupGalleryRequest' is set
             if (createGroupGalleryRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupGalleryRequest' when calling GroupsApi->CreateGroupGallery");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3869,23 +3533,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createGroupGalleryRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.CreateGroupGallery";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3895,15 +3551,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<GroupGallery>("/groups/{groupId}/galleries", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupGallery", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3915,9 +3569,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void CreateGroupInvite(string groupId, CreateGroupInviteRequest createGroupInviteRequest, int operationIndex = 0)
+        public void CreateGroupInvite(string groupId, CreateGroupInviteRequest createGroupInviteRequest)
         {
             CreateGroupInviteWithHttpInfo(groupId, createGroupInviteRequest);
         }
@@ -3928,21 +3581,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> CreateGroupInviteWithHttpInfo(string groupId, CreateGroupInviteRequest createGroupInviteRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> CreateGroupInviteWithHttpInfo(string groupId, CreateGroupInviteRequest createGroupInviteRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->CreateGroupInvite");
-            }
 
             // verify the required parameter 'createGroupInviteRequest' is set
             if (createGroupInviteRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupInviteRequest' when calling GroupsApi->CreateGroupInvite");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3956,22 +3604,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createGroupInviteRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.CreateGroupInvite";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3982,13 +3621,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Object>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupInvite", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4000,12 +3637,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateGroupInviteAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CreateGroupInviteAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            await CreateGroupInviteWithHttpInfoAsync(groupId, createGroupInviteRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            await CreateGroupInviteWithHttpInfoAsync(groupId, createGroupInviteRequest, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -4014,22 +3650,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> CreateGroupInviteWithHttpInfoAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> CreateGroupInviteWithHttpInfoAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->CreateGroupInvite");
-            }
 
             // verify the required parameter 'createGroupInviteRequest' is set
             if (createGroupInviteRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupInviteRequest' when calling GroupsApi->CreateGroupInvite");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -4043,23 +3674,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createGroupInviteRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.CreateGroupInvite";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4069,15 +3692,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupInvite", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4089,9 +3710,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupRoleRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupRole</returns>
-        public GroupRole CreateGroupRole(string groupId, CreateGroupRoleRequest createGroupRoleRequest, int operationIndex = 0)
+        public GroupRole CreateGroupRole(string groupId, CreateGroupRoleRequest createGroupRoleRequest)
         {
             VRChat.API.Client.ApiResponse<GroupRole> localVarResponse = CreateGroupRoleWithHttpInfo(groupId, createGroupRoleRequest);
             return localVarResponse.Data;
@@ -4103,21 +3723,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupRoleRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupRole</returns>
-        public VRChat.API.Client.ApiResponse<GroupRole> CreateGroupRoleWithHttpInfo(string groupId, CreateGroupRoleRequest createGroupRoleRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupRole> CreateGroupRoleWithHttpInfo(string groupId, CreateGroupRoleRequest createGroupRoleRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->CreateGroupRole");
-            }
 
             // verify the required parameter 'createGroupRoleRequest' is set
             if (createGroupRoleRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupRoleRequest' when calling GroupsApi->CreateGroupRole");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -4131,22 +3746,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createGroupRoleRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.CreateGroupRole";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4157,13 +3763,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<GroupRole>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4175,12 +3779,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupRoleRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupRole</returns>
-        public async System.Threading.Tasks.Task<GroupRole> CreateGroupRoleAsync(string groupId, CreateGroupRoleRequest createGroupRoleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupRole> CreateGroupRoleAsync(string groupId, CreateGroupRoleRequest createGroupRoleRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupRole> localVarResponse = await CreateGroupRoleWithHttpInfoAsync(groupId, createGroupRoleRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupRole> localVarResponse = await CreateGroupRoleWithHttpInfoAsync(groupId, createGroupRoleRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4190,22 +3793,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupRoleRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupRole)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupRole>> CreateGroupRoleWithHttpInfoAsync(string groupId, CreateGroupRoleRequest createGroupRoleRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupRole>> CreateGroupRoleWithHttpInfoAsync(string groupId, CreateGroupRoleRequest createGroupRoleRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->CreateGroupRole");
-            }
 
             // verify the required parameter 'createGroupRoleRequest' is set
             if (createGroupRoleRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupRoleRequest' when calling GroupsApi->CreateGroupRole");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -4219,23 +3817,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = createGroupRoleRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.CreateGroupRole";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4245,15 +3835,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<GroupRole>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4264,9 +3852,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success DeleteGroup(string groupId, int operationIndex = 0)
+        public Success DeleteGroup(string groupId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupWithHttpInfo(groupId);
             return localVarResponse.Data;
@@ -4277,15 +3864,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> DeleteGroupWithHttpInfo(string groupId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> DeleteGroupWithHttpInfo(string groupId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroup");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -4298,21 +3882,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4323,13 +3898,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4340,12 +3913,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> DeleteGroupAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> DeleteGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupWithHttpInfoAsync(groupId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4354,16 +3926,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroup");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -4376,22 +3945,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4401,15 +3962,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4420,9 +3979,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success DeleteGroupAnnouncement(string groupId, int operationIndex = 0)
+        public Success DeleteGroupAnnouncement(string groupId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupAnnouncementWithHttpInfo(groupId);
             return localVarResponse.Data;
@@ -4433,15 +3991,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> DeleteGroupAnnouncementWithHttpInfo(string groupId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> DeleteGroupAnnouncementWithHttpInfo(string groupId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupAnnouncement");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -4454,21 +4009,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupAnnouncement";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4479,13 +4025,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupAnnouncement", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4496,12 +4040,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> DeleteGroupAnnouncementAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> DeleteGroupAnnouncementAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupAnnouncementWithHttpInfoAsync(groupId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupAnnouncementWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4510,16 +4053,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupAnnouncementWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupAnnouncementWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupAnnouncement");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -4532,22 +4072,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupAnnouncement";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4557,15 +4089,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupAnnouncement", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4577,9 +4107,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success DeleteGroupGallery(string groupId, string groupGalleryId, int operationIndex = 0)
+        public Success DeleteGroupGallery(string groupId, string groupGalleryId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupGalleryWithHttpInfo(groupId, groupGalleryId);
             return localVarResponse.Data;
@@ -4591,21 +4120,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> DeleteGroupGalleryWithHttpInfo(string groupId, string groupGalleryId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> DeleteGroupGalleryWithHttpInfo(string groupId, string groupGalleryId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupGallery");
-            }
 
             // verify the required parameter 'groupGalleryId' is set
             if (groupGalleryId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryId' when calling GroupsApi->DeleteGroupGallery");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -4618,22 +4142,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupGallery";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4644,13 +4159,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupGallery", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4662,12 +4175,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> DeleteGroupGalleryAsync(string groupId, string groupGalleryId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> DeleteGroupGalleryAsync(string groupId, string groupGalleryId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupGalleryWithHttpInfoAsync(groupId, groupGalleryId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupGalleryWithHttpInfoAsync(groupId, groupGalleryId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4677,22 +4189,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupGalleryWithHttpInfoAsync(string groupId, string groupGalleryId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupGalleryWithHttpInfoAsync(string groupId, string groupGalleryId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupGallery");
-            }
 
             // verify the required parameter 'groupGalleryId' is set
             if (groupGalleryId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryId' when calling GroupsApi->DeleteGroupGallery");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -4705,23 +4212,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupGallery";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4731,15 +4230,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupGallery", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4752,9 +4249,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="groupGalleryImageId">Must be a valid group gallery image ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success DeleteGroupGalleryImage(string groupId, string groupGalleryId, string groupGalleryImageId, int operationIndex = 0)
+        public Success DeleteGroupGalleryImage(string groupId, string groupGalleryId, string groupGalleryImageId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupGalleryImageWithHttpInfo(groupId, groupGalleryId, groupGalleryImageId);
             return localVarResponse.Data;
@@ -4767,27 +4263,20 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="groupGalleryImageId">Must be a valid group gallery image ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> DeleteGroupGalleryImageWithHttpInfo(string groupId, string groupGalleryId, string groupGalleryImageId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> DeleteGroupGalleryImageWithHttpInfo(string groupId, string groupGalleryId, string groupGalleryImageId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupGalleryImage");
-            }
 
             // verify the required parameter 'groupGalleryId' is set
             if (groupGalleryId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryId' when calling GroupsApi->DeleteGroupGalleryImage");
-            }
 
             // verify the required parameter 'groupGalleryImageId' is set
             if (groupGalleryImageId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryImageId' when calling GroupsApi->DeleteGroupGalleryImage");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -4800,23 +4289,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryImageId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryImageId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupGalleryImage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4827,13 +4307,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/galleries/{groupGalleryId}/images/{groupGalleryImageId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupGalleryImage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4846,12 +4324,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="groupGalleryImageId">Must be a valid group gallery image ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> DeleteGroupGalleryImageAsync(string groupId, string groupGalleryId, string groupGalleryImageId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> DeleteGroupGalleryImageAsync(string groupId, string groupGalleryId, string groupGalleryImageId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupGalleryImageWithHttpInfoAsync(groupId, groupGalleryId, groupGalleryImageId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupGalleryImageWithHttpInfoAsync(groupId, groupGalleryId, groupGalleryImageId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4862,28 +4339,21 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="groupGalleryImageId">Must be a valid group gallery image ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupGalleryImageWithHttpInfoAsync(string groupId, string groupGalleryId, string groupGalleryImageId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupGalleryImageWithHttpInfoAsync(string groupId, string groupGalleryId, string groupGalleryImageId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupGalleryImage");
-            }
 
             // verify the required parameter 'groupGalleryId' is set
             if (groupGalleryId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryId' when calling GroupsApi->DeleteGroupGalleryImage");
-            }
 
             // verify the required parameter 'groupGalleryImageId' is set
             if (groupGalleryImageId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryImageId' when calling GroupsApi->DeleteGroupGalleryImage");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -4896,24 +4366,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryImageId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryImageId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupGalleryImage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4923,15 +4385,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/galleries/{groupGalleryId}/images/{groupGalleryImageId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupGalleryImage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -4943,9 +4403,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void DeleteGroupInvite(string groupId, string userId, int operationIndex = 0)
+        public void DeleteGroupInvite(string groupId, string userId)
         {
             DeleteGroupInviteWithHttpInfo(groupId, userId);
         }
@@ -4956,21 +4415,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> DeleteGroupInviteWithHttpInfo(string groupId, string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> DeleteGroupInviteWithHttpInfo(string groupId, string userId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupInvite");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->DeleteGroupInvite");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -4983,22 +4437,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupInvite";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5009,13 +4454,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Object>("/groups/{groupId}/invites/{userId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupInvite", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5027,12 +4470,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteGroupInviteAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteGroupInviteAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await DeleteGroupInviteWithHttpInfoAsync(groupId, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await DeleteGroupInviteWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -5041,22 +4483,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeleteGroupInviteWithHttpInfoAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeleteGroupInviteWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupInvite");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->DeleteGroupInvite");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -5069,23 +4506,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupInvite";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5095,15 +4524,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/groups/{groupId}/invites/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupInvite", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5115,9 +4542,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success DeleteGroupPost(string groupId, string notificationId, int operationIndex = 0)
+        public Success DeleteGroupPost(string groupId, string notificationId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupPostWithHttpInfo(groupId, notificationId);
             return localVarResponse.Data;
@@ -5129,21 +4555,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> DeleteGroupPostWithHttpInfo(string groupId, string notificationId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> DeleteGroupPostWithHttpInfo(string groupId, string notificationId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupPost");
-            }
 
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling GroupsApi->DeleteGroupPost");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -5156,22 +4577,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5182,13 +4594,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5200,12 +4610,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> DeleteGroupPostAsync(string groupId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> DeleteGroupPostAsync(string groupId, string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupPostWithHttpInfoAsync(groupId, notificationId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupPostWithHttpInfoAsync(groupId, notificationId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5215,22 +4624,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupPostWithHttpInfoAsync(string groupId, string notificationId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupPostWithHttpInfoAsync(string groupId, string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupPost");
-            }
 
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling GroupsApi->DeleteGroupPost");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -5243,23 +4647,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5269,15 +4665,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5289,9 +4683,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupRole&gt;</returns>
-        public List<GroupRole> DeleteGroupRole(string groupId, string groupRoleId, int operationIndex = 0)
+        public List<GroupRole> DeleteGroupRole(string groupId, string groupRoleId)
         {
             VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = DeleteGroupRoleWithHttpInfo(groupId, groupRoleId);
             return localVarResponse.Data;
@@ -5303,21 +4696,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupRole&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupRole>> DeleteGroupRoleWithHttpInfo(string groupId, string groupRoleId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<GroupRole>> DeleteGroupRoleWithHttpInfo(string groupId, string groupRoleId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupRole");
-            }
 
             // verify the required parameter 'groupRoleId' is set
             if (groupRoleId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupRoleId' when calling GroupsApi->DeleteGroupRole");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -5330,22 +4718,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupRoleId", VRChat.API.Client.ClientUtils.ParameterToString(groupRoleId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupRole";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5356,13 +4735,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5374,12 +4751,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupRole&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupRole>> DeleteGroupRoleAsync(string groupId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GroupRole>> DeleteGroupRoleAsync(string groupId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = await DeleteGroupRoleWithHttpInfoAsync(groupId, groupRoleId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = await DeleteGroupRoleWithHttpInfoAsync(groupId, groupRoleId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5389,22 +4765,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupRole&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupRole>>> DeleteGroupRoleWithHttpInfoAsync(string groupId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupRole>>> DeleteGroupRoleWithHttpInfoAsync(string groupId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->DeleteGroupRole");
-            }
 
             // verify the required parameter 'groupRoleId' is set
             if (groupRoleId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupRoleId' when calling GroupsApi->DeleteGroupRole");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -5417,23 +4788,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupRoleId", VRChat.API.Client.ClientUtils.ParameterToString(groupRoleId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.DeleteGroupRole";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5443,15 +4806,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5463,9 +4824,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Group</returns>
-        public Group GetGroup(string groupId, bool? includeRoles = default(bool?), int operationIndex = 0)
+        public Group GetGroup(string groupId, bool? includeRoles = default)
         {
             VRChat.API.Client.ApiResponse<Group> localVarResponse = GetGroupWithHttpInfo(groupId, includeRoles);
             return localVarResponse.Data;
@@ -5477,15 +4837,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Group</returns>
-        public VRChat.API.Client.ApiResponse<Group> GetGroupWithHttpInfo(string groupId, bool? includeRoles = default(bool?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Group> GetGroupWithHttpInfo(string groupId, bool? includeRoles = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroup");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -5498,25 +4855,16 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (includeRoles != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "includeRoles", includeRoles));
             }
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5527,13 +4875,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5545,12 +4891,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        public async System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, bool? includeRoles = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, bool? includeRoles = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Group> localVarResponse = await GetGroupWithHttpInfoAsync(groupId, includeRoles, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Group> localVarResponse = await GetGroupWithHttpInfoAsync(groupId, includeRoles, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5560,16 +4905,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, bool? includeRoles = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, bool? includeRoles = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroup");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -5582,26 +4924,18 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (includeRoles != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "includeRoles", includeRoles));
             }
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5611,15 +4945,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5630,9 +4962,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupAnnouncement</returns>
-        public GroupAnnouncement GetGroupAnnouncements(string groupId, int operationIndex = 0)
+        public GroupAnnouncement GetGroupAnnouncements(string groupId)
         {
             VRChat.API.Client.ApiResponse<GroupAnnouncement> localVarResponse = GetGroupAnnouncementsWithHttpInfo(groupId);
             return localVarResponse.Data;
@@ -5643,15 +4974,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupAnnouncement</returns>
-        public VRChat.API.Client.ApiResponse<GroupAnnouncement> GetGroupAnnouncementsWithHttpInfo(string groupId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupAnnouncement> GetGroupAnnouncementsWithHttpInfo(string groupId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupAnnouncements");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -5664,21 +4992,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupAnnouncements";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5689,13 +5008,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupAnnouncements", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5706,12 +5023,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupAnnouncement</returns>
-        public async System.Threading.Tasks.Task<GroupAnnouncement> GetGroupAnnouncementsAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupAnnouncement> GetGroupAnnouncementsAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupAnnouncement> localVarResponse = await GetGroupAnnouncementsWithHttpInfoAsync(groupId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupAnnouncement> localVarResponse = await GetGroupAnnouncementsWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5720,16 +5036,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupAnnouncement)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupAnnouncement>> GetGroupAnnouncementsWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupAnnouncement>> GetGroupAnnouncementsWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupAnnouncements");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -5742,22 +5055,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupAnnouncements";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5767,15 +5072,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupAnnouncements", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5793,9 +5096,8 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PaginatedGroupAuditLogEntryList</returns>
-        public PaginatedGroupAuditLogEntryList GetGroupAuditLogs(string groupId, int? n = default(int?), int? offset = default(int?), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string actorIds = default(string), string eventTypes = default(string), string targetIds = default(string), int operationIndex = 0)
+        public PaginatedGroupAuditLogEntryList GetGroupAuditLogs(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList> localVarResponse = GetGroupAuditLogsWithHttpInfo(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds);
             return localVarResponse.Data;
@@ -5813,15 +5115,12 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PaginatedGroupAuditLogEntryList</returns>
-        public VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string actorIds = default(string), string eventTypes = default(string), string targetIds = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsWithHttpInfo(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupAuditLogs");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -5834,16 +5133,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -5875,9 +5168,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "targetIds", targetIds));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupAuditLogs";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -5887,13 +5177,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PaginatedGroupAuditLogEntryList>("/groups/{groupId}/auditLogs", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupAuditLogs", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -5911,12 +5199,11 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedGroupAuditLogEntryList</returns>
-        public async System.Threading.Tasks.Task<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsAsync(string groupId, int? n = default(int?), int? offset = default(int?), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string actorIds = default(string), string eventTypes = default(string), string targetIds = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList> localVarResponse = await GetGroupAuditLogsWithHttpInfoAsync(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList> localVarResponse = await GetGroupAuditLogsWithHttpInfoAsync(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5932,16 +5219,13 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedGroupAuditLogEntryList)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList>> GetGroupAuditLogsWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), string actorIds = default(string), string eventTypes = default(string), string targetIds = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList>> GetGroupAuditLogsWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupAuditLogs");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -5954,17 +5238,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -5996,9 +5275,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "targetIds", targetIds));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupAuditLogs";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -6007,15 +5283,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedGroupAuditLogEntryList>("/groups/{groupId}/auditLogs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupAuditLogs", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6028,9 +5302,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupMember&gt;</returns>
-        public List<GroupMember> GetGroupBans(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public List<GroupMember> GetGroupBans(string groupId, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = GetGroupBansWithHttpInfo(groupId, n, offset);
             return localVarResponse.Data;
@@ -6043,15 +5316,12 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupMember&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupMember>> GetGroupBansWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<GroupMember>> GetGroupBansWithHttpInfo(string groupId, int? n = default, int? offset = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupBans");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -6064,16 +5334,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -6085,9 +5349,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupBans";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -6097,13 +5358,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupBans", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6116,12 +5375,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupMember&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupBansAsync(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupBansAsync(string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupBansWithHttpInfoAsync(groupId, n, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupBansWithHttpInfoAsync(groupId, n, offset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6132,16 +5390,13 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupMember&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupMember>>> GetGroupBansWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupMember>>> GetGroupBansWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupBans");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -6154,17 +5409,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -6176,9 +5426,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupBans";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -6187,15 +5434,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupBans", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6210,9 +5455,8 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupGalleryImage&gt;</returns>
-        public List<GroupGalleryImage> GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default(int?), int? offset = default(int?), bool? approved = default(bool?), int operationIndex = 0)
+        public List<GroupGalleryImage> GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupGalleryImage>> localVarResponse = GetGroupGalleryImagesWithHttpInfo(groupId, groupGalleryId, n, offset, approved);
             return localVarResponse.Data;
@@ -6227,21 +5471,16 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupGalleryImage&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupGalleryImage>> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default(int?), int? offset = default(int?), bool? approved = default(bool?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<GroupGalleryImage>> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupGalleryImages");
-            }
 
             // verify the required parameter 'groupGalleryId' is set
             if (groupGalleryId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryId' when calling GroupsApi->GetGroupGalleryImages");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -6254,16 +5493,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryId)); // path parameter
@@ -6279,9 +5512,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "approved", approved));
             }
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupGalleryImages";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -6292,13 +5522,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<GroupGalleryImage>>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupGalleryImages", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6313,12 +5541,11 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupGalleryImage&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupGalleryImage>> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default(int?), int? offset = default(int?), bool? approved = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GroupGalleryImage>> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupGalleryImage>> localVarResponse = await GetGroupGalleryImagesWithHttpInfoAsync(groupId, groupGalleryId, n, offset, approved, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<GroupGalleryImage>> localVarResponse = await GetGroupGalleryImagesWithHttpInfoAsync(groupId, groupGalleryId, n, offset, approved, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6331,22 +5558,17 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupGalleryImage&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupGalleryImage>>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default(int?), int? offset = default(int?), bool? approved = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupGalleryImage>>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupGalleryImages");
-            }
 
             // verify the required parameter 'groupGalleryId' is set
             if (groupGalleryId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryId' when calling GroupsApi->GetGroupGalleryImages");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -6359,17 +5581,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryId)); // path parameter
@@ -6386,9 +5603,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "approved", approved));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupGalleryImages";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -6397,15 +5611,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupGalleryImage>>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupGalleryImages", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6416,9 +5628,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupInstance&gt;</returns>
-        public List<GroupInstance> GetGroupInstances(string groupId, int operationIndex = 0)
+        public List<GroupInstance> GetGroupInstances(string groupId)
         {
             VRChat.API.Client.ApiResponse<List<GroupInstance>> localVarResponse = GetGroupInstancesWithHttpInfo(groupId);
             return localVarResponse.Data;
@@ -6429,15 +5640,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupInstance&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupInstance>> GetGroupInstancesWithHttpInfo(string groupId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<GroupInstance>> GetGroupInstancesWithHttpInfo(string groupId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupInstances");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -6450,21 +5658,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupInstances";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -6475,13 +5674,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<GroupInstance>>("/groups/{groupId}/instances", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupInstances", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6492,12 +5689,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupInstance&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupInstance>> GetGroupInstancesAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GroupInstance>> GetGroupInstancesAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupInstance>> localVarResponse = await GetGroupInstancesWithHttpInfoAsync(groupId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<GroupInstance>> localVarResponse = await GetGroupInstancesWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6506,16 +5702,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupInstance&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupInstance>>> GetGroupInstancesWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupInstance>>> GetGroupInstancesWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupInstances");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -6528,22 +5721,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupInstances";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -6553,15 +5738,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupInstance>>("/groups/{groupId}/instances", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupInstances", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6574,9 +5757,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupMember&gt;</returns>
-        public List<GroupMember> GetGroupInvites(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public List<GroupMember> GetGroupInvites(string groupId, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = GetGroupInvitesWithHttpInfo(groupId, n, offset);
             return localVarResponse.Data;
@@ -6589,15 +5771,12 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupMember&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupMember>> GetGroupInvitesWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<GroupMember>> GetGroupInvitesWithHttpInfo(string groupId, int? n = default, int? offset = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupInvites");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -6610,16 +5789,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -6631,9 +5804,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupInvites";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -6643,13 +5813,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupInvites", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6662,12 +5830,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupMember&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupInvitesAsync(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupInvitesAsync(string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupInvitesWithHttpInfoAsync(groupId, n, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupInvitesWithHttpInfoAsync(groupId, n, offset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6678,16 +5845,13 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupMember&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupMember>>> GetGroupInvitesWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupMember>>> GetGroupInvitesWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupInvites");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -6700,17 +5864,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -6722,9 +5881,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupInvites";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -6733,15 +5889,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupInvites", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6753,9 +5907,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupLimitedMember</returns>
-        public GroupLimitedMember GetGroupMember(string groupId, string userId, int operationIndex = 0)
+        public GroupLimitedMember GetGroupMember(string groupId, string userId)
         {
             VRChat.API.Client.ApiResponse<GroupLimitedMember> localVarResponse = GetGroupMemberWithHttpInfo(groupId, userId);
             return localVarResponse.Data;
@@ -6767,21 +5920,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupLimitedMember</returns>
-        public VRChat.API.Client.ApiResponse<GroupLimitedMember> GetGroupMemberWithHttpInfo(string groupId, string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupLimitedMember> GetGroupMemberWithHttpInfo(string groupId, string userId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupMember");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->GetGroupMember");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -6794,22 +5942,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupMember";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -6820,13 +5959,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<GroupLimitedMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupMember", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6838,12 +5975,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupLimitedMember</returns>
-        public async System.Threading.Tasks.Task<GroupLimitedMember> GetGroupMemberAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupLimitedMember> GetGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupLimitedMember> localVarResponse = await GetGroupMemberWithHttpInfoAsync(groupId, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupLimitedMember> localVarResponse = await GetGroupMemberWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6853,22 +5989,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupLimitedMember)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupLimitedMember>> GetGroupMemberWithHttpInfoAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupLimitedMember>> GetGroupMemberWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupMember");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->GetGroupMember");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -6881,23 +6012,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupMember";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -6907,15 +6030,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<GroupLimitedMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupMember", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -6930,9 +6051,8 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="sort">The sort order of Group Member results (optional)</param>
         /// <param name="roleId">Only returns members with a specific groupRoleId (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupMember&gt;</returns>
-        public List<GroupMember> GetGroupMembers(string groupId, int? n = default(int?), int? offset = default(int?), GroupSearchSort? sort = default(GroupSearchSort?), string roleId = default(string), int operationIndex = 0)
+        public List<GroupMember> GetGroupMembers(string groupId, int? n = default, int? offset = default, GroupSearchSort? sort = default, string? roleId = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = GetGroupMembersWithHttpInfo(groupId, n, offset, sort, roleId);
             return localVarResponse.Data;
@@ -6947,15 +6067,12 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="sort">The sort order of Group Member results (optional)</param>
         /// <param name="roleId">Only returns members with a specific groupRoleId (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupMember&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupMember>> GetGroupMembersWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), GroupSearchSort? sort = default(GroupSearchSort?), string roleId = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<GroupMember>> GetGroupMembersWithHttpInfo(string groupId, int? n = default, int? offset = default, GroupSearchSort? sort = default, string? roleId = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupMembers");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -6968,16 +6085,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -6996,9 +6107,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "roleId", roleId));
             }
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupMembers";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -7009,13 +6117,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/members", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupMembers", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7030,12 +6136,11 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="sort">The sort order of Group Member results (optional)</param>
         /// <param name="roleId">Only returns members with a specific groupRoleId (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupMember&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupMembersAsync(string groupId, int? n = default(int?), int? offset = default(int?), GroupSearchSort? sort = default(GroupSearchSort?), string roleId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupMembersAsync(string groupId, int? n = default, int? offset = default, GroupSearchSort? sort = default, string? roleId = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupMembersWithHttpInfoAsync(groupId, n, offset, sort, roleId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupMembersWithHttpInfoAsync(groupId, n, offset, sort, roleId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7048,16 +6153,13 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="sort">The sort order of Group Member results (optional)</param>
         /// <param name="roleId">Only returns members with a specific groupRoleId (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupMember&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupMember>>> GetGroupMembersWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), GroupSearchSort? sort = default(GroupSearchSort?), string roleId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupMember>>> GetGroupMembersWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, GroupSearchSort? sort = default, string? roleId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupMembers");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -7070,17 +6172,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -7100,9 +6197,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "roleId", roleId));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupMembers";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -7111,15 +6205,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/members", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupMembers", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7130,9 +6222,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupPermission&gt;</returns>
-        public List<GroupPermission> GetGroupPermissions(string groupId, int operationIndex = 0)
+        public List<GroupPermission> GetGroupPermissions(string groupId)
         {
             VRChat.API.Client.ApiResponse<List<GroupPermission>> localVarResponse = GetGroupPermissionsWithHttpInfo(groupId);
             return localVarResponse.Data;
@@ -7143,15 +6234,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupPermission&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupPermission>> GetGroupPermissionsWithHttpInfo(string groupId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<GroupPermission>> GetGroupPermissionsWithHttpInfo(string groupId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupPermissions");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -7164,21 +6252,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupPermissions";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -7189,13 +6268,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<GroupPermission>>("/groups/{groupId}/permissions", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupPermissions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7206,12 +6283,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupPermission&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupPermission>> GetGroupPermissionsAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GroupPermission>> GetGroupPermissionsAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupPermission>> localVarResponse = await GetGroupPermissionsWithHttpInfoAsync(groupId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<GroupPermission>> localVarResponse = await GetGroupPermissionsWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7220,16 +6296,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupPermission&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupPermission>>> GetGroupPermissionsWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupPermission>>> GetGroupPermissionsWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupPermissions");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -7242,22 +6315,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupPermissions";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -7267,15 +6332,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupPermission>>("/groups/{groupId}/permissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupPermissions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7289,9 +6352,8 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="publicOnly">See public posts only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetGroupPosts200Response</returns>
-        public GetGroupPosts200Response GetGroupPosts(string groupId, int? n = default(int?), int? offset = default(int?), bool? publicOnly = default(bool?), int operationIndex = 0)
+        public GetGroupPosts200Response GetGroupPosts(string groupId, int? n = default, int? offset = default, bool? publicOnly = default)
         {
             VRChat.API.Client.ApiResponse<GetGroupPosts200Response> localVarResponse = GetGroupPostsWithHttpInfo(groupId, n, offset, publicOnly);
             return localVarResponse.Data;
@@ -7305,15 +6367,12 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="publicOnly">See public posts only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetGroupPosts200Response</returns>
-        public VRChat.API.Client.ApiResponse<GetGroupPosts200Response> GetGroupPostsWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), bool? publicOnly = default(bool?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GetGroupPosts200Response> GetGroupPostsWithHttpInfo(string groupId, int? n = default, int? offset = default, bool? publicOnly = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupPosts");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -7326,16 +6385,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -7351,9 +6404,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "publicOnly", publicOnly));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupPosts";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -7363,13 +6413,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<GetGroupPosts200Response>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupPosts", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7383,12 +6431,11 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="publicOnly">See public posts only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetGroupPosts200Response</returns>
-        public async System.Threading.Tasks.Task<GetGroupPosts200Response> GetGroupPostsAsync(string groupId, int? n = default(int?), int? offset = default(int?), bool? publicOnly = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetGroupPosts200Response> GetGroupPostsAsync(string groupId, int? n = default, int? offset = default, bool? publicOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GetGroupPosts200Response> localVarResponse = await GetGroupPostsWithHttpInfoAsync(groupId, n, offset, publicOnly, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GetGroupPosts200Response> localVarResponse = await GetGroupPostsWithHttpInfoAsync(groupId, n, offset, publicOnly, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7400,16 +6447,13 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="publicOnly">See public posts only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetGroupPosts200Response)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GetGroupPosts200Response>> GetGroupPostsWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), bool? publicOnly = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GetGroupPosts200Response>> GetGroupPostsWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, bool? publicOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupPosts");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -7422,17 +6466,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -7448,9 +6487,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "publicOnly", publicOnly));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupPosts";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -7459,15 +6495,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<GetGroupPosts200Response>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupPosts", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7481,9 +6515,8 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="blocked">See blocked join requests (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupMember&gt;</returns>
-        public List<GroupMember> GetGroupRequests(string groupId, int? n = default(int?), int? offset = default(int?), bool? blocked = default(bool?), int operationIndex = 0)
+        public List<GroupMember> GetGroupRequests(string groupId, int? n = default, int? offset = default, bool? blocked = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = GetGroupRequestsWithHttpInfo(groupId, n, offset, blocked);
             return localVarResponse.Data;
@@ -7497,15 +6530,12 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="blocked">See blocked join requests (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupMember&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupMember>> GetGroupRequestsWithHttpInfo(string groupId, int? n = default(int?), int? offset = default(int?), bool? blocked = default(bool?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<GroupMember>> GetGroupRequestsWithHttpInfo(string groupId, int? n = default, int? offset = default, bool? blocked = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupRequests");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -7518,16 +6548,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -7542,9 +6566,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "blocked", blocked));
             }
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupRequests";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -7555,13 +6576,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupRequests", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7575,12 +6594,11 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="blocked">See blocked join requests (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupMember&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupRequestsAsync(string groupId, int? n = default(int?), int? offset = default(int?), bool? blocked = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupRequestsAsync(string groupId, int? n = default, int? offset = default, bool? blocked = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupRequestsWithHttpInfoAsync(groupId, n, offset, blocked, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupRequestsWithHttpInfoAsync(groupId, n, offset, blocked, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7592,16 +6610,13 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="blocked">See blocked join requests (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupMember&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupMember>>> GetGroupRequestsWithHttpInfoAsync(string groupId, int? n = default(int?), int? offset = default(int?), bool? blocked = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupMember>>> GetGroupRequestsWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, bool? blocked = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupRequests");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -7614,17 +6629,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             if (n != null)
@@ -7640,9 +6650,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "blocked", blocked));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupRequests";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -7651,15 +6658,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupRequests", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7669,9 +6674,8 @@ namespace VRChat.API.Api
         /// Get Group Role Templates Obtain predefined templates for group roles
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Dictionary&lt;string, GroupRoleTemplateValues&gt;</returns>
-        public Dictionary<string, GroupRoleTemplateValues> GetGroupRoleTemplates(int operationIndex = 0)
+        public Dictionary<string, GroupRoleTemplateValues> GetGroupRoleTemplates()
         {
             VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>> localVarResponse = GetGroupRoleTemplatesWithHttpInfo();
             return localVarResponse.Data;
@@ -7681,9 +6685,8 @@ namespace VRChat.API.Api
         /// Get Group Role Templates Obtain predefined templates for group roles
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, GroupRoleTemplateValues&gt;</returns>
-        public VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>> GetGroupRoleTemplatesWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>> GetGroupRoleTemplatesWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -7696,20 +6699,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupRoleTemplates";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -7720,13 +6714,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Dictionary<string, GroupRoleTemplateValues>>("/groups/roleTemplates", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupRoleTemplates", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7736,12 +6728,11 @@ namespace VRChat.API.Api
         /// Get Group Role Templates Obtain predefined templates for group roles
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Dictionary&lt;string, GroupRoleTemplateValues&gt;</returns>
-        public async System.Threading.Tasks.Task<Dictionary<string, GroupRoleTemplateValues>> GetGroupRoleTemplatesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dictionary<string, GroupRoleTemplateValues>> GetGroupRoleTemplatesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>> localVarResponse = await GetGroupRoleTemplatesWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>> localVarResponse = await GetGroupRoleTemplatesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7749,10 +6740,9 @@ namespace VRChat.API.Api
         /// Get Group Role Templates Obtain predefined templates for group roles
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, GroupRoleTemplateValues&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>>> GetGroupRoleTemplatesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>>> GetGroupRoleTemplatesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -7765,21 +6755,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupRoleTemplates";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -7789,15 +6771,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, GroupRoleTemplateValues>>("/groups/roleTemplates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupRoleTemplates", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7808,9 +6788,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupRole&gt;</returns>
-        public List<GroupRole> GetGroupRoles(string groupId, int operationIndex = 0)
+        public List<GroupRole> GetGroupRoles(string groupId)
         {
             VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = GetGroupRolesWithHttpInfo(groupId);
             return localVarResponse.Data;
@@ -7821,15 +6800,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupRole&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupRole>> GetGroupRolesWithHttpInfo(string groupId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<GroupRole>> GetGroupRolesWithHttpInfo(string groupId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupRoles");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -7842,21 +6818,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupRoles";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -7867,13 +6834,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<GroupRole>>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupRoles", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7884,12 +6849,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupRole&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupRole>> GetGroupRolesAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GroupRole>> GetGroupRolesAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = await GetGroupRolesWithHttpInfoAsync(groupId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = await GetGroupRolesWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7898,16 +6862,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupRole&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupRole>>> GetGroupRolesWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupRole>>> GetGroupRolesWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->GetGroupRoles");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -7920,22 +6881,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.GetGroupRoles";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -7945,15 +6898,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupRole>>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupRoles", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -7964,9 +6915,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupMember</returns>
-        public GroupMember JoinGroup(string groupId, int operationIndex = 0)
+        public GroupMember JoinGroup(string groupId)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = JoinGroupWithHttpInfo(groupId);
             return localVarResponse.Data;
@@ -7977,15 +6927,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupMember</returns>
-        public VRChat.API.Client.ApiResponse<GroupMember> JoinGroupWithHttpInfo(string groupId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupMember> JoinGroupWithHttpInfo(string groupId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->JoinGroup");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -7998,21 +6945,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.JoinGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -8023,13 +6961,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<GroupMember>("/groups/{groupId}/join", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("JoinGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8040,12 +6976,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupMember</returns>
-        public async System.Threading.Tasks.Task<GroupMember> JoinGroupAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupMember> JoinGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await JoinGroupWithHttpInfoAsync(groupId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await JoinGroupWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8054,16 +6989,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupMember)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupMember>> JoinGroupWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupMember>> JoinGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->JoinGroup");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -8076,22 +7008,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.JoinGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -8101,15 +7025,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<GroupMember>("/groups/{groupId}/join", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("JoinGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8121,9 +7043,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void KickGroupMember(string groupId, string userId, int operationIndex = 0)
+        public void KickGroupMember(string groupId, string userId)
         {
             KickGroupMemberWithHttpInfo(groupId, userId);
         }
@@ -8134,21 +7055,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> KickGroupMemberWithHttpInfo(string groupId, string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> KickGroupMemberWithHttpInfo(string groupId, string userId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->KickGroupMember");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->KickGroupMember");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -8161,22 +7077,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.KickGroupMember";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -8187,13 +7094,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Object>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("KickGroupMember", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8205,12 +7110,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task KickGroupMemberAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task KickGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await KickGroupMemberWithHttpInfoAsync(groupId, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await KickGroupMemberWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -8219,22 +7123,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> KickGroupMemberWithHttpInfoAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> KickGroupMemberWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->KickGroupMember");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->KickGroupMember");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -8247,23 +7146,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.KickGroupMember";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -8273,15 +7164,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("KickGroupMember", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8292,9 +7181,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void LeaveGroup(string groupId, int operationIndex = 0)
+        public void LeaveGroup(string groupId)
         {
             LeaveGroupWithHttpInfo(groupId);
         }
@@ -8304,15 +7192,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> LeaveGroupWithHttpInfo(string groupId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> LeaveGroupWithHttpInfo(string groupId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->LeaveGroup");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -8325,21 +7210,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.LeaveGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -8350,13 +7226,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Object>("/groups/{groupId}/leave", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("LeaveGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8367,12 +7241,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task LeaveGroupAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task LeaveGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await LeaveGroupWithHttpInfoAsync(groupId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await LeaveGroupWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -8380,16 +7253,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> LeaveGroupWithHttpInfoAsync(string groupId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> LeaveGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->LeaveGroup");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -8402,22 +7272,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.LeaveGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -8427,15 +7289,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/groups/{groupId}/leave", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("LeaveGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8448,9 +7308,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;string&gt;</returns>
-        public List<string> RemoveGroupMemberRole(string groupId, string userId, string groupRoleId, int operationIndex = 0)
+        public List<string> RemoveGroupMemberRole(string groupId, string userId, string groupRoleId)
         {
             VRChat.API.Client.ApiResponse<List<string>> localVarResponse = RemoveGroupMemberRoleWithHttpInfo(groupId, userId, groupRoleId);
             return localVarResponse.Data;
@@ -8463,27 +7322,20 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<string>> RemoveGroupMemberRoleWithHttpInfo(string groupId, string userId, string groupRoleId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<string>> RemoveGroupMemberRoleWithHttpInfo(string groupId, string userId, string groupRoleId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->RemoveGroupMemberRole");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->RemoveGroupMemberRole");
-            }
 
             // verify the required parameter 'groupRoleId' is set
             if (groupRoleId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupRoleId' when calling GroupsApi->RemoveGroupMemberRole");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -8496,23 +7348,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupRoleId", VRChat.API.Client.ClientUtils.ParameterToString(groupRoleId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.RemoveGroupMemberRole";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -8523,13 +7366,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RemoveGroupMemberRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8542,12 +7383,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;string&gt;</returns>
-        public async System.Threading.Tasks.Task<List<string>> RemoveGroupMemberRoleAsync(string groupId, string userId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<string>> RemoveGroupMemberRoleAsync(string groupId, string userId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<string>> localVarResponse = await RemoveGroupMemberRoleWithHttpInfoAsync(groupId, userId, groupRoleId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<string>> localVarResponse = await RemoveGroupMemberRoleWithHttpInfoAsync(groupId, userId, groupRoleId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8558,28 +7398,21 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<string>>> RemoveGroupMemberRoleWithHttpInfoAsync(string groupId, string userId, string groupRoleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<string>>> RemoveGroupMemberRoleWithHttpInfoAsync(string groupId, string userId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->RemoveGroupMemberRole");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->RemoveGroupMemberRole");
-            }
 
             // verify the required parameter 'groupRoleId' is set
             if (groupRoleId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupRoleId' when calling GroupsApi->RemoveGroupMemberRole");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -8592,24 +7425,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupRoleId", VRChat.API.Client.ClientUtils.ParameterToString(groupRoleId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.RemoveGroupMemberRole";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -8619,15 +7444,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RemoveGroupMemberRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8640,9 +7463,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="respondGroupJoinRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void RespondGroupJoinRequest(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, int operationIndex = 0)
+        public void RespondGroupJoinRequest(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest)
         {
             RespondGroupJoinRequestWithHttpInfo(groupId, userId, respondGroupJoinRequest);
         }
@@ -8654,27 +7476,20 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="respondGroupJoinRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> RespondGroupJoinRequestWithHttpInfo(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> RespondGroupJoinRequestWithHttpInfo(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->RespondGroupJoinRequest");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->RespondGroupJoinRequest");
-            }
 
             // verify the required parameter 'respondGroupJoinRequest' is set
             if (respondGroupJoinRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'respondGroupJoinRequest' when calling GroupsApi->RespondGroupJoinRequest");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -8688,23 +7503,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = respondGroupJoinRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.RespondGroupJoinRequest";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -8715,13 +7521,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Object>("/groups/{groupId}/requests/{userId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RespondGroupJoinRequest", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8734,12 +7538,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="respondGroupJoinRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RespondGroupJoinRequestAsync(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task RespondGroupJoinRequestAsync(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            await RespondGroupJoinRequestWithHttpInfoAsync(groupId, userId, respondGroupJoinRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            await RespondGroupJoinRequestWithHttpInfoAsync(groupId, userId, respondGroupJoinRequest, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -8749,28 +7552,21 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="respondGroupJoinRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> RespondGroupJoinRequestWithHttpInfoAsync(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> RespondGroupJoinRequestWithHttpInfoAsync(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->RespondGroupJoinRequest");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->RespondGroupJoinRequest");
-            }
 
             // verify the required parameter 'respondGroupJoinRequest' is set
             if (respondGroupJoinRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'respondGroupJoinRequest' when calling GroupsApi->RespondGroupJoinRequest");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -8784,24 +7580,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = respondGroupJoinRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.RespondGroupJoinRequest";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -8811,15 +7599,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/groups/{groupId}/requests/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RespondGroupJoinRequest", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8832,9 +7618,8 @@ namespace VRChat.API.Api
         /// <param name="query">Query to search for, can be either Group Name or Group shortCode (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LimitedGroup&gt;</returns>
-        public List<LimitedGroup> SearchGroups(string query = default(string), int? offset = default(int?), int? n = default(int?), int operationIndex = 0)
+        public List<LimitedGroup> SearchGroups(string? query = default, int? offset = default, int? n = default)
         {
             VRChat.API.Client.ApiResponse<List<LimitedGroup>> localVarResponse = SearchGroupsWithHttpInfo(query, offset, n);
             return localVarResponse.Data;
@@ -8847,9 +7632,8 @@ namespace VRChat.API.Api
         /// <param name="query">Query to search for, can be either Group Name or Group shortCode (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LimitedGroup&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<LimitedGroup>> SearchGroupsWithHttpInfo(string query = default(string), int? offset = default(int?), int? n = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<LimitedGroup>> SearchGroupsWithHttpInfo(string? query = default, int? offset = default, int? n = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -8862,16 +7646,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (query != null)
             {
@@ -8886,19 +7664,14 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.SearchGroups";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<LimitedGroup>>("/groups", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchGroups", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8911,12 +7684,11 @@ namespace VRChat.API.Api
         /// <param name="query">Query to search for, can be either Group Name or Group shortCode (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedGroup&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LimitedGroup>> SearchGroupsAsync(string query = default(string), int? offset = default(int?), int? n = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<LimitedGroup>> SearchGroupsAsync(string? query = default, int? offset = default, int? n = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedGroup>> localVarResponse = await SearchGroupsWithHttpInfoAsync(query, offset, n, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<LimitedGroup>> localVarResponse = await SearchGroupsWithHttpInfoAsync(query, offset, n, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8927,10 +7699,9 @@ namespace VRChat.API.Api
         /// <param name="query">Query to search for, can be either Group Name or Group shortCode (optional)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedGroup&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedGroup>>> SearchGroupsWithHttpInfoAsync(string query = default(string), int? offset = default(int?), int? n = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedGroup>>> SearchGroupsWithHttpInfoAsync(string? query = default, int? offset = default, int? n = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -8943,17 +7714,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (query != null)
             {
@@ -8968,20 +7734,15 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
             }
 
-            localVarRequestOptions.Operation = "GroupsApi.SearchGroups";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<LimitedGroup>>("/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchGroups", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -8993,9 +7754,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupMember</returns>
-        public GroupMember UnbanGroupMember(string groupId, string userId, int operationIndex = 0)
+        public GroupMember UnbanGroupMember(string groupId, string userId)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = UnbanGroupMemberWithHttpInfo(groupId, userId);
             return localVarResponse.Data;
@@ -9007,21 +7767,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupMember</returns>
-        public VRChat.API.Client.ApiResponse<GroupMember> UnbanGroupMemberWithHttpInfo(string groupId, string userId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupMember> UnbanGroupMemberWithHttpInfo(string groupId, string userId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UnbanGroupMember");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->UnbanGroupMember");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -9034,22 +7789,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.UnbanGroupMember";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9060,13 +7806,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<GroupMember>("/groups/{groupId}/bans/{userId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UnbanGroupMember", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9078,12 +7822,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupMember</returns>
-        public async System.Threading.Tasks.Task<GroupMember> UnbanGroupMemberAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupMember> UnbanGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await UnbanGroupMemberWithHttpInfoAsync(groupId, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await UnbanGroupMemberWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9093,22 +7836,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupMember)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupMember>> UnbanGroupMemberWithHttpInfoAsync(string groupId, string userId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupMember>> UnbanGroupMemberWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UnbanGroupMember");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->UnbanGroupMember");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -9121,23 +7859,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
-
-            localVarRequestOptions.Operation = "GroupsApi.UnbanGroupMember";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9147,15 +7877,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<GroupMember>("/groups/{groupId}/bans/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UnbanGroupMember", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9167,9 +7895,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Group</returns>
-        public Group UpdateGroup(string groupId, UpdateGroupRequest updateGroupRequest = default(UpdateGroupRequest), int operationIndex = 0)
+        public Group UpdateGroup(string groupId, UpdateGroupRequest? updateGroupRequest = default)
         {
             VRChat.API.Client.ApiResponse<Group> localVarResponse = UpdateGroupWithHttpInfo(groupId, updateGroupRequest);
             return localVarResponse.Data;
@@ -9181,15 +7908,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Group</returns>
-        public VRChat.API.Client.ApiResponse<Group> UpdateGroupWithHttpInfo(string groupId, UpdateGroupRequest updateGroupRequest = default(UpdateGroupRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Group> UpdateGroupWithHttpInfo(string groupId, UpdateGroupRequest? updateGroupRequest = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroup");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -9203,22 +7927,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = updateGroupRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9229,13 +7944,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9247,12 +7960,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        public async System.Threading.Tasks.Task<Group> UpdateGroupAsync(string groupId, UpdateGroupRequest updateGroupRequest = default(UpdateGroupRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Group> UpdateGroupAsync(string groupId, UpdateGroupRequest? updateGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Group> localVarResponse = await UpdateGroupWithHttpInfoAsync(groupId, updateGroupRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Group> localVarResponse = await UpdateGroupWithHttpInfoAsync(groupId, updateGroupRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9262,16 +7974,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Group>> UpdateGroupWithHttpInfoAsync(string groupId, UpdateGroupRequest updateGroupRequest = default(UpdateGroupRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Group>> UpdateGroupWithHttpInfoAsync(string groupId, UpdateGroupRequest? updateGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroup");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -9285,23 +7994,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = updateGroupRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroup";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9311,15 +8012,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroup", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9332,9 +8031,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="updateGroupGalleryRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupGallery</returns>
-        public GroupGallery UpdateGroupGallery(string groupId, string groupGalleryId, UpdateGroupGalleryRequest updateGroupGalleryRequest = default(UpdateGroupGalleryRequest), int operationIndex = 0)
+        public GroupGallery UpdateGroupGallery(string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = default)
         {
             VRChat.API.Client.ApiResponse<GroupGallery> localVarResponse = UpdateGroupGalleryWithHttpInfo(groupId, groupGalleryId, updateGroupGalleryRequest);
             return localVarResponse.Data;
@@ -9347,21 +8045,16 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="updateGroupGalleryRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupGallery</returns>
-        public VRChat.API.Client.ApiResponse<GroupGallery> UpdateGroupGalleryWithHttpInfo(string groupId, string groupGalleryId, UpdateGroupGalleryRequest updateGroupGalleryRequest = default(UpdateGroupGalleryRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupGallery> UpdateGroupGalleryWithHttpInfo(string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroupGallery");
-            }
 
             // verify the required parameter 'groupGalleryId' is set
             if (groupGalleryId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryId' when calling GroupsApi->UpdateGroupGallery");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -9375,23 +8068,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryId)); // path parameter
             localVarRequestOptions.Data = updateGroupGalleryRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroupGallery";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9402,13 +8086,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<GroupGallery>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupGallery", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9421,12 +8103,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="updateGroupGalleryRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupGallery</returns>
-        public async System.Threading.Tasks.Task<GroupGallery> UpdateGroupGalleryAsync(string groupId, string groupGalleryId, UpdateGroupGalleryRequest updateGroupGalleryRequest = default(UpdateGroupGalleryRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupGallery> UpdateGroupGalleryAsync(string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupGallery> localVarResponse = await UpdateGroupGalleryWithHttpInfoAsync(groupId, groupGalleryId, updateGroupGalleryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupGallery> localVarResponse = await UpdateGroupGalleryWithHttpInfoAsync(groupId, groupGalleryId, updateGroupGalleryRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9437,22 +8118,17 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="updateGroupGalleryRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupGallery)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupGallery>> UpdateGroupGalleryWithHttpInfoAsync(string groupId, string groupGalleryId, UpdateGroupGalleryRequest updateGroupGalleryRequest = default(UpdateGroupGalleryRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupGallery>> UpdateGroupGalleryWithHttpInfoAsync(string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroupGallery");
-            }
 
             // verify the required parameter 'groupGalleryId' is set
             if (groupGalleryId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupGalleryId' when calling GroupsApi->UpdateGroupGallery");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -9466,24 +8142,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupGalleryId", VRChat.API.Client.ClientUtils.ParameterToString(groupGalleryId)); // path parameter
             localVarRequestOptions.Data = updateGroupGalleryRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroupGallery";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9493,15 +8161,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<GroupGallery>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupGallery", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9514,9 +8180,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupLimitedMember</returns>
-        public GroupLimitedMember UpdateGroupMember(string groupId, string userId, UpdateGroupMemberRequest updateGroupMemberRequest = default(UpdateGroupMemberRequest), int operationIndex = 0)
+        public GroupLimitedMember UpdateGroupMember(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default)
         {
             VRChat.API.Client.ApiResponse<GroupLimitedMember> localVarResponse = UpdateGroupMemberWithHttpInfo(groupId, userId, updateGroupMemberRequest);
             return localVarResponse.Data;
@@ -9529,21 +8194,16 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupLimitedMember</returns>
-        public VRChat.API.Client.ApiResponse<GroupLimitedMember> UpdateGroupMemberWithHttpInfo(string groupId, string userId, UpdateGroupMemberRequest updateGroupMemberRequest = default(UpdateGroupMemberRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupLimitedMember> UpdateGroupMemberWithHttpInfo(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroupMember");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->UpdateGroupMember");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -9557,23 +8217,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = updateGroupMemberRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroupMember";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9584,13 +8235,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<GroupLimitedMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupMember", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9603,12 +8252,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupLimitedMember</returns>
-        public async System.Threading.Tasks.Task<GroupLimitedMember> UpdateGroupMemberAsync(string groupId, string userId, UpdateGroupMemberRequest updateGroupMemberRequest = default(UpdateGroupMemberRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupLimitedMember> UpdateGroupMemberAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupLimitedMember> localVarResponse = await UpdateGroupMemberWithHttpInfoAsync(groupId, userId, updateGroupMemberRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupLimitedMember> localVarResponse = await UpdateGroupMemberWithHttpInfoAsync(groupId, userId, updateGroupMemberRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9619,22 +8267,17 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupLimitedMember)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupLimitedMember>> UpdateGroupMemberWithHttpInfoAsync(string groupId, string userId, UpdateGroupMemberRequest updateGroupMemberRequest = default(UpdateGroupMemberRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupLimitedMember>> UpdateGroupMemberWithHttpInfoAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroupMember");
-            }
 
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling GroupsApi->UpdateGroupMember");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -9648,24 +8291,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = updateGroupMemberRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroupMember";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9675,15 +8310,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<GroupLimitedMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupMember", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9696,9 +8329,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GroupPost</returns>
-        public GroupPost UpdateGroupPost(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0)
+        public GroupPost UpdateGroupPost(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest)
         {
             VRChat.API.Client.ApiResponse<GroupPost> localVarResponse = UpdateGroupPostWithHttpInfo(groupId, notificationId, createGroupPostRequest);
             return localVarResponse.Data;
@@ -9711,27 +8343,20 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GroupPost</returns>
-        public VRChat.API.Client.ApiResponse<GroupPost> UpdateGroupPostWithHttpInfo(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<GroupPost> UpdateGroupPostWithHttpInfo(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroupPost");
-            }
 
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling GroupsApi->UpdateGroupPost");
-            }
 
             // verify the required parameter 'createGroupPostRequest' is set
             if (createGroupPostRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupPostRequest' when calling GroupsApi->UpdateGroupPost");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -9745,23 +8370,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
             localVarRequestOptions.Data = createGroupPostRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroupPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9772,13 +8388,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<GroupPost>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9791,12 +8405,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupPost</returns>
-        public async System.Threading.Tasks.Task<GroupPost> UpdateGroupPostAsync(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GroupPost> UpdateGroupPostAsync(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupPost> localVarResponse = await UpdateGroupPostWithHttpInfoAsync(groupId, notificationId, createGroupPostRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupPost> localVarResponse = await UpdateGroupPostWithHttpInfoAsync(groupId, notificationId, createGroupPostRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9807,28 +8420,21 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="createGroupPostRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupPost)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupPost>> UpdateGroupPostWithHttpInfoAsync(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupPost>> UpdateGroupPostWithHttpInfoAsync(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroupPost");
-            }
 
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'notificationId' when calling GroupsApi->UpdateGroupPost");
-            }
 
             // verify the required parameter 'createGroupPostRequest' is set
             if (createGroupPostRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createGroupPostRequest' when calling GroupsApi->UpdateGroupPost");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -9842,24 +8448,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationId", VRChat.API.Client.ClientUtils.ParameterToString(notificationId)); // path parameter
             localVarRequestOptions.Data = createGroupPostRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroupPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9869,15 +8467,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<GroupPost>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9889,9 +8485,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRepresentationRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Success</returns>
-        public Success UpdateGroupRepresentation(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, int operationIndex = 0)
+        public Success UpdateGroupRepresentation(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = UpdateGroupRepresentationWithHttpInfo(groupId, updateGroupRepresentationRequest);
             return localVarResponse.Data;
@@ -9903,21 +8498,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRepresentationRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> UpdateGroupRepresentationWithHttpInfo(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Success> UpdateGroupRepresentationWithHttpInfo(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroupRepresentation");
-            }
 
             // verify the required parameter 'updateGroupRepresentationRequest' is set
             if (updateGroupRepresentationRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updateGroupRepresentationRequest' when calling GroupsApi->UpdateGroupRepresentation");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -9931,22 +8521,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = updateGroupRepresentationRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroupRepresentation";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -9957,13 +8538,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Success>("/groups/{groupId}/representation", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupRepresentation", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -9975,12 +8554,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRepresentationRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> UpdateGroupRepresentationAsync(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Success> UpdateGroupRepresentationAsync(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await UpdateGroupRepresentationWithHttpInfoAsync(groupId, updateGroupRepresentationRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await UpdateGroupRepresentationWithHttpInfoAsync(groupId, updateGroupRepresentationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9990,22 +8568,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="updateGroupRepresentationRequest"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> UpdateGroupRepresentationWithHttpInfoAsync(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> UpdateGroupRepresentationWithHttpInfoAsync(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroupRepresentation");
-            }
 
             // verify the required parameter 'updateGroupRepresentationRequest' is set
             if (updateGroupRepresentationRequest == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updateGroupRepresentationRequest' when calling GroupsApi->UpdateGroupRepresentation");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -10019,23 +8592,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = updateGroupRepresentationRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroupRepresentation";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -10045,15 +8610,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/groups/{groupId}/representation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupRepresentation", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -10066,9 +8629,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
         /// <param name="updateGroupRoleRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GroupRole&gt;</returns>
-        public List<GroupRole> UpdateGroupRole(string groupId, string groupRoleId, UpdateGroupRoleRequest updateGroupRoleRequest = default(UpdateGroupRoleRequest), int operationIndex = 0)
+        public List<GroupRole> UpdateGroupRole(string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = UpdateGroupRoleWithHttpInfo(groupId, groupRoleId, updateGroupRoleRequest);
             return localVarResponse.Data;
@@ -10081,21 +8643,16 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
         /// <param name="updateGroupRoleRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GroupRole&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupRole>> UpdateGroupRoleWithHttpInfo(string groupId, string groupRoleId, UpdateGroupRoleRequest updateGroupRoleRequest = default(UpdateGroupRoleRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<GroupRole>> UpdateGroupRoleWithHttpInfo(string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroupRole");
-            }
 
             // verify the required parameter 'groupRoleId' is set
             if (groupRoleId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupRoleId' when calling GroupsApi->UpdateGroupRole");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -10109,23 +8666,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupRoleId", VRChat.API.Client.ClientUtils.ParameterToString(groupRoleId)); // path parameter
             localVarRequestOptions.Data = updateGroupRoleRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroupRole";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -10136,13 +8684,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -10155,12 +8701,11 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
         /// <param name="updateGroupRoleRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;GroupRole&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupRole>> UpdateGroupRoleAsync(string groupId, string groupRoleId, UpdateGroupRoleRequest updateGroupRoleRequest = default(UpdateGroupRoleRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<GroupRole>> UpdateGroupRoleAsync(string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = await UpdateGroupRoleWithHttpInfoAsync(groupId, groupRoleId, updateGroupRoleRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = await UpdateGroupRoleWithHttpInfoAsync(groupId, groupRoleId, updateGroupRoleRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -10171,22 +8716,17 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="groupRoleId">Must be a valid group role ID.</param>
         /// <param name="updateGroupRoleRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupRole&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupRole>>> UpdateGroupRoleWithHttpInfoAsync(string groupId, string groupRoleId, UpdateGroupRoleRequest updateGroupRoleRequest = default(UpdateGroupRoleRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupRole>>> UpdateGroupRoleWithHttpInfoAsync(string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->UpdateGroupRole");
-            }
 
             // verify the required parameter 'groupRoleId' is set
             if (groupRoleId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupRoleId' when calling GroupsApi->UpdateGroupRole");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -10200,24 +8740,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupRoleId", VRChat.API.Client.ClientUtils.ParameterToString(groupRoleId)); // path parameter
             localVarRequestOptions.Data = updateGroupRoleRequest;
-
-            localVarRequestOptions.Operation = "GroupsApi.UpdateGroupRole";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -10227,15 +8759,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateGroupRole", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

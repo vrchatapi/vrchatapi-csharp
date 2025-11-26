@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -61,7 +62,7 @@ namespace VRChat.API.Model
         /// <param name="technical">technical.</param>
         /// <param name="threatening">threatening (required).</param>
         /// <param name="visuals">visuals (required).</param>
-        public APIConfigReportReasons(ReportReason billing = default(ReportReason), ReportReason botting = default(ReportReason), ReportReason cancellation = default(ReportReason), ReportReason copyright = default(ReportReason), ReportReason fraud = default(ReportReason), ReportReason gore = default(ReportReason), ReportReason hacking = default(ReportReason), ReportReason harassing = default(ReportReason), ReportReason hateful = default(ReportReason), ReportReason impersonation = default(ReportReason), ReportReason inappropriate = default(ReportReason), ReportReason leaking = default(ReportReason), ReportReason malicious = default(ReportReason), ReportReason missing = default(ReportReason), ReportReason nudity = default(ReportReason), ReportReason renewal = default(ReportReason), ReportReason security = default(ReportReason), ReportReason service = default(ReportReason), ReportReason sexual = default(ReportReason), ReportReason technical = default(ReportReason), ReportReason threatening = default(ReportReason), ReportReason visuals = default(ReportReason))
+        public APIConfigReportReasons(ReportReason billing = default, ReportReason botting = default, ReportReason cancellation = default, ReportReason copyright = default, ReportReason fraud = default, ReportReason gore = default, ReportReason hacking = default, ReportReason harassing = default, ReportReason hateful = default, ReportReason impersonation = default, ReportReason inappropriate = default, ReportReason leaking = default, ReportReason malicious = default, ReportReason missing = default, ReportReason nudity = default, ReportReason renewal = default, ReportReason security = default, ReportReason service = default, ReportReason sexual = default, ReportReason technical = default, ReportReason threatening = default, ReportReason visuals = default)
         {
             // to ensure "billing" is required (not null)
             if (billing == null)
@@ -597,7 +598,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

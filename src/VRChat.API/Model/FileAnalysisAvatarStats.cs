@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -83,7 +84,7 @@ namespace VRChat.API.Model
         /// <param name="totalVertices">totalVertices (required).</param>
         /// <param name="trailRendererCount">trailRendererCount (required).</param>
         /// <param name="writeDefaultsUsed">writeDefaultsUsed (required).</param>
-        public FileAnalysisAvatarStats(int animatorCount = default(int), int audioSourceCount = default(int), int blendShapeCount = default(int), int boneCount = default(int), List<decimal> bounds = default(List<decimal>), int cameraCount = default(int), int clothCount = default(int), int constraintCount = default(int), int constraintDepth = default(int), int contactCount = default(int), bool customExpressions = default(bool), bool customizeAnimationLayers = default(bool), bool enableEyeLook = default(bool), int lightCount = default(int), int lineRendererCount = default(int), int lipSync = default(int), int materialCount = default(int), int materialSlotsUsed = default(int), int meshCount = default(int), int meshIndices = default(int), int meshParticleMaxPolygons = default(int), int meshPolygons = default(int), int meshVertices = default(int), bool particleCollisionEnabled = default(bool), int particleSystemCount = default(int), bool particleTrailsEnabled = default(bool), int physBoneColliderCount = default(int), int physBoneCollisionCheckCount = default(int), int physBoneComponentCount = default(int), int physBoneTransformCount = default(int), int physicsColliders = default(int), int physicsRigidbodies = default(int), int skinnedMeshCount = default(int), int skinnedMeshIndices = default(int), int skinnedMeshPolygons = default(int), int skinnedMeshVertices = default(int), int totalClothVertices = default(int), int totalIndices = default(int), int totalMaxParticles = default(int), int totalPolygons = default(int), int totalTextureUsage = default(int), int totalVertices = default(int), int trailRendererCount = default(int), bool writeDefaultsUsed = default(bool))
+        public FileAnalysisAvatarStats(int animatorCount = default, int audioSourceCount = default, int blendShapeCount = default, int boneCount = default, List<decimal> bounds = default, int cameraCount = default, int clothCount = default, int constraintCount = default, int constraintDepth = default, int contactCount = default, bool customExpressions = default, bool customizeAnimationLayers = default, bool enableEyeLook = default, int lightCount = default, int lineRendererCount = default, int lipSync = default, int materialCount = default, int materialSlotsUsed = default, int meshCount = default, int meshIndices = default, int meshParticleMaxPolygons = default, int meshPolygons = default, int meshVertices = default, bool particleCollisionEnabled = default, int particleSystemCount = default, bool particleTrailsEnabled = default, int physBoneColliderCount = default, int physBoneCollisionCheckCount = default, int physBoneComponentCount = default, int physBoneTransformCount = default, int physicsColliders = default, int physicsRigidbodies = default, int skinnedMeshCount = default, int skinnedMeshIndices = default, int skinnedMeshPolygons = default, int skinnedMeshVertices = default, int totalClothVertices = default, int totalIndices = default, int totalMaxParticles = default, int totalPolygons = default, int totalTextureUsage = default, int totalVertices = default, int trailRendererCount = default, bool writeDefaultsUsed = default)
         {
             this.AnimatorCount = animatorCount;
             this.AudioSourceCount = audioSourceCount;
@@ -732,7 +733,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

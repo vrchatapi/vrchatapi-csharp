@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="maskTag">maskTag.</param>
         /// <param name="propId">propId.</param>
-        public InventoryMetadata(List<string> inventoryItemsToInstantiate = default(List<string>), bool animated = default(bool), string animationStyle = default(string), string assetBundleId = default(string), string fileId = default(string), string imageUrl = default(string), string maskTag = default(string), string propId = default(string))
+        public InventoryMetadata(List<string> inventoryItemsToInstantiate = default, bool animated = default, string animationStyle = default, string assetBundleId = default, string fileId = default, string imageUrl = default, string maskTag = default, string propId = default)
         {
             this.InventoryItemsToInstantiate = inventoryItemsToInstantiate;
             this.Animated = animated;
@@ -100,6 +101,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PropId
         /// </summary>
+        /*
+        <example>prop_829ba6f6-b837-49d9-b9a9-056b82103b58</example>
+        */
         [DataMember(Name = "propId", EmitDefaultValue = false)]
         public string PropId { get; set; }
 
@@ -243,7 +247,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

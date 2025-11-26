@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -40,9 +41,9 @@ namespace VRChat.API.Model
         /// <param name="name">name.</param>
         /// <param name="onPressed">onPressed.</param>
         /// <param name="template">template.</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="article">article.</param>
-        public InfoPushData(DynamicContentRow contentList = default(DynamicContentRow), string description = default(string), string imageUrl = default(string), string name = default(string), InfoPushDataClickable onPressed = default(InfoPushDataClickable), string template = default(string), string version = default(string), InfoPushDataArticle article = default(InfoPushDataArticle))
+        public InfoPushData(DynamicContentRow contentList = default, string description = default, string imageUrl = default, string name = default, InfoPushDataClickable onPressed = default, string template = default, string varVersion = default, InfoPushDataArticle article = default)
         {
             this.ContentList = contentList;
             this.Description = description;
@@ -50,7 +51,7 @@ namespace VRChat.API.Model
             this.Name = name;
             this.OnPressed = onPressed;
             this.Template = template;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Article = article;
         }
 
@@ -91,10 +92,13 @@ namespace VRChat.API.Model
         public string Template { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
+        /*
+        <example>2021.3.4</example>
+        */
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public string _Version { get; set; }
+        public string VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Article
@@ -116,7 +120,7 @@ namespace VRChat.API.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OnPressed: ").Append(OnPressed).Append("\n");
             sb.Append("  Template: ").Append(Template).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Article: ").Append(Article).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -184,9 +188,9 @@ namespace VRChat.API.Model
                     this.Template.Equals(input.Template))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Article == input.Article ||
@@ -228,9 +232,9 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Template.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Article != null)
                 {
@@ -245,18 +249,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ImageUrl (string) minLength
             if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
+                yield return new ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
-            // _Version (string) minLength
-            if (this._Version != null && this._Version.Length < 1)
+            // VarVersion (string) minLength
+            if (this.VarVersion != null && this.VarVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, length must be greater than 1.", new [] { "_Version" });
+                yield return new ValidationResult("Invalid value for VarVersion, length must be greater than 1.", new [] { "VarVersion" });
             }
 
             yield break;

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// <param name="iosSort">iosSort.</param>
         /// <param name="standalonewindows">standalonewindows.</param>
         /// <param name="standalonewindowsSort">standalonewindowsSort.</param>
-        public AvatarPerformance(string android = default(string), int androidSort = default(int), string ios = default(string), int iosSort = default(int), string standalonewindows = default(string), int standalonewindowsSort = default(int))
+        public AvatarPerformance(string android = default, int androidSort = default, string ios = default, int iosSort = default, string standalonewindows = default, int standalonewindowsSort = default)
         {
             this.Android = android;
             this.AndroidSort = androidSort;
@@ -197,7 +198,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

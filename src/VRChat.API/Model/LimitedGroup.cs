@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -57,7 +58,7 @@ namespace VRChat.API.Model
         /// <param name="membershipStatus">membershipStatus.</param>
         /// <param name="isSearchable">isSearchable.</param>
         /// <param name="galleries"> .</param>
-        public LimitedGroup(string id = default(string), string name = default(string), string shortCode = default(string), string discriminator = default(string), string description = default(string), string iconUrl = default(string), string bannerUrl = default(string), string ownerId = default(string), string rules = default(string), string iconId = default(string), string bannerId = default(string), int memberCount = default(int), List<string> tags = default(List<string>), DateTime createdAt = default(DateTime), GroupMemberStatus? membershipStatus = default(GroupMemberStatus?), bool isSearchable = default(bool), List<GroupGallery> galleries = default(List<GroupGallery>))
+        public LimitedGroup(string id = default, string name = default, string shortCode = default, string discriminator = default, string description = default, string iconUrl = default, string bannerUrl = default, string ownerId = default, string rules = default, string iconId = default, string bannerId = default, int memberCount = default, List<string> tags = default, DateTime createdAt = default, GroupMemberStatus? membershipStatus = default, bool isSearchable = default, List<GroupGallery> galleries = default)
         {
             this.Id = id;
             this.Name = name;
@@ -81,6 +82,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -93,12 +97,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ShortCode
         /// </summary>
+        /*
+        <example>ABC123</example>
+        */
         [DataMember(Name = "shortCode", EmitDefaultValue = false)]
         public string ShortCode { get; set; }
 
         /// <summary>
         /// Gets or Sets Discriminator
         /// </summary>
+        /*
+        <example>1234</example>
+        */
         [DataMember(Name = "discriminator", EmitDefaultValue = false)]
         public string Discriminator { get; set; }
 
@@ -124,6 +134,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public string OwnerId { get; set; }
 
@@ -400,7 +413,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

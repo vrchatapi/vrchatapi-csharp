@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -44,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="orderId">Steam Order ID (required).</param>
         /// <param name="steamUrl">Empty (required).</param>
         /// <param name="transId">Steam Transaction ID, NOT the same as VRChat TransactionID (required).</param>
-        public TransactionSteamInfo(TransactionSteamWalletInfo walletInfo = default(TransactionSteamWalletInfo), string steamId = default(string), string orderId = default(string), string steamUrl = default(string), string transId = default(string))
+        public TransactionSteamInfo(TransactionSteamWalletInfo walletInfo = default, string steamId = default, string orderId = default, string steamUrl = default, string transId = default)
         {
             // to ensure "walletInfo" is required (not null)
             if (walletInfo == null)
@@ -225,24 +226,24 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // SteamId (string) minLength
             if (this.SteamId != null && this.SteamId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SteamId, length must be greater than 1.", new [] { "SteamId" });
+                yield return new ValidationResult("Invalid value for SteamId, length must be greater than 1.", new [] { "SteamId" });
             }
 
             // OrderId (string) minLength
             if (this.OrderId != null && this.OrderId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OrderId, length must be greater than 1.", new [] { "OrderId" });
+                yield return new ValidationResult("Invalid value for OrderId, length must be greater than 1.", new [] { "OrderId" });
             }
 
             // TransId (string) minLength
             if (this.TransId != null && this.TransId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TransId, length must be greater than 1.", new [] { "TransId" });
+                yield return new ValidationResult("Invalid value for TransId, length must be greater than 1.", new [] { "TransId" });
             }
 
             yield break;

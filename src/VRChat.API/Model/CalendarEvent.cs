@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -65,7 +66,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
         /// <param name="userInterest">userInterest.</param>
-        public CalendarEvent(string accessType = default(string), string category = default(string), int closeInstanceAfterEndMinutes = default(int), DateTime createdAt = default(DateTime), DateTime? deletedAt = default(DateTime?), string description = default(string), DateTime endsAt = default(DateTime), bool featured = default(bool), int guestEarlyJoinMinutes = default(int), int hostEarlyJoinMinutes = default(int), string id = default(string), string imageId = default(string), string imageUrl = default(string), int interestedUserCount = default(int), bool isDraft = default(bool), List<string> languages = default(List<string>), string ownerId = default(string), List<string> platforms = default(List<string>), List<string> roleIds = default(List<string>), DateTime startsAt = default(DateTime), List<string> tags = default(List<string>), string title = default(string), string type = default(string), DateTime updatedAt = default(DateTime), bool usesInstanceOverflow = default(bool), CalendarEventUserInterest userInterest = default(CalendarEventUserInterest))
+        public CalendarEvent(string accessType = default, string category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, string ownerId = default, List<string> platforms = default, List<string> roleIds = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, bool usesInstanceOverflow = default, CalendarEventUserInterest userInterest = default)
         {
             // to ensure "accessType" is required (not null)
             if (accessType == null)
@@ -123,12 +124,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AccessType
         /// </summary>
+        /*
+        <example>group</example>
+        */
         [DataMember(Name = "accessType", IsRequired = true, EmitDefaultValue = true)]
         public string AccessType { get; set; }
 
         /// <summary>
         /// Gets or Sets Category
         /// </summary>
+        /*
+        <example>performance</example>
+        */
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public string Category { get; set; }
 
@@ -183,12 +190,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>cal_6b182f0c-61ef-4bdf-97fe-94f63bcba27b</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "imageId", EmitDefaultValue = false)]
         public string ImageId { get; set; }
 
@@ -220,6 +233,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets OwnerId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public string OwnerId { get; set; }
 
@@ -259,6 +275,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
+        /*
+        <example>event</example>
+        */
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
@@ -579,12 +598,12 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Title (string) minLength
             if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             yield break;

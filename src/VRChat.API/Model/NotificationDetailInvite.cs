@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="inviteMessage">inviteMessage.</param>
         /// <param name="worldId">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. (required).</param>
         /// <param name="worldName">worldName (required).</param>
-        public NotificationDetailInvite(string inviteMessage = default(string), string worldId = default(string), string worldName = default(string))
+        public NotificationDetailInvite(string inviteMessage = default, string worldId = default, string worldName = default)
         {
             // to ensure "worldId" is required (not null)
             if (worldId == null)
@@ -69,6 +70,9 @@ namespace VRChat.API.Model
         /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.
         /// </summary>
         /// <value>Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
+        */
         [DataMember(Name = "worldId", IsRequired = true, EmitDefaultValue = true)]
         public string WorldId { get; set; }
 
@@ -171,7 +175,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

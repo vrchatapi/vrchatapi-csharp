@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -57,7 +58,7 @@ namespace VRChat.API.Model
         /// <param name="revertDisplayName">MUST specify currentPassword as well to revert display name.</param>
         /// <param name="password">MUST specify currentPassword as well to change password.</param>
         /// <param name="currentPassword">currentPassword.</param>
-        public UpdateUserRequest(string email = default(string), bool unsubscribe = default(bool), DateTime birthday = default(DateTime), int acceptedTOSVersion = default(int), List<string> tags = default(List<string>), UserStatus? status = default(UserStatus?), string statusDescription = default(string), string bio = default(string), List<string> bioLinks = default(List<string>), string pronouns = default(string), bool isBoopingEnabled = default(bool), string userIcon = default(string), List<string> contentFilters = default(List<string>), string displayName = default(string), bool revertDisplayName = default(bool), string password = default(string), string currentPassword = default(string))
+        public UpdateUserRequest(string email = default, bool unsubscribe = default, DateOnly birthday = default, int acceptedTOSVersion = default, List<string> tags = default, UserStatus? status = default, string statusDescription = default, string bio = default, List<string> bioLinks = default, string pronouns = default, bool isBoopingEnabled = default, string userIcon = default, List<string> contentFilters = default, string displayName = default, bool revertDisplayName = default, string password = default, string currentPassword = default)
         {
             this.Email = email;
             this.Unsubscribe = unsubscribe;
@@ -94,8 +95,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Birthday
         /// </summary>
         [DataMember(Name = "birthday", EmitDefaultValue = false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Birthday { get; set; }
+        public DateOnly Birthday { get; set; }
 
         /// <summary>
         /// Gets or Sets AcceptedTOSVersion
@@ -144,6 +144,9 @@ namespace VRChat.API.Model
         /// MUST be a valid VRChat /file/ url.
         /// </summary>
         /// <value>MUST be a valid VRChat /file/ url.</value>
+        /*
+        <example>https://api.vrchat.cloud/api/1/file/file_76dc2964-0ce8-41df-b2e7-8edf994fee31/1</example>
+        */
         [DataMember(Name = "userIcon", EmitDefaultValue = false)]
         public string UserIcon { get; set; }
 
@@ -397,30 +400,30 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Bio (string) minLength
             if (this.Bio != null && this.Bio.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bio, length must be greater than 0.", new [] { "Bio" });
+                yield return new ValidationResult("Invalid value for Bio, length must be greater than 0.", new [] { "Bio" });
             }
 
             // Pronouns (string) maxLength
             if (this.Pronouns != null && this.Pronouns.Length > 32)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pronouns, length must be less than 32.", new [] { "Pronouns" });
+                yield return new ValidationResult("Invalid value for Pronouns, length must be less than 32.", new [] { "Pronouns" });
             }
 
             // Pronouns (string) minLength
             if (this.Pronouns != null && this.Pronouns.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pronouns, length must be greater than 0.", new [] { "Pronouns" });
+                yield return new ValidationResult("Invalid value for Pronouns, length must be greater than 0.", new [] { "Pronouns" });
             }
 
             // UserIcon (string) minLength
             if (this.UserIcon != null && this.UserIcon.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserIcon, length must be greater than 0.", new [] { "UserIcon" });
+                yield return new ValidationResult("Invalid value for UserIcon, length must be greater than 0.", new [] { "UserIcon" });
             }
 
             yield break;

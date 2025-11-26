@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="remainingCooldownMinutes">Changes to 60 when updated, although probably server-side configurable. (required) (default to 0).</param>
         /// <param name="slot">slot (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public InviteMessage(bool canBeUpdated = true, string id = default(string), string message = default(string), InviteMessageType messageType = default(InviteMessageType), int remainingCooldownMinutes = 0, int slot = default(int), DateTime updatedAt = default(DateTime))
+        public InviteMessage(bool canBeUpdated = true, string id = default, string message = default, InviteMessageType messageType = default, int remainingCooldownMinutes = 0, int slot = default, DateTime updatedAt = default)
         {
             this.CanBeUpdated = canBeUpdated;
             // to ensure "id" is required (not null)
@@ -82,6 +83,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>invm_24a1c14d-5e24-48e5-90e3-c3f712420ffa</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -227,30 +231,30 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Message (string) minLength
             if (this.Message != null && this.Message.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
+                yield return new ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
             }
 
             // RemainingCooldownMinutes (int) minimum
             if (this.RemainingCooldownMinutes < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RemainingCooldownMinutes, must be a value greater than or equal to 0.", new [] { "RemainingCooldownMinutes" });
+                yield return new ValidationResult("Invalid value for RemainingCooldownMinutes, must be a value greater than or equal to 0.", new [] { "RemainingCooldownMinutes" });
             }
 
             // Slot (int) maximum
             if (this.Slot > (int)11)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Slot, must be a value less than or equal to 11.", new [] { "Slot" });
+                yield return new ValidationResult("Invalid value for Slot, must be a value less than or equal to 11.", new [] { "Slot" });
             }
 
             // Slot (int) minimum
             if (this.Slot < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Slot, must be a value greater than or equal to 0.", new [] { "Slot" });
+                yield return new ValidationResult("Invalid value for Slot, must be a value greater than or equal to 0.", new [] { "Slot" });
             }
 
             yield break;

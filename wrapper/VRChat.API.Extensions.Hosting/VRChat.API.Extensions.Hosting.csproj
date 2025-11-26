@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>VRChat.API.Extensions.Hosting</AssemblyName>
+    <PackageId>VRChat.API.Extensions.Hosting</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>VRChat API Docs Community</Authors>
+    <Company>VRChat API Docs Community</Company>
+    <AssemblyTitle>VRChat API Hosting Extensions for VRChat API Library for .NET</AssemblyTitle>
+    <Description>Extensions for hosting and dependency injection for the VRChat API Library for .NET</Description>
+    <Copyright>Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors.</Copyright>
+    <RootNamespace>VRChat.API.Extensions.Hosting</RootNamespace>
+    <Version>2.20.5</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\VRChat.API.Extensions.Hosting.xml</DocumentationFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>vrchat,vrcapi,microsoft.extensions.hosting,aspnetcore,servicecollection,vrc-api,vrc</PackageTags>
+    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <Content Include="vrc_cat.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\vrc_cat.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\VRChat.API\VRChat.API.csproj" />
+  </ItemGroup>
+</Project>

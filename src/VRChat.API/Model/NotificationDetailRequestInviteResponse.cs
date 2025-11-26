@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="inResponseTo">inResponseTo (required).</param>
         /// <param name="requestMessage">Used when using InviteMessage Slot..</param>
-        public NotificationDetailRequestInviteResponse(string inResponseTo = default(string), string requestMessage = default(string))
+        public NotificationDetailRequestInviteResponse(string inResponseTo = default, string requestMessage = default)
         {
             // to ensure "inResponseTo" is required (not null)
             if (inResponseTo == null)
@@ -55,6 +56,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets InResponseTo
         /// </summary>
+        /*
+        <example>not_00000000-0000-0000-0000-000000000000</example>
+        */
         [DataMember(Name = "inResponseTo", IsRequired = true, EmitDefaultValue = true)]
         public string InResponseTo { get; set; }
 
@@ -148,7 +152,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

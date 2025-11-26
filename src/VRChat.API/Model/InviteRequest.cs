@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="instanceId">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. (required).</param>
         /// <param name="messageSlot">messageSlot.</param>
-        public InviteRequest(string instanceId = default(string), int messageSlot = default(int))
+        public InviteRequest(string instanceId = default, int messageSlot = default)
         {
             // to ensure "instanceId" is required (not null)
             if (instanceId == null)
@@ -56,6 +57,9 @@ namespace VRChat.API.Model
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
+        /*
+        <example>12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
+        */
         [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
         public string InstanceId { get; set; }
 
@@ -144,18 +148,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // MessageSlot (int) maximum
             if (this.MessageSlot > (int)11)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MessageSlot, must be a value less than or equal to 11.", new [] { "MessageSlot" });
+                yield return new ValidationResult("Invalid value for MessageSlot, must be a value less than or equal to 11.", new [] { "MessageSlot" });
             }
 
             // MessageSlot (int) minimum
             if (this.MessageSlot < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MessageSlot, must be a value greater than or equal to 0.", new [] { "MessageSlot" });
+                yield return new ValidationResult("Invalid value for MessageSlot, must be a value greater than or equal to 0.", new [] { "MessageSlot" });
             }
 
             yield break;

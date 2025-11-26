@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>VRChat.API</AssemblyName>
     <PackageId>VRChat.API</PackageId>
     <OutputType>Library</OutputType>
@@ -12,29 +12,37 @@
     <Description>VRChat API Library for .NET</Description>
     <Copyright>Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors.</Copyright>
     <RootNamespace>VRChat.API</RootNamespace>
-    <Version>1.20.5</Version>
+    <Version>2.20.5</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\VRChat.API.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
-    <PackageTags>vrchat</PackageTags>
+    <PackageTags>vrchat,vrcapi,vrc-api,vrc</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>
+    <Nullable>annotations</Nullable>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="JsonSubTypes" Version="1.9.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="RestSharp" Version="108.0.2" />
-    <PackageReference Include="Polly" Version="7.2.3" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Otp.NET" Version="1.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Polly" Version="8.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Web" />
+  	  <Content Include="vrc_cat.ico" />
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\vrc_cat.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
   </ItemGroup>
 </Project>

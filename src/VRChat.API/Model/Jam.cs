@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -49,7 +50,7 @@ namespace VRChat.API.Model
         /// <param name="submissionContentGated">submissionContentGated (required).</param>
         /// <param name="title">title (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public Jam(string description = default(string), string id = default(string), bool isVisible = default(bool), string moreInfo = default(string), string state = default(string), JamStateChangeDates stateChangeDates = default(JamStateChangeDates), DateTime? submissionContentGateDate = default(DateTime?), bool submissionContentGated = default(bool), string title = default(string), DateTime updatedAt = default(DateTime))
+        public Jam(string description = default, string id = default, bool isVisible = default, string moreInfo = default, string state = default, JamStateChangeDates stateChangeDates = default, DateTime? submissionContentGateDate = default, bool submissionContentGated = default, string title = default, DateTime updatedAt = default)
         {
             // to ensure "description" is required (not null)
             if (description == null)
@@ -107,6 +108,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>jam_0b7e3f6d-4647-4648-b2a1-1431e76906d9</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -314,36 +318,36 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Description (string) minLength
             if (this.Description != null && this.Description.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // MoreInfo (string) minLength
             if (this.MoreInfo != null && this.MoreInfo.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MoreInfo, length must be greater than 1.", new [] { "MoreInfo" });
+                yield return new ValidationResult("Invalid value for MoreInfo, length must be greater than 1.", new [] { "MoreInfo" });
             }
 
             // State (string) minLength
             if (this.State != null && this.State.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be greater than 1.", new [] { "State" });
+                yield return new ValidationResult("Invalid value for State, length must be greater than 1.", new [] { "State" });
             }
 
             // Title (string) minLength
             if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             yield break;

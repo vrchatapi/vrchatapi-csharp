@@ -8,40 +8,56 @@ curl https://raw.githubusercontent.com/vrchatapi/specification/gh-pages/openapi.
 
 SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
 
+vrchat_sdk_version=$(yq '.info.version' openapi.yaml | tr -d '"')
+
+major=$(echo $vrchat_sdk_version | cut -d. -f1)
+minor=$(echo $vrchat_sdk_version | cut -d. -f2)
+patch=$(echo $vrchat_sdk_version | cut -d. -f3)
+
+vrchat_sdk_version="$((major+1)).$minor.$patch"
+
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
--g csharp-netcore \
---additional-properties=packageName=VRChat.API,packageTags=vrchat,packageVersion=$SPEC_VERSION,targetFramework=netstandard2.0,licenseId=MIT \
+-g csharp \
+--library httpclient \
+--additional-properties=packageGuid=1c420561-97f1-4810-ad2d-cd344d27170a,packageName=VRChat.API,packageTags=vrchat,packageVersion=$vrchat_sdk_version,targetFramework=net8.0,licenseId=MIT,equatable=true \
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-csharp \
 -o . \
 -i openapi.yaml \
 --http-user-agent="vrchatapi-csharp"
 
-rm openapi.yaml
+rm build.sh
+rm build.bat
+rm git_push.sh
+rm mono_nunit_test.sh
+rm nuget.exe
+rm appveyor.yml
 
-rmdir src/VRChat.API.Test/
+rm -rf docs/
+rm -rf api/
+rm -rf src/VRChat.API.Test/
 
-#
-# Enable global cookie storage
-#
-# Create global CookieContainer
-sed -i '/readonly string _baseUrl/a \        public static readonly CookieContainer CookieContainer = new CookieContainer();\n' ./src/VRChat.API/Client/ApiClient.cs
-# Replace "var cookies = new CookieContainer()" with "var cookies = CookieContainer"
-sed -i 's/cookies = new CookieContainer()/cookies = CookieContainer/' ./src/VRChat.API/Client/ApiClient.cs
-# Add result to CookieContainer
-sed -i '/result.Cookies.Add(cookie);/a \                    client.CookieContainer.Add(cookie);' ./src/VRChat.API/Client/ApiClient.cs
+# Move wrapper code to src/VRChat.API/Client/
+cp -r wrapper/VRChat.API/Client/* src/VRChat.API/Client/
+
+cp wrapper/VRChat.API.Extensions.Hosting/vrc_cat.ico src/VRChat.API/vrc_cat.ico
+cp wrapper/VRChat.API.Extensions.Hosting/vrc_cat.png src/VRChat.API/vrc_cat.png
 
 for file in $(find ./src/VRChat.API -name '*.cs'); do
-    sed -i 's/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"))/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "\/", "vrchat.com")/g' $file
-    sed -i 's/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"))/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"), "\/", "vrchat.com")/g' $file
+    sed -i 's/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"))/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "\/", "api.vrchat.cloud")/g' $file
+    sed -i 's/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"))/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"), "\/", "api.vrchat.cloud")/g' $file
     sed -i 's/new Cookie(cookie.Name, cookie.Value)/new Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Domain)/g' $file
 done
 
+# Add icons and readme to package
+sed -i ':a;N;$!ba;s|\(.*\)</ItemGroup>|\1\t  <Content Include="vrc_cat.ico" />\n\t  <None Include="..\\README.md">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t  <None Include="..\\vrc_cat.png">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n  </ItemGroup>|' src/VRChat.API/VRChat.API.csproj
+sed -i '/<PackageTags>vrchat<\/PackageTags>/a\    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>' src/VRChat.API/VRChat.API.csproj
+
+# Adjust package tags
+sed -i 's/<PackageTags>vrchat<\/PackageTags>/<PackageTags>vrchat,vrcapi,vrc-api,vrc<\/PackageTags>/' src/VRChat.API/VRChat.API.csproj
+
 # Fix username and password encoding
 sed -i 's/VRChat.API.Client.ClientUtils.Base64Encode(this.Configuration.Username + \":\" + this.Configuration.Password)/VRChat.API.Client.ClientUtils.Base64Encode(System.Web.HttpUtility.UrlEncode(this.Configuration.Username) + ":" + System.Web.HttpUtility.UrlEncode(this.Configuration.Password))/g' src/VRChat.API/Api/AuthenticationApi.cs
-
-# Disable URL encoding for path parameters
-sed -i 's/request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment)/request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment, false)/g' src/VRChat.API/Client/ApiClient.cs
 
 # Fix fields in csproj
 sed -i 's/OpenAPI Library/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj
@@ -50,31 +66,24 @@ sed -i 's/No Copyright/Copyright © 2021 Owners of GitHub organisation "vrchatap
 sed -i 's/OpenAPI/VRChat API Docs Community/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 
+# Fix failure to compile
+sed -i 's/<GenerateAssemblyInfo>false<\/GenerateAssemblyInfo>/<GenerateAssemblyInfo>true<\/GenerateAssemblyInfo>/' src/VRChat.API/VRChat.API.csproj
+
+# Update VRChat.API.Extensions.Hosting version
+sed -i "s|<Version>[^<]*</Version>|<Version>$vrchat_sdk_version</Version>|g" wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
+
 # Add README.md to fields
 sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj
 sed -i '/System.ComponentModel.Annotations/a \    <None Include="..\\README.md" Pack="true" PackagePath="\\"/>' src/VRChat.API/VRChat.API.csproj
 
-sed -i '/var baseUrl = configuration\.GetOperationServerUrl(options\.Operation, options\.OperationIndex) ?? _baseUrl;/,/\};/c \
-            var baseUrl = configuration.GetOperationServerUrl(options.Operation, options.OperationIndex) ?? _baseUrl;\
-            \
-            var cookies = CookieContainer;\
-            \
-            if (options.Cookies != null && options.Cookies.Count > 0)\
-            {\
-                foreach (var cookie in options.Cookies)\
-                {\
-                    cookies.Add(new Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Domain));\
-                }\
-            }\
-            \
-            var clientOptions = new RestClientOptions(baseUrl)\
-            {\
-                ClientCertificates = configuration.ClientCertificates,\
-                CookieContainer = cookies,\
-                MaxTimeout = configuration.Timeout,\
-                Proxy = configuration.Proxy,\
-                UserAgent = configuration.UserAgent\
-            };' src/VRChat.API/Client/ApiClient.cs
+# Add Otp.NET package to project
+sed -i '/JsonSubTypes/a \    <PackageReference Include="Otp.NET" Version="1.4.0" \/>' src/VRChat.API/VRChat.API.csproj
+
+# Make CurrentUser fields optional for 2FA response compatibility
+sed -i 's/IsRequired = true/IsRequired = false/g' src/VRChat.API/Model/CurrentUser.cs
+
+# Add RequiresTwoFactorAuth property to CurrentUser
+sed -i '/public string UserIcon { get; set; }/a\\n        /// <summary>\n        /// An array of two-factor authentication methods available to use to with two factor authentication.\n        /// </summary>\n        [DataMember(Name = "requiresTwoFactorAuth", IsRequired = false, EmitDefaultValue = true)]\n        public List<string> RequiresTwoFactorAuth { get; set; }' src/VRChat.API/Model/CurrentUser.cs
 
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
@@ -83,5 +92,3 @@ done
 
 cp README.md src/VRChat.API/
 cp README.md src/
-
-#bash ./build.sh

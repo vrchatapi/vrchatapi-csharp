@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -36,7 +37,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="globalName">globalName.</param>
         /// <param name="id">https://discord.com/developers/docs/reference#snowflakes.</param>
-        public DiscordDetails(string globalName = default(string), string id = default(string))
+        public DiscordDetails(string globalName = default, string id = default)
         {
             this.GlobalName = globalName;
             this.Id = id;
@@ -52,6 +53,9 @@ namespace VRChat.API.Model
         /// https://discord.com/developers/docs/reference#snowflakes
         /// </summary>
         /// <value>https://discord.com/developers/docs/reference#snowflakes</value>
+        /*
+        <example>1280064052206370848</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -138,7 +142,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -81,7 +82,7 @@ namespace VRChat.API.Model
         /// <param name="stackable">stackable (required).</param>
         /// <param name="storeIds">storeIds (required).</param>
         /// <param name="tags">tags.</param>
-        public ProductListing(bool active = default(bool), bool buyerRefundable = default(bool), string description = default(string), string displayName = default(string), int? duration = default(int?), string durationType = default(string), string groupIcon = default(string), string groupId = default(string), string groupName = default(string), bool hasAvatar = default(bool), bool hasUdon = default(bool), List<Product> hydratedProducts = default(List<Product>), string id = default(string), string imageId = default(string), string imageUrl = default(string), ProductListingType listingType = default(ProductListingType), List<ProductListingVariant> listingVariants = default(List<ProductListingVariant>), bool permanent = default(bool), int priceTokens = default(int), List<string> productIds = default(List<string>), ProductType productType = default(ProductType), List<Object> products = default(List<Object>), bool quantifiable = default(bool), bool recurrable = default(bool), bool refundable = default(bool), string sellerDisplayName = default(string), string sellerId = default(string), bool stackable = default(bool), List<string> storeIds = default(List<string>), List<string> tags = default(List<string>))
+        public ProductListing(bool active = default, bool buyerRefundable = default, string description = default, string displayName = default, int? duration = default, string durationType = default, string groupIcon = default, string groupId = default, string groupName = default, bool hasAvatar = default, bool hasUdon = default, List<Product> hydratedProducts = default, string id = default, string imageId = default, string imageUrl = default, ProductListingType listingType = default, List<ProductListingVariant> listingVariants = default, bool permanent = default, int priceTokens = default, List<string> productIds = default, ProductType productType = default, List<Object> products = default, bool quantifiable = default, bool recurrable = default, bool refundable = default, string sellerDisplayName = default, string sellerId = default, bool stackable = default, List<string> storeIds = default, List<string> tags = default)
         {
             this.Active = active;
             this.BuyerRefundable = buyerRefundable;
@@ -194,12 +195,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets GroupIcon
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "groupIcon", EmitDefaultValue = false)]
         public string GroupIcon { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
@@ -230,12 +237,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "imageId", EmitDefaultValue = false)]
         public string ImageId { get; set; }
 
@@ -644,7 +657,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

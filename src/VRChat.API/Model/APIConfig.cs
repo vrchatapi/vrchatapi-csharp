@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -152,7 +153,7 @@ namespace VRChat.API.Model
         /// <param name="websocketMaxFriendsRefreshDelay">Unknown (required) (default to 900).</param>
         /// <param name="websocketQuickReconnectTime">Unknown (required) (default to 2).</param>
         /// <param name="websocketReconnectMaxDelay">Unknown (required) (default to 2).</param>
-        public APIConfig(bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, APIConfigAccessLogsUrls accessLogsUrls = default(APIConfigAccessLogsUrls), string address = default(string), bool ageVerificationInviteVisible = default(bool), bool ageVerificationP = default(bool), bool ageVerificationStatusVisible = default(bool), int analysisMaxRetries = default(int), int analysisRetryInterval = default(int), List<APIConfigAnnouncement> announcements = default(List<APIConfigAnnouncement>), int analyticsSegmentNewUIPctOfUsers = default(int), string analyticsSegmentNewUISalt = default(string), List<string> availableLanguageCodes = default(List<string>), List<string> availableLanguages = default(List<string>), APIConfigAvatarPerfLimiter avatarPerfLimiter = default(APIConfigAvatarPerfLimiter), int chatboxLogBufferSeconds = 40, string clientApiKey = default(string), int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, bool clientNetDispatchThread = false, bool clientNetDispatchThreadMobile = true, bool clientNetInThread = false, bool clientNetInThread2 = false, bool clientNetInThreadMobile = false, bool clientNetInThreadMobile2 = false, bool clientNetOutThread = false, bool clientNetOutThread2 = false, bool clientNetOutThreadMobile = false, bool clientNetOutThreadMobile2 = false, int clientQR = 1, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, APIConfigConstants constants = default(APIConfigConstants), string contactEmail = default(string), string copyrightEmail = default(string), int currentPrivacyVersion = 1, int currentTOSVersion = default(int), string defaultAvatar = default(string), string defaultStickerSet = default(string), List<string> devLanguageCodes = default(List<string>), string devSdkUrl = default(string), string devSdkVersion = default(string), DateTime disCountdown = default(DateTime), bool disableAVProInProton = false, bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableCaptcha = true, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableGiftDrops = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default(string), APIConfigDownloadURLList downloadUrls = default(APIConfigDownloadURLList), List<DynamicContentRow> dynamicWorldRows = default(List<DynamicContentRow>), string economyPauseEnd = default(string), string economyPauseStart = default(string), int economyState = 1, APIConfigEvents events = default(APIConfigEvents), bool forceUseLatestWorld = true, string giftDisplayType = default(string), string googleApiClientId = "827942544393-r2ouvckvouldn9dg9uruseje575e878f.apps.googleusercontent.com", string homeWorldId = default(string), string homepageRedirectTarget = "https://hello.vrchat.com", string hubWorldId = default(string), List<string> imageHostUrlList = default(List<string>), string jobsEmail = default(string), APIConfigMinSupportedClientBuildNumber minSupportedClientBuildNumber = default(APIConfigMinSupportedClientBuildNumber), string minimumUnityVersionForUploads = "2019.0.0f1", string moderationEmail = default(string), string notAllowedToSelectAvatarInPrivateWorldMessage = default(string), APIConfigOfflineAnalysis offlineAnalysis = default(APIConfigOfflineAnalysis), List<string> photonNameserverOverrides = default(List<string>), List<string> photonPublicKeys = default(List<string>), APIConfigReportCategories reportCategories = default(APIConfigReportCategories), string reportFormUrl = "https://help.vrchat.com/hc/en-us/requests/new?ticket_form_id=1500000182242&tf_360056455174=user_report&tf_360057451993={userId}&tf_1500001445142={reportedId}&tf_subject={reason} {category} By {contentType} {reportedName}&tf_description={description}", APIConfigReportOptions reportOptions = default(APIConfigReportOptions), APIConfigReportReasons reportReasons = default(APIConfigReportReasons), bool requireAgeVerificationBetaTag = default(bool), string sdkDeveloperFaqUrl = default(string), string sdkDiscordUrl = default(string), string sdkNotAllowedToPublishMessage = default(string), string sdkUnityVersion = default(string), List<string> stringHostUrlList = default(List<string>), string supportEmail = default(string), string supportFormUrl = default(string), bool timekeeping = true, string timeOutWorldId = default(string), string tutorialWorldId = default(string), int updateRateMsMaximum = default(int), int updateRateMsMinimum = default(int), int updateRateMsNormal = default(int), int updateRateMsUdonManual = default(int), int uploadAnalysisPercent = default(int), List<string> urlList = default(List<string>), bool useReliableUdpForVoice = false, string viveWindowsUrl = default(string), List<string> whiteListedAssetUrls = default(List<string>), string playerUrlResolverVersion = default(string), string playerUrlResolverSha1 = default(string), string publicKey = default(string), int websocketMaxFriendsRefreshDelay = 900, int websocketQuickReconnectTime = 2, int websocketReconnectMaxDelay = 2)
+        public APIConfig(bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, APIConfigAccessLogsUrls accessLogsUrls = default, string address = default, bool ageVerificationInviteVisible = default, bool ageVerificationP = default, bool ageVerificationStatusVisible = default, int analysisMaxRetries = default, int analysisRetryInterval = default, List<APIConfigAnnouncement> announcements = default, int analyticsSegmentNewUIPctOfUsers = default, string analyticsSegmentNewUISalt = default, List<string> availableLanguageCodes = default, List<string> availableLanguages = default, APIConfigAvatarPerfLimiter avatarPerfLimiter = default, int chatboxLogBufferSeconds = 40, string clientApiKey = default, int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, bool clientNetDispatchThread = false, bool clientNetDispatchThreadMobile = true, bool clientNetInThread = false, bool clientNetInThread2 = false, bool clientNetInThreadMobile = false, bool clientNetInThreadMobile2 = false, bool clientNetOutThread = false, bool clientNetOutThread2 = false, bool clientNetOutThreadMobile = false, bool clientNetOutThreadMobile2 = false, int clientQR = 1, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, APIConfigConstants constants = default, string contactEmail = default, string copyrightEmail = default, int currentPrivacyVersion = 1, int currentTOSVersion = default, string defaultAvatar = default, string defaultStickerSet = default, List<string> devLanguageCodes = default, string devSdkUrl = default, string devSdkVersion = default, DateTime disCountdown = default, bool disableAVProInProton = false, bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableCaptcha = true, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableGiftDrops = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default, APIConfigDownloadURLList downloadUrls = default, List<DynamicContentRow> dynamicWorldRows = default, string economyPauseEnd = default, string economyPauseStart = default, int economyState = 1, APIConfigEvents events = default, bool forceUseLatestWorld = true, string giftDisplayType = default, string googleApiClientId = @"827942544393-r2ouvckvouldn9dg9uruseje575e878f.apps.googleusercontent.com", string homeWorldId = default, string homepageRedirectTarget = @"https://hello.vrchat.com", string hubWorldId = default, List<string> imageHostUrlList = default, string jobsEmail = default, APIConfigMinSupportedClientBuildNumber minSupportedClientBuildNumber = default, string minimumUnityVersionForUploads = @"2019.0.0f1", string moderationEmail = default, string notAllowedToSelectAvatarInPrivateWorldMessage = default, APIConfigOfflineAnalysis offlineAnalysis = default, List<string> photonNameserverOverrides = default, List<string> photonPublicKeys = default, APIConfigReportCategories reportCategories = default, string reportFormUrl = @"https://help.vrchat.com/hc/en-us/requests/new?ticket_form_id=1500000182242&tf_360056455174=user_report&tf_360057451993={userId}&tf_1500001445142={reportedId}&tf_subject={reason} {category} By {contentType} {reportedName}&tf_description={description}", APIConfigReportOptions reportOptions = default, APIConfigReportReasons reportReasons = default, bool requireAgeVerificationBetaTag = default, string sdkDeveloperFaqUrl = default, string sdkDiscordUrl = default, string sdkNotAllowedToPublishMessage = default, string sdkUnityVersion = default, List<string> stringHostUrlList = default, string supportEmail = default, string supportFormUrl = default, bool timekeeping = true, string timeOutWorldId = default, string tutorialWorldId = default, int updateRateMsMaximum = default, int updateRateMsMinimum = default, int updateRateMsNormal = default, int updateRateMsUdonManual = default, int uploadAnalysisPercent = default, List<string> urlList = default, bool useReliableUdpForVoice = false, string viveWindowsUrl = default, List<string> whiteListedAssetUrls = default, string playerUrlResolverVersion = default, string playerUrlResolverSha1 = default, string publicKey = default, int websocketMaxFriendsRefreshDelay = 900, int websocketQuickReconnectTime = 2, int websocketReconnectMaxDelay = 2)
         {
             this.VoiceEnableDegradation = voiceEnableDegradation;
             this.VoiceEnableReceiverLimiting = voiceEnableReceiverLimiting;
@@ -779,12 +780,18 @@ namespace VRChat.API.Model
         /// Current version number of the Terms of Service
         /// </summary>
         /// <value>Current version number of the Terms of Service</value>
+        /*
+        <example>7</example>
+        */
         [DataMember(Name = "currentTOSVersion", IsRequired = true, EmitDefaultValue = true)]
         public int CurrentTOSVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultAvatar
         /// </summary>
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
         [DataMember(Name = "defaultAvatar", IsRequired = true, EmitDefaultValue = true)]
         public string DefaultAvatar { get; set; }
 
@@ -1023,6 +1030,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "homeWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string HomeWorldId { get; set; }
 
@@ -1037,6 +1047,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "hubWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string HubWorldId { get; set; }
 
@@ -1192,6 +1205,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "timeOutWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string TimeOutWorldId { get; set; }
 
@@ -1199,6 +1215,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "tutorialWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string TutorialWorldId { get; set; }
 
@@ -2283,126 +2302,126 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Address (string) minLength
             if (this.Address != null && this.Address.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Address, length must be greater than 1.", new [] { "Address" });
+                yield return new ValidationResult("Invalid value for Address, length must be greater than 1.", new [] { "Address" });
             }
 
             // ClientApiKey (string) minLength
             if (this.ClientApiKey != null && this.ClientApiKey.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientApiKey, length must be greater than 1.", new [] { "ClientApiKey" });
+                yield return new ValidationResult("Invalid value for ClientApiKey, length must be greater than 1.", new [] { "ClientApiKey" });
             }
 
             // ContactEmail (string) minLength
             if (this.ContactEmail != null && this.ContactEmail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContactEmail, length must be greater than 1.", new [] { "ContactEmail" });
+                yield return new ValidationResult("Invalid value for ContactEmail, length must be greater than 1.", new [] { "ContactEmail" });
             }
 
             // CopyrightEmail (string) minLength
             if (this.CopyrightEmail != null && this.CopyrightEmail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CopyrightEmail, length must be greater than 1.", new [] { "CopyrightEmail" });
+                yield return new ValidationResult("Invalid value for CopyrightEmail, length must be greater than 1.", new [] { "CopyrightEmail" });
             }
 
             // CurrentTOSVersion (int) minimum
             if (this.CurrentTOSVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurrentTOSVersion, must be a value greater than or equal to 0.", new [] { "CurrentTOSVersion" });
+                yield return new ValidationResult("Invalid value for CurrentTOSVersion, must be a value greater than or equal to 0.", new [] { "CurrentTOSVersion" });
             }
 
             // DevSdkUrl (string) minLength
             if (this.DevSdkUrl != null && this.DevSdkUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevSdkUrl, length must be greater than 1.", new [] { "DevSdkUrl" });
+                yield return new ValidationResult("Invalid value for DevSdkUrl, length must be greater than 1.", new [] { "DevSdkUrl" });
             }
 
             // DevSdkVersion (string) minLength
             if (this.DevSdkVersion != null && this.DevSdkVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DevSdkVersion, length must be greater than 1.", new [] { "DevSdkVersion" });
+                yield return new ValidationResult("Invalid value for DevSdkVersion, length must be greater than 1.", new [] { "DevSdkVersion" });
             }
 
             // DownloadLinkWindows (string) minLength
             if (this.DownloadLinkWindows != null && this.DownloadLinkWindows.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DownloadLinkWindows, length must be greater than 1.", new [] { "DownloadLinkWindows" });
+                yield return new ValidationResult("Invalid value for DownloadLinkWindows, length must be greater than 1.", new [] { "DownloadLinkWindows" });
             }
 
             // HomepageRedirectTarget (string) minLength
             if (this.HomepageRedirectTarget != null && this.HomepageRedirectTarget.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HomepageRedirectTarget, length must be greater than 1.", new [] { "HomepageRedirectTarget" });
+                yield return new ValidationResult("Invalid value for HomepageRedirectTarget, length must be greater than 1.", new [] { "HomepageRedirectTarget" });
             }
 
             // JobsEmail (string) minLength
             if (this.JobsEmail != null && this.JobsEmail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for JobsEmail, length must be greater than 1.", new [] { "JobsEmail" });
+                yield return new ValidationResult("Invalid value for JobsEmail, length must be greater than 1.", new [] { "JobsEmail" });
             }
 
             // ModerationEmail (string) minLength
             if (this.ModerationEmail != null && this.ModerationEmail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ModerationEmail, length must be greater than 1.", new [] { "ModerationEmail" });
+                yield return new ValidationResult("Invalid value for ModerationEmail, length must be greater than 1.", new [] { "ModerationEmail" });
             }
 
             // NotAllowedToSelectAvatarInPrivateWorldMessage (string) minLength
             if (this.NotAllowedToSelectAvatarInPrivateWorldMessage != null && this.NotAllowedToSelectAvatarInPrivateWorldMessage.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NotAllowedToSelectAvatarInPrivateWorldMessage, length must be greater than 1.", new [] { "NotAllowedToSelectAvatarInPrivateWorldMessage" });
+                yield return new ValidationResult("Invalid value for NotAllowedToSelectAvatarInPrivateWorldMessage, length must be greater than 1.", new [] { "NotAllowedToSelectAvatarInPrivateWorldMessage" });
             }
 
             // SdkDeveloperFaqUrl (string) minLength
             if (this.SdkDeveloperFaqUrl != null && this.SdkDeveloperFaqUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkDeveloperFaqUrl, length must be greater than 1.", new [] { "SdkDeveloperFaqUrl" });
+                yield return new ValidationResult("Invalid value for SdkDeveloperFaqUrl, length must be greater than 1.", new [] { "SdkDeveloperFaqUrl" });
             }
 
             // SdkDiscordUrl (string) minLength
             if (this.SdkDiscordUrl != null && this.SdkDiscordUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkDiscordUrl, length must be greater than 1.", new [] { "SdkDiscordUrl" });
+                yield return new ValidationResult("Invalid value for SdkDiscordUrl, length must be greater than 1.", new [] { "SdkDiscordUrl" });
             }
 
             // SdkNotAllowedToPublishMessage (string) minLength
             if (this.SdkNotAllowedToPublishMessage != null && this.SdkNotAllowedToPublishMessage.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkNotAllowedToPublishMessage, length must be greater than 1.", new [] { "SdkNotAllowedToPublishMessage" });
+                yield return new ValidationResult("Invalid value for SdkNotAllowedToPublishMessage, length must be greater than 1.", new [] { "SdkNotAllowedToPublishMessage" });
             }
 
             // SdkUnityVersion (string) minLength
             if (this.SdkUnityVersion != null && this.SdkUnityVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SdkUnityVersion, length must be greater than 1.", new [] { "SdkUnityVersion" });
+                yield return new ValidationResult("Invalid value for SdkUnityVersion, length must be greater than 1.", new [] { "SdkUnityVersion" });
             }
 
             // SupportEmail (string) minLength
             if (this.SupportEmail != null && this.SupportEmail.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SupportEmail, length must be greater than 1.", new [] { "SupportEmail" });
+                yield return new ValidationResult("Invalid value for SupportEmail, length must be greater than 1.", new [] { "SupportEmail" });
             }
 
             // ViveWindowsUrl (string) minLength
             if (this.ViveWindowsUrl != null && this.ViveWindowsUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ViveWindowsUrl, length must be greater than 1.", new [] { "ViveWindowsUrl" });
+                yield return new ValidationResult("Invalid value for ViveWindowsUrl, length must be greater than 1.", new [] { "ViveWindowsUrl" });
             }
 
             // PlayerUrlResolverVersion (string) minLength
             if (this.PlayerUrlResolverVersion != null && this.PlayerUrlResolverVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerUrlResolverVersion, length must be greater than 1.", new [] { "PlayerUrlResolverVersion" });
+                yield return new ValidationResult("Invalid value for PlayerUrlResolverVersion, length must be greater than 1.", new [] { "PlayerUrlResolverVersion" });
             }
 
             // PlayerUrlResolverSha1 (string) minLength
             if (this.PlayerUrlResolverSha1 != null && this.PlayerUrlResolverSha1.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerUrlResolverSha1, length must be greater than 1.", new [] { "PlayerUrlResolverSha1" });
+                yield return new ValidationResult("Invalid value for PlayerUrlResolverSha1, length must be greater than 1.", new [] { "PlayerUrlResolverSha1" });
             }
 
             yield break;

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -47,7 +48,7 @@ namespace VRChat.API.Model
         /// <param name="sortOwnership">sortOwnership (required).</param>
         /// <param name="tag">Tag to filter content for this row..</param>
         /// <param name="type">Type is not present if it is a world..</param>
-        public DynamicContentRow(int index = default(int), string name = default(string), string platform = default(string), string sortHeading = default(string), string sortOrder = default(string), string sortOwnership = default(string), string tag = default(string), string type = default(string))
+        public DynamicContentRow(int index = default, string name = default, string platform = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string tag = default, string type = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -132,6 +133,9 @@ namespace VRChat.API.Model
         /// Type is not present if it is a world.
         /// </summary>
         /// <value>Type is not present if it is a world.</value>
+        /*
+        <example>avatar</example>
+        */
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
@@ -274,48 +278,48 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Index (int) minimum
             if (this.Index < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Index, must be a value greater than or equal to 0.", new [] { "Index" });
+                yield return new ValidationResult("Invalid value for Index, must be a value greater than or equal to 0.", new [] { "Index" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Platform (string) minLength
             if (this.Platform != null && this.Platform.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Platform, length must be greater than 1.", new [] { "Platform" });
+                yield return new ValidationResult("Invalid value for Platform, length must be greater than 1.", new [] { "Platform" });
             }
 
             // SortHeading (string) minLength
             if (this.SortHeading != null && this.SortHeading.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SortHeading, length must be greater than 1.", new [] { "SortHeading" });
+                yield return new ValidationResult("Invalid value for SortHeading, length must be greater than 1.", new [] { "SortHeading" });
             }
 
             // SortOrder (string) minLength
             if (this.SortOrder != null && this.SortOrder.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SortOrder, length must be greater than 1.", new [] { "SortOrder" });
+                yield return new ValidationResult("Invalid value for SortOrder, length must be greater than 1.", new [] { "SortOrder" });
             }
 
             // SortOwnership (string) minLength
             if (this.SortOwnership != null && this.SortOwnership.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SortOwnership, length must be greater than 1.", new [] { "SortOwnership" });
+                yield return new ValidationResult("Invalid value for SortOwnership, length must be greater than 1.", new [] { "SortOwnership" });
             }
 
             // Tag (string) minLength
             if (this.Tag != null && this.Tag.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Tag, length must be greater than 1.", new [] { "Tag" });
+                yield return new ValidationResult("Invalid value for Tag, length must be greater than 1.", new [] { "Tag" });
             }
 
             yield break;

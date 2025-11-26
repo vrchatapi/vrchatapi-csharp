@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -39,7 +40,7 @@ namespace VRChat.API.Model
         /// <param name="help">Human-readable description of the permission..</param>
         /// <param name="isManagementPermission">Whether this permission is a \&quot;management\&quot; permission. (default to false).</param>
         /// <param name="allowedToAdd">Whether the user is allowed to add this permission to a role. (default to false).</param>
-        public GroupPermission(string name = default(string), string displayName = default(string), string help = default(string), bool isManagementPermission = false, bool allowedToAdd = false)
+        public GroupPermission(string name = default, string displayName = default, string help = default, bool isManagementPermission = false, bool allowedToAdd = false)
         {
             this.Name = name;
             this.DisplayName = displayName;
@@ -52,6 +53,9 @@ namespace VRChat.API.Model
         /// The name of the permission.
         /// </summary>
         /// <value>The name of the permission.</value>
+        /*
+        <example>group-data-manage</example>
+        */
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
@@ -59,6 +63,9 @@ namespace VRChat.API.Model
         /// The display name of the permission.
         /// </summary>
         /// <value>The display name of the permission.</value>
+        /*
+        <example>Manage Group Data</example>
+        */
         [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
@@ -66,6 +73,9 @@ namespace VRChat.API.Model
         /// Human-readable description of the permission.
         /// </summary>
         /// <value>Human-readable description of the permission.</value>
+        /*
+        <example>Allows role to edit group details (name, description, joinState, initialRoles, etc).</example>
+        */
         [DataMember(Name = "help", EmitDefaultValue = false)]
         public string Help { get; set; }
 
@@ -73,6 +83,9 @@ namespace VRChat.API.Model
         /// Whether this permission is a \&quot;management\&quot; permission.
         /// </summary>
         /// <value>Whether this permission is a \&quot;management\&quot; permission.</value>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "isManagementPermission", EmitDefaultValue = true)]
         public bool IsManagementPermission { get; set; }
 
@@ -80,6 +93,9 @@ namespace VRChat.API.Model
         /// Whether the user is allowed to add this permission to a role.
         /// </summary>
         /// <value>Whether the user is allowed to add this permission to a role.</value>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "allowedToAdd", EmitDefaultValue = true)]
         public bool AllowedToAdd { get; set; }
 
@@ -188,7 +204,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

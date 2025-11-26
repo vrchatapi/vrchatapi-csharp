@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -67,7 +68,7 @@ namespace VRChat.API.Model
         /// <param name="statusDescription">statusDescription (required).</param>
         /// <param name="tags">&lt;- Always empty. (required).</param>
         /// <param name="userIcon">userIcon.</param>
-        public LimitedUserSearch(string bio = default(string), List<string> bioLinks = default(List<string>), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>), DeveloperType developerType = default(DeveloperType), string displayName = default(string), string id = default(string), bool isFriend = default(bool), string lastPlatform = default(string), string profilePicOverride = default(string), string pronouns = default(string), UserStatus status = default(UserStatus), string statusDescription = default(string), List<string> tags = default(List<string>), string userIcon = default(string))
+        public LimitedUserSearch(string bio = default, List<string> bioLinks = default, string currentAvatarImageUrl = default, string currentAvatarThumbnailImageUrl = default, List<string> currentAvatarTags = default, DeveloperType developerType = default, string displayName = default, string id = default, bool isFriend = default, string lastPlatform = default, string profilePicOverride = default, string pronouns = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string userIcon = default)
         {
             // to ensure "currentAvatarImageUrl" is required (not null)
             if (currentAvatarImageUrl == null)
@@ -144,6 +145,9 @@ namespace VRChat.API.Model
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
+        /*
+        <example>https://api.vrchat.cloud/api/1/file/file_ae46d521-7281-4b38-b365-804b32a1d6a7/1/file</example>
+        */
         [DataMember(Name = "currentAvatarImageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string CurrentAvatarImageUrl { get; set; }
 
@@ -151,6 +155,9 @@ namespace VRChat.API.Model
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
+        /*
+        <example>https://api.vrchat.cloud/api/1/image/file_aae83ed9-d42d-4d72-9f4b-9f1e41ed17e1/1/256</example>
+        */
         [DataMember(Name = "currentAvatarThumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string CurrentAvatarThumbnailImageUrl { get; set; }
 
@@ -170,6 +177,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -183,6 +193,9 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "last_platform", IsRequired = true, EmitDefaultValue = true)]
         public string LastPlatform { get; set; }
 
@@ -431,7 +444,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -46,7 +47,7 @@ namespace VRChat.API.Model
         /// <param name="shelfLayout">shelfLayout (required).</param>
         /// <param name="shelfTitle">shelfTitle (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public StoreShelf(string id = default(string), List<string> listingIds = default(List<string>), List<ProductListing> listings = default(List<ProductListing>), string shelfDescription = default(string), string shelfLayout = default(string), string shelfTitle = default(string), string updatedAt = default(string))
+        public StoreShelf(string id = default, List<string> listingIds = default, List<ProductListing> listings = default, string shelfDescription = default, string shelfLayout = default, string shelfTitle = default, string updatedAt = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -90,6 +91,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>ess_964dd7aa-f881-4ba1-adf7-261e906b9189</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -264,7 +268,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

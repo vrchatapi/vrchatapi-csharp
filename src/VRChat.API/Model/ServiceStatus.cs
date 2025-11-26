@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -48,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="subjectType">The kind of the thing this service was requested for. (required).</param>
         /// <param name="type">The kind of service that was requested. (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public ServiceStatus(DateTime createdAt = default(DateTime), string id = default(string), List<Object> progress = default(List<Object>), string requesterUserId = default(string), string state = default(string), string subjectId = default(string), string subjectType = default(string), string type = default(string), DateTime updatedAt = default(DateTime))
+        public ServiceStatus(DateTime createdAt = default, string id = default, List<Object> progress = default, string requesterUserId = default, string state = default, string subjectId = default, string subjectType = default, string type = default, DateTime updatedAt = default)
         {
             this.CreatedAt = createdAt;
             // to ensure "id" is required (not null)
@@ -119,6 +120,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "requesterUserId", IsRequired = true, EmitDefaultValue = true)]
         public string RequesterUserId { get; set; }
 
@@ -309,7 +313,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

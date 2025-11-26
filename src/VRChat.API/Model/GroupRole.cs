@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -46,7 +47,7 @@ namespace VRChat.API.Model
         /// <param name="order">order.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public GroupRole(string id = default(string), string groupId = default(string), string name = default(string), string description = default(string), bool isSelfAssignable = false, List<GroupPermissions> permissions = default(List<GroupPermissions>), bool isManagementRole = false, bool requiresTwoFactor = false, bool requiresPurchase = false, int order = default(int), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime))
+        public GroupRole(string id = default, string groupId = default, string name = default, string description = default, bool isSelfAssignable = false, List<GroupPermissions> permissions = default, bool isManagementRole = false, bool requiresTwoFactor = false, bool requiresPurchase = false, int order = default, DateTime createdAt = default, DateTime updatedAt = default)
         {
             this.Id = id;
             this.GroupId = groupId;
@@ -65,12 +66,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>grol_459d3911-f672-44bc-b84d-e54ffe7960fe</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
@@ -298,7 +305,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

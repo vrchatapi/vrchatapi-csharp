@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="android">android (required).</param>
         /// <param name="ios">ios.</param>
         /// <param name="standalonewindows">standalonewindows (required).</param>
-        public InstancePlatforms(int android = default(int), int ios = default(int), int standalonewindows = default(int))
+        public InstancePlatforms(int android = default, int ios = default, int standalonewindows = default)
         {
             this.Android = android;
             this.Standalonewindows = standalonewindows;
@@ -52,18 +53,27 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Android
         /// </summary>
+        /*
+        <example>1</example>
+        */
         [DataMember(Name = "android", IsRequired = true, EmitDefaultValue = true)]
         public int Android { get; set; }
 
         /// <summary>
         /// Gets or Sets Ios
         /// </summary>
+        /*
+        <example>1</example>
+        */
         [DataMember(Name = "ios", EmitDefaultValue = false)]
         public int Ios { get; set; }
 
         /// <summary>
         /// Gets or Sets Standalonewindows
         /// </summary>
+        /*
+        <example>5</example>
+        */
         [DataMember(Name = "standalonewindows", IsRequired = true, EmitDefaultValue = true)]
         public int Standalonewindows { get; set; }
 
@@ -148,24 +158,24 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Android (int) minimum
             if (this.Android < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Android, must be a value greater than or equal to 0.", new [] { "Android" });
+                yield return new ValidationResult("Invalid value for Android, must be a value greater than or equal to 0.", new [] { "Android" });
             }
 
             // Ios (int) minimum
             if (this.Ios < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ios, must be a value greater than or equal to 0.", new [] { "Ios" });
+                yield return new ValidationResult("Invalid value for Ios, must be a value greater than or equal to 0.", new [] { "Ios" });
             }
 
             // Standalonewindows (int) minimum
             if (this.Standalonewindows < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Standalonewindows, must be a value greater than or equal to 0.", new [] { "Standalonewindows" });
+                yield return new ValidationResult("Invalid value for Standalonewindows, must be a value greater than or equal to 0.", new [] { "Standalonewindows" });
             }
 
             yield break;

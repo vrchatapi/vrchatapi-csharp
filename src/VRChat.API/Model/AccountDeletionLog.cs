@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -37,10 +38,10 @@ namespace VRChat.API.Model
         /// <param name="message">Typically \&quot;Deletion requested\&quot; or \&quot;Deletion canceled\&quot;. Other messages like \&quot;Deletion completed\&quot; may exist, but are these are not possible to see as a regular user. (default to &quot;Deletion requested&quot;).</param>
         /// <param name="deletionScheduled">When the deletion is scheduled to happen, standard is 14 days after the request..</param>
         /// <param name="dateTime">Date and time of the deletion request..</param>
-        public AccountDeletionLog(string message = "Deletion requested", DateTime? deletionScheduled = default(DateTime?), DateTime dateTime = default(DateTime))
+        public AccountDeletionLog(string message = @"Deletion requested", DateTime? deletionScheduled = default, DateTime dateTime = default)
         {
             // use default value if no "message" provided
-            this.Message = message ?? "Deletion requested";
+            this.Message = message ?? @"Deletion requested";
             this.DeletionScheduled = deletionScheduled;
             this.DateTime = dateTime;
         }
@@ -49,6 +50,9 @@ namespace VRChat.API.Model
         /// Typically \&quot;Deletion requested\&quot; or \&quot;Deletion canceled\&quot;. Other messages like \&quot;Deletion completed\&quot; may exist, but are these are not possible to see as a regular user.
         /// </summary>
         /// <value>Typically \&quot;Deletion requested\&quot; or \&quot;Deletion canceled\&quot;. Other messages like \&quot;Deletion completed\&quot; may exist, but are these are not possible to see as a regular user.</value>
+        /*
+        <example>Deletion requested</example>
+        */
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
@@ -159,7 +163,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="economyState">economyState.</param>
         /// <param name="plannedOfflineWindowStart">plannedOfflineWindowStart.</param>
         /// <param name="plannedOfflineWindowEnd">plannedOfflineWindowEnd.</param>
-        public TiliaStatus(bool economyOnline = default(bool), int economyState = default(int), DateTime plannedOfflineWindowStart = default(DateTime), DateTime plannedOfflineWindowEnd = default(DateTime))
+        public TiliaStatus(bool economyOnline = default, int economyState = default, DateTime plannedOfflineWindowStart = default, DateTime plannedOfflineWindowEnd = default)
         {
             this.EconomyOnline = economyOnline;
             this.EconomyState = economyState;
@@ -170,7 +171,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

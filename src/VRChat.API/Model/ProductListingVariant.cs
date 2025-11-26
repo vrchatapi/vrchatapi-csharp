@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -45,7 +46,7 @@ namespace VRChat.API.Model
         /// <param name="quantity">quantity (required).</param>
         /// <param name="sellerVariant">sellerVariant (required).</param>
         /// <param name="unitPriceTokens">unitPriceTokens (required).</param>
-        public ProductListingVariant(DateTime effectiveFrom = default(DateTime), string listingVariantId = default(string), bool nonRefundable = default(bool), int quantity = default(int), bool sellerVariant = default(bool), int unitPriceTokens = default(int))
+        public ProductListingVariant(DateTime effectiveFrom = default, string listingVariantId = default, bool nonRefundable = default, int quantity = default, bool sellerVariant = default, int unitPriceTokens = default)
         {
             // to ensure "listingVariantId" is required (not null)
             if (listingVariantId == null)
@@ -69,6 +70,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ListingVariantId
         /// </summary>
+        /*
+        <example>listvar_e8658b56-1662-436c-935a-afcf6a7d4fed</example>
+        */
         [DataMember(Name = "listingVariantId", IsRequired = true, EmitDefaultValue = true)]
         public string ListingVariantId { get; set; }
 
@@ -203,7 +207,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

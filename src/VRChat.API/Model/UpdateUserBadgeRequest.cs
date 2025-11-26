@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -36,7 +37,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="hidden">hidden.</param>
         /// <param name="showcased">showcased.</param>
-        public UpdateUserBadgeRequest(bool hidden = default(bool), bool showcased = default(bool))
+        public UpdateUserBadgeRequest(bool hidden = default, bool showcased = default)
         {
             this.Hidden = hidden;
             this.Showcased = showcased;
@@ -129,7 +130,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

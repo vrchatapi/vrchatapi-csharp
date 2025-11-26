@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="location">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. (required).</param>
         /// <param name="world">world (required).</param>
         /// <param name="memberCount">memberCount (required).</param>
-        public GroupInstance(string instanceId = default(string), string location = default(string), World world = default(World), int memberCount = default(int))
+        public GroupInstance(string instanceId = default, string location = default, World world = default, int memberCount = default)
         {
             // to ensure "instanceId" is required (not null)
             if (instanceId == null)
@@ -70,6 +71,9 @@ namespace VRChat.API.Model
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
+        /*
+        <example>12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
+        */
         [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
         public string InstanceId { get; set; }
 
@@ -77,6 +81,9 @@ namespace VRChat.API.Model
         /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.
         /// </summary>
         /// <value>Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
+        */
         [DataMember(Name = "location", IsRequired = true, EmitDefaultValue = true)]
         public string Location { get; set; }
 
@@ -89,6 +96,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets MemberCount
         /// </summary>
+        /*
+        <example>6</example>
+        */
         [DataMember(Name = "memberCount", IsRequired = true, EmitDefaultValue = true)]
         public int MemberCount { get; set; }
 
@@ -191,12 +201,12 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // MemberCount (int) minimum
             if (this.MemberCount < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MemberCount, must be a value greater than or equal to 0.", new [] { "MemberCount" });
+                yield return new ValidationResult("Invalid value for MemberCount, must be a value greater than or equal to 0.", new [] { "MemberCount" });
             }
 
             yield break;

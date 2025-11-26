@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="targetGroup">targetGroup (required).</param>
         /// <param name="templateIds">templateIds (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public InventoryDrop(string authorId = default(string), DateTime createdAt = default(DateTime), DateTime? dropExpiryDate = default(DateTime?), DateTime endDropDate = default(DateTime), string id = default(string), string name = default(string), InventoryNotificationDetails notificationDetails = default(InventoryNotificationDetails), DateTime startDropDate = default(DateTime), string status = default(string), List<string> tags = default(List<string>), string targetGroup = default(string), List<string> templateIds = default(List<string>), DateTime updatedAt = default(DateTime))
+        public InventoryDrop(string authorId = default, DateTime createdAt = default, DateTime? dropExpiryDate = default, DateTime endDropDate = default, string id = default, string name = default, InventoryNotificationDetails notificationDetails = default, DateTime startDropDate = default, string status = default, List<string> tags = default, string targetGroup = default, List<string> templateIds = default, DateTime updatedAt = default)
         {
             // to ensure "authorId" is required (not null)
             if (authorId == null)
@@ -118,12 +119,18 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorId { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
+        /*
+        <example>2025-06-10T20:37:31.837Z</example>
+        */
         [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedAt { get; set; }
 
@@ -136,12 +143,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets EndDropDate
         /// </summary>
+        /*
+        <example>2184-07-24T00:00Z</example>
+        */
         [DataMember(Name = "endDropDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTime EndDropDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>invd_ee3a8f7f-1454-4748-a935-99bf9865f33d</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -160,12 +173,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets StartDropDate
         /// </summary>
+        /*
+        <example>2025-06-09T10:00Z</example>
+        */
         [DataMember(Name = "startDropDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTime StartDropDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
+        /*
+        <example>active</example>
+        */
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
@@ -178,6 +197,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets TargetGroup
         /// </summary>
+        /*
+        <example>everyone</example>
+        */
         [DataMember(Name = "targetGroup", IsRequired = true, EmitDefaultValue = true)]
         public string TargetGroup { get; set; }
 
@@ -190,6 +212,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
+        /*
+        <example>2025-06-10T20:37:31.837Z</example>
+        */
         [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime UpdatedAt { get; set; }
 
@@ -388,7 +413,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>VRChat.API.Wrapper</AssemblyName>
+    <PackageId>VRChat.API.Wrapper</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>VRChat API Docs Community</Authors>
+    <Company>VRChat API Docs Community</Company>
+    <AssemblyTitle>VRChat API Library for .NET</AssemblyTitle>
+    <Description>VRChat API Library for .NET</Description>
+    <Copyright>Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors.</Copyright>
+    <RootNamespace>VRChat.API</RootNamespace>
+    <Version>1.20.5</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\VRChat.API.xml</DocumentationFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
+    <PackageTags>vrchat</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Otp.NET" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\VRChat.API\VRChat.API.csproj" />
+  </ItemGroup>
+</Project>

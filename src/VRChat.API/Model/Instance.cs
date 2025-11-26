@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -91,7 +92,7 @@ namespace VRChat.API.Model
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
         /// <param name="hidden">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="friends">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
-        /// <param name="_private">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="varPrivate">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="queueEnabled">queueEnabled (required).</param>
         /// <param name="queueSize">queueSize (required).</param>
         /// <param name="recommendedCapacity">recommendedCapacity (required).</param>
@@ -105,7 +106,7 @@ namespace VRChat.API.Model
         /// <param name="nonce">nonce.</param>
         /// <param name="closedAt">closedAt.</param>
         /// <param name="hardClose">hardClose.</param>
-        public Instance(bool active = true, bool? ageGate = default(bool?), bool canRequestInvite = true, int capacity = default(int), string clientNumber = default(string), InstanceContentSettings contentSettings = default(InstanceContentSettings), string displayName = default(string), bool full = false, int gameServerVersion = default(int), string id = default(string), string instanceId = default(string), string instancePersistenceEnabled = default(string), string location = default(string), int nUsers = default(int), string name = default(string), string ownerId = default(string), bool permanent = false, Region photonRegion = default(Region), InstancePlatforms platforms = default(InstancePlatforms), bool? playerPersistenceEnabled = default(bool?), InstanceRegion region = default(InstanceRegion), string secureName = default(string), string shortName = default(string), List<string> tags = default(List<string>), InstanceType type = default(InstanceType), string worldId = default(string), string hidden = default(string), string friends = default(string), string _private = default(string), bool queueEnabled = default(bool), int queueSize = default(int), int recommendedCapacity = default(int), bool roleRestricted = default(bool), bool strict = default(bool), int userCount = default(int), World world = default(World), List<LimitedUserInstance> users = default(List<LimitedUserInstance>), GroupAccessType? groupAccessType = default(GroupAccessType?), bool hasCapacityForYou = default(bool), string nonce = default(string), DateTime? closedAt = default(DateTime?), bool? hardClose = default(bool?))
+        public Instance(bool active = true, bool? ageGate = default, bool canRequestInvite = true, int capacity = default, string clientNumber = default, InstanceContentSettings contentSettings = default, string displayName = default, bool full = false, int gameServerVersion = default, string id = default, string instanceId = default, string instancePersistenceEnabled = default, string location = default, int nUsers = default, string name = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool? playerPersistenceEnabled = default, InstanceRegion region = default, string secureName = default, string shortName = default, List<string> tags = default, InstanceType type = default, string worldId = default, string hidden = default, string friends = default, string varPrivate = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, bool roleRestricted = default, bool strict = default, int userCount = default, World world = default, List<LimitedUserInstance> users = default, GroupAccessType? groupAccessType = default, bool hasCapacityForYou = default, string nonce = default, DateTime? closedAt = default, bool? hardClose = default)
         {
             this.Active = active;
             this.CanRequestInvite = canRequestInvite;
@@ -191,7 +192,7 @@ namespace VRChat.API.Model
             this.ShortName = shortName;
             this.Hidden = hidden;
             this.Friends = friends;
-            this.Private = _private;
+            this.Private = varPrivate;
             this.RoleRestricted = roleRestricted;
             this.Users = users;
             this.GroupAccessType = groupAccessType;
@@ -204,6 +205,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Active
         /// </summary>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "active", IsRequired = true, EmitDefaultValue = true)]
         public bool Active { get; set; }
 
@@ -216,12 +220,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CanRequestInvite
         /// </summary>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "canRequestInvite", IsRequired = true, EmitDefaultValue = true)]
         public bool CanRequestInvite { get; set; }
 
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
+        /*
+        <example>8</example>
+        */
         [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = true)]
         public int Capacity { get; set; }
 
@@ -261,6 +271,9 @@ namespace VRChat.API.Model
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
+        /*
+        <example>12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -268,6 +281,9 @@ namespace VRChat.API.Model
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
+        /*
+        <example>12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
+        */
         [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
         public string InstanceId { get; set; }
 
@@ -281,18 +297,27 @@ namespace VRChat.API.Model
         /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.
         /// </summary>
         /// <value>Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
+        */
         [DataMember(Name = "location", IsRequired = true, EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
         /// Gets or Sets NUsers
         /// </summary>
+        /*
+        <example>6</example>
+        */
         [DataMember(Name = "n_users", IsRequired = true, EmitDefaultValue = true)]
         public int NUsers { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
+        /*
+        <example>12345</example>
+        */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
@@ -300,6 +325,9 @@ namespace VRChat.API.Model
         /// A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise
         /// </summary>
         /// <value>A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "ownerId", EmitDefaultValue = true)]
         public string OwnerId { get; set; }
 
@@ -324,12 +352,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SecureName
         /// </summary>
+        /*
+        <example>7eavhhng</example>
+        */
         [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = true)]
         public string SecureName { get; set; }
 
         /// <summary>
         /// Gets or Sets ShortName
         /// </summary>
+        /*
+        <example>02u7yz8j</example>
+        */
         [DataMember(Name = "shortName", EmitDefaultValue = true)]
         public string ShortName { get; set; }
 
@@ -337,6 +371,9 @@ namespace VRChat.API.Model
         /// The tags array on Instances usually contain the language tags of the people in the instance. 
         /// </summary>
         /// <value>The tags array on Instances usually contain the language tags of the people in the instance. </value>
+        /*
+        <example>[&quot;show_social_rank&quot;,&quot;language_eng&quot;,&quot;language_jpn&quot;]</example>
+        */
         [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
@@ -344,6 +381,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "worldId", IsRequired = true, EmitDefaultValue = true)]
         public string WorldId { get; set; }
 
@@ -351,6 +391,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "hidden", EmitDefaultValue = false)]
         public string Hidden { get; set; }
 
@@ -358,6 +401,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "friends", EmitDefaultValue = false)]
         public string Friends { get; set; }
 
@@ -365,6 +411,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "private", EmitDefaultValue = false)]
         public string Private { get; set; }
 
@@ -377,12 +426,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets QueueSize
         /// </summary>
+        /*
+        <example>6</example>
+        */
         [DataMember(Name = "queueSize", IsRequired = true, EmitDefaultValue = true)]
         public int QueueSize { get; set; }
 
         /// <summary>
         /// Gets or Sets RecommendedCapacity
         /// </summary>
+        /*
+        <example>6</example>
+        */
         [DataMember(Name = "recommendedCapacity", IsRequired = true, EmitDefaultValue = true)]
         public int RecommendedCapacity { get; set; }
 
@@ -401,6 +456,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UserCount
         /// </summary>
+        /*
+        <example>6</example>
+        */
         [DataMember(Name = "userCount", IsRequired = true, EmitDefaultValue = true)]
         public int UserCount { get; set; }
 
@@ -854,60 +912,60 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Capacity (int) minimum
             if (this.Capacity < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value greater than or equal to 0.", new [] { "Capacity" });
+                yield return new ValidationResult("Invalid value for Capacity, must be a value greater than or equal to 0.", new [] { "Capacity" });
             }
 
             // ClientNumber (string) minLength
             if (this.ClientNumber != null && this.ClientNumber.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientNumber, length must be greater than 1.", new [] { "ClientNumber" });
+                yield return new ValidationResult("Invalid value for ClientNumber, length must be greater than 1.", new [] { "ClientNumber" });
             }
 
             // NUsers (int) minimum
             if (this.NUsers < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NUsers, must be a value greater than or equal to 0.", new [] { "NUsers" });
+                yield return new ValidationResult("Invalid value for NUsers, must be a value greater than or equal to 0.", new [] { "NUsers" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // SecureName (string) minLength
             if (this.SecureName != null && this.SecureName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecureName, length must be greater than 1.", new [] { "SecureName" });
+                yield return new ValidationResult("Invalid value for SecureName, length must be greater than 1.", new [] { "SecureName" });
             }
 
             // ShortName (string) minLength
             if (this.ShortName != null && this.ShortName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortName, length must be greater than 1.", new [] { "ShortName" });
+                yield return new ValidationResult("Invalid value for ShortName, length must be greater than 1.", new [] { "ShortName" });
             }
 
             // QueueSize (int) minimum
             if (this.QueueSize < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for QueueSize, must be a value greater than or equal to 0.", new [] { "QueueSize" });
+                yield return new ValidationResult("Invalid value for QueueSize, must be a value greater than or equal to 0.", new [] { "QueueSize" });
             }
 
             // RecommendedCapacity (int) minimum
             if (this.RecommendedCapacity < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RecommendedCapacity, must be a value greater than or equal to 0.", new [] { "RecommendedCapacity" });
+                yield return new ValidationResult("Invalid value for RecommendedCapacity, must be a value greater than or equal to 0.", new [] { "RecommendedCapacity" });
             }
 
             // UserCount (int) minimum
             if (this.UserCount < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserCount, must be a value greater than or equal to 0.", new [] { "UserCount" });
+                yield return new ValidationResult("Invalid value for UserCount, must be a value greater than or equal to 0.", new [] { "UserCount" });
             }
 
             yield break;

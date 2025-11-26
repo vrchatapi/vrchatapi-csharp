@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -37,7 +38,7 @@ namespace VRChat.API.Model
         /// <param name="results"> .</param>
         /// <param name="totalCount">The total number of results that the query would return if there were no pagination..</param>
         /// <param name="hasNext">Whether there are more results after this page..</param>
-        public PaginatedGroupAuditLogEntryList(List<GroupAuditLogEntry> results = default(List<GroupAuditLogEntry>), int totalCount = default(int), bool hasNext = default(bool))
+        public PaginatedGroupAuditLogEntryList(List<GroupAuditLogEntry> results = default, int totalCount = default, bool hasNext = default)
         {
             this.Results = results;
             this.TotalCount = totalCount;
@@ -151,7 +152,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

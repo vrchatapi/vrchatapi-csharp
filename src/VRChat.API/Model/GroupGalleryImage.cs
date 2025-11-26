@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -44,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="approved">approved (default to false).</param>
         /// <param name="approvedByUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="approvedAt">approvedAt.</param>
-        public GroupGalleryImage(string id = default(string), string groupId = default(string), string galleryId = default(string), string fileId = default(string), string imageUrl = default(string), DateTime createdAt = default(DateTime), string submittedByUserId = default(string), bool approved = false, string approvedByUserId = default(string), DateTime approvedAt = default(DateTime))
+        public GroupGalleryImage(string id = default, string groupId = default, string galleryId = default, string fileId = default, string imageUrl = default, DateTime createdAt = default, string submittedByUserId = default, bool approved = false, string approvedByUserId = default, DateTime approvedAt = default)
         {
             this.Id = id;
             this.GroupId = groupId;
@@ -61,30 +62,45 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>ggim_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
         /// <summary>
         /// Gets or Sets GalleryId
         /// </summary>
+        /*
+        <example>ggal_a03a4b55-4ca6-4490-9519-40ba6351a233</example>
+        */
         [DataMember(Name = "galleryId", EmitDefaultValue = false)]
         public string GalleryId { get; set; }
 
         /// <summary>
         /// Gets or Sets FileId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "fileId", EmitDefaultValue = false)]
         public string FileId { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
+        /*
+        <example>https://api.vrchat.cloud/api/1/file/file_ce35d830-e20a-4df0-a6d4-5aaef4508044/1/file</example>
+        */
         [DataMember(Name = "imageUrl", EmitDefaultValue = false)]
         public string ImageUrl { get; set; }
 
@@ -98,12 +114,18 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "submittedByUserId", EmitDefaultValue = false)]
         public string SubmittedByUserId { get; set; }
 
         /// <summary>
         /// Gets or Sets Approved
         /// </summary>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "approved", EmitDefaultValue = true)]
         public bool Approved { get; set; }
 
@@ -111,6 +133,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "approvedByUserId", EmitDefaultValue = false)]
         public string ApprovedByUserId { get; set; }
 
@@ -279,7 +304,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

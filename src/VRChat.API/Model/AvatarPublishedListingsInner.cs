@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// <param name="listingId">listingId.</param>
         /// <param name="listingType">listingType.</param>
         /// <param name="priceTokens">priceTokens.</param>
-        public AvatarPublishedListingsInner(string description = default(string), string displayName = default(string), string imageId = default(string), string listingId = default(string), string listingType = default(string), int priceTokens = default(int))
+        public AvatarPublishedListingsInner(string description = default, string displayName = default, string imageId = default, string listingId = default, string listingType = default, int priceTokens = default)
         {
             this.Description = description;
             this.DisplayName = displayName;
@@ -205,7 +206,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

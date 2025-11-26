@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -36,7 +37,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="max">Maximum population for a crowded instance.</param>
         /// <param name="min">Minimum population for a crowded instance.</param>
-        public APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED(int max = default(int), int min = default(int))
+        public APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED(int max = default, int min = default)
         {
             this.Max = max;
             this.Min = min;
@@ -131,7 +132,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

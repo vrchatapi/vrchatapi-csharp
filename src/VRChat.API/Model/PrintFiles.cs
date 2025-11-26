@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -36,7 +37,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="fileId">fileId.</param>
         /// <param name="image">Link to file, e.g. https://api.vrchat.cloud/api/1/file/file_66fe782d-f2bd-4462-9761-1d766d7b2b26/1/file.</param>
-        public PrintFiles(string fileId = default(string), string image = default(string))
+        public PrintFiles(string fileId = default, string image = default)
         {
             this.FileId = fileId;
             this.Image = image;
@@ -45,6 +46,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets FileId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "fileId", EmitDefaultValue = false)]
         public string FileId { get; set; }
 
@@ -138,7 +142,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

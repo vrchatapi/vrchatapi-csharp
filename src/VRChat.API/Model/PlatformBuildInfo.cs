@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="minBuildNumber">Minimum build number required for the platform (required).</param>
         /// <param name="redirectionAddress">Redirection URL for updating the app.</param>
-        public PlatformBuildInfo(int minBuildNumber = default(int), string redirectionAddress = default(string))
+        public PlatformBuildInfo(int minBuildNumber = default, string redirectionAddress = default)
         {
             this.MinBuildNumber = minBuildNumber;
             this.RedirectionAddress = redirectionAddress;
@@ -140,7 +141,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

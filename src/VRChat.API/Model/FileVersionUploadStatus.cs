@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -45,7 +46,7 @@ namespace VRChat.API.Model
         /// <param name="maxParts">maxParts (required).</param>
         /// <param name="parts">parts (required).</param>
         /// <param name="etags">Unknown (required).</param>
-        public FileVersionUploadStatus(string uploadId = default(string), string fileName = default(string), int nextPartNumber = default(int), int maxParts = default(int), List<Object> parts = default(List<Object>), List<Object> etags = default(List<Object>))
+        public FileVersionUploadStatus(string uploadId = default, string fileName = default, int nextPartNumber = default, int maxParts = default, List<Object> parts = default, List<Object> etags = default)
         {
             // to ensure "uploadId" is required (not null)
             if (uploadId == null)
@@ -78,24 +79,36 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UploadId
         /// </summary>
+        /*
+        <example>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_xxxxxxxxxxxxxxxxxxxxxxxx.xxxxxxx_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx..xxxxxxxxxxxxxxxxxxxxxxx</example>
+        */
         [DataMember(Name = "uploadId", IsRequired = true, EmitDefaultValue = true)]
         public string UploadId { get; set; }
 
         /// <summary>
         /// Gets or Sets FileName
         /// </summary>
+        /*
+        <example>Avatar-MyAvatar-Un.file_00000000-0000-0000-0000-000000000000.1.unitypackage</example>
+        */
         [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Gets or Sets NextPartNumber
         /// </summary>
+        /*
+        <example>0</example>
+        */
         [DataMember(Name = "nextPartNumber", IsRequired = true, EmitDefaultValue = true)]
         public int NextPartNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxParts
         /// </summary>
+        /*
+        <example>1000</example>
+        */
         [DataMember(Name = "maxParts", IsRequired = true, EmitDefaultValue = true)]
         public int MaxParts { get; set; }
 
@@ -229,30 +242,30 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // UploadId (string) minLength
             if (this.UploadId != null && this.UploadId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UploadId, length must be greater than 1.", new [] { "UploadId" });
+                yield return new ValidationResult("Invalid value for UploadId, length must be greater than 1.", new [] { "UploadId" });
             }
 
             // FileName (string) minLength
             if (this.FileName != null && this.FileName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileName, length must be greater than 1.", new [] { "FileName" });
+                yield return new ValidationResult("Invalid value for FileName, length must be greater than 1.", new [] { "FileName" });
             }
 
             // NextPartNumber (int) minimum
             if (this.NextPartNumber < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPartNumber, must be a value greater than or equal to 0.", new [] { "NextPartNumber" });
+                yield return new ValidationResult("Invalid value for NextPartNumber, must be a value greater than or equal to 0.", new [] { "NextPartNumber" });
             }
 
             // MaxParts (int) minimum
             if (this.MaxParts < (int)1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxParts, must be a value greater than or equal to 1.", new [] { "MaxParts" });
+                yield return new ValidationResult("Invalid value for MaxParts, must be a value greater than or equal to 1.", new [] { "MaxParts" });
             }
 
             yield break;

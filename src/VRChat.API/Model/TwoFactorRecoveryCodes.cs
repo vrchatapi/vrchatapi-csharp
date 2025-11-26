@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -36,7 +37,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="requiresTwoFactorAuth">requiresTwoFactorAuth.</param>
         /// <param name="otp">otp.</param>
-        public TwoFactorRecoveryCodes(List<string> requiresTwoFactorAuth = default(List<string>), List<TwoFactorRecoveryCodesOtpInner> otp = default(List<TwoFactorRecoveryCodesOtpInner>))
+        public TwoFactorRecoveryCodes(List<string> requiresTwoFactorAuth = default, List<TwoFactorRecoveryCodesOtpInner> otp = default)
         {
             this.RequiresTwoFactorAuth = requiresTwoFactorAuth;
             this.Otp = otp;
@@ -139,7 +140,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

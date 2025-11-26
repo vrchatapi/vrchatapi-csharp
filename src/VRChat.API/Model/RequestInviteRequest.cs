@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -35,7 +36,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="RequestInviteRequest" /> class.
         /// </summary>
         /// <param name="requestSlot">requestSlot.</param>
-        public RequestInviteRequest(int requestSlot = default(int))
+        public RequestInviteRequest(int requestSlot = default)
         {
             this.RequestSlot = requestSlot;
         }
@@ -115,18 +116,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // RequestSlot (int) maximum
             if (this.RequestSlot > (int)11)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequestSlot, must be a value less than or equal to 11.", new [] { "RequestSlot" });
+                yield return new ValidationResult("Invalid value for RequestSlot, must be a value less than or equal to 11.", new [] { "RequestSlot" });
             }
 
             // RequestSlot (int) minimum
             if (this.RequestSlot < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequestSlot, must be a value greater than or equal to 0.", new [] { "RequestSlot" });
+                yield return new ValidationResult("Invalid value for RequestSlot, must be a value greater than or equal to 0.", new [] { "RequestSlot" });
             }
 
             yield break;

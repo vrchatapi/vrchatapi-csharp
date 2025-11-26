@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -48,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="captchaCode">Captcha code (required).</param>
         /// <param name="subscribe">Whether to recieve promotional emails (required).</param>
         /// <param name="acceptedTOSVersion">The most recent version of the TOS (required).</param>
-        public RegisterUserAccountRequest(string username = default(string), string password = default(string), string email = default(string), string year = default(string), string month = default(string), string day = default(string), string captchaCode = default(string), bool subscribe = default(bool), int acceptedTOSVersion = default(int))
+        public RegisterUserAccountRequest(string username = default, string password = default, string email = default, string year = default, string month = default, string day = default, string captchaCode = default, bool subscribe = default, int acceptedTOSVersion = default)
         {
             // to ensure "username" is required (not null)
             if (username == null)
@@ -304,24 +305,24 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Username (string) maxLength
             if (this.Username != null && this.Username.Length > 15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Username, length must be less than 15.", new [] { "Username" });
+                yield return new ValidationResult("Invalid value for Username, length must be less than 15.", new [] { "Username" });
             }
 
             // Username (string) minLength
             if (this.Username != null && this.Username.Length < 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Username, length must be greater than 4.", new [] { "Username" });
+                yield return new ValidationResult("Invalid value for Username, length must be greater than 4.", new [] { "Username" });
             }
 
             // Password (string) minLength
             if (this.Password != null && this.Password.Length < 8)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Password, length must be greater than 8.", new [] { "Password" });
+                yield return new ValidationResult("Invalid value for Password, length must be greater than 8.", new [] { "Password" });
             }
 
             yield break;

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>60931e76-a7c6-43a7-9a6f-3dcf0d9097b1</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\VRChat.API\VRChat.API.csproj" />
+    <ProjectReference Include="..\..\wrapper\VRChat.API.Extensions.Hosting\VRChat.API.Extensions.Hosting.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -59,7 +60,7 @@ namespace VRChat.API.Model
         /// <param name="tags"> .</param>
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
-        public CreateWorldRequest(string assetUrl = default(string), int assetVersion = default(int), string authorId = default(string), string authorName = default(string), int capacity = default(int), string description = default(string), string id = default(string), string imageUrl = default(string), string name = default(string), string platform = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), List<string> tags = default(List<string>), string unityPackageUrl = default(string), string unityVersion = "5.3.4p1")
+        public CreateWorldRequest(string assetUrl = default, int assetVersion = default, string authorId = default, string authorName = default, int capacity = default, string description = default, string id = default, string imageUrl = default, string name = default, string platform = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1")
         {
             // to ensure "assetUrl" is required (not null)
             if (assetUrl == null)
@@ -90,7 +91,7 @@ namespace VRChat.API.Model
             this.Tags = tags;
             this.UnityPackageUrl = unityPackageUrl;
             // use default value if no "unityVersion" provided
-            this.UnityVersion = unityVersion ?? "5.3.4p1";
+            this.UnityVersion = unityVersion ?? @"5.3.4p1";
         }
 
         /// <summary>
@@ -109,6 +110,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "authorId", EmitDefaultValue = false)]
         public string AuthorId { get; set; }
 
@@ -121,6 +125,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
+        /*
+        <example>8</example>
+        */
         [DataMember(Name = "capacity", EmitDefaultValue = false)]
         public int Capacity { get; set; }
 
@@ -134,6 +141,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -153,6 +163,9 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
@@ -172,6 +185,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
+        /*
+        <example>2022.3.6f1</example>
+        */
         [DataMember(Name = "unityVersion", EmitDefaultValue = false)]
         public string UnityVersion { get; set; }
 
@@ -367,60 +383,60 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AssetUrl (string) minLength
             if (this.AssetUrl != null && this.AssetUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
+                yield return new ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
             }
 
             // AssetVersion (int) minimum
             if (this.AssetVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetVersion, must be a value greater than or equal to 0.", new [] { "AssetVersion" });
+                yield return new ValidationResult("Invalid value for AssetVersion, must be a value greater than or equal to 0.", new [] { "AssetVersion" });
             }
 
             // AuthorName (string) minLength
             if (this.AuthorName != null && this.AuthorName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
+                yield return new ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
 
             // Capacity (int) maximum
             if (this.Capacity > (int)40)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value less than or equal to 40.", new [] { "Capacity" });
+                yield return new ValidationResult("Invalid value for Capacity, must be a value less than or equal to 40.", new [] { "Capacity" });
             }
 
             // Capacity (int) minimum
             if (this.Capacity < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Capacity, must be a value greater than or equal to 0.", new [] { "Capacity" });
+                yield return new ValidationResult("Invalid value for Capacity, must be a value greater than or equal to 0.", new [] { "Capacity" });
             }
 
             // ImageUrl (string) minLength
             if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
+                yield return new ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // UnityPackageUrl (string) minLength
             if (this.UnityPackageUrl != null && this.UnityPackageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityPackageUrl, length must be greater than 1.", new [] { "UnityPackageUrl" });
+                yield return new ValidationResult("Invalid value for UnityPackageUrl, length must be greater than 1.", new [] { "UnityPackageUrl" });
             }
 
             // UnityVersion (string) minLength
             if (this.UnityVersion != null && this.UnityVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
+                yield return new ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }
 
             yield break;

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -57,11 +58,11 @@ namespace VRChat.API.Model
         /// <param name="imageUrl">imageUrl (required).</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl.</param>
         /// <param name="releaseStatus">releaseStatus.</param>
-        /// <param name="version">version (default to 1).</param>
+        /// <param name="varVersion">varVersion (default to 1).</param>
         /// <param name="featured">Enabling featured tag requires Admin Credentials..</param>
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
-        public CreateAvatarRequest(string assetUrl = default(string), string assetVersion = default(string), string platform = default(string), string createdAt = default(string), string updatedAt = default(string), string id = default(string), string name = default(string), string description = default(string), List<string> tags = default(List<string>), string imageUrl = default(string), string thumbnailImageUrl = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), int version = 1, bool featured = default(bool), string unityPackageUrl = default(string), string unityVersion = "5.3.4p1")
+        public CreateAvatarRequest(string assetUrl = default, string assetVersion = default, string platform = default, string createdAt = default, string updatedAt = default, string id = default, string name = default, string description = default, List<string> tags = default, string imageUrl = default, string thumbnailImageUrl = default, ReleaseStatus? releaseStatus = default, int varVersion = 1, bool featured = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1")
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -85,11 +86,11 @@ namespace VRChat.API.Model
             this.Tags = tags;
             this.ThumbnailImageUrl = thumbnailImageUrl;
             this.ReleaseStatus = releaseStatus;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Featured = featured;
             this.UnityPackageUrl = unityPackageUrl;
             // use default value if no "unityVersion" provided
-            this.UnityVersion = unityVersion ?? "5.3.4p1";
+            this.UnityVersion = unityVersion ?? @"5.3.4p1";
         }
 
         /// <summary>
@@ -108,6 +109,9 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
@@ -115,6 +119,9 @@ namespace VRChat.API.Model
         /// A date and time of the pattern &#x60;M/d/yyyy h:mm:ss tt&#x60; (see C Sharp &#x60;System.DateTime&#x60;)
         /// </summary>
         /// <value>A date and time of the pattern &#x60;M/d/yyyy h:mm:ss tt&#x60; (see C Sharp &#x60;System.DateTime&#x60;)</value>
+        /*
+        <example>12/12/2021 1:23:43 AM</example>
+        */
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
         public string CreatedAt { get; set; }
 
@@ -122,12 +129,18 @@ namespace VRChat.API.Model
         /// A date and time of the pattern &#x60;M/d/yyyy h:mm:ss tt&#x60; (see C Sharp &#x60;System.DateTime&#x60;)
         /// </summary>
         /// <value>A date and time of the pattern &#x60;M/d/yyyy h:mm:ss tt&#x60; (see C Sharp &#x60;System.DateTime&#x60;)</value>
+        /*
+        <example>12/12/2021 1:23:43 AM</example>
+        */
         [DataMember(Name = "updated_at", EmitDefaultValue = false)]
         public string UpdatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -163,10 +176,10 @@ namespace VRChat.API.Model
         public string ThumbnailImageUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public int _Version { get; set; }
+        public int VarVersion { get; set; }
 
         /// <summary>
         /// Enabling featured tag requires Admin Credentials.
@@ -184,6 +197,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
+        /*
+        <example>2022.3.6f1</example>
+        */
         [DataMember(Name = "unityVersion", EmitDefaultValue = false)]
         public string UnityVersion { get; set; }
 
@@ -207,7 +223,7 @@ namespace VRChat.API.Model
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
             sb.Append("  ThumbnailImageUrl: ").Append(ThumbnailImageUrl).Append("\n");
             sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Featured: ").Append(Featured).Append("\n");
             sb.Append("  UnityPackageUrl: ").Append(UnityPackageUrl).Append("\n");
             sb.Append("  UnityVersion: ").Append(UnityVersion).Append("\n");
@@ -307,8 +323,8 @@ namespace VRChat.API.Model
                     this.ReleaseStatus.Equals(input.ReleaseStatus)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    this._Version.Equals(input._Version)
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
                 ) && 
                 (
                     this.Featured == input.Featured ||
@@ -380,7 +396,7 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
-                hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 hashCode = (hashCode * 59) + this.Featured.GetHashCode();
                 if (this.UnityPackageUrl != null)
                 {
@@ -399,42 +415,42 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // Description (string) minLength
             if (this.Description != null && this.Description.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
             // ImageUrl (string) minLength
             if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
+                yield return new ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // ThumbnailImageUrl (string) minLength
             if (this.ThumbnailImageUrl != null && this.ThumbnailImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
+                yield return new ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
             }
 
-            // _Version (int) minimum
-            if (this._Version < (int)0)
+            // VarVersion (int) minimum
+            if (this.VarVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
+                yield return new ValidationResult("Invalid value for VarVersion, must be a value greater than or equal to 0.", new [] { "VarVersion" });
             }
 
             // UnityVersion (string) minLength
             if (this.UnityVersion != null && this.UnityVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
+                yield return new ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }
 
             yield break;

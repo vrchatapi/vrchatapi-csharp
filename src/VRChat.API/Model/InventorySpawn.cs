@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -40,8 +41,8 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="InventorySpawn" /> class.
         /// </summary>
         /// <param name="token">token (required).</param>
-        /// <param name="version">version (required).</param>
-        public InventorySpawn(string token = default(string), int version = default(int))
+        /// <param name="varVersion">varVersion (required).</param>
+        public InventorySpawn(string token = default, int varVersion = default)
         {
             // to ensure "token" is required (not null)
             if (token == null)
@@ -49,7 +50,7 @@ namespace VRChat.API.Model
                 throw new ArgumentNullException("token is a required property for InventorySpawn and cannot be null");
             }
             this.Token = token;
-            this._Version = version;
+            this.VarVersion = varVersion;
         }
 
         /// <summary>
@@ -59,10 +60,10 @@ namespace VRChat.API.Model
         public string Token { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public int _Version { get; set; }
+        public int VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,7 +74,7 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InventorySpawn {\n");
             sb.Append("  Token: ").Append(Token).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,8 +116,8 @@ namespace VRChat.API.Model
                     this.Token.Equals(input.Token))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    this._Version.Equals(input._Version)
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
                 );
         }
 
@@ -133,7 +134,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Token.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 return hashCode;
             }
         }
@@ -143,7 +144,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

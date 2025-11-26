@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -47,7 +48,7 @@ namespace VRChat.API.Model
         /// <param name="hidden">only present in CurrentUser badges.</param>
         /// <param name="showcased">showcased (required).</param>
         /// <param name="updatedAt">only present in CurrentUser badges.</param>
-        public Badge(DateTime? assignedAt = default(DateTime?), string badgeDescription = default(string), string badgeId = default(string), string badgeImageUrl = default(string), string badgeName = default(string), bool? hidden = default(bool?), bool showcased = default(bool), DateTime? updatedAt = default(DateTime?))
+        public Badge(DateTime? assignedAt = default, string badgeDescription = default, string badgeId = default, string badgeImageUrl = default, string badgeName = default, bool? hidden = default, bool showcased = default, DateTime? updatedAt = default)
         {
             // to ensure "badgeDescription" is required (not null)
             if (badgeDescription == null)
@@ -95,6 +96,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets BadgeId
         /// </summary>
+        /*
+        <example>bdg_a60e514a-8cb7-4702-8f24-2786992be1a8</example>
+        */
         [DataMember(Name = "badgeId", IsRequired = true, EmitDefaultValue = true)]
         public string BadgeId { get; set; }
 
@@ -270,7 +274,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

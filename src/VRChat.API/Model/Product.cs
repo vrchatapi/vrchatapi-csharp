@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -62,7 +63,7 @@ namespace VRChat.API.Model
         /// <param name="tags">tags (required).</param>
         /// <param name="updated">updated (required).</param>
         /// <param name="useForSubscriberList">useForSubscriberList (default to false).</param>
-        public Product(bool archived = default(bool), DateTime created = default(DateTime), string description = default(string), string displayName = default(string), bool groupAccess = false, bool groupAccessRemove = false, string groupId = default(string), string groupRoleId = default(string), string id = default(string), string imageId = default(string), List<string> parentListings = default(List<string>), ProductType productType = default(ProductType), string sellerDisplayName = default(string), string sellerId = default(string), List<string> tags = default(List<string>), DateTime? updated = default(DateTime?), bool useForSubscriberList = false)
+        public Product(bool archived = default, DateTime created = default, string description = default, string displayName = default, bool groupAccess = false, bool groupAccessRemove = false, string groupId = default, string groupRoleId = default, string id = default, string imageId = default, List<string> parentListings = default, ProductType productType = default, string sellerDisplayName = default, string sellerId = default, List<string> tags = default, DateTime? updated = default, bool useForSubscriberList = false)
         {
             this.Archived = archived;
             this.Created = created;
@@ -167,24 +168,36 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupRoleId
         /// </summary>
+        /*
+        <example>grol_459d3911-f672-44bc-b84d-e54ffe7960fe</example>
+        */
         [DataMember(Name = "groupRoleId", EmitDefaultValue = false)]
         public string GroupRoleId { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
         [DataMember(Name = "imageId", IsRequired = true, EmitDefaultValue = true)]
         public string ImageId { get; set; }
 
@@ -439,7 +452,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

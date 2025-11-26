@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -57,7 +58,7 @@ namespace VRChat.API.Model
         /// <param name="lastAmountVat">lastAmountVat (required).</param>
         /// <param name="outstanding">outstanding (required).</param>
         /// <param name="failedAttempts">failedAttempts (required).</param>
-        public TransactionAgreement(string agreementId = default(string), int itemId = default(int), string agreement = default(string), string status = default(string), string period = default(string), int frequency = default(int), string billingType = default(string), string startDate = default(string), string endDate = default(string), decimal recurringAmt = default(decimal), string currency = default(string), string timeCreated = default(string), string nextPayment = default(string), string lastPayment = default(string), decimal lastAmount = default(decimal), decimal lastAmountVat = default(decimal), int outstanding = default(int), int failedAttempts = default(int))
+        public TransactionAgreement(string agreementId = default, int itemId = default, string agreement = default, string status = default, string period = default, int frequency = default, string billingType = default, string startDate = default, string endDate = default, decimal recurringAmt = default, string currency = default, string timeCreated = default, string nextPayment = default, string lastPayment = default, decimal lastAmount = default, decimal lastAmountVat = default, int outstanding = default, int failedAttempts = default)
         {
             // to ensure "agreementId" is required (not null)
             if (agreementId == null)
@@ -458,66 +459,66 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AgreementId (string) minLength
             if (this.AgreementId != null && this.AgreementId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AgreementId, length must be greater than 1.", new [] { "AgreementId" });
+                yield return new ValidationResult("Invalid value for AgreementId, length must be greater than 1.", new [] { "AgreementId" });
             }
 
             // Status (string) minLength
             if (this.Status != null && this.Status.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be greater than 1.", new [] { "Status" });
+                yield return new ValidationResult("Invalid value for Status, length must be greater than 1.", new [] { "Status" });
             }
 
             // Period (string) minLength
             if (this.Period != null && this.Period.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Period, length must be greater than 1.", new [] { "Period" });
+                yield return new ValidationResult("Invalid value for Period, length must be greater than 1.", new [] { "Period" });
             }
 
             // BillingType (string) minLength
             if (this.BillingType != null && this.BillingType.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BillingType, length must be greater than 1.", new [] { "BillingType" });
+                yield return new ValidationResult("Invalid value for BillingType, length must be greater than 1.", new [] { "BillingType" });
             }
 
             // StartDate (string) minLength
             if (this.StartDate != null && this.StartDate.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartDate, length must be greater than 1.", new [] { "StartDate" });
+                yield return new ValidationResult("Invalid value for StartDate, length must be greater than 1.", new [] { "StartDate" });
             }
 
             // EndDate (string) minLength
             if (this.EndDate != null && this.EndDate.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EndDate, length must be greater than 1.", new [] { "EndDate" });
+                yield return new ValidationResult("Invalid value for EndDate, length must be greater than 1.", new [] { "EndDate" });
             }
 
             // Currency (string) minLength
             if (this.Currency != null && this.Currency.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
+                yield return new ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
             }
 
             // TimeCreated (string) minLength
             if (this.TimeCreated != null && this.TimeCreated.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimeCreated, length must be greater than 1.", new [] { "TimeCreated" });
+                yield return new ValidationResult("Invalid value for TimeCreated, length must be greater than 1.", new [] { "TimeCreated" });
             }
 
             // NextPayment (string) minLength
             if (this.NextPayment != null && this.NextPayment.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NextPayment, length must be greater than 1.", new [] { "NextPayment" });
+                yield return new ValidationResult("Invalid value for NextPayment, length must be greater than 1.", new [] { "NextPayment" });
             }
 
             // LastPayment (string) minLength
             if (this.LastPayment != null && this.LastPayment.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastPayment, length must be greater than 1.", new [] { "LastPayment" });
+                yield return new ValidationResult("Invalid value for LastPayment, length must be greater than 1.", new [] { "LastPayment" });
             }
 
             yield break;

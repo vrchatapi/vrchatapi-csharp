@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -72,7 +73,7 @@ namespace VRChat.API.Model
         /// <param name="instancePersistenceEnabled">instancePersistenceEnabled.</param>
         /// <param name="displayName">displayName.</param>
         /// <param name="contentSettings">contentSettings.</param>
-        public CreateInstanceRequest(string worldId = default(string), InstanceType type = default(InstanceType), InstanceRegion region = default(InstanceRegion), string ownerId = default(string), List<string> roleIds = default(List<string>), GroupAccessType? groupAccessType = default(GroupAccessType?), bool queueEnabled = false, DateTime closedAt = default(DateTime), bool canRequestInvite = false, bool hardClose = false, bool inviteOnly = false, bool ageGate = false, bool? instancePersistenceEnabled = default(bool?), string displayName = default(string), InstanceContentSettings contentSettings = default(InstanceContentSettings))
+        public CreateInstanceRequest(string worldId = default, InstanceType type = default, InstanceRegion region = default, string ownerId = default, List<string> roleIds = default, GroupAccessType? groupAccessType = default, bool queueEnabled = false, DateTime closedAt = default, bool canRequestInvite = false, bool hardClose = false, bool inviteOnly = false, bool ageGate = false, bool? instancePersistenceEnabled = default, string displayName = default, InstanceContentSettings contentSettings = default)
         {
             // to ensure "worldId" is required (not null)
             if (worldId == null)
@@ -100,6 +101,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "worldId", IsRequired = true, EmitDefaultValue = true)]
         public string WorldId { get; set; }
 
@@ -107,6 +111,9 @@ namespace VRChat.API.Model
         /// A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise
         /// </summary>
         /// <value>A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "ownerId", EmitDefaultValue = true)]
         public string OwnerId { get; set; }
 
@@ -356,7 +363,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

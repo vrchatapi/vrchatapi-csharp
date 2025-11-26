@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -48,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="type">type (required).</param>
         /// <param name="favoriteId">Must be either AvatarID, WorldID or UserID. (required).</param>
         /// <param name="tags">Tags indicate which group this favorite belongs to. Adding multiple groups makes it show up in all. Removing it from one in that case removes it from all. (required).</param>
-        public AddFavoriteRequest(FavoriteType type = default(FavoriteType), string favoriteId = default(string), List<string> tags = default(List<string>))
+        public AddFavoriteRequest(FavoriteType type = default, string favoriteId = default, List<string> tags = default)
         {
             this.Type = type;
             // to ensure "favoriteId" is required (not null)
@@ -169,7 +170,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

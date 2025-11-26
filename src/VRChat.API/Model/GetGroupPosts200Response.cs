@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -35,7 +36,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="GetGroupPosts200Response" /> class.
         /// </summary>
         /// <param name="posts">posts.</param>
-        public GetGroupPosts200Response(List<GroupPost> posts = default(List<GroupPost>))
+        public GetGroupPosts200Response(List<GroupPost> posts = default)
         {
             this.Posts = posts;
         }
@@ -120,7 +121,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -47,7 +48,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="action">action (required).</param>
         /// <param name="block">Whether to block the user from requesting again.</param>
-        public RespondGroupJoinRequest(GroupJoinRequestAction action = default(GroupJoinRequestAction), bool block = default(bool))
+        public RespondGroupJoinRequest(GroupJoinRequestAction action = default, bool block = default)
         {
             this.Action = action;
             this.Block = block;
@@ -135,7 +136,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

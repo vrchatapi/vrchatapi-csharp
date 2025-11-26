@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -32,17 +33,16 @@ namespace VRChat.API.Model
     public enum GroupSearchSort
     {
         /// <summary>
-        /// Enum Asc for value: joinedAt:asc
+        /// Enum JoinedAtasc for value: joinedAt:asc
         /// </summary>
         [EnumMember(Value = "joinedAt:asc")]
-        Asc = 1,
+        JoinedAtasc = 1,
 
         /// <summary>
-        /// Enum Desc for value: joinedAt:desc
+        /// Enum JoinedAtdesc for value: joinedAt:desc
         /// </summary>
         [EnumMember(Value = "joinedAt:desc")]
-        Desc = 2
-
+        JoinedAtdesc = 2
     }
 
 }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="gROUPS">gROUPS (required).</param>
         /// <param name="iNSTANCE">iNSTANCE (required).</param>
         /// <param name="lANGUAGE">lANGUAGE (required).</param>
-        public APIConfigConstants(APIConfigConstantsGROUPS gROUPS = default(APIConfigConstantsGROUPS), APIConfigConstantsINSTANCE iNSTANCE = default(APIConfigConstantsINSTANCE), APIConfigConstantsLANGUAGE lANGUAGE = default(APIConfigConstantsLANGUAGE))
+        public APIConfigConstants(APIConfigConstantsGROUPS gROUPS = default, APIConfigConstantsINSTANCE iNSTANCE = default, APIConfigConstantsLANGUAGE lANGUAGE = default)
         {
             // to ensure "gROUPS" is required (not null)
             if (gROUPS == null)
@@ -175,7 +176,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

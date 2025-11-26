@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="displayName">displayName.</param>
         /// <param name="visibility">visibility.</param>
         /// <param name="tags">Tags on FavoriteGroups are believed to do nothing..</param>
-        public UpdateFavoriteGroupRequest(string displayName = default(string), FavoriteGroupVisibility? visibility = default(FavoriteGroupVisibility?), List<string> tags = default(List<string>))
+        public UpdateFavoriteGroupRequest(string displayName = default, FavoriteGroupVisibility? visibility = default, List<string> tags = default)
         {
             this.DisplayName = displayName;
             this.Visibility = visibility;
@@ -153,7 +154,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

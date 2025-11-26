@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -35,25 +36,25 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AgeVerificationStatus
         /// </summary>
-        [DataMember(Name = "ageVerificationStatus", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ageVerificationStatus", IsRequired = false, EmitDefaultValue = true)]
         public AgeVerificationStatus AgeVerificationStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets DeveloperType
         /// </summary>
-        [DataMember(Name = "developerType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "developerType", IsRequired = false, EmitDefaultValue = true)]
         public DeveloperType DeveloperType { get; set; }
 
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "state", IsRequired = false, EmitDefaultValue = true)]
         public UserState State { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "status", IsRequired = false, EmitDefaultValue = true)]
         public UserStatus Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentUser" /> class.
@@ -138,7 +139,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="userIcon">userIcon (required).</param>
         /// <param name="username">-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
-        public CurrentUser(int acceptedTOSVersion = default(int), int acceptedPrivacyVersion = default(int), DateTime? accountDeletionDate = default(DateTime?), List<AccountDeletionLog> accountDeletionLog = default(List<AccountDeletionLog>), List<string> activeFriends = default(List<string>), AgeVerificationStatus ageVerificationStatus = default(AgeVerificationStatus), bool ageVerified = default(bool), bool allowAvatarCopying = default(bool), string authToken = default(string), List<Badge> badges = default(List<Badge>), string bio = default(string), List<string> bioLinks = default(List<string>), List<string> contentFilters = default(List<string>), string currentAvatar = default(string), string currentAvatarImageUrl = default(string), string currentAvatarThumbnailImageUrl = default(string), List<string> currentAvatarTags = default(List<string>), DateTime dateJoined = default(DateTime), DeveloperType developerType = default(DeveloperType), DiscordDetails discordDetails = default(DiscordDetails), string discordId = default(string), string displayName = default(string), bool emailVerified = default(bool), string fallbackAvatar = default(string), List<string> friendGroupNames = default(List<string>), string friendKey = default(string), List<string> friends = default(List<string>), bool hasBirthday = default(bool), bool hideContentFilterSettings = default(bool), string userLanguage = default(string), string userLanguageCode = default(string), bool hasEmail = default(bool), bool hasLoggedInFromClient = default(bool), bool hasPendingEmail = default(bool), string homeLocation = default(string), string id = default(string), bool isAdult = default(bool), bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default(DateTime), DateTime lastLogin = default(DateTime), DateTime? lastMobile = default(DateTime?), string lastPlatform = default(string), string obfuscatedEmail = default(string), string obfuscatedPendingEmail = default(string), string oculusId = default(string), string googleId = default(string), Object googleDetails = default(Object), string picoId = default(string), string viveId = default(string), List<string> offlineFriends = default(List<string>), List<string> onlineFriends = default(List<string>), List<PastDisplayName> pastDisplayNames = default(List<PastDisplayName>), CurrentUserPresence presence = default(CurrentUserPresence), List<CurrentUserPlatformHistoryInner> platformHistory = default(List<CurrentUserPlatformHistoryInner>), string profilePicOverride = default(string), string profilePicOverrideThumbnail = default(string), string pronouns = default(string), List<string> pronounsHistory = default(List<string>), string queuedInstance = default(string), bool receiveMobileInvitations = default(bool), UserState state = default(UserState), UserStatus status = default(UserStatus), string statusDescription = default(string), bool statusFirstTime = default(bool), List<string> statusHistory = default(List<string>), Object steamDetails = default(Object), string steamId = default(string), List<string> tags = default(List<string>), bool twoFactorAuthEnabled = default(bool), DateTime? twoFactorAuthEnabledDate = default(DateTime?), bool unsubscribe = default(bool), DateTime updatedAt = default(DateTime), string userIcon = default(string), string username = default(string))
+        public CurrentUser(int acceptedTOSVersion = default, int acceptedPrivacyVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, string authToken = default, List<Badge> badges = default, string bio = default, List<string> bioLinks = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, string currentAvatarThumbnailImageUrl = default, List<string> currentAvatarTags = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, List<string> friends = default, bool hasBirthday = default, bool hideContentFilterSettings = default, string userLanguage = default, string userLanguageCode = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, string homeLocation = default, string id = default, bool isAdult = default, bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, string googleId = default, Object googleDetails = default, string picoId = default, string viveId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, CurrentUserPresence presence = default, List<CurrentUserPlatformHistoryInner> platformHistory = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userIcon = default, string username = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.AgeVerificationStatus = ageVerificationStatus;
@@ -360,12 +361,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AcceptedTOSVersion
         /// </summary>
-        [DataMember(Name = "acceptedTOSVersion", IsRequired = true, EmitDefaultValue = true)]
+        /*
+        <example>7</example>
+        */
+        [DataMember(Name = "acceptedTOSVersion", IsRequired = false, EmitDefaultValue = true)]
         public int AcceptedTOSVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets AcceptedPrivacyVersion
         /// </summary>
+        /*
+        <example>0</example>
+        */
         [DataMember(Name = "acceptedPrivacyVersion", EmitDefaultValue = false)]
         public int AcceptedPrivacyVersion { get; set; }
 
@@ -373,8 +380,7 @@ namespace VRChat.API.Model
         /// Gets or Sets AccountDeletionDate
         /// </summary>
         [DataMember(Name = "accountDeletionDate", EmitDefaultValue = true)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime? AccountDeletionDate { get; set; }
+        public DateOnly? AccountDeletionDate { get; set; }
 
         /// <summary>
         ///  
@@ -394,13 +400,13 @@ namespace VRChat.API.Model
         /// &#x60;true&#x60; if, user is age verified (not 18+).
         /// </summary>
         /// <value>&#x60;true&#x60; if, user is age verified (not 18+).</value>
-        [DataMember(Name = "ageVerified", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ageVerified", IsRequired = false, EmitDefaultValue = true)]
         public bool AgeVerified { get; set; }
 
         /// <summary>
         /// Gets or Sets AllowAvatarCopying
         /// </summary>
-        [DataMember(Name = "allowAvatarCopying", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "allowAvatarCopying", IsRequired = false, EmitDefaultValue = true)]
         public bool AllowAvatarCopying { get; set; }
 
         /// <summary>
@@ -420,14 +426,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Bio
         /// </summary>
-        [DataMember(Name = "bio", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bio", IsRequired = false, EmitDefaultValue = true)]
         public string Bio { get; set; }
 
         /// <summary>
         ///  
         /// </summary>
         /// <value> </value>
-        [DataMember(Name = "bioLinks", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bioLinks", IsRequired = false, EmitDefaultValue = true)]
         public List<string> BioLinks { get; set; }
 
         /// <summary>
@@ -440,35 +446,43 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CurrentAvatar
         /// </summary>
-        [DataMember(Name = "currentAvatar", IsRequired = true, EmitDefaultValue = true)]
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
+        [DataMember(Name = "currentAvatar", IsRequired = false, EmitDefaultValue = true)]
         public string CurrentAvatar { get; set; }
 
         /// <summary>
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
-        [DataMember(Name = "currentAvatarImageUrl", IsRequired = true, EmitDefaultValue = true)]
+        /*
+        <example>https://api.vrchat.cloud/api/1/file/file_ae46d521-7281-4b38-b365-804b32a1d6a7/1/file</example>
+        */
+        [DataMember(Name = "currentAvatarImageUrl", IsRequired = false, EmitDefaultValue = true)]
         public string CurrentAvatarImageUrl { get; set; }
 
         /// <summary>
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
-        [DataMember(Name = "currentAvatarThumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
+        /*
+        <example>https://api.vrchat.cloud/api/1/image/file_aae83ed9-d42d-4d72-9f4b-9f1e41ed17e1/1/256</example>
+        */
+        [DataMember(Name = "currentAvatarThumbnailImageUrl", IsRequired = false, EmitDefaultValue = true)]
         public string CurrentAvatarThumbnailImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentAvatarTags
         /// </summary>
-        [DataMember(Name = "currentAvatarTags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentAvatarTags", IsRequired = false, EmitDefaultValue = true)]
         public List<string> CurrentAvatarTags { get; set; }
 
         /// <summary>
         /// Gets or Sets DateJoined
         /// </summary>
-        [DataMember(Name = "date_joined", IsRequired = true, EmitDefaultValue = true)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime DateJoined { get; set; }
+        [DataMember(Name = "date_joined", IsRequired = false, EmitDefaultValue = true)]
+        public DateOnly DateJoined { get; set; }
 
         /// <summary>
         /// Gets or Sets DiscordDetails
@@ -480,24 +494,30 @@ namespace VRChat.API.Model
         /// https://discord.com/developers/docs/reference#snowflakes
         /// </summary>
         /// <value>https://discord.com/developers/docs/reference#snowflakes</value>
+        /*
+        <example>1280064052206370848</example>
+        */
         [DataMember(Name = "discordId", EmitDefaultValue = false)]
         public string DiscordId { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", IsRequired = false, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets EmailVerified
         /// </summary>
-        [DataMember(Name = "emailVerified", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "emailVerified", IsRequired = false, EmitDefaultValue = true)]
         public bool EmailVerified { get; set; }
 
         /// <summary>
         /// Gets or Sets FallbackAvatar
         /// </summary>
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
         [DataMember(Name = "fallbackAvatar", EmitDefaultValue = false)]
         public string FallbackAvatar { get; set; }
 
@@ -505,26 +525,26 @@ namespace VRChat.API.Model
         /// Always empty array.
         /// </summary>
         /// <value>Always empty array.</value>
-        [DataMember(Name = "friendGroupNames", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "friendGroupNames", IsRequired = false, EmitDefaultValue = true)]
         [Obsolete]
         public List<string> FriendGroupNames { get; set; }
 
         /// <summary>
         /// Gets or Sets FriendKey
         /// </summary>
-        [DataMember(Name = "friendKey", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "friendKey", IsRequired = false, EmitDefaultValue = true)]
         public string FriendKey { get; set; }
 
         /// <summary>
         /// Gets or Sets Friends
         /// </summary>
-        [DataMember(Name = "friends", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "friends", IsRequired = false, EmitDefaultValue = true)]
         public List<string> Friends { get; set; }
 
         /// <summary>
         /// Gets or Sets HasBirthday
         /// </summary>
-        [DataMember(Name = "hasBirthday", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hasBirthday", IsRequired = false, EmitDefaultValue = true)]
         public bool HasBirthday { get; set; }
 
         /// <summary>
@@ -548,39 +568,45 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets HasEmail
         /// </summary>
-        [DataMember(Name = "hasEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hasEmail", IsRequired = false, EmitDefaultValue = true)]
         public bool HasEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets HasLoggedInFromClient
         /// </summary>
-        [DataMember(Name = "hasLoggedInFromClient", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hasLoggedInFromClient", IsRequired = false, EmitDefaultValue = true)]
         public bool HasLoggedInFromClient { get; set; }
 
         /// <summary>
         /// Gets or Sets HasPendingEmail
         /// </summary>
-        [DataMember(Name = "hasPendingEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hasPendingEmail", IsRequired = false, EmitDefaultValue = true)]
         public bool HasPendingEmail { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        [DataMember(Name = "homeLocation", IsRequired = true, EmitDefaultValue = true)]
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
+        [DataMember(Name = "homeLocation", IsRequired = false, EmitDefaultValue = true)]
         public string HomeLocation { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
+        [DataMember(Name = "id", IsRequired = false, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets IsAdult
         /// </summary>
-        [DataMember(Name = "isAdult", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isAdult", IsRequired = false, EmitDefaultValue = true)]
         public bool IsAdult { get; set; }
 
         /// <summary>
@@ -592,7 +618,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets IsFriend
         /// </summary>
-        [DataMember(Name = "isFriend", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isFriend", IsRequired = false, EmitDefaultValue = true)]
         public bool IsFriend { get; set; }
 
         /// <summary>
@@ -604,38 +630,41 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LastLogin
         /// </summary>
-        [DataMember(Name = "last_login", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "last_login", IsRequired = false, EmitDefaultValue = true)]
         public DateTime LastLogin { get; set; }
 
         /// <summary>
         /// Gets or Sets LastMobile
         /// </summary>
-        [DataMember(Name = "last_mobile", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "last_mobile", IsRequired = false, EmitDefaultValue = true)]
         public DateTime? LastMobile { get; set; }
 
         /// <summary>
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        [DataMember(Name = "last_platform", IsRequired = true, EmitDefaultValue = true)]
+        /*
+        <example>standalonewindows</example>
+        */
+        [DataMember(Name = "last_platform", IsRequired = false, EmitDefaultValue = true)]
         public string LastPlatform { get; set; }
 
         /// <summary>
         /// Gets or Sets ObfuscatedEmail
         /// </summary>
-        [DataMember(Name = "obfuscatedEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "obfuscatedEmail", IsRequired = false, EmitDefaultValue = true)]
         public string ObfuscatedEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets ObfuscatedPendingEmail
         /// </summary>
-        [DataMember(Name = "obfuscatedPendingEmail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "obfuscatedPendingEmail", IsRequired = false, EmitDefaultValue = true)]
         public string ObfuscatedPendingEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets OculusId
         /// </summary>
-        [DataMember(Name = "oculusId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "oculusId", IsRequired = false, EmitDefaultValue = true)]
         public string OculusId { get; set; }
 
         /// <summary>
@@ -678,7 +707,7 @@ namespace VRChat.API.Model
         ///  
         /// </summary>
         /// <value> </value>
-        [DataMember(Name = "pastDisplayNames", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "pastDisplayNames", IsRequired = false, EmitDefaultValue = true)]
         public List<PastDisplayName> PastDisplayNames { get; set; }
 
         /// <summary>
@@ -696,25 +725,25 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ProfilePicOverride
         /// </summary>
-        [DataMember(Name = "profilePicOverride", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "profilePicOverride", IsRequired = false, EmitDefaultValue = true)]
         public string ProfilePicOverride { get; set; }
 
         /// <summary>
         /// Gets or Sets ProfilePicOverrideThumbnail
         /// </summary>
-        [DataMember(Name = "profilePicOverrideThumbnail", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "profilePicOverrideThumbnail", IsRequired = false, EmitDefaultValue = true)]
         public string ProfilePicOverrideThumbnail { get; set; }
 
         /// <summary>
         /// Gets or Sets Pronouns
         /// </summary>
-        [DataMember(Name = "pronouns", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "pronouns", IsRequired = false, EmitDefaultValue = true)]
         public string Pronouns { get; set; }
 
         /// <summary>
         /// Gets or Sets PronounsHistory
         /// </summary>
-        [DataMember(Name = "pronounsHistory", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "pronounsHistory", IsRequired = false, EmitDefaultValue = true)]
         public List<string> PronounsHistory { get; set; }
 
         /// <summary>
@@ -732,43 +761,43 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets StatusDescription
         /// </summary>
-        [DataMember(Name = "statusDescription", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "statusDescription", IsRequired = false, EmitDefaultValue = true)]
         public string StatusDescription { get; set; }
 
         /// <summary>
         /// Gets or Sets StatusFirstTime
         /// </summary>
-        [DataMember(Name = "statusFirstTime", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "statusFirstTime", IsRequired = false, EmitDefaultValue = true)]
         public bool StatusFirstTime { get; set; }
 
         /// <summary>
         /// Gets or Sets StatusHistory
         /// </summary>
-        [DataMember(Name = "statusHistory", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "statusHistory", IsRequired = false, EmitDefaultValue = true)]
         public List<string> StatusHistory { get; set; }
 
         /// <summary>
         /// Gets or Sets SteamDetails
         /// </summary>
-        [DataMember(Name = "steamDetails", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "steamDetails", IsRequired = false, EmitDefaultValue = true)]
         public Object SteamDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets SteamId
         /// </summary>
-        [DataMember(Name = "steamId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "steamId", IsRequired = false, EmitDefaultValue = true)]
         public string SteamId { get; set; }
 
         /// <summary>
         /// Gets or Sets Tags
         /// </summary>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "tags", IsRequired = false, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// Gets or Sets TwoFactorAuthEnabled
         /// </summary>
-        [DataMember(Name = "twoFactorAuthEnabled", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "twoFactorAuthEnabled", IsRequired = false, EmitDefaultValue = true)]
         public bool TwoFactorAuthEnabled { get; set; }
 
         /// <summary>
@@ -780,7 +809,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Unsubscribe
         /// </summary>
-        [DataMember(Name = "unsubscribe", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "unsubscribe", IsRequired = false, EmitDefaultValue = true)]
         public bool Unsubscribe { get; set; }
 
         /// <summary>
@@ -792,8 +821,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UserIcon
         /// </summary>
-        [DataMember(Name = "userIcon", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "userIcon", IsRequired = false, EmitDefaultValue = true)]
         public string UserIcon { get; set; }
+
+        /// <summary>
+        /// An array of two-factor authentication methods available to use to with two factor authentication.
+        /// </summary>
+        [DataMember(Name = "requiresTwoFactorAuth", IsRequired = false, EmitDefaultValue = true)]
+        public List<string> RequiresTwoFactorAuth { get; set; }
 
         /// <summary>
         /// -| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
@@ -1547,18 +1582,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AcceptedTOSVersion (int) minimum
             if (this.AcceptedTOSVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcceptedTOSVersion, must be a value greater than or equal to 0.", new [] { "AcceptedTOSVersion" });
+                yield return new ValidationResult("Invalid value for AcceptedTOSVersion, must be a value greater than or equal to 0.", new [] { "AcceptedTOSVersion" });
             }
 
             // AcceptedPrivacyVersion (int) minimum
             if (this.AcceptedPrivacyVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AcceptedPrivacyVersion, must be a value greater than or equal to 0.", new [] { "AcceptedPrivacyVersion" });
+                yield return new ValidationResult("Invalid value for AcceptedPrivacyVersion, must be a value greater than or equal to 0.", new [] { "AcceptedPrivacyVersion" });
             }
 
             yield break;

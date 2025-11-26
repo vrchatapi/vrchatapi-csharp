@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -48,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="avatarModerationType">avatarModerationType (required).</param>
         /// <param name="created">created (required).</param>
         /// <param name="targetAvatarId">targetAvatarId (required).</param>
-        public AvatarModeration(AvatarModerationType avatarModerationType = default(AvatarModerationType), DateTime created = default(DateTime), string targetAvatarId = default(string))
+        public AvatarModeration(AvatarModerationType avatarModerationType = default, DateTime created = default, string targetAvatarId = default)
         {
             this.AvatarModerationType = avatarModerationType;
             this.Created = created;
@@ -69,6 +70,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets TargetAvatarId
         /// </summary>
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
         [DataMember(Name = "targetAvatarId", IsRequired = true, EmitDefaultValue = true)]
         public string TargetAvatarId { get; set; }
 
@@ -161,7 +165,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

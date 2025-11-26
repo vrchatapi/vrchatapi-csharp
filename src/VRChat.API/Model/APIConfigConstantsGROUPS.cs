@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -44,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="mAXMANAGEMENTROLES">Maximum number of management roles in a group (default to 5).</param>
         /// <param name="mAXOWNED">Maximum number of groups a user can own (default to 5).</param>
         /// <param name="mAXROLES">Maximum number of roles in a group (default to 50).</param>
-        public APIConfigConstantsGROUPS(int cAPACITY = 100000, List<string> gROUPTRANSFERREQUIREMENTS = default(List<string>), int mAXINVITESREQUESTS = 50, int mAXJOINED = 100, int mAXJOINEDPLUS = 200, int mAXLANGUAGES = 10, int mAXLINKS = 3, int mAXMANAGEMENTROLES = 5, int mAXOWNED = 5, int mAXROLES = 50)
+        public APIConfigConstantsGROUPS(int cAPACITY = 100000, List<string> gROUPTRANSFERREQUIREMENTS = default, int mAXINVITESREQUESTS = 50, int mAXJOINED = 100, int mAXJOINEDPLUS = 200, int mAXLANGUAGES = 10, int mAXLINKS = 3, int mAXMANAGEMENTROLES = 5, int mAXOWNED = 5, int mAXROLES = 50)
         {
             this.CAPACITY = cAPACITY;
             this.GROUP_TRANSFER_REQUIREMENTS = gROUPTRANSFERREQUIREMENTS;
@@ -256,7 +257,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

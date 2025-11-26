@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -45,7 +46,7 @@ namespace VRChat.API.Model
         /// <param name="platform">This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
         /// <param name="unityVersion">unityVersion (required) (default to &quot;2022.3.22f1&quot;).</param>
         /// <param name="variant">variant (required).</param>
-        public PropUnityPackage(string assetUrl = default(string), int assetVersion = default(int), string propSignature = default(string), string platform = default(string), string unityVersion = "2022.3.22f1", string variant = default(string))
+        public PropUnityPackage(string assetUrl = default, int assetVersion = default, string propSignature = default, string platform = default, string unityVersion = @"2022.3.22f1", string variant = default)
         {
             // to ensure "assetUrl" is required (not null)
             if (assetUrl == null)
@@ -83,12 +84,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AssetUrl
         /// </summary>
+        /*
+        <example>https://api.vrchat.cloud/api/1/file/file_c991c050-8b43-4046-8182-24d068524ac5/24/file</example>
+        */
         [DataMember(Name = "assetUrl", IsRequired = true, EmitDefaultValue = true)]
         public string AssetUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets AssetVersion
         /// </summary>
+        /*
+        <example>4</example>
+        */
         [DataMember(Name = "assetVersion", IsRequired = true, EmitDefaultValue = true)]
         public int AssetVersion { get; set; }
 
@@ -102,12 +109,18 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
+        /*
+        <example>2022.3.22f1</example>
+        */
         [DataMember(Name = "unityVersion", IsRequired = true, EmitDefaultValue = true)]
         public string UnityVersion { get; set; }
 
@@ -236,18 +249,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AssetVersion (int) minimum
             if (this.AssetVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetVersion, must be a value greater than or equal to 0.", new [] { "AssetVersion" });
+                yield return new ValidationResult("Invalid value for AssetVersion, must be a value greater than or equal to 0.", new [] { "AssetVersion" });
             }
 
             // UnityVersion (string) minLength
             if (this.UnityVersion != null && this.UnityVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
+                yield return new ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }
 
             yield break;

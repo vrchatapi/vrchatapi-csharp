@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -68,7 +69,7 @@ namespace VRChat.API.Model
         /// <param name="licenseGroups">licenseGroups (required).</param>
         /// <param name="isGift">isGift (required) (default to false).</param>
         /// <param name="isBulkGift">isBulkGift (required) (default to false).</param>
-        public UserSubscription(string id = default(string), string transactionId = default(string), string store = default(string), string steamItemId = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod period = default(SubscriptionPeriod), int tier = default(int), bool active = true, TransactionStatus status = default(TransactionStatus), string starts = default(string), DateTime expires = default(DateTime), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), List<string> licenseGroups = default(List<string>), bool isGift = false, bool isBulkGift = false)
+        public UserSubscription(string id = default, string transactionId = default, string store = default, string steamItemId = default, decimal amount = default, string description = default, SubscriptionPeriod period = default, int tier = default, bool active = true, TransactionStatus status = default, string starts = default, DateTime expires = default, DateTime createdAt = default, DateTime updatedAt = default, List<string> licenseGroups = default, bool isGift = false, bool isBulkGift = false)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -117,12 +118,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>vrchatplus-yearly</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionId
         /// </summary>
+        /*
+        <example>txn_e5c72948-e735-4880-8245-24b2a41198b0</example>
+        */
         [DataMember(Name = "transactionId", IsRequired = true, EmitDefaultValue = true)]
         public string TransactionId { get; set; }
 
@@ -130,30 +137,45 @@ namespace VRChat.API.Model
         /// Which \&quot;Store\&quot; it came from. Right now only Stores are \&quot;Steam\&quot; and \&quot;Admin\&quot;.
         /// </summary>
         /// <value>Which \&quot;Store\&quot; it came from. Right now only Stores are \&quot;Steam\&quot; and \&quot;Admin\&quot;.</value>
+        /*
+        <example>Steam</example>
+        */
         [DataMember(Name = "store", IsRequired = true, EmitDefaultValue = true)]
         public string Store { get; set; }
 
         /// <summary>
         /// Gets or Sets SteamItemId
         /// </summary>
+        /*
+        <example>5000</example>
+        */
         [DataMember(Name = "steamItemId", EmitDefaultValue = false)]
         public string SteamItemId { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
+        /*
+        <example>9999</example>
+        */
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
+        /*
+        <example>VRChat Plus (Yearly)</example>
+        */
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Tier
         /// </summary>
+        /*
+        <example>5</example>
+        */
         [DataMember(Name = "tier", IsRequired = true, EmitDefaultValue = true)]
         public int Tier { get; set; }
 
@@ -411,24 +433,24 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // Store (string) minLength
             if (this.Store != null && this.Store.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Store, length must be greater than 1.", new [] { "Store" });
+                yield return new ValidationResult("Invalid value for Store, length must be greater than 1.", new [] { "Store" });
             }
 
             // SteamItemId (string) minLength
             if (this.SteamItemId != null && this.SteamItemId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SteamItemId, length must be greater than 1.", new [] { "SteamItemId" });
+                yield return new ValidationResult("Invalid value for SteamItemId, length must be greater than 1.", new [] { "SteamItemId" });
             }
 
             yield break;

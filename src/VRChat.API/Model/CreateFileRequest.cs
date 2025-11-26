@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -49,7 +50,7 @@ namespace VRChat.API.Model
         /// <param name="mimeType">mimeType (required).</param>
         /// <param name="extension">extension (required).</param>
         /// <param name="tags"> .</param>
-        public CreateFileRequest(string name = default(string), MIMEType mimeType = default(MIMEType), string extension = default(string), List<string> tags = default(List<string>))
+        public CreateFileRequest(string name = default, MIMEType mimeType = default, string extension = default, List<string> tags = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -186,18 +187,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
             }
 
             // Extension (string) minLength
             if (this.Extension != null && this.Extension.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Extension, length must be greater than 1.", new [] { "Extension" });
+                yield return new ValidationResult("Invalid value for Extension, length must be greater than 1.", new [] { "Extension" });
             }
 
             yield break;

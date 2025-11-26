@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -56,7 +57,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="startDate">startDate.</param>
         /// <param name="endDate">endDate.</param>
-        public InfoPush(string id = default(string), bool isEnabled = true, ReleaseStatus releaseStatus = default(ReleaseStatus), int priority = default(int), List<string> tags = default(List<string>), InfoPushData data = default(InfoPushData), string hash = default(string), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), DateTime startDate = default(DateTime), DateTime endDate = default(DateTime))
+        public InfoPush(string id = default, bool isEnabled = true, ReleaseStatus releaseStatus = default, int priority = default, List<string> tags = default, InfoPushData data = default, string hash = default, DateTime createdAt = default, DateTime updatedAt = default, DateTime startDate = default, DateTime endDate = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -94,6 +95,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>launch-beta</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -315,18 +319,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // Hash (string) minLength
             if (this.Hash != null && this.Hash.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Hash, length must be greater than 1.", new [] { "Hash" });
+                yield return new ValidationResult("Invalid value for Hash, length must be greater than 1.", new [] { "Hash" });
             }
 
             yield break;

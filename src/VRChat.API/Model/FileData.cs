@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -54,7 +55,6 @@ namespace VRChat.API.Model
             /// </summary>
             [EnumMember(Value = "simple")]
             Simple = 3
-
         }
 
 
@@ -84,7 +84,7 @@ namespace VRChat.API.Model
         /// <param name="status">status (required).</param>
         /// <param name="uploadId">uploadId (required) (default to &quot;&quot;).</param>
         /// <param name="url">url (required).</param>
-        public FileData(CategoryEnum category = CategoryEnum.Queued, string fileName = default(string), string md5 = default(string), int sizeInBytes = default(int), FileStatus status = default(FileStatus), string uploadId = "", string url = default(string))
+        public FileData(CategoryEnum category = CategoryEnum.Queued, string fileName = default, string md5 = default, int sizeInBytes = default, FileStatus status = default, string uploadId = @"", string url = default)
         {
             this.Category = category;
             // to ensure "fileName" is required (not null)
@@ -261,36 +261,36 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // FileName (string) minLength
             if (this.FileName != null && this.FileName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileName, length must be greater than 1.", new [] { "FileName" });
+                yield return new ValidationResult("Invalid value for FileName, length must be greater than 1.", new [] { "FileName" });
             }
 
             // Md5 (string) minLength
             if (this.Md5 != null && this.Md5.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Md5, length must be greater than 0.", new [] { "Md5" });
+                yield return new ValidationResult("Invalid value for Md5, length must be greater than 0.", new [] { "Md5" });
             }
 
             // SizeInBytes (int) minimum
             if (this.SizeInBytes < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SizeInBytes, must be a value greater than or equal to 0.", new [] { "SizeInBytes" });
+                yield return new ValidationResult("Invalid value for SizeInBytes, must be a value greater than or equal to 0.", new [] { "SizeInBytes" });
             }
 
             // UploadId (string) minLength
             if (this.UploadId != null && this.UploadId.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UploadId, length must be greater than 0.", new [] { "UploadId" });
+                yield return new ValidationResult("Invalid value for UploadId, length must be greater than 0.", new [] { "UploadId" });
             }
 
             // Url (string) minLength
             if (this.Url != null && this.Url.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
+                yield return new ValidationResult("Invalid value for Url, length must be greater than 1.", new [] { "Url" });
             }
 
             yield break;

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -49,7 +50,7 @@ namespace VRChat.API.Model
         /// <param name="id">id (required).</param>
         /// <param name="tags">  (required).</param>
         /// <param name="type">type (required).</param>
-        public Favorite(string favoriteId = default(string), string id = default(string), List<string> tags = default(List<string>), FavoriteType type = default(FavoriteType))
+        public Favorite(string favoriteId = default, string id = default, List<string> tags = default, FavoriteType type = default)
         {
             // to ensure "favoriteId" is required (not null)
             if (favoriteId == null)
@@ -82,6 +83,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>fvrt_9568d189-8776-44a5-a8c8-defc981e44de</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -192,7 +196,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

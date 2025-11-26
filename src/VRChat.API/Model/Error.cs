@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -34,17 +35,17 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
-        /// <param name="error">error.</param>
-        public Error(Response error = default(Response))
+        /// <param name="varError">varError.</param>
+        public Error(Response varError = default)
         {
-            this._Error = error;
+            this.VarError = varError;
         }
 
         /// <summary>
-        /// Gets or Sets _Error
+        /// Gets or Sets VarError
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = false)]
-        public Response _Error { get; set; }
+        public Response VarError { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,7 +55,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Error {\n");
-            sb.Append("  _Error: ").Append(_Error).Append("\n");
+            sb.Append("  VarError: ").Append(VarError).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,9 +92,9 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this._Error == input._Error ||
-                    (this._Error != null &&
-                    this._Error.Equals(input._Error))
+                    this.VarError == input.VarError ||
+                    (this.VarError != null &&
+                    this.VarError.Equals(input.VarError))
                 );
         }
 
@@ -106,9 +107,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Error != null)
+                if (this.VarError != null)
                 {
-                    hashCode = (hashCode * 59) + this._Error.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarError.GetHashCode();
                 }
                 return hashCode;
             }
@@ -119,7 +120,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

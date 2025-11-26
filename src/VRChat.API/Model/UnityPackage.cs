@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -61,7 +62,7 @@ namespace VRChat.API.Model
         /// <param name="impostorUrl">impostorUrl.</param>
         /// <param name="scanStatus">scanStatus.</param>
         /// <param name="variant">variant.</param>
-        public UnityPackage(string id = default(string), string assetUrl = default(string), Object assetUrlObject = default(Object), int assetVersion = default(int), DateTime createdAt = default(DateTime), string impostorizerVersion = default(string), PerformanceRatings? performanceRating = default(PerformanceRatings?), string platform = default(string), string pluginUrl = default(string), Object pluginUrlObject = default(Object), long unitySortNumber = default(long), string unityVersion = "5.3.4p1", string worldSignature = default(string), string impostorUrl = default(string), string scanStatus = default(string), string variant = default(string))
+        public UnityPackage(string id = default, string assetUrl = default, Object assetUrlObject = default, int assetVersion = default, DateTime createdAt = default, string impostorizerVersion = default, PerformanceRatings? performanceRating = default, string platform = default, string pluginUrl = default, Object pluginUrlObject = default, long unitySortNumber = default, string unityVersion = @"5.3.4p1", string worldSignature = default, string impostorUrl = default, string scanStatus = default, string variant = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -99,36 +100,54 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>unp_52b12c39-4163-457d-a4a9-630e7aff1bff</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets AssetUrl
         /// </summary>
+        /*
+        <example>https://api.vrchat.cloud/api/1/file/file_cd0caa7b-69ba-4715-8dfe-7d667a9d2537/65/file</example>
+        */
         [DataMember(Name = "assetUrl", EmitDefaultValue = true)]
         public string AssetUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets AssetUrlObject
         /// </summary>
+        /*
+        <example>{}</example>
+        */
         [DataMember(Name = "assetUrlObject", EmitDefaultValue = false)]
         public Object AssetUrlObject { get; set; }
 
         /// <summary>
         /// Gets or Sets AssetVersion
         /// </summary>
+        /*
+        <example>4</example>
+        */
         [DataMember(Name = "assetVersion", IsRequired = true, EmitDefaultValue = true)]
         public int AssetVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
+        /*
+        <example>2020-09-10T06:13:27.777Z</example>
+        */
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets ImpostorizerVersion
         /// </summary>
+        /*
+        <example>0.17.0</example>
+        */
         [DataMember(Name = "impostorizerVersion", EmitDefaultValue = false)]
         public string ImpostorizerVersion { get; set; }
 
@@ -136,6 +155,9 @@ namespace VRChat.API.Model
         /// This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This can be &#x60;standalonewindows&#x60; or &#x60;android&#x60;, but can also pretty much be any random Unity verison such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
+        /*
+        <example>standalonewindows</example>
+        */
         [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
         public string Platform { get; set; }
 
@@ -148,24 +170,36 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PluginUrlObject
         /// </summary>
+        /*
+        <example>{}</example>
+        */
         [DataMember(Name = "pluginUrlObject", EmitDefaultValue = false)]
         public Object PluginUrlObject { get; set; }
 
         /// <summary>
         /// Gets or Sets UnitySortNumber
         /// </summary>
+        /*
+        <example>20180414000</example>
+        */
         [DataMember(Name = "unitySortNumber", EmitDefaultValue = false)]
         public long UnitySortNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
+        /*
+        <example>2022.3.6f1</example>
+        */
         [DataMember(Name = "unityVersion", IsRequired = true, EmitDefaultValue = true)]
         public string UnityVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets WorldSignature
         /// </summary>
+        /*
+        <example>AHiPAWerwCpeYrxDthF5TU2SdUWEWnm43UAn8PKRXlS8k8tVRQ&#x3D;&#x3D;</example>
+        */
         [DataMember(Name = "worldSignature", EmitDefaultValue = true)]
         public string WorldSignature { get; set; }
 
@@ -398,24 +432,24 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AssetVersion (int) minimum
             if (this.AssetVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetVersion, must be a value greater than or equal to 0.", new [] { "AssetVersion" });
+                yield return new ValidationResult("Invalid value for AssetVersion, must be a value greater than or equal to 0.", new [] { "AssetVersion" });
             }
 
             // UnitySortNumber (long) minimum
             if (this.UnitySortNumber < (long)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitySortNumber, must be a value greater than or equal to 0.", new [] { "UnitySortNumber" });
+                yield return new ValidationResult("Invalid value for UnitySortNumber, must be a value greater than or equal to 0.", new [] { "UnitySortNumber" });
             }
 
             // UnityVersion (string) minLength
             if (this.UnityVersion != null && this.UnityVersion.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
+                yield return new ValidationResult("Invalid value for UnityVersion, length must be greater than 1.", new [] { "UnityVersion" });
             }
 
             yield break;

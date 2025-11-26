@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -60,13 +61,15 @@ namespace VRChat.API.Model
             /// </summary>
             [EnumMember(Value = "CannedWorldSearch")]
             CannedWorldSearch = 4
-
         }
 
 
         /// <summary>
         /// Gets or Sets Command
         /// </summary>
+        /*
+        <example>OpenURL</example>
+        */
         [DataMember(Name = "command", IsRequired = true, EmitDefaultValue = true)]
         public CommandEnum Command { get; set; }
         /// <summary>
@@ -79,7 +82,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="command">command (required).</param>
         /// <param name="parameters">In case of OpenURL, this would contain the link..</param>
-        public InfoPushDataClickable(CommandEnum command = default(CommandEnum), List<string> parameters = default(List<string>))
+        public InfoPushDataClickable(CommandEnum command = default, List<string> parameters = default)
         {
             this.Command = command;
             this.Parameters = parameters;
@@ -172,7 +175,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

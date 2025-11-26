@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -27,67 +28,14 @@ namespace VRChat.API.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Creates and returns a new Permission. The permission will by default be owned by the sender of the request unless otherwise specified.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="ownerId">Owner of the Permission, MUST be valid UserID. (optional)</param>
-        /// <param name="createPermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Permission</returns>
-        Permission CreatePermission(int? n = default(int?), int? offset = default(int?), string ownerId = default(string), CreatePermissionRequest createPermissionRequest = default(CreatePermissionRequest), int operationIndex = 0);
-
-        /// <summary>
-        /// Create Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Creates and returns a new Permission. The permission will by default be owned by the sender of the request unless otherwise specified.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="ownerId">Owner of the Permission, MUST be valid UserID. (optional)</param>
-        /// <param name="createPermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Permission</returns>
-        ApiResponse<Permission> CreatePermissionWithHttpInfo(int? n = default(int?), int? offset = default(int?), string ownerId = default(string), CreatePermissionRequest createPermissionRequest = default(CreatePermissionRequest), int operationIndex = 0);
-        /// <summary>
-        /// Delete Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Deletes a permission.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Permission</returns>
-        Permission DeletePermission(string permissionId, int operationIndex = 0);
-
-        /// <summary>
-        /// Delete Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Deletes a permission.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Permission</returns>
-        ApiResponse<Permission> DeletePermissionWithHttpInfo(string permissionId, int operationIndex = 0);
-        /// <summary>
         /// Get Assigned Permissions
         /// </summary>
         /// <remarks>
         /// Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Permission&gt;</returns>
-        List<Permission> GetAssignedPermissions(int operationIndex = 0);
+        List<Permission> GetAssignedPermissions();
 
         /// <summary>
         /// Get Assigned Permissions
@@ -96,9 +44,8 @@ namespace VRChat.API.Api
         /// Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Permission&gt;</returns>
-        ApiResponse<List<Permission>> GetAssignedPermissionsWithHttpInfo(int operationIndex = 0);
+        ApiResponse<List<Permission>> GetAssignedPermissionsWithHttpInfo();
         /// <summary>
         /// Download CSS
         /// </summary>
@@ -108,9 +55,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string GetCSS(string variant = default(string), string branch = default(string), int operationIndex = 0);
+        string GetCSS(string? variant = default, string? branch = default);
 
         /// <summary>
         /// Download CSS
@@ -121,9 +67,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetCSSWithHttpInfo(string variant = default(string), string branch = default(string), int operationIndex = 0);
+        ApiResponse<string> GetCSSWithHttpInfo(string? variant = default, string? branch = default);
         /// <summary>
         /// Fetch API Config
         /// </summary>
@@ -131,9 +76,8 @@ namespace VRChat.API.Api
         /// API config contains configuration that the clients needs to work properly.  Currently the most important value here is &#x60;clientApiKey&#x60; which is used for all other API endpoints.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>APIConfig</returns>
-        APIConfig GetConfig(int operationIndex = 0);
+        APIConfig GetConfig();
 
         /// <summary>
         /// Fetch API Config
@@ -142,9 +86,8 @@ namespace VRChat.API.Api
         /// API config contains configuration that the clients needs to work properly.  Currently the most important value here is &#x60;clientApiKey&#x60; which is used for all other API endpoints.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of APIConfig</returns>
-        ApiResponse<APIConfig> GetConfigWithHttpInfo(int operationIndex = 0);
+        ApiResponse<APIConfig> GetConfigWithHttpInfo();
         /// <summary>
         /// Current Online Users
         /// </summary>
@@ -152,9 +95,8 @@ namespace VRChat.API.Api
         /// Returns the current number of online users.  **NOTE:** The response type is not a JSON object, but a simple JSON integer.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>int</returns>
-        int GetCurrentOnlineUsers(int operationIndex = 0);
+        int GetCurrentOnlineUsers();
 
         /// <summary>
         /// Current Online Users
@@ -163,9 +105,8 @@ namespace VRChat.API.Api
         /// Returns the current number of online users.  **NOTE:** The response type is not a JSON object, but a simple JSON integer.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of int</returns>
-        ApiResponse<int> GetCurrentOnlineUsersWithHttpInfo(int operationIndex = 0);
+        ApiResponse<int> GetCurrentOnlineUsersWithHttpInfo();
         /// <summary>
         /// Check API Health
         /// </summary>
@@ -173,10 +114,9 @@ namespace VRChat.API.Api
         /// ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>APIHealth</returns>
         [Obsolete]
-        APIHealth GetHealth(int operationIndex = 0);
+        APIHealth GetHealth();
 
         /// <summary>
         /// Check API Health
@@ -185,10 +125,9 @@ namespace VRChat.API.Api
         /// ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of APIHealth</returns>
         [Obsolete]
-        ApiResponse<APIHealth> GetHealthWithHttpInfo(int operationIndex = 0);
+        ApiResponse<APIHealth> GetHealthWithHttpInfo();
         /// <summary>
         /// Show Information Notices
         /// </summary>
@@ -198,9 +137,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="require">Tags to include (comma-separated). All of the tags needs to be present. (optional)</param>
         /// <param name="include">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InfoPush&gt;</returns>
-        List<InfoPush> GetInfoPush(string require = default(string), string include = default(string), int operationIndex = 0);
+        List<InfoPush> GetInfoPush(string? require = default, string? include = default);
 
         /// <summary>
         /// Show Information Notices
@@ -211,9 +149,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="require">Tags to include (comma-separated). All of the tags needs to be present. (optional)</param>
         /// <param name="include">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InfoPush&gt;</returns>
-        ApiResponse<List<InfoPush>> GetInfoPushWithHttpInfo(string require = default(string), string include = default(string), int operationIndex = 0);
+        ApiResponse<List<InfoPush>> GetInfoPushWithHttpInfo(string? require = default, string? include = default);
         /// <summary>
         /// Download JavaScript
         /// </summary>
@@ -223,9 +160,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string GetJavaScript(string variant = default(string), string branch = default(string), int operationIndex = 0);
+        string GetJavaScript(string? variant = default, string? branch = default);
 
         /// <summary>
         /// Download JavaScript
@@ -236,9 +172,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetJavaScriptWithHttpInfo(string variant = default(string), string branch = default(string), int operationIndex = 0);
+        ApiResponse<string> GetJavaScriptWithHttpInfo(string? variant = default, string? branch = default);
         /// <summary>
         /// Get Permission
         /// </summary>
@@ -247,9 +182,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Permission</returns>
-        Permission GetPermission(string permissionId, int operationIndex = 0);
+        Permission GetPermission(string permissionId);
 
         /// <summary>
         /// Get Permission
@@ -259,30 +193,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Permission</returns>
-        ApiResponse<Permission> GetPermissionWithHttpInfo(string permissionId, int operationIndex = 0);
-        /// <summary>
-        /// Get Permissions
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Returns a list of all existing permissions, just like &#x60;/users&#x60; with empty search would.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Permission&gt;</returns>
-        List<Permission> GetPermissions(int operationIndex = 0);
-
-        /// <summary>
-        /// Get Permissions
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Returns a list of all existing permissions, just like &#x60;/users&#x60; with empty search would.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Permission&gt;</returns>
-        ApiResponse<List<Permission>> GetPermissionsWithHttpInfo(int operationIndex = 0);
+        ApiResponse<Permission> GetPermissionWithHttpInfo(string permissionId);
         /// <summary>
         /// Current System Time
         /// </summary>
@@ -290,9 +202,8 @@ namespace VRChat.API.Api
         /// Returns the current time of the API server.  **NOTE:** The response type is not a JSON object, but a simple JSON string.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DateTime</returns>
-        DateTime GetSystemTime(int operationIndex = 0);
+        DateTime GetSystemTime();
 
         /// <summary>
         /// Current System Time
@@ -301,34 +212,8 @@ namespace VRChat.API.Api
         /// Returns the current time of the API server.  **NOTE:** The response type is not a JSON object, but a simple JSON string.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DateTime</returns>
-        ApiResponse<DateTime> GetSystemTimeWithHttpInfo(int operationIndex = 0);
-        /// <summary>
-        /// Update Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Updates the info on a permission.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="updatePermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Permission</returns>
-        Permission UpdatePermission(string permissionId, UpdatePermissionRequest updatePermissionRequest = default(UpdatePermissionRequest), int operationIndex = 0);
-
-        /// <summary>
-        /// Update Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Updates the info on a permission.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="updatePermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Permission</returns>
-        ApiResponse<Permission> UpdatePermissionWithHttpInfo(string permissionId, UpdatePermissionRequest updatePermissionRequest = default(UpdatePermissionRequest), int operationIndex = 0);
+        ApiResponse<DateTime> GetSystemTimeWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -339,72 +224,15 @@ namespace VRChat.API.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Creates and returns a new Permission. The permission will by default be owned by the sender of the request unless otherwise specified.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="ownerId">Owner of the Permission, MUST be valid UserID. (optional)</param>
-        /// <param name="createPermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Permission</returns>
-        System.Threading.Tasks.Task<Permission> CreatePermissionAsync(int? n = default(int?), int? offset = default(int?), string ownerId = default(string), CreatePermissionRequest createPermissionRequest = default(CreatePermissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Create Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Creates and returns a new Permission. The permission will by default be owned by the sender of the request unless otherwise specified.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="ownerId">Owner of the Permission, MUST be valid UserID. (optional)</param>
-        /// <param name="createPermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Permission)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Permission>> CreatePermissionWithHttpInfoAsync(int? n = default(int?), int? offset = default(int?), string ownerId = default(string), CreatePermissionRequest createPermissionRequest = default(CreatePermissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Delete Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Deletes a permission.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Permission</returns>
-        System.Threading.Tasks.Task<Permission> DeletePermissionAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Delete Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Deletes a permission.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Permission)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Permission>> DeletePermissionWithHttpInfoAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
         /// Get Assigned Permissions
         /// </summary>
         /// <remarks>
         /// Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Permission&gt;</returns>
-        System.Threading.Tasks.Task<List<Permission>> GetAssignedPermissionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Permission>> GetAssignedPermissionsAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Assigned Permissions
@@ -413,10 +241,9 @@ namespace VRChat.API.Api
         /// Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Permission&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Permission>>> GetAssignedPermissionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Permission>>> GetAssignedPermissionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Download CSS
         /// </summary>
@@ -426,10 +253,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetCSSAsync(string variant = default(string), string branch = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> GetCSSAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Download CSS
@@ -440,10 +266,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetCSSWithHttpInfoAsync(string variant = default(string), string branch = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> GetCSSWithHttpInfoAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Fetch API Config
         /// </summary>
@@ -451,10 +276,9 @@ namespace VRChat.API.Api
         /// API config contains configuration that the clients needs to work properly.  Currently the most important value here is &#x60;clientApiKey&#x60; which is used for all other API endpoints.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of APIConfig</returns>
-        System.Threading.Tasks.Task<APIConfig> GetConfigAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<APIConfig> GetConfigAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Fetch API Config
@@ -463,10 +287,9 @@ namespace VRChat.API.Api
         /// API config contains configuration that the clients needs to work properly.  Currently the most important value here is &#x60;clientApiKey&#x60; which is used for all other API endpoints.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (APIConfig)</returns>
-        System.Threading.Tasks.Task<ApiResponse<APIConfig>> GetConfigWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<APIConfig>> GetConfigWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Current Online Users
         /// </summary>
@@ -474,10 +297,9 @@ namespace VRChat.API.Api
         /// Returns the current number of online users.  **NOTE:** The response type is not a JSON object, but a simple JSON integer.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of int</returns>
-        System.Threading.Tasks.Task<int> GetCurrentOnlineUsersAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<int> GetCurrentOnlineUsersAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Current Online Users
@@ -486,10 +308,9 @@ namespace VRChat.API.Api
         /// Returns the current number of online users.  **NOTE:** The response type is not a JSON object, but a simple JSON integer.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (int)</returns>
-        System.Threading.Tasks.Task<ApiResponse<int>> GetCurrentOnlineUsersWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<int>> GetCurrentOnlineUsersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Check API Health
         /// </summary>
@@ -497,11 +318,10 @@ namespace VRChat.API.Api
         /// ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of APIHealth</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<APIHealth> GetHealthAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<APIHealth> GetHealthAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check API Health
@@ -510,11 +330,10 @@ namespace VRChat.API.Api
         /// ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (APIHealth)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<APIHealth>> GetHealthWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<APIHealth>> GetHealthWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Show Information Notices
         /// </summary>
@@ -524,10 +343,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="require">Tags to include (comma-separated). All of the tags needs to be present. (optional)</param>
         /// <param name="include">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InfoPush&gt;</returns>
-        System.Threading.Tasks.Task<List<InfoPush>> GetInfoPushAsync(string require = default(string), string include = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<InfoPush>> GetInfoPushAsync(string? require = default, string? include = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Show Information Notices
@@ -538,10 +356,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="require">Tags to include (comma-separated). All of the tags needs to be present. (optional)</param>
         /// <param name="include">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InfoPush&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InfoPush>>> GetInfoPushWithHttpInfoAsync(string require = default(string), string include = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<InfoPush>>> GetInfoPushWithHttpInfoAsync(string? require = default, string? include = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Download JavaScript
         /// </summary>
@@ -551,10 +368,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetJavaScriptAsync(string variant = default(string), string branch = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> GetJavaScriptAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Download JavaScript
@@ -565,10 +381,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetJavaScriptWithHttpInfoAsync(string variant = default(string), string branch = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> GetJavaScriptWithHttpInfoAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Permission
         /// </summary>
@@ -577,10 +392,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Permission</returns>
-        System.Threading.Tasks.Task<Permission> GetPermissionAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Permission> GetPermissionAsync(string permissionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Permission
@@ -590,33 +404,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Permission)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Permission>> GetPermissionWithHttpInfoAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Get Permissions
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Returns a list of all existing permissions, just like &#x60;/users&#x60; with empty search would.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Permission&gt;</returns>
-        System.Threading.Tasks.Task<List<Permission>> GetPermissionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get Permissions
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Returns a list of all existing permissions, just like &#x60;/users&#x60; with empty search would.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Permission&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Permission>>> GetPermissionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Permission>> GetPermissionWithHttpInfoAsync(string permissionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Current System Time
         /// </summary>
@@ -624,10 +414,9 @@ namespace VRChat.API.Api
         /// Returns the current time of the API server.  **NOTE:** The response type is not a JSON object, but a simple JSON string.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DateTime</returns>
-        System.Threading.Tasks.Task<DateTime> GetSystemTimeAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DateTime> GetSystemTimeAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Current System Time
@@ -636,37 +425,9 @@ namespace VRChat.API.Api
         /// Returns the current time of the API server.  **NOTE:** The response type is not a JSON object, but a simple JSON string.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DateTime)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DateTime>> GetSystemTimeWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Update Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Updates the info on a permission.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="updatePermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Permission</returns>
-        System.Threading.Tasks.Task<Permission> UpdatePermissionAsync(string permissionId, UpdatePermissionRequest updatePermissionRequest = default(UpdatePermissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Update Permission
-        /// </summary>
-        /// <remarks>
-        /// **REQUIRES ADMIN CREDENTIALS**. Updates the info on a permission.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="updatePermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Permission)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Permission>> UpdatePermissionWithHttpInfoAsync(string permissionId, UpdatePermissionRequest updatePermissionRequest = default(UpdatePermissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DateTime>> GetSystemTimeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -681,12 +442,14 @@ namespace VRChat.API.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class MiscellaneousApi : IMiscellaneousApi
+    public partial class MiscellaneousApi : IDisposable, IMiscellaneousApi
     {
         private VRChat.API.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MiscellaneousApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public MiscellaneousApi() : this((string)null)
@@ -695,7 +458,11 @@ namespace VRChat.API.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MiscellaneousApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public MiscellaneousApi(string basePath)
         {
@@ -703,16 +470,19 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 new VRChat.API.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MiscellaneousApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="MiscellaneousApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public MiscellaneousApi(VRChat.API.Client.Configuration configuration)
         {
@@ -722,8 +492,78 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MiscellaneousApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public MiscellaneousApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MiscellaneousApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public MiscellaneousApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                new VRChat.API.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MiscellaneousApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public MiscellaneousApi(HttpClient client, VRChat.API.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -734,6 +574,7 @@ namespace VRChat.API.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public MiscellaneousApi(VRChat.API.Client.ISynchronousClient client, VRChat.API.Client.IAsynchronousClient asyncClient, VRChat.API.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -745,6 +586,19 @@ namespace VRChat.API.Api
             this.Configuration = configuration;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public VRChat.API.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -788,350 +642,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Create Permission **REQUIRES ADMIN CREDENTIALS**. Creates and returns a new Permission. The permission will by default be owned by the sender of the request unless otherwise specified.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="ownerId">Owner of the Permission, MUST be valid UserID. (optional)</param>
-        /// <param name="createPermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Permission</returns>
-        public Permission CreatePermission(int? n = default(int?), int? offset = default(int?), string ownerId = default(string), CreatePermissionRequest createPermissionRequest = default(CreatePermissionRequest), int operationIndex = 0)
-        {
-            VRChat.API.Client.ApiResponse<Permission> localVarResponse = CreatePermissionWithHttpInfo(n, offset, ownerId, createPermissionRequest);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create Permission **REQUIRES ADMIN CREDENTIALS**. Creates and returns a new Permission. The permission will by default be owned by the sender of the request unless otherwise specified.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="ownerId">Owner of the Permission, MUST be valid UserID. (optional)</param>
-        /// <param name="createPermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Permission</returns>
-        public VRChat.API.Client.ApiResponse<Permission> CreatePermissionWithHttpInfo(int? n = default(int?), int? offset = default(int?), string ownerId = default(string), CreatePermissionRequest createPermissionRequest = default(CreatePermissionRequest), int operationIndex = 0)
-        {
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (n != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
-            }
-            if (offset != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
-            }
-            if (ownerId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "ownerId", ownerId));
-            }
-            localVarRequestOptions.Data = createPermissionRequest;
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.CreatePermission";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Permission>("/permissions", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreatePermission", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Create Permission **REQUIRES ADMIN CREDENTIALS**. Creates and returns a new Permission. The permission will by default be owned by the sender of the request unless otherwise specified.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="ownerId">Owner of the Permission, MUST be valid UserID. (optional)</param>
-        /// <param name="createPermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Permission</returns>
-        public async System.Threading.Tasks.Task<Permission> CreatePermissionAsync(int? n = default(int?), int? offset = default(int?), string ownerId = default(string), CreatePermissionRequest createPermissionRequest = default(CreatePermissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            VRChat.API.Client.ApiResponse<Permission> localVarResponse = await CreatePermissionWithHttpInfoAsync(n, offset, ownerId, createPermissionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create Permission **REQUIRES ADMIN CREDENTIALS**. Creates and returns a new Permission. The permission will by default be owned by the sender of the request unless otherwise specified.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="ownerId">Owner of the Permission, MUST be valid UserID. (optional)</param>
-        /// <param name="createPermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Permission)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Permission>> CreatePermissionWithHttpInfoAsync(int? n = default(int?), int? offset = default(int?), string ownerId = default(string), CreatePermissionRequest createPermissionRequest = default(CreatePermissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (n != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
-            }
-            if (offset != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
-            }
-            if (ownerId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "ownerId", ownerId));
-            }
-            localVarRequestOptions.Data = createPermissionRequest;
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.CreatePermission";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Permission>("/permissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CreatePermission", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete Permission **REQUIRES ADMIN CREDENTIALS**. Deletes a permission.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Permission</returns>
-        public Permission DeletePermission(string permissionId, int operationIndex = 0)
-        {
-            VRChat.API.Client.ApiResponse<Permission> localVarResponse = DeletePermissionWithHttpInfo(permissionId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Delete Permission **REQUIRES ADMIN CREDENTIALS**. Deletes a permission.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Permission</returns>
-        public VRChat.API.Client.ApiResponse<Permission> DeletePermissionWithHttpInfo(string permissionId, int operationIndex = 0)
-        {
-            // verify the required parameter 'permissionId' is set
-            if (permissionId == null)
-            {
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'permissionId' when calling MiscellaneousApi->DeletePermission");
-            }
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("permissionId", VRChat.API.Client.ClientUtils.ParameterToString(permissionId)); // path parameter
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.DeletePermission";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Permission>("/permissions/{permissionId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeletePermission", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete Permission **REQUIRES ADMIN CREDENTIALS**. Deletes a permission.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Permission</returns>
-        public async System.Threading.Tasks.Task<Permission> DeletePermissionAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            VRChat.API.Client.ApiResponse<Permission> localVarResponse = await DeletePermissionWithHttpInfoAsync(permissionId, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Delete Permission **REQUIRES ADMIN CREDENTIALS**. Deletes a permission.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Permission)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Permission>> DeletePermissionWithHttpInfoAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'permissionId' is set
-            if (permissionId == null)
-            {
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'permissionId' when calling MiscellaneousApi->DeletePermission");
-            }
-
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("permissionId", VRChat.API.Client.ClientUtils.ParameterToString(permissionId)); // path parameter
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.DeletePermission";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Permission>("/permissions/{permissionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeletePermission", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Get Assigned Permissions Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Permission&gt;</returns>
-        public List<Permission> GetAssignedPermissions(int operationIndex = 0)
+        public List<Permission> GetAssignedPermissions()
         {
             VRChat.API.Client.ApiResponse<List<Permission>> localVarResponse = GetAssignedPermissionsWithHttpInfo();
             return localVarResponse.Data;
@@ -1141,9 +656,8 @@ namespace VRChat.API.Api
         /// Get Assigned Permissions Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Permission&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Permission>> GetAssignedPermissionsWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<Permission>> GetAssignedPermissionsWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1156,20 +670,11 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetAssignedPermissions";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1180,13 +685,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<Permission>>("/auth/permissions", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAssignedPermissions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1196,12 +699,11 @@ namespace VRChat.API.Api
         /// Get Assigned Permissions Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Permission&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Permission>> GetAssignedPermissionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Permission>> GetAssignedPermissionsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<Permission>> localVarResponse = await GetAssignedPermissionsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<Permission>> localVarResponse = await GetAssignedPermissionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1209,10 +711,9 @@ namespace VRChat.API.Api
         /// Get Assigned Permissions Returns a list of all permissions currently granted by the user. Permissions are assigned e.g. by subscribing to VRC+.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Permission&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Permission>>> GetAssignedPermissionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Permission>>> GetAssignedPermissionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1225,21 +726,13 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetAssignedPermissions";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1249,15 +742,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Permission>>("/auth/permissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAssignedPermissions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1269,9 +760,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string GetCSS(string variant = default(string), string branch = default(string), int operationIndex = 0)
+        public string GetCSS(string? variant = default, string? branch = default)
         {
             VRChat.API.Client.ApiResponse<string> localVarResponse = GetCSSWithHttpInfo(variant, branch);
             return localVarResponse.Data;
@@ -1283,9 +773,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public VRChat.API.Client.ApiResponse<string> GetCSSWithHttpInfo(string variant = default(string), string branch = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<string> GetCSSWithHttpInfo(string? variant = default, string? branch = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1299,16 +788,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (variant != null)
             {
@@ -1319,19 +802,14 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "branch", branch));
             }
 
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetCSS";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<string>("/css/app.css", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCSS", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1343,12 +821,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetCSSAsync(string variant = default(string), string branch = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> GetCSSAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<string> localVarResponse = await GetCSSWithHttpInfoAsync(variant, branch, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<string> localVarResponse = await GetCSSWithHttpInfoAsync(variant, branch, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1358,10 +835,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<string>> GetCSSWithHttpInfoAsync(string variant = default(string), string branch = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<string>> GetCSSWithHttpInfoAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1375,17 +851,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (variant != null)
             {
@@ -1396,20 +867,15 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "branch", branch));
             }
 
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetCSS";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/css/app.css", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCSS", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1419,9 +885,8 @@ namespace VRChat.API.Api
         /// Fetch API Config API config contains configuration that the clients needs to work properly.  Currently the most important value here is &#x60;clientApiKey&#x60; which is used for all other API endpoints.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>APIConfig</returns>
-        public APIConfig GetConfig(int operationIndex = 0)
+        public APIConfig GetConfig()
         {
             VRChat.API.Client.ApiResponse<APIConfig> localVarResponse = GetConfigWithHttpInfo();
             return localVarResponse.Data;
@@ -1431,9 +896,8 @@ namespace VRChat.API.Api
         /// Fetch API Config API config contains configuration that the clients needs to work properly.  Currently the most important value here is &#x60;clientApiKey&#x60; which is used for all other API endpoints.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of APIConfig</returns>
-        public VRChat.API.Client.ApiResponse<APIConfig> GetConfigWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<APIConfig> GetConfigWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1446,31 +910,20 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetConfig";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<APIConfig>("/config", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetConfig", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1480,12 +933,11 @@ namespace VRChat.API.Api
         /// Fetch API Config API config contains configuration that the clients needs to work properly.  Currently the most important value here is &#x60;clientApiKey&#x60; which is used for all other API endpoints.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of APIConfig</returns>
-        public async System.Threading.Tasks.Task<APIConfig> GetConfigAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<APIConfig> GetConfigAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<APIConfig> localVarResponse = await GetConfigWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<APIConfig> localVarResponse = await GetConfigWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1493,10 +945,9 @@ namespace VRChat.API.Api
         /// Fetch API Config API config contains configuration that the clients needs to work properly.  Currently the most important value here is &#x60;clientApiKey&#x60; which is used for all other API endpoints.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (APIConfig)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<APIConfig>> GetConfigWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<APIConfig>> GetConfigWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1509,33 +960,23 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetConfig";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<APIConfig>("/config", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetConfig", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1545,9 +986,8 @@ namespace VRChat.API.Api
         /// Current Online Users Returns the current number of online users.  **NOTE:** The response type is not a JSON object, but a simple JSON integer.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>int</returns>
-        public int GetCurrentOnlineUsers(int operationIndex = 0)
+        public int GetCurrentOnlineUsers()
         {
             VRChat.API.Client.ApiResponse<int> localVarResponse = GetCurrentOnlineUsersWithHttpInfo();
             return localVarResponse.Data;
@@ -1557,9 +997,8 @@ namespace VRChat.API.Api
         /// Current Online Users Returns the current number of online users.  **NOTE:** The response type is not a JSON object, but a simple JSON integer.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of int</returns>
-        public VRChat.API.Client.ApiResponse<int> GetCurrentOnlineUsersWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<int> GetCurrentOnlineUsersWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1572,31 +1011,20 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetCurrentOnlineUsers";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<int>("/visits", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCurrentOnlineUsers", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1606,12 +1034,11 @@ namespace VRChat.API.Api
         /// Current Online Users Returns the current number of online users.  **NOTE:** The response type is not a JSON object, but a simple JSON integer.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of int</returns>
-        public async System.Threading.Tasks.Task<int> GetCurrentOnlineUsersAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<int> GetCurrentOnlineUsersAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<int> localVarResponse = await GetCurrentOnlineUsersWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<int> localVarResponse = await GetCurrentOnlineUsersWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1619,10 +1046,9 @@ namespace VRChat.API.Api
         /// Current Online Users Returns the current number of online users.  **NOTE:** The response type is not a JSON object, but a simple JSON integer.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (int)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<int>> GetCurrentOnlineUsersWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<int>> GetCurrentOnlineUsersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1635,33 +1061,23 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetCurrentOnlineUsers";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<int>("/visits", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCurrentOnlineUsers", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1671,10 +1087,9 @@ namespace VRChat.API.Api
         /// Check API Health ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>APIHealth</returns>
         [Obsolete]
-        public APIHealth GetHealth(int operationIndex = 0)
+        public APIHealth GetHealth()
         {
             VRChat.API.Client.ApiResponse<APIHealth> localVarResponse = GetHealthWithHttpInfo();
             return localVarResponse.Data;
@@ -1684,10 +1099,9 @@ namespace VRChat.API.Api
         /// Check API Health ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of APIHealth</returns>
         [Obsolete]
-        public VRChat.API.Client.ApiResponse<APIHealth> GetHealthWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<APIHealth> GetHealthWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1700,31 +1114,20 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetHealth";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<APIHealth>("/health", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetHealth", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1734,13 +1137,12 @@ namespace VRChat.API.Api
         /// Check API Health ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of APIHealth</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<APIHealth> GetHealthAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<APIHealth> GetHealthAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<APIHealth> localVarResponse = await GetHealthWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<APIHealth> localVarResponse = await GetHealthWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1748,11 +1150,10 @@ namespace VRChat.API.Api
         /// Check API Health ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (APIHealth)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<APIHealth>> GetHealthWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<APIHealth>> GetHealthWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1765,33 +1166,23 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetHealth";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<APIHealth>("/health", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetHealth", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1803,9 +1194,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="require">Tags to include (comma-separated). All of the tags needs to be present. (optional)</param>
         /// <param name="include">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;InfoPush&gt;</returns>
-        public List<InfoPush> GetInfoPush(string require = default(string), string include = default(string), int operationIndex = 0)
+        public List<InfoPush> GetInfoPush(string? require = default, string? include = default)
         {
             VRChat.API.Client.ApiResponse<List<InfoPush>> localVarResponse = GetInfoPushWithHttpInfo(require, include);
             return localVarResponse.Data;
@@ -1817,9 +1207,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="require">Tags to include (comma-separated). All of the tags needs to be present. (optional)</param>
         /// <param name="include">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;InfoPush&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<InfoPush>> GetInfoPushWithHttpInfo(string require = default(string), string include = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<InfoPush>> GetInfoPushWithHttpInfo(string? require = default, string? include = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1832,16 +1221,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (require != null)
             {
@@ -1852,19 +1235,14 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "include", include));
             }
 
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetInfoPush";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<InfoPush>>("/infoPush", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInfoPush", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1876,12 +1254,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="require">Tags to include (comma-separated). All of the tags needs to be present. (optional)</param>
         /// <param name="include">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InfoPush&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InfoPush>> GetInfoPushAsync(string require = default(string), string include = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<InfoPush>> GetInfoPushAsync(string? require = default, string? include = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<InfoPush>> localVarResponse = await GetInfoPushWithHttpInfoAsync(require, include, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<InfoPush>> localVarResponse = await GetInfoPushWithHttpInfoAsync(require, include, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1891,10 +1268,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="require">Tags to include (comma-separated). All of the tags needs to be present. (optional)</param>
         /// <param name="include">Tags to include (comma-separated). Any of the tags needs to be present. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InfoPush&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InfoPush>>> GetInfoPushWithHttpInfoAsync(string require = default(string), string include = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InfoPush>>> GetInfoPushWithHttpInfoAsync(string? require = default, string? include = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1907,17 +1283,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (require != null)
             {
@@ -1928,20 +1299,15 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "include", include));
             }
 
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetInfoPush";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<InfoPush>>("/infoPush", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInfoPush", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1953,9 +1319,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string GetJavaScript(string variant = default(string), string branch = default(string), int operationIndex = 0)
+        public string GetJavaScript(string? variant = default, string? branch = default)
         {
             VRChat.API.Client.ApiResponse<string> localVarResponse = GetJavaScriptWithHttpInfo(variant, branch);
             return localVarResponse.Data;
@@ -1967,9 +1332,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public VRChat.API.Client.ApiResponse<string> GetJavaScriptWithHttpInfo(string variant = default(string), string branch = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<string> GetJavaScriptWithHttpInfo(string? variant = default, string? branch = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1983,16 +1347,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (variant != null)
             {
@@ -2003,19 +1361,14 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "branch", branch));
             }
 
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetJavaScript";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<string>("/js/app.js", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetJavaScript", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2027,12 +1380,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetJavaScriptAsync(string variant = default(string), string branch = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> GetJavaScriptAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<string> localVarResponse = await GetJavaScriptWithHttpInfoAsync(variant, branch, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<string> localVarResponse = await GetJavaScriptWithHttpInfoAsync(variant, branch, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2042,10 +1394,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<string>> GetJavaScriptWithHttpInfoAsync(string variant = default(string), string branch = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<string>> GetJavaScriptWithHttpInfoAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2059,17 +1410,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (variant != null)
             {
@@ -2080,20 +1426,15 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "branch", branch));
             }
 
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetJavaScript";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/js/app.js", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetJavaScript", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2104,9 +1445,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Permission</returns>
-        public Permission GetPermission(string permissionId, int operationIndex = 0)
+        public Permission GetPermission(string permissionId)
         {
             VRChat.API.Client.ApiResponse<Permission> localVarResponse = GetPermissionWithHttpInfo(permissionId);
             return localVarResponse.Data;
@@ -2117,15 +1457,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Permission</returns>
-        public VRChat.API.Client.ApiResponse<Permission> GetPermissionWithHttpInfo(string permissionId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Permission> GetPermissionWithHttpInfo(string permissionId)
         {
             // verify the required parameter 'permissionId' is set
             if (permissionId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'permissionId' when calling MiscellaneousApi->GetPermission");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2138,21 +1475,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("permissionId", VRChat.API.Client.ClientUtils.ParameterToString(permissionId)); // path parameter
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetPermission";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2163,13 +1491,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Permission>("/permissions/{permissionId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPermission", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2180,12 +1506,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Permission</returns>
-        public async System.Threading.Tasks.Task<Permission> GetPermissionAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Permission> GetPermissionAsync(string permissionId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Permission> localVarResponse = await GetPermissionWithHttpInfoAsync(permissionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Permission> localVarResponse = await GetPermissionWithHttpInfoAsync(permissionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2194,16 +1519,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Permission)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Permission>> GetPermissionWithHttpInfoAsync(string permissionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Permission>> GetPermissionWithHttpInfoAsync(string permissionId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'permissionId' is set
             if (permissionId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'permissionId' when calling MiscellaneousApi->GetPermission");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2216,22 +1538,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("permissionId", VRChat.API.Client.ClientUtils.ParameterToString(permissionId)); // path parameter
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetPermission";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2241,153 +1555,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Permission>("/permissions/{permissionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPermission", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Permissions **REQUIRES ADMIN CREDENTIALS**. Returns a list of all existing permissions, just like &#x60;/users&#x60; with empty search would.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Permission&gt;</returns>
-        public List<Permission> GetPermissions(int operationIndex = 0)
-        {
-            VRChat.API.Client.ApiResponse<List<Permission>> localVarResponse = GetPermissionsWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Permissions **REQUIRES ADMIN CREDENTIALS**. Returns a list of all existing permissions, just like &#x60;/users&#x60; with empty search would.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Permission&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Permission>> GetPermissionsWithHttpInfo(int operationIndex = 0)
-        {
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetPermissions";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Permission>>("/permissions", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetPermissions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Permissions **REQUIRES ADMIN CREDENTIALS**. Returns a list of all existing permissions, just like &#x60;/users&#x60; with empty search would.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Permission&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Permission>> GetPermissionsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            VRChat.API.Client.ApiResponse<List<Permission>> localVarResponse = await GetPermissionsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Permissions **REQUIRES ADMIN CREDENTIALS**. Returns a list of all existing permissions, just like &#x60;/users&#x60; with empty search would.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Permission&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Permission>>> GetPermissionsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetPermissions";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Permission>>("/permissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetPermissions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2397,9 +1571,8 @@ namespace VRChat.API.Api
         /// Current System Time Returns the current time of the API server.  **NOTE:** The response type is not a JSON object, but a simple JSON string.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DateTime</returns>
-        public DateTime GetSystemTime(int operationIndex = 0)
+        public DateTime GetSystemTime()
         {
             VRChat.API.Client.ApiResponse<DateTime> localVarResponse = GetSystemTimeWithHttpInfo();
             return localVarResponse.Data;
@@ -2409,9 +1582,8 @@ namespace VRChat.API.Api
         /// Current System Time Returns the current time of the API server.  **NOTE:** The response type is not a JSON object, but a simple JSON string.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DateTime</returns>
-        public VRChat.API.Client.ApiResponse<DateTime> GetSystemTimeWithHttpInfo(int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<DateTime> GetSystemTimeWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2424,31 +1596,20 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetSystemTime";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<DateTime>("/time", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSystemTime", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2458,12 +1619,11 @@ namespace VRChat.API.Api
         /// Current System Time Returns the current time of the API server.  **NOTE:** The response type is not a JSON object, but a simple JSON string.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DateTime</returns>
-        public async System.Threading.Tasks.Task<DateTime> GetSystemTimeAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DateTime> GetSystemTimeAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<DateTime> localVarResponse = await GetSystemTimeWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<DateTime> localVarResponse = await GetSystemTimeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2471,10 +1631,9 @@ namespace VRChat.API.Api
         /// Current System Time Returns the current time of the API server.  **NOTE:** The response type is not a JSON object, but a simple JSON string.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DateTime)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<DateTime>> GetSystemTimeWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<DateTime>> GetSystemTimeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2487,197 +1646,23 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.GetSystemTime";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<DateTime>("/time", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSystemTime", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update Permission **REQUIRES ADMIN CREDENTIALS**. Updates the info on a permission.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="updatePermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Permission</returns>
-        public Permission UpdatePermission(string permissionId, UpdatePermissionRequest updatePermissionRequest = default(UpdatePermissionRequest), int operationIndex = 0)
-        {
-            VRChat.API.Client.ApiResponse<Permission> localVarResponse = UpdatePermissionWithHttpInfo(permissionId, updatePermissionRequest);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update Permission **REQUIRES ADMIN CREDENTIALS**. Updates the info on a permission.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="updatePermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Permission</returns>
-        public VRChat.API.Client.ApiResponse<Permission> UpdatePermissionWithHttpInfo(string permissionId, UpdatePermissionRequest updatePermissionRequest = default(UpdatePermissionRequest), int operationIndex = 0)
-        {
-            // verify the required parameter 'permissionId' is set
-            if (permissionId == null)
-            {
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'permissionId' when calling MiscellaneousApi->UpdatePermission");
-            }
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("permissionId", VRChat.API.Client.ClientUtils.ParameterToString(permissionId)); // path parameter
-            localVarRequestOptions.Data = updatePermissionRequest;
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.UpdatePermission";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<Permission>("/permissions/{permissionId}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdatePermission", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update Permission **REQUIRES ADMIN CREDENTIALS**. Updates the info on a permission.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="updatePermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Permission</returns>
-        public async System.Threading.Tasks.Task<Permission> UpdatePermissionAsync(string permissionId, UpdatePermissionRequest updatePermissionRequest = default(UpdatePermissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            VRChat.API.Client.ApiResponse<Permission> localVarResponse = await UpdatePermissionWithHttpInfoAsync(permissionId, updatePermissionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update Permission **REQUIRES ADMIN CREDENTIALS**. Updates the info on a permission.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="permissionId">Must be a valid permission ID.</param>
-        /// <param name="updatePermissionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Permission)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Permission>> UpdatePermissionWithHttpInfoAsync(string permissionId, UpdatePermissionRequest updatePermissionRequest = default(UpdatePermissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'permissionId' is set
-            if (permissionId == null)
-            {
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'permissionId' when calling MiscellaneousApi->UpdatePermission");
-            }
-
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("permissionId", VRChat.API.Client.ClientUtils.ParameterToString(permissionId)); // path parameter
-            localVarRequestOptions.Data = updatePermissionRequest;
-
-            localVarRequestOptions.Operation = "MiscellaneousApi.UpdatePermission";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "vrchat.com"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Permission>("/permissions/{permissionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdatePermission", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

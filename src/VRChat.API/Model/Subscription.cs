@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -56,7 +57,7 @@ namespace VRChat.API.Model
         /// <param name="description">description (required).</param>
         /// <param name="period">period (required).</param>
         /// <param name="tier">tier (required).</param>
-        public Subscription(string id = default(string), string steamItemId = default(string), string oculusSku = default(string), string googleProductId = default(string), string googlePlanId = default(string), string picoSku = default(string), string appleProductId = default(string), decimal amount = default(decimal), string description = default(string), SubscriptionPeriod period = default(SubscriptionPeriod), int tier = default(int))
+        public Subscription(string id = default, string steamItemId = default, string oculusSku = default, string googleProductId = default, string googlePlanId = default, string picoSku = default, string appleProductId = default, decimal amount = default, string description = default, SubscriptionPeriod period = default, int tier = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -307,42 +308,42 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // SteamItemId (string) minLength
             if (this.SteamItemId != null && this.SteamItemId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SteamItemId, length must be greater than 1.", new [] { "SteamItemId" });
+                yield return new ValidationResult("Invalid value for SteamItemId, length must be greater than 1.", new [] { "SteamItemId" });
             }
 
             // OculusSku (string) minLength
             if (this.OculusSku != null && this.OculusSku.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OculusSku, length must be greater than 1.", new [] { "OculusSku" });
+                yield return new ValidationResult("Invalid value for OculusSku, length must be greater than 1.", new [] { "OculusSku" });
             }
 
             // GoogleProductId (string) minLength
             if (this.GoogleProductId != null && this.GoogleProductId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GoogleProductId, length must be greater than 1.", new [] { "GoogleProductId" });
+                yield return new ValidationResult("Invalid value for GoogleProductId, length must be greater than 1.", new [] { "GoogleProductId" });
             }
 
             // PicoSku (string) minLength
             if (this.PicoSku != null && this.PicoSku.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PicoSku, length must be greater than 1.", new [] { "PicoSku" });
+                yield return new ValidationResult("Invalid value for PicoSku, length must be greater than 1.", new [] { "PicoSku" });
             }
 
             // AppleProductId (string) minLength
             if (this.AppleProductId != null && this.AppleProductId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AppleProductId, length must be greater than 1.", new [] { "AppleProductId" });
+                yield return new ValidationResult("Invalid value for AppleProductId, length must be greater than 1.", new [] { "AppleProductId" });
             }
 
             yield break;

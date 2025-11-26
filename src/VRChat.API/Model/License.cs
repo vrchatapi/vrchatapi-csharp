@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -55,7 +56,7 @@ namespace VRChat.API.Model
         /// <param name="forType">forType (required).</param>
         /// <param name="forName">forName (required).</param>
         /// <param name="forAction">forAction (required).</param>
-        public License(string forId = default(string), LicenseType forType = default(LicenseType), string forName = default(string), LicenseAction forAction = default(LicenseAction))
+        public License(string forId = default, LicenseType forType = default, string forName = default, LicenseAction forAction = default)
         {
             // to ensure "forId" is required (not null)
             if (forId == null)
@@ -181,18 +182,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ForId (string) minLength
             if (this.ForId != null && this.ForId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForId, length must be greater than 1.", new [] { "ForId" });
+                yield return new ValidationResult("Invalid value for ForId, length must be greater than 1.", new [] { "ForId" });
             }
 
             // ForName (string) minLength
             if (this.ForName != null && this.ForName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ForName, length must be greater than 1.", new [] { "ForName" });
+                yield return new ValidationResult("Invalid value for ForName, length must be greater than 1.", new [] { "ForName" });
             }
 
             yield break;

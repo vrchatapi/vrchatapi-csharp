@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -34,9 +35,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        File CreateFile(CreateFileRequest createFileRequest = default(CreateFileRequest), int operationIndex = 0);
+        File CreateFile(CreateFileRequest? createFileRequest = default);
 
         /// <summary>
         /// Create File
@@ -46,9 +46,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> CreateFileWithHttpInfo(CreateFileRequest createFileRequest = default(CreateFileRequest), int operationIndex = 0);
+        ApiResponse<File> CreateFileWithHttpInfo(CreateFileRequest? createFileRequest = default);
         /// <summary>
         /// Create File Version
         /// </summary>
@@ -58,9 +57,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="createFileVersionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        File CreateFileVersion(string fileId, CreateFileVersionRequest createFileVersionRequest = default(CreateFileVersionRequest), int operationIndex = 0);
+        File CreateFileVersion(string fileId, CreateFileVersionRequest? createFileVersionRequest = default);
 
         /// <summary>
         /// Create File Version
@@ -71,9 +69,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="createFileVersionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> CreateFileVersionWithHttpInfo(string fileId, CreateFileVersionRequest createFileVersionRequest = default(CreateFileVersionRequest), int operationIndex = 0);
+        ApiResponse<File> CreateFileVersionWithHttpInfo(string fileId, CreateFileVersionRequest? createFileVersionRequest = default);
         /// <summary>
         /// Delete File
         /// </summary>
@@ -82,9 +79,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        File DeleteFile(string fileId, int operationIndex = 0);
+        File DeleteFile(string fileId);
 
         /// <summary>
         /// Delete File
@@ -94,9 +90,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> DeleteFileWithHttpInfo(string fileId, int operationIndex = 0);
+        ApiResponse<File> DeleteFileWithHttpInfo(string fileId);
         /// <summary>
         /// Delete File Version
         /// </summary>
@@ -106,9 +101,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        File DeleteFileVersion(string fileId, int versionId, int operationIndex = 0);
+        File DeleteFileVersion(string fileId, int versionId);
 
         /// <summary>
         /// Delete File Version
@@ -119,9 +113,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> DeleteFileVersionWithHttpInfo(string fileId, int versionId, int operationIndex = 0);
+        ApiResponse<File> DeleteFileVersionWithHttpInfo(string fileId, int versionId);
         /// <summary>
         /// Download File Version
         /// </summary>
@@ -131,9 +124,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System.IO.Stream</returns>
-        System.IO.Stream DownloadFileVersion(string fileId, int versionId, int operationIndex = 0);
+        /// <returns>FileParameter</returns>
+        FileParameter DownloadFileVersion(string fileId, int versionId);
 
         /// <summary>
         /// Download File Version
@@ -144,9 +136,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> DownloadFileVersionWithHttpInfo(string fileId, int versionId, int operationIndex = 0);
+        /// <returns>ApiResponse of FileParameter</returns>
+        ApiResponse<FileParameter> DownloadFileVersionWithHttpInfo(string fileId, int versionId);
         /// <summary>
         /// Finish FileData Upload
         /// </summary>
@@ -158,9 +149,8 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        File FinishFileDataUpload(string fileId, int versionId, string fileType, FinishFileDataUploadRequest finishFileDataUploadRequest = default(FinishFileDataUploadRequest), int operationIndex = 0);
+        File FinishFileDataUpload(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default);
 
         /// <summary>
         /// Finish FileData Upload
@@ -173,9 +163,8 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> FinishFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, FinishFileDataUploadRequest finishFileDataUploadRequest = default(FinishFileDataUploadRequest), int operationIndex = 0);
+        ApiResponse<File> FinishFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default);
         /// <summary>
         /// Get AdminAssetBundle
         /// </summary>
@@ -184,9 +173,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminAssetBundleId">Must be a valid admin asset bundle ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AdminAssetBundle</returns>
-        AdminAssetBundle GetAdminAssetBundle(string adminAssetBundleId, int operationIndex = 0);
+        AdminAssetBundle GetAdminAssetBundle(string adminAssetBundleId);
 
         /// <summary>
         /// Get AdminAssetBundle
@@ -196,9 +184,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminAssetBundleId">Must be a valid admin asset bundle ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AdminAssetBundle</returns>
-        ApiResponse<AdminAssetBundle> GetAdminAssetBundleWithHttpInfo(string adminAssetBundleId, int operationIndex = 0);
+        ApiResponse<AdminAssetBundle> GetAdminAssetBundleWithHttpInfo(string adminAssetBundleId);
         /// <summary>
         /// Show File
         /// </summary>
@@ -207,9 +194,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        File GetFile(string fileId, int operationIndex = 0);
+        File GetFile(string fileId);
 
         /// <summary>
         /// Show File
@@ -219,9 +205,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> GetFileWithHttpInfo(string fileId, int operationIndex = 0);
+        ApiResponse<File> GetFileWithHttpInfo(string fileId);
         /// <summary>
         /// Get File Version Analysis
         /// </summary>
@@ -231,9 +216,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileAnalysis</returns>
-        FileAnalysis GetFileAnalysis(string fileId, int versionId, int operationIndex = 0);
+        FileAnalysis GetFileAnalysis(string fileId, int versionId);
 
         /// <summary>
         /// Get File Version Analysis
@@ -244,9 +228,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileAnalysis</returns>
-        ApiResponse<FileAnalysis> GetFileAnalysisWithHttpInfo(string fileId, int versionId, int operationIndex = 0);
+        ApiResponse<FileAnalysis> GetFileAnalysisWithHttpInfo(string fileId, int versionId);
         /// <summary>
         /// Get File Version Analysis Security
         /// </summary>
@@ -256,9 +239,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileAnalysis</returns>
-        FileAnalysis GetFileAnalysisSecurity(string fileId, int versionId, int operationIndex = 0);
+        FileAnalysis GetFileAnalysisSecurity(string fileId, int versionId);
 
         /// <summary>
         /// Get File Version Analysis Security
@@ -269,9 +251,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileAnalysis</returns>
-        ApiResponse<FileAnalysis> GetFileAnalysisSecurityWithHttpInfo(string fileId, int versionId, int operationIndex = 0);
+        ApiResponse<FileAnalysis> GetFileAnalysisSecurityWithHttpInfo(string fileId, int versionId);
         /// <summary>
         /// Get File Version Analysis Standard
         /// </summary>
@@ -281,9 +262,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileAnalysis</returns>
-        FileAnalysis GetFileAnalysisStandard(string fileId, int versionId, int operationIndex = 0);
+        FileAnalysis GetFileAnalysisStandard(string fileId, int versionId);
 
         /// <summary>
         /// Get File Version Analysis Standard
@@ -294,9 +274,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileAnalysis</returns>
-        ApiResponse<FileAnalysis> GetFileAnalysisStandardWithHttpInfo(string fileId, int versionId, int operationIndex = 0);
+        ApiResponse<FileAnalysis> GetFileAnalysisStandardWithHttpInfo(string fileId, int versionId);
         /// <summary>
         /// Check FileData Upload Status
         /// </summary>
@@ -307,9 +286,8 @@ namespace VRChat.API.Api
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileVersionUploadStatus</returns>
-        FileVersionUploadStatus GetFileDataUploadStatus(string fileId, int versionId, string fileType, int operationIndex = 0);
+        FileVersionUploadStatus GetFileDataUploadStatus(string fileId, int versionId, string fileType);
 
         /// <summary>
         /// Check FileData Upload Status
@@ -321,9 +299,8 @@ namespace VRChat.API.Api
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileVersionUploadStatus</returns>
-        ApiResponse<FileVersionUploadStatus> GetFileDataUploadStatusWithHttpInfo(string fileId, int versionId, string fileType, int operationIndex = 0);
+        ApiResponse<FileVersionUploadStatus> GetFileDataUploadStatusWithHttpInfo(string fileId, int versionId, string fileType);
         /// <summary>
         /// List Files
         /// </summary>
@@ -335,9 +312,8 @@ namespace VRChat.API.Api
         /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;File&gt;</returns>
-        List<File> GetFiles(string tag = default(string), string userId = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        List<File> GetFiles(string? tag = default, string? userId = default, int? n = default, int? offset = default);
 
         /// <summary>
         /// List Files
@@ -350,9 +326,8 @@ namespace VRChat.API.Api
         /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;File&gt;</returns>
-        ApiResponse<List<File>> GetFilesWithHttpInfo(string tag = default(string), string userId = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0);
+        ApiResponse<List<File>> GetFilesWithHttpInfo(string? tag = default, string? userId = default, int? n = default, int? offset = default);
         /// <summary>
         /// Start FileData Upload
         /// </summary>
@@ -364,9 +339,8 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileUploadURL</returns>
-        FileUploadURL StartFileDataUpload(string fileId, int versionId, string fileType, int? partNumber = default(int?), int operationIndex = 0);
+        FileUploadURL StartFileDataUpload(string fileId, int versionId, string fileType, int? partNumber = default);
 
         /// <summary>
         /// Start FileData Upload
@@ -379,9 +353,8 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileUploadURL</returns>
-        ApiResponse<FileUploadURL> StartFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, int? partNumber = default(int?), int operationIndex = 0);
+        ApiResponse<FileUploadURL> StartFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, int? partNumber = default);
         /// <summary>
         /// Upload gallery image
         /// </summary>
@@ -390,9 +363,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        File UploadGalleryImage(System.IO.Stream file, int operationIndex = 0);
+        File UploadGalleryImage(FileParameter file);
 
         /// <summary>
         /// Upload gallery image
@@ -402,9 +374,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> UploadGalleryImageWithHttpInfo(System.IO.Stream file, int operationIndex = 0);
+        ApiResponse<File> UploadGalleryImageWithHttpInfo(FileParameter file);
         /// <summary>
         /// Upload icon
         /// </summary>
@@ -413,9 +384,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        File UploadIcon(System.IO.Stream file, int operationIndex = 0);
+        File UploadIcon(FileParameter file);
 
         /// <summary>
         /// Upload icon
@@ -425,9 +395,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> UploadIconWithHttpInfo(System.IO.Stream file, int operationIndex = 0);
+        ApiResponse<File> UploadIconWithHttpInfo(FileParameter file);
         /// <summary>
         /// Upload gallery image, icon, emoji or sticker
         /// </summary>
@@ -441,9 +410,8 @@ namespace VRChat.API.Api
         /// <param name="framesOverTime">Required for emojianimated. Animation frames per second (1-64) (optional)</param>
         /// <param name="animationStyle">Animation style for sticker, required for emoji. (optional)</param>
         /// <param name="maskTag">Mask of the sticker, optional for emoji. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        File UploadImage(System.IO.Stream file, string tag, int? frames = default(int?), int? framesOverTime = default(int?), string animationStyle = default(string), string maskTag = default(string), int operationIndex = 0);
+        File UploadImage(FileParameter file, string tag, int? frames = default, int? framesOverTime = default, string? animationStyle = default, string? maskTag = default);
 
         /// <summary>
         /// Upload gallery image, icon, emoji or sticker
@@ -458,9 +426,8 @@ namespace VRChat.API.Api
         /// <param name="framesOverTime">Required for emojianimated. Animation frames per second (1-64) (optional)</param>
         /// <param name="animationStyle">Animation style for sticker, required for emoji. (optional)</param>
         /// <param name="maskTag">Mask of the sticker, optional for emoji. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> UploadImageWithHttpInfo(System.IO.Stream file, string tag, int? frames = default(int?), int? framesOverTime = default(int?), string animationStyle = default(string), string maskTag = default(string), int operationIndex = 0);
+        ApiResponse<File> UploadImageWithHttpInfo(FileParameter file, string tag, int? frames = default, int? framesOverTime = default, string? animationStyle = default, string? maskTag = default);
         #endregion Synchronous Operations
     }
 
@@ -478,10 +445,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> CreateFileAsync(CreateFileRequest createFileRequest = default(CreateFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<File> CreateFileAsync(CreateFileRequest? createFileRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create File
@@ -491,10 +457,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> CreateFileWithHttpInfoAsync(CreateFileRequest createFileRequest = default(CreateFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> CreateFileWithHttpInfoAsync(CreateFileRequest? createFileRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create File Version
         /// </summary>
@@ -504,10 +469,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="createFileVersionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> CreateFileVersionAsync(string fileId, CreateFileVersionRequest createFileVersionRequest = default(CreateFileVersionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<File> CreateFileVersionAsync(string fileId, CreateFileVersionRequest? createFileVersionRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create File Version
@@ -518,10 +482,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="createFileVersionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> CreateFileVersionWithHttpInfoAsync(string fileId, CreateFileVersionRequest createFileVersionRequest = default(CreateFileVersionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> CreateFileVersionWithHttpInfoAsync(string fileId, CreateFileVersionRequest? createFileVersionRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete File
         /// </summary>
@@ -530,10 +493,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> DeleteFileAsync(string fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<File> DeleteFileAsync(string fileId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete File
@@ -543,10 +505,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> DeleteFileWithHttpInfoAsync(string fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> DeleteFileWithHttpInfoAsync(string fileId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete File Version
         /// </summary>
@@ -556,10 +517,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> DeleteFileVersionAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<File> DeleteFileVersionAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete File Version
@@ -570,10 +530,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> DeleteFileVersionWithHttpInfoAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> DeleteFileVersionWithHttpInfoAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Download File Version
         /// </summary>
@@ -583,10 +542,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> DownloadFileVersionAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of FileParameter</returns>
+        System.Threading.Tasks.Task<FileParameter> DownloadFileVersionAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Download File Version
@@ -597,10 +555,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> DownloadFileVersionWithHttpInfoAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (FileParameter)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileParameter>> DownloadFileVersionWithHttpInfoAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Finish FileData Upload
         /// </summary>
@@ -612,10 +569,9 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> FinishFileDataUploadAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest finishFileDataUploadRequest = default(FinishFileDataUploadRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<File> FinishFileDataUploadAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Finish FileData Upload
@@ -628,10 +584,9 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest finishFileDataUploadRequest = default(FinishFileDataUploadRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get AdminAssetBundle
         /// </summary>
@@ -640,10 +595,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminAssetBundleId">Must be a valid admin asset bundle ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AdminAssetBundle</returns>
-        System.Threading.Tasks.Task<AdminAssetBundle> GetAdminAssetBundleAsync(string adminAssetBundleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AdminAssetBundle> GetAdminAssetBundleAsync(string adminAssetBundleId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get AdminAssetBundle
@@ -653,10 +607,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminAssetBundleId">Must be a valid admin asset bundle ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AdminAssetBundle)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AdminAssetBundle>> GetAdminAssetBundleWithHttpInfoAsync(string adminAssetBundleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AdminAssetBundle>> GetAdminAssetBundleWithHttpInfoAsync(string adminAssetBundleId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Show File
         /// </summary>
@@ -665,10 +618,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> GetFileAsync(string fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<File> GetFileAsync(string fileId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Show File
@@ -678,10 +630,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> GetFileWithHttpInfoAsync(string fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> GetFileWithHttpInfoAsync(string fileId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get File Version Analysis
         /// </summary>
@@ -691,10 +642,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileAnalysis</returns>
-        System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get File Version Analysis
@@ -705,10 +655,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileAnalysis)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileAnalysis>> GetFileAnalysisWithHttpInfoAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileAnalysis>> GetFileAnalysisWithHttpInfoAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get File Version Analysis Security
         /// </summary>
@@ -718,10 +667,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileAnalysis</returns>
-        System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisSecurityAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisSecurityAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get File Version Analysis Security
@@ -732,10 +680,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileAnalysis)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileAnalysis>> GetFileAnalysisSecurityWithHttpInfoAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileAnalysis>> GetFileAnalysisSecurityWithHttpInfoAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get File Version Analysis Standard
         /// </summary>
@@ -745,10 +692,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileAnalysis</returns>
-        System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisStandardAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisStandardAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get File Version Analysis Standard
@@ -759,10 +705,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileAnalysis)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileAnalysis>> GetFileAnalysisStandardWithHttpInfoAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileAnalysis>> GetFileAnalysisStandardWithHttpInfoAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Check FileData Upload Status
         /// </summary>
@@ -773,10 +718,9 @@ namespace VRChat.API.Api
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileVersionUploadStatus</returns>
-        System.Threading.Tasks.Task<FileVersionUploadStatus> GetFileDataUploadStatusAsync(string fileId, int versionId, string fileType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileVersionUploadStatus> GetFileDataUploadStatusAsync(string fileId, int versionId, string fileType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check FileData Upload Status
@@ -788,10 +732,9 @@ namespace VRChat.API.Api
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileVersionUploadStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileVersionUploadStatus>> GetFileDataUploadStatusWithHttpInfoAsync(string fileId, int versionId, string fileType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileVersionUploadStatus>> GetFileDataUploadStatusWithHttpInfoAsync(string fileId, int versionId, string fileType, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Files
         /// </summary>
@@ -803,10 +746,9 @@ namespace VRChat.API.Api
         /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;File&gt;</returns>
-        System.Threading.Tasks.Task<List<File>> GetFilesAsync(string tag = default(string), string userId = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<File>> GetFilesAsync(string? tag = default, string? userId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Files
@@ -819,10 +761,9 @@ namespace VRChat.API.Api
         /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;File&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<File>>> GetFilesWithHttpInfoAsync(string tag = default(string), string userId = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<File>>> GetFilesWithHttpInfoAsync(string? tag = default, string? userId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Start FileData Upload
         /// </summary>
@@ -834,10 +775,9 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileUploadURL</returns>
-        System.Threading.Tasks.Task<FileUploadURL> StartFileDataUploadAsync(string fileId, int versionId, string fileType, int? partNumber = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileUploadURL> StartFileDataUploadAsync(string fileId, int versionId, string fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Start FileData Upload
@@ -850,10 +790,9 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileUploadURL)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileUploadURL>> StartFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, int? partNumber = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileUploadURL>> StartFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload gallery image
         /// </summary>
@@ -862,10 +801,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> UploadGalleryImageAsync(System.IO.Stream file, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<File> UploadGalleryImageAsync(FileParameter file, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload gallery image
@@ -875,10 +813,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> UploadGalleryImageWithHttpInfoAsync(System.IO.Stream file, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> UploadGalleryImageWithHttpInfoAsync(FileParameter file, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload icon
         /// </summary>
@@ -887,10 +824,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> UploadIconAsync(System.IO.Stream file, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<File> UploadIconAsync(FileParameter file, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload icon
@@ -900,10 +836,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> UploadIconWithHttpInfoAsync(System.IO.Stream file, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> UploadIconWithHttpInfoAsync(FileParameter file, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload gallery image, icon, emoji or sticker
         /// </summary>
@@ -917,10 +852,9 @@ namespace VRChat.API.Api
         /// <param name="framesOverTime">Required for emojianimated. Animation frames per second (1-64) (optional)</param>
         /// <param name="animationStyle">Animation style for sticker, required for emoji. (optional)</param>
         /// <param name="maskTag">Mask of the sticker, optional for emoji. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> UploadImageAsync(System.IO.Stream file, string tag, int? frames = default(int?), int? framesOverTime = default(int?), string animationStyle = default(string), string maskTag = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<File> UploadImageAsync(FileParameter file, string tag, int? frames = default, int? framesOverTime = default, string? animationStyle = default, string? maskTag = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload gallery image, icon, emoji or sticker
@@ -935,10 +869,9 @@ namespace VRChat.API.Api
         /// <param name="framesOverTime">Required for emojianimated. Animation frames per second (1-64) (optional)</param>
         /// <param name="animationStyle">Animation style for sticker, required for emoji. (optional)</param>
         /// <param name="maskTag">Mask of the sticker, optional for emoji. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> UploadImageWithHttpInfoAsync(System.IO.Stream file, string tag, int? frames = default(int?), int? framesOverTime = default(int?), string animationStyle = default(string), string maskTag = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<File>> UploadImageWithHttpInfoAsync(FileParameter file, string tag, int? frames = default, int? framesOverTime = default, string? animationStyle = default, string? maskTag = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -953,12 +886,14 @@ namespace VRChat.API.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class FilesApi : IFilesApi
+    public partial class FilesApi : IDisposable, IFilesApi
     {
         private VRChat.API.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FilesApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public FilesApi() : this((string)null)
@@ -967,7 +902,11 @@ namespace VRChat.API.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FilesApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public FilesApi(string basePath)
         {
@@ -975,16 +914,19 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 new VRChat.API.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FilesApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="FilesApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public FilesApi(VRChat.API.Client.Configuration configuration)
         {
@@ -994,8 +936,78 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FilesApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public FilesApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FilesApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public FilesApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                new VRChat.API.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FilesApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public FilesApi(HttpClient client, VRChat.API.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -1006,6 +1018,7 @@ namespace VRChat.API.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public FilesApi(VRChat.API.Client.ISynchronousClient client, VRChat.API.Client.IAsynchronousClient asyncClient, VRChat.API.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -1017,6 +1030,19 @@ namespace VRChat.API.Api
             this.Configuration = configuration;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public VRChat.API.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -1064,9 +1090,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        public File CreateFile(CreateFileRequest createFileRequest = default(CreateFileRequest), int operationIndex = 0)
+        public File CreateFile(CreateFileRequest? createFileRequest = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = CreateFileWithHttpInfo(createFileRequest);
             return localVarResponse.Data;
@@ -1077,9 +1102,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        public VRChat.API.Client.ApiResponse<File> CreateFileWithHttpInfo(CreateFileRequest createFileRequest = default(CreateFileRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<File> CreateFileWithHttpInfo(CreateFileRequest? createFileRequest = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1093,21 +1117,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = createFileRequest;
-
-            localVarRequestOptions.Operation = "FilesApi.CreateFile";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1118,13 +1133,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<File>("/file", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateFile", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1135,12 +1148,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> CreateFileAsync(CreateFileRequest createFileRequest = default(CreateFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<File> CreateFileAsync(CreateFileRequest? createFileRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<File> localVarResponse = await CreateFileWithHttpInfoAsync(createFileRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<File> localVarResponse = await CreateFileWithHttpInfoAsync(createFileRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1149,10 +1161,9 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> CreateFileWithHttpInfoAsync(CreateFileRequest createFileRequest = default(CreateFileRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> CreateFileWithHttpInfoAsync(CreateFileRequest? createFileRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1166,22 +1177,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = createFileRequest;
-
-            localVarRequestOptions.Operation = "FilesApi.CreateFile";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1191,15 +1194,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/file", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateFile", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1211,9 +1212,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="createFileVersionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        public File CreateFileVersion(string fileId, CreateFileVersionRequest createFileVersionRequest = default(CreateFileVersionRequest), int operationIndex = 0)
+        public File CreateFileVersion(string fileId, CreateFileVersionRequest? createFileVersionRequest = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = CreateFileVersionWithHttpInfo(fileId, createFileVersionRequest);
             return localVarResponse.Data;
@@ -1225,15 +1225,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="createFileVersionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        public VRChat.API.Client.ApiResponse<File> CreateFileVersionWithHttpInfo(string fileId, CreateFileVersionRequest createFileVersionRequest = default(CreateFileVersionRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<File> CreateFileVersionWithHttpInfo(string fileId, CreateFileVersionRequest? createFileVersionRequest = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->CreateFileVersion");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1247,22 +1244,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.Data = createFileVersionRequest;
-
-            localVarRequestOptions.Operation = "FilesApi.CreateFileVersion";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1273,13 +1261,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<File>("/file/{fileId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateFileVersion", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1291,12 +1277,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="createFileVersionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> CreateFileVersionAsync(string fileId, CreateFileVersionRequest createFileVersionRequest = default(CreateFileVersionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<File> CreateFileVersionAsync(string fileId, CreateFileVersionRequest? createFileVersionRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<File> localVarResponse = await CreateFileVersionWithHttpInfoAsync(fileId, createFileVersionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<File> localVarResponse = await CreateFileVersionWithHttpInfoAsync(fileId, createFileVersionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1306,16 +1291,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="createFileVersionRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> CreateFileVersionWithHttpInfoAsync(string fileId, CreateFileVersionRequest createFileVersionRequest = default(CreateFileVersionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> CreateFileVersionWithHttpInfoAsync(string fileId, CreateFileVersionRequest? createFileVersionRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->CreateFileVersion");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1329,23 +1311,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.Data = createFileVersionRequest;
-
-            localVarRequestOptions.Operation = "FilesApi.CreateFileVersion";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1355,15 +1329,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/file/{fileId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateFileVersion", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1374,9 +1346,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        public File DeleteFile(string fileId, int operationIndex = 0)
+        public File DeleteFile(string fileId)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = DeleteFileWithHttpInfo(fileId);
             return localVarResponse.Data;
@@ -1387,15 +1358,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        public VRChat.API.Client.ApiResponse<File> DeleteFileWithHttpInfo(string fileId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<File> DeleteFileWithHttpInfo(string fileId)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->DeleteFile");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1408,21 +1376,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.DeleteFile";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1433,13 +1392,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<File>("/file/{fileId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteFile", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1450,12 +1407,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> DeleteFileAsync(string fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<File> DeleteFileAsync(string fileId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<File> localVarResponse = await DeleteFileWithHttpInfoAsync(fileId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<File> localVarResponse = await DeleteFileWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1464,16 +1420,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> DeleteFileWithHttpInfoAsync(string fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> DeleteFileWithHttpInfoAsync(string fileId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->DeleteFile");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1486,22 +1439,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.DeleteFile";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1511,15 +1456,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<File>("/file/{fileId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteFile", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1531,9 +1474,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        public File DeleteFileVersion(string fileId, int versionId, int operationIndex = 0)
+        public File DeleteFileVersion(string fileId, int versionId)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = DeleteFileVersionWithHttpInfo(fileId, versionId);
             return localVarResponse.Data;
@@ -1545,15 +1487,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        public VRChat.API.Client.ApiResponse<File> DeleteFileVersionWithHttpInfo(string fileId, int versionId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<File> DeleteFileVersionWithHttpInfo(string fileId, int versionId)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->DeleteFileVersion");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1566,22 +1505,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.DeleteFileVersion";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1592,13 +1522,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<File>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteFileVersion", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1610,12 +1538,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> DeleteFileVersionAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<File> DeleteFileVersionAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<File> localVarResponse = await DeleteFileVersionWithHttpInfoAsync(fileId, versionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<File> localVarResponse = await DeleteFileVersionWithHttpInfoAsync(fileId, versionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1625,16 +1552,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> DeleteFileVersionWithHttpInfoAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> DeleteFileVersionWithHttpInfoAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->DeleteFileVersion");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1647,23 +1571,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.DeleteFileVersion";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1673,15 +1589,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<File>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteFileVersion", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1693,11 +1607,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream DownloadFileVersion(string fileId, int versionId, int operationIndex = 0)
+        /// <returns>FileParameter</returns>
+        public FileParameter DownloadFileVersion(string fileId, int versionId)
         {
-            VRChat.API.Client.ApiResponse<System.IO.Stream> localVarResponse = DownloadFileVersionWithHttpInfo(fileId, versionId);
+            VRChat.API.Client.ApiResponse<FileParameter> localVarResponse = DownloadFileVersionWithHttpInfo(fileId, versionId);
             return localVarResponse.Data;
         }
 
@@ -1707,15 +1620,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of System.IO.Stream</returns>
-        public VRChat.API.Client.ApiResponse<System.IO.Stream> DownloadFileVersionWithHttpInfo(string fileId, int versionId, int operationIndex = 0)
+        /// <returns>ApiResponse of FileParameter</returns>
+        public VRChat.API.Client.ApiResponse<FileParameter> DownloadFileVersionWithHttpInfo(string fileId, int versionId)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->DownloadFileVersion");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1729,22 +1639,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.DownloadFileVersion";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1754,14 +1655,12 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<System.IO.Stream>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<FileParameter>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DownloadFileVersion", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1773,12 +1672,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> DownloadFileVersionAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of FileParameter</returns>
+        public async System.Threading.Tasks.Task<FileParameter> DownloadFileVersionAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<System.IO.Stream> localVarResponse = await DownloadFileVersionWithHttpInfoAsync(fileId, versionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<FileParameter> localVarResponse = await DownloadFileVersionWithHttpInfoAsync(fileId, versionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1788,16 +1686,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<System.IO.Stream>> DownloadFileVersionWithHttpInfoAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (FileParameter)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileParameter>> DownloadFileVersionWithHttpInfoAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->DownloadFileVersion");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1811,23 +1706,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.DownloadFileVersion";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1837,15 +1724,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DownloadFileVersion", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1859,9 +1744,8 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        public File FinishFileDataUpload(string fileId, int versionId, string fileType, FinishFileDataUploadRequest finishFileDataUploadRequest = default(FinishFileDataUploadRequest), int operationIndex = 0)
+        public File FinishFileDataUpload(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = FinishFileDataUploadWithHttpInfo(fileId, versionId, fileType, finishFileDataUploadRequest);
             return localVarResponse.Data;
@@ -1875,21 +1759,16 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        public VRChat.API.Client.ApiResponse<File> FinishFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, FinishFileDataUploadRequest finishFileDataUploadRequest = default(FinishFileDataUploadRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<File> FinishFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->FinishFileDataUpload");
-            }
 
             // verify the required parameter 'fileType' is set
             if (fileType == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->FinishFileDataUpload");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1903,24 +1782,15 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("fileType", VRChat.API.Client.ClientUtils.ParameterToString(fileType)); // path parameter
             localVarRequestOptions.Data = finishFileDataUploadRequest;
-
-            localVarRequestOptions.Operation = "FilesApi.FinishFileDataUpload";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1931,13 +1801,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<File>("/file/{fileId}/{versionId}/{fileType}/finish", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FinishFileDataUpload", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1951,12 +1819,11 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> FinishFileDataUploadAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest finishFileDataUploadRequest = default(FinishFileDataUploadRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<File> FinishFileDataUploadAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<File> localVarResponse = await FinishFileDataUploadWithHttpInfoAsync(fileId, versionId, fileType, finishFileDataUploadRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<File> localVarResponse = await FinishFileDataUploadWithHttpInfoAsync(fileId, versionId, fileType, finishFileDataUploadRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1968,22 +1835,17 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest finishFileDataUploadRequest = default(FinishFileDataUploadRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->FinishFileDataUpload");
-            }
 
             // verify the required parameter 'fileType' is set
             if (fileType == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->FinishFileDataUpload");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1997,25 +1859,17 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("fileType", VRChat.API.Client.ClientUtils.ParameterToString(fileType)); // path parameter
             localVarRequestOptions.Data = finishFileDataUploadRequest;
-
-            localVarRequestOptions.Operation = "FilesApi.FinishFileDataUpload";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2025,15 +1879,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<File>("/file/{fileId}/{versionId}/{fileType}/finish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FinishFileDataUpload", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2044,9 +1896,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminAssetBundleId">Must be a valid admin asset bundle ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AdminAssetBundle</returns>
-        public AdminAssetBundle GetAdminAssetBundle(string adminAssetBundleId, int operationIndex = 0)
+        public AdminAssetBundle GetAdminAssetBundle(string adminAssetBundleId)
         {
             VRChat.API.Client.ApiResponse<AdminAssetBundle> localVarResponse = GetAdminAssetBundleWithHttpInfo(adminAssetBundleId);
             return localVarResponse.Data;
@@ -2057,15 +1908,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminAssetBundleId">Must be a valid admin asset bundle ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AdminAssetBundle</returns>
-        public VRChat.API.Client.ApiResponse<AdminAssetBundle> GetAdminAssetBundleWithHttpInfo(string adminAssetBundleId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<AdminAssetBundle> GetAdminAssetBundleWithHttpInfo(string adminAssetBundleId)
         {
             // verify the required parameter 'adminAssetBundleId' is set
             if (adminAssetBundleId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'adminAssetBundleId' when calling FilesApi->GetAdminAssetBundle");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2078,21 +1926,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("adminAssetBundleId", VRChat.API.Client.ClientUtils.ParameterToString(adminAssetBundleId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetAdminAssetBundle";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2103,13 +1942,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<AdminAssetBundle>("/adminassetbundles/{adminAssetBundleId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAdminAssetBundle", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2120,12 +1957,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminAssetBundleId">Must be a valid admin asset bundle ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AdminAssetBundle</returns>
-        public async System.Threading.Tasks.Task<AdminAssetBundle> GetAdminAssetBundleAsync(string adminAssetBundleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AdminAssetBundle> GetAdminAssetBundleAsync(string adminAssetBundleId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<AdminAssetBundle> localVarResponse = await GetAdminAssetBundleWithHttpInfoAsync(adminAssetBundleId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<AdminAssetBundle> localVarResponse = await GetAdminAssetBundleWithHttpInfoAsync(adminAssetBundleId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2134,16 +1970,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adminAssetBundleId">Must be a valid admin asset bundle ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AdminAssetBundle)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<AdminAssetBundle>> GetAdminAssetBundleWithHttpInfoAsync(string adminAssetBundleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<AdminAssetBundle>> GetAdminAssetBundleWithHttpInfoAsync(string adminAssetBundleId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'adminAssetBundleId' is set
             if (adminAssetBundleId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'adminAssetBundleId' when calling FilesApi->GetAdminAssetBundle");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2156,22 +1989,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("adminAssetBundleId", VRChat.API.Client.ClientUtils.ParameterToString(adminAssetBundleId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetAdminAssetBundle";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2181,15 +2006,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<AdminAssetBundle>("/adminassetbundles/{adminAssetBundleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAdminAssetBundle", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2200,9 +2023,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        public File GetFile(string fileId, int operationIndex = 0)
+        public File GetFile(string fileId)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = GetFileWithHttpInfo(fileId);
             return localVarResponse.Data;
@@ -2213,15 +2035,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        public VRChat.API.Client.ApiResponse<File> GetFileWithHttpInfo(string fileId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<File> GetFileWithHttpInfo(string fileId)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFile");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2234,21 +2053,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetFile";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2259,13 +2069,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<File>("/file/{fileId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFile", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2276,12 +2084,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> GetFileAsync(string fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<File> GetFileAsync(string fileId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<File> localVarResponse = await GetFileWithHttpInfoAsync(fileId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<File> localVarResponse = await GetFileWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2290,16 +2097,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> GetFileWithHttpInfoAsync(string fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> GetFileWithHttpInfoAsync(string fileId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFile");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2312,22 +2116,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetFile";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2337,15 +2133,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<File>("/file/{fileId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFile", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2357,9 +2151,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileAnalysis</returns>
-        public FileAnalysis GetFileAnalysis(string fileId, int versionId, int operationIndex = 0)
+        public FileAnalysis GetFileAnalysis(string fileId, int versionId)
         {
             VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = GetFileAnalysisWithHttpInfo(fileId, versionId);
             return localVarResponse.Data;
@@ -2371,15 +2164,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileAnalysis</returns>
-        public VRChat.API.Client.ApiResponse<FileAnalysis> GetFileAnalysisWithHttpInfo(string fileId, int versionId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<FileAnalysis> GetFileAnalysisWithHttpInfo(string fileId, int versionId)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFileAnalysis");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2392,22 +2182,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetFileAnalysis";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2418,13 +2199,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<FileAnalysis>("/analysis/{fileId}/{versionId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFileAnalysis", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2436,12 +2215,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileAnalysis</returns>
-        public async System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = await GetFileAnalysisWithHttpInfoAsync(fileId, versionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = await GetFileAnalysisWithHttpInfoAsync(fileId, versionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2451,16 +2229,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileAnalysis)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileAnalysis>> GetFileAnalysisWithHttpInfoAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileAnalysis>> GetFileAnalysisWithHttpInfoAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFileAnalysis");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2473,23 +2248,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetFileAnalysis";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2499,15 +2266,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<FileAnalysis>("/analysis/{fileId}/{versionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFileAnalysis", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2519,9 +2284,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileAnalysis</returns>
-        public FileAnalysis GetFileAnalysisSecurity(string fileId, int versionId, int operationIndex = 0)
+        public FileAnalysis GetFileAnalysisSecurity(string fileId, int versionId)
         {
             VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = GetFileAnalysisSecurityWithHttpInfo(fileId, versionId);
             return localVarResponse.Data;
@@ -2533,15 +2297,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileAnalysis</returns>
-        public VRChat.API.Client.ApiResponse<FileAnalysis> GetFileAnalysisSecurityWithHttpInfo(string fileId, int versionId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<FileAnalysis> GetFileAnalysisSecurityWithHttpInfo(string fileId, int versionId)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFileAnalysisSecurity");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2554,22 +2315,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetFileAnalysisSecurity";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2580,13 +2332,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<FileAnalysis>("/analysis/{fileId}/{versionId}/security", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFileAnalysisSecurity", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2598,12 +2348,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileAnalysis</returns>
-        public async System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisSecurityAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisSecurityAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = await GetFileAnalysisSecurityWithHttpInfoAsync(fileId, versionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = await GetFileAnalysisSecurityWithHttpInfoAsync(fileId, versionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2613,16 +2362,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileAnalysis)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileAnalysis>> GetFileAnalysisSecurityWithHttpInfoAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileAnalysis>> GetFileAnalysisSecurityWithHttpInfoAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFileAnalysisSecurity");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2635,23 +2381,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetFileAnalysisSecurity";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2661,15 +2399,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<FileAnalysis>("/analysis/{fileId}/{versionId}/security", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFileAnalysisSecurity", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2681,9 +2417,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileAnalysis</returns>
-        public FileAnalysis GetFileAnalysisStandard(string fileId, int versionId, int operationIndex = 0)
+        public FileAnalysis GetFileAnalysisStandard(string fileId, int versionId)
         {
             VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = GetFileAnalysisStandardWithHttpInfo(fileId, versionId);
             return localVarResponse.Data;
@@ -2695,15 +2430,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileAnalysis</returns>
-        public VRChat.API.Client.ApiResponse<FileAnalysis> GetFileAnalysisStandardWithHttpInfo(string fileId, int versionId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<FileAnalysis> GetFileAnalysisStandardWithHttpInfo(string fileId, int versionId)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFileAnalysisStandard");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2716,22 +2448,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetFileAnalysisStandard";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2742,13 +2465,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<FileAnalysis>("/analysis/{fileId}/{versionId}/standard", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFileAnalysisStandard", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2760,12 +2481,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileAnalysis</returns>
-        public async System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisStandardAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisStandardAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = await GetFileAnalysisStandardWithHttpInfoAsync(fileId, versionId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = await GetFileAnalysisStandardWithHttpInfoAsync(fileId, versionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2775,16 +2495,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileAnalysis)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileAnalysis>> GetFileAnalysisStandardWithHttpInfoAsync(string fileId, int versionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileAnalysis>> GetFileAnalysisStandardWithHttpInfoAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFileAnalysisStandard");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2797,23 +2514,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetFileAnalysisStandard";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2823,15 +2532,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<FileAnalysis>("/analysis/{fileId}/{versionId}/standard", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFileAnalysisStandard", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2844,9 +2551,8 @@ namespace VRChat.API.Api
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileVersionUploadStatus</returns>
-        public FileVersionUploadStatus GetFileDataUploadStatus(string fileId, int versionId, string fileType, int operationIndex = 0)
+        public FileVersionUploadStatus GetFileDataUploadStatus(string fileId, int versionId, string fileType)
         {
             VRChat.API.Client.ApiResponse<FileVersionUploadStatus> localVarResponse = GetFileDataUploadStatusWithHttpInfo(fileId, versionId, fileType);
             return localVarResponse.Data;
@@ -2859,21 +2565,16 @@ namespace VRChat.API.Api
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileVersionUploadStatus</returns>
-        public VRChat.API.Client.ApiResponse<FileVersionUploadStatus> GetFileDataUploadStatusWithHttpInfo(string fileId, int versionId, string fileType, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<FileVersionUploadStatus> GetFileDataUploadStatusWithHttpInfo(string fileId, int versionId, string fileType)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFileDataUploadStatus");
-            }
 
             // verify the required parameter 'fileType' is set
             if (fileType == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->GetFileDataUploadStatus");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2886,23 +2587,14 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("fileType", VRChat.API.Client.ClientUtils.ParameterToString(fileType)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetFileDataUploadStatus";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2913,13 +2605,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<FileVersionUploadStatus>("/file/{fileId}/{versionId}/{fileType}/status", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFileDataUploadStatus", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2932,12 +2622,11 @@ namespace VRChat.API.Api
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileVersionUploadStatus</returns>
-        public async System.Threading.Tasks.Task<FileVersionUploadStatus> GetFileDataUploadStatusAsync(string fileId, int versionId, string fileType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileVersionUploadStatus> GetFileDataUploadStatusAsync(string fileId, int versionId, string fileType, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<FileVersionUploadStatus> localVarResponse = await GetFileDataUploadStatusWithHttpInfoAsync(fileId, versionId, fileType, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<FileVersionUploadStatus> localVarResponse = await GetFileDataUploadStatusWithHttpInfoAsync(fileId, versionId, fileType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2948,22 +2637,17 @@ namespace VRChat.API.Api
         /// <param name="fileId">Must be a valid file ID.</param>
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileVersionUploadStatus)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileVersionUploadStatus>> GetFileDataUploadStatusWithHttpInfoAsync(string fileId, int versionId, string fileType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileVersionUploadStatus>> GetFileDataUploadStatusWithHttpInfoAsync(string fileId, int versionId, string fileType, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFileDataUploadStatus");
-            }
 
             // verify the required parameter 'fileType' is set
             if (fileType == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->GetFileDataUploadStatus");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2976,24 +2660,16 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("fileType", VRChat.API.Client.ClientUtils.ParameterToString(fileType)); // path parameter
-
-            localVarRequestOptions.Operation = "FilesApi.GetFileDataUploadStatus";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3003,15 +2679,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<FileVersionUploadStatus>("/file/{fileId}/{versionId}/{fileType}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFileDataUploadStatus", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3025,9 +2699,8 @@ namespace VRChat.API.Api
         /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;File&gt;</returns>
-        public List<File> GetFiles(string tag = default(string), string userId = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public List<File> GetFiles(string? tag = default, string? userId = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<File>> localVarResponse = GetFilesWithHttpInfo(tag, userId, n, offset);
             return localVarResponse.Data;
@@ -3041,9 +2714,8 @@ namespace VRChat.API.Api
         /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;File&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<File>> GetFilesWithHttpInfo(string tag = default(string), string userId = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<File>> GetFilesWithHttpInfo(string? tag = default, string? userId = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3056,16 +2728,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (tag != null)
             {
@@ -3084,9 +2750,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "FilesApi.GetFiles";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -3096,13 +2759,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<File>>("/files", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFiles", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3116,12 +2777,11 @@ namespace VRChat.API.Api
         /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;File&gt;</returns>
-        public async System.Threading.Tasks.Task<List<File>> GetFilesAsync(string tag = default(string), string userId = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<File>> GetFilesAsync(string? tag = default, string? userId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<File>> localVarResponse = await GetFilesWithHttpInfoAsync(tag, userId, n, offset, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<File>> localVarResponse = await GetFilesWithHttpInfoAsync(tag, userId, n, offset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3133,10 +2793,9 @@ namespace VRChat.API.Api
         /// <param name="userId">UserID, will always generate a 500 permission error. (optional) (deprecated)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;File&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<File>>> GetFilesWithHttpInfoAsync(string tag = default(string), string userId = default(string), int? n = default(int?), int? offset = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<File>>> GetFilesWithHttpInfoAsync(string? tag = default, string? userId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3149,17 +2808,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (tag != null)
             {
@@ -3178,9 +2832,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
 
-            localVarRequestOptions.Operation = "FilesApi.GetFiles";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -3189,15 +2840,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<File>>("/files", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFiles", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3211,9 +2860,8 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileUploadURL</returns>
-        public FileUploadURL StartFileDataUpload(string fileId, int versionId, string fileType, int? partNumber = default(int?), int operationIndex = 0)
+        public FileUploadURL StartFileDataUpload(string fileId, int versionId, string fileType, int? partNumber = default)
         {
             VRChat.API.Client.ApiResponse<FileUploadURL> localVarResponse = StartFileDataUploadWithHttpInfo(fileId, versionId, fileType, partNumber);
             return localVarResponse.Data;
@@ -3227,21 +2875,16 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileUploadURL</returns>
-        public VRChat.API.Client.ApiResponse<FileUploadURL> StartFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, int? partNumber = default(int?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<FileUploadURL> StartFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, int? partNumber = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->StartFileDataUpload");
-            }
 
             // verify the required parameter 'fileType' is set
             if (fileType == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->StartFileDataUpload");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3254,16 +2897,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
@@ -3272,9 +2909,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "partNumber", partNumber));
             }
-
-            localVarRequestOptions.Operation = "FilesApi.StartFileDataUpload";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3285,13 +2919,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<FileUploadURL>("/file/{fileId}/{versionId}/{fileType}/start", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("StartFileDataUpload", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3305,12 +2937,11 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileUploadURL</returns>
-        public async System.Threading.Tasks.Task<FileUploadURL> StartFileDataUploadAsync(string fileId, int versionId, string fileType, int? partNumber = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileUploadURL> StartFileDataUploadAsync(string fileId, int versionId, string fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<FileUploadURL> localVarResponse = await StartFileDataUploadWithHttpInfoAsync(fileId, versionId, fileType, partNumber, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<FileUploadURL> localVarResponse = await StartFileDataUploadWithHttpInfoAsync(fileId, versionId, fileType, partNumber, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3322,22 +2953,17 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileUploadURL)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileUploadURL>> StartFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, int? partNumber = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileUploadURL>> StartFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->StartFileDataUpload");
-            }
 
             // verify the required parameter 'fileType' is set
             if (fileType == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->StartFileDataUpload");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3350,17 +2976,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", VRChat.API.Client.ClientUtils.ParameterToString(fileId)); // path parameter
             localVarRequestOptions.PathParameters.Add("versionId", VRChat.API.Client.ClientUtils.ParameterToString(versionId)); // path parameter
@@ -3370,9 +2991,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "partNumber", partNumber));
             }
 
-            localVarRequestOptions.Operation = "FilesApi.StartFileDataUpload";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -3381,15 +2999,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<FileUploadURL>("/file/{fileId}/{versionId}/{fileType}/start", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("StartFileDataUpload", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3400,9 +3016,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        public File UploadGalleryImage(System.IO.Stream file, int operationIndex = 0)
+        public File UploadGalleryImage(FileParameter file)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = UploadGalleryImageWithHttpInfo(file);
             return localVarResponse.Data;
@@ -3413,15 +3028,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        public VRChat.API.Client.ApiResponse<File> UploadGalleryImageWithHttpInfo(System.IO.Stream file, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<File> UploadGalleryImageWithHttpInfo(FileParameter file)
         {
             // verify the required parameter 'file' is set
             if (file == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'file' when calling FilesApi->UploadGalleryImage");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3435,21 +3047,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.FileParameters.Add("file", file);
-
-            localVarRequestOptions.Operation = "FilesApi.UploadGalleryImage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3460,13 +3063,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<File>("/gallery", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UploadGalleryImage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3477,12 +3078,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> UploadGalleryImageAsync(System.IO.Stream file, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<File> UploadGalleryImageAsync(FileParameter file, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<File> localVarResponse = await UploadGalleryImageWithHttpInfoAsync(file, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<File> localVarResponse = await UploadGalleryImageWithHttpInfoAsync(file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3491,16 +3091,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> UploadGalleryImageWithHttpInfoAsync(System.IO.Stream file, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> UploadGalleryImageWithHttpInfoAsync(FileParameter file, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'file' is set
             if (file == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'file' when calling FilesApi->UploadGalleryImage");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3514,22 +3111,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.FileParameters.Add("file", file);
-
-            localVarRequestOptions.Operation = "FilesApi.UploadGalleryImage";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3539,15 +3128,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/gallery", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UploadGalleryImage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3558,9 +3145,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        public File UploadIcon(System.IO.Stream file, int operationIndex = 0)
+        public File UploadIcon(FileParameter file)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = UploadIconWithHttpInfo(file);
             return localVarResponse.Data;
@@ -3571,15 +3157,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        public VRChat.API.Client.ApiResponse<File> UploadIconWithHttpInfo(System.IO.Stream file, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<File> UploadIconWithHttpInfo(FileParameter file)
         {
             // verify the required parameter 'file' is set
             if (file == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'file' when calling FilesApi->UploadIcon");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3593,21 +3176,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.FileParameters.Add("file", file);
-
-            localVarRequestOptions.Operation = "FilesApi.UploadIcon";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3618,13 +3192,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<File>("/icon", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UploadIcon", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3635,12 +3207,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> UploadIconAsync(System.IO.Stream file, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<File> UploadIconAsync(FileParameter file, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<File> localVarResponse = await UploadIconWithHttpInfoAsync(file, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<File> localVarResponse = await UploadIconWithHttpInfoAsync(file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3649,16 +3220,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="file">The binary blob of the png file.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> UploadIconWithHttpInfoAsync(System.IO.Stream file, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> UploadIconWithHttpInfoAsync(FileParameter file, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'file' is set
             if (file == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'file' when calling FilesApi->UploadIcon");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3672,22 +3240,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.FileParameters.Add("file", file);
-
-            localVarRequestOptions.Operation = "FilesApi.UploadIcon";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3697,15 +3257,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/icon", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UploadIcon", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3721,9 +3279,8 @@ namespace VRChat.API.Api
         /// <param name="framesOverTime">Required for emojianimated. Animation frames per second (1-64) (optional)</param>
         /// <param name="animationStyle">Animation style for sticker, required for emoji. (optional)</param>
         /// <param name="maskTag">Mask of the sticker, optional for emoji. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>File</returns>
-        public File UploadImage(System.IO.Stream file, string tag, int? frames = default(int?), int? framesOverTime = default(int?), string animationStyle = default(string), string maskTag = default(string), int operationIndex = 0)
+        public File UploadImage(FileParameter file, string tag, int? frames = default, int? framesOverTime = default, string? animationStyle = default, string? maskTag = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = UploadImageWithHttpInfo(file, tag, frames, framesOverTime, animationStyle, maskTag);
             return localVarResponse.Data;
@@ -3739,21 +3296,16 @@ namespace VRChat.API.Api
         /// <param name="framesOverTime">Required for emojianimated. Animation frames per second (1-64) (optional)</param>
         /// <param name="animationStyle">Animation style for sticker, required for emoji. (optional)</param>
         /// <param name="maskTag">Mask of the sticker, optional for emoji. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of File</returns>
-        public VRChat.API.Client.ApiResponse<File> UploadImageWithHttpInfo(System.IO.Stream file, string tag, int? frames = default(int?), int? framesOverTime = default(int?), string animationStyle = default(string), string maskTag = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<File> UploadImageWithHttpInfo(FileParameter file, string tag, int? frames = default, int? framesOverTime = default, string? animationStyle = default, string? maskTag = default)
         {
             // verify the required parameter 'file' is set
             if (file == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'file' when calling FilesApi->UploadImage");
-            }
 
             // verify the required parameter 'tag' is set
             if (tag == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'tag' when calling FilesApi->UploadImage");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3767,16 +3319,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.FileParameters.Add("file", file);
             localVarRequestOptions.FormParameters.Add("tag", VRChat.API.Client.ClientUtils.ParameterToString(tag)); // form parameter
@@ -3797,9 +3343,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.FormParameters.Add("maskTag", VRChat.API.Client.ClientUtils.ParameterToString(maskTag)); // form parameter
             }
 
-            localVarRequestOptions.Operation = "FilesApi.UploadImage";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -3809,13 +3352,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<File>("/file/image", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UploadImage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3831,12 +3372,11 @@ namespace VRChat.API.Api
         /// <param name="framesOverTime">Required for emojianimated. Animation frames per second (1-64) (optional)</param>
         /// <param name="animationStyle">Animation style for sticker, required for emoji. (optional)</param>
         /// <param name="maskTag">Mask of the sticker, optional for emoji. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> UploadImageAsync(System.IO.Stream file, string tag, int? frames = default(int?), int? framesOverTime = default(int?), string animationStyle = default(string), string maskTag = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<File> UploadImageAsync(FileParameter file, string tag, int? frames = default, int? framesOverTime = default, string? animationStyle = default, string? maskTag = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<File> localVarResponse = await UploadImageWithHttpInfoAsync(file, tag, frames, framesOverTime, animationStyle, maskTag, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<File> localVarResponse = await UploadImageWithHttpInfoAsync(file, tag, frames, framesOverTime, animationStyle, maskTag, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3850,22 +3390,17 @@ namespace VRChat.API.Api
         /// <param name="framesOverTime">Required for emojianimated. Animation frames per second (1-64) (optional)</param>
         /// <param name="animationStyle">Animation style for sticker, required for emoji. (optional)</param>
         /// <param name="maskTag">Mask of the sticker, optional for emoji. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> UploadImageWithHttpInfoAsync(System.IO.Stream file, string tag, int? frames = default(int?), int? framesOverTime = default(int?), string animationStyle = default(string), string maskTag = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> UploadImageWithHttpInfoAsync(FileParameter file, string tag, int? frames = default, int? framesOverTime = default, string? animationStyle = default, string? maskTag = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'file' is set
             if (file == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'file' when calling FilesApi->UploadImage");
-            }
 
             // verify the required parameter 'tag' is set
             if (tag == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'tag' when calling FilesApi->UploadImage");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3879,17 +3414,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.FileParameters.Add("file", file);
             localVarRequestOptions.FormParameters.Add("tag", VRChat.API.Client.ClientUtils.ParameterToString(tag)); // form parameter
@@ -3910,9 +3440,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.FormParameters.Add("maskTag", VRChat.API.Client.ClientUtils.ParameterToString(maskTag)); // form parameter
             }
 
-            localVarRequestOptions.Operation = "FilesApi.UploadImage";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -3921,15 +3448,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/file/image", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UploadImage", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="InviteResponse" /> class.
         /// </summary>
         /// <param name="responseSlot">responseSlot (required).</param>
-        public InviteResponse(int responseSlot = default(int))
+        public InviteResponse(int responseSlot = default)
         {
             this.ResponseSlot = responseSlot;
         }
@@ -120,18 +121,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ResponseSlot (int) maximum
             if (this.ResponseSlot > (int)11)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseSlot, must be a value less than or equal to 11.", new [] { "ResponseSlot" });
+                yield return new ValidationResult("Invalid value for ResponseSlot, must be a value less than or equal to 11.", new [] { "ResponseSlot" });
             }
 
             // ResponseSlot (int) minimum
             if (this.ResponseSlot < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResponseSlot, must be a value greater than or equal to 0.", new [] { "ResponseSlot" });
+                yield return new ValidationResult("Invalid value for ResponseSlot, must be a value greater than or equal to 0.", new [] { "ResponseSlot" });
             }
 
             yield break;

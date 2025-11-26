@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -50,7 +51,7 @@ namespace VRChat.API.Model
         /// <param name="travelingToWorld">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list..</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="world">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUserPresence(string avatarThumbnail = default(string), string currentAvatarTags = default(string), string displayName = default(string), string debugflag = default(string), List<string> groups = default(List<string>), string id = default(string), string instance = default(string), string instanceType = default(string), string isRejoining = default(string), string platform = default(string), string profilePicOverride = default(string), string status = default(string), string travelingToInstance = default(string), string travelingToWorld = default(string), string userIcon = default(string), string world = default(string))
+        public CurrentUserPresence(string avatarThumbnail = default, List<string> currentAvatarTags = default, string displayName = default, string debugflag = default, List<string> groups = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string platform = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
         {
             this.AvatarThumbnail = avatarThumbnail;
             this.CurrentAvatarTags = currentAvatarTags;
@@ -80,7 +81,7 @@ namespace VRChat.API.Model
         /// Gets or Sets CurrentAvatarTags
         /// </summary>
         [DataMember(Name = "currentAvatarTags", EmitDefaultValue = false)]
-        public string CurrentAvatarTags { get; set; }
+        public List<string> CurrentAvatarTags { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
@@ -104,6 +105,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -156,6 +160,9 @@ namespace VRChat.API.Model
         /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.
         /// </summary>
         /// <value>Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
+        */
         [DataMember(Name = "travelingToWorld", EmitDefaultValue = false)]
         public string TravelingToWorld { get; set; }
 
@@ -169,6 +176,9 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "world", EmitDefaultValue = false)]
         public string World { get; set; }
 
@@ -238,8 +248,9 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.CurrentAvatarTags == input.CurrentAvatarTags ||
-                    (this.CurrentAvatarTags != null &&
-                    this.CurrentAvatarTags.Equals(input.CurrentAvatarTags))
+                    this.CurrentAvatarTags != null &&
+                    input.CurrentAvatarTags != null &&
+                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -396,7 +407,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

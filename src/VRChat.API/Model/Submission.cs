@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -46,7 +47,7 @@ namespace VRChat.API.Model
         /// <param name="jamId">jamId (required).</param>
         /// <param name="ratingScore">ratingScore.</param>
         /// <param name="submitterId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        public Submission(string contentId = default(string), DateTime createdAt = default(DateTime), string description = default(string), string id = default(string), string jamId = default(string), int ratingScore = default(int), string submitterId = default(string))
+        public Submission(string contentId = default, DateTime createdAt = default, string description = default, string id = default, string jamId = default, int ratingScore = default, string submitterId = default)
         {
             // to ensure "contentId" is required (not null)
             if (contentId == null)
@@ -104,12 +105,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>jsub_f01f44fa-89fa-443c-ab4c-7fed9245970f</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets JamId
         /// </summary>
+        /*
+        <example>jam_0b7e3f6d-4647-4648-b2a1-1431e76906d9</example>
+        */
         [DataMember(Name = "jamId", IsRequired = true, EmitDefaultValue = true)]
         public string JamId { get; set; }
 
@@ -123,6 +130,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "submitterId", IsRequired = true, EmitDefaultValue = true)]
         public string SubmitterId { get; set; }
 
@@ -255,30 +265,30 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ContentId (string) minLength
             if (this.ContentId != null && this.ContentId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContentId, length must be greater than 1.", new [] { "ContentId" });
+                yield return new ValidationResult("Invalid value for ContentId, length must be greater than 1.", new [] { "ContentId" });
             }
 
             // Id (string) minLength
             if (this.Id != null && this.Id.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
+                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
             }
 
             // JamId (string) minLength
             if (this.JamId != null && this.JamId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for JamId, length must be greater than 1.", new [] { "JamId" });
+                yield return new ValidationResult("Invalid value for JamId, length must be greater than 1.", new [] { "JamId" });
             }
 
             // RatingScore (int) minimum
             if (this.RatingScore < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RatingScore, must be a value greater than or equal to 0.", new [] { "RatingScore" });
+                yield return new ValidationResult("Invalid value for RatingScore, must be a value greater than or equal to 0.", new [] { "RatingScore" });
             }
 
             yield break;

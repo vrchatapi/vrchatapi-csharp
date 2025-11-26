@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="reason">reason (required).</param>
         /// <param name="tags">tags (required).</param>
         /// <param name="type">type (required).</param>
-        public Feedback(string commenterId = default(string), string commenterName = default(string), string contentAuthorId = default(string), string contentAuthorName = default(string), string contentId = default(string), string contentName = default(string), string contentType = default(string), int? contentVersion = default(int?), string description = default(string), string id = default(string), string reason = default(string), List<string> tags = default(List<string>), string type = default(string))
+        public Feedback(string commenterId = default, string commenterName = default, string contentAuthorId = default, string contentAuthorName = default, string contentId = default, string contentName = default, string contentType = default, int? contentVersion = default, string description = default, string id = default, string reason = default, List<string> tags = default, string type = default)
         {
             // to ensure "commenterId" is required (not null)
             if (commenterId == null)
@@ -128,6 +129,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "commenterId", IsRequired = true, EmitDefaultValue = true)]
         public string CommenterId { get; set; }
 
@@ -141,6 +145,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "contentAuthorId", IsRequired = true, EmitDefaultValue = true)]
         public string ContentAuthorId { get; set; }
 
@@ -183,6 +190,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>feedback_8cffb23a-f961-444e-b496-0196d1c90adb</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -398,7 +408,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

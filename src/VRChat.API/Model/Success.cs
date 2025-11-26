@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -34,17 +35,17 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Success" /> class.
         /// </summary>
-        /// <param name="success">success.</param>
-        public Success(Response success = default(Response))
+        /// <param name="varSuccess">varSuccess.</param>
+        public Success(Response varSuccess = default)
         {
-            this._Success = success;
+            this.VarSuccess = varSuccess;
         }
 
         /// <summary>
-        /// Gets or Sets _Success
+        /// Gets or Sets VarSuccess
         /// </summary>
         [DataMember(Name = "success", EmitDefaultValue = false)]
-        public Response _Success { get; set; }
+        public Response VarSuccess { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,7 +55,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Success {\n");
-            sb.Append("  _Success: ").Append(_Success).Append("\n");
+            sb.Append("  VarSuccess: ").Append(VarSuccess).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,9 +92,9 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this._Success == input._Success ||
-                    (this._Success != null &&
-                    this._Success.Equals(input._Success))
+                    this.VarSuccess == input.VarSuccess ||
+                    (this.VarSuccess != null &&
+                    this.VarSuccess.Equals(input.VarSuccess))
                 );
         }
 
@@ -106,9 +107,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this._Success != null)
+                if (this.VarSuccess != null)
                 {
-                    hashCode = (hashCode * 59) + this._Success.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarSuccess.GetHashCode();
                 }
                 return hashCode;
             }
@@ -119,7 +120,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

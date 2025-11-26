@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -44,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="behavior">behavior (required).</param>
         /// <param name="chat">chat (required).</param>
         /// <param name="emoji">emoji.</param>
-        /// <param name="environment">environment (required).</param>
+        /// <param name="varEnvironment">varEnvironment (required).</param>
         /// <param name="groupstore">groupstore (required).</param>
         /// <param name="image">image (required).</param>
         /// <param name="text">text (required).</param>
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="warnings">warnings (required).</param>
         /// <param name="worldimage">worldimage (required).</param>
         /// <param name="worldstore">worldstore (required).</param>
-        public APIConfigReportCategories(ReportCategory avatar = default(ReportCategory), ReportCategory avatarpage = default(ReportCategory), ReportCategory behavior = default(ReportCategory), ReportCategory chat = default(ReportCategory), ReportCategory emoji = default(ReportCategory), ReportCategory environment = default(ReportCategory), ReportCategory groupstore = default(ReportCategory), ReportCategory image = default(ReportCategory), ReportCategory text = default(ReportCategory), ReportCategory sticker = default(ReportCategory), ReportCategory warnings = default(ReportCategory), ReportCategory worldimage = default(ReportCategory), ReportCategory worldstore = default(ReportCategory))
+        public APIConfigReportCategories(ReportCategory avatar = default, ReportCategory avatarpage = default, ReportCategory behavior = default, ReportCategory chat = default, ReportCategory emoji = default, ReportCategory varEnvironment = default, ReportCategory groupstore = default, ReportCategory image = default, ReportCategory text = default, ReportCategory sticker = default, ReportCategory warnings = default, ReportCategory worldimage = default, ReportCategory worldstore = default)
         {
             // to ensure "avatar" is required (not null)
             if (avatar == null)
@@ -72,12 +73,12 @@ namespace VRChat.API.Model
                 throw new ArgumentNullException("chat is a required property for APIConfigReportCategories and cannot be null");
             }
             this.Chat = chat;
-            // to ensure "environment" is required (not null)
-            if (environment == null)
+            // to ensure "varEnvironment" is required (not null)
+            if (varEnvironment == null)
             {
-                throw new ArgumentNullException("environment is a required property for APIConfigReportCategories and cannot be null");
+                throw new ArgumentNullException("varEnvironment is a required property for APIConfigReportCategories and cannot be null");
             }
-            this.Environment = environment;
+            this.VarEnvironment = varEnvironment;
             // to ensure "groupstore" is required (not null)
             if (groupstore == null)
             {
@@ -150,10 +151,10 @@ namespace VRChat.API.Model
         public ReportCategory Emoji { get; set; }
 
         /// <summary>
-        /// Gets or Sets Environment
+        /// Gets or Sets VarEnvironment
         /// </summary>
         [DataMember(Name = "environment", IsRequired = true, EmitDefaultValue = true)]
-        public ReportCategory Environment { get; set; }
+        public ReportCategory VarEnvironment { get; set; }
 
         /// <summary>
         /// Gets or Sets Groupstore
@@ -210,7 +211,7 @@ namespace VRChat.API.Model
             sb.Append("  Behavior: ").Append(Behavior).Append("\n");
             sb.Append("  Chat: ").Append(Chat).Append("\n");
             sb.Append("  Emoji: ").Append(Emoji).Append("\n");
-            sb.Append("  Environment: ").Append(Environment).Append("\n");
+            sb.Append("  VarEnvironment: ").Append(VarEnvironment).Append("\n");
             sb.Append("  Groupstore: ").Append(Groupstore).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
@@ -279,9 +280,9 @@ namespace VRChat.API.Model
                     this.Emoji.Equals(input.Emoji))
                 ) && 
                 (
-                    this.Environment == input.Environment ||
-                    (this.Environment != null &&
-                    this.Environment.Equals(input.Environment))
+                    this.VarEnvironment == input.VarEnvironment ||
+                    (this.VarEnvironment != null &&
+                    this.VarEnvironment.Equals(input.VarEnvironment))
                 ) && 
                 (
                     this.Groupstore == input.Groupstore ||
@@ -349,9 +350,9 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Emoji.GetHashCode();
                 }
-                if (this.Environment != null)
+                if (this.VarEnvironment != null)
                 {
-                    hashCode = (hashCode * 59) + this.Environment.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarEnvironment.GetHashCode();
                 }
                 if (this.Groupstore != null)
                 {
@@ -390,7 +391,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

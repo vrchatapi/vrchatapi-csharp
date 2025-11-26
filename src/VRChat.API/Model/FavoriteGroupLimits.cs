@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="avatar">avatar (required).</param>
         /// <param name="friend">friend (required).</param>
         /// <param name="world">world (required).</param>
-        public FavoriteGroupLimits(int avatar = default(int), int friend = default(int), int world = default(int))
+        public FavoriteGroupLimits(int avatar = default, int friend = default, int world = default)
         {
             this.Avatar = avatar;
             this.Friend = friend;
@@ -148,7 +149,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

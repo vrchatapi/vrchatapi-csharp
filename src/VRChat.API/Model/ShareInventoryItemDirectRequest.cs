@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="itemId">itemId (required).</param>
         /// <param name="users">users (required).</param>
-        public ShareInventoryItemDirectRequest(string itemId = default(string), List<string> users = default(List<string>))
+        public ShareInventoryItemDirectRequest(string itemId = default, List<string> users = default)
         {
             // to ensure "itemId" is required (not null)
             if (itemId == null)
@@ -60,6 +61,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ItemId
         /// </summary>
+        /*
+        <example>inv_10bce5b0-2d2b-44e0-900d-db6534615162</example>
+        */
         [DataMember(Name = "itemId", IsRequired = true, EmitDefaultValue = true)]
         public string ItemId { get; set; }
 
@@ -153,7 +157,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

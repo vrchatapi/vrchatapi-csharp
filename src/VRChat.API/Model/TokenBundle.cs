@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -48,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="description">description (required).</param>
         /// <param name="tokens">number of tokens received (required).</param>
         /// <param name="imageUrl">direct url to image (required).</param>
-        public TokenBundle(string id = default(string), string appleProductId = default(string), string steamItemId = default(string), string oculusSku = default(string), string googleProductId = default(string), int amount = default(int), string description = default(string), int tokens = default(int), string imageUrl = default(string))
+        public TokenBundle(string id = default, string appleProductId = default, string steamItemId = default, string oculusSku = default, string googleProductId = default, int amount = default, string description = default, int tokens = default, string imageUrl = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -293,7 +294,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

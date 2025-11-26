@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -45,7 +46,7 @@ namespace VRChat.API.Model
         /// <param name="quest">quest (required).</param>
         /// <param name="xRElite">xRElite (required).</param>
         /// <param name="iOSMobile">iOSMobile (required).</param>
-        public APIConfigAvatarPerfLimiter(PerformanceLimiterInfo androidMobile = default(PerformanceLimiterInfo), PerformanceLimiterInfo pC = default(PerformanceLimiterInfo), PerformanceLimiterInfo pico = default(PerformanceLimiterInfo), PerformanceLimiterInfo quest = default(PerformanceLimiterInfo), PerformanceLimiterInfo xRElite = default(PerformanceLimiterInfo), PerformanceLimiterInfo iOSMobile = default(PerformanceLimiterInfo))
+        public APIConfigAvatarPerfLimiter(PerformanceLimiterInfo androidMobile = default, PerformanceLimiterInfo pC = default, PerformanceLimiterInfo pico = default, PerformanceLimiterInfo quest = default, PerformanceLimiterInfo xRElite = default, PerformanceLimiterInfo iOSMobile = default)
         {
             // to ensure "androidMobile" is required (not null)
             if (androidMobile == null)
@@ -244,7 +245,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

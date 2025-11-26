@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -56,7 +57,7 @@ namespace VRChat.API.Model
         /// <param name="managerNotes">Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user..</param>
         /// <param name="lastPostReadAt">lastPostReadAt.</param>
         /// <param name="hasJoinedFromPurchase">hasJoinedFromPurchase.</param>
-        public GroupLimitedMember(string id = default(string), string groupId = default(string), string userId = default(string), bool isRepresenting = false, List<string> roleIds = default(List<string>), List<string> mRoleIds = default(List<string>), DateTime? joinedAt = default(DateTime?), GroupMemberStatus? membershipStatus = default(GroupMemberStatus?), string visibility = default(string), bool isSubscribedToAnnouncements = false, bool isSubscribedToEventAnnouncements = default(bool), DateTime? createdAt = default(DateTime?), DateTime? bannedAt = default(DateTime?), string managerNotes = default(string), DateTime? lastPostReadAt = default(DateTime?), bool hasJoinedFromPurchase = default(bool))
+        public GroupLimitedMember(string id = default, string groupId = default, string userId = default, bool isRepresenting = false, List<string> roleIds = default, List<string> mRoleIds = default, DateTime? joinedAt = default, GroupMemberStatus? membershipStatus = default, string visibility = default, bool isSubscribedToAnnouncements = false, bool isSubscribedToEventAnnouncements = default, DateTime? createdAt = default, DateTime? bannedAt = default, string managerNotes = default, DateTime? lastPostReadAt = default, bool hasJoinedFromPurchase = default)
         {
             this.Id = id;
             this.GroupId = groupId;
@@ -79,12 +80,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>gmem_95cdb3b4-4643-4eb6-bdab-46a4e1e5ce37</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
@@ -92,6 +99,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public string UserId { get; set; }
 
@@ -99,6 +109,9 @@ namespace VRChat.API.Model
         /// Whether the user is representing the group. This makes the group show up above the name tag in-game.
         /// </summary>
         /// <value>Whether the user is representing the group. This makes the group show up above the name tag in-game.</value>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "isRepresenting", EmitDefaultValue = true)]
         public bool IsRepresenting { get; set; }
 
@@ -123,6 +136,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Visibility
         /// </summary>
+        /*
+        <example>visible</example>
+        */
         [DataMember(Name = "visibility", EmitDefaultValue = false)]
         public string Visibility { get; set; }
 
@@ -376,7 +392,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

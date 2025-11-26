@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -59,7 +60,7 @@ namespace VRChat.API.Model
         /// <param name="groupId">groupId.</param>
         /// <param name="shelfIds">Only for store type house.</param>
         /// <param name="shelves">Only for store type house.</param>
-        public Store(string description = default(string), string displayName = default(string), string id = default(string), string sellerDisplayName = default(string), string sellerId = default(string), string storeId = default(string), StoreType storeType = default(StoreType), List<string> tags = default(List<string>), List<string> listingIds = default(List<string>), List<ProductListing> listings = default(List<ProductListing>), string worldId = default(string), string groupId = default(string), List<string> shelfIds = default(List<string>), List<StoreShelf> shelves = default(List<StoreShelf>))
+        public Store(string description = default, string displayName = default, string id = default, string sellerDisplayName = default, string sellerId = default, string storeId = default, StoreType storeType = default, List<string> tags = default, List<string> listingIds = default, List<ProductListing> listings = default, string worldId = default, string groupId = default, List<string> shelfIds = default, List<StoreShelf> shelves = default)
         {
             // to ensure "description" is required (not null)
             if (description == null)
@@ -127,6 +128,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>esto_713b247d-2b5d-41a0-bba3-50db28dc1498</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -140,12 +144,18 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "sellerId", IsRequired = true, EmitDefaultValue = true)]
         public string SellerId { get; set; }
 
         /// <summary>
         /// Gets or Sets StoreId
         /// </summary>
+        /*
+        <example>esto_713b247d-2b5d-41a0-bba3-50db28dc1498</example>
+        */
         [DataMember(Name = "storeId", IsRequired = true, EmitDefaultValue = true)]
         public string StoreId { get; set; }
 
@@ -173,12 +183,18 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
         [DataMember(Name = "worldId", EmitDefaultValue = false)]
         public string WorldId { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
@@ -400,7 +416,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

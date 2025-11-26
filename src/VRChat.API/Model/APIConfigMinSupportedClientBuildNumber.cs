@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="APIConfigMinSupportedClientBuildNumber" /> class.
         /// </summary>
         /// <param name="appStore">appStore (required).</param>
-        /// <param name="_default">_default (required).</param>
+        /// <param name="varDefault">varDefault (required).</param>
         /// <param name="firebase">firebase (required).</param>
         /// <param name="firebaseiOS">firebaseiOS (required).</param>
         /// <param name="googlePlay">googlePlay (required).</param>
@@ -50,7 +51,7 @@ namespace VRChat.API.Model
         /// <param name="questStore">questStore (required).</param>
         /// <param name="testFlight">testFlight (required).</param>
         /// <param name="xRElite">xRElite (required).</param>
-        public APIConfigMinSupportedClientBuildNumber(PlatformBuildInfo appStore = default(PlatformBuildInfo), PlatformBuildInfo _default = default(PlatformBuildInfo), PlatformBuildInfo firebase = default(PlatformBuildInfo), PlatformBuildInfo firebaseiOS = default(PlatformBuildInfo), PlatformBuildInfo googlePlay = default(PlatformBuildInfo), PlatformBuildInfo pC = default(PlatformBuildInfo), PlatformBuildInfo picoStore = default(PlatformBuildInfo), PlatformBuildInfo questAppLab = default(PlatformBuildInfo), PlatformBuildInfo questStore = default(PlatformBuildInfo), PlatformBuildInfo testFlight = default(PlatformBuildInfo), PlatformBuildInfo xRElite = default(PlatformBuildInfo))
+        public APIConfigMinSupportedClientBuildNumber(PlatformBuildInfo appStore = default, PlatformBuildInfo varDefault = default, PlatformBuildInfo firebase = default, PlatformBuildInfo firebaseiOS = default, PlatformBuildInfo googlePlay = default, PlatformBuildInfo pC = default, PlatformBuildInfo picoStore = default, PlatformBuildInfo questAppLab = default, PlatformBuildInfo questStore = default, PlatformBuildInfo testFlight = default, PlatformBuildInfo xRElite = default)
         {
             // to ensure "appStore" is required (not null)
             if (appStore == null)
@@ -58,12 +59,12 @@ namespace VRChat.API.Model
                 throw new ArgumentNullException("appStore is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
             }
             this.AppStore = appStore;
-            // to ensure "_default" is required (not null)
-            if (_default == null)
+            // to ensure "varDefault" is required (not null)
+            if (varDefault == null)
             {
-                throw new ArgumentNullException("_default is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
+                throw new ArgumentNullException("varDefault is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
             }
-            this.Default = _default;
+            this.Default = varDefault;
             // to ensure "firebase" is required (not null)
             if (firebase == null)
             {
@@ -359,7 +360,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="country">country (required) (default to &quot;US&quot;).</param>
         /// <param name="currency">currency (required) (default to &quot;USD&quot;).</param>
         /// <param name="status">status (required).</param>
-        public TransactionSteamWalletInfo(string state = default(string), string country = "US", string currency = "USD", string status = default(string))
+        public TransactionSteamWalletInfo(string state = default, string country = @"US", string currency = @"USD", string status = default)
         {
             // to ensure "state" is required (not null)
             if (state == null)
@@ -80,18 +81,27 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Country
         /// </summary>
+        /*
+        <example>SE</example>
+        */
         [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
         /// Gets or Sets Currency
         /// </summary>
+        /*
+        <example>EUR</example>
+        */
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
+        /*
+        <example>Trusted</example>
+        */
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
@@ -198,24 +208,24 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Country (string) minLength
             if (this.Country != null && this.Country.Length < 2)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be greater than 2.", new [] { "Country" });
+                yield return new ValidationResult("Invalid value for Country, length must be greater than 2.", new [] { "Country" });
             }
 
             // Currency (string) minLength
             if (this.Currency != null && this.Currency.Length < 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 3.", new [] { "Currency" });
+                yield return new ValidationResult("Invalid value for Currency, length must be greater than 3.", new [] { "Currency" });
             }
 
             // Status (string) minLength
             if (this.Status != null && this.Status.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be greater than 1.", new [] { "Status" });
+                yield return new ValidationResult("Invalid value for Status, length must be greater than 1.", new [] { "Status" });
             }
 
             yield break;

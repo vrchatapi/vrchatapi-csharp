@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -42,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="ok">ok (required).</param>
         /// <param name="serverName">serverName (required).</param>
         /// <param name="buildVersionTag">buildVersionTag (required).</param>
-        public APIHealth(bool ok = default(bool), string serverName = default(string), string buildVersionTag = default(string))
+        public APIHealth(bool ok = default, string serverName = default, string buildVersionTag = default)
         {
             this.Ok = ok;
             // to ensure "serverName" is required (not null)
@@ -166,18 +167,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ServerName (string) minLength
             if (this.ServerName != null && this.ServerName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerName, length must be greater than 1.", new [] { "ServerName" });
+                yield return new ValidationResult("Invalid value for ServerName, length must be greater than 1.", new [] { "ServerName" });
             }
 
             // BuildVersionTag (string) minLength
             if (this.BuildVersionTag != null && this.BuildVersionTag.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BuildVersionTag, length must be greater than 1.", new [] { "BuildVersionTag" });
+                yield return new ValidationResult("Invalid value for BuildVersionTag, length must be greater than 1.", new [] { "BuildVersionTag" });
             }
 
             yield break;

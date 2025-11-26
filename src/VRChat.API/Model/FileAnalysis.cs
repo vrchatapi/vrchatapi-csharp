@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -46,7 +47,7 @@ namespace VRChat.API.Model
         /// <param name="performanceRating">performanceRating.</param>
         /// <param name="success">success (required).</param>
         /// <param name="uncompressedSize">uncompressedSize (required).</param>
-        public FileAnalysis(FileAnalysisAvatarStats avatarStats = default(FileAnalysisAvatarStats), DateTime createdAt = default(DateTime), string encryptionKey = default(string), int fileSize = default(int), string performanceRating = default(string), bool success = default(bool), int uncompressedSize = default(int))
+        public FileAnalysis(FileAnalysisAvatarStats avatarStats = default, DateTime createdAt = default, string encryptionKey = default, int fileSize = default, string performanceRating = default, bool success = default, int uncompressedSize = default)
         {
             // to ensure "avatarStats" is required (not null)
             if (avatarStats == null)
@@ -225,7 +226,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

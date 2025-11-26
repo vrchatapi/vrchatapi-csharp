@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -65,7 +66,7 @@ namespace VRChat.API.Model
         /// <param name="bannerId">bannerId.</param>
         /// <param name="privacy">privacy.</param>
         /// <param name="roleTemplate">roleTemplate (required).</param>
-        public CreateGroupRequest(string name = default(string), string shortCode = default(string), string description = default(string), GroupJoinState? joinState = default(GroupJoinState?), string iconId = default(string), string bannerId = default(string), GroupPrivacy? privacy = default(GroupPrivacy?), GroupRoleTemplate roleTemplate = default(GroupRoleTemplate))
+        public CreateGroupRequest(string name = default, string shortCode = default, string description = default, GroupJoinState? joinState = default, string iconId = default, string bannerId = default, GroupPrivacy? privacy = default, GroupRoleTemplate roleTemplate = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -248,42 +249,42 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Name (string) maxLength
             if (this.Name != null && this.Name.Length > 64)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 64.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be less than 64.", new [] { "Name" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 3.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 3.", new [] { "Name" });
             }
 
             // ShortCode (string) maxLength
             if (this.ShortCode != null && this.ShortCode.Length > 6)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be less than 6.", new [] { "ShortCode" });
+                yield return new ValidationResult("Invalid value for ShortCode, length must be less than 6.", new [] { "ShortCode" });
             }
 
             // ShortCode (string) minLength
             if (this.ShortCode != null && this.ShortCode.Length < 3)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortCode, length must be greater than 3.", new [] { "ShortCode" });
+                yield return new ValidationResult("Invalid value for ShortCode, length must be greater than 3.", new [] { "ShortCode" });
             }
 
             // Description (string) maxLength
             if (this.Description != null && this.Description.Length > 250)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 250.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be less than 250.", new [] { "Description" });
             }
 
             // Description (string) minLength
             if (this.Description != null && this.Description.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
 
             yield break;

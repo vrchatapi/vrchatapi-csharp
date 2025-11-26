@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using VRChat.API.Client;
 using VRChat.API.Model;
@@ -35,9 +36,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void CheckUserPersistenceExists(string userId, string worldId, int operationIndex = 0);
+        void CheckUserPersistenceExists(string userId, string worldId);
 
         /// <summary>
         /// Check User Persistence Exists
@@ -48,9 +48,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CheckUserPersistenceExistsWithHttpInfo(string userId, string worldId, int operationIndex = 0);
+        ApiResponse<Object> CheckUserPersistenceExistsWithHttpInfo(string userId, string worldId);
         /// <summary>
         /// Create World
         /// </summary>
@@ -59,9 +58,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>World</returns>
-        World CreateWorld(CreateWorldRequest createWorldRequest = default(CreateWorldRequest), int operationIndex = 0);
+        World CreateWorld(CreateWorldRequest? createWorldRequest = default);
 
         /// <summary>
         /// Create World
@@ -71,9 +69,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of World</returns>
-        ApiResponse<World> CreateWorldWithHttpInfo(CreateWorldRequest createWorldRequest = default(CreateWorldRequest), int operationIndex = 0);
+        ApiResponse<World> CreateWorldWithHttpInfo(CreateWorldRequest? createWorldRequest = default);
         /// <summary>
         /// Delete User Persistence
         /// </summary>
@@ -83,9 +80,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void DeleteUserPersistence(string userId, string worldId, int operationIndex = 0);
+        void DeleteUserPersistence(string userId, string worldId);
 
         /// <summary>
         /// Delete User Persistence
@@ -96,9 +92,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteUserPersistenceWithHttpInfo(string userId, string worldId, int operationIndex = 0);
+        ApiResponse<Object> DeleteUserPersistenceWithHttpInfo(string userId, string worldId);
         /// <summary>
         /// Delete World
         /// </summary>
@@ -107,9 +102,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void DeleteWorld(string worldId, int operationIndex = 0);
+        void DeleteWorld(string worldId);
 
         /// <summary>
         /// Delete World
@@ -119,9 +113,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteWorldWithHttpInfo(string worldId, int operationIndex = 0);
+        ApiResponse<Object> DeleteWorldWithHttpInfo(string worldId);
         /// <summary>
         /// List Active Worlds
         /// </summary>
@@ -141,9 +134,9 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        List<LimitedWorld> GetActiveWorlds(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0);
+        List<LimitedWorld> GetActiveWorlds(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default);
 
         /// <summary>
         /// List Active Worlds
@@ -164,9 +157,9 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        ApiResponse<List<LimitedWorld>> GetActiveWorldsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0);
+        ApiResponse<List<LimitedWorld>> GetActiveWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default);
         /// <summary>
         /// List Favorited Worlds
         /// </summary>
@@ -187,9 +180,8 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;FavoritedWorld&gt;</returns>
-        List<FavoritedWorld> GetFavoritedWorlds(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0);
+        List<FavoritedWorld> GetFavoritedWorlds(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default);
 
         /// <summary>
         /// List Favorited Worlds
@@ -211,9 +203,8 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;FavoritedWorld&gt;</returns>
-        ApiResponse<List<FavoritedWorld>> GetFavoritedWorldsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0);
+        ApiResponse<List<FavoritedWorld>> GetFavoritedWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default);
         /// <summary>
         /// List Recent Worlds
         /// </summary>
@@ -234,9 +225,8 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        List<LimitedWorld> GetRecentWorlds(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0);
+        List<LimitedWorld> GetRecentWorlds(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default);
 
         /// <summary>
         /// List Recent Worlds
@@ -258,9 +248,8 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        ApiResponse<List<LimitedWorld>> GetRecentWorldsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0);
+        ApiResponse<List<LimitedWorld>> GetRecentWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default);
         /// <summary>
         /// Get World by ID
         /// </summary>
@@ -269,9 +258,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>World</returns>
-        World GetWorld(string worldId, int operationIndex = 0);
+        World GetWorld(string worldId);
 
         /// <summary>
         /// Get World by ID
@@ -281,9 +269,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of World</returns>
-        ApiResponse<World> GetWorldWithHttpInfo(string worldId, int operationIndex = 0);
+        ApiResponse<World> GetWorldWithHttpInfo(string worldId);
         /// <summary>
         /// Get World Instance
         /// </summary>
@@ -293,9 +280,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Instance</returns>
-        Instance GetWorldInstance(string worldId, string instanceId, int operationIndex = 0);
+        Instance GetWorldInstance(string worldId, string instanceId);
 
         /// <summary>
         /// Get World Instance
@@ -306,9 +292,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Instance</returns>
-        ApiResponse<Instance> GetWorldInstanceWithHttpInfo(string worldId, string instanceId, int operationIndex = 0);
+        ApiResponse<Instance> GetWorldInstanceWithHttpInfo(string worldId, string instanceId);
         /// <summary>
         /// Get World Metadata
         /// </summary>
@@ -317,10 +302,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>WorldMetadata</returns>
         [Obsolete]
-        WorldMetadata GetWorldMetadata(string worldId, int operationIndex = 0);
+        WorldMetadata GetWorldMetadata(string worldId);
 
         /// <summary>
         /// Get World Metadata
@@ -330,10 +314,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of WorldMetadata</returns>
         [Obsolete]
-        ApiResponse<WorldMetadata> GetWorldMetadataWithHttpInfo(string worldId, int operationIndex = 0);
+        ApiResponse<WorldMetadata> GetWorldMetadataWithHttpInfo(string worldId);
         /// <summary>
         /// Get World Publish Status
         /// </summary>
@@ -342,9 +325,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>WorldPublishStatus</returns>
-        WorldPublishStatus GetWorldPublishStatus(string worldId, int operationIndex = 0);
+        WorldPublishStatus GetWorldPublishStatus(string worldId);
 
         /// <summary>
         /// Get World Publish Status
@@ -354,9 +336,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of WorldPublishStatus</returns>
-        ApiResponse<WorldPublishStatus> GetWorldPublishStatusWithHttpInfo(string worldId, int operationIndex = 0);
+        ApiResponse<WorldPublishStatus> GetWorldPublishStatusWithHttpInfo(string worldId);
         /// <summary>
         /// Publish World
         /// </summary>
@@ -365,9 +346,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void PublishWorld(string worldId, int operationIndex = 0);
+        void PublishWorld(string worldId);
 
         /// <summary>
         /// Publish World
@@ -377,9 +357,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> PublishWorldWithHttpInfo(string worldId, int operationIndex = 0);
+        ApiResponse<Object> PublishWorldWithHttpInfo(string worldId);
         /// <summary>
         /// Search All Worlds
         /// </summary>
@@ -401,10 +380,11 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        List<LimitedWorld> SearchWorlds(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), bool? fuzzy = default(bool?), int operationIndex = 0);
+        List<LimitedWorld> SearchWorlds(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default);
 
         /// <summary>
         /// Search All Worlds
@@ -427,10 +407,11 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), bool? fuzzy = default(bool?), int operationIndex = 0);
+        ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default);
         /// <summary>
         /// Unpublish World
         /// </summary>
@@ -439,9 +420,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void UnpublishWorld(string worldId, int operationIndex = 0);
+        void UnpublishWorld(string worldId);
 
         /// <summary>
         /// Unpublish World
@@ -451,9 +431,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UnpublishWorldWithHttpInfo(string worldId, int operationIndex = 0);
+        ApiResponse<Object> UnpublishWorldWithHttpInfo(string worldId);
         /// <summary>
         /// Update World
         /// </summary>
@@ -463,9 +442,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="updateWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>World</returns>
-        World UpdateWorld(string worldId, UpdateWorldRequest updateWorldRequest = default(UpdateWorldRequest), int operationIndex = 0);
+        World UpdateWorld(string worldId, UpdateWorldRequest? updateWorldRequest = default);
 
         /// <summary>
         /// Update World
@@ -476,9 +454,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="updateWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of World</returns>
-        ApiResponse<World> UpdateWorldWithHttpInfo(string worldId, UpdateWorldRequest updateWorldRequest = default(UpdateWorldRequest), int operationIndex = 0);
+        ApiResponse<World> UpdateWorldWithHttpInfo(string worldId, UpdateWorldRequest? updateWorldRequest = default);
         #endregion Synchronous Operations
     }
 
@@ -497,10 +474,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CheckUserPersistenceExistsAsync(string userId, string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task CheckUserPersistenceExistsAsync(string userId, string worldId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check User Persistence Exists
@@ -511,10 +487,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CheckUserPersistenceExistsWithHttpInfoAsync(string userId, string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> CheckUserPersistenceExistsWithHttpInfoAsync(string userId, string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create World
         /// </summary>
@@ -523,10 +498,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of World</returns>
-        System.Threading.Tasks.Task<World> CreateWorldAsync(CreateWorldRequest createWorldRequest = default(CreateWorldRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<World> CreateWorldAsync(CreateWorldRequest? createWorldRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create World
@@ -536,10 +510,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (World)</returns>
-        System.Threading.Tasks.Task<ApiResponse<World>> CreateWorldWithHttpInfoAsync(CreateWorldRequest createWorldRequest = default(CreateWorldRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<World>> CreateWorldWithHttpInfoAsync(CreateWorldRequest? createWorldRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete User Persistence
         /// </summary>
@@ -549,10 +522,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteUserPersistenceAsync(string userId, string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteUserPersistenceAsync(string userId, string worldId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete User Persistence
@@ -563,10 +535,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserPersistenceWithHttpInfoAsync(string userId, string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserPersistenceWithHttpInfoAsync(string userId, string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete World
         /// </summary>
@@ -575,10 +546,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteWorldAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete World
@@ -588,10 +558,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWorldWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Active Worlds
         /// </summary>
@@ -611,10 +580,10 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        System.Threading.Tasks.Task<List<LimitedWorld>> GetActiveWorldsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<LimitedWorld>> GetActiveWorldsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Active Worlds
@@ -635,10 +604,10 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> GetActiveWorldsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> GetActiveWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Favorited Worlds
         /// </summary>
@@ -659,10 +628,9 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;FavoritedWorld&gt;</returns>
-        System.Threading.Tasks.Task<List<FavoritedWorld>> GetFavoritedWorldsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<FavoritedWorld>> GetFavoritedWorldsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Favorited Worlds
@@ -684,10 +652,9 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;FavoritedWorld&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<FavoritedWorld>>> GetFavoritedWorldsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<FavoritedWorld>>> GetFavoritedWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Recent Worlds
         /// </summary>
@@ -708,10 +675,9 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        System.Threading.Tasks.Task<List<LimitedWorld>> GetRecentWorldsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<LimitedWorld>> GetRecentWorldsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Recent Worlds
@@ -733,10 +699,9 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> GetRecentWorldsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> GetRecentWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get World by ID
         /// </summary>
@@ -745,10 +710,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of World</returns>
-        System.Threading.Tasks.Task<World> GetWorldAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<World> GetWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get World by ID
@@ -758,10 +722,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (World)</returns>
-        System.Threading.Tasks.Task<ApiResponse<World>> GetWorldWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<World>> GetWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get World Instance
         /// </summary>
@@ -771,10 +734,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Instance</returns>
-        System.Threading.Tasks.Task<Instance> GetWorldInstanceAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Instance> GetWorldInstanceAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get World Instance
@@ -785,10 +747,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Instance>> GetWorldInstanceWithHttpInfoAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Instance>> GetWorldInstanceWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get World Metadata
         /// </summary>
@@ -797,11 +758,10 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WorldMetadata</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<WorldMetadata> GetWorldMetadataAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<WorldMetadata> GetWorldMetadataAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get World Metadata
@@ -811,11 +771,10 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WorldMetadata)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<WorldMetadata>> GetWorldMetadataWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<WorldMetadata>> GetWorldMetadataWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get World Publish Status
         /// </summary>
@@ -824,10 +783,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WorldPublishStatus</returns>
-        System.Threading.Tasks.Task<WorldPublishStatus> GetWorldPublishStatusAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<WorldPublishStatus> GetWorldPublishStatusAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get World Publish Status
@@ -837,10 +795,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WorldPublishStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WorldPublishStatus>> GetWorldPublishStatusWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<WorldPublishStatus>> GetWorldPublishStatusWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Publish World
         /// </summary>
@@ -849,10 +806,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task PublishWorldAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task PublishWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Publish World
@@ -862,10 +818,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PublishWorldWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> PublishWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search All Worlds
         /// </summary>
@@ -887,11 +842,12 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), bool? fuzzy = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search All Worlds
@@ -914,11 +870,12 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), bool? fuzzy = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Unpublish World
         /// </summary>
@@ -927,10 +884,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UnpublishWorldAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UnpublishWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Unpublish World
@@ -940,10 +896,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UnpublishWorldWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> UnpublishWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update World
         /// </summary>
@@ -953,10 +908,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="updateWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of World</returns>
-        System.Threading.Tasks.Task<World> UpdateWorldAsync(string worldId, UpdateWorldRequest updateWorldRequest = default(UpdateWorldRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<World> UpdateWorldAsync(string worldId, UpdateWorldRequest? updateWorldRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update World
@@ -967,10 +921,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="updateWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (World)</returns>
-        System.Threading.Tasks.Task<ApiResponse<World>> UpdateWorldWithHttpInfoAsync(string worldId, UpdateWorldRequest updateWorldRequest = default(UpdateWorldRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<World>> UpdateWorldWithHttpInfoAsync(string worldId, UpdateWorldRequest? updateWorldRequest = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -985,12 +938,14 @@ namespace VRChat.API.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class WorldsApi : IWorldsApi
+    public partial class WorldsApi : IDisposable, IWorldsApi
     {
         private VRChat.API.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorldsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public WorldsApi() : this((string)null)
@@ -999,7 +954,11 @@ namespace VRChat.API.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorldsApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public WorldsApi(string basePath)
         {
@@ -1007,16 +966,19 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 new VRChat.API.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WorldsApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="WorldsApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public WorldsApi(VRChat.API.Client.Configuration configuration)
         {
@@ -1026,8 +988,78 @@ namespace VRChat.API.Api
                 VRChat.API.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new VRChat.API.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorldsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public WorldsApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorldsApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public WorldsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                new VRChat.API.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorldsApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public WorldsApi(HttpClient client, VRChat.API.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
+                VRChat.API.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new VRChat.API.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -1038,6 +1070,7 @@ namespace VRChat.API.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public WorldsApi(VRChat.API.Client.ISynchronousClient client, VRChat.API.Client.IAsynchronousClient asyncClient, VRChat.API.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -1049,6 +1082,19 @@ namespace VRChat.API.Api
             this.Configuration = configuration;
             this.ExceptionFactory = VRChat.API.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public VRChat.API.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -1097,9 +1143,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void CheckUserPersistenceExists(string userId, string worldId, int operationIndex = 0)
+        public void CheckUserPersistenceExists(string userId, string worldId)
         {
             CheckUserPersistenceExistsWithHttpInfo(userId, worldId);
         }
@@ -1110,21 +1155,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> CheckUserPersistenceExistsWithHttpInfo(string userId, string worldId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> CheckUserPersistenceExistsWithHttpInfo(string userId, string worldId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling WorldsApi->CheckUserPersistenceExists");
-            }
 
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->CheckUserPersistenceExists");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1137,22 +1177,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.CheckUserPersistenceExists";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1163,13 +1194,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Object>("/users/{userId}/{worldId}/persist/exists", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CheckUserPersistenceExists", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1181,12 +1210,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CheckUserPersistenceExistsAsync(string userId, string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CheckUserPersistenceExistsAsync(string userId, string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await CheckUserPersistenceExistsWithHttpInfoAsync(userId, worldId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await CheckUserPersistenceExistsWithHttpInfoAsync(userId, worldId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1195,22 +1223,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> CheckUserPersistenceExistsWithHttpInfoAsync(string userId, string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> CheckUserPersistenceExistsWithHttpInfoAsync(string userId, string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling WorldsApi->CheckUserPersistenceExists");
-            }
 
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->CheckUserPersistenceExists");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1223,23 +1246,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.CheckUserPersistenceExists";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1249,15 +1264,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/users/{userId}/{worldId}/persist/exists", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CheckUserPersistenceExists", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1268,9 +1281,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>World</returns>
-        public World CreateWorld(CreateWorldRequest createWorldRequest = default(CreateWorldRequest), int operationIndex = 0)
+        public World CreateWorld(CreateWorldRequest? createWorldRequest = default)
         {
             VRChat.API.Client.ApiResponse<World> localVarResponse = CreateWorldWithHttpInfo(createWorldRequest);
             return localVarResponse.Data;
@@ -1281,9 +1293,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of World</returns>
-        public VRChat.API.Client.ApiResponse<World> CreateWorldWithHttpInfo(CreateWorldRequest createWorldRequest = default(CreateWorldRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<World> CreateWorldWithHttpInfo(CreateWorldRequest? createWorldRequest = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1297,32 +1308,21 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = createWorldRequest;
-
-            localVarRequestOptions.Operation = "WorldsApi.CreateWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<World>("/worlds", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1333,12 +1333,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of World</returns>
-        public async System.Threading.Tasks.Task<World> CreateWorldAsync(CreateWorldRequest createWorldRequest = default(CreateWorldRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<World> CreateWorldAsync(CreateWorldRequest? createWorldRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<World> localVarResponse = await CreateWorldWithHttpInfoAsync(createWorldRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<World> localVarResponse = await CreateWorldWithHttpInfoAsync(createWorldRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1347,10 +1346,9 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (World)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<World>> CreateWorldWithHttpInfoAsync(CreateWorldRequest createWorldRequest = default(CreateWorldRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<World>> CreateWorldWithHttpInfoAsync(CreateWorldRequest? createWorldRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1364,34 +1362,24 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = createWorldRequest;
 
-            localVarRequestOptions.Operation = "WorldsApi.CreateWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<World>("/worlds", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1403,9 +1391,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void DeleteUserPersistence(string userId, string worldId, int operationIndex = 0)
+        public void DeleteUserPersistence(string userId, string worldId)
         {
             DeleteUserPersistenceWithHttpInfo(userId, worldId);
         }
@@ -1416,21 +1403,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> DeleteUserPersistenceWithHttpInfo(string userId, string worldId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> DeleteUserPersistenceWithHttpInfo(string userId, string worldId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling WorldsApi->DeleteUserPersistence");
-            }
 
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->DeleteUserPersistence");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1443,22 +1425,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.DeleteUserPersistence";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1469,13 +1442,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Object>("/users/{userId}/{worldId}/persist", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteUserPersistence", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1487,12 +1458,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteUserPersistenceAsync(string userId, string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteUserPersistenceAsync(string userId, string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await DeleteUserPersistenceWithHttpInfoAsync(userId, worldId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await DeleteUserPersistenceWithHttpInfoAsync(userId, worldId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1501,22 +1471,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeleteUserPersistenceWithHttpInfoAsync(string userId, string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeleteUserPersistenceWithHttpInfoAsync(string userId, string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling WorldsApi->DeleteUserPersistence");
-            }
 
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->DeleteUserPersistence");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1529,23 +1494,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.DeleteUserPersistence";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1555,15 +1512,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/users/{userId}/{worldId}/persist", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteUserPersistence", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1574,9 +1529,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void DeleteWorld(string worldId, int operationIndex = 0)
+        public void DeleteWorld(string worldId)
         {
             DeleteWorldWithHttpInfo(worldId);
         }
@@ -1586,15 +1540,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> DeleteWorldWithHttpInfo(string worldId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> DeleteWorldWithHttpInfo(string worldId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->DeleteWorld");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1607,21 +1558,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.DeleteWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1632,13 +1574,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Object>("/worlds/{worldId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1649,12 +1589,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteWorldAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await DeleteWorldWithHttpInfoAsync(worldId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await DeleteWorldWithHttpInfoAsync(worldId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1662,16 +1601,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeleteWorldWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeleteWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->DeleteWorld");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1684,22 +1620,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.DeleteWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1709,15 +1637,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/worlds/{worldId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1739,11 +1665,11 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        public List<LimitedWorld> GetActiveWorlds(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0)
+        public List<LimitedWorld> GetActiveWorlds(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = GetActiveWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
+            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = GetActiveWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, noplatform);
             return localVarResponse.Data;
         }
 
@@ -1763,9 +1689,9 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> GetActiveWorldsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> GetActiveWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1778,16 +1704,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -1837,9 +1757,10 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
             }
-
-            localVarRequestOptions.Operation = "WorldsApi.GetActiveWorlds";
-            localVarRequestOptions.OperationIndex = operationIndex;
+            if (noplatform != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "noplatform", noplatform));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1850,13 +1771,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<LimitedWorld>>("/worlds/active", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetActiveWorlds", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1878,12 +1797,12 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LimitedWorld>> GetActiveWorldsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<LimitedWorld>> GetActiveWorldsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await GetActiveWorldsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await GetActiveWorldsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, noplatform, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1903,10 +1822,10 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> GetActiveWorldsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> GetActiveWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1919,17 +1838,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -1979,9 +1893,10 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
             }
-
-            localVarRequestOptions.Operation = "WorldsApi.GetActiveWorlds";
-            localVarRequestOptions.OperationIndex = operationIndex;
+            if (noplatform != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "noplatform", noplatform));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1991,15 +1906,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<LimitedWorld>>("/worlds/active", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetActiveWorlds", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2022,9 +1935,8 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;FavoritedWorld&gt;</returns>
-        public List<FavoritedWorld> GetFavoritedWorlds(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0)
+        public List<FavoritedWorld> GetFavoritedWorlds(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default)
         {
             VRChat.API.Client.ApiResponse<List<FavoritedWorld>> localVarResponse = GetFavoritedWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
             return localVarResponse.Data;
@@ -2047,9 +1959,8 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;FavoritedWorld&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<FavoritedWorld>> GetFavoritedWorldsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<FavoritedWorld>> GetFavoritedWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2062,16 +1973,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -2126,9 +2031,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
-            localVarRequestOptions.Operation = "WorldsApi.GetFavoritedWorlds";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -2138,13 +2040,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<FavoritedWorld>>("/worlds/favorites", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFavoritedWorlds", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2167,12 +2067,11 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;FavoritedWorld&gt;</returns>
-        public async System.Threading.Tasks.Task<List<FavoritedWorld>> GetFavoritedWorldsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<FavoritedWorld>> GetFavoritedWorldsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<FavoritedWorld>> localVarResponse = await GetFavoritedWorldsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<FavoritedWorld>> localVarResponse = await GetFavoritedWorldsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2193,10 +2092,9 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;FavoritedWorld&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<FavoritedWorld>>> GetFavoritedWorldsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<FavoritedWorld>>> GetFavoritedWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2209,17 +2107,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -2274,9 +2167,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
-            localVarRequestOptions.Operation = "WorldsApi.GetFavoritedWorlds";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -2285,15 +2175,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<FavoritedWorld>>("/worlds/favorites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFavoritedWorlds", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2316,9 +2204,8 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        public List<LimitedWorld> GetRecentWorlds(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0)
+        public List<LimitedWorld> GetRecentWorlds(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default)
         {
             VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = GetRecentWorldsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
             return localVarResponse.Data;
@@ -2341,9 +2228,8 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> GetRecentWorldsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> GetRecentWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2356,16 +2242,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -2419,9 +2299,6 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
-
-            localVarRequestOptions.Operation = "WorldsApi.GetRecentWorlds";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2432,13 +2309,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<LimitedWorld>>("/worlds/recent", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecentWorlds", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2461,12 +2336,11 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LimitedWorld>> GetRecentWorldsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<LimitedWorld>> GetRecentWorldsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await GetRecentWorldsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await GetRecentWorldsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2487,10 +2361,9 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> GetRecentWorldsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), string userId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> GetRecentWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2503,17 +2376,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -2568,9 +2436,6 @@ namespace VRChat.API.Api
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
-            localVarRequestOptions.Operation = "WorldsApi.GetRecentWorlds";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (authCookie) required
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
@@ -2579,15 +2444,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<LimitedWorld>>("/worlds/recent", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecentWorlds", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2598,9 +2461,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>World</returns>
-        public World GetWorld(string worldId, int operationIndex = 0)
+        public World GetWorld(string worldId)
         {
             VRChat.API.Client.ApiResponse<World> localVarResponse = GetWorldWithHttpInfo(worldId);
             return localVarResponse.Data;
@@ -2611,15 +2473,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of World</returns>
-        public VRChat.API.Client.ApiResponse<World> GetWorldWithHttpInfo(string worldId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<World> GetWorldWithHttpInfo(string worldId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->GetWorld");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2632,32 +2491,21 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.GetWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<World>("/worlds/{worldId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2668,12 +2516,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of World</returns>
-        public async System.Threading.Tasks.Task<World> GetWorldAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<World> GetWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<World> localVarResponse = await GetWorldWithHttpInfoAsync(worldId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<World> localVarResponse = await GetWorldWithHttpInfoAsync(worldId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2682,16 +2529,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (World)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<World>> GetWorldWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<World>> GetWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->GetWorld");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2704,34 +2548,24 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
 
-            localVarRequestOptions.Operation = "WorldsApi.GetWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<World>("/worlds/{worldId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2743,9 +2577,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Instance</returns>
-        public Instance GetWorldInstance(string worldId, string instanceId, int operationIndex = 0)
+        public Instance GetWorldInstance(string worldId, string instanceId)
         {
             VRChat.API.Client.ApiResponse<Instance> localVarResponse = GetWorldInstanceWithHttpInfo(worldId, instanceId);
             return localVarResponse.Data;
@@ -2757,21 +2590,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Instance</returns>
-        public VRChat.API.Client.ApiResponse<Instance> GetWorldInstanceWithHttpInfo(string worldId, string instanceId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Instance> GetWorldInstanceWithHttpInfo(string worldId, string instanceId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->GetWorldInstance");
-            }
 
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling WorldsApi->GetWorldInstance");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2784,22 +2612,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.GetWorldInstance";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2810,13 +2629,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<Instance>("/worlds/{worldId}/{instanceId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWorldInstance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2828,12 +2645,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Instance</returns>
-        public async System.Threading.Tasks.Task<Instance> GetWorldInstanceAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Instance> GetWorldInstanceAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Instance> localVarResponse = await GetWorldInstanceWithHttpInfoAsync(worldId, instanceId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Instance> localVarResponse = await GetWorldInstanceWithHttpInfoAsync(worldId, instanceId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2843,22 +2659,17 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="instanceId">Must be a valid instance ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instance)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Instance>> GetWorldInstanceWithHttpInfoAsync(string worldId, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Instance>> GetWorldInstanceWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->GetWorldInstance");
-            }
 
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling WorldsApi->GetWorldInstance");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2871,23 +2682,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.GetWorldInstance";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2897,15 +2700,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<Instance>("/worlds/{worldId}/{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWorldInstance", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2916,10 +2717,9 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>WorldMetadata</returns>
         [Obsolete]
-        public WorldMetadata GetWorldMetadata(string worldId, int operationIndex = 0)
+        public WorldMetadata GetWorldMetadata(string worldId)
         {
             VRChat.API.Client.ApiResponse<WorldMetadata> localVarResponse = GetWorldMetadataWithHttpInfo(worldId);
             return localVarResponse.Data;
@@ -2930,16 +2730,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of WorldMetadata</returns>
         [Obsolete]
-        public VRChat.API.Client.ApiResponse<WorldMetadata> GetWorldMetadataWithHttpInfo(string worldId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<WorldMetadata> GetWorldMetadataWithHttpInfo(string worldId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->GetWorldMetadata");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2952,21 +2749,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.GetWorldMetadata";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2977,13 +2765,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<WorldMetadata>("/worlds/{worldId}/metadata", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWorldMetadata", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -2994,13 +2780,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WorldMetadata</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<WorldMetadata> GetWorldMetadataAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<WorldMetadata> GetWorldMetadataAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<WorldMetadata> localVarResponse = await GetWorldMetadataWithHttpInfoAsync(worldId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<WorldMetadata> localVarResponse = await GetWorldMetadataWithHttpInfoAsync(worldId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3009,17 +2794,14 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WorldMetadata)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<WorldMetadata>> GetWorldMetadataWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<WorldMetadata>> GetWorldMetadataWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->GetWorldMetadata");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3032,22 +2814,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.GetWorldMetadata";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3057,15 +2831,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<WorldMetadata>("/worlds/{worldId}/metadata", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWorldMetadata", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3076,9 +2848,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>WorldPublishStatus</returns>
-        public WorldPublishStatus GetWorldPublishStatus(string worldId, int operationIndex = 0)
+        public WorldPublishStatus GetWorldPublishStatus(string worldId)
         {
             VRChat.API.Client.ApiResponse<WorldPublishStatus> localVarResponse = GetWorldPublishStatusWithHttpInfo(worldId);
             return localVarResponse.Data;
@@ -3089,15 +2860,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of WorldPublishStatus</returns>
-        public VRChat.API.Client.ApiResponse<WorldPublishStatus> GetWorldPublishStatusWithHttpInfo(string worldId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<WorldPublishStatus> GetWorldPublishStatusWithHttpInfo(string worldId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->GetWorldPublishStatus");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3110,21 +2878,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.GetWorldPublishStatus";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3135,13 +2894,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<WorldPublishStatus>("/worlds/{worldId}/publish", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWorldPublishStatus", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3152,12 +2909,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WorldPublishStatus</returns>
-        public async System.Threading.Tasks.Task<WorldPublishStatus> GetWorldPublishStatusAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<WorldPublishStatus> GetWorldPublishStatusAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<WorldPublishStatus> localVarResponse = await GetWorldPublishStatusWithHttpInfoAsync(worldId, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<WorldPublishStatus> localVarResponse = await GetWorldPublishStatusWithHttpInfoAsync(worldId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3166,16 +2922,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WorldPublishStatus)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<WorldPublishStatus>> GetWorldPublishStatusWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<WorldPublishStatus>> GetWorldPublishStatusWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->GetWorldPublishStatus");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3188,22 +2941,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.GetWorldPublishStatus";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3213,15 +2958,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<WorldPublishStatus>("/worlds/{worldId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWorldPublishStatus", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3232,9 +2975,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void PublishWorld(string worldId, int operationIndex = 0)
+        public void PublishWorld(string worldId)
         {
             PublishWorldWithHttpInfo(worldId);
         }
@@ -3244,15 +2986,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> PublishWorldWithHttpInfo(string worldId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> PublishWorldWithHttpInfo(string worldId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->PublishWorld");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3265,21 +3004,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.PublishWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3290,13 +3020,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<Object>("/worlds/{worldId}/publish", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PublishWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3307,12 +3035,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task PublishWorldAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task PublishWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await PublishWorldWithHttpInfoAsync(worldId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await PublishWorldWithHttpInfoAsync(worldId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -3320,16 +3047,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> PublishWorldWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> PublishWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->PublishWorld");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3342,22 +3066,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.PublishWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3367,15 +3083,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/worlds/{worldId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PublishWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3399,12 +3113,13 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        public List<LimitedWorld> SearchWorlds(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), bool? fuzzy = default(bool?), int operationIndex = 0)
+        public List<LimitedWorld> SearchWorlds(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = SearchWorldsWithHttpInfo(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, fuzzy);
+            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = SearchWorldsWithHttpInfo(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, noplatform, fuzzy, avatarSpecific);
             return localVarResponse.Data;
         }
 
@@ -3426,10 +3141,11 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), bool? fuzzy = default(bool?), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3442,16 +3158,10 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -3509,13 +3219,18 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
             }
+            if (noplatform != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "noplatform", noplatform));
+            }
             if (fuzzy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "fuzzy", fuzzy));
             }
-
-            localVarRequestOptions.Operation = "WorldsApi.SearchWorlds";
-            localVarRequestOptions.OperationIndex = operationIndex;
+            if (avatarSpecific != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "avatarSpecific", avatarSpecific));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3526,13 +3241,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<List<LimitedWorld>>("/worlds", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchWorlds", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3556,13 +3269,14 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), bool? fuzzy = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await SearchWorldsWithHttpInfoAsync(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, fuzzy, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await SearchWorldsWithHttpInfoAsync(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, noplatform, fuzzy, avatarSpecific, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3584,11 +3298,12 @@ namespace VRChat.API.Api
         /// <param name="maxUnityVersion">The maximum Unity version supported by the asset. (optional)</param>
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
+        /// <param name="noplatform">The platform the asset does not support. (optional)</param>
         /// <param name="fuzzy"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default(bool?), SortOption? sort = default(SortOption?), string user = default(string), string userId = default(string), int? n = default(int?), OrderOption? order = default(OrderOption?), int? offset = default(int?), string search = default(string), string tag = default(string), string notag = default(string), ReleaseStatus? releaseStatus = default(ReleaseStatus?), string maxUnityVersion = default(string), string minUnityVersion = default(string), string platform = default(string), bool? fuzzy = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3601,17 +3316,12 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (featured != null)
             {
@@ -3669,13 +3379,18 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
             }
+            if (noplatform != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "noplatform", noplatform));
+            }
             if (fuzzy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "fuzzy", fuzzy));
             }
-
-            localVarRequestOptions.Operation = "WorldsApi.SearchWorlds";
-            localVarRequestOptions.OperationIndex = operationIndex;
+            if (avatarSpecific != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "avatarSpecific", avatarSpecific));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3685,15 +3400,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<LimitedWorld>>("/worlds", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchWorlds", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3704,9 +3417,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void UnpublishWorld(string worldId, int operationIndex = 0)
+        public void UnpublishWorld(string worldId)
         {
             UnpublishWorldWithHttpInfo(worldId);
         }
@@ -3716,15 +3428,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> UnpublishWorldWithHttpInfo(string worldId, int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<Object> UnpublishWorldWithHttpInfo(string worldId)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->UnpublishWorld");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3737,21 +3446,12 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.UnpublishWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3762,13 +3462,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Delete<Object>("/worlds/{worldId}/publish", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UnpublishWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3779,12 +3477,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UnpublishWorldAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UnpublishWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await UnpublishWorldWithHttpInfoAsync(worldId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await UnpublishWorldWithHttpInfoAsync(worldId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -3792,16 +3489,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> UnpublishWorldWithHttpInfoAsync(string worldId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> UnpublishWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->UnpublishWorld");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3814,22 +3508,14 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
-
-            localVarRequestOptions.Operation = "WorldsApi.UnpublishWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3839,15 +3525,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/worlds/{worldId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UnpublishWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3859,9 +3543,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="updateWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>World</returns>
-        public World UpdateWorld(string worldId, UpdateWorldRequest updateWorldRequest = default(UpdateWorldRequest), int operationIndex = 0)
+        public World UpdateWorld(string worldId, UpdateWorldRequest? updateWorldRequest = default)
         {
             VRChat.API.Client.ApiResponse<World> localVarResponse = UpdateWorldWithHttpInfo(worldId, updateWorldRequest);
             return localVarResponse.Data;
@@ -3873,15 +3556,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="updateWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of World</returns>
-        public VRChat.API.Client.ApiResponse<World> UpdateWorldWithHttpInfo(string worldId, UpdateWorldRequest updateWorldRequest = default(UpdateWorldRequest), int operationIndex = 0)
+        public VRChat.API.Client.ApiResponse<World> UpdateWorldWithHttpInfo(string worldId, UpdateWorldRequest? updateWorldRequest = default)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->UpdateWorld");
-            }
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3895,22 +3575,13 @@ namespace VRChat.API.Api
             };
 
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.Data = updateWorldRequest;
-
-            localVarRequestOptions.Operation = "WorldsApi.UpdateWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -3921,13 +3592,11 @@ namespace VRChat.API.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Put<World>("/worlds/{worldId}", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -3939,12 +3608,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="updateWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of World</returns>
-        public async System.Threading.Tasks.Task<World> UpdateWorldAsync(string worldId, UpdateWorldRequest updateWorldRequest = default(UpdateWorldRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<World> UpdateWorldAsync(string worldId, UpdateWorldRequest? updateWorldRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<World> localVarResponse = await UpdateWorldWithHttpInfoAsync(worldId, updateWorldRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<World> localVarResponse = await UpdateWorldWithHttpInfoAsync(worldId, updateWorldRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3954,16 +3622,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="updateWorldRequest"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (World)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<World>> UpdateWorldWithHttpInfoAsync(string worldId, UpdateWorldRequest updateWorldRequest = default(UpdateWorldRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<World>> UpdateWorldWithHttpInfoAsync(string worldId, UpdateWorldRequest? updateWorldRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
             if (worldId == null)
-            {
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->UpdateWorld");
-            }
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3977,23 +3642,15 @@ namespace VRChat.API.Api
                 "application/json"
             };
 
+
             var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
             localVarRequestOptions.Data = updateWorldRequest;
-
-            localVarRequestOptions.Operation = "WorldsApi.UpdateWorld";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -4003,15 +3660,13 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PutAsync<World>("/worlds/{worldId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateWorld", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

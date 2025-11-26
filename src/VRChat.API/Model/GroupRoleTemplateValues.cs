@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="description">description (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="roles">roles (required).</param>
-        public GroupRoleTemplateValues(List<GroupPermissions> basePermissions = default(List<GroupPermissions>), string description = default(string), string name = default(string), GroupRoleTemplateValuesRoles roles = default(GroupRoleTemplateValuesRoles))
+        public GroupRoleTemplateValues(List<GroupPermissions> basePermissions = default, string description = default, string name = default, GroupRoleTemplateValuesRoles roles = default)
         {
             // to ensure "basePermissions" is required (not null)
             if (basePermissions == null)
@@ -199,7 +200,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -52,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="targetDisplayName">targetDisplayName (required).</param>
         /// <param name="targetUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="type">type (required).</param>
-        public PlayerModeration(DateTime created = default(DateTime), string id = default(string), string sourceDisplayName = default(string), string sourceUserId = default(string), string targetDisplayName = default(string), string targetUserId = default(string), PlayerModerationType type = default(PlayerModerationType))
+        public PlayerModeration(DateTime created = default, string id = default, string sourceDisplayName = default, string sourceUserId = default, string targetDisplayName = default, string targetUserId = default, PlayerModerationType type = default)
         {
             this.Created = created;
             // to ensure "id" is required (not null)
@@ -97,6 +98,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>pmod_25551a8d-6f5d-430a-88d3-9c0ce08b5244</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -110,6 +114,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "sourceUserId", IsRequired = true, EmitDefaultValue = true)]
         public string SourceUserId { get; set; }
 
@@ -123,6 +130,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "targetUserId", IsRequired = true, EmitDefaultValue = true)]
         public string TargetUserId { get; set; }
 
@@ -255,18 +265,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // SourceDisplayName (string) minLength
             if (this.SourceDisplayName != null && this.SourceDisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceDisplayName, length must be greater than 1.", new [] { "SourceDisplayName" });
+                yield return new ValidationResult("Invalid value for SourceDisplayName, length must be greater than 1.", new [] { "SourceDisplayName" });
             }
 
             // TargetDisplayName (string) minLength
             if (this.TargetDisplayName != null && this.TargetDisplayName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TargetDisplayName, length must be greater than 1.", new [] { "TargetDisplayName" });
+                yield return new ValidationResult("Invalid value for TargetDisplayName, length must be greater than 1.", new [] { "TargetDisplayName" });
             }
 
             yield break;

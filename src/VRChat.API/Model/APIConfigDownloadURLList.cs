@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -44,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="sdk3Worlds">Download link for SDK3 for Worlds (required).</param>
         /// <param name="vcc">Download link for the Creator Companion (required).</param>
         /// <param name="bootstrap">Download link for ??? (required).</param>
-        public APIConfigDownloadURLList(string sdk2 = default(string), string sdk3Avatars = default(string), string sdk3Worlds = default(string), string vcc = default(string), string bootstrap = default(string))
+        public APIConfigDownloadURLList(string sdk2 = default, string sdk3Avatars = default, string sdk3Worlds = default, string vcc = default, string bootstrap = default)
         {
             // to ensure "sdk2" is required (not null)
             if (sdk2 == null)
@@ -227,36 +228,36 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Sdk2 (string) minLength
             if (this.Sdk2 != null && this.Sdk2.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk2, length must be greater than 1.", new [] { "Sdk2" });
+                yield return new ValidationResult("Invalid value for Sdk2, length must be greater than 1.", new [] { "Sdk2" });
             }
 
             // Sdk3Avatars (string) minLength
             if (this.Sdk3Avatars != null && this.Sdk3Avatars.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk3Avatars, length must be greater than 1.", new [] { "Sdk3Avatars" });
+                yield return new ValidationResult("Invalid value for Sdk3Avatars, length must be greater than 1.", new [] { "Sdk3Avatars" });
             }
 
             // Sdk3Worlds (string) minLength
             if (this.Sdk3Worlds != null && this.Sdk3Worlds.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sdk3Worlds, length must be greater than 1.", new [] { "Sdk3Worlds" });
+                yield return new ValidationResult("Invalid value for Sdk3Worlds, length must be greater than 1.", new [] { "Sdk3Worlds" });
             }
 
             // Vcc (string) minLength
             if (this.Vcc != null && this.Vcc.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Vcc, length must be greater than 1.", new [] { "Vcc" });
+                yield return new ValidationResult("Invalid value for Vcc, length must be greater than 1.", new [] { "Vcc" });
             }
 
             // Bootstrap (string) minLength
             if (this.Bootstrap != null && this.Bootstrap.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bootstrap, length must be greater than 1.", new [] { "Bootstrap" });
+                yield return new ValidationResult("Invalid value for Bootstrap, length must be greater than 1.", new [] { "Bootstrap" });
             }
 
             yield break;

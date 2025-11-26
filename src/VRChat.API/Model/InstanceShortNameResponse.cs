@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="secureName">secureName (required).</param>
         /// <param name="shortName">shortName.</param>
-        public InstanceShortNameResponse(string secureName = default(string), string shortName = default(string))
+        public InstanceShortNameResponse(string secureName = default, string shortName = default)
         {
             // to ensure "secureName" is required (not null)
             if (secureName == null)
@@ -55,12 +56,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SecureName
         /// </summary>
+        /*
+        <example>7eavhhng</example>
+        */
         [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = true)]
         public string SecureName { get; set; }
 
         /// <summary>
         /// Gets or Sets ShortName
         /// </summary>
+        /*
+        <example>02u7yz8j</example>
+        */
         [DataMember(Name = "shortName", EmitDefaultValue = true)]
         public string ShortName { get; set; }
 
@@ -147,18 +154,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // SecureName (string) minLength
             if (this.SecureName != null && this.SecureName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecureName, length must be greater than 1.", new [] { "SecureName" });
+                yield return new ValidationResult("Invalid value for SecureName, length must be greater than 1.", new [] { "SecureName" });
             }
 
             // ShortName (string) minLength
             if (this.ShortName != null && this.ShortName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShortName, length must be greater than 1.", new [] { "ShortName" });
+                yield return new ValidationResult("Invalid value for ShortName, length must be greater than 1.", new [] { "ShortName" });
             }
 
             yield break;

@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -43,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="defaultMaxFavoritesPerGroup">defaultMaxFavoritesPerGroup (required).</param>
         /// <param name="maxFavoriteGroups">maxFavoriteGroups (required).</param>
         /// <param name="maxFavoritesPerGroup">maxFavoritesPerGroup (required).</param>
-        public FavoriteLimits(int defaultMaxFavoriteGroups = default(int), int defaultMaxFavoritesPerGroup = default(int), FavoriteGroupLimits maxFavoriteGroups = default(FavoriteGroupLimits), FavoriteGroupLimits maxFavoritesPerGroup = default(FavoriteGroupLimits))
+        public FavoriteLimits(int defaultMaxFavoriteGroups = default, int defaultMaxFavoritesPerGroup = default, FavoriteGroupLimits maxFavoriteGroups = default, FavoriteGroupLimits maxFavoritesPerGroup = default)
         {
             this.DefaultMaxFavoriteGroups = defaultMaxFavoriteGroups;
             this.DefaultMaxFavoritesPerGroup = defaultMaxFavoritesPerGroup;
@@ -180,7 +181,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

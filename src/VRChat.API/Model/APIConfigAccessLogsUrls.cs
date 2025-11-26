@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -34,13 +35,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigAccessLogsUrls" /> class.
         /// </summary>
-        /// <param name="_default">_default.</param>
+        /// <param name="varDefault">varDefault.</param>
         /// <param name="pico">pico.</param>
         /// <param name="quest">quest.</param>
         /// <param name="xRElite">xRElite.</param>
-        public APIConfigAccessLogsUrls(string _default = default(string), string pico = default(string), string quest = default(string), string xRElite = default(string))
+        public APIConfigAccessLogsUrls(string varDefault = default, string pico = default, string quest = default, string xRElite = default)
         {
-            this.Default = _default;
+            this.Default = varDefault;
             this.Pico = pico;
             this.Quest = quest;
             this.XRElite = xRElite;
@@ -49,24 +50,36 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Default
         /// </summary>
+        /*
+        <example>https://help.vrchat.com/hc/en-us/articles/9521522810899-Where-do-I-find-my-output-logs#h_01HT1ZV67JGKX5AE4R1P28XMXR</example>
+        */
         [DataMember(Name = "Default", EmitDefaultValue = false)]
         public string Default { get; set; }
 
         /// <summary>
         /// Gets or Sets Pico
         /// </summary>
+        /*
+        <example>https://help.vrchat.com/hc/en-us/articles/9521522810899-Where-do-I-find-my-output-logs#h_01HT1ZV67JGKX5AE4R1P28XMXR</example>
+        */
         [DataMember(Name = "Pico", EmitDefaultValue = false)]
         public string Pico { get; set; }
 
         /// <summary>
         /// Gets or Sets Quest
         /// </summary>
+        /*
+        <example>https://help.vrchat.com/hc/en-us/articles/9521522810899-Where-do-I-find-my-output-logs#h_01HT1ZV67JGKX5AE4R1P28XMXR</example>
+        */
         [DataMember(Name = "Quest", EmitDefaultValue = false)]
         public string Quest { get; set; }
 
         /// <summary>
         /// Gets or Sets XRElite
         /// </summary>
+        /*
+        <example>https://help.vrchat.com/hc/en-us/articles/9521522810899-Where-do-I-find-my-output-logs#h_01HT1ZV67JGKX5AE4R1P28XMXR</example>
+        */
         [DataMember(Name = "XRElite", EmitDefaultValue = false)]
         public string XRElite { get; set; }
 
@@ -173,7 +186,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

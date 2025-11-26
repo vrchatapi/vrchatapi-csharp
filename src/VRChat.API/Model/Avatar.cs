@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -57,7 +58,7 @@ namespace VRChat.API.Model
         /// <param name="id">id (required).</param>
         /// <param name="imageUrl">imageUrl (required).</param>
         /// <param name="listingDate">listingDate (required).</param>
-        /// <param name="_lock">_lock.</param>
+        /// <param name="varLock">varLock.</param>
         /// <param name="lowestPrice">lowestPrice.</param>
         /// <param name="name">name (required).</param>
         /// <param name="performance">performance (required).</param>
@@ -72,8 +73,8 @@ namespace VRChat.API.Model
         /// <param name="unityPackageUrlObject">unityPackageUrlObject (required).</param>
         /// <param name="unityPackages">unityPackages (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        /// <param name="version">version (required) (default to 0).</param>
-        public Avatar(string acknowledgements = default(string), string assetUrl = default(string), Object assetUrlObject = default(Object), string authorId = default(string), string authorName = default(string), DateTime createdAt = default(DateTime), string description = default(string), bool featured = false, int highestPrice = default(int), string id = default(string), string imageUrl = default(string), string listingDate = default(string), bool _lock = default(bool), int lowestPrice = default(int), string name = default(string), AvatarPerformance performance = default(AvatarPerformance), string productId = default(string), List<AvatarPublishedListingsInner> publishedListings = default(List<AvatarPublishedListingsInner>), ReleaseStatus releaseStatus = default(ReleaseStatus), bool searchable = false, AvatarStyles styles = default(AvatarStyles), List<string> tags = default(List<string>), string thumbnailImageUrl = default(string), string unityPackageUrl = default(string), AvatarUnityPackageUrlObject unityPackageUrlObject = default(AvatarUnityPackageUrlObject), List<UnityPackage> unityPackages = default(List<UnityPackage>), DateTime updatedAt = default(DateTime), int version = 0)
+        /// <param name="varVersion">varVersion (required) (default to 0).</param>
+        public Avatar(string acknowledgements = default, string assetUrl = default, Object assetUrlObject = default, string authorId = default, string authorName = default, DateTime createdAt = default, string description = default, bool featured = false, int highestPrice = default, string id = default, string imageUrl = default, string listingDate = default, bool varLock = default, int lowestPrice = default, string name = default, AvatarPerformance performance = default, string productId = default, List<AvatarPublishedListingsInner> publishedListings = default, ReleaseStatus releaseStatus = default, bool searchable = false, AvatarStyles styles = default, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, AvatarUnityPackageUrlObject unityPackageUrlObject = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, int varVersion = 0)
         {
             // to ensure "authorId" is required (not null)
             if (authorId == null)
@@ -163,12 +164,12 @@ namespace VRChat.API.Model
             }
             this.UnityPackages = unityPackages;
             this.UpdatedAt = updatedAt;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Acknowledgements = acknowledgements;
             this.AssetUrl = assetUrl;
             this.AssetUrlObject = assetUrlObject;
             this.HighestPrice = highestPrice;
-            this.Lock = _lock;
+            this.Lock = varLock;
             this.LowestPrice = lowestPrice;
             this.ProductId = productId;
             this.PublishedListings = publishedListings;
@@ -199,6 +200,9 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
         [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorId { get; set; }
 
@@ -235,6 +239,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
+        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -337,10 +344,13 @@ namespace VRChat.API.Model
         public DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
+        /*
+        <example>68</example>
+        */
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public int _Version { get; set; }
+        public int VarVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -377,7 +387,7 @@ namespace VRChat.API.Model
             sb.Append("  UnityPackageUrlObject: ").Append(UnityPackageUrlObject).Append("\n");
             sb.Append("  UnityPackages: ").Append(UnityPackages).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -546,8 +556,8 @@ namespace VRChat.API.Model
                     this.UpdatedAt.Equals(input.UpdatedAt))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    this._Version.Equals(input._Version)
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
                 );
         }
 
@@ -650,7 +660,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 return hashCode;
             }
         }
@@ -660,48 +670,48 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AssetUrl (string) minLength
             if (this.AssetUrl != null && this.AssetUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
+                yield return new ValidationResult("Invalid value for AssetUrl, length must be greater than 1.", new [] { "AssetUrl" });
             }
 
             // AuthorName (string) minLength
             if (this.AuthorName != null && this.AuthorName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
+                yield return new ValidationResult("Invalid value for AuthorName, length must be greater than 1.", new [] { "AuthorName" });
             }
 
             // Description (string) minLength
             if (this.Description != null && this.Description.Length < 0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
 
             // ImageUrl (string) minLength
             if (this.ImageUrl != null && this.ImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
+                yield return new ValidationResult("Invalid value for ImageUrl, length must be greater than 1.", new [] { "ImageUrl" });
             }
 
             // Name (string) minLength
             if (this.Name != null && this.Name.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
             // ThumbnailImageUrl (string) minLength
             if (this.ThumbnailImageUrl != null && this.ThumbnailImageUrl.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
+                yield return new ValidationResult("Invalid value for ThumbnailImageUrl, length must be greater than 1.", new [] { "ThumbnailImageUrl" });
             }
 
-            // _Version (int) minimum
-            if (this._Version < (int)0)
+            // VarVersion (int) minimum
+            if (this.VarVersion < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _Version, must be a value greater than or equal to 0.", new [] { "_Version" });
+                yield return new ValidationResult("Invalid value for VarVersion, must be a value greater than or equal to 0.", new [] { "VarVersion" });
             }
 
             yield break;

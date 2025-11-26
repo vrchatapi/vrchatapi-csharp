@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// <param name="id">id.</param>
         /// <param name="profilePicOverride">profilePicOverride.</param>
         /// <param name="userIcon">userIcon.</param>
-        public UserNoteTargetUser(List<string> currentAvatarTags = default(List<string>), string currentAvatarThumbnailImageUrl = default(string), string displayName = default(string), string id = default(string), string profilePicOverride = default(string), string userIcon = default(string))
+        public UserNoteTargetUser(List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, string displayName = default, string id = default, string profilePicOverride = default, string userIcon = default)
         {
             this.CurrentAvatarTags = currentAvatarTags;
             this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
@@ -60,6 +61,9 @@ namespace VRChat.API.Model
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
+        /*
+        <example>https://api.vrchat.cloud/api/1/image/file_aae83ed9-d42d-4d72-9f4b-9f1e41ed17e1/1/256</example>
+        */
         [DataMember(Name = "currentAvatarThumbnailImageUrl", EmitDefaultValue = false)]
         public string CurrentAvatarThumbnailImageUrl { get; set; }
 
@@ -72,6 +76,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /*
+        <example>unt_e9074848-d107-4019-b4aa-bbd19e67660d</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -211,7 +218,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

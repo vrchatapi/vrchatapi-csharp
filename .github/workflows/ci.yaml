@@ -1,6 +1,7 @@
 on:
   repository_dispatch:
     types: [spec_release]
+  workflow_dispatch:
 
 #on: push
 
@@ -8,51 +9,91 @@ name: Generate VRChat API SDK
 
 jobs:
   generate:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     name: Generate VRChat API SDK
     steps:
+      - name: Install yq via apt
+        run: sudo apt install -y yq
+
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
+
       - uses: actions/checkout@v3
       - name: 'Cache node_modules'
         uses: actions/cache@v3
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-v16-${{ hashFiles('**/generate.sh') }}
+          key: ${{ runner.os }}-node-v18-${{ hashFiles('**/generate.sh') }}
           restore-keys: |
-            ${{ runner.os }}-node-v16
+            ${{ runner.os }}-node-v18
+
       - name: Install OpenAPI Generator CLI
         run: npm install @openapitools/openapi-generator-cli
+
       - name: Set OpenAPI Generator version
-        run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 6.2.1
+        run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 7.17.0
+
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1.1.1
+
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '5.0.x'
+          dotnet-version: '8.0.x'
+
       - name: Generate SDK Client
         run: bash ./generate.sh
+
       - name: Copy README.md into src/
         run: cp README.md src/
+
       - name: Check version number
         run: |
-          echo "spec_version=$(grep "version of the OpenAPI document" src/VRChat.API/Model/User.cs | cut -d " " -f 9)" >> $GITHUB_ENV
+          vrchat_sdk_version=$(yq '.info.version' openapi.yaml | tr -d '"')
+
+          major=$(echo $vrchat_sdk_version | cut -d. -f1)
+          minor=$(echo $vrchat_sdk_version | cut -d. -f2)
+          patch=$(echo $vrchat_sdk_version | cut -d. -f3)
+
+          vrchat_sdk_version="$((major+1)).$minor.$patch"
+          echo "vrchat_sdk_version=$vrchat_sdk_version" >> $GITHUB_ENV 
+
       - name: Print version number
-        run: echo ${{ env.spec_version }}
+        run: echo ${{ env.vrchat_sdk_version }}
+
+      - name: Delete openapi.yaml file
+        run: rm openapi.yaml
+
       - name: Deploy SDK back into main branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: main
           folder: .
-          commit-message: "Upgrade C# SDK to spec ${{ env.spec_version }}"
-      - name: Publish to NuGet
+          commit-message: "Upgrade .NET SDK to spec ${{ env.vrchat_sdk_version }}"
+
+      - name: Publish to VRChat.API to NuGet
+        if: github.event_name != 'workflow_dispatch'
         uses: pairbit/publish-nuget@v2.5.8
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: src/VRChat.API/VRChat.API.csproj
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: VRChat.API
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_KEY}}
+          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
+          # NUGET_SOURCE: https://api.nuget.org
+          # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
+          INCLUDE_SYMBOLS: true
+          
+      - name: Publish to VRChat.API.Extensions.Hosting to NuGet
+        if: github.event_name != 'workflow_dispatch'
+        uses: pairbit/publish-nuget@v2.5.8
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
+          # NuGet package id, used for version detection & defaults to project name
+          PACKAGE_NAME: VRChat.API.Extensions.Hosting
           # API key to authenticate with NuGet server
           NUGET_KEY: ${{secrets.NUGET_KEY}}
           # NuGet server uri hosting the packages, defaults to https://api.nuget.org

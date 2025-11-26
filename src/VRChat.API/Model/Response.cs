@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -41,7 +42,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="message">message.</param>
         /// <param name="statusCode">statusCode (required).</param>
-        public Response(string message = default(string), int statusCode = default(int))
+        public Response(string message = default, int statusCode = default)
         {
             this.StatusCode = statusCode;
             this.Message = message;
@@ -138,18 +139,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Message (string) minLength
             if (this.Message != null && this.Message.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
+                yield return new ValidationResult("Invalid value for Message, length must be greater than 1.", new [] { "Message" });
             }
 
             // StatusCode (int) minimum
             if (this.StatusCode < (int)100)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StatusCode, must be a value greater than or equal to 100.", new [] { "StatusCode" });
+                yield return new ValidationResult("Invalid value for StatusCode, must be a value greater than or equal to 100.", new [] { "StatusCode" });
             }
 
             yield break;

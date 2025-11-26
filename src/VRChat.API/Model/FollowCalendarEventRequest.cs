@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 
 namespace VRChat.API.Model
@@ -40,7 +41,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="FollowCalendarEventRequest" /> class.
         /// </summary>
         /// <param name="isFollowing">isFollowing (required).</param>
-        public FollowCalendarEventRequest(bool isFollowing = default(bool))
+        public FollowCalendarEventRequest(bool isFollowing = default)
         {
             this.IsFollowing = isFollowing;
         }
@@ -48,6 +49,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets IsFollowing
         /// </summary>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "isFollowing", IsRequired = true, EmitDefaultValue = true)]
         public bool IsFollowing { get; set; }
 
@@ -120,7 +124,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
