@@ -51,9 +51,10 @@ done
 
 # Add icons and readme to package
 sed -i ':a;N;$!ba;s|\(.*\)</ItemGroup>|\1\t  <Content Include="vrc_cat.ico" />\n\t  <None Include="..\\README.md">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t  <None Include="..\\vrc_cat.png">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n  </ItemGroup>|' src/VRChat.API/VRChat.API.csproj
+sed -i '/<PackageTags>vrchat<\/PackageTags>/a\    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>' src/VRChat.API/VRChat.API.csproj
 
 # Adjust package tags
-sed -i 's/<PackageTags>vrchat<\/PackageTags>/<PackageTags>vrchat,vrcapi,vrc-api,vrc<\/PackageTags>/'
+sed -i 's/<PackageTags>vrchat<\/PackageTags>/<PackageTags>vrchat,vrcapi,vrc-api,vrc<\/PackageTags>/' src/VRChat.API/VRChat.API.csproj
 
 # Fix username and password encoding
 sed -i 's/VRChat.API.Client.ClientUtils.Base64Encode(this.Configuration.Username + \":\" + this.Configuration.Password)/VRChat.API.Client.ClientUtils.Base64Encode(System.Web.HttpUtility.UrlEncode(this.Configuration.Username) + ":" + System.Web.HttpUtility.UrlEncode(this.Configuration.Password))/g' src/VRChat.API/Api/AuthenticationApi.cs
