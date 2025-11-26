@@ -178,7 +178,7 @@ namespace VRChat.API.Client
         /// </summary>
         /// <param name="ct">Cancellation token for cancelling any asynchronous operations</param>
         /// <returns>A <see cref="bool"/> specifying if the current client is logged in successfully.</returns>
-        Task<bool> TryLoginAsync(CancellationToken ct = default);
+        Task<(bool, Exception)> TryLoginAsync(CancellationToken ct = default);
 
         /// <summary>
         /// Logs in as the currently configured user. Will throw an exception unless <b><c>throwOnFail</c></b> is set to <b><c>true</c></b>.
@@ -289,19 +289,19 @@ namespace VRChat.API.Client
             return _httpClientHandler.CookieContainer?.GetAllCookies().ToList();
         }
 
-        public async Task<bool> TryLoginAsync(CancellationToken ct = default)
+        public async Task<(bool, Exception)> TryLoginAsync(CancellationToken ct = default)
         {
             CurrentUser user = null;
             try
             {
                 user = await this.LoginAsync(ct);
             }
-            catch
+            catch(Exception exception)
             {
-                return false;
+                return (false, exception);
             }
 
-            return user == null;
+            return (user == null, null);
         }
 
         public async Task<CurrentUser> LoginAsync(CancellationToken ct = default)
