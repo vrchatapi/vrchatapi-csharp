@@ -1,8 +1,6 @@
-using System;
-
 namespace VRChat.API.Realtime.Messages
 {
-    public class ModifiedImageUpdateContent : EventArgs
+    public class ModifiedImageUpdateContent
     {
         public string FileId { get; set; }
         public int PixelSize { get; set; }

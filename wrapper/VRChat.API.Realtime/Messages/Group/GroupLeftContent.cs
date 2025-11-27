@@ -1,8 +1,6 @@
-using System;
-
 namespace VRChat.API.Realtime.Messages
 {
-    public class GroupLeftContent : EventArgs
+    public class GroupLeftContent
     {
         public string GroupId { get; set; }
     }

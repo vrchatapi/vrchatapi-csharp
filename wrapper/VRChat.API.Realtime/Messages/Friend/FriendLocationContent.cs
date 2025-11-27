@@ -1,9 +1,8 @@
-using System;
 using VRChat.API.Model;
 
 namespace VRChat.API.Realtime.Messages
 {
-    public class FriendLocationContent : EventArgs
+    public class FriendLocationContent
     {
         public string UserId { get; set; }
         public string Location { get; set; }

@@ -38,6 +38,13 @@ namespace VRChat.API.Realtime
             return this;
         }
 
+        public VRChatRealtimeClientBuilder WithApplication(string name, string version, string contact)
+        {
+            string libraryVersion = Assembly.GetExecutingAssembly().GetName().Version!.ToString();
+            string userAgent = $"{name}/{version} ({contact}), VRChat.API.Realtime/{libraryVersion} (https://vrchat.community/dotnet)";
+            return this.WithUserAgent(userAgent);
+        }
+
         /// <summary>
         /// Set the auto-reconnect mode
         /// </summary>
@@ -48,9 +55,9 @@ namespace VRChat.API.Realtime
         }
 
         /// <summary>
-        /// Build the VRChatRealtimeClient with the configured settings
+        /// Build the <see cref="IVRChatRealtimeClient"/> with the configured settings
         /// </summary>
-        public VRChatRealtimeClient Build()
+        public IVRChatRealtimeClient Build()
         {
             if (string.IsNullOrWhiteSpace(_configuration.AuthToken))
                 throw new InvalidOperationException("AuthToken is required. Use WithAuthToken() to set it.");

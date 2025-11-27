@@ -1,8 +1,6 @@
-using System;
-
 namespace VRChat.API.Realtime.Messages
 {
-    public class UserBadgeUnassignedContent : EventArgs
+    public class UserBadgeUnassignedContent
     {
         public string BadgeId { get; set; }
     }

@@ -40,59 +40,62 @@ namespace VRChat.API.Realtime.Examples
             };
 
             // Subscribe to friend events
-            client.OnFriendOnline += (sender, content) =>
+            client.OnFriendOnline += (sender, e) =>
             {
-                Console.WriteLine($"Friend {content.User?.DisplayName} came online!");
-                Console.WriteLine($"  Platform: {content.Platform}");
-                Console.WriteLine($"  Location: {content.Location}");
+                Console.WriteLine($"Friend {e.Message.User?.DisplayName} came online!");
+                Console.WriteLine($"  Platform: {e.Message.Platform}");
+                Console.WriteLine($"  Location: {e.Message.Location}");
+                Console.WriteLine($"  Message Type: {e.Type}");
+                // e.RawMessage = full JSON: {"type":"friend-online","content":{...}}
+                // e.RawContent = just content: {...}
             };
 
-            client.OnFriendOffline += (sender, content) =>
+            client.OnFriendOffline += (sender, e) =>
             {
-                Console.WriteLine($"Friend {content.UserId} went offline");
+                Console.WriteLine($"Friend {e.Message.UserId} went offline");
             };
 
-            client.OnFriendLocation += (sender, content) =>
+            client.OnFriendLocation += (sender, e) =>
             {
-                Console.WriteLine($"Friend {content.User?.DisplayName} changed location");
-                Console.WriteLine($"  New location: {content.Location}");
-                Console.WriteLine($"  World: {content.WorldId}");
+                Console.WriteLine($"Friend {e.Message.User?.DisplayName} changed location");
+                Console.WriteLine($"  New location: {e.Message.Location}");
+                Console.WriteLine($"  World: {e.Message.WorldId}");
             };
 
             // Subscribe to notification events
             client.OnNotificationReceived += (sender, e) =>
             {
-                Console.WriteLine($"Notification received: {e.Notification?.Type}");
+                Console.WriteLine($"Notification received: {e.Message?.Type}");
             };
 
-            client.OnNotificationV2 += (sender, content) =>
+            client.OnNotificationV2 += (sender, e) =>
             {
-                Console.WriteLine($"V2 Notification: {content.Title}");
-                Console.WriteLine($"  Message: {content.Message}");
+                Console.WriteLine($"V2 Notification: {e.Message.Title}");
+                Console.WriteLine($"  Message: {e.Message.Message}");
             };
 
             // Subscribe to user events
-            client.OnUserLocation += (sender, content) =>
+            client.OnUserLocation += (sender, e) =>
             {
-                Console.WriteLine($"You changed location to: {content.Location}");
+                Console.WriteLine($"You changed location to: {e.Message.Location}");
             };
 
-            client.OnUserUpdate += (sender, content) =>
+            client.OnUserUpdate += (sender, e) =>
             {
                 Console.WriteLine($"Your profile was updated");
-                Console.WriteLine($"  Status: {content.User?.Status}");
-                Console.WriteLine($"  Bio: {content.User?.Bio}");
+                Console.WriteLine($"  Status: {e.Message.User?.Status}");
+                Console.WriteLine($"  Bio: {e.Message.User?.Bio}");
             };
 
             // Subscribe to group events
-            client.OnGroupJoined += (sender, content) =>
+            client.OnGroupJoined += (sender, e) =>
             {
-                Console.WriteLine($"Joined group: {content.GroupId}");
+                Console.WriteLine($"Joined group: {e.Message.GroupId}");
             };
 
-            client.OnGroupMemberUpdated += (sender, content) =>
+            client.OnGroupMemberUpdated += (sender, e) =>
             {
-                Console.WriteLine($"Group member updated: {content.Member?.Id}");
+                Console.WriteLine($"Group member updated: {e.Message.Member?.Id}");
             };
 
             // Connect to the WebSocket
@@ -154,6 +157,57 @@ namespace VRChat.API.Realtime.Examples
             // and also reconnect on unexpected disconnections
 
             await Task.Delay(TimeSpan.FromHours(1));
+
+            await client.DisconnectAsync();
+            client.Dispose();
+        }
+
+        public static async Task RawDataAccessExample()
+        {
+            var client = new VRChatRealtimeClientBuilder()
+                .WithAuthToken("authcookie_...")
+                .WithUserAgent("MyApp/1.0")
+                .Build();
+
+            // Access raw WebSocket messages
+            client.OnMessageReceived += (sender, e) =>
+            {
+                Console.WriteLine("=== Raw WebSocket Message ===");
+                Console.WriteLine(e.RawMessage); // Full JSON string
+            };
+
+            // Access parsed events with raw data
+            client.OnFriendOnline += (sender, e) =>
+            {
+                Console.WriteLine("=== Friend Online Event ===");
+                Console.WriteLine($"Typed Message: {e.Message.User?.DisplayName}");
+                Console.WriteLine($"Type: {e.Type}");
+                Console.WriteLine($"RawMessage (full JSON): {e.RawMessage}");
+                Console.WriteLine($"RawContent (content only): {e.RawContent}");
+            };
+
+            // Generic event handler for all parsed events
+            client.OnEvent += (sender, e) =>
+            {
+                Console.WriteLine($"Event Type: {e.Type}");
+                Console.WriteLine($"Parsed Content Type: {e.Message?.GetType().Name}");
+                // Access raw JSON for custom processing
+                if (!string.IsNullOrEmpty(e.RawContent))
+                {
+                    // You can re-parse or log the raw content
+                    Console.WriteLine($"Raw Content: {e.RawContent}");
+                }
+            };
+
+            // Heartbeat monitoring
+            client.OnHeartbeat += (sender, e) =>
+            {
+                Console.WriteLine("Heartbeat sent to keep connection alive");
+            };
+
+            await client.ConnectAsync();
+
+            await Task.Delay(TimeSpan.FromMinutes(1));
 
             await client.DisconnectAsync();
             client.Dispose();

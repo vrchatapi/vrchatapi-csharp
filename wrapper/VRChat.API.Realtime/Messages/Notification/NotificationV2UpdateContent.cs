@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 
 namespace VRChat.API.Realtime.Messages
 {
-    public class NotificationV2UpdateContent : EventArgs
+    public class NotificationV2UpdateContent
     {
         public string Id { get; set; }
         public int Version { get; set; }

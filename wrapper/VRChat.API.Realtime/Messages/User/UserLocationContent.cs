@@ -1,9 +1,8 @@
-using System;
 using VRChat.API.Model;
 
 namespace VRChat.API.Realtime.Messages
 {
-    public class UserLocationContent : EventArgs
+    public class UserLocationContent
     {
         public string UserId { get; set; }
         public LimitedUser User { get; set; }

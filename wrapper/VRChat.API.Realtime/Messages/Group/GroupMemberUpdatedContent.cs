@@ -1,9 +1,8 @@
-using System;
 using VRChat.API.Model;
 
 namespace VRChat.API.Realtime.Messages
 {
-    public class GroupMemberUpdatedContent : EventArgs
+    public class GroupMemberUpdatedContent
     {
         public GroupLimitedMember Member { get; set; }
     }

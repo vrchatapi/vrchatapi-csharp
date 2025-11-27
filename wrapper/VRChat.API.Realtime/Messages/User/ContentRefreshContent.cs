@@ -1,8 +1,6 @@
-using System;
-
 namespace VRChat.API.Realtime.Messages
 {
-    public class ContentRefreshContent : EventArgs
+    public class ContentRefreshContent
     {
         public string ContentType { get; set; }
         public string FileId { get; set; }

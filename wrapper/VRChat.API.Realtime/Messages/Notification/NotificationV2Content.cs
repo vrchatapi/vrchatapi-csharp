@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace VRChat.API.Realtime.Messages
 {
-    public class NotificationV2Content : EventArgs
+    public class NotificationV2Content
     {
         public string Id { get; set; }
         public int Version { get; set; }
