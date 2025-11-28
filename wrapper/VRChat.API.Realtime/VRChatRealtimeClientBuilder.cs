@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace VRChat.API.Realtime
 {
@@ -57,7 +58,7 @@ namespace VRChat.API.Realtime
         /// <summary>
         /// Build the <see cref="IVRChatRealtimeClient"/> with the configured settings
         /// </summary>
-        public IVRChatRealtimeClient Build()
+        public IVRChatRealtime Build()
         {
             if (string.IsNullOrWhiteSpace(_configuration.AuthToken))
                 throw new InvalidOperationException("AuthToken is required. Use WithAuthToken() to set it.");

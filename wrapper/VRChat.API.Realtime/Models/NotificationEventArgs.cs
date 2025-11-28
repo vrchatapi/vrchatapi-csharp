@@ -1,5 +1,5 @@
 using System;
-using VRChat.API.Model;
+using VRChat.API.Realtime.Messages;
 
 namespace VRChat.API.Realtime.Models
 {

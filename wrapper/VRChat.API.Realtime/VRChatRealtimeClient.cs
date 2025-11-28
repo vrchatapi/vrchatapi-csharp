@@ -12,7 +12,7 @@ namespace VRChat.API.Realtime
     /// <summary>
     /// A generic interface for communicating with VRChat's Realtime WebSocket API (Pipeline).
     /// </summary>
-    public interface IVRChatRealtime
+    public interface IVRChatRealtime : IDisposable
     {
         #region Connection Events
 
@@ -232,6 +232,8 @@ namespace VRChat.API.Realtime
         /// Gets a value indicating whether the client is currently connected to the WebSocket.
         /// </summary>
         bool IsConnected { get; }
+
+        void Dispose();
 
         #endregion
     }
@@ -553,20 +555,13 @@ namespace VRChat.API.Realtime
                 }
 
                 var messageType = typeElement.GetString();
-                if (string.IsNullOrEmpty(messageType))
+                if (string.IsNullOrWhiteSpace(messageType))
                 {
                     LogMessage(LogLevel.Warning, "Received message with empty type");
                     return;
                 }
 
-                // Extract raw content if it exists
-                string rawContent = null;
-                if (root.TryGetProperty("content", out var contentElement))
-                {
-                    rawContent = contentElement.GetRawText();
-                }
-
-                ProcessMessage(messageType, json, rawContent);
+                ProcessMessage(messageType, json);
             }
             catch (Exception ex)
             {

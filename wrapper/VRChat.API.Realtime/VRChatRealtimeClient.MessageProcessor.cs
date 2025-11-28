@@ -1,8 +1,7 @@
-using System;
 using System.Text.Json;
-using VRChat.API.Model;
 using VRChat.API.Realtime.Models;
 using VRChat.API.Realtime.Messages;
+using System;
 
 namespace VRChat.API.Realtime
 {
@@ -14,129 +13,58 @@ namespace VRChat.API.Realtime
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         };
 
-        private void ProcessMessage(string messageType, string json, string rawContent)
+        private void ProcessMessage(string messageType, string json)
         {
             object parsedContent = null;
+            string rawContent = null;
 
             try
             {
-                switch (messageType)
+                var result = messageType switch
                 {
                     // Notification Events
-                    case "notification":
-                        ProcessNotification(json, rawContent);
-                        break;
-
-                    case "response-notification":
-                        ProcessResponseNotification(json, rawContent);
-                        break;
-
-                    case "see-notification":
-                        ProcessSeeNotification(json, rawContent);
-                        break;
-
-                    case "hide-notification":
-                        ProcessHideNotification(json, rawContent);
-                        break;
-
-                    case "clear-notification":
-                        OnClearNotification?.Invoke(this, EventArgs.Empty);
-                        break;
-
-                    case "notification-v2":
-                        ProcessNotificationV2(json, rawContent);
-                        break;
-
-                    case "notification-v2-update":
-                        ProcessNotificationV2Update(json, rawContent);
-                        break;
-
-                    case "notification-v2-delete":
-                        ProcessNotificationV2Delete(json, rawContent);
-                        break;
+                    "notification" => ProcessNotification(json),
+                    "response-notification" => ProcessResponseNotification(json),
+                    "see-notification" => ProcessSeeNotification(json),
+                    "hide-notification" => ProcessHideNotification(json),
+                    "clear-notification" => ProcessClearNotification(),
+                    "notification-v2" => ProcessNotificationV2(json),
+                    "notification-v2-update" => ProcessNotificationV2Update(json),
+                    "notification-v2-delete" => ProcessNotificationV2Delete(json),
 
                     // Friend Events
-                    case "friend-add":
-                        ProcessFriendAdd(json, rawContent);
-                        break;
-
-                    case "friend-delete":
-                        ProcessFriendDelete(json, rawContent);
-                        break;
-
-                    case "friend-online":
-                        ProcessFriendOnline(json, rawContent);
-                        break;
-
-                    case "friend-active":
-                        ProcessFriendActive(json, rawContent);
-                        break;
-
-                    case "friend-offline":
-                        ProcessFriendOffline(json, rawContent);
-                        break;
-
-                    case "friend-update":
-                        ProcessFriendUpdate(json, rawContent);
-                        break;
-
-                    case "friend-location":
-                        ProcessFriendLocation(json, rawContent);
-                        break;
+                    "friend-add" => ProcessFriendAdd(json),
+                    "friend-delete" => ProcessFriendDelete(json),
+                    "friend-online" => ProcessFriendOnline(json),
+                    "friend-active" => ProcessFriendActive(json),
+                    "friend-offline" => ProcessFriendOffline(json),
+                    "friend-update" => ProcessFriendUpdate(json),
+                    "friend-location" => ProcessFriendLocation(json),
 
                     // User Events
-                    case "user-update":
-                        ProcessUserUpdate(json, rawContent);
-                        break;
-
-                    case "user-location":
-                        ProcessUserLocation(json, rawContent);
-                        break;
-
-                    case "user-badge-assigned":
-                        ProcessUserBadgeAssigned(json, rawContent);
-                        break;
-
-                    case "user-badge-unassigned":
-                        ProcessUserBadgeUnassigned(json, rawContent);
-                        break;
-
-                    case "content-refresh":
-                        ProcessContentRefresh(json, rawContent);
-                        break;
-
-                    case "modified-image-update":
-                        ProcessModifiedImageUpdate(json, rawContent);
-                        break;
-
-                    case "instance-queue-joined":
-                        ProcessInstanceQueueJoined(json, rawContent);
-                        break;
-
-                    case "instance-queue-ready":
-                        ProcessInstanceQueueReady(json, rawContent);
-                        break;
+                    "user-update" => ProcessUserUpdate(json),
+                    "user-location" => ProcessUserLocation(json),
+                    "user-badge-assigned" => ProcessUserBadgeAssigned(json),
+                    "user-badge-unassigned" => ProcessUserBadgeUnassigned(json),
+                    "content-refresh" => ProcessContentRefresh(json),
+                    "modified-image-update" => ProcessModifiedImageUpdate(json),
+                    "instance-queue-joined" => ProcessInstanceQueueJoined(json),
+                    "instance-queue-ready" => ProcessInstanceQueueReady(json),
 
                     // Group Events
-                    case "group-joined":
-                        ProcessGroupJoined(json, rawContent);
-                        break;
+                    "group-joined" => ProcessGroupJoined(json),
+                    "group-left" => ProcessGroupLeft(json),
+                    "group-member-updated" => ProcessGroupMemberUpdated(json),
+                    "group-role-updated" => ProcessGroupRoleUpdated(json),
 
-                    case "group-left":
-                        ProcessGroupLeft(json, rawContent);
-                        break;
+                    // Unknown
+                    _ => LogUnknownMessage(messageType)
+                };
 
-                    case "group-member-updated":
-                        ProcessGroupMemberUpdated(json, rawContent);
-                        break;
-
-                    case "group-role-updated":
-                        ProcessGroupRoleUpdated(json, rawContent);
-                        break;
-
-                    default:
-                        LogMessage(LogLevel.Debug, $"Unknown message type: {messageType}");
-                        break;
+                if (result is (object content, string raw))
+                {
+                    parsedContent = content;
+                    rawContent = raw;
                 }
             }
             catch (Exception ex)
@@ -157,385 +85,473 @@ namespace VRChat.API.Realtime
             }
         }
 
+        private (object, string) LogUnknownMessage(string messageType)
+        {
+            LogMessage(LogLevel.Debug, $"Unknown message type: {messageType}");
+            return (null, null);
+        }
+
+        private (object, string) ProcessClearNotification()
+        {
+            OnClearNotification?.Invoke(this, EventArgs.Empty);
+            return (null, null);
+        }
+
         #region Notification Event Processors
 
-        private void ProcessNotification(string json, string rawContent)
+        private (object, string) ProcessNotification(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<Notification>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<Notification>(message.Content, JsonOptions);
 
-            var args = new NotificationEventArgs { Notification = message.Content };
+            var args = new NotificationEventArgs { Notification = content };
             OnNotification?.Invoke(this, args); // Legacy event
 
             OnNotificationReceived?.Invoke(this, new VRChatEventArgs<Notification>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessResponseNotification(string json, string rawContent)
+        private (object, string) ProcessResponseNotification(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<ResponseNotificationContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<ResponseNotificationContent>(message.Content, JsonOptions);
 
             OnResponseNotification?.Invoke(this, new VRChatEventArgs<ResponseNotificationContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessSeeNotification(string json, string rawContent)
+        private (object, string) ProcessSeeNotification(string json)
         {
+            // NOT double-encoded: content is just the notification ID string
             var message = JsonSerializer.Deserialize<WebSocketMessage<string>>(json, JsonOptions);
-            parsedContent = message.Content;
 
             OnSeeNotification?.Invoke(this, new VRChatEventArgs<string>
             {
                 Message = message.Content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (message.Content, message.Content);
         }
 
-        private void ProcessHideNotification(string json, string rawContent)
+        private (object, string) ProcessHideNotification(string json)
         {
+            // NOT double-encoded: content is just the notification ID string
             var message = JsonSerializer.Deserialize<WebSocketMessage<string>>(json, JsonOptions);
-            parsedContent = message.Content;
 
             OnHideNotification?.Invoke(this, new VRChatEventArgs<string>
             {
                 Message = message.Content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (message.Content, message.Content);
         }
 
-        private void ProcessNotificationV2(string json, string rawContent)
+        private (object, string) ProcessNotificationV2(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<NotificationV2Content>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<NotificationV2Content>(message.Content, JsonOptions);
 
             OnNotificationV2?.Invoke(this, new VRChatEventArgs<NotificationV2Content>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessNotificationV2Update(string json, string rawContent)
+        private (object, string) ProcessNotificationV2Update(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<NotificationV2UpdateContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<NotificationV2UpdateContent>(message.Content, JsonOptions);
 
             OnNotificationV2Update?.Invoke(this, new VRChatEventArgs<NotificationV2UpdateContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessNotificationV2Delete(string json, string rawContent)
+        private (object, string) ProcessNotificationV2Delete(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<NotificationV2DeleteContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<NotificationV2DeleteContent>(message.Content, JsonOptions);
 
             OnNotificationV2Delete?.Invoke(this, new VRChatEventArgs<NotificationV2DeleteContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
         #endregion
 
         #region Friend Event Processors
 
-        private void ProcessFriendAdd(string json, string rawContent)
+        private (object, string) ProcessFriendAdd(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<FriendAddContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<FriendAddContent>(message.Content, JsonOptions);
 
             OnFriendAdd?.Invoke(this, new VRChatEventArgs<FriendAddContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessFriendDelete(string json, string rawContent)
+        private (object, string) ProcessFriendDelete(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<FriendDeleteContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<FriendDeleteContent>(message.Content, JsonOptions);
 
             OnFriendDelete?.Invoke(this, new VRChatEventArgs<FriendDeleteContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessFriendOnline(string json, string rawContent)
+        private (object, string) ProcessFriendOnline(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<FriendOnlineContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<FriendOnlineContent>(message.Content, JsonOptions);
 
             OnFriendOnline?.Invoke(this, new VRChatEventArgs<FriendOnlineContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessFriendActive(string json, string rawContent)
+        private (object, string) ProcessFriendActive(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<FriendActiveContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<FriendActiveContent>(message.Content, JsonOptions);
 
             OnFriendActive?.Invoke(this, new VRChatEventArgs<FriendActiveContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessFriendOffline(string json, string rawContent)
+        private (object, string) ProcessFriendOffline(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<FriendOfflineContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<FriendOfflineContent>(message.Content, JsonOptions);
 
             OnFriendOffline?.Invoke(this, new VRChatEventArgs<FriendOfflineContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessFriendUpdate(string json, string rawContent)
+        private (object, string) ProcessFriendUpdate(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<FriendUpdateContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<FriendUpdateContent>(message.Content, JsonOptions);
 
             OnFriendUpdate?.Invoke(this, new VRChatEventArgs<FriendUpdateContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessFriendLocation(string json, string rawContent)
+        private (object, string) ProcessFriendLocation(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<FriendLocationContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<FriendLocationContent>(message.Content, JsonOptions);
 
             OnFriendLocation?.Invoke(this, new VRChatEventArgs<FriendLocationContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
         #endregion
 
         #region User Event Processors
 
-        private void ProcessUserUpdate(string json, string rawContent)
+        private (object, string) ProcessUserUpdate(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<UserUpdateContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<UserUpdateContent>(message.Content, JsonOptions);
 
             OnUserUpdate?.Invoke(this, new VRChatEventArgs<UserUpdateContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessUserLocation(string json, string rawContent)
+        private (object, string) ProcessUserLocation(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<UserLocationContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<UserLocationContent>(message.Content, JsonOptions);
 
             OnUserLocation?.Invoke(this, new VRChatEventArgs<UserLocationContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessUserBadgeAssigned(string json, string rawContent)
+        private (object, string) ProcessUserBadgeAssigned(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<UserBadgeAssignedContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<UserBadgeAssignedContent>(message.Content, JsonOptions);
 
             OnUserBadgeAssigned?.Invoke(this, new VRChatEventArgs<UserBadgeAssignedContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessUserBadgeUnassigned(string json, string rawContent)
+        private (object, string) ProcessUserBadgeUnassigned(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<UserBadgeUnassignedContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<UserBadgeUnassignedContent>(message.Content, JsonOptions);
 
             OnUserBadgeUnassigned?.Invoke(this, new VRChatEventArgs<UserBadgeUnassignedContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessContentRefresh(string json, string rawContent)
+        private (object, string) ProcessContentRefresh(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<ContentRefreshContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<ContentRefreshContent>(message.Content, JsonOptions);
 
             OnContentRefresh?.Invoke(this, new VRChatEventArgs<ContentRefreshContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessModifiedImageUpdate(string json, string rawContent)
+        private (object, string) ProcessModifiedImageUpdate(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<ModifiedImageUpdateContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<ModifiedImageUpdateContent>(message.Content, JsonOptions);
 
             OnModifiedImageUpdate?.Invoke(this, new VRChatEventArgs<ModifiedImageUpdateContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessInstanceQueueJoined(string json, string rawContent)
+        private (object, string) ProcessInstanceQueueJoined(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<InstanceQueueJoinedContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<InstanceQueueJoinedContent>(message.Content, JsonOptions);
 
             OnInstanceQueueJoined?.Invoke(this, new VRChatEventArgs<InstanceQueueJoinedContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessInstanceQueueReady(string json, string rawContent)
+        private (object, string) ProcessInstanceQueueReady(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<InstanceQueueReadyContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<InstanceQueueReadyContent>(message.Content, JsonOptions);
 
             OnInstanceQueueReady?.Invoke(this, new VRChatEventArgs<InstanceQueueReadyContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
         #endregion
 
         #region Group Event Processors
 
-        private void ProcessGroupJoined(string json, string rawContent)
+        private (object, string) ProcessGroupJoined(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<GroupJoinedContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<GroupJoinedContent>(message.Content, JsonOptions);
 
             OnGroupJoined?.Invoke(this, new VRChatEventArgs<GroupJoinedContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessGroupLeft(string json, string rawContent)
+        private (object, string) ProcessGroupLeft(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<GroupLeftContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<GroupLeftContent>(message.Content, JsonOptions);
 
             OnGroupLeft?.Invoke(this, new VRChatEventArgs<GroupLeftContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessGroupMemberUpdated(string json, string rawContent)
+        private (object, string) ProcessGroupMemberUpdated(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<GroupMemberUpdatedContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<GroupMemberUpdatedContent>(message.Content, JsonOptions);
 
             OnGroupMemberUpdated?.Invoke(this, new VRChatEventArgs<GroupMemberUpdatedContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
-        private void ProcessGroupRoleUpdated(string json, string rawContent)
+        private (object, string) ProcessGroupRoleUpdated(string json)
         {
-            var message = JsonSerializer.Deserialize<WebSocketMessage<GroupRoleUpdatedContent>>(json, JsonOptions);
-            parsedContent = message.Content;
+            // Double-encoded: content is a stringified JSON object
+            var message = JsonSerializer.Deserialize<WebSocketMessageString>(json, JsonOptions);
+            var content = JsonSerializer.Deserialize<GroupRoleUpdatedContent>(message.Content, JsonOptions);
 
             OnGroupRoleUpdated?.Invoke(this, new VRChatEventArgs<GroupRoleUpdatedContent>
             {
-                Message = message.Content,
+                Message = content,
                 RawMessage = json,
-                RawContent = rawContent,
+                RawContent = message.Content,
                 Type = message.Type
             });
+
+            return (content, message.Content);
         }
 
         #endregion

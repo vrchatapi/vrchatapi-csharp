@@ -19,16 +19,12 @@
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>vrchat,vrcapi,websocket,realtime,aspnetcore,vrc-api,vrc</PackageTags>
+    <PackageTags>vrchat,vrcapi,websocket,realtime,vrc-api,vrc</PackageTags>
     <ApplicationIcon>vrc_cat.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
 	  <Content Include="vrc_cat.ico" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\..\src\VRChat.API\VRChat.API.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

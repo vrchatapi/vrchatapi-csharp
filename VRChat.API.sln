@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRChat.API.Examples.Console
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRChat.API.Realtime", "wrapper\VRChat.API.Realtime\VRChat.API.Realtime.csproj", "{91F01661-9DA8-D3A5-FCC4-9D988B390EEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRChat.API.Examples.WebSocket", "examples\VRChat.API.Examples.WebSocket\VRChat.API.Examples.WebSocket.csproj", "{B64A5069-1CC9-3A01-58BE-C9DCE00F8D5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{91F01661-9DA8-D3A5-FCC4-9D988B390EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91F01661-9DA8-D3A5-FCC4-9D988B390EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91F01661-9DA8-D3A5-FCC4-9D988B390EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64A5069-1CC9-3A01-58BE-C9DCE00F8D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64A5069-1CC9-3A01-58BE-C9DCE00F8D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64A5069-1CC9-3A01-58BE-C9DCE00F8D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64A5069-1CC9-3A01-58BE-C9DCE00F8D5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
