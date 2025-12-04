@@ -29,17 +29,6 @@ namespace VRChat.API.Examples.WebSocket
                 .WithApplication(name: "Example", version: "1.0.0", contact: "youremail.com")
                 .Build();
 
-            realtime.Log += (sender, e) =>
-            {
-               // Console.WriteLine($"[VRChat Realtime] [{e.Level.ToString()}] {e.Message}");
-            };
-
-            realtime.OnEvent += (sender, e) =>
-            {
-                if(e.Type == "friend-offline")
-                    Console.WriteLine($"[VRChat Realtime] [Event] Type: {e.Type}, RawContent: {e.RawContent}");
-            };
-
             realtime.OnConnected += (sender, e) =>
             {
                 Console.WriteLine("Connected to VRChat Realtime WebSocket!");
