@@ -16,23 +16,17 @@ namespace VRChat.API.Examples.WebSocket
                 .WithUsername(username)
                 .WithPassword(password)
                 .WithTwoFactorSecret(twoFactorSecret)
-                .WithApplication(name: "WinterApp", version: "1.0.0", contact: "contact@vrchat.community")
+                .WithApplication(name: "Example", version: "1.0.0", contact: "youremail.com")
                 .Build();
 
             var currentUser = await vrchat.LoginAsync();
             Console.WriteLine($"Logged in as {currentUser.DisplayName}!");
 
-            var user = await vrchat.Users.GetUserAsync("usr_f2049d71-e76b-42d2-a8bd-43deec9c004e");
-            Console.WriteLine($"Found user {user.DisplayName}, joined at {user.DateJoined}");
-
-            var world = await vrchat.Worlds.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
-            Console.WriteLine($"Found world {world.Name}, with {world.Visits} visits");
-
             var authToken = vrchat.GetCookies().FirstOrDefault(c => c.Name == "auth")?.Value;
 
             IVRChatRealtime realtime = new VRChatRealtimeClientBuilder()
                 .WithAuthToken(authToken)
-                .WithApplication(name: "WinterApp", version: "1.0.0", contact: "contact@vrchat.community")
+                .WithApplication(name: "Example", version: "1.0.0", contact: "youremail.com")
                 .Build();
 
             realtime.Log += (sender, e) =>
@@ -53,7 +47,7 @@ namespace VRChat.API.Examples.WebSocket
 
             realtime.OnFriendOnline += (sender, e) =>
             {
-                //Console.WriteLine($"Friend {e.Message.User.DisplayName} is now online!");
+                Console.WriteLine($"Friend {e.Message.User.DisplayName} is now online!");
             };
 
             realtime.OnFriendOffline += (sender, e) =>
@@ -63,12 +57,15 @@ namespace VRChat.API.Examples.WebSocket
 
             realtime.OnFriendLocation += (sender, e) =>
             {
-                //Console.WriteLine($"Friend {e.Message.User.DisplayName} is now in {e.Message.Location}!");
+                Console.WriteLine($"Friend {e.Message.User.DisplayName} is now in {e.Message.Location}!");
             };
 
             await realtime.ConnectAsync();
 
             Console.ReadLine();
+
+            await realtime.DisconnectAsync();
+            realtime.Dispose();
         }
     }
 }

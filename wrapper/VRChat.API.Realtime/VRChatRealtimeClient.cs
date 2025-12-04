@@ -59,7 +59,7 @@ namespace VRChat.API.Realtime
         /// <b>[Legacy]</b> Raised when a notification is received. <br/>
         /// Use <see cref="OnNotificationReceived"/> instead for consistency.
         /// </summary>
-        event EventHandler<NotificationEventArgs> OnNotification;
+        event EventHandler<VRChatEventArgs<Notification>> OnNotification;
 
         /// <summary>
         /// Raised when a notification is received from VRChat. <br/>
@@ -233,11 +233,26 @@ namespace VRChat.API.Realtime
         /// </summary>
         bool IsConnected { get; }
 
-        void Dispose();
+        /// <summary>
+        /// Releases all resources used by the VRChat realtime client.
+        /// </summary>
+        /// <remarks>
+        /// This method is inherited from <see cref="IDisposable"/>.
+        /// </remarks>
+        new void Dispose();
 
         #endregion
     }
 
+    /// <summary>
+    /// Implementation of <see cref="IVRChatRealtime"/> that provides realtime communication
+    /// with VRChat's Pipeline WebSocket API.
+    /// </summary>
+    /// <remarks>
+    /// Use <see cref="VRChatRealtimeClientBuilder"/> to create and configure instances of this class.
+    /// </remarks>
+    /// <seealso cref="IVRChatRealtime"/>
+    /// <seealso cref="VRChatRealtimeClientBuilder"/>
     public partial class VRChatRealtimeClient : IVRChatRealtime, IDisposable
     {
         private readonly VRChatRealtimeConfiguration _configuration;
@@ -250,55 +265,143 @@ namespace VRChat.API.Realtime
         private bool _disposed;
         private readonly SemaphoreSlim _sendLock = new SemaphoreSlim(1, 1);
 
-        // Connection Events
+        #region Connection Events
+
+        /// <inheritdoc/>
         public event EventHandler<LogEventArgs> Log;
+
+        /// <inheritdoc/>
         public event EventHandler OnDisconnected;
+
+        /// <inheritdoc/>
         public event EventHandler OnConnected;
+
+        /// <inheritdoc/>
         public event EventHandler OnAutoReconnecting;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<string>> OnMessageReceived;
+
+        /// <inheritdoc/>
         public event EventHandler OnHeartbeat;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<object>> OnEvent;
 
-        // Notification Events (legacy)
-        public event EventHandler<NotificationEventArgs> OnNotification;
+        #endregion
 
-        // Notification Events
+        #region Notification Events
+
+        /// <inheritdoc/>
+        public event EventHandler<VRChatEventArgs<Notification>> OnNotification;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<Notification>> OnNotificationReceived;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<ResponseNotificationContent>> OnResponseNotification;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<string>> OnSeeNotification;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<string>> OnHideNotification;
+
+        /// <inheritdoc/>
         public event EventHandler OnClearNotification;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<NotificationV2Content>> OnNotificationV2;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<NotificationV2UpdateContent>> OnNotificationV2Update;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<NotificationV2DeleteContent>> OnNotificationV2Delete;
 
-        // Friend Events
+        #endregion
+
+        #region Friend Events
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<FriendAddContent>> OnFriendAdd;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<FriendDeleteContent>> OnFriendDelete;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<FriendOnlineContent>> OnFriendOnline;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<FriendActiveContent>> OnFriendActive;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<FriendOfflineContent>> OnFriendOffline;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<FriendUpdateContent>> OnFriendUpdate;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<FriendLocationContent>> OnFriendLocation;
 
-        // User Events
+        #endregion
+
+        #region User Events
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<UserUpdateContent>> OnUserUpdate;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<UserLocationContent>> OnUserLocation;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<UserBadgeAssignedContent>> OnUserBadgeAssigned;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<UserBadgeUnassignedContent>> OnUserBadgeUnassigned;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<ContentRefreshContent>> OnContentRefresh;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<ModifiedImageUpdateContent>> OnModifiedImageUpdate;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<InstanceQueueJoinedContent>> OnInstanceQueueJoined;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<InstanceQueueReadyContent>> OnInstanceQueueReady;
 
-        // Group Events
+        #endregion
+
+        #region Group Events
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<GroupJoinedContent>> OnGroupJoined;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<GroupLeftContent>> OnGroupLeft;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<GroupMemberUpdatedContent>> OnGroupMemberUpdated;
+
+        /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<GroupRoleUpdatedContent>> OnGroupRoleUpdated;
 
+        #endregion
+
+        /// <inheritdoc/>
         public bool IsConnected => _client?.State == WebSocketState.Open;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VRChatRealtimeClient"/> class.
+        /// </summary>
+        /// <param name="configuration">The configuration settings for the client.</param>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="configuration"/> is <c>null</c>.</exception>
+        /// <exception cref="ArgumentException">Thrown if <see cref="VRChatRealtimeConfiguration.AuthToken"/> is not set.</exception>
+        /// <remarks>
+        /// Use <see cref="VRChatRealtimeClientBuilder"/> for a more convenient way to create and configure the client.
+        /// </remarks>
         public VRChatRealtimeClient(VRChatRealtimeConfiguration configuration)
         {
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
@@ -307,6 +410,7 @@ namespace VRChat.API.Realtime
                 throw new ArgumentException("AuthToken is required", nameof(configuration));
         }
 
+        /// <inheritdoc/>
         public async Task ConnectAsync(CancellationToken cancellationToken = default)
         {
             if (_client?.State == WebSocketState.Open)
@@ -353,6 +457,7 @@ namespace VRChat.API.Realtime
             }
         }
 
+        /// <inheritdoc/>
         public async Task DisconnectAsync()
         {
             _isManualDisconnect = true;
@@ -561,7 +666,16 @@ namespace VRChat.API.Realtime
                     return;
                 }
 
-                ProcessMessage(messageType, json);
+                // Extract content once at the top level to avoid re-parsing JSON in processors
+                string rawContent = null;
+                if (root.TryGetProperty("content", out var contentElement))
+                {
+                    rawContent = contentElement.ValueKind == JsonValueKind.String
+                        ? contentElement.GetString()
+                        : contentElement.GetRawText();
+                }
+
+                ProcessMessage(messageType, json, rawContent);
             }
             catch (Exception ex)
             {
@@ -603,6 +717,13 @@ namespace VRChat.API.Realtime
             });
         }
 
+        /// <summary>
+        /// Releases all resources used by the <see cref="VRChatRealtimeClient"/>.
+        /// </summary>
+        /// <remarks>
+        /// Call this method when you are done using the client to release WebSocket connections,
+        /// timers, and other resources. After calling Dispose, the client cannot be reused.
+        /// </remarks>
         public void Dispose()
         {
             if (!_disposed)
