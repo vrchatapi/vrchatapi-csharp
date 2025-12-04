@@ -56,16 +56,10 @@ namespace VRChat.API.Realtime
         #region Notification Events
 
         /// <summary>
-        /// <b>[Legacy]</b> Raised when a notification is received. <br/>
-        /// Use <see cref="OnNotificationReceived"/> instead for consistency.
-        /// </summary>
-        event EventHandler<VRChatEventArgs<Notification>> OnNotification;
-
-        /// <summary>
         /// Raised when a notification is received from VRChat. <br/>
         /// This includes friend requests, invites, and other in-game notifications.
         /// </summary>
-        event EventHandler<VRChatEventArgs<Notification>> OnNotificationReceived;
+        event EventHandler<VRChatEventArgs<Notification>> OnNotification;
 
         /// <summary>
         /// Raised when a response to a previously sent notification is received.
@@ -294,9 +288,6 @@ namespace VRChat.API.Realtime
 
         /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<Notification>> OnNotification;
-
-        /// <inheritdoc/>
-        public event EventHandler<VRChatEventArgs<Notification>> OnNotificationReceived;
 
         /// <inheritdoc/>
         public event EventHandler<VRChatEventArgs<ResponseNotificationContent>> OnResponseNotification;

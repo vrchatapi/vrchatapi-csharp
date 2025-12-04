@@ -31,7 +31,7 @@ namespace VRChat.API.Realtime
                 var result = messageType switch
                 {
                     // Notification Events
-                    "notification" => ProcessContent<Notification>(messageType, rawJson, rawContent, OnNotificationReceived),
+                    "notification" => ProcessContent<Notification>(messageType, rawJson, rawContent, OnNotification),
                     "response-notification" => ProcessContent<ResponseNotificationContent>(messageType, rawJson, rawContent, OnResponseNotification),
                     "see-notification" => ProcessStringContent(messageType, rawJson, rawContent, OnSeeNotification),
                     "hide-notification" => ProcessStringContent(messageType, rawJson, rawContent, OnHideNotification),
