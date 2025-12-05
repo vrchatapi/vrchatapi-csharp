@@ -57,11 +57,7 @@ jobs:
 
       - name: Check version number
         run: |
-          major=$(echo ${PASSED_VERSION} | cut -d. -f1)
-          minor=$(echo ${PASSED_VERSION} | cut -d. -f2)
-          patch=$(echo ${PASSED_VERSION} | cut -d. -f3)
-
-          vrchat_sdk_version="$((major+1)).${minor}.${patch}${VERSION_POSTPEND}"
+          vrchat_sdk_version="$(( ${PASSED_VERSION%%.*} + 1))${PASSED_VERSION#"${major}"}${VERSION_POSTPEND}"
           echo "Version is: ${vrchat_sdk_version}" 
           echo "vrchat_sdk_version=$vrchat_sdk_version" >> $GITHUB_ENV 
 
