@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 
-name: Generate VRChat API SDK
+name: Build and Publish VRChat Realtime SDK
 
 jobs:
   generate:
