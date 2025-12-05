@@ -28,16 +28,16 @@ jobs:
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
 
       - uses: actions/checkout@v4
       - name: 'Cache node_modules'
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-v18-${{ hashFiles('**/generate.sh') }}
+          key: ${{ runner.os }}-node-v22-${{ hashFiles('**/generate.sh') }}
           restore-keys: |
-            ${{ runner.os }}-node-v18
+            ${{ runner.os }}-node-v22
 
       - name: Install OpenAPI Generator CLI
         run: npm install @openapitools/openapi-generator-cli
@@ -53,7 +53,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Download Specification
-        run: wget "${SPEC_URL}" '--output-file' "${ARTIFACT_NAME}"
+        run: wget "${SPEC_URL}" '--output-document' "${ARTIFACT_NAME}"
 
       - name: Check version number
         run: |
