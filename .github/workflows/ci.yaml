@@ -20,9 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Generate VRChat API SDK
     env:
-      ARTIFACT_NAME: "openapi.json"
+      ARTIFACT_NAME: "openapi.yaml"
       INPUT: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json }}
-      SPEC_URL: ${{ fromJSON(github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json)['artifacts']['openapi.json'] }}
+      SPEC_URL: ${{ fromJSON(github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json)['artifacts']['openapi.yaml'] }}
       PASSED_VERSION: ${{ fromJSON(github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json)['version'] }}
       VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
     steps:
