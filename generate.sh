@@ -6,6 +6,9 @@ then
   exit 1
 fi
 
+echo "Generating SDK for version ${2}"
+echo "Artifact name: ${1}"
+
 rm src docs *.nupkg *.snupkg -rf
 
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \

@@ -28,16 +28,16 @@ jobs:
     steps:
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 18
 
       - uses: actions/checkout@v4
       - name: 'Cache node_modules'
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-v22-${{ hashFiles('**/generate.sh') }}
+          key: ${{ runner.os }}-node-v18-${{ hashFiles('**/generate.sh') }}
           restore-keys: |
-            ${{ runner.os }}-node-v22
+            ${{ runner.os }}-node-v18
 
       - name: Install OpenAPI Generator CLI
         run: npm install @openapitools/openapi-generator-cli
