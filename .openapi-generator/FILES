@@ -45,8 +45,12 @@ docs/AvatarsApi.md
 docs/Badge.md
 docs/Balance.md
 docs/BanGroupMemberRequest.md
+docs/BoopRequest.md
 docs/CalendarApi.md
 docs/CalendarEvent.md
+docs/CalendarEventDiscovery.md
+docs/CalendarEventDiscoveryInclusion.md
+docs/CalendarEventDiscoveryScope.md
 docs/CalendarEventUserInterest.md
 docs/ChangeUserTagsRequest.md
 docs/CreateAvatarModerationRequest.md
@@ -61,7 +65,6 @@ docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
 docs/CreateInstanceRequest.md
-docs/CreatePermissionRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
 docs/CurrentUserPlatformHistoryInner.md
@@ -72,6 +75,7 @@ docs/DiscordDetails.md
 docs/DynamicContentRow.md
 docs/EconomyAccount.md
 docs/EconomyApi.md
+docs/EquipInventoryItemRequest.md
 docs/Error.md
 docs/Favorite.md
 docs/FavoriteGroup.md
@@ -137,6 +141,7 @@ docs/InstanceType.md
 docs/InstancesApi.md
 docs/Inventory.md
 docs/InventoryApi.md
+docs/InventoryConsumptionResults.md
 docs/InventoryDefaultAttributesValue.md
 docs/InventoryDefaultAttributesValueValidator.md
 docs/InventoryDrop.md
@@ -171,6 +176,8 @@ docs/LimitedWorld.md
 docs/MIMEType.md
 docs/MiscellaneousApi.md
 docs/ModerateUserRequest.md
+docs/MutualFriend.md
+docs/Mutuals.md
 docs/Notification.md
 docs/NotificationDetailInvite.md
 docs/NotificationDetailInviteResponse.md
@@ -182,6 +189,7 @@ docs/NotificationsApi.md
 docs/OkStatus.md
 docs/OkStatus2.md
 docs/OrderOption.md
+docs/OrderOptionShort.md
 docs/PaginatedCalendarEventList.md
 docs/PaginatedGroupAuditLogEntryList.md
 docs/PastDisplayName.md
@@ -200,10 +208,13 @@ docs/Product.md
 docs/ProductListing.md
 docs/ProductListingType.md
 docs/ProductListingVariant.md
+docs/ProductPurchase.md
+docs/ProductPurchasePurchaseContext.md
 docs/ProductType.md
 docs/Prop.md
 docs/PropUnityPackage.md
 docs/PropsApi.md
+docs/PurchaseProductListingRequest.md
 docs/Region.md
 docs/RegisterUserAccountRequest.md
 docs/ReleaseStatus.md
@@ -218,6 +229,7 @@ docs/ServiceQueueStats.md
 docs/ServiceStatus.md
 docs/ShareInventoryItemDirectRequest.md
 docs/SortOption.md
+docs/SortOptionProductPurchase.md
 docs/Store.md
 docs/StoreShelf.md
 docs/StoreType.md
@@ -250,7 +262,6 @@ docs/UpdateGroupRequest.md
 docs/UpdateGroupRoleRequest.md
 docs/UpdateInventoryItemRequest.md
 docs/UpdateInviteMessageRequest.md
-docs/UpdatePermissionRequest.md
 docs/UpdateTiliaTOSRequest.md
 docs/UpdateUserBadgeRequest.md
 docs/UpdateUserNoteRequest.md
@@ -353,7 +364,11 @@ src/VRChat.API/Model/AvatarUnityPackageUrlObject.cs
 src/VRChat.API/Model/Badge.cs
 src/VRChat.API/Model/Balance.cs
 src/VRChat.API/Model/BanGroupMemberRequest.cs
+src/VRChat.API/Model/BoopRequest.cs
 src/VRChat.API/Model/CalendarEvent.cs
+src/VRChat.API/Model/CalendarEventDiscovery.cs
+src/VRChat.API/Model/CalendarEventDiscoveryInclusion.cs
+src/VRChat.API/Model/CalendarEventDiscoveryScope.cs
 src/VRChat.API/Model/CalendarEventUserInterest.cs
 src/VRChat.API/Model/ChangeUserTagsRequest.cs
 src/VRChat.API/Model/CreateAvatarModerationRequest.cs
@@ -368,7 +383,6 @@ src/VRChat.API/Model/CreateGroupPostRequest.cs
 src/VRChat.API/Model/CreateGroupRequest.cs
 src/VRChat.API/Model/CreateGroupRoleRequest.cs
 src/VRChat.API/Model/CreateInstanceRequest.cs
-src/VRChat.API/Model/CreatePermissionRequest.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
 src/VRChat.API/Model/CurrentUser.cs
 src/VRChat.API/Model/CurrentUserPlatformHistoryInner.cs
@@ -378,6 +392,7 @@ src/VRChat.API/Model/Disable2FAResult.cs
 src/VRChat.API/Model/DiscordDetails.cs
 src/VRChat.API/Model/DynamicContentRow.cs
 src/VRChat.API/Model/EconomyAccount.cs
+src/VRChat.API/Model/EquipInventoryItemRequest.cs
 src/VRChat.API/Model/Error.cs
 src/VRChat.API/Model/Favorite.cs
 src/VRChat.API/Model/FavoriteGroup.cs
@@ -437,6 +452,7 @@ src/VRChat.API/Model/InstanceRegion.cs
 src/VRChat.API/Model/InstanceShortNameResponse.cs
 src/VRChat.API/Model/InstanceType.cs
 src/VRChat.API/Model/Inventory.cs
+src/VRChat.API/Model/InventoryConsumptionResults.cs
 src/VRChat.API/Model/InventoryDefaultAttributesValue.cs
 src/VRChat.API/Model/InventoryDefaultAttributesValueValidator.cs
 src/VRChat.API/Model/InventoryDrop.cs
@@ -468,6 +484,8 @@ src/VRChat.API/Model/LimitedUserSearch.cs
 src/VRChat.API/Model/LimitedWorld.cs
 src/VRChat.API/Model/MIMEType.cs
 src/VRChat.API/Model/ModerateUserRequest.cs
+src/VRChat.API/Model/MutualFriend.cs
+src/VRChat.API/Model/Mutuals.cs
 src/VRChat.API/Model/Notification.cs
 src/VRChat.API/Model/NotificationDetailInvite.cs
 src/VRChat.API/Model/NotificationDetailInviteResponse.cs
@@ -478,6 +496,7 @@ src/VRChat.API/Model/NotificationType.cs
 src/VRChat.API/Model/OkStatus.cs
 src/VRChat.API/Model/OkStatus2.cs
 src/VRChat.API/Model/OrderOption.cs
+src/VRChat.API/Model/OrderOptionShort.cs
 src/VRChat.API/Model/PaginatedCalendarEventList.cs
 src/VRChat.API/Model/PaginatedGroupAuditLogEntryList.cs
 src/VRChat.API/Model/PastDisplayName.cs
@@ -494,9 +513,12 @@ src/VRChat.API/Model/Product.cs
 src/VRChat.API/Model/ProductListing.cs
 src/VRChat.API/Model/ProductListingType.cs
 src/VRChat.API/Model/ProductListingVariant.cs
+src/VRChat.API/Model/ProductPurchase.cs
+src/VRChat.API/Model/ProductPurchasePurchaseContext.cs
 src/VRChat.API/Model/ProductType.cs
 src/VRChat.API/Model/Prop.cs
 src/VRChat.API/Model/PropUnityPackage.cs
+src/VRChat.API/Model/PurchaseProductListingRequest.cs
 src/VRChat.API/Model/Region.cs
 src/VRChat.API/Model/RegisterUserAccountRequest.cs
 src/VRChat.API/Model/ReleaseStatus.cs
@@ -511,6 +533,7 @@ src/VRChat.API/Model/ServiceQueueStats.cs
 src/VRChat.API/Model/ServiceStatus.cs
 src/VRChat.API/Model/ShareInventoryItemDirectRequest.cs
 src/VRChat.API/Model/SortOption.cs
+src/VRChat.API/Model/SortOptionProductPurchase.cs
 src/VRChat.API/Model/Store.cs
 src/VRChat.API/Model/StoreShelf.cs
 src/VRChat.API/Model/StoreType.cs
@@ -543,7 +566,6 @@ src/VRChat.API/Model/UpdateGroupRequest.cs
 src/VRChat.API/Model/UpdateGroupRoleRequest.cs
 src/VRChat.API/Model/UpdateInventoryItemRequest.cs
 src/VRChat.API/Model/UpdateInviteMessageRequest.cs
-src/VRChat.API/Model/UpdatePermissionRequest.cs
 src/VRChat.API/Model/UpdateTiliaTOSRequest.cs
 src/VRChat.API/Model/UpdateUserBadgeRequest.cs
 src/VRChat.API/Model/UpdateUserNoteRequest.cs
