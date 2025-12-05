@@ -28,16 +28,6 @@ dotnet add package VRChat.API.Realtime
 Install-Package VRChat.API.Realtime
 ```
 
-## Features
-
-- ✅ **Real-time WebSocket connection** to VRChat Pipeline
-- ✅ **All event types supported**: Notifications, Friends, User, Groups
-- ✅ **Auto-reconnect modes**: On disconnect, every 10/20/30 minutes
-- ✅ **Strongly-typed event arguments** for all events
-- ✅ **Fluent builder pattern** for easy configuration
-- ✅ **Full async/await support**
-- ✅ **Logging events** for debugging
-
 ## Quick Start
 
 ```cs
@@ -47,7 +37,7 @@ using VRChat.API.Realtime.Models;
 // Create client using builder pattern
 var client = new VRChatRealtimeClientBuilder()
     .WithAuthToken("authcookie_...")
-    .WithUserAgent("MyApp/1.0")
+    .WithApplication(name: "Example", version: "1.0.0", contact: "youremail.com")
     .WithAutoReconnect(AutoReconnectMode.OnDisconnect)
     .Build();
 
@@ -62,47 +52,14 @@ client.OnFriendOnline += (sender, e) =>
     Console.WriteLine($"Friend {e.User?.DisplayName} came online!");
 };
 
-client.OnNotificationReceived += (sender, e) =>
+client.OnNotification += (sender, e) =>
 {
     Console.WriteLine($"Notification: {e.Notification?.Type}");
 };
 
 // Connect
 await client.ConnectAsync();
-
-// Keep running...
-Console.ReadKey();
-
-// Disconnect
-await client.DisconnectAsync();
-client.Dispose();
-```
-
-## Configuration
-
-### Using Builder Pattern
-
-```cs
-var client = new VRChatRealtimeClientBuilder()
-    .WithEndpoint("wss://pipeline.vrchat.cloud/")
-    .WithAuthToken("authcookie_...")
-    .WithUserAgent("MyApp/1.0")
-    .WithAutoReconnect(AutoReconnectMode.Every10Minutes)
-    .Build();
-```
-
-### Using Configuration Object
-
-```cs
-var config = new VRChatRealtimeConfiguration
-{
-    EndpointURL = "wss://pipeline.vrchat.cloud/",
-    AuthToken = "authcookie_...",
-    UserAgent = "MyApp/1.0",
-    AutoReconnectMode = AutoReconnectMode.OnDisconnect
-};
-
-var client = new VRChatRealtimeClient(config);
+await Task.Delay(-1);
 ```
 
 ## Auto-Reconnect Modes
@@ -122,7 +79,7 @@ var client = new VRChatRealtimeClient(config);
 - `Log` - Log messages with levels (Trace, Debug, Info, Warning, Error, Critical)
 
 ### Notification Events
-- `OnNotificationReceived` - Standard notification
+- `OnNotification` - Standard notification
 - `OnResponseNotification` - Response to previous notification
 - `OnSeeNotification` - Mark notification as seen
 - `OnHideNotification` - Hide notification
@@ -156,20 +113,15 @@ var client = new VRChatRealtimeClient(config);
 - `OnGroupMemberUpdated` - Group membership changed
 - `OnGroupRoleUpdated` - Group role changed
 
-## Example Usage
+## Examples
 
-See [Example.cs](Example.cs) for complete examples including:
-- Basic usage
-- Custom configuration
-- Auto-reconnect handling
-- All event types
+See the [example code](../../examples/VRChat.API.Examples.WebSocket/) for a sample codebase.
 
 ## Authentication
 
 You need a VRChat authentication cookie (`authcookie_...`) to connect to the Pipeline. You can obtain this by:
 1. Using the main VRChat.API library to authenticate
 2. Logging in through the VRChat website and extracting the cookie
-3. Logging in through the VRChat client and extracting the cookie
 
 **Note**: Keep your auth token secure and never commit it to version control!
 
