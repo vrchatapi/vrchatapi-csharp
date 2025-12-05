@@ -1,0 +1,30 @@
+on:
+  workflow_dispatch:
+
+name: Generate VRChat API SDK
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    name: Build and Publish VRChat Realtime SDK
+    steps:
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.1.1
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish to VRChat.API.Realtime to NuGet
+        uses: pairbit/publish-nuget@v2.5.8
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: wrapper/VRChat.API.Realtime/VRChat.API.Realtime.csproj
+          # NuGet package id, used for version detection & defaults to project name
+          PACKAGE_NAME: VRChat.API.Realtime
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_KEY}}
+          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
+          # NUGET_SOURCE: https://api.nuget.org
+          # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
+          INCLUDE_SYMBOLS: true

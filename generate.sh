@@ -1,29 +1,21 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-npm install @openapitools/openapi-generator-cli
+if [ ${#} -le 1 ]
+then
+  echo "Usage: generate.sh <openapi.json> <version>" >&2
+  exit 1
+fi
 
 rm src docs *.nupkg *.snupkg -rf
-
-curl https://raw.githubusercontent.com/vrchatapi/specification/gh-pages/openapi.yaml --output openapi.yaml
-
-SPEC_VERSION=`grep "^  version:" openapi.yaml | cut -d " " -f 4`
-
-vrchat_sdk_version=$(yq '.info.version' openapi.yaml | tr -d '"')
-
-major=$(echo $vrchat_sdk_version | cut -d. -f1)
-minor=$(echo $vrchat_sdk_version | cut -d. -f2)
-patch=$(echo $vrchat_sdk_version | cut -d. -f3)
-
-vrchat_sdk_version="$((major+1)).$minor.$patch"
 
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
 -g csharp \
 --library httpclient \
---additional-properties=packageGuid=1c420561-97f1-4810-ad2d-cd344d27170a,packageName=VRChat.API,packageTags=vrchat,packageVersion=$vrchat_sdk_version,targetFramework=net8.0,licenseId=MIT,equatable=true \
+--additional-properties=packageGuid=1c420561-97f1-4810-ad2d-cd344d27170a,packageName=VRChat.API,packageTags=vrchat,packageVersion="${2}",targetFramework=net8.0,licenseId=MIT,equatable=true \
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-csharp \
 -o . \
--i openapi.yaml \
+-i "${1}" \
 --http-user-agent="vrchatapi-csharp"
 
 rm build.sh
@@ -67,7 +59,7 @@ sed -i 's/VRChat.API.Client.ClientUtils.Base64Encode(this.Configuration.Username
 # Fix fields in csproj
 sed -i 's/OpenAPI Library/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/A library generated from a OpenAPI doc/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj
-sed -i 's/No Copyright/Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors./' src/VRChat.API/VRChat.API.csproj
+sed -i 's/No Copyright/Copyright Â© 2021 Owners of GitHub organisation "vrchatapi" and individual contributors./' src/VRChat.API/VRChat.API.csproj
 sed -i 's/OpenAPI/VRChat API Docs Community/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 
@@ -75,7 +67,7 @@ sed -i 's/Minor update/Automated deployment/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/<GenerateAssemblyInfo>false<\/GenerateAssemblyInfo>/<GenerateAssemblyInfo>true<\/GenerateAssemblyInfo>/' src/VRChat.API/VRChat.API.csproj
 
 # Update VRChat.API.Extensions.Hosting version
-sed -i "s|<Version>[^<]*</Version>|<Version>$vrchat_sdk_version</Version>|g" wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
+sed -i "s|<Version>[^<]*</Version>|<Version>${2}</Version>|g" wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
 
 # Add README.md to fields
 sed -i '/PackageTags/a \    <PackageReadmeFile>README.md<\/PackageReadmeFile>' src/VRChat.API/VRChat.API.csproj

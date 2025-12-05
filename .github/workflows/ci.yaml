@@ -1,9 +1,17 @@
 on:
   repository_dispatch:
-    types: [spec_release]
+    types: [release]
   workflow_dispatch:
-
-#on: push
+    inputs:
+      json:
+        description: 'Passed json from repository_dispatch'
+        required: true
+        type: string
+      version_postfix:
+        description: 'Additional string to concatenate onto the existing version before release'
+        required: false
+        type: string
+        default: ''
 
 name: Generate VRChat API SDK
 
@@ -11,22 +19,25 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     name: Generate VRChat API SDK
+    env:
+      ARTIFACT_NAME: "openapi.json"
+      INPUT: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json }}
+      SPEC_URL: ${{ fromJSON(github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json)['artifacts']['openapi.json'] }}
+      PASSED_VERSION: ${{ fromJSON(github.event_name == 'repository_dispatch' && github.event.client_payload || inputs.json)['version'] }}
+      VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
     steps:
-      - name: Install yq via apt
-        run: sudo apt install -y yq
-
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: 'Cache node_modules'
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-v18-${{ hashFiles('**/generate.sh') }}
+          key: ${{ runner.os }}-node-v22-${{ hashFiles('**/generate.sh') }}
           restore-keys: |
-            ${{ runner.os }}-node-v18
+            ${{ runner.os }}-node-v22
 
       - name: Install OpenAPI Generator CLI
         run: npm install @openapitools/openapi-generator-cli
@@ -37,32 +48,31 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1.1.1
 
-      - uses: actions/setup-dotnet@v3
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '8.0.x'
 
+      - name: Download Specification
+        run: wget "${SPEC_URL}" '--output' "${ARTIFACT_NAME}"
+
+      - name: Check version number
+        run: |
+          major=$(echo ${PASSED_VERSION} | cut -d. -f1)
+          minor=$(echo ${PASSED_VERSION} | cut -d. -f2)
+          patch=$(echo ${PASSED_VERSION} | cut -d. -f3)
+
+          vrchat_sdk_version="$((major+1)).${minor}.${patch}${VERSION_POSTPEND}"
+          echo "Version is: ${vrchat_sdk_version}" 
+          echo "vrchat_sdk_version=$vrchat_sdk_version" >> $GITHUB_ENV 
+
       - name: Generate SDK Client
-        run: bash ./generate.sh
+        run: bash ./generate.sh ${ARTIFACT_NAME} ${vrchat_sdk_version}
 
       - name: Copy README.md into src/
         run: cp README.md src/
 
-      - name: Check version number
-        run: |
-          vrchat_sdk_version=$(yq '.info.version' openapi.yaml | tr -d '"')
-
-          major=$(echo $vrchat_sdk_version | cut -d. -f1)
-          minor=$(echo $vrchat_sdk_version | cut -d. -f2)
-          patch=$(echo $vrchat_sdk_version | cut -d. -f3)
-
-          vrchat_sdk_version="$((major+1)).$minor.$patch"
-          echo "vrchat_sdk_version=$vrchat_sdk_version" >> $GITHUB_ENV 
-
-      - name: Print version number
-        run: echo ${{ env.vrchat_sdk_version }}
-
-      - name: Delete openapi.yaml file
-        run: rm openapi.yaml
+      - name: Delete openapi.json file
+        run: unlink ${ARTIFACT_NAME}
 
       - name: Deploy SDK back into main branch
         uses: JamesIves/github-pages-deploy-action@v4
@@ -72,7 +82,7 @@ jobs:
           commit-message: "Upgrade .NET SDK to spec ${{ env.vrchat_sdk_version }}"
 
       - name: Publish to VRChat.API to NuGet
-        if: github.event_name != 'workflow_dispatch'
+        if: github.event_name == 'repository_dispatch'
         uses: pairbit/publish-nuget@v2.5.8
         with:
           # Filepath of the project to be packaged, relative to root of repository
@@ -87,28 +97,13 @@ jobs:
           INCLUDE_SYMBOLS: true
           
       - name: Publish to VRChat.API.Extensions.Hosting to NuGet
-        if: github.event_name != 'workflow_dispatch'
+        if: github.event_name == 'repository_dispatch'
         uses: pairbit/publish-nuget@v2.5.8
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: VRChat.API.Extensions.Hosting
-          # API key to authenticate with NuGet server
-          NUGET_KEY: ${{secrets.NUGET_KEY}}
-          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
-          # NUGET_SOURCE: https://api.nuget.org
-          # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
-          INCLUDE_SYMBOLS: true
-
-      - name: Publish to VRChat.API.Realtime to NuGet
-        if: github.event_name != 'workflow_dispatch'
-        uses: pairbit/publish-nuget@v2.5.8
-        with:
-          # Filepath of the project to be packaged, relative to root of repository
-          PROJECT_FILE_PATH: wrapper/VRChat.API.Realtime/VRChat.API.Realtime.csproj
-          # NuGet package id, used for version detection & defaults to project name
-          PACKAGE_NAME: VRChat.API.Realtime
           # API key to authenticate with NuGet server
           NUGET_KEY: ${{secrets.NUGET_KEY}}
           # NuGet server uri hosting the packages, defaults to https://api.nuget.org
