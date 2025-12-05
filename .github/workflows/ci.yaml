@@ -53,7 +53,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Download Specification
-        run: wget "${SPEC_URL}" '--output' "${ARTIFACT_NAME}"
+        run: wget "${SPEC_URL}" '--output-file' "${ARTIFACT_NAME}"
 
       - name: Check version number
         run: |
