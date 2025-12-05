@@ -66,7 +66,7 @@ jobs:
           echo "vrchat_sdk_version=$vrchat_sdk_version" >> $GITHUB_ENV 
 
       - name: Generate SDK Client
-        run: bash ./generate.sh ${ARTIFACT_NAME} ${vrchat_sdk_version}
+        run: bash ./generate.sh "${ARTIFACT_NAME}" "${vrchat_sdk_version}"
 
       - name: Copy README.md into src/
         run: cp README.md src/
