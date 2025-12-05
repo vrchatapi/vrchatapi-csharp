@@ -1,30 +1,75 @@
-on:
-  workflow_dispatch:
-
 name: Build and Publish VRChat Realtime SDK
 
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'wrapper/VRChat.API.Realtime/**'
+      - '.github/workflows/realtime-ci.yml'
+  workflow_dispatch:
+
 jobs:
-  generate:
+  build-and-publish:
     runs-on: ubuntu-latest
     name: Build and Publish VRChat Realtime SDK
     steps:
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1.1.1
+      - name: Checkout current commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history to compare versions
 
-      - uses: actions/setup-dotnet@v5
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '8.0.x'
 
-      - name: Publish to VRChat.API.Realtime to NuGet
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.1.1
+
+      - name: Get current version from csproj
+        id: current_version
+        run: |
+          VERSION=$(grep -oP '(?<=<Version>)[^<]+' wrapper/VRChat.API.Realtime/VRChat.API.Realtime.csproj)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Current version: $VERSION"
+
+      - name: Get previous version from NuGet
+        id: nuget_version
+        run: |
+          # Try to get the latest version from NuGet
+          NUGET_VERSION=$(curl -s "https://api.nuget.org/v3-flatcontainer/vrchat.api.realtime/index.json" | jq -r '.versions[-1]' 2>/dev/null || echo "0.0.0")
+          if [ "$NUGET_VERSION" = "null" ] || [ -z "$NUGET_VERSION" ]; then
+            NUGET_VERSION="0.0.0"
+          fi
+          echo "version=$NUGET_VERSION" >> $GITHUB_OUTPUT
+          echo "Latest NuGet version: $NUGET_VERSION"
+
+      - name: Check if version changed
+        id: version_check
+        run: |
+          CURRENT="${{ steps.current_version.outputs.version }}"
+          NUGET="${{ steps.nuget_version.outputs.version }}"
+          
+          echo "Current version: $CURRENT"
+          echo "NuGet version: $NUGET"
+          
+          if [ "$CURRENT" != "$NUGET" ]; then
+            echo "Version changed from $NUGET to $CURRENT"
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "Version unchanged ($CURRENT)"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build project
+        run: dotnet build wrapper/VRChat.API.Realtime/VRChat.API.Realtime.csproj --configuration Release
+
+      - name: Publish to NuGet
+        if: steps.version_check.outputs.changed == 'true'
         uses: pairbit/publish-nuget@v2.5.8
         with:
-          # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: wrapper/VRChat.API.Realtime/VRChat.API.Realtime.csproj
-          # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: VRChat.API.Realtime
-          # API key to authenticate with NuGet server
-          NUGET_KEY: ${{secrets.NUGET_KEY}}
-          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
-          # NUGET_SOURCE: https://api.nuget.org
-          # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
+          NUGET_KEY: ${{ secrets.NUGET_KEY }}
           INCLUDE_SYMBOLS: true
