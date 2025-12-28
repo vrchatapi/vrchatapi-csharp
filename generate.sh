@@ -47,7 +47,7 @@ sed -i 's/\(class.*IValidatableObject\)/\1, ITwoFactorCode/' src/VRChat.API/Mode
 sed -i 's/\(class.*IValidatableObject\)/\1, ITwoFactorCode/' src/VRChat.API/Model/TwoFactorEmailCode.cs
 
 # Add icons and readme to package
-sed -i ':a;N;$!ba;s|\(.*\)</ItemGroup>|\1\t  <Content Include="vrc_cat.ico" />\n\t  <None Include="..\\README.md">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t  <None Include="..\\vrc_cat.png">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n  </ItemGroup>|' src/VRChat.API/VRChat.API.csproj
+sed -i ':a;N;$!ba;s|\(.*\)</ItemGroup>|\1\t  <Content Include="vrc_cat.ico" />\n\t  <None Include="..\\README.md">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n\t  <None Include="vrc_cat.png">\n\t    <Pack>True</Pack>\n\t    <PackagePath>\\</PackagePath>\n\t  </None>\n  </ItemGroup>|' src/VRChat.API/VRChat.API.csproj
 sed -i '/<PackageTags>vrchat<\/PackageTags>/a\    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>' src/VRChat.API/VRChat.API.csproj
 
 # Adjust package tags
