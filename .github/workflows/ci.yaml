@@ -61,6 +61,10 @@ jobs:
           echo "Version is: ${vrchat_sdk_version}" 
           echo "vrchat_sdk_version=$vrchat_sdk_version" >> $GITHUB_ENV 
 
+      - name: Apply Version Postpend
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix != '' }}
+        run: yq '--inplace' ".info.version |= \"${vrchat_sdk_version}\"" "${ARTIFACT_NAME}"
+
       - name: Generate SDK Client
         run: bash ./generate.sh "${ARTIFACT_NAME}" "${vrchat_sdk_version}"
 
