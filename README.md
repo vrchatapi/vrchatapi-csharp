@@ -133,7 +133,15 @@ public class MyController : Controller
 
 Console app (login): see [VRChat.API.Examples.Console](examples/VRChat.API.Examples.Console/)
 
+Console app (WebSocket): see [VRChat.API.Examples.WebSocket](examples/VRChat.API.Examples.WebSocket/)
+
 ASP.NET Core (depedency injection): see [VRChat.API.Examples.AspNetCore](examples/VRChat.API.Examples.AspNetCore/)
+
+# WebSockets / VRChat Pipeline
+
+You can use the `VRChat.API.Realtime` library to connect to VRChat's WebSocket and listen to events.
+
+The documentation for it is available at [WEBSOCKET.md](WEBSOCKET.md).
 
 # Manually authenticating
 

@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>VRChat.API.Realtime</AssemblyName>
+    <PackageId>VRChat.API.Realtime</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>VRChat API Docs Community</Authors>
+    <Company>VRChat API Docs Community</Company>
+    <AssemblyTitle>VRChat API Realtime library for VRChat API</AssemblyTitle>
+    <Description>VRChat Realtime WebSocket API library for .NET</Description>
+    <Copyright>Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors.</Copyright>
+    <RootNamespace>VRChat.API.Realtime</RootNamespace>
+    <Version>1.0.0</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\VRChat.API.Realtime.xml</DocumentationFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>vrchat,vrcapi,websocket,realtime,vrc-api,vrc</PackageTags>
+    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <Content Include="vrc_cat.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\vrc_cat.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+</Project>
