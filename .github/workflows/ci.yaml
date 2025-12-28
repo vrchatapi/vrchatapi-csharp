@@ -82,6 +82,7 @@ jobs:
           commit-message: "Upgrade .NET SDK to spec ${{ env.vrchat_sdk_version }}"
 
       - name: Publish to VRChat.API to NuGet
+        if: github.event_name == 'repository_dispatch'
         uses: pairbit/publish-nuget@v2.5.8
         with:
           # Filepath of the project to be packaged, relative to root of repository
