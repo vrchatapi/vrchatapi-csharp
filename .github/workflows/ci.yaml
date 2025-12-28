@@ -97,6 +97,7 @@ jobs:
           INCLUDE_SYMBOLS: true
           
       - name: Publish to VRChat.API.Extensions.Hosting to NuGet
+        if: github.event_name == 'repository_dispatch'
         uses: pairbit/publish-nuget@v2.5.8
         with:
           # Filepath of the project to be packaged, relative to root of repository
