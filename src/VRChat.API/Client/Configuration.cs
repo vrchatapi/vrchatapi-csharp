@@ -33,7 +33,7 @@ namespace VRChat.API.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.20.8-nightly.0";
+        public const string Version = "2.20.7";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -540,7 +540,7 @@ namespace VRChat.API.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.20.7\n";
-            report += "    SDK Package Version: 2.20.8-nightly.0\n";
+            report += "    SDK Package Version: 2.20.7\n";
 
             return report;
         }
