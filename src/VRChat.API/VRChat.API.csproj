@@ -12,7 +12,7 @@
     <Description>VRChat API Library for .NET</Description>
     <Copyright>Copyright Â© 2021 Owners of GitHub organisation "vrchatapi" and individual contributors.</Copyright>
     <RootNamespace>VRChat.API</RootNamespace>
-    <Version>2.20.8-nightly.1</Version>
+    <Version>2.20.8-nightly.2</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\VRChat.API.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>

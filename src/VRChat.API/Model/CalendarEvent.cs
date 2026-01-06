@@ -69,9 +69,12 @@ namespace VRChat.API.Model
         /// <param name="interestedUserCount">interestedUserCount.</param>
         /// <param name="isDraft">isDraft.</param>
         /// <param name="languages">Languages that might be spoken at this event.</param>
+        /// <param name="occurrenceKind">So far if it exists, always the string \&quot;single\&quot;.</param>
         /// <param name="ownerId">ownerId.</param>
         /// <param name="platforms">platforms.</param>
+        /// <param name="recurrence">So far unused, always \&quot;null\&quot;.</param>
         /// <param name="roleIds">Group roles that may join this event.</param>
+        /// <param name="seriesId">So far unused, always \&quot;null\&quot;.</param>
         /// <param name="startsAt">startsAt (required).</param>
         /// <param name="tags">Custom tags for this event.</param>
         /// <param name="title">title (required).</param>
@@ -79,7 +82,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="userInterest">userInterest.</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
-        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, int durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, List<string> roleIds = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
+        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, int durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, string occurrenceKind = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, string recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
         {
             this.AccessType = accessType;
             this.Category = category;
@@ -115,9 +118,12 @@ namespace VRChat.API.Model
             this.InterestedUserCount = interestedUserCount;
             this.IsDraft = isDraft;
             this.Languages = languages;
+            this.OccurrenceKind = occurrenceKind;
             this.OwnerId = ownerId;
             this.Platforms = platforms;
+            this.Recurrence = recurrence;
             this.RoleIds = roleIds;
+            this.SeriesId = seriesId;
             this.Tags = tags;
             this.Type = type;
             this.UpdatedAt = updatedAt;
@@ -223,6 +229,13 @@ namespace VRChat.API.Model
         public List<string> Languages { get; set; }
 
         /// <summary>
+        /// So far if it exists, always the string \&quot;single\&quot;
+        /// </summary>
+        /// <value>So far if it exists, always the string \&quot;single\&quot;</value>
+        [DataMember(Name = "occurrenceKind", EmitDefaultValue = false)]
+        public string OccurrenceKind { get; set; }
+
+        /// <summary>
         /// Gets or Sets OwnerId
         /// </summary>
         /*
@@ -238,11 +251,25 @@ namespace VRChat.API.Model
         public List<CalendarEventPlatform> Platforms { get; set; }
 
         /// <summary>
+        /// So far unused, always \&quot;null\&quot;
+        /// </summary>
+        /// <value>So far unused, always \&quot;null\&quot;</value>
+        [DataMember(Name = "recurrence", EmitDefaultValue = true)]
+        public string Recurrence { get; set; }
+
+        /// <summary>
         /// Group roles that may join this event
         /// </summary>
         /// <value>Group roles that may join this event</value>
         [DataMember(Name = "roleIds", EmitDefaultValue = true)]
         public List<string> RoleIds { get; set; }
+
+        /// <summary>
+        /// So far unused, always \&quot;null\&quot;
+        /// </summary>
+        /// <value>So far unused, always \&quot;null\&quot;</value>
+        [DataMember(Name = "seriesId", EmitDefaultValue = true)]
+        public string SeriesId { get; set; }
 
         /// <summary>
         /// Gets or Sets StartsAt
@@ -315,9 +342,12 @@ namespace VRChat.API.Model
             sb.Append("  InterestedUserCount: ").Append(InterestedUserCount).Append("\n");
             sb.Append("  IsDraft: ").Append(IsDraft).Append("\n");
             sb.Append("  Languages: ").Append(Languages).Append("\n");
+            sb.Append("  OccurrenceKind: ").Append(OccurrenceKind).Append("\n");
             sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
             sb.Append("  Platforms: ").Append(Platforms).Append("\n");
+            sb.Append("  Recurrence: ").Append(Recurrence).Append("\n");
             sb.Append("  RoleIds: ").Append(RoleIds).Append("\n");
+            sb.Append("  SeriesId: ").Append(SeriesId).Append("\n");
             sb.Append("  StartsAt: ").Append(StartsAt).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
@@ -438,6 +468,11 @@ namespace VRChat.API.Model
                     this.Languages.SequenceEqual(input.Languages)
                 ) && 
                 (
+                    this.OccurrenceKind == input.OccurrenceKind ||
+                    (this.OccurrenceKind != null &&
+                    this.OccurrenceKind.Equals(input.OccurrenceKind))
+                ) && 
+                (
                     this.OwnerId == input.OwnerId ||
                     (this.OwnerId != null &&
                     this.OwnerId.Equals(input.OwnerId))
@@ -449,10 +484,20 @@ namespace VRChat.API.Model
                     this.Platforms.SequenceEqual(input.Platforms)
                 ) && 
                 (
+                    this.Recurrence == input.Recurrence ||
+                    (this.Recurrence != null &&
+                    this.Recurrence.Equals(input.Recurrence))
+                ) && 
+                (
                     this.RoleIds == input.RoleIds ||
                     this.RoleIds != null &&
                     input.RoleIds != null &&
                     this.RoleIds.SequenceEqual(input.RoleIds)
+                ) && 
+                (
+                    this.SeriesId == input.SeriesId ||
+                    (this.SeriesId != null &&
+                    this.SeriesId.Equals(input.SeriesId))
                 ) && 
                 (
                     this.StartsAt == input.StartsAt ||
@@ -541,6 +586,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Languages.GetHashCode();
                 }
+                if (this.OccurrenceKind != null)
+                {
+                    hashCode = (hashCode * 59) + this.OccurrenceKind.GetHashCode();
+                }
                 if (this.OwnerId != null)
                 {
                     hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
@@ -549,9 +598,17 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Platforms.GetHashCode();
                 }
+                if (this.Recurrence != null)
+                {
+                    hashCode = (hashCode * 59) + this.Recurrence.GetHashCode();
+                }
                 if (this.RoleIds != null)
                 {
                     hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
+                }
+                if (this.SeriesId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SeriesId.GetHashCode();
                 }
                 if (this.StartsAt != null)
                 {
