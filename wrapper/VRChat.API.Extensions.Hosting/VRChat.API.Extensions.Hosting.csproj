@@ -12,7 +12,7 @@
     <Description>Extensions for hosting and dependency injection for the VRChat API Library for .NET</Description>
     <Copyright>Copyright © 2021 Owners of GitHub organisation "vrchatapi" and individual contributors.</Copyright>
     <RootNamespace>VRChat.API.Extensions.Hosting</RootNamespace>
-    <Version>2.20.7</Version>
+    <Version>2.20.8-nightly.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\VRChat.API.Extensions.Hosting.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>
