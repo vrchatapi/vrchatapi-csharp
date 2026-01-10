@@ -687,25 +687,25 @@ namespace VRChat.API.Api
         /// Get Group Member
         /// </summary>
         /// <remarks>
-        /// Returns a LimitedGroup Member.
+        /// Returns a GroupMember.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>GroupLimitedMember</returns>
-        GroupLimitedMember GetGroupMember(string groupId, string userId);
+        /// <returns>GroupMember</returns>
+        GroupMember GetGroupMember(string groupId, string userId);
 
         /// <summary>
         /// Get Group Member
         /// </summary>
         /// <remarks>
-        /// Returns a LimitedGroup Member.
+        /// Returns a GroupMember.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>ApiResponse of GroupLimitedMember</returns>
-        ApiResponse<GroupLimitedMember> GetGroupMemberWithHttpInfo(string groupId, string userId);
+        /// <returns>ApiResponse of GroupMember</returns>
+        ApiResponse<GroupMember> GetGroupMemberWithHttpInfo(string groupId, string userId);
         /// <summary>
         /// List Group Members
         /// </summary>
@@ -1148,8 +1148,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <returns>GroupLimitedMember</returns>
-        GroupLimitedMember UpdateGroupMember(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default);
+        /// <returns>GroupMember</returns>
+        GroupMember UpdateGroupMember(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default);
 
         /// <summary>
         /// Update Group Member
@@ -1161,8 +1161,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <returns>ApiResponse of GroupLimitedMember</returns>
-        ApiResponse<GroupLimitedMember> UpdateGroupMemberWithHttpInfo(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default);
+        /// <returns>ApiResponse of GroupMember</returns>
+        ApiResponse<GroupMember> UpdateGroupMemberWithHttpInfo(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default);
         /// <summary>
         /// Edits a Group post
         /// </summary>
@@ -1961,27 +1961,27 @@ namespace VRChat.API.Api
         /// Get Group Member
         /// </summary>
         /// <remarks>
-        /// Returns a LimitedGroup Member.
+        /// Returns a GroupMember.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GroupLimitedMember</returns>
-        System.Threading.Tasks.Task<GroupLimitedMember> GetGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of GroupMember</returns>
+        System.Threading.Tasks.Task<GroupMember> GetGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Member
         /// </summary>
         /// <remarks>
-        /// Returns a LimitedGroup Member.
+        /// Returns a GroupMember.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GroupLimitedMember)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupLimitedMember>> GetGroupMemberWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (GroupMember)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GroupMember>> GetGroupMemberWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Group Members
         /// </summary>
@@ -2461,8 +2461,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GroupLimitedMember</returns>
-        System.Threading.Tasks.Task<GroupLimitedMember> UpdateGroupMemberAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of GroupMember</returns>
+        System.Threading.Tasks.Task<GroupMember> UpdateGroupMemberAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Group Member
@@ -2475,8 +2475,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GroupLimitedMember)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupLimitedMember>> UpdateGroupMemberWithHttpInfoAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (GroupMember)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GroupMember>> UpdateGroupMemberWithHttpInfoAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Edits a Group post
         /// </summary>
@@ -6774,26 +6774,26 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Group Member Returns a LimitedGroup Member.
+        /// Get Group Member Returns a GroupMember.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>GroupLimitedMember</returns>
-        public GroupLimitedMember GetGroupMember(string groupId, string userId)
+        /// <returns>GroupMember</returns>
+        public GroupMember GetGroupMember(string groupId, string userId)
         {
-            VRChat.API.Client.ApiResponse<GroupLimitedMember> localVarResponse = GetGroupMemberWithHttpInfo(groupId, userId);
+            VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = GetGroupMemberWithHttpInfo(groupId, userId);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Group Member Returns a LimitedGroup Member.
+        /// Get Group Member Returns a GroupMember.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>ApiResponse of GroupLimitedMember</returns>
-        public VRChat.API.Client.ApiResponse<GroupLimitedMember> GetGroupMemberWithHttpInfo(string groupId, string userId)
+        /// <returns>ApiResponse of GroupMember</returns>
+        public VRChat.API.Client.ApiResponse<GroupMember> GetGroupMemberWithHttpInfo(string groupId, string userId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -6830,7 +6830,7 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GroupLimitedMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -6842,28 +6842,28 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Group Member Returns a LimitedGroup Member.
+        /// Get Group Member Returns a GroupMember.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GroupLimitedMember</returns>
-        public async System.Threading.Tasks.Task<GroupLimitedMember> GetGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of GroupMember</returns>
+        public async System.Threading.Tasks.Task<GroupMember> GetGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupLimitedMember> localVarResponse = await GetGroupMemberWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await GetGroupMemberWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Group Member Returns a LimitedGroup Member.
+        /// Get Group Member Returns a GroupMember.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GroupLimitedMember)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupLimitedMember>> GetGroupMemberWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (GroupMember)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupMember>> GetGroupMemberWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -6903,7 +6903,7 @@ namespace VRChat.API.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GroupLimitedMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -9513,10 +9513,10 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <returns>GroupLimitedMember</returns>
-        public GroupLimitedMember UpdateGroupMember(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default)
+        /// <returns>GroupMember</returns>
+        public GroupMember UpdateGroupMember(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default)
         {
-            VRChat.API.Client.ApiResponse<GroupLimitedMember> localVarResponse = UpdateGroupMemberWithHttpInfo(groupId, userId, updateGroupMemberRequest);
+            VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = UpdateGroupMemberWithHttpInfo(groupId, userId, updateGroupMemberRequest);
             return localVarResponse.Data;
         }
 
@@ -9527,8 +9527,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
-        /// <returns>ApiResponse of GroupLimitedMember</returns>
-        public VRChat.API.Client.ApiResponse<GroupLimitedMember> UpdateGroupMemberWithHttpInfo(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default)
+        /// <returns>ApiResponse of GroupMember</returns>
+        public VRChat.API.Client.ApiResponse<GroupMember> UpdateGroupMemberWithHttpInfo(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -9567,7 +9567,7 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<GroupLimitedMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -9586,10 +9586,10 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GroupLimitedMember</returns>
-        public async System.Threading.Tasks.Task<GroupLimitedMember> UpdateGroupMemberAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of GroupMember</returns>
+        public async System.Threading.Tasks.Task<GroupMember> UpdateGroupMemberAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupLimitedMember> localVarResponse = await UpdateGroupMemberWithHttpInfoAsync(groupId, userId, updateGroupMemberRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await UpdateGroupMemberWithHttpInfoAsync(groupId, userId, updateGroupMemberRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9601,8 +9601,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateGroupMemberRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GroupLimitedMember)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupLimitedMember>> UpdateGroupMemberWithHttpInfoAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (GroupMember)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupMember>> UpdateGroupMemberWithHttpInfoAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -9644,7 +9644,7 @@ namespace VRChat.API.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<GroupLimitedMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

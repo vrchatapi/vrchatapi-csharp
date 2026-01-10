@@ -27,7 +27,7 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// GroupMember
+    /// May be null when attempting to retrieve group membership for a user who is not part of the group
     /// </summary>
     [DataContract(Name = "GroupMember")]
     public partial class GroupMember : IEquatable<GroupMember>, IValidatableObject
@@ -36,76 +36,123 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets MembershipStatus
         /// </summary>
-        [DataMember(Name = "membershipStatus", EmitDefaultValue = false)]
-        public GroupMemberStatus? MembershipStatus { get; set; }
+        [DataMember(Name = "membershipStatus", IsRequired = true, EmitDefaultValue = true)]
+        public GroupMemberStatus MembershipStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupMember" /> class.
         /// </summary>
-        /// <param name="acceptedByDisplayName">acceptedByDisplayName.</param>
-        /// <param name="acceptedById">acceptedById.</param>
-        /// <param name="bannedAt">Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user..</param>
-        /// <param name="createdAt">Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user..</param>
-        /// <param name="groupId">groupId.</param>
-        /// <param name="hasJoinedFromPurchase">hasJoinedFromPurchase.</param>
-        /// <param name="id">id.</param>
-        /// <param name="isRepresenting">Whether the user is representing the group. This makes the group show up above the name tag in-game. (default to false).</param>
-        /// <param name="isSubscribedToAnnouncements">isSubscribedToAnnouncements (default to false).</param>
-        /// <param name="isSubscribedToEventAnnouncements">isSubscribedToEventAnnouncements.</param>
-        /// <param name="joinedAt">joinedAt.</param>
-        /// <param name="lastPostReadAt">lastPostReadAt.</param>
-        /// <param name="mRoleIds">mRoleIds.</param>
-        /// <param name="managerNotes">Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user..</param>
-        /// <param name="membershipStatus">membershipStatus.</param>
-        /// <param name="roleIds">roleIds.</param>
+        [JsonConstructorAttribute]
+        protected GroupMember() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupMember" /> class.
+        /// </summary>
+        /// <param name="acceptedByDisplayName">Only missing when explicitly fetching own user..</param>
+        /// <param name="acceptedById">Only missing when explicitly fetching own user..</param>
+        /// <param name="bannedAt">Only missing when explicitly fetching own user..</param>
+        /// <param name="createdAt">Only missing when explicitly fetching own user..</param>
+        /// <param name="groupId">groupId (required).</param>
+        /// <param name="hasJoinedFromPurchase">Missing when explicitly fetching own user, or when group isn&#39;t linked to a purchase..</param>
+        /// <param name="id">id (required).</param>
+        /// <param name="isRepresenting">Whether the user is representing the group. This makes the group show up above the name tag in-game. (required) (default to false).</param>
+        /// <param name="isSubscribedToAnnouncements">isSubscribedToAnnouncements (required) (default to false).</param>
+        /// <param name="isSubscribedToEventAnnouncements">Only missing when explicitly fetching own user..</param>
+        /// <param name="joinedAt">joinedAt (required).</param>
+        /// <param name="lastPostReadAt">lastPostReadAt (required).</param>
+        /// <param name="mRoleIds">mRoleIds (required).</param>
+        /// <param name="managerNotes">Only missing when explicitly fetching own user..</param>
+        /// <param name="membershipStatus">membershipStatus (required).</param>
+        /// <param name="roleIds">roleIds (required).</param>
         /// <param name="user">user.</param>
-        /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
-        /// <param name="visibility">visibility.</param>
-        public GroupMember(string acceptedByDisplayName = default, string acceptedById = default, DateTime? bannedAt = default, DateTime? createdAt = default, string groupId = default, bool hasJoinedFromPurchase = default, string id = default, bool isRepresenting = false, bool isSubscribedToAnnouncements = false, bool isSubscribedToEventAnnouncements = default, DateTime? joinedAt = default, DateTime? lastPostReadAt = default, List<string> mRoleIds = default, string managerNotes = default, GroupMemberStatus? membershipStatus = default, List<string> roleIds = default, GroupMemberLimitedUser user = default, string userId = default, string visibility = default)
+        /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
+        /// <param name="visibility">visibility (required).</param>
+        public GroupMember(string acceptedByDisplayName = default, string acceptedById = default, DateTime? bannedAt = default, DateTime? createdAt = default, string groupId = default, bool hasJoinedFromPurchase = default, string id = default, bool isRepresenting = false, bool isSubscribedToAnnouncements = false, bool isSubscribedToEventAnnouncements = default, DateTime? joinedAt = default, DateTime? lastPostReadAt = default, List<string> mRoleIds = default, string managerNotes = default, GroupMemberStatus membershipStatus = default, List<string> roleIds = default, GroupMemberLimitedUser user = default, string userId = default, string visibility = default)
         {
+            // to ensure "groupId" is required (not null)
+            if (groupId == null)
+            {
+                throw new ArgumentNullException("groupId is a required property for GroupMember and cannot be null");
+            }
+            this.GroupId = groupId;
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for GroupMember and cannot be null");
+            }
+            this.Id = id;
+            this.IsRepresenting = isRepresenting;
+            this.IsSubscribedToAnnouncements = isSubscribedToAnnouncements;
+            // to ensure "joinedAt" is required (not null)
+            if (joinedAt == null)
+            {
+                throw new ArgumentNullException("joinedAt is a required property for GroupMember and cannot be null");
+            }
+            this.JoinedAt = joinedAt;
+            // to ensure "lastPostReadAt" is required (not null)
+            if (lastPostReadAt == null)
+            {
+                throw new ArgumentNullException("lastPostReadAt is a required property for GroupMember and cannot be null");
+            }
+            this.LastPostReadAt = lastPostReadAt;
+            // to ensure "mRoleIds" is required (not null)
+            if (mRoleIds == null)
+            {
+                throw new ArgumentNullException("mRoleIds is a required property for GroupMember and cannot be null");
+            }
+            this.MRoleIds = mRoleIds;
+            this.MembershipStatus = membershipStatus;
+            // to ensure "roleIds" is required (not null)
+            if (roleIds == null)
+            {
+                throw new ArgumentNullException("roleIds is a required property for GroupMember and cannot be null");
+            }
+            this.RoleIds = roleIds;
+            // to ensure "userId" is required (not null)
+            if (userId == null)
+            {
+                throw new ArgumentNullException("userId is a required property for GroupMember and cannot be null");
+            }
+            this.UserId = userId;
+            // to ensure "visibility" is required (not null)
+            if (visibility == null)
+            {
+                throw new ArgumentNullException("visibility is a required property for GroupMember and cannot be null");
+            }
+            this.Visibility = visibility;
             this.AcceptedByDisplayName = acceptedByDisplayName;
             this.AcceptedById = acceptedById;
             this.BannedAt = bannedAt;
             this.CreatedAt = createdAt;
-            this.GroupId = groupId;
             this.HasJoinedFromPurchase = hasJoinedFromPurchase;
-            this.Id = id;
-            this.IsRepresenting = isRepresenting;
-            this.IsSubscribedToAnnouncements = isSubscribedToAnnouncements;
             this.IsSubscribedToEventAnnouncements = isSubscribedToEventAnnouncements;
-            this.JoinedAt = joinedAt;
-            this.LastPostReadAt = lastPostReadAt;
-            this.MRoleIds = mRoleIds;
             this.ManagerNotes = managerNotes;
-            this.MembershipStatus = membershipStatus;
-            this.RoleIds = roleIds;
             this.User = user;
-            this.UserId = userId;
-            this.Visibility = visibility;
         }
 
         /// <summary>
-        /// Gets or Sets AcceptedByDisplayName
+        /// Only missing when explicitly fetching own user.
         /// </summary>
+        /// <value>Only missing when explicitly fetching own user.</value>
         [DataMember(Name = "acceptedByDisplayName", EmitDefaultValue = true)]
         public string AcceptedByDisplayName { get; set; }
 
         /// <summary>
-        /// Gets or Sets AcceptedById
+        /// Only missing when explicitly fetching own user.
         /// </summary>
+        /// <value>Only missing when explicitly fetching own user.</value>
         [DataMember(Name = "acceptedById", EmitDefaultValue = true)]
         public string AcceptedById { get; set; }
 
         /// <summary>
-        /// Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.
+        /// Only missing when explicitly fetching own user.
         /// </summary>
-        /// <value>Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.</value>
+        /// <value>Only missing when explicitly fetching own user.</value>
         [DataMember(Name = "bannedAt", EmitDefaultValue = true)]
         public DateTime? BannedAt { get; set; }
 
         /// <summary>
-        /// Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.
+        /// Only missing when explicitly fetching own user.
         /// </summary>
-        /// <value>Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.</value>
+        /// <value>Only missing when explicitly fetching own user.</value>
         [DataMember(Name = "createdAt", EmitDefaultValue = true)]
         public DateTime? CreatedAt { get; set; }
 
@@ -115,12 +162,13 @@ namespace VRChat.API.Model
         /*
         <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
         */
-        [DataMember(Name = "groupId", EmitDefaultValue = false)]
+        [DataMember(Name = "groupId", IsRequired = true, EmitDefaultValue = true)]
         public string GroupId { get; set; }
 
         /// <summary>
-        /// Gets or Sets HasJoinedFromPurchase
+        /// Missing when explicitly fetching own user, or when group isn&#39;t linked to a purchase.
         /// </summary>
+        /// <value>Missing when explicitly fetching own user, or when group isn&#39;t linked to a purchase.</value>
         [DataMember(Name = "hasJoinedFromPurchase", EmitDefaultValue = true)]
         public bool HasJoinedFromPurchase { get; set; }
 
@@ -130,7 +178,7 @@ namespace VRChat.API.Model
         /*
         <example>gmem_95cdb3b4-4643-4eb6-bdab-46a4e1e5ce37</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -140,56 +188,57 @@ namespace VRChat.API.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isRepresenting", EmitDefaultValue = true)]
+        [DataMember(Name = "isRepresenting", IsRequired = true, EmitDefaultValue = true)]
         public bool IsRepresenting { get; set; }
 
         /// <summary>
         /// Gets or Sets IsSubscribedToAnnouncements
         /// </summary>
-        [DataMember(Name = "isSubscribedToAnnouncements", EmitDefaultValue = true)]
+        [DataMember(Name = "isSubscribedToAnnouncements", IsRequired = true, EmitDefaultValue = true)]
         public bool IsSubscribedToAnnouncements { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsSubscribedToEventAnnouncements
+        /// Only missing when explicitly fetching own user.
         /// </summary>
+        /// <value>Only missing when explicitly fetching own user.</value>
         [DataMember(Name = "isSubscribedToEventAnnouncements", EmitDefaultValue = true)]
         public bool IsSubscribedToEventAnnouncements { get; set; }
 
         /// <summary>
         /// Gets or Sets JoinedAt
         /// </summary>
-        [DataMember(Name = "joinedAt", EmitDefaultValue = true)]
+        [DataMember(Name = "joinedAt", IsRequired = true, EmitDefaultValue = true)]
         public DateTime? JoinedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets LastPostReadAt
         /// </summary>
-        [DataMember(Name = "lastPostReadAt", EmitDefaultValue = true)]
+        [DataMember(Name = "lastPostReadAt", IsRequired = true, EmitDefaultValue = true)]
         public DateTime? LastPostReadAt { get; set; }
 
         /// <summary>
         /// Gets or Sets MRoleIds
         /// </summary>
-        [DataMember(Name = "mRoleIds", EmitDefaultValue = false)]
+        [DataMember(Name = "mRoleIds", IsRequired = true, EmitDefaultValue = true)]
         public List<string> MRoleIds { get; set; }
 
         /// <summary>
-        /// Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.
+        /// Only missing when explicitly fetching own user.
         /// </summary>
-        /// <value>Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.</value>
+        /// <value>Only missing when explicitly fetching own user.</value>
         [DataMember(Name = "managerNotes", EmitDefaultValue = true)]
         public string ManagerNotes { get; set; }
 
         /// <summary>
         /// Gets or Sets RoleIds
         /// </summary>
-        [DataMember(Name = "roleIds", EmitDefaultValue = false)]
+        [DataMember(Name = "roleIds", IsRequired = true, EmitDefaultValue = true)]
         public List<string> RoleIds { get; set; }
 
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "user", EmitDefaultValue = false)]
+        [DataMember(Name = "user", EmitDefaultValue = true)]
         public GroupMemberLimitedUser User { get; set; }
 
         /// <summary>
@@ -199,7 +248,7 @@ namespace VRChat.API.Model
         /*
         <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
         */
-        [DataMember(Name = "userId", EmitDefaultValue = false)]
+        [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public string UserId { get; set; }
 
         /// <summary>
@@ -208,7 +257,7 @@ namespace VRChat.API.Model
         /*
         <example>visible</example>
         */
-        [DataMember(Name = "visibility", EmitDefaultValue = false)]
+        [DataMember(Name = "visibility", IsRequired = true, EmitDefaultValue = true)]
         public string Visibility { get; set; }
 
         /// <summary>

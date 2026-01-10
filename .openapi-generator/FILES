@@ -117,7 +117,6 @@ docs/GroupGalleryImage.md
 docs/GroupInstance.md
 docs/GroupJoinRequestAction.md
 docs/GroupJoinState.md
-docs/GroupLimitedMember.md
 docs/GroupMember.md
 docs/GroupMemberLimitedUser.md
 docs/GroupMemberStatus.md
@@ -460,7 +459,6 @@ src/VRChat.API/Model/GroupGalleryImage.cs
 src/VRChat.API/Model/GroupInstance.cs
 src/VRChat.API/Model/GroupJoinRequestAction.cs
 src/VRChat.API/Model/GroupJoinState.cs
-src/VRChat.API/Model/GroupLimitedMember.cs
 src/VRChat.API/Model/GroupMember.cs
 src/VRChat.API/Model/GroupMemberLimitedUser.cs
 src/VRChat.API/Model/GroupMemberStatus.cs
