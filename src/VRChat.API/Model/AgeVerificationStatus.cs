@@ -34,16 +34,16 @@ namespace VRChat.API.Model
     public enum AgeVerificationStatus
     {
         /// <summary>
-        /// Enum hidden for value: 18+
+        /// Enum plus18 for value: 18+
         /// </summary>
         [EnumMember(Value = "18+")]
-        hidden = 1,
+        plus18 = 1,
 
         /// <summary>
-        /// Enum plus18 for value: hidden
+        /// Enum hidden for value: hidden
         /// </summary>
         [EnumMember(Value = "hidden")]
-        plus18 = 2,
+        hidden = 2,
 
         /// <summary>
         /// Enum verified for value: verified
