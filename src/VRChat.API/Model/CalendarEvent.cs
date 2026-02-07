@@ -82,7 +82,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="userInterest">userInterest.</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
-        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, int durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, string occurrenceKind = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, string recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
+        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, long durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, string occurrenceKind = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, string recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
         {
             this.AccessType = accessType;
             this.Category = category;
@@ -159,7 +159,7 @@ namespace VRChat.API.Model
         /// Gets or Sets DurationInMs
         /// </summary>
         [DataMember(Name = "durationInMs", EmitDefaultValue = false)]
-        public int DurationInMs { get; set; }
+        public long DurationInMs { get; set; }
 
         /// <summary>
         /// Gets or Sets EndsAt
