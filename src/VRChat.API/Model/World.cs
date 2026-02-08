@@ -805,9 +805,9 @@ namespace VRChat.API.Model
             }
 
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            if (this.Name != null && this.Name.Length < 0)
             {
-                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
             }
 
             // Occupants (int) minimum
