@@ -314,7 +314,7 @@ namespace VRChat.API.Client
                 return new VRChatLoginResult(false, exception);
             }
 
-            return new VRChatLoginResult(user == null, null);
+            return new VRChatLoginResult(user != null, null);
         }
 
         public async Task<CurrentUser> LoginAsync(CancellationToken ct = default)
