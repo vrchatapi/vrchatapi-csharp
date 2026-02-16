@@ -45,17 +45,9 @@ namespace VRChat.API.Model
         /// <param name="inventoryItemsCreated">inventoryItemsCreated (required).</param>
         public InventoryConsumptionResults(List<Object> errors = default, List<InventoryItem> inventoryItems = default, int inventoryItemsCreated = default)
         {
-            // to ensure "errors" is required (not null)
-            if (errors == null)
-            {
-                throw new ArgumentNullException("errors is a required property for InventoryConsumptionResults and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Errors = errors;
-            // to ensure "inventoryItems" is required (not null)
-            if (inventoryItems == null)
-            {
-                throw new ArgumentNullException("inventoryItems is a required property for InventoryConsumptionResults and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.InventoryItems = inventoryItems;
             this.InventoryItemsCreated = inventoryItemsCreated;
         }

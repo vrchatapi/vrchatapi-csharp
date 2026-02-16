@@ -73,78 +73,34 @@ namespace VRChat.API.Model
         /// <param name="visits">visits (default to 0).</param>
         public LimitedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, int favorites = 0, int heat = 0, string id = default, string imageUrl = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<LimitedUnityPackage> unityPackages = default, DateTime updatedAt = default, int visits = 0)
         {
-            // to ensure "authorId" is required (not null)
-            if (authorId == null)
-            {
-                throw new ArgumentNullException("authorId is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
-            // to ensure "authorName" is required (not null)
-            if (authorName == null)
-            {
-                throw new ArgumentNullException("authorName is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorName = authorName;
             this.Capacity = capacity;
             this.CreatedAt = createdAt;
             this.Favorites = favorites;
             this.Heat = heat;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
-            // to ensure "labsPublicationDate" is required (not null)
-            if (labsPublicationDate == null)
-            {
-                throw new ArgumentNullException("labsPublicationDate is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LabsPublicationDate = labsPublicationDate;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             this.Occupants = occupants;
-            // to ensure "organization" is required (not null)
-            if (organization == null)
-            {
-                throw new ArgumentNullException("organization is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Organization = organization;
             this.Popularity = popularity;
-            // to ensure "publicationDate" is required (not null)
-            if (publicationDate == null)
-            {
-                throw new ArgumentNullException("publicationDate is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PublicationDate = publicationDate;
             this.ReleaseStatus = releaseStatus;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // to ensure "thumbnailImageUrl" is required (not null)
-            if (thumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("thumbnailImageUrl is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ThumbnailImageUrl = thumbnailImageUrl;
-            // to ensure "unityPackages" is required (not null)
-            if (unityPackages == null)
-            {
-                throw new ArgumentNullException("unityPackages is a required property for LimitedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityPackages = unityPackages;
             this.UpdatedAt = updatedAt;
             this.DefaultContentSettings = defaultContentSettings;

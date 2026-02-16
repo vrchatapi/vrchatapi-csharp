@@ -55,17 +55,9 @@ namespace VRChat.API.Model
         {
             this.Agreed = agreed;
             this.AgreementCode = agreementCode;
-            // to ensure "contentId" is required (not null)
-            if (contentId == null)
-            {
-                throw new ArgumentNullException("contentId is a required property for AgreementStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentId = contentId;
-            // to ensure "userId" is required (not null)
-            if (userId == null)
-            {
-                throw new ArgumentNullException("userId is a required property for AgreementStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserId = userId;
             this.VarVersion = varVersion;
         }

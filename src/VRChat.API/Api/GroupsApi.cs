@@ -2780,6 +2780,14 @@ namespace VRChat.API.Api
         public GroupGalleryImage AddGroupGalleryImage(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest)
         {
             VRChat.API.Client.ApiResponse<GroupGalleryImage> localVarResponse = AddGroupGalleryImageWithHttpInfo(groupId, groupGalleryId, addGroupGalleryImageRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddGroupGalleryImage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2834,15 +2842,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GroupGalleryImage>("/groups/{groupId}/galleries/{groupGalleryId}/images", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AddGroupGalleryImage", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<GroupGalleryImage>("/groups/{groupId}/galleries/{groupGalleryId}/images", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupGalleryImage>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGalleryImage), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2857,6 +2866,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupGalleryImage> AddGroupGalleryImageAsync(string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupGalleryImage> localVarResponse = await AddGroupGalleryImageWithHttpInfoAsync(groupId, groupGalleryId, addGroupGalleryImageRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddGroupGalleryImage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2914,16 +2931,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GroupGalleryImage>("/groups/{groupId}/galleries/{groupGalleryId}/images", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AddGroupGalleryImage", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<GroupGalleryImage>("/groups/{groupId}/galleries/{groupGalleryId}/images", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupGalleryImage>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGalleryImage), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2937,6 +2954,14 @@ namespace VRChat.API.Api
         public List<string> AddGroupMemberRole(string groupId, string userId, string groupRoleId)
         {
             VRChat.API.Client.ApiResponse<List<string>> localVarResponse = AddGroupMemberRoleWithHttpInfo(groupId, userId, groupRoleId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddGroupMemberRole", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2990,15 +3015,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AddGroupMemberRole", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<string>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<string>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3013,6 +3039,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<string>> AddGroupMemberRoleAsync(string groupId, string userId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<string>> localVarResponse = await AddGroupMemberRoleWithHttpInfoAsync(groupId, userId, groupRoleId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddGroupMemberRole", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3069,16 +3103,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AddGroupMemberRole", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<string>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<string>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3091,6 +3125,14 @@ namespace VRChat.API.Api
         public GroupPost AddGroupPost(string groupId, CreateGroupPostRequest createGroupPostRequest)
         {
             VRChat.API.Client.ApiResponse<GroupPost> localVarResponse = AddGroupPostWithHttpInfo(groupId, createGroupPostRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddGroupPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3139,15 +3181,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GroupPost>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AddGroupPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<GroupPost>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupPost>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupPost), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3161,6 +3204,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupPost> AddGroupPostAsync(string groupId, CreateGroupPostRequest createGroupPostRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupPost> localVarResponse = await AddGroupPostWithHttpInfoAsync(groupId, createGroupPostRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddGroupPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3212,16 +3263,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GroupPost>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AddGroupPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<GroupPost>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupPost>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupPost), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3234,6 +3285,14 @@ namespace VRChat.API.Api
         public GroupMember BanGroupMember(string groupId, BanGroupMemberRequest banGroupMemberRequest)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = BanGroupMemberWithHttpInfo(groupId, banGroupMemberRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BanGroupMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3282,15 +3341,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GroupMember>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("BanGroupMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<GroupMember>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupMember>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupMember), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3304,6 +3364,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupMember> BanGroupMemberAsync(string groupId, BanGroupMemberRequest banGroupMemberRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await BanGroupMemberWithHttpInfoAsync(groupId, banGroupMemberRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BanGroupMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3355,16 +3423,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GroupMember>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("BanGroupMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<GroupMember>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupMember>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupMember), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3376,6 +3444,14 @@ namespace VRChat.API.Api
         public Success BlockGroup(string groupId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = BlockGroupWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BlockGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3417,15 +3493,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Success>("/groups/{groupId}/block", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("BlockGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Success>("/groups/{groupId}/block", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3438,6 +3515,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> BlockGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await BlockGroupWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BlockGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3482,16 +3567,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Success>("/groups/{groupId}/block", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("BlockGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Success>("/groups/{groupId}/block", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3502,7 +3587,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void CancelGroupRequest(string groupId)
         {
-            CancelGroupRequestWithHttpInfo(groupId);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = CancelGroupRequestWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelGroupRequest", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -3543,15 +3636,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CancelGroupRequest", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Object>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3563,7 +3657,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task CancelGroupRequestAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await CancelGroupRequestWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await CancelGroupRequestWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelGroupRequest", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -3607,16 +3709,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CancelGroupRequest", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3628,6 +3730,14 @@ namespace VRChat.API.Api
         public Success CancelGroupTransfer(string groupId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = CancelGroupTransferWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelGroupTransfer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3669,15 +3779,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CancelGroupTransfer", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3690,6 +3801,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> CancelGroupTransferAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await CancelGroupTransferWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelGroupTransfer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3734,16 +3853,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CancelGroupTransfer", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3755,6 +3874,14 @@ namespace VRChat.API.Api
         public Group CreateGroup(CreateGroupRequest createGroupRequest)
         {
             VRChat.API.Client.ApiResponse<Group> localVarResponse = CreateGroupWithHttpInfo(createGroupRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3797,15 +3924,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Group>("/groups", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Group>("/groups", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Group>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Group), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3818,6 +3946,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Group> CreateGroupAsync(CreateGroupRequest createGroupRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Group> localVarResponse = await CreateGroupWithHttpInfoAsync(createGroupRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3863,16 +3999,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Group>("/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Group>("/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Group>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Group), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3885,6 +4021,14 @@ namespace VRChat.API.Api
         public GroupAnnouncement CreateGroupAnnouncement(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest)
         {
             VRChat.API.Client.ApiResponse<GroupAnnouncement> localVarResponse = CreateGroupAnnouncementWithHttpInfo(groupId, createGroupAnnouncementRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroupAnnouncement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3933,15 +4077,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroupAnnouncement", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupAnnouncement>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupAnnouncement), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3955,6 +4100,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupAnnouncement> CreateGroupAnnouncementAsync(string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupAnnouncement> localVarResponse = await CreateGroupAnnouncementWithHttpInfoAsync(groupId, createGroupAnnouncementRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroupAnnouncement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4006,16 +4159,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroupAnnouncement", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupAnnouncement>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupAnnouncement), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4028,6 +4181,14 @@ namespace VRChat.API.Api
         public GroupGallery CreateGroupGallery(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest)
         {
             VRChat.API.Client.ApiResponse<GroupGallery> localVarResponse = CreateGroupGalleryWithHttpInfo(groupId, createGroupGalleryRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroupGallery", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4076,15 +4237,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GroupGallery>("/groups/{groupId}/galleries", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroupGallery", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<GroupGallery>("/groups/{groupId}/galleries", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupGallery>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGallery), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4098,6 +4260,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupGallery> CreateGroupGalleryAsync(string groupId, CreateGroupGalleryRequest createGroupGalleryRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupGallery> localVarResponse = await CreateGroupGalleryWithHttpInfoAsync(groupId, createGroupGalleryRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroupGallery", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4149,16 +4319,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GroupGallery>("/groups/{groupId}/galleries", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroupGallery", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<GroupGallery>("/groups/{groupId}/galleries", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupGallery>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGallery), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4170,7 +4340,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void CreateGroupInvite(string groupId, CreateGroupInviteRequest createGroupInviteRequest)
         {
-            CreateGroupInviteWithHttpInfo(groupId, createGroupInviteRequest);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = CreateGroupInviteWithHttpInfo(groupId, createGroupInviteRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroupInvite", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -4218,15 +4396,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroupInvite", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Object>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4239,7 +4418,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task CreateGroupInviteAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            await CreateGroupInviteWithHttpInfoAsync(groupId, createGroupInviteRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await CreateGroupInviteWithHttpInfoAsync(groupId, createGroupInviteRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroupInvite", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -4290,16 +4477,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroupInvite", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4312,6 +4499,14 @@ namespace VRChat.API.Api
         public GroupRole CreateGroupRole(string groupId, CreateGroupRoleRequest createGroupRoleRequest)
         {
             VRChat.API.Client.ApiResponse<GroupRole> localVarResponse = CreateGroupRoleWithHttpInfo(groupId, createGroupRoleRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroupRole", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4360,15 +4555,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GroupRole>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroupRole", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<GroupRole>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupRole>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupRole), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4382,6 +4578,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupRole> CreateGroupRoleAsync(string groupId, CreateGroupRoleRequest createGroupRoleRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupRole> localVarResponse = await CreateGroupRoleWithHttpInfoAsync(groupId, createGroupRoleRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroupRole", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4433,16 +4637,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GroupRole>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroupRole", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<GroupRole>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupRole>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupRole), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4455,6 +4659,14 @@ namespace VRChat.API.Api
         public Success DeclineGroupInvite(string groupId, DeclineGroupInviteRequest? declineGroupInviteRequest = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeclineGroupInviteWithHttpInfo(groupId, declineGroupInviteRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeclineGroupInvite", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4499,15 +4711,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Success>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeclineGroupInvite", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Success>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4521,6 +4734,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> DeclineGroupInviteAsync(string groupId, DeclineGroupInviteRequest? declineGroupInviteRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeclineGroupInviteWithHttpInfoAsync(groupId, declineGroupInviteRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeclineGroupInvite", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4568,16 +4789,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeclineGroupInvite", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4590,6 +4811,14 @@ namespace VRChat.API.Api
         public Success DeleteGroup(string groupId, bool? hardDelete = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupWithHttpInfo(groupId, hardDelete);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4636,15 +4865,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4658,6 +4888,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> DeleteGroupAsync(string groupId, bool? hardDelete = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupWithHttpInfoAsync(groupId, hardDelete, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4707,16 +4945,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4728,6 +4966,14 @@ namespace VRChat.API.Api
         public Success DeleteGroupAnnouncement(string groupId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupAnnouncementWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupAnnouncement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4769,15 +5015,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupAnnouncement", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4790,6 +5037,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> DeleteGroupAnnouncementAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupAnnouncementWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupAnnouncement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4834,16 +5089,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupAnnouncement", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4856,6 +5111,14 @@ namespace VRChat.API.Api
         public Success DeleteGroupGallery(string groupId, string groupGalleryId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupGalleryWithHttpInfo(groupId, groupGalleryId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupGallery", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4903,15 +5166,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupGallery", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4925,6 +5189,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> DeleteGroupGalleryAsync(string groupId, string groupGalleryId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupGalleryWithHttpInfoAsync(groupId, groupGalleryId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupGallery", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4975,16 +5247,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupGallery", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4998,6 +5270,14 @@ namespace VRChat.API.Api
         public Success DeleteGroupGalleryImage(string groupId, string groupGalleryId, string groupGalleryImageId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupGalleryImageWithHttpInfo(groupId, groupGalleryId, groupGalleryImageId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupGalleryImage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5051,15 +5331,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/galleries/{groupGalleryId}/images/{groupGalleryImageId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupGalleryImage", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/galleries/{groupGalleryId}/images/{groupGalleryImageId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5074,6 +5355,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> DeleteGroupGalleryImageAsync(string groupId, string groupGalleryId, string groupGalleryImageId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupGalleryImageWithHttpInfoAsync(groupId, groupGalleryId, groupGalleryImageId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupGalleryImage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5130,16 +5419,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/galleries/{groupGalleryId}/images/{groupGalleryImageId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupGalleryImage", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/galleries/{groupGalleryId}/images/{groupGalleryImageId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5151,7 +5440,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void DeleteGroupInvite(string groupId, string userId)
         {
-            DeleteGroupInviteWithHttpInfo(groupId, userId);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = DeleteGroupInviteWithHttpInfo(groupId, userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupInvite", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -5198,15 +5495,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/groups/{groupId}/invites/{userId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupInvite", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Object>("/groups/{groupId}/invites/{userId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5219,7 +5517,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeleteGroupInviteAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await DeleteGroupInviteWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await DeleteGroupInviteWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupInvite", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -5269,16 +5575,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/groups/{groupId}/invites/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupInvite", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/groups/{groupId}/invites/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5291,6 +5597,14 @@ namespace VRChat.API.Api
         public Success DeleteGroupPost(string groupId, string notificationId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupPostWithHttpInfo(groupId, notificationId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5338,15 +5652,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5360,6 +5675,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> DeleteGroupPostAsync(string groupId, string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupPostWithHttpInfoAsync(groupId, notificationId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5410,16 +5733,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5432,6 +5755,14 @@ namespace VRChat.API.Api
         public List<GroupRole> DeleteGroupRole(string groupId, string groupRoleId)
         {
             VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = DeleteGroupRoleWithHttpInfo(groupId, groupRoleId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupRole", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5479,15 +5810,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupRole", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupRole>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupRole>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5501,6 +5833,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<GroupRole>> DeleteGroupRoleAsync(string groupId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = await DeleteGroupRoleWithHttpInfoAsync(groupId, groupRoleId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupRole", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5551,16 +5891,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupRole", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupRole>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupRole>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5573,6 +5913,14 @@ namespace VRChat.API.Api
         public Group GetGroup(string groupId, bool? includeRoles = default)
         {
             VRChat.API.Client.ApiResponse<Group> localVarResponse = GetGroupWithHttpInfo(groupId, includeRoles);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5619,15 +5967,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Group>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Group), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5641,6 +5990,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, bool? includeRoles = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Group> localVarResponse = await GetGroupWithHttpInfoAsync(groupId, includeRoles, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5690,16 +6047,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Group>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Group), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5711,6 +6068,14 @@ namespace VRChat.API.Api
         public GroupAnnouncement GetGroupAnnouncements(string groupId)
         {
             VRChat.API.Client.ApiResponse<GroupAnnouncement> localVarResponse = GetGroupAnnouncementsWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupAnnouncements", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5752,15 +6117,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupAnnouncements", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupAnnouncement>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupAnnouncement), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5773,6 +6139,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupAnnouncement> GetGroupAnnouncementsAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupAnnouncement> localVarResponse = await GetGroupAnnouncementsWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupAnnouncements", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5817,16 +6191,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupAnnouncements", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<GroupAnnouncement>("/groups/{groupId}/announcement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupAnnouncement>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupAnnouncement), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5838,6 +6212,14 @@ namespace VRChat.API.Api
         public List<string> GetGroupAuditLogEntryTypes(string groupId)
         {
             VRChat.API.Client.ApiResponse<List<string>> localVarResponse = GetGroupAuditLogEntryTypesWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupAuditLogEntryTypes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5879,15 +6261,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<string>>("/groups/{groupId}/auditLogTypes", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupAuditLogEntryTypes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<string>>("/groups/{groupId}/auditLogTypes", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<string>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<string>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5900,6 +6283,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<string>> GetGroupAuditLogEntryTypesAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<string>> localVarResponse = await GetGroupAuditLogEntryTypesWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupAuditLogEntryTypes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -5944,16 +6335,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>("/groups/{groupId}/auditLogTypes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupAuditLogEntryTypes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>("/groups/{groupId}/auditLogTypes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<string>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<string>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -5972,6 +6363,14 @@ namespace VRChat.API.Api
         public PaginatedGroupAuditLogEntryList GetGroupAuditLogs(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList> localVarResponse = GetGroupAuditLogsWithHttpInfo(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupAuditLogs", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6048,15 +6447,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PaginatedGroupAuditLogEntryList>("/groups/{groupId}/auditLogs", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupAuditLogs", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<PaginatedGroupAuditLogEntryList>("/groups/{groupId}/auditLogs", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedGroupAuditLogEntryList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6076,6 +6476,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList> localVarResponse = await GetGroupAuditLogsWithHttpInfoAsync(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupAuditLogs", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6155,16 +6563,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedGroupAuditLogEntryList>("/groups/{groupId}/auditLogs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupAuditLogs", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedGroupAuditLogEntryList>("/groups/{groupId}/auditLogs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedGroupAuditLogEntryList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6178,6 +6586,14 @@ namespace VRChat.API.Api
         public List<GroupMember> GetGroupBans(string groupId, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = GetGroupBansWithHttpInfo(groupId, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupBans", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6229,15 +6645,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupBans", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupMember>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupMember>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6252,6 +6669,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupBansAsync(string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupBansWithHttpInfoAsync(groupId, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupBans", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6306,16 +6731,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupBans", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/bans", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupMember>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupMember>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6331,6 +6756,14 @@ namespace VRChat.API.Api
         public List<GroupGalleryImage> GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupGalleryImage>> localVarResponse = GetGroupGalleryImagesWithHttpInfo(groupId, groupGalleryId, n, offset, approved);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupGalleryImages", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6393,15 +6826,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<GroupGalleryImage>>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupGalleryImages", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<GroupGalleryImage>>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupGalleryImage>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupGalleryImage>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6418,6 +6852,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<GroupGalleryImage>> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupGalleryImage>> localVarResponse = await GetGroupGalleryImagesWithHttpInfoAsync(groupId, groupGalleryId, n, offset, approved, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupGalleryImages", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6483,16 +6925,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupGalleryImage>>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupGalleryImages", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupGalleryImage>>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupGalleryImage>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupGalleryImage>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6504,6 +6946,14 @@ namespace VRChat.API.Api
         public List<GroupInstance> GetGroupInstances(string groupId)
         {
             VRChat.API.Client.ApiResponse<List<GroupInstance>> localVarResponse = GetGroupInstancesWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupInstances", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6545,15 +6995,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<GroupInstance>>("/groups/{groupId}/instances", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupInstances", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<GroupInstance>>("/groups/{groupId}/instances", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupInstance>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupInstance>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6566,6 +7017,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<GroupInstance>> GetGroupInstancesAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupInstance>> localVarResponse = await GetGroupInstancesWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupInstances", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6610,16 +7069,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupInstance>>("/groups/{groupId}/instances", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupInstances", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupInstance>>("/groups/{groupId}/instances", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupInstance>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupInstance>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6633,6 +7092,14 @@ namespace VRChat.API.Api
         public List<GroupMember> GetGroupInvites(string groupId, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = GetGroupInvitesWithHttpInfo(groupId, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupInvites", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6684,15 +7151,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupInvites", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupMember>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupMember>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6707,6 +7175,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupInvitesAsync(string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupInvitesWithHttpInfoAsync(groupId, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupInvites", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6761,16 +7237,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupInvites", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupMember>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupMember>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6783,6 +7259,14 @@ namespace VRChat.API.Api
         public GroupMember GetGroupMember(string groupId, string userId)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = GetGroupMemberWithHttpInfo(groupId, userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6830,15 +7314,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupMember>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupMember), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6852,6 +7337,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupMember> GetGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await GetGroupMemberWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6902,16 +7395,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupMember>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupMember), ex.Message);
+            }
         }
 
         /// <summary>
@@ -6927,6 +7420,14 @@ namespace VRChat.API.Api
         public List<GroupMember> GetGroupMembers(string groupId, int? n = default, int? offset = default, GroupSearchSort? sort = default, string? roleId = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = GetGroupMembersWithHttpInfo(groupId, n, offset, sort, roleId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupMembers", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -6988,15 +7489,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/members", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupMembers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/members", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupMember>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupMember>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7013,6 +7515,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupMembersAsync(string groupId, int? n = default, int? offset = default, GroupSearchSort? sort = default, string? roleId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupMembersWithHttpInfoAsync(groupId, n, offset, sort, roleId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupMembers", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7077,16 +7587,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/members", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupMembers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/members", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupMember>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupMember>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7098,6 +7608,14 @@ namespace VRChat.API.Api
         public List<GroupPermission> GetGroupPermissions(string groupId)
         {
             VRChat.API.Client.ApiResponse<List<GroupPermission>> localVarResponse = GetGroupPermissionsWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupPermissions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7139,15 +7657,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<GroupPermission>>("/groups/{groupId}/permissions", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupPermissions", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<GroupPermission>>("/groups/{groupId}/permissions", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupPermission>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupPermission>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7160,6 +7679,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<GroupPermission>> GetGroupPermissionsAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupPermission>> localVarResponse = await GetGroupPermissionsWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupPermissions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7204,16 +7731,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupPermission>>("/groups/{groupId}/permissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupPermissions", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupPermission>>("/groups/{groupId}/permissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupPermission>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupPermission>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7228,6 +7755,14 @@ namespace VRChat.API.Api
         public GetGroupPosts200Response GetGroupPosts(string groupId, int? n = default, int? offset = default, bool? publicOnly = default)
         {
             VRChat.API.Client.ApiResponse<GetGroupPosts200Response> localVarResponse = GetGroupPostsWithHttpInfo(groupId, n, offset, publicOnly);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupPosts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7284,15 +7819,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetGroupPosts200Response>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupPosts", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<GetGroupPosts200Response>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GetGroupPosts200Response>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GetGroupPosts200Response), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7308,6 +7844,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GetGroupPosts200Response> GetGroupPostsAsync(string groupId, int? n = default, int? offset = default, bool? publicOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GetGroupPosts200Response> localVarResponse = await GetGroupPostsWithHttpInfoAsync(groupId, n, offset, publicOnly, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupPosts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7367,16 +7911,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetGroupPosts200Response>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupPosts", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<GetGroupPosts200Response>("/groups/{groupId}/posts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GetGroupPosts200Response>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GetGroupPosts200Response), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7391,6 +7935,14 @@ namespace VRChat.API.Api
         public List<GroupMember> GetGroupRequests(string groupId, int? n = default, int? offset = default, bool? blocked = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = GetGroupRequestsWithHttpInfo(groupId, n, offset, blocked);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupRequests", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7447,15 +7999,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupRequests", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<GroupMember>>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupMember>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupMember>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7471,6 +8024,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<GroupMember>> GetGroupRequestsAsync(string groupId, int? n = default, int? offset = default, bool? blocked = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupMember>> localVarResponse = await GetGroupRequestsWithHttpInfoAsync(groupId, n, offset, blocked, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupRequests", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7530,16 +8091,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupRequests", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupMember>>("/groups/{groupId}/requests", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupMember>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupMember>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7550,6 +8111,14 @@ namespace VRChat.API.Api
         public Dictionary<string, GroupRoleTemplateValues> GetGroupRoleTemplates()
         {
             VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>> localVarResponse = GetGroupRoleTemplatesWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupRoleTemplates", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7585,15 +8154,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Dictionary<string, GroupRoleTemplateValues>>("/groups/roleTemplates", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupRoleTemplates", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<Dictionary<string, GroupRoleTemplateValues>>("/groups/roleTemplates", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Dictionary<string, GroupRoleTemplateValues>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7605,6 +8175,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Dictionary<string, GroupRoleTemplateValues>> GetGroupRoleTemplatesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>> localVarResponse = await GetGroupRoleTemplatesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupRoleTemplates", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7643,16 +8221,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, GroupRoleTemplateValues>>("/groups/roleTemplates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupRoleTemplates", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, GroupRoleTemplateValues>>("/groups/roleTemplates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Dictionary<string, GroupRoleTemplateValues>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Dictionary<string, GroupRoleTemplateValues>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7664,6 +8242,14 @@ namespace VRChat.API.Api
         public List<GroupRole> GetGroupRoles(string groupId)
         {
             VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = GetGroupRolesWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupRoles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7705,15 +8291,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<GroupRole>>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupRoles", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<GroupRole>>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupRole>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupRole>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7726,6 +8313,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<GroupRole>> GetGroupRolesAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = await GetGroupRolesWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupRoles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7770,16 +8365,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupRole>>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupRoles", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupRole>>("/groups/{groupId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupRole>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupRole>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7792,6 +8387,14 @@ namespace VRChat.API.Api
         public GroupTransferable GetGroupTransferability(string groupId, string? transferTargetId = default)
         {
             VRChat.API.Client.ApiResponse<GroupTransferable> localVarResponse = GetGroupTransferabilityWithHttpInfo(groupId, transferTargetId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupTransferability", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7838,15 +8441,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GroupTransferable>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupTransferability", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<GroupTransferable>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupTransferable>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupTransferable), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7860,6 +8464,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupTransferable> GetGroupTransferabilityAsync(string groupId, string? transferTargetId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupTransferable> localVarResponse = await GetGroupTransferabilityWithHttpInfoAsync(groupId, transferTargetId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupTransferability", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7909,16 +8521,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GroupTransferable>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupTransferability", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<GroupTransferable>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupTransferable>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupTransferable), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7931,6 +8543,14 @@ namespace VRChat.API.Api
         public Success InitiateOrAcceptGroupTransfer(string groupId, TransferGroupRequest? transferGroupRequest = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = InitiateOrAcceptGroupTransferWithHttpInfo(groupId, transferGroupRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("InitiateOrAcceptGroupTransfer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -7975,15 +8595,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Success>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("InitiateOrAcceptGroupTransfer", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Success>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -7997,6 +8618,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> InitiateOrAcceptGroupTransferAsync(string groupId, TransferGroupRequest? transferGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await InitiateOrAcceptGroupTransferWithHttpInfoAsync(groupId, transferGroupRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("InitiateOrAcceptGroupTransfer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -8044,16 +8673,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Success>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("InitiateOrAcceptGroupTransfer", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Success>("/groups/{groupId}/transfer", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8067,6 +8696,14 @@ namespace VRChat.API.Api
         public GroupMember JoinGroup(string groupId, bool? confirmOverrideBlock = default, JoinGroupRequest? joinGroupRequest = default)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = JoinGroupWithHttpInfo(groupId, confirmOverrideBlock, joinGroupRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("JoinGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -8116,15 +8753,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GroupMember>("/groups/{groupId}/join", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("JoinGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<GroupMember>("/groups/{groupId}/join", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupMember>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupMember), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8139,6 +8777,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupMember> JoinGroupAsync(string groupId, bool? confirmOverrideBlock = default, JoinGroupRequest? joinGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await JoinGroupWithHttpInfoAsync(groupId, confirmOverrideBlock, joinGroupRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("JoinGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -8191,16 +8837,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GroupMember>("/groups/{groupId}/join", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("JoinGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<GroupMember>("/groups/{groupId}/join", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupMember>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupMember), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8213,6 +8859,14 @@ namespace VRChat.API.Api
         public Success KickGroupMember(string groupId, string userId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = KickGroupMemberWithHttpInfo(groupId, userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("KickGroupMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -8260,15 +8914,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("KickGroupMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8282,6 +8937,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> KickGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await KickGroupMemberWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("KickGroupMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -8332,16 +8995,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("KickGroupMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8352,7 +9015,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void LeaveGroup(string groupId)
         {
-            LeaveGroupWithHttpInfo(groupId);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = LeaveGroupWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("LeaveGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -8393,15 +9064,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/groups/{groupId}/leave", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("LeaveGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Object>("/groups/{groupId}/leave", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8413,7 +9085,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task LeaveGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await LeaveGroupWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await LeaveGroupWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("LeaveGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -8457,16 +9137,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/groups/{groupId}/leave", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("LeaveGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/groups/{groupId}/leave", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8480,6 +9160,14 @@ namespace VRChat.API.Api
         public List<string> RemoveGroupMemberRole(string groupId, string userId, string groupRoleId)
         {
             VRChat.API.Client.ApiResponse<List<string>> localVarResponse = RemoveGroupMemberRoleWithHttpInfo(groupId, userId, groupRoleId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RemoveGroupMemberRole", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -8533,15 +9221,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("RemoveGroupMemberRole", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<string>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<string>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8556,6 +9245,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<string>> RemoveGroupMemberRoleAsync(string groupId, string userId, string groupRoleId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<string>> localVarResponse = await RemoveGroupMemberRoleWithHttpInfoAsync(groupId, userId, groupRoleId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RemoveGroupMemberRole", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -8612,16 +9309,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("RemoveGroupMemberRole", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<List<string>>("/groups/{groupId}/members/{userId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<string>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<string>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8634,7 +9331,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void RespondGroupJoinRequest(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest)
         {
-            RespondGroupJoinRequestWithHttpInfo(groupId, userId, respondGroupJoinRequest);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = RespondGroupJoinRequestWithHttpInfo(groupId, userId, respondGroupJoinRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RespondGroupJoinRequest", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -8688,15 +9393,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/groups/{groupId}/requests/{userId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("RespondGroupJoinRequest", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Object>("/groups/{groupId}/requests/{userId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8710,7 +9416,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task RespondGroupJoinRequestAsync(string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            await RespondGroupJoinRequestWithHttpInfoAsync(groupId, userId, respondGroupJoinRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await RespondGroupJoinRequestWithHttpInfoAsync(groupId, userId, respondGroupJoinRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RespondGroupJoinRequest", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -8767,16 +9481,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/groups/{groupId}/requests/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("RespondGroupJoinRequest", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/groups/{groupId}/requests/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8791,6 +9505,14 @@ namespace VRChat.API.Api
         public SearchGroupMembers200Response SearchGroupMembers(string groupId, string query, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<SearchGroupMembers200Response> localVarResponse = SearchGroupMembersWithHttpInfo(groupId, query, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchGroupMembers", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -8848,15 +9570,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SearchGroupMembers200Response>("/groups/{groupId}/members/search", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SearchGroupMembers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<SearchGroupMembers200Response>("/groups/{groupId}/members/search", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SearchGroupMembers200Response>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SearchGroupMembers200Response), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8872,6 +9595,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<SearchGroupMembers200Response> SearchGroupMembersAsync(string groupId, string query, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<SearchGroupMembers200Response> localVarResponse = await SearchGroupMembersWithHttpInfoAsync(groupId, query, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchGroupMembers", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -8932,16 +9663,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SearchGroupMembers200Response>("/groups/{groupId}/members/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SearchGroupMembers", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<SearchGroupMembers200Response>("/groups/{groupId}/members/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SearchGroupMembers200Response>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SearchGroupMembers200Response), ex.Message);
+            }
         }
 
         /// <summary>
@@ -8955,6 +9686,14 @@ namespace VRChat.API.Api
         public List<LimitedGroup> SearchGroups(string? query = default, int? offset = default, int? n = default)
         {
             VRChat.API.Client.ApiResponse<List<LimitedGroup>> localVarResponse = SearchGroupsWithHttpInfo(query, offset, n);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchGroups", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -8999,15 +9738,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<LimitedGroup>>("/groups", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SearchGroups", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<LimitedGroup>>("/groups", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<LimitedGroup>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<LimitedGroup>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9022,6 +9762,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<LimitedGroup>> SearchGroupsAsync(string? query = default, int? offset = default, int? n = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<LimitedGroup>> localVarResponse = await SearchGroupsWithHttpInfoAsync(query, offset, n, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchGroups", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9069,16 +9817,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LimitedGroup>>("/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SearchGroups", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<LimitedGroup>>("/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<LimitedGroup>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<LimitedGroup>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9091,6 +9839,14 @@ namespace VRChat.API.Api
         public GroupMember UnbanGroupMember(string groupId, string userId)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = UnbanGroupMemberWithHttpInfo(groupId, userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnbanGroupMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9138,15 +9894,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<GroupMember>("/groups/{groupId}/bans/{userId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UnbanGroupMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<GroupMember>("/groups/{groupId}/bans/{userId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupMember>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupMember), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9160,6 +9917,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupMember> UnbanGroupMemberAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await UnbanGroupMemberWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnbanGroupMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9210,16 +9975,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<GroupMember>("/groups/{groupId}/bans/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UnbanGroupMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<GroupMember>("/groups/{groupId}/bans/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupMember>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupMember), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9232,6 +9997,14 @@ namespace VRChat.API.Api
         public Group UpdateGroup(string groupId, UpdateGroupRequest? updateGroupRequest = default)
         {
             VRChat.API.Client.ApiResponse<Group> localVarResponse = UpdateGroupWithHttpInfo(groupId, updateGroupRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9276,15 +10049,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Group>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Group), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9298,6 +10072,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Group> UpdateGroupAsync(string groupId, UpdateGroupRequest? updateGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Group> localVarResponse = await UpdateGroupWithHttpInfoAsync(groupId, updateGroupRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9345,16 +10127,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Group>("/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Group>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Group), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9368,6 +10150,14 @@ namespace VRChat.API.Api
         public GroupGallery UpdateGroupGallery(string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = default)
         {
             VRChat.API.Client.ApiResponse<GroupGallery> localVarResponse = UpdateGroupGalleryWithHttpInfo(groupId, groupGalleryId, updateGroupGalleryRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupGallery", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9418,15 +10208,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<GroupGallery>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupGallery", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<GroupGallery>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupGallery>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGallery), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9441,6 +10232,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupGallery> UpdateGroupGalleryAsync(string groupId, string groupGalleryId, UpdateGroupGalleryRequest? updateGroupGalleryRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupGallery> localVarResponse = await UpdateGroupGalleryWithHttpInfoAsync(groupId, groupGalleryId, updateGroupGalleryRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupGallery", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9494,16 +10293,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<GroupGallery>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupGallery", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<GroupGallery>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupGallery>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGallery), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9517,6 +10316,14 @@ namespace VRChat.API.Api
         public GroupMember UpdateGroupMember(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = UpdateGroupMemberWithHttpInfo(groupId, userId, updateGroupMemberRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9567,15 +10374,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupMember>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupMember), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9590,6 +10398,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupMember> UpdateGroupMemberAsync(string groupId, string userId, UpdateGroupMemberRequest? updateGroupMemberRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupMember> localVarResponse = await UpdateGroupMemberWithHttpInfoAsync(groupId, userId, updateGroupMemberRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupMember", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9643,16 +10459,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupMember", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<GroupMember>("/groups/{groupId}/members/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupMember>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupMember), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9666,6 +10482,14 @@ namespace VRChat.API.Api
         public GroupPost UpdateGroupPost(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest)
         {
             VRChat.API.Client.ApiResponse<GroupPost> localVarResponse = UpdateGroupPostWithHttpInfo(groupId, notificationId, createGroupPostRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9720,15 +10544,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<GroupPost>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<GroupPost>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupPost>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupPost), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9743,6 +10568,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupPost> UpdateGroupPostAsync(string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupPost> localVarResponse = await UpdateGroupPostWithHttpInfoAsync(groupId, notificationId, createGroupPostRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9800,16 +10633,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<GroupPost>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<GroupPost>("/groups/{groupId}/posts/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupPost>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupPost), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9822,6 +10655,14 @@ namespace VRChat.API.Api
         public Success UpdateGroupRepresentation(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = UpdateGroupRepresentationWithHttpInfo(groupId, updateGroupRepresentationRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupRepresentation", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9870,15 +10711,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Success>("/groups/{groupId}/representation", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupRepresentation", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Success>("/groups/{groupId}/representation", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9892,6 +10734,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> UpdateGroupRepresentationAsync(string groupId, UpdateGroupRepresentationRequest updateGroupRepresentationRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await UpdateGroupRepresentationWithHttpInfoAsync(groupId, updateGroupRepresentationRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupRepresentation", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -9943,16 +10793,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/groups/{groupId}/representation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupRepresentation", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/groups/{groupId}/representation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -9966,6 +10816,14 @@ namespace VRChat.API.Api
         public List<GroupRole> UpdateGroupRole(string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = UpdateGroupRoleWithHttpInfo(groupId, groupRoleId, updateGroupRoleRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupRole", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -10016,15 +10874,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupRole", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupRole>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupRole>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -10039,6 +10898,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<GroupRole>> UpdateGroupRoleAsync(string groupId, string groupRoleId, UpdateGroupRoleRequest? updateGroupRoleRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<GroupRole>> localVarResponse = await UpdateGroupRoleWithHttpInfoAsync(groupId, groupRoleId, updateGroupRoleRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupRole", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -10092,16 +10959,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupRole", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<List<GroupRole>>("/groups/{groupId}/roles/{groupRoleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<GroupRole>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupRole>), ex.Message);
+            }
         }
 
     }

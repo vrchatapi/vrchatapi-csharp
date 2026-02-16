@@ -79,42 +79,18 @@ namespace VRChat.API.Model
         /// <param name="versions">  (required).</param>
         public File(ImageAnimationStyle? animationStyle = default, string extension = default, int frames = default, int framesOverTime = default, string id = default, ImageLoopStyle? loopStyle = default, ImageMask? maskTag = default, MIMEType mimeType = default, string modifiedThumbnailFileName = default, string name = default, string ownerId = default, List<string> tags = default, List<FileVersion> versions = default)
         {
-            // to ensure "extension" is required (not null)
-            if (extension == null)
-            {
-                throw new ArgumentNullException("extension is a required property for File and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Extension = extension;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for File and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.MimeType = mimeType;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for File and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            // to ensure "ownerId" is required (not null)
-            if (ownerId == null)
-            {
-                throw new ArgumentNullException("ownerId is a required property for File and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.OwnerId = ownerId;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for File and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // to ensure "versions" is required (not null)
-            if (versions == null)
-            {
-                throw new ArgumentNullException("versions is a required property for File and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Versions = versions;
             this.AnimationStyle = animationStyle;
             this.Frames = frames;

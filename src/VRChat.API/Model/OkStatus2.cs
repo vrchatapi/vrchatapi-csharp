@@ -43,11 +43,7 @@ namespace VRChat.API.Model
         /// <param name="oK">The actual status itself (required).</param>
         public OkStatus2(string oK = default)
         {
-            // to ensure "oK" is required (not null)
-            if (oK == null)
-            {
-                throw new ArgumentNullException("oK is a required property for OkStatus2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.OK = oK;
         }
 

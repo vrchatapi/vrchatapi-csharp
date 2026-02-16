@@ -52,41 +52,17 @@ namespace VRChat.API.Model
         public TokenBundle(int amount = default, string appleProductId = default, string description = default, string googleProductId = default, string id = default, string imageUrl = default, string oculusSku = default, string steamItemId = default, int tokens = default)
         {
             this.Amount = amount;
-            // to ensure "appleProductId" is required (not null)
-            if (appleProductId == null)
-            {
-                throw new ArgumentNullException("appleProductId is a required property for TokenBundle and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AppleProductId = appleProductId;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for TokenBundle and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for TokenBundle and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for TokenBundle and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
-            // to ensure "oculusSku" is required (not null)
-            if (oculusSku == null)
-            {
-                throw new ArgumentNullException("oculusSku is a required property for TokenBundle and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.OculusSku = oculusSku;
-            // to ensure "steamItemId" is required (not null)
-            if (steamItemId == null)
-            {
-                throw new ArgumentNullException("steamItemId is a required property for TokenBundle and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SteamItemId = steamItemId;
             this.Tokens = tokens;
             this.GoogleProductId = googleProductId;

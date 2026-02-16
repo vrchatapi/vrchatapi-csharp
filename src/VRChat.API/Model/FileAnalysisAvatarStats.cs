@@ -90,11 +90,7 @@ namespace VRChat.API.Model
             this.AudioSourceCount = audioSourceCount;
             this.BlendShapeCount = blendShapeCount;
             this.BoneCount = boneCount;
-            // to ensure "bounds" is required (not null)
-            if (bounds == null)
-            {
-                throw new ArgumentNullException("bounds is a required property for FileAnalysisAvatarStats and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Bounds = bounds;
             this.ClothCount = clothCount;
             this.ConstraintCount = constraintCount;

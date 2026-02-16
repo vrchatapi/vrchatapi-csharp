@@ -44,11 +44,7 @@ namespace VRChat.API.Model
         /// <param name="used">used (required).</param>
         public TwoFactorRecoveryCodesOtpInner(string code = default, bool used = default)
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for TwoFactorRecoveryCodesOtpInner and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Code = code;
             this.Used = used;
         }

@@ -58,36 +58,16 @@ namespace VRChat.API.Model
         /// <param name="statusDescription">statusDescription (required).</param>
         public MutualFriend(string avatarThumbnail = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, string displayName = default, string id = default, string imageUrl = default, string profilePicOverride = default, UserStatus status = default, string statusDescription = default)
         {
-            // to ensure "currentAvatarImageUrl" is required (not null)
-            if (currentAvatarImageUrl == null)
-            {
-                throw new ArgumentNullException("currentAvatarImageUrl is a required property for MutualFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatarImageUrl = currentAvatarImageUrl;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for MutualFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for MutualFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for MutualFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
             this.Status = status;
-            // to ensure "statusDescription" is required (not null)
-            if (statusDescription == null)
-            {
-                throw new ArgumentNullException("statusDescription is a required property for MutualFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StatusDescription = statusDescription;
             this.AvatarThumbnail = avatarThumbnail;
             this.CurrentAvatarTags = currentAvatarTags;

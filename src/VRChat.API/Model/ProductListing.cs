@@ -90,61 +90,29 @@ namespace VRChat.API.Model
         {
             this.Active = active;
             this.BuyerRefundable = buyerRefundable;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for ProductListing and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for ProductListing and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
             this.HasAvatar = hasAvatar;
             this.HasUdon = hasUdon;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for ProductListing and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.ListingType = listingType;
             this.PriceTokens = priceTokens;
-            // to ensure "productIds" is required (not null)
-            if (productIds == null)
-            {
-                throw new ArgumentNullException("productIds is a required property for ProductListing and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ProductIds = productIds;
             this.ProductType = productType;
-            // to ensure "products" is required (not null)
-            if (products == null)
-            {
-                throw new ArgumentNullException("products is a required property for ProductListing and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Products = products;
             this.Recurrable = recurrable;
             this.Refundable = refundable;
-            // to ensure "sellerDisplayName" is required (not null)
-            if (sellerDisplayName == null)
-            {
-                throw new ArgumentNullException("sellerDisplayName is a required property for ProductListing and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerDisplayName = sellerDisplayName;
-            // to ensure "sellerId" is required (not null)
-            if (sellerId == null)
-            {
-                throw new ArgumentNullException("sellerId is a required property for ProductListing and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerId = sellerId;
             this.Stackable = stackable;
-            // to ensure "storeIds" is required (not null)
-            if (storeIds == null)
-            {
-                throw new ArgumentNullException("storeIds is a required property for ProductListing and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StoreIds = storeIds;
             this.Duration = duration;
             this.DurationType = durationType;

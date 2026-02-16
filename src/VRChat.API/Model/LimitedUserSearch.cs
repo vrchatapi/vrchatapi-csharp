@@ -70,56 +70,24 @@ namespace VRChat.API.Model
         /// <param name="userIcon">userIcon.</param>
         public LimitedUserSearch(string bio = default, List<string> bioLinks = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DeveloperType developerType = default, string displayName = default, string id = default, bool isFriend = default, string lastPlatform = default, string profilePicOverride = default, string pronouns = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string userIcon = default)
         {
-            // to ensure "currentAvatarImageUrl" is required (not null)
-            if (currentAvatarImageUrl == null)
-            {
-                throw new ArgumentNullException("currentAvatarImageUrl is a required property for LimitedUserSearch and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatarImageUrl = currentAvatarImageUrl;
-            // to ensure "currentAvatarTags" is required (not null)
-            if (currentAvatarTags == null)
-            {
-                throw new ArgumentNullException("currentAvatarTags is a required property for LimitedUserSearch and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatarTags = currentAvatarTags;
-            // to ensure "currentAvatarThumbnailImageUrl" is required (not null)
-            if (currentAvatarThumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("currentAvatarThumbnailImageUrl is a required property for LimitedUserSearch and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
             this.DeveloperType = developerType;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for LimitedUserSearch and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for LimitedUserSearch and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsFriend = isFriend;
-            // to ensure "lastPlatform" is required (not null)
-            if (lastPlatform == null)
-            {
-                throw new ArgumentNullException("lastPlatform is a required property for LimitedUserSearch and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastPlatform = lastPlatform;
             this.Status = status;
-            // to ensure "statusDescription" is required (not null)
-            if (statusDescription == null)
-            {
-                throw new ArgumentNullException("statusDescription is a required property for LimitedUserSearch and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StatusDescription = statusDescription;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for LimitedUserSearch and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.Bio = bio;
             this.BioLinks = bioLinks;

@@ -46,29 +46,13 @@ namespace VRChat.API.Model
         /// <param name="status">status (required).</param>
         public TransactionSteamWalletInfo(string country = @"US", string currency = @"USD", string state = default, string status = default)
         {
-            // to ensure "country" is required (not null)
-            if (country == null)
-            {
-                throw new ArgumentNullException("country is a required property for TransactionSteamWalletInfo and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Country = country;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for TransactionSteamWalletInfo and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Currency = currency;
-            // to ensure "state" is required (not null)
-            if (state == null)
-            {
-                throw new ArgumentNullException("state is a required property for TransactionSteamWalletInfo and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.State = state;
-            // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new ArgumentNullException("status is a required property for TransactionSteamWalletInfo and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Status = status;
         }
 

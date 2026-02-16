@@ -44,17 +44,9 @@ namespace VRChat.API.Model
         /// <param name="metadata">metadata (required).</param>
         public WorldMetadata(string id = default, Object metadata = default)
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for WorldMetadata and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "metadata" is required (not null)
-            if (metadata == null)
-            {
-                throw new ArgumentNullException("metadata is a required property for WorldMetadata and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Metadata = metadata;
         }
 

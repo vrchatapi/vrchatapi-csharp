@@ -48,31 +48,15 @@ namespace VRChat.API.Model
         /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         public EconomyAccount(DateTime? accountActivatedOn = default, string accountId = default, bool blocked = default, bool canSpend = default, string source = default, string userId = default)
         {
-            // to ensure "accountActivatedOn" is required (not null)
-            if (accountActivatedOn == null)
-            {
-                throw new ArgumentNullException("accountActivatedOn is a required property for EconomyAccount and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AccountActivatedOn = accountActivatedOn;
-            // to ensure "accountId" is required (not null)
-            if (accountId == null)
-            {
-                throw new ArgumentNullException("accountId is a required property for EconomyAccount and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AccountId = accountId;
             this.Blocked = blocked;
             this.CanSpend = canSpend;
-            // to ensure "source" is required (not null)
-            if (source == null)
-            {
-                throw new ArgumentNullException("source is a required property for EconomyAccount and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Source = source;
-            // to ensure "userId" is required (not null)
-            if (userId == null)
-            {
-                throw new ArgumentNullException("userId is a required property for EconomyAccount and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserId = userId;
         }
 

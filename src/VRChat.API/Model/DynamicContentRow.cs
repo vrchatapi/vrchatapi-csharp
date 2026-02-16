@@ -50,35 +50,15 @@ namespace VRChat.API.Model
         /// <param name="type">Type is not present if it is a world..</param>
         public DynamicContentRow(int index = default, string name = default, string platform = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string tag = default, string type = default)
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for DynamicContentRow and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
-                throw new ArgumentNullException("platform is a required property for DynamicContentRow and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Platform = platform;
-            // to ensure "sortHeading" is required (not null)
-            if (sortHeading == null)
-            {
-                throw new ArgumentNullException("sortHeading is a required property for DynamicContentRow and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SortHeading = sortHeading;
-            // to ensure "sortOrder" is required (not null)
-            if (sortOrder == null)
-            {
-                throw new ArgumentNullException("sortOrder is a required property for DynamicContentRow and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SortOrder = sortOrder;
-            // to ensure "sortOwnership" is required (not null)
-            if (sortOwnership == null)
-            {
-                throw new ArgumentNullException("sortOwnership is a required property for DynamicContentRow and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SortOwnership = sortOwnership;
             this.Index = index;
             this.Tag = tag;

@@ -78,79 +78,31 @@ namespace VRChat.API.Model
         public LimitedUserFriend(string bio = default, List<string> bioLinks = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string id = default, string imageUrl = default, bool isFriend = default, DateTime? lastActivity = default, DateTime? lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string platform = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string userIcon = default)
         {
             this.DeveloperType = developerType;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
-            // to ensure "friendKey" is required (not null)
-            if (friendKey == null)
-            {
-                throw new ArgumentNullException("friendKey is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FriendKey = friendKey;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
             this.IsFriend = isFriend;
-            // to ensure "lastActivity" is required (not null)
-            if (lastActivity == null)
-            {
-                throw new ArgumentNullException("lastActivity is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastActivity = lastActivity;
-            // to ensure "lastLogin" is required (not null)
-            if (lastLogin == null)
-            {
-                throw new ArgumentNullException("lastLogin is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastLogin = lastLogin;
-            // to ensure "lastMobile" is required (not null)
-            if (lastMobile == null)
-            {
-                throw new ArgumentNullException("lastMobile is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastMobile = lastMobile;
-            // to ensure "lastPlatform" is required (not null)
-            if (lastPlatform == null)
-            {
-                throw new ArgumentNullException("lastPlatform is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastPlatform = lastPlatform;
-            // to ensure "location" is required (not null)
-            if (location == null)
-            {
-                throw new ArgumentNullException("location is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Location = location;
-            // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
-                throw new ArgumentNullException("platform is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Platform = platform;
             this.Status = status;
-            // to ensure "statusDescription" is required (not null)
-            if (statusDescription == null)
-            {
-                throw new ArgumentNullException("statusDescription is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StatusDescription = statusDescription;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for LimitedUserFriend and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.Bio = bio;
             this.BioLinks = bioLinks;

@@ -47,35 +47,15 @@ namespace VRChat.API.Model
         /// <param name="walletInfo">walletInfo (required).</param>
         public TransactionSteamInfo(string orderId = default, string steamId = default, string steamUrl = default, string transId = default, TransactionSteamWalletInfo walletInfo = default)
         {
-            // to ensure "orderId" is required (not null)
-            if (orderId == null)
-            {
-                throw new ArgumentNullException("orderId is a required property for TransactionSteamInfo and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.OrderId = orderId;
-            // to ensure "steamId" is required (not null)
-            if (steamId == null)
-            {
-                throw new ArgumentNullException("steamId is a required property for TransactionSteamInfo and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SteamId = steamId;
-            // to ensure "steamUrl" is required (not null)
-            if (steamUrl == null)
-            {
-                throw new ArgumentNullException("steamUrl is a required property for TransactionSteamInfo and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SteamUrl = steamUrl;
-            // to ensure "transId" is required (not null)
-            if (transId == null)
-            {
-                throw new ArgumentNullException("transId is a required property for TransactionSteamInfo and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TransId = transId;
-            // to ensure "walletInfo" is required (not null)
-            if (walletInfo == null)
-            {
-                throw new ArgumentNullException("walletInfo is a required property for TransactionSteamInfo and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.WalletInfo = walletInfo;
         }
 

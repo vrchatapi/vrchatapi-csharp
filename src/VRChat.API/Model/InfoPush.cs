@@ -60,32 +60,16 @@ namespace VRChat.API.Model
         public InfoPush(DateTime createdAt = default, InfoPushData data = default, DateTime endDate = default, string hash = default, string id = default, bool isEnabled = true, int priority = default, ReleaseStatus releaseStatus = default, DateTime startDate = default, List<string> tags = default, DateTime updatedAt = default)
         {
             this.CreatedAt = createdAt;
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for InfoPush and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Data = data;
-            // to ensure "hash" is required (not null)
-            if (hash == null)
-            {
-                throw new ArgumentNullException("hash is a required property for InfoPush and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Hash = hash;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for InfoPush and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsEnabled = isEnabled;
             this.Priority = priority;
             this.ReleaseStatus = releaseStatus;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for InfoPush and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.UpdatedAt = updatedAt;
             this.EndDate = endDate;

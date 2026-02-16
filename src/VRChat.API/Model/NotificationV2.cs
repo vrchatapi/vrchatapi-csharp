@@ -77,107 +77,43 @@ namespace VRChat.API.Model
         public NotificationV2(bool canDelete = default, string category = default, DateTime createdAt = default, Dictionary<string, string> data = default, NotificationV2DetailsBoop details = default, DateTime expiresAt = default, int? expiryAfterSeen = default, string id = default, bool ignoreDND = default, string imageUrl = default, bool isSystem = default, string link = default, string linkText = default, string linkTextKey = default, string message = default, string messageKey = default, string receiverUserId = default, string relatedNotificationsId = default, bool requireSeen = default, List<NotificationV2Response> responses = default, bool seen = default, string senderUserId = default, string senderUsername = default, string title = default, string titleKey = default, NotificationV2Type type = default, DateTime updatedAt = default, int varVersion = 2)
         {
             this.CanDelete = canDelete;
-            // to ensure "category" is required (not null)
-            if (category == null)
-            {
-                throw new ArgumentNullException("category is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Category = category;
             this.CreatedAt = createdAt;
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Data = data;
             this.ExpiresAt = expiresAt;
-            // to ensure "expiryAfterSeen" is required (not null)
-            if (expiryAfterSeen == null)
-            {
-                throw new ArgumentNullException("expiryAfterSeen is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ExpiryAfterSeen = expiryAfterSeen;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IgnoreDND = ignoreDND;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
             this.IsSystem = isSystem;
-            // to ensure "link" is required (not null)
-            if (link == null)
-            {
-                throw new ArgumentNullException("link is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Link = link;
-            // to ensure "linkText" is required (not null)
-            if (linkText == null)
-            {
-                throw new ArgumentNullException("linkText is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LinkText = linkText;
-            // to ensure "linkTextKey" is required (not null)
-            if (linkTextKey == null)
-            {
-                throw new ArgumentNullException("linkTextKey is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LinkTextKey = linkTextKey;
-            // to ensure "message" is required (not null)
-            if (message == null)
-            {
-                throw new ArgumentNullException("message is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Message = message;
-            // to ensure "receiverUserId" is required (not null)
-            if (receiverUserId == null)
-            {
-                throw new ArgumentNullException("receiverUserId is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ReceiverUserId = receiverUserId;
-            // to ensure "relatedNotificationsId" is required (not null)
-            if (relatedNotificationsId == null)
-            {
-                throw new ArgumentNullException("relatedNotificationsId is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.RelatedNotificationsId = relatedNotificationsId;
             this.RequireSeen = requireSeen;
-            // to ensure "responses" is required (not null)
-            if (responses == null)
-            {
-                throw new ArgumentNullException("responses is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Responses = responses;
             this.Seen = seen;
-            // to ensure "senderUserId" is required (not null)
-            if (senderUserId == null)
-            {
-                throw new ArgumentNullException("senderUserId is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SenderUserId = senderUserId;
-            // to ensure "senderUsername" is required (not null)
-            if (senderUsername == null)
-            {
-                throw new ArgumentNullException("senderUsername is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SenderUsername = senderUsername;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Title = title;
-            // to ensure "titleKey" is required (not null)
-            if (titleKey == null)
-            {
-                throw new ArgumentNullException("titleKey is a required property for NotificationV2 and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TitleKey = titleKey;
             this.Type = type;
             this.UpdatedAt = updatedAt;

@@ -44,17 +44,9 @@ namespace VRChat.API.Model
         /// <param name="results">results (required).</param>
         public CalendarEventDiscovery(string nextCursor = default, List<CalendarEvent> results = default)
         {
-            // to ensure "nextCursor" is required (not null)
-            if (nextCursor == null)
-            {
-                throw new ArgumentNullException("nextCursor is a required property for CalendarEventDiscovery and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.NextCursor = nextCursor;
-            // to ensure "results" is required (not null)
-            if (results == null)
-            {
-                throw new ArgumentNullException("results is a required property for CalendarEventDiscovery and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Results = results;
         }
 

@@ -433,6 +433,14 @@ namespace VRChat.API.Api
         public Success ClearAllPlayerModerations()
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = ClearAllPlayerModerationsWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClearAllPlayerModerations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -468,15 +476,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ClearAllPlayerModerations", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -488,6 +497,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> ClearAllPlayerModerationsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await ClearAllPlayerModerationsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClearAllPlayerModerations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -526,16 +543,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ClearAllPlayerModerations", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -548,6 +565,14 @@ namespace VRChat.API.Api
         public List<PlayerModeration> GetPlayerModerations(PlayerModerationType? type = default, string? targetUserId = default)
         {
             VRChat.API.Client.ApiResponse<List<PlayerModeration>> localVarResponse = GetPlayerModerationsWithHttpInfo(type, targetUserId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPlayerModerations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -593,15 +618,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<PlayerModeration>>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetPlayerModerations", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<PlayerModeration>>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<PlayerModeration>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<PlayerModeration>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -615,6 +641,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<PlayerModeration>> GetPlayerModerationsAsync(PlayerModerationType? type = default, string? targetUserId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<PlayerModeration>> localVarResponse = await GetPlayerModerationsWithHttpInfoAsync(type, targetUserId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPlayerModerations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -663,16 +697,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<PlayerModeration>>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetPlayerModerations", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<PlayerModeration>>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<PlayerModeration>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<PlayerModeration>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -684,6 +718,14 @@ namespace VRChat.API.Api
         public PlayerModeration ModerateUser(ModerateUserRequest moderateUserRequest)
         {
             VRChat.API.Client.ApiResponse<PlayerModeration> localVarResponse = ModerateUserWithHttpInfo(moderateUserRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ModerateUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -726,15 +768,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<PlayerModeration>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ModerateUser", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<PlayerModeration>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PlayerModeration>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PlayerModeration), ex.Message);
+            }
         }
 
         /// <summary>
@@ -747,6 +790,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PlayerModeration> ModerateUserAsync(ModerateUserRequest moderateUserRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PlayerModeration> localVarResponse = await ModerateUserWithHttpInfoAsync(moderateUserRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ModerateUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -792,16 +843,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<PlayerModeration>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ModerateUser", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<PlayerModeration>("/auth/user/playermoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PlayerModeration>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PlayerModeration), ex.Message);
+            }
         }
 
         /// <summary>
@@ -813,6 +864,14 @@ namespace VRChat.API.Api
         public Success UnmoderateUser(ModerateUserRequest moderateUserRequest)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = UnmoderateUserWithHttpInfo(moderateUserRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnmoderateUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -855,15 +914,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Success>("/auth/user/unplayermoderate", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UnmoderateUser", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Success>("/auth/user/unplayermoderate", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -876,6 +936,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> UnmoderateUserAsync(ModerateUserRequest moderateUserRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await UnmoderateUserWithHttpInfoAsync(moderateUserRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnmoderateUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -921,16 +989,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/unplayermoderate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UnmoderateUser", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/unplayermoderate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
     }

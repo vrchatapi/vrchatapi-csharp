@@ -79,91 +79,39 @@ namespace VRChat.API.Model
         /// <param name="validateUserAttributes">validateUserAttributes (required).</param>
         public InventoryItem(List<string> collections = default, DateTime createdAt = default, Dictionary<string, InventoryDefaultAttributesValue> defaultAttributes = default, string description = default, InventoryEquipSlot? equipSlot = default, List<InventoryEquipSlot> equipSlots = default, DateTime? expiryDate = default, List<string> flags = default, string holderId = default, string id = default, string imageUrl = default, bool isArchived = default, bool isSeen = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, bool quantifiable = default, List<string> tags = default, string templateId = default, DateTime templateCreatedAt = default, DateTime templateUpdatedAt = default, DateTime updatedAt = default, InventoryUserAttributes userAttributes = default, bool validateUserAttributes = default)
         {
-            // to ensure "collections" is required (not null)
-            if (collections == null)
-            {
-                throw new ArgumentNullException("collections is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Collections = collections;
             this.CreatedAt = createdAt;
-            // to ensure "defaultAttributes" is required (not null)
-            if (defaultAttributes == null)
-            {
-                throw new ArgumentNullException("defaultAttributes is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DefaultAttributes = defaultAttributes;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "flags" is required (not null)
-            if (flags == null)
-            {
-                throw new ArgumentNullException("flags is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Flags = flags;
-            // to ensure "holderId" is required (not null)
-            if (holderId == null)
-            {
-                throw new ArgumentNullException("holderId is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.HolderId = holderId;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
             this.IsArchived = isArchived;
             this.IsSeen = isSeen;
             this.ItemType = itemType;
-            // to ensure "itemTypeLabel" is required (not null)
-            if (itemTypeLabel == null)
-            {
-                throw new ArgumentNullException("itemTypeLabel is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ItemTypeLabel = itemTypeLabel;
-            // to ensure "metadata" is required (not null)
-            if (metadata == null)
-            {
-                throw new ArgumentNullException("metadata is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Metadata = metadata;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             this.Quantifiable = quantifiable;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // to ensure "templateId" is required (not null)
-            if (templateId == null)
-            {
-                throw new ArgumentNullException("templateId is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TemplateId = templateId;
             this.TemplateCreatedAt = templateCreatedAt;
             this.TemplateUpdatedAt = templateUpdatedAt;
             this.UpdatedAt = updatedAt;
-            // to ensure "userAttributes" is required (not null)
-            if (userAttributes == null)
-            {
-                throw new ArgumentNullException("userAttributes is a required property for InventoryItem and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserAttributes = userAttributes;
             this.ValidateUserAttributes = validateUserAttributes;
             this.EquipSlot = equipSlot;

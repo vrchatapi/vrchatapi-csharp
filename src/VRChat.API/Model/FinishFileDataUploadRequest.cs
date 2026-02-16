@@ -45,17 +45,9 @@ namespace VRChat.API.Model
         /// <param name="nextPartNumber">Always a zero in string form, despite how many parts uploaded. (required) (default to &quot;0&quot;).</param>
         public FinishFileDataUploadRequest(List<string> etags = default, string maxParts = @"0", string nextPartNumber = @"0")
         {
-            // to ensure "maxParts" is required (not null)
-            if (maxParts == null)
-            {
-                throw new ArgumentNullException("maxParts is a required property for FinishFileDataUploadRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.MaxParts = maxParts;
-            // to ensure "nextPartNumber" is required (not null)
-            if (nextPartNumber == null)
-            {
-                throw new ArgumentNullException("nextPartNumber is a required property for FinishFileDataUploadRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.NextPartNumber = nextPartNumber;
             this.Etags = etags;
         }

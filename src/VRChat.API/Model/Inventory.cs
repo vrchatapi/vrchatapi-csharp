@@ -44,11 +44,7 @@ namespace VRChat.API.Model
         /// <param name="totalCount">totalCount (required).</param>
         public Inventory(List<InventoryItem> data = default, int totalCount = default)
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for Inventory and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Data = data;
             this.TotalCount = totalCount;
         }

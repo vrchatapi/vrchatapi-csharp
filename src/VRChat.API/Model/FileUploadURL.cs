@@ -43,11 +43,7 @@ namespace VRChat.API.Model
         /// <param name="url">url (required).</param>
         public FileUploadURL(string url = default)
         {
-            // to ensure "url" is required (not null)
-            if (url == null)
-            {
-                throw new ArgumentNullException("url is a required property for FileUploadURL and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Url = url;
         }
 

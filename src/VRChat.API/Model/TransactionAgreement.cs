@@ -60,78 +60,34 @@ namespace VRChat.API.Model
         /// <param name="timeCreated">timeCreated (required).</param>
         public TransactionAgreement(string agreement = default, string agreementId = default, string billingType = default, string currency = default, string endDate = default, int failedAttempts = default, int frequency = default, int itemId = default, decimal lastAmount = default, decimal lastAmountVat = default, string lastPayment = default, string nextPayment = default, int outstanding = default, string period = default, decimal recurringAmt = default, string startDate = default, string status = default, string timeCreated = default)
         {
-            // to ensure "agreement" is required (not null)
-            if (agreement == null)
-            {
-                throw new ArgumentNullException("agreement is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Agreement = agreement;
-            // to ensure "agreementId" is required (not null)
-            if (agreementId == null)
-            {
-                throw new ArgumentNullException("agreementId is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AgreementId = agreementId;
-            // to ensure "billingType" is required (not null)
-            if (billingType == null)
-            {
-                throw new ArgumentNullException("billingType is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BillingType = billingType;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Currency = currency;
-            // to ensure "endDate" is required (not null)
-            if (endDate == null)
-            {
-                throw new ArgumentNullException("endDate is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.EndDate = endDate;
             this.FailedAttempts = failedAttempts;
             this.Frequency = frequency;
             this.ItemId = itemId;
             this.LastAmount = lastAmount;
             this.LastAmountVat = lastAmountVat;
-            // to ensure "lastPayment" is required (not null)
-            if (lastPayment == null)
-            {
-                throw new ArgumentNullException("lastPayment is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastPayment = lastPayment;
-            // to ensure "nextPayment" is required (not null)
-            if (nextPayment == null)
-            {
-                throw new ArgumentNullException("nextPayment is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.NextPayment = nextPayment;
             this.Outstanding = outstanding;
-            // to ensure "period" is required (not null)
-            if (period == null)
-            {
-                throw new ArgumentNullException("period is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Period = period;
             this.RecurringAmt = recurringAmt;
-            // to ensure "startDate" is required (not null)
-            if (startDate == null)
-            {
-                throw new ArgumentNullException("startDate is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StartDate = startDate;
-            // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new ArgumentNullException("status is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Status = status;
-            // to ensure "timeCreated" is required (not null)
-            if (timeCreated == null)
-            {
-                throw new ArgumentNullException("timeCreated is a required property for TransactionAgreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TimeCreated = timeCreated;
         }
 

@@ -48,41 +48,17 @@ namespace VRChat.API.Model
         /// <param name="iOSMobile">iOSMobile (required).</param>
         public APIConfigAvatarPerfLimiter(PerformanceLimiterInfo androidMobile = default, PerformanceLimiterInfo pC = default, PerformanceLimiterInfo pico = default, PerformanceLimiterInfo quest = default, PerformanceLimiterInfo xRElite = default, PerformanceLimiterInfo iOSMobile = default)
         {
-            // to ensure "androidMobile" is required (not null)
-            if (androidMobile == null)
-            {
-                throw new ArgumentNullException("androidMobile is a required property for APIConfigAvatarPerfLimiter and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AndroidMobile = androidMobile;
-            // to ensure "pC" is required (not null)
-            if (pC == null)
-            {
-                throw new ArgumentNullException("pC is a required property for APIConfigAvatarPerfLimiter and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PC = pC;
-            // to ensure "pico" is required (not null)
-            if (pico == null)
-            {
-                throw new ArgumentNullException("pico is a required property for APIConfigAvatarPerfLimiter and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Pico = pico;
-            // to ensure "quest" is required (not null)
-            if (quest == null)
-            {
-                throw new ArgumentNullException("quest is a required property for APIConfigAvatarPerfLimiter and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Quest = quest;
-            // to ensure "xRElite" is required (not null)
-            if (xRElite == null)
-            {
-                throw new ArgumentNullException("xRElite is a required property for APIConfigAvatarPerfLimiter and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.XRElite = xRElite;
-            // to ensure "iOSMobile" is required (not null)
-            if (iOSMobile == null)
-            {
-                throw new ArgumentNullException("iOSMobile is a required property for APIConfigAvatarPerfLimiter and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.IOSMobile = iOSMobile;
         }
 

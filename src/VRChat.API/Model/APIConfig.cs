@@ -168,27 +168,15 @@ namespace VRChat.API.Model
         /// <param name="whiteListedAssetUrls">List of allowed URLs that are allowed to host avatar assets (required).</param>
         public APIConfig(string campaignStatus = default, bool disableBackgroundPreloads = true, bool locationGiftingNonSubPrioEnabled = true, bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, APIConfigAccessLogsUrls accessLogsUrls = default, string address = default, bool ageVerificationInviteVisible = default, bool ageVerificationP = default, bool ageVerificationStatusVisible = default, int analysisMaxRetries = default, int analysisRetryInterval = default, int analyticsSegmentNewUIPctOfUsers = default, string analyticsSegmentNewUISalt = default, List<APIConfigAnnouncement> announcements = default, APIConfigAudioConfig audioConfig = default, List<string> availableLanguageCodes = default, List<string> availableLanguages = default, APIConfigAvatarPerfLimiter avatarPerfLimiter = default, int chatboxLogBufferSeconds = 40, string clientApiKey = default, int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, bool clientNetDispatchThread = false, bool clientNetDispatchThreadMobile = true, bool clientNetInThread = false, bool clientNetInThread2 = false, bool clientNetInThreadMobile = false, bool clientNetInThreadMobile2 = false, bool clientNetOutThread = false, bool clientNetOutThread2 = false, bool clientNetOutThreadMobile = false, bool clientNetOutThreadMobile2 = false, int clientQR = 1, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, APIConfigConstants constants = default, string contactEmail = default, string copyrightEmail = default, string copyrightFormUrl = default, int currentPrivacyVersion = 1, int currentTOSVersion = default, string defaultAvatar = default, string defaultStickerSet = default, List<string> devLanguageCodes = default, string devSdkUrl = default, string devSdkVersion = default, DateTime disCountdown = default, bool disableAVProInProton = false, bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCaptcha = true, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableGiftDrops = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default, APIConfigDownloadURLList downloadUrls = default, List<DynamicContentRow> dynamicWorldRows = default, bool economyLedgerBackfill = default, string economyLedgerMigrationStop = default, string economyLedgerMode = default, DateTime economyPauseEnd = default, DateTime economyPauseStart = default, bool economyPurchaseRepairEnabled = default, int economyState = 1, APIConfigEvents events = default, bool forceUseLatestWorld = true, string giftDisplayType = default, string googleApiClientId = @"827942544393-r2ouvckvouldn9dg9uruseje575e878f.apps.googleusercontent.com", string homeWorldId = default, string homepageRedirectTarget = @"https://hello.vrchat.com", string hubWorldId = default, List<string> imageHostUrlList = default, List<string> iosAppVersion = default, APIConfigIosVersion iosVersion = default, string jobsEmail = default, int maxUserEmoji = 18, int maxUserStickers = 18, APIConfigMinSupportedClientBuildNumber minSupportedClientBuildNumber = default, string minimumUnityVersionForUploads = @"2019.0.0f1", string moderationEmail = default, string notAllowedToSelectAvatarInPrivateWorldMessage = default, APIConfigOfflineAnalysis offlineAnalysis = default, List<string> photonNameserverOverrides = default, List<string> photonPublicKeys = default, string playerUrlResolverSha1 = default, string playerUrlResolverVersion = default, string publicKey = default, Dictionary<string, ReportCategory> reportCategories = default, string reportFormUrl = @"https://help.vrchat.com/hc/en-us/requests/new?ticket_form_id=1500000182242&tf_360056455174=user_report&tf_360057451993={userId}&tf_1500001445142={reportedId}&tf_subject={reason} {category} By {contentType} {reportedName}&tf_description={description}", Dictionary<string, Dictionary<string, List<string>>> reportOptions = default, Dictionary<string, ReportReason> reportReasons = default, bool requireAgeVerificationBetaTag = default, string sdkDeveloperFaqUrl = default, string sdkDiscordUrl = default, string sdkNotAllowedToPublishMessage = default, string sdkUnityVersion = default, List<string> stringHostUrlList = default, string supportEmail = default, string supportFormUrl = default, string timeOutWorldId = default, bool timekeeping = true, string tutorialWorldId = default, int updateRateMsMaximum = default, int updateRateMsMinimum = default, int updateRateMsNormal = default, int updateRateMsUdonManual = default, int uploadAnalysisPercent = default, List<string> urlList = default, bool useReliableUdpForVoice = false, string viveWindowsUrl = default, int websocketMaxFriendsRefreshDelay = 900, int websocketQuickReconnectTime = 2, int websocketReconnectMaxDelay = 2, List<string> whiteListedAssetUrls = default)
         {
-            // to ensure "campaignStatus" is required (not null)
-            if (campaignStatus == null)
-            {
-                throw new ArgumentNullException("campaignStatus is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CampaignStatus = campaignStatus;
             this.DisableBackgroundPreloads = disableBackgroundPreloads;
             this.LocationGiftingNonSubPrioEnabled = locationGiftingNonSubPrioEnabled;
             this.VoiceEnableDegradation = voiceEnableDegradation;
             this.VoiceEnableReceiverLimiting = voiceEnableReceiverLimiting;
-            // to ensure "accessLogsUrls" is required (not null)
-            if (accessLogsUrls == null)
-            {
-                throw new ArgumentNullException("accessLogsUrls is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AccessLogsUrls = accessLogsUrls;
-            // to ensure "address" is required (not null)
-            if (address == null)
-            {
-                throw new ArgumentNullException("address is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Address = address;
             this.AgeVerificationInviteVisible = ageVerificationInviteVisible;
             this.AgeVerificationP = ageVerificationP;
@@ -196,97 +184,41 @@ namespace VRChat.API.Model
             this.AnalysisMaxRetries = analysisMaxRetries;
             this.AnalysisRetryInterval = analysisRetryInterval;
             this.AnalyticsSegmentNewUIPctOfUsers = analyticsSegmentNewUIPctOfUsers;
-            // to ensure "analyticsSegmentNewUISalt" is required (not null)
-            if (analyticsSegmentNewUISalt == null)
-            {
-                throw new ArgumentNullException("analyticsSegmentNewUISalt is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AnalyticsSegmentNewUISalt = analyticsSegmentNewUISalt;
-            // to ensure "announcements" is required (not null)
-            if (announcements == null)
-            {
-                throw new ArgumentNullException("announcements is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Announcements = announcements;
-            // to ensure "availableLanguageCodes" is required (not null)
-            if (availableLanguageCodes == null)
-            {
-                throw new ArgumentNullException("availableLanguageCodes is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AvailableLanguageCodes = availableLanguageCodes;
-            // to ensure "availableLanguages" is required (not null)
-            if (availableLanguages == null)
-            {
-                throw new ArgumentNullException("availableLanguages is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AvailableLanguages = availableLanguages;
-            // to ensure "avatarPerfLimiter" is required (not null)
-            if (avatarPerfLimiter == null)
-            {
-                throw new ArgumentNullException("avatarPerfLimiter is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AvatarPerfLimiter = avatarPerfLimiter;
             this.ChatboxLogBufferSeconds = chatboxLogBufferSeconds;
-            // to ensure "clientApiKey" is required (not null)
-            if (clientApiKey == null)
-            {
-                throw new ArgumentNullException("clientApiKey is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ClientApiKey = clientApiKey;
             this.ClientBPSCeiling = clientBPSCeiling;
             this.ClientDisconnectTimeout = clientDisconnectTimeout;
             this.ClientNetDispatchThreadMobile = clientNetDispatchThreadMobile;
             this.ClientReservedPlayerBPS = clientReservedPlayerBPS;
             this.ClientSentCountAllowance = clientSentCountAllowance;
-            // to ensure "constants" is required (not null)
-            if (constants == null)
-            {
-                throw new ArgumentNullException("constants is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Constants = constants;
-            // to ensure "contactEmail" is required (not null)
-            if (contactEmail == null)
-            {
-                throw new ArgumentNullException("contactEmail is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContactEmail = contactEmail;
-            // to ensure "copyrightEmail" is required (not null)
-            if (copyrightEmail == null)
-            {
-                throw new ArgumentNullException("copyrightEmail is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CopyrightEmail = copyrightEmail;
-            // to ensure "copyrightFormUrl" is required (not null)
-            if (copyrightFormUrl == null)
-            {
-                throw new ArgumentNullException("copyrightFormUrl is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CopyrightFormUrl = copyrightFormUrl;
             this.CurrentPrivacyVersion = currentPrivacyVersion;
             this.CurrentTOSVersion = currentTOSVersion;
-            // to ensure "defaultAvatar" is required (not null)
-            if (defaultAvatar == null)
-            {
-                throw new ArgumentNullException("defaultAvatar is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DefaultAvatar = defaultAvatar;
-            // to ensure "defaultStickerSet" is required (not null)
-            if (defaultStickerSet == null)
-            {
-                throw new ArgumentNullException("defaultStickerSet is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DefaultStickerSet = defaultStickerSet;
-            // to ensure "devSdkUrl" is required (not null)
-            if (devSdkUrl == null)
-            {
-                throw new ArgumentNullException("devSdkUrl is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DevSdkUrl = devSdkUrl;
-            // to ensure "devSdkVersion" is required (not null)
-            if (devSdkVersion == null)
-            {
-                throw new ArgumentNullException("devSdkVersion is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DevSdkVersion = devSdkVersion;
             this.DisCountdown = disCountdown;
             this.DisableAvatarCopying = disableAvatarCopying;
@@ -305,270 +237,106 @@ namespace VRChat.API.Model
             this.DisableTwoFactorAuth = disableTwoFactorAuth;
             this.DisableUdon = disableUdon;
             this.DisableUpgradeAccount = disableUpgradeAccount;
-            // to ensure "downloadLinkWindows" is required (not null)
-            if (downloadLinkWindows == null)
-            {
-                throw new ArgumentNullException("downloadLinkWindows is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DownloadLinkWindows = downloadLinkWindows;
-            // to ensure "downloadUrls" is required (not null)
-            if (downloadUrls == null)
-            {
-                throw new ArgumentNullException("downloadUrls is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DownloadUrls = downloadUrls;
-            // to ensure "dynamicWorldRows" is required (not null)
-            if (dynamicWorldRows == null)
-            {
-                throw new ArgumentNullException("dynamicWorldRows is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DynamicWorldRows = dynamicWorldRows;
             this.EconomyLedgerBackfill = economyLedgerBackfill;
-            // to ensure "economyLedgerMigrationStop" is required (not null)
-            if (economyLedgerMigrationStop == null)
-            {
-                throw new ArgumentNullException("economyLedgerMigrationStop is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.EconomyLedgerMigrationStop = economyLedgerMigrationStop;
-            // to ensure "economyLedgerMode" is required (not null)
-            if (economyLedgerMode == null)
-            {
-                throw new ArgumentNullException("economyLedgerMode is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.EconomyLedgerMode = economyLedgerMode;
             this.EconomyPauseEnd = economyPauseEnd;
             this.EconomyPauseStart = economyPauseStart;
             this.EconomyPurchaseRepairEnabled = economyPurchaseRepairEnabled;
             this.EconomyState = economyState;
-            // to ensure "events" is required (not null)
-            if (events == null)
-            {
-                throw new ArgumentNullException("events is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Events = events;
             this.ForceUseLatestWorld = forceUseLatestWorld;
-            // to ensure "giftDisplayType" is required (not null)
-            if (giftDisplayType == null)
-            {
-                throw new ArgumentNullException("giftDisplayType is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.GiftDisplayType = giftDisplayType;
-            // to ensure "googleApiClientId" is required (not null)
-            if (googleApiClientId == null)
-            {
-                throw new ArgumentNullException("googleApiClientId is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.GoogleApiClientId = googleApiClientId;
-            // to ensure "homeWorldId" is required (not null)
-            if (homeWorldId == null)
-            {
-                throw new ArgumentNullException("homeWorldId is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.HomeWorldId = homeWorldId;
-            // to ensure "homepageRedirectTarget" is required (not null)
-            if (homepageRedirectTarget == null)
-            {
-                throw new ArgumentNullException("homepageRedirectTarget is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.HomepageRedirectTarget = homepageRedirectTarget;
-            // to ensure "hubWorldId" is required (not null)
-            if (hubWorldId == null)
-            {
-                throw new ArgumentNullException("hubWorldId is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.HubWorldId = hubWorldId;
-            // to ensure "imageHostUrlList" is required (not null)
-            if (imageHostUrlList == null)
-            {
-                throw new ArgumentNullException("imageHostUrlList is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageHostUrlList = imageHostUrlList;
-            // to ensure "iosAppVersion" is required (not null)
-            if (iosAppVersion == null)
-            {
-                throw new ArgumentNullException("iosAppVersion is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.IosAppVersion = iosAppVersion;
-            // to ensure "iosVersion" is required (not null)
-            if (iosVersion == null)
-            {
-                throw new ArgumentNullException("iosVersion is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.IosVersion = iosVersion;
-            // to ensure "jobsEmail" is required (not null)
-            if (jobsEmail == null)
-            {
-                throw new ArgumentNullException("jobsEmail is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.JobsEmail = jobsEmail;
             this.MaxUserEmoji = maxUserEmoji;
             this.MaxUserStickers = maxUserStickers;
-            // to ensure "minSupportedClientBuildNumber" is required (not null)
-            if (minSupportedClientBuildNumber == null)
-            {
-                throw new ArgumentNullException("minSupportedClientBuildNumber is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.MinSupportedClientBuildNumber = minSupportedClientBuildNumber;
-            // to ensure "minimumUnityVersionForUploads" is required (not null)
-            if (minimumUnityVersionForUploads == null)
-            {
-                throw new ArgumentNullException("minimumUnityVersionForUploads is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.MinimumUnityVersionForUploads = minimumUnityVersionForUploads;
-            // to ensure "moderationEmail" is required (not null)
-            if (moderationEmail == null)
-            {
-                throw new ArgumentNullException("moderationEmail is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ModerationEmail = moderationEmail;
-            // to ensure "notAllowedToSelectAvatarInPrivateWorldMessage" is required (not null)
-            if (notAllowedToSelectAvatarInPrivateWorldMessage == null)
-            {
-                throw new ArgumentNullException("notAllowedToSelectAvatarInPrivateWorldMessage is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.NotAllowedToSelectAvatarInPrivateWorldMessage = notAllowedToSelectAvatarInPrivateWorldMessage;
-            // to ensure "offlineAnalysis" is required (not null)
-            if (offlineAnalysis == null)
-            {
-                throw new ArgumentNullException("offlineAnalysis is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.OfflineAnalysis = offlineAnalysis;
-            // to ensure "photonNameserverOverrides" is required (not null)
-            if (photonNameserverOverrides == null)
-            {
-                throw new ArgumentNullException("photonNameserverOverrides is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PhotonNameserverOverrides = photonNameserverOverrides;
-            // to ensure "photonPublicKeys" is required (not null)
-            if (photonPublicKeys == null)
-            {
-                throw new ArgumentNullException("photonPublicKeys is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PhotonPublicKeys = photonPublicKeys;
-            // to ensure "playerUrlResolverSha1" is required (not null)
-            if (playerUrlResolverSha1 == null)
-            {
-                throw new ArgumentNullException("playerUrlResolverSha1 is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PlayerUrlResolverSha1 = playerUrlResolverSha1;
-            // to ensure "playerUrlResolverVersion" is required (not null)
-            if (playerUrlResolverVersion == null)
-            {
-                throw new ArgumentNullException("playerUrlResolverVersion is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PlayerUrlResolverVersion = playerUrlResolverVersion;
-            // to ensure "publicKey" is required (not null)
-            if (publicKey == null)
-            {
-                throw new ArgumentNullException("publicKey is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PublicKey = publicKey;
-            // to ensure "reportCategories" is required (not null)
-            if (reportCategories == null)
-            {
-                throw new ArgumentNullException("reportCategories is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ReportCategories = reportCategories;
-            // to ensure "reportFormUrl" is required (not null)
-            if (reportFormUrl == null)
-            {
-                throw new ArgumentNullException("reportFormUrl is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ReportFormUrl = reportFormUrl;
-            // to ensure "reportOptions" is required (not null)
-            if (reportOptions == null)
-            {
-                throw new ArgumentNullException("reportOptions is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ReportOptions = reportOptions;
-            // to ensure "reportReasons" is required (not null)
-            if (reportReasons == null)
-            {
-                throw new ArgumentNullException("reportReasons is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ReportReasons = reportReasons;
             this.RequireAgeVerificationBetaTag = requireAgeVerificationBetaTag;
-            // to ensure "sdkDeveloperFaqUrl" is required (not null)
-            if (sdkDeveloperFaqUrl == null)
-            {
-                throw new ArgumentNullException("sdkDeveloperFaqUrl is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SdkDeveloperFaqUrl = sdkDeveloperFaqUrl;
-            // to ensure "sdkDiscordUrl" is required (not null)
-            if (sdkDiscordUrl == null)
-            {
-                throw new ArgumentNullException("sdkDiscordUrl is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SdkDiscordUrl = sdkDiscordUrl;
-            // to ensure "sdkNotAllowedToPublishMessage" is required (not null)
-            if (sdkNotAllowedToPublishMessage == null)
-            {
-                throw new ArgumentNullException("sdkNotAllowedToPublishMessage is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SdkNotAllowedToPublishMessage = sdkNotAllowedToPublishMessage;
-            // to ensure "sdkUnityVersion" is required (not null)
-            if (sdkUnityVersion == null)
-            {
-                throw new ArgumentNullException("sdkUnityVersion is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SdkUnityVersion = sdkUnityVersion;
-            // to ensure "stringHostUrlList" is required (not null)
-            if (stringHostUrlList == null)
-            {
-                throw new ArgumentNullException("stringHostUrlList is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StringHostUrlList = stringHostUrlList;
-            // to ensure "supportEmail" is required (not null)
-            if (supportEmail == null)
-            {
-                throw new ArgumentNullException("supportEmail is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SupportEmail = supportEmail;
-            // to ensure "supportFormUrl" is required (not null)
-            if (supportFormUrl == null)
-            {
-                throw new ArgumentNullException("supportFormUrl is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SupportFormUrl = supportFormUrl;
-            // to ensure "timeOutWorldId" is required (not null)
-            if (timeOutWorldId == null)
-            {
-                throw new ArgumentNullException("timeOutWorldId is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TimeOutWorldId = timeOutWorldId;
             this.Timekeeping = timekeeping;
-            // to ensure "tutorialWorldId" is required (not null)
-            if (tutorialWorldId == null)
-            {
-                throw new ArgumentNullException("tutorialWorldId is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TutorialWorldId = tutorialWorldId;
             this.UpdateRateMsMaximum = updateRateMsMaximum;
             this.UpdateRateMsMinimum = updateRateMsMinimum;
             this.UpdateRateMsNormal = updateRateMsNormal;
             this.UpdateRateMsUdonManual = updateRateMsUdonManual;
             this.UploadAnalysisPercent = uploadAnalysisPercent;
-            // to ensure "urlList" is required (not null)
-            if (urlList == null)
-            {
-                throw new ArgumentNullException("urlList is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UrlList = urlList;
             this.UseReliableUdpForVoice = useReliableUdpForVoice;
-            // to ensure "viveWindowsUrl" is required (not null)
-            if (viveWindowsUrl == null)
-            {
-                throw new ArgumentNullException("viveWindowsUrl is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ViveWindowsUrl = viveWindowsUrl;
             this.WebsocketMaxFriendsRefreshDelay = websocketMaxFriendsRefreshDelay;
             this.WebsocketQuickReconnectTime = websocketQuickReconnectTime;
             this.WebsocketReconnectMaxDelay = websocketReconnectMaxDelay;
-            // to ensure "whiteListedAssetUrls" is required (not null)
-            if (whiteListedAssetUrls == null)
-            {
-                throw new ArgumentNullException("whiteListedAssetUrls is a required property for APIConfig and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.WhiteListedAssetUrls = whiteListedAssetUrls;
             this.AudioConfig = audioConfig;
             this.ClientNetDispatchThread = clientNetDispatchThread;

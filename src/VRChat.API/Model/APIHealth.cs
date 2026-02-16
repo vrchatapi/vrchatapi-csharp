@@ -45,18 +45,10 @@ namespace VRChat.API.Model
         /// <param name="serverName">serverName (required).</param>
         public APIHealth(string buildVersionTag = default, bool ok = default, string serverName = default)
         {
-            // to ensure "buildVersionTag" is required (not null)
-            if (buildVersionTag == null)
-            {
-                throw new ArgumentNullException("buildVersionTag is a required property for APIHealth and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BuildVersionTag = buildVersionTag;
             this.Ok = ok;
-            // to ensure "serverName" is required (not null)
-            if (serverName == null)
-            {
-                throw new ArgumentNullException("serverName is a required property for APIHealth and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ServerName = serverName;
         }
 

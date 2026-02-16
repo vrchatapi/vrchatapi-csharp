@@ -52,48 +52,20 @@ namespace VRChat.API.Model
         public RegisterUserAccountRequest(int acceptedTOSVersion = default, string captchaCode = default, string day = default, string email = default, string month = default, string password = default, bool subscribe = default, string username = default, string year = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
-            // to ensure "captchaCode" is required (not null)
-            if (captchaCode == null)
-            {
-                throw new ArgumentNullException("captchaCode is a required property for RegisterUserAccountRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CaptchaCode = captchaCode;
-            // to ensure "day" is required (not null)
-            if (day == null)
-            {
-                throw new ArgumentNullException("day is a required property for RegisterUserAccountRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Day = day;
-            // to ensure "email" is required (not null)
-            if (email == null)
-            {
-                throw new ArgumentNullException("email is a required property for RegisterUserAccountRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Email = email;
-            // to ensure "month" is required (not null)
-            if (month == null)
-            {
-                throw new ArgumentNullException("month is a required property for RegisterUserAccountRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Month = month;
-            // to ensure "password" is required (not null)
-            if (password == null)
-            {
-                throw new ArgumentNullException("password is a required property for RegisterUserAccountRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Password = password;
             this.Subscribe = subscribe;
-            // to ensure "username" is required (not null)
-            if (username == null)
-            {
-                throw new ArgumentNullException("username is a required property for RegisterUserAccountRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Username = username;
-            // to ensure "year" is required (not null)
-            if (year == null)
-            {
-                throw new ArgumentNullException("year is a required property for RegisterUserAccountRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Year = year;
         }
 

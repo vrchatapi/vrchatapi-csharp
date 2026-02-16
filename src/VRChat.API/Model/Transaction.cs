@@ -62,25 +62,13 @@ namespace VRChat.API.Model
         public Transaction(TransactionAgreement agreement = default, DateTime createdAt = default, string error = default, string id = default, bool isGift = false, bool isTokens = false, bool sandbox = false, TransactionStatus status = default, TransactionSteamInfo steam = default, Subscription subscription = default, DateTime updatedAt = default, string userDisplayName = default, string userId = default)
         {
             this.CreatedAt = createdAt;
-            // to ensure "error" is required (not null)
-            if (error == null)
-            {
-                throw new ArgumentNullException("error is a required property for Transaction and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Error = error;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Transaction and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.Sandbox = sandbox;
             this.Status = status;
-            // to ensure "subscription" is required (not null)
-            if (subscription == null)
-            {
-                throw new ArgumentNullException("subscription is a required property for Transaction and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Subscription = subscription;
             this.UpdatedAt = updatedAt;
             this.Agreement = agreement;

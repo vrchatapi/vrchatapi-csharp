@@ -390,6 +390,14 @@ namespace VRChat.API.Api
         public Jam GetJam(string jamId)
         {
             VRChat.API.Client.ApiResponse<Jam> localVarResponse = GetJamWithHttpInfo(jamId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetJam", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -431,15 +439,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Jam>("/jams/{jamId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetJam", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<Jam>("/jams/{jamId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Jam>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Jam), ex.Message);
+            }
         }
 
         /// <summary>
@@ -452,6 +461,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Jam> GetJamAsync(string jamId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Jam> localVarResponse = await GetJamWithHttpInfoAsync(jamId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetJam", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -496,16 +513,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Jam>("/jams/{jamId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetJam", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Jam>("/jams/{jamId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Jam>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Jam), ex.Message);
+            }
         }
 
         /// <summary>
@@ -517,6 +534,14 @@ namespace VRChat.API.Api
         public List<Submission> GetJamSubmissions(string jamId)
         {
             VRChat.API.Client.ApiResponse<List<Submission>> localVarResponse = GetJamSubmissionsWithHttpInfo(jamId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetJamSubmissions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -558,15 +583,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Submission>>("/jams/{jamId}/submissions", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetJamSubmissions", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<Submission>>("/jams/{jamId}/submissions", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Submission>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Submission>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -579,6 +605,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<Submission>> GetJamSubmissionsAsync(string jamId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Submission>> localVarResponse = await GetJamSubmissionsWithHttpInfoAsync(jamId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetJamSubmissions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -623,16 +657,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Submission>>("/jams/{jamId}/submissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetJamSubmissions", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Submission>>("/jams/{jamId}/submissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Submission>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Submission>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -644,6 +678,14 @@ namespace VRChat.API.Api
         public List<Jam> GetJams(string? type = default)
         {
             VRChat.API.Client.ApiResponse<List<Jam>> localVarResponse = GetJamsWithHttpInfo(type);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetJams", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -684,15 +726,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Jam>>("/jams", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetJams", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<Jam>>("/jams", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Jam>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Jam>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -705,6 +748,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<Jam>> GetJamsAsync(string? type = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Jam>> localVarResponse = await GetJamsWithHttpInfoAsync(type, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetJams", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -748,16 +799,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Jam>>("/jams", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetJams", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Jam>>("/jams", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Jam>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Jam>), ex.Message);
+            }
         }
 
     }

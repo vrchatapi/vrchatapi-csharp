@@ -50,11 +50,7 @@ namespace VRChat.API.Model
         /// <param name="type">type (required).</param>
         public ModerateUserRequest(string moderated = default, PlayerModerationType type = default)
         {
-            // to ensure "moderated" is required (not null)
-            if (moderated == null)
-            {
-                throw new ArgumentNullException("moderated is a required property for ModerateUserRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Moderated = moderated;
             this.Type = type;
         }

@@ -79,11 +79,7 @@ namespace VRChat.API.Model
         {
             this.Region = region;
             this.Type = type;
-            // to ensure "worldId" is required (not null)
-            if (worldId == null)
-            {
-                throw new ArgumentNullException("worldId is a required property for CreateInstanceRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.WorldId = worldId;
             this.AgeGate = ageGate;
             this.CalendarEntryId = calendarEntryId;

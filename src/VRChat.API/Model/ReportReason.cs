@@ -44,17 +44,9 @@ namespace VRChat.API.Model
         /// <param name="tooltip">A brief explanation of what this reason entails (required).</param>
         public ReportReason(string text = default, string tooltip = default)
         {
-            // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new ArgumentNullException("text is a required property for ReportReason and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Text = text;
-            // to ensure "tooltip" is required (not null)
-            if (tooltip == null)
-            {
-                throw new ArgumentNullException("tooltip is a required property for ReportReason and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tooltip = tooltip;
         }
 

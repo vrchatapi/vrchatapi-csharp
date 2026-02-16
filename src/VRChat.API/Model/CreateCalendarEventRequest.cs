@@ -75,20 +75,12 @@ namespace VRChat.API.Model
         {
             this.AccessType = accessType;
             this.Category = category;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for CreateCalendarEventRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
             this.EndsAt = endsAt;
             this.SendCreationNotification = sendCreationNotification;
             this.StartsAt = startsAt;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for CreateCalendarEventRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Title = title;
             this.CloseInstanceAfterEndMinutes = closeInstanceAfterEndMinutes;
             this.Featured = featured;

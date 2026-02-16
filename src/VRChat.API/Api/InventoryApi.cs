@@ -934,6 +934,14 @@ namespace VRChat.API.Api
         public InventoryConsumptionResults ConsumeOwnInventoryItem(string inventoryItemId)
         {
             VRChat.API.Client.ApiResponse<InventoryConsumptionResults> localVarResponse = ConsumeOwnInventoryItemWithHttpInfo(inventoryItemId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ConsumeOwnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -975,15 +983,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<InventoryConsumptionResults>("/inventory/{inventoryItemId}/consume", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ConsumeOwnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<InventoryConsumptionResults>("/inventory/{inventoryItemId}/consume", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryConsumptionResults>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryConsumptionResults), ex.Message);
+            }
         }
 
         /// <summary>
@@ -996,6 +1005,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<InventoryConsumptionResults> ConsumeOwnInventoryItemAsync(string inventoryItemId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<InventoryConsumptionResults> localVarResponse = await ConsumeOwnInventoryItemWithHttpInfoAsync(inventoryItemId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ConsumeOwnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1040,16 +1057,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<InventoryConsumptionResults>("/inventory/{inventoryItemId}/consume", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ConsumeOwnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<InventoryConsumptionResults>("/inventory/{inventoryItemId}/consume", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryConsumptionResults>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryConsumptionResults), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1061,6 +1078,14 @@ namespace VRChat.API.Api
         public SuccessFlag DeleteOwnInventoryItem(string inventoryItemId)
         {
             VRChat.API.Client.ApiResponse<SuccessFlag> localVarResponse = DeleteOwnInventoryItemWithHttpInfo(inventoryItemId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteOwnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1102,15 +1127,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<SuccessFlag>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteOwnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<SuccessFlag>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SuccessFlag>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SuccessFlag), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1123,6 +1149,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<SuccessFlag> DeleteOwnInventoryItemAsync(string inventoryItemId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<SuccessFlag> localVarResponse = await DeleteOwnInventoryItemWithHttpInfoAsync(inventoryItemId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteOwnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1167,16 +1201,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<SuccessFlag>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteOwnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<SuccessFlag>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SuccessFlag>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SuccessFlag), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1189,6 +1223,14 @@ namespace VRChat.API.Api
         public InventoryItem EquipOwnInventoryItem(string inventoryItemId, EquipInventoryItemRequest? equipInventoryItemRequest = default)
         {
             VRChat.API.Client.ApiResponse<InventoryItem> localVarResponse = EquipOwnInventoryItemWithHttpInfo(inventoryItemId, equipInventoryItemRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EquipOwnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1233,15 +1275,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<InventoryItem>("/inventory/{inventoryItemId}/equip", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("EquipOwnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<InventoryItem>("/inventory/{inventoryItemId}/equip", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryItem>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryItem), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1255,6 +1298,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<InventoryItem> EquipOwnInventoryItemAsync(string inventoryItemId, EquipInventoryItemRequest? equipInventoryItemRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<InventoryItem> localVarResponse = await EquipOwnInventoryItemWithHttpInfoAsync(inventoryItemId, equipInventoryItemRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EquipOwnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1302,16 +1353,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<InventoryItem>("/inventory/{inventoryItemId}/equip", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("EquipOwnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<InventoryItem>("/inventory/{inventoryItemId}/equip", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryItem>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryItem), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1333,6 +1384,14 @@ namespace VRChat.API.Api
         public Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default)
         {
             VRChat.API.Client.ApiResponse<Inventory> localVarResponse = GetInventoryWithHttpInfo(n, offset, holderId, equipSlot, order, tags, types, flags, notTypes, notFlags, archived);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInventory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1423,15 +1482,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Inventory>("/inventory", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetInventory", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<Inventory>("/inventory", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Inventory>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Inventory), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1454,6 +1514,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Inventory> localVarResponse = await GetInventoryWithHttpInfoAsync(n, offset, holderId, equipSlot, order, tags, types, flags, notTypes, notFlags, archived, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInventory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1547,16 +1615,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Inventory>("/inventory", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetInventory", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Inventory>("/inventory", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Inventory>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Inventory), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1567,6 +1635,14 @@ namespace VRChat.API.Api
         public List<string> GetInventoryCollections()
         {
             VRChat.API.Client.ApiResponse<List<string>> localVarResponse = GetInventoryCollectionsWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInventoryCollections", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1602,15 +1678,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<string>>("/inventory/collections", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetInventoryCollections", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<string>>("/inventory/collections", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<string>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<string>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1622,6 +1699,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<string>> GetInventoryCollectionsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<string>> localVarResponse = await GetInventoryCollectionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInventoryCollections", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1660,16 +1745,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>("/inventory/collections", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetInventoryCollections", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>("/inventory/collections", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<string>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<string>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1681,6 +1766,14 @@ namespace VRChat.API.Api
         public List<InventoryDrop> GetInventoryDrops(bool? active = default)
         {
             VRChat.API.Client.ApiResponse<List<InventoryDrop>> localVarResponse = GetInventoryDropsWithHttpInfo(active);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInventoryDrops", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1721,15 +1814,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<InventoryDrop>>("/inventory/drops", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetInventoryDrops", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<InventoryDrop>>("/inventory/drops", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<InventoryDrop>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<InventoryDrop>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1742,6 +1836,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<InventoryDrop>> GetInventoryDropsAsync(bool? active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<InventoryDrop>> localVarResponse = await GetInventoryDropsWithHttpInfoAsync(active, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInventoryDrops", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1785,16 +1887,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<InventoryDrop>>("/inventory/drops", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetInventoryDrops", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<InventoryDrop>>("/inventory/drops", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<InventoryDrop>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<InventoryDrop>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1806,6 +1908,14 @@ namespace VRChat.API.Api
         public InventoryTemplate GetInventoryTemplate(string inventoryTemplateId)
         {
             VRChat.API.Client.ApiResponse<InventoryTemplate> localVarResponse = GetInventoryTemplateWithHttpInfo(inventoryTemplateId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInventoryTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1847,15 +1957,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<InventoryTemplate>("/inventory/template/{inventoryTemplateId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetInventoryTemplate", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<InventoryTemplate>("/inventory/template/{inventoryTemplateId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryTemplate>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryTemplate), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1868,6 +1979,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<InventoryTemplate> GetInventoryTemplateAsync(string inventoryTemplateId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<InventoryTemplate> localVarResponse = await GetInventoryTemplateWithHttpInfoAsync(inventoryTemplateId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInventoryTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1912,16 +2031,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InventoryTemplate>("/inventory/template/{inventoryTemplateId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetInventoryTemplate", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<InventoryTemplate>("/inventory/template/{inventoryTemplateId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryTemplate>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryTemplate), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1933,6 +2052,14 @@ namespace VRChat.API.Api
         public InventoryItem GetOwnInventoryItem(string inventoryItemId)
         {
             VRChat.API.Client.ApiResponse<InventoryItem> localVarResponse = GetOwnInventoryItemWithHttpInfo(inventoryItemId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetOwnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1974,15 +2101,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<InventoryItem>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetOwnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<InventoryItem>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryItem>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryItem), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1995,6 +2123,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<InventoryItem> GetOwnInventoryItemAsync(string inventoryItemId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<InventoryItem> localVarResponse = await GetOwnInventoryItemWithHttpInfoAsync(inventoryItemId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetOwnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2039,16 +2175,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InventoryItem>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetOwnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<InventoryItem>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryItem>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryItem), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2061,6 +2197,14 @@ namespace VRChat.API.Api
         public InventoryItem GetUserInventoryItem(string userId, string inventoryItemId)
         {
             VRChat.API.Client.ApiResponse<InventoryItem> localVarResponse = GetUserInventoryItemWithHttpInfo(userId, inventoryItemId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2108,15 +2252,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<InventoryItem>("/user/{userId}/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetUserInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<InventoryItem>("/user/{userId}/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryItem>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryItem), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2130,6 +2275,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<InventoryItem> GetUserInventoryItemAsync(string userId, string inventoryItemId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<InventoryItem> localVarResponse = await GetUserInventoryItemWithHttpInfoAsync(userId, inventoryItemId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2180,16 +2333,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InventoryItem>("/user/{userId}/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetUserInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<InventoryItem>("/user/{userId}/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryItem>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryItem), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2203,6 +2356,14 @@ namespace VRChat.API.Api
         public OkStatus ShareInventoryItemDirect(string itemId, int duration, ShareInventoryItemDirectRequest shareInventoryItemDirectRequest)
         {
             VRChat.API.Client.ApiResponse<OkStatus> localVarResponse = ShareInventoryItemDirectWithHttpInfo(itemId, duration, shareInventoryItemDirectRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ShareInventoryItemDirect", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2253,15 +2414,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<OkStatus>("/inventory/cloning/direct", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ShareInventoryItemDirect", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<OkStatus>("/inventory/cloning/direct", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<OkStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(OkStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2276,6 +2438,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<OkStatus> ShareInventoryItemDirectAsync(string itemId, int duration, ShareInventoryItemDirectRequest shareInventoryItemDirectRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<OkStatus> localVarResponse = await ShareInventoryItemDirectWithHttpInfoAsync(itemId, duration, shareInventoryItemDirectRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ShareInventoryItemDirect", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2329,16 +2499,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<OkStatus>("/inventory/cloning/direct", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ShareInventoryItemDirect", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<OkStatus>("/inventory/cloning/direct", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<OkStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(OkStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2351,6 +2521,14 @@ namespace VRChat.API.Api
         public InventorySpawn ShareInventoryItemPedestal(string itemId, int duration)
         {
             VRChat.API.Client.ApiResponse<InventorySpawn> localVarResponse = ShareInventoryItemPedestalWithHttpInfo(itemId, duration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ShareInventoryItemPedestal", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2394,15 +2572,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<InventorySpawn>("/inventory/cloning/pedestal", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ShareInventoryItemPedestal", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<InventorySpawn>("/inventory/cloning/pedestal", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventorySpawn>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventorySpawn), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2416,6 +2595,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<InventorySpawn> ShareInventoryItemPedestalAsync(string itemId, int duration, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<InventorySpawn> localVarResponse = await ShareInventoryItemPedestalWithHttpInfoAsync(itemId, duration, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ShareInventoryItemPedestal", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2462,16 +2649,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InventorySpawn>("/inventory/cloning/pedestal", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ShareInventoryItemPedestal", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<InventorySpawn>("/inventory/cloning/pedestal", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventorySpawn>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventorySpawn), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2483,6 +2670,14 @@ namespace VRChat.API.Api
         public InventorySpawn SpawnInventoryItem(string id)
         {
             VRChat.API.Client.ApiResponse<InventorySpawn> localVarResponse = SpawnInventoryItemWithHttpInfo(id);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SpawnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2524,15 +2719,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<InventorySpawn>("/inventory/spawn", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SpawnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<InventorySpawn>("/inventory/spawn", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventorySpawn>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventorySpawn), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2545,6 +2741,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<InventorySpawn> SpawnInventoryItemAsync(string id, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<InventorySpawn> localVarResponse = await SpawnInventoryItemWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SpawnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2589,16 +2793,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InventorySpawn>("/inventory/spawn", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SpawnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<InventorySpawn>("/inventory/spawn", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventorySpawn>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventorySpawn), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2610,6 +2814,14 @@ namespace VRChat.API.Api
         public string UnequipOwnInventorySlot(InventoryEquipSlot inventoryItemId)
         {
             VRChat.API.Client.ApiResponse<string> localVarResponse = UnequipOwnInventorySlotWithHttpInfo(inventoryItemId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnequipOwnInventorySlot", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2647,15 +2859,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<string>("/inventory/{inventoryItemId}/equip", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UnequipOwnInventorySlot", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<string>("/inventory/{inventoryItemId}/equip", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<string>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(string), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2668,6 +2881,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<string> UnequipOwnInventorySlotAsync(InventoryEquipSlot inventoryItemId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<string> localVarResponse = await UnequipOwnInventorySlotWithHttpInfoAsync(inventoryItemId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnequipOwnInventorySlot", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2708,16 +2929,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<string>("/inventory/{inventoryItemId}/equip", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UnequipOwnInventorySlot", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<string>("/inventory/{inventoryItemId}/equip", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<string>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(string), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2730,6 +2951,14 @@ namespace VRChat.API.Api
         public InventoryItem UpdateOwnInventoryItem(string inventoryItemId, UpdateInventoryItemRequest? updateInventoryItemRequest = default)
         {
             VRChat.API.Client.ApiResponse<InventoryItem> localVarResponse = UpdateOwnInventoryItemWithHttpInfo(inventoryItemId, updateInventoryItemRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateOwnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2774,15 +3003,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<InventoryItem>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateOwnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<InventoryItem>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryItem>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryItem), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2796,6 +3026,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<InventoryItem> UpdateOwnInventoryItemAsync(string inventoryItemId, UpdateInventoryItemRequest? updateInventoryItemRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<InventoryItem> localVarResponse = await UpdateOwnInventoryItemWithHttpInfoAsync(inventoryItemId, updateInventoryItemRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateOwnInventoryItem", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2843,16 +3081,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<InventoryItem>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateOwnInventoryItem", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<InventoryItem>("/inventory/{inventoryItemId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InventoryItem>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryItem), ex.Message);
+            }
         }
 
     }

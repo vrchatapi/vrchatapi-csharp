@@ -56,35 +56,15 @@ namespace VRChat.API.Model
         public PlayerModeration(DateTime created = default, string id = default, string sourceDisplayName = default, string sourceUserId = default, string targetDisplayName = default, string targetUserId = default, PlayerModerationType type = default)
         {
             this.Created = created;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for PlayerModeration and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "sourceDisplayName" is required (not null)
-            if (sourceDisplayName == null)
-            {
-                throw new ArgumentNullException("sourceDisplayName is a required property for PlayerModeration and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SourceDisplayName = sourceDisplayName;
-            // to ensure "sourceUserId" is required (not null)
-            if (sourceUserId == null)
-            {
-                throw new ArgumentNullException("sourceUserId is a required property for PlayerModeration and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SourceUserId = sourceUserId;
-            // to ensure "targetDisplayName" is required (not null)
-            if (targetDisplayName == null)
-            {
-                throw new ArgumentNullException("targetDisplayName is a required property for PlayerModeration and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TargetDisplayName = targetDisplayName;
-            // to ensure "targetUserId" is required (not null)
-            if (targetUserId == null)
-            {
-                throw new ArgumentNullException("targetUserId is a required property for PlayerModeration and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TargetUserId = targetUserId;
             this.Type = type;
         }

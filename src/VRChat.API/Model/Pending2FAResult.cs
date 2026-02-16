@@ -44,17 +44,9 @@ namespace VRChat.API.Model
         /// <param name="secret">secret (required).</param>
         public Pending2FAResult(string qrCodeDataUrl = default, string secret = default)
         {
-            // to ensure "qrCodeDataUrl" is required (not null)
-            if (qrCodeDataUrl == null)
-            {
-                throw new ArgumentNullException("qrCodeDataUrl is a required property for Pending2FAResult and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.QrCodeDataUrl = qrCodeDataUrl;
-            // to ensure "secret" is required (not null)
-            if (secret == null)
-            {
-                throw new ArgumentNullException("secret is a required property for Pending2FAResult and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Secret = secret;
         }
 

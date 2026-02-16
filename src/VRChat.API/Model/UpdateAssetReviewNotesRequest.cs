@@ -43,11 +43,7 @@ namespace VRChat.API.Model
         /// <param name="reviewNotes">reviewNotes (required).</param>
         public UpdateAssetReviewNotesRequest(string reviewNotes = default)
         {
-            // to ensure "reviewNotes" is required (not null)
-            if (reviewNotes == null)
-            {
-                throw new ArgumentNullException("reviewNotes is a required property for UpdateAssetReviewNotesRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ReviewNotes = reviewNotes;
         }
 

@@ -45,11 +45,7 @@ namespace VRChat.API.Model
         public VerifyAuthTokenResult(bool ok = default, string token = default)
         {
             this.Ok = ok;
-            // to ensure "token" is required (not null)
-            if (token == null)
-            {
-                throw new ArgumentNullException("token is a required property for VerifyAuthTokenResult and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Token = token;
         }
 

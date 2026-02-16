@@ -60,24 +60,12 @@ namespace VRChat.API.Model
         public Subscription(decimal amount = default, string appleProductId = default, string description = default, string googlePlanId = default, string googleProductId = default, string id = default, string oculusSku = default, SubscriptionPeriod period = default, string picoSku = default, string steamItemId = default, int tier = default)
         {
             this.Amount = amount;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for Subscription and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Subscription and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.Period = period;
-            // to ensure "steamItemId" is required (not null)
-            if (steamItemId == null)
-            {
-                throw new ArgumentNullException("steamItemId is a required property for Subscription and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SteamItemId = steamItemId;
             this.Tier = tier;
             this.AppleProductId = appleProductId;

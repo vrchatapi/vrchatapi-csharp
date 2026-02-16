@@ -48,11 +48,7 @@ namespace VRChat.API.Model
         /// <param name="unitPriceTokens">unitPriceTokens (required).</param>
         public ProductListingVariant(DateTime effectiveFrom = default, string listingVariantId = default, bool nonRefundable = default, int quantity = default, bool sellerVariant = default, int unitPriceTokens = default)
         {
-            // to ensure "listingVariantId" is required (not null)
-            if (listingVariantId == null)
-            {
-                throw new ArgumentNullException("listingVariantId is a required property for ProductListingVariant and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ListingVariantId = listingVariantId;
             this.NonRefundable = nonRefundable;
             this.Quantity = quantity;

@@ -48,29 +48,13 @@ namespace VRChat.API.Model
         /// <param name="type">Valid values are the keys of the object &#x60;$.reportOptions&#x60; from &#x60;GET /config&#x60;. (required).</param>
         public SubmitModerationReportRequest(string category = default, string contentId = default, string description = default, SubmitModerationReportRequestDetails details = default, string reason = default, string type = default)
         {
-            // to ensure "category" is required (not null)
-            if (category == null)
-            {
-                throw new ArgumentNullException("category is a required property for SubmitModerationReportRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Category = category;
-            // to ensure "contentId" is required (not null)
-            if (contentId == null)
-            {
-                throw new ArgumentNullException("contentId is a required property for SubmitModerationReportRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentId = contentId;
-            // to ensure "reason" is required (not null)
-            if (reason == null)
-            {
-                throw new ArgumentNullException("reason is a required property for SubmitModerationReportRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Reason = reason;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for SubmitModerationReportRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Type = type;
             this.Description = description;
             this.Details = details;

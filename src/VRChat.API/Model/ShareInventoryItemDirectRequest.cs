@@ -44,17 +44,9 @@ namespace VRChat.API.Model
         /// <param name="users">users (required).</param>
         public ShareInventoryItemDirectRequest(string itemId = default, List<string> users = default)
         {
-            // to ensure "itemId" is required (not null)
-            if (itemId == null)
-            {
-                throw new ArgumentNullException("itemId is a required property for ShareInventoryItemDirectRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ItemId = itemId;
-            // to ensure "users" is required (not null)
-            if (users == null)
-            {
-                throw new ArgumentNullException("users is a required property for ShareInventoryItemDirectRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Users = users;
         }
 

@@ -68,18 +68,10 @@ namespace VRChat.API.Model
         /// <param name="shortCode">shortCode (required).</param>
         public CreateGroupRequest(string bannerId = default, string description = default, string iconId = default, GroupJoinState? joinState = default, string name = default, GroupPrivacy? privacy = default, GroupRoleTemplate roleTemplate = default, string shortCode = default)
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for CreateGroupRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             this.RoleTemplate = roleTemplate;
-            // to ensure "shortCode" is required (not null)
-            if (shortCode == null)
-            {
-                throw new ArgumentNullException("shortCode is a required property for CreateGroupRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ShortCode = shortCode;
             this.BannerId = bannerId;
             this.Description = description;

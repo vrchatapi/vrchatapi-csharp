@@ -48,36 +48,16 @@ namespace VRChat.API.Model
         /// <param name="variant">variant (required).</param>
         public PropUnityPackage(string assetUrl = default, int assetVersion = default, string platform = default, string propSignature = default, string unityVersion = @"2022.3.22f1", string variant = default)
         {
-            // to ensure "assetUrl" is required (not null)
-            if (assetUrl == null)
-            {
-                throw new ArgumentNullException("assetUrl is a required property for PropUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AssetUrl = assetUrl;
             this.AssetVersion = assetVersion;
-            // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
-                throw new ArgumentNullException("platform is a required property for PropUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Platform = platform;
-            // to ensure "propSignature" is required (not null)
-            if (propSignature == null)
-            {
-                throw new ArgumentNullException("propSignature is a required property for PropUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PropSignature = propSignature;
-            // to ensure "unityVersion" is required (not null)
-            if (unityVersion == null)
-            {
-                throw new ArgumentNullException("unityVersion is a required property for PropUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityVersion = unityVersion;
-            // to ensure "variant" is required (not null)
-            if (variant == null)
-            {
-                throw new ArgumentNullException("variant is a required property for PropUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Variant = variant;
         }
 

@@ -85,117 +85,53 @@ namespace VRChat.API.Model
         /// <param name="willRecur">willRecur (required).</param>
         public ProductPurchase(string buyerDisplayName = default, string buyerId = default, bool firstParty = default, bool isBuyer = default, bool isGift = default, bool isReceiver = default, bool isSeller = default, bool listingCurrentlyAvailable = default, string listingDisplayName = default, string listingId = default, string listingImageId = default, string listingSubtitle = default, ProductListingType listingType = default, List<Object> products = default, bool purchaseActive = default, ProductPurchasePurchaseContext purchaseContext = default, string purchaseCurrentStatus = default, DateTime purchaseDate = default, int purchaseDuration = default, string purchaseDurationType = default, DateTime purchaseEndDate = default, string purchaseId = default, bool purchaseLatest = default, int purchasePrice = default, int purchaseQuantity = default, DateTime purchaseStartDate = default, Object purchaseToken = default, string purchaseType = default, int purchaseUnitPrice = default, string receiverDisplayName = default, string receiverId = default, bool recurrable = default, bool refundable = default, string sellerDisplayName = default, string sellerId = default, bool stackable = default, bool willRecur = default)
         {
-            // to ensure "buyerDisplayName" is required (not null)
-            if (buyerDisplayName == null)
-            {
-                throw new ArgumentNullException("buyerDisplayName is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BuyerDisplayName = buyerDisplayName;
-            // to ensure "buyerId" is required (not null)
-            if (buyerId == null)
-            {
-                throw new ArgumentNullException("buyerId is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BuyerId = buyerId;
             this.IsBuyer = isBuyer;
             this.IsGift = isGift;
             this.IsReceiver = isReceiver;
             this.IsSeller = isSeller;
             this.ListingCurrentlyAvailable = listingCurrentlyAvailable;
-            // to ensure "listingDisplayName" is required (not null)
-            if (listingDisplayName == null)
-            {
-                throw new ArgumentNullException("listingDisplayName is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ListingDisplayName = listingDisplayName;
-            // to ensure "listingId" is required (not null)
-            if (listingId == null)
-            {
-                throw new ArgumentNullException("listingId is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ListingId = listingId;
-            // to ensure "listingImageId" is required (not null)
-            if (listingImageId == null)
-            {
-                throw new ArgumentNullException("listingImageId is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ListingImageId = listingImageId;
-            // to ensure "listingSubtitle" is required (not null)
-            if (listingSubtitle == null)
-            {
-                throw new ArgumentNullException("listingSubtitle is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ListingSubtitle = listingSubtitle;
             this.ListingType = listingType;
-            // to ensure "products" is required (not null)
-            if (products == null)
-            {
-                throw new ArgumentNullException("products is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Products = products;
             this.PurchaseActive = purchaseActive;
-            // to ensure "purchaseContext" is required (not null)
-            if (purchaseContext == null)
-            {
-                throw new ArgumentNullException("purchaseContext is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PurchaseContext = purchaseContext;
-            // to ensure "purchaseCurrentStatus" is required (not null)
-            if (purchaseCurrentStatus == null)
-            {
-                throw new ArgumentNullException("purchaseCurrentStatus is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PurchaseCurrentStatus = purchaseCurrentStatus;
             this.PurchaseDate = purchaseDate;
             this.PurchaseEndDate = purchaseEndDate;
-            // to ensure "purchaseId" is required (not null)
-            if (purchaseId == null)
-            {
-                throw new ArgumentNullException("purchaseId is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PurchaseId = purchaseId;
             this.PurchaseLatest = purchaseLatest;
             this.PurchasePrice = purchasePrice;
             this.PurchaseQuantity = purchaseQuantity;
             this.PurchaseStartDate = purchaseStartDate;
-            // to ensure "purchaseToken" is required (not null)
-            if (purchaseToken == null)
-            {
-                throw new ArgumentNullException("purchaseToken is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PurchaseToken = purchaseToken;
-            // to ensure "purchaseType" is required (not null)
-            if (purchaseType == null)
-            {
-                throw new ArgumentNullException("purchaseType is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PurchaseType = purchaseType;
             this.PurchaseUnitPrice = purchaseUnitPrice;
-            // to ensure "receiverDisplayName" is required (not null)
-            if (receiverDisplayName == null)
-            {
-                throw new ArgumentNullException("receiverDisplayName is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ReceiverDisplayName = receiverDisplayName;
-            // to ensure "receiverId" is required (not null)
-            if (receiverId == null)
-            {
-                throw new ArgumentNullException("receiverId is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ReceiverId = receiverId;
             this.Recurrable = recurrable;
             this.Refundable = refundable;
-            // to ensure "sellerDisplayName" is required (not null)
-            if (sellerDisplayName == null)
-            {
-                throw new ArgumentNullException("sellerDisplayName is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerDisplayName = sellerDisplayName;
-            // to ensure "sellerId" is required (not null)
-            if (sellerId == null)
-            {
-                throw new ArgumentNullException("sellerId is a required property for ProductPurchase and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerId = sellerId;
             this.Stackable = stackable;
             this.WillRecur = willRecur;

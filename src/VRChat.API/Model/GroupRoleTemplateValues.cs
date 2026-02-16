@@ -46,29 +46,13 @@ namespace VRChat.API.Model
         /// <param name="roles">roles (required).</param>
         public GroupRoleTemplateValues(List<GroupPermissions> basePermissions = default, string description = default, string name = default, GroupRoleTemplateValuesRoles roles = default)
         {
-            // to ensure "basePermissions" is required (not null)
-            if (basePermissions == null)
-            {
-                throw new ArgumentNullException("basePermissions is a required property for GroupRoleTemplateValues and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BasePermissions = basePermissions;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for GroupRoleTemplateValues and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for GroupRoleTemplateValues and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            // to ensure "roles" is required (not null)
-            if (roles == null)
-            {
-                throw new ArgumentNullException("roles is a required property for GroupRoleTemplateValues and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Roles = roles;
         }
 

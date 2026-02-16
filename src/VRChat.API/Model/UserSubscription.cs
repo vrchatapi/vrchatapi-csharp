@@ -74,41 +74,21 @@ namespace VRChat.API.Model
             this.Active = active;
             this.Amount = amount;
             this.CreatedAt = createdAt;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for UserSubscription and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
             this.Expires = expires;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for UserSubscription and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsBulkGift = isBulkGift;
             this.IsGift = isGift;
-            // to ensure "licenseGroups" is required (not null)
-            if (licenseGroups == null)
-            {
-                throw new ArgumentNullException("licenseGroups is a required property for UserSubscription and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LicenseGroups = licenseGroups;
             this.Period = period;
             this.Status = status;
-            // to ensure "store" is required (not null)
-            if (store == null)
-            {
-                throw new ArgumentNullException("store is a required property for UserSubscription and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Store = store;
             this.Tier = tier;
-            // to ensure "transactionId" is required (not null)
-            if (transactionId == null)
-            {
-                throw new ArgumentNullException("transactionId is a required property for UserSubscription and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TransactionId = transactionId;
             this.UpdatedAt = updatedAt;
             this.Starts = starts;

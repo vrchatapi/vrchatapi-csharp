@@ -47,35 +47,15 @@ namespace VRChat.API.Model
         /// <param name="vcc">Download link for the Creator Companion (required).</param>
         public APIConfigDownloadURLList(string bootstrap = default, string sdk2 = default, string sdk3Avatars = default, string sdk3Worlds = default, string vcc = default)
         {
-            // to ensure "bootstrap" is required (not null)
-            if (bootstrap == null)
-            {
-                throw new ArgumentNullException("bootstrap is a required property for APIConfigDownloadURLList and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Bootstrap = bootstrap;
-            // to ensure "sdk2" is required (not null)
-            if (sdk2 == null)
-            {
-                throw new ArgumentNullException("sdk2 is a required property for APIConfigDownloadURLList and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Sdk2 = sdk2;
-            // to ensure "sdk3Avatars" is required (not null)
-            if (sdk3Avatars == null)
-            {
-                throw new ArgumentNullException("sdk3Avatars is a required property for APIConfigDownloadURLList and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Sdk3Avatars = sdk3Avatars;
-            // to ensure "sdk3Worlds" is required (not null)
-            if (sdk3Worlds == null)
-            {
-                throw new ArgumentNullException("sdk3Worlds is a required property for APIConfigDownloadURLList and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Sdk3Worlds = sdk3Worlds;
-            // to ensure "vcc" is required (not null)
-            if (vcc == null)
-            {
-                throw new ArgumentNullException("vcc is a required property for APIConfigDownloadURLList and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Vcc = vcc;
         }
 

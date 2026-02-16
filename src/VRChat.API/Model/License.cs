@@ -59,17 +59,9 @@ namespace VRChat.API.Model
         public License(LicenseAction forAction = default, string forId = default, string forName = default, LicenseType forType = default)
         {
             this.ForAction = forAction;
-            // to ensure "forId" is required (not null)
-            if (forId == null)
-            {
-                throw new ArgumentNullException("forId is a required property for License and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ForId = forId;
-            // to ensure "forName" is required (not null)
-            if (forName == null)
-            {
-                throw new ArgumentNullException("forName is a required property for License and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ForName = forName;
             this.ForType = forType;
         }

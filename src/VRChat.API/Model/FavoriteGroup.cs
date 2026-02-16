@@ -62,41 +62,17 @@ namespace VRChat.API.Model
         /// <param name="visibility">visibility (required).</param>
         public FavoriteGroup(string displayName = default, string id = default, string name = default, string ownerDisplayName = default, string ownerId = default, List<string> tags = default, FavoriteType type = default, FavoriteGroupVisibility visibility = default)
         {
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for FavoriteGroup and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for FavoriteGroup and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for FavoriteGroup and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            // to ensure "ownerDisplayName" is required (not null)
-            if (ownerDisplayName == null)
-            {
-                throw new ArgumentNullException("ownerDisplayName is a required property for FavoriteGroup and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.OwnerDisplayName = ownerDisplayName;
-            // to ensure "ownerId" is required (not null)
-            if (ownerId == null)
-            {
-                throw new ArgumentNullException("ownerId is a required property for FavoriteGroup and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.OwnerId = ownerId;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for FavoriteGroup and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.Type = type;
             this.Visibility = visibility;

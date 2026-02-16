@@ -45,23 +45,11 @@ namespace VRChat.API.Model
         /// <param name="lANGUAGE">lANGUAGE (required).</param>
         public APIConfigConstants(APIConfigConstantsGROUPS gROUPS = default, APIConfigConstantsINSTANCE iNSTANCE = default, APIConfigConstantsLANGUAGE lANGUAGE = default)
         {
-            // to ensure "gROUPS" is required (not null)
-            if (gROUPS == null)
-            {
-                throw new ArgumentNullException("gROUPS is a required property for APIConfigConstants and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.GROUPS = gROUPS;
-            // to ensure "iNSTANCE" is required (not null)
-            if (iNSTANCE == null)
-            {
-                throw new ArgumentNullException("iNSTANCE is a required property for APIConfigConstants and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.INSTANCE = iNSTANCE;
-            // to ensure "lANGUAGE" is required (not null)
-            if (lANGUAGE == null)
-            {
-                throw new ArgumentNullException("lANGUAGE is a required property for APIConfigConstants and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LANGUAGE = lANGUAGE;
         }
 

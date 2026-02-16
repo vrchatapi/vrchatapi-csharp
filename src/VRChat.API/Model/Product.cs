@@ -65,54 +65,22 @@ namespace VRChat.API.Model
         /// <param name="useForSubscriberList">useForSubscriberList (default to false).</param>
         public Product(bool archived = default, DateTime created = default, string description = default, string displayName = default, bool groupAccess = false, bool groupAccessRemove = false, string groupId = default, string groupRoleId = default, string id = default, string imageId = default, List<string> parentListings = default, ProductType productType = default, string sellerDisplayName = default, string sellerId = default, List<string> tags = default, DateTime? updated = default, bool useForSubscriberList = false)
         {
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for Product and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for Product and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Product and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageId" is required (not null)
-            if (imageId == null)
-            {
-                throw new ArgumentNullException("imageId is a required property for Product and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageId = imageId;
-            // to ensure "parentListings" is required (not null)
-            if (parentListings == null)
-            {
-                throw new ArgumentNullException("parentListings is a required property for Product and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ParentListings = parentListings;
             this.ProductType = productType;
-            // to ensure "sellerDisplayName" is required (not null)
-            if (sellerDisplayName == null)
-            {
-                throw new ArgumentNullException("sellerDisplayName is a required property for Product and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerDisplayName = sellerDisplayName;
-            // to ensure "sellerId" is required (not null)
-            if (sellerId == null)
-            {
-                throw new ArgumentNullException("sellerId is a required property for Product and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerId = sellerId;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for Product and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.Archived = archived;
             this.Created = created;

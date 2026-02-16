@@ -43,11 +43,7 @@ namespace VRChat.API.Model
         /// <param name="tags">The tags being added or removed. (required).</param>
         public ChangeUserTagsRequest(List<string> tags = default)
         {
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for ChangeUserTagsRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
         }
 

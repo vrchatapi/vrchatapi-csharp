@@ -854,6 +854,14 @@ namespace VRChat.API.Api
         public Success AcceptFriendRequest(string notificationId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = AcceptFriendRequestWithHttpInfo(notificationId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AcceptFriendRequest", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -895,15 +903,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Success>("/auth/user/notifications/{notificationId}/accept", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AcceptFriendRequest", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Success>("/auth/user/notifications/{notificationId}/accept", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -916,6 +925,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> AcceptFriendRequestAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await AcceptFriendRequestWithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AcceptFriendRequest", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -960,16 +977,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/notifications/{notificationId}/accept", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AcceptFriendRequest", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/notifications/{notificationId}/accept", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -981,6 +998,14 @@ namespace VRChat.API.Api
         public NotificationV2 AcknowledgeNotificationV2(string notificationId)
         {
             VRChat.API.Client.ApiResponse<NotificationV2> localVarResponse = AcknowledgeNotificationV2WithHttpInfo(notificationId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AcknowledgeNotificationV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1022,15 +1047,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<NotificationV2>("/notifications/{notificationId}/see", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AcknowledgeNotificationV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<NotificationV2>("/notifications/{notificationId}/see", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<NotificationV2>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(NotificationV2), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1043,6 +1069,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<NotificationV2> AcknowledgeNotificationV2Async(string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<NotificationV2> localVarResponse = await AcknowledgeNotificationV2WithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AcknowledgeNotificationV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1087,16 +1121,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<NotificationV2>("/notifications/{notificationId}/see", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AcknowledgeNotificationV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<NotificationV2>("/notifications/{notificationId}/see", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<NotificationV2>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(NotificationV2), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1107,6 +1141,14 @@ namespace VRChat.API.Api
         public Success ClearNotifications()
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = ClearNotificationsWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClearNotifications", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1142,15 +1184,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Success>("/auth/user/notifications/clear", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ClearNotifications", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Success>("/auth/user/notifications/clear", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1162,6 +1205,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> ClearNotificationsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await ClearNotificationsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClearNotifications", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1200,16 +1251,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/notifications/clear", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ClearNotifications", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/notifications/clear", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1220,6 +1271,14 @@ namespace VRChat.API.Api
         public Success DeleteAllNotificationV2s()
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteAllNotificationV2sWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteAllNotificationV2s", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1255,15 +1314,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/notifications", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteAllNotificationV2s", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/notifications", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1275,6 +1335,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> DeleteAllNotificationV2sAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteAllNotificationV2sWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteAllNotificationV2s", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1313,16 +1381,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/notifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteAllNotificationV2s", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/notifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1334,6 +1402,14 @@ namespace VRChat.API.Api
         public Notification DeleteNotification(string notificationId)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = DeleteNotificationWithHttpInfo(notificationId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteNotification", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1375,15 +1451,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Notification>("/auth/user/notifications/{notificationId}/hide", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteNotification", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Notification>("/auth/user/notifications/{notificationId}/hide", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Notification>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Notification), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1396,6 +1473,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Notification> DeleteNotificationAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = await DeleteNotificationWithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteNotification", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1440,16 +1525,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Notification>("/auth/user/notifications/{notificationId}/hide", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteNotification", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Notification>("/auth/user/notifications/{notificationId}/hide", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Notification>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Notification), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1461,6 +1546,14 @@ namespace VRChat.API.Api
         public Success DeleteNotificationV2(string notificationId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteNotificationV2WithHttpInfo(notificationId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteNotificationV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1502,15 +1595,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/notifications/{notificationId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteNotificationV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/notifications/{notificationId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1523,6 +1617,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> DeleteNotificationV2Async(string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteNotificationV2WithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteNotificationV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1567,16 +1669,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/notifications/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteNotificationV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/notifications/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1588,6 +1690,14 @@ namespace VRChat.API.Api
         public Notification GetNotification(string notificationId)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = GetNotificationWithHttpInfo(notificationId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetNotification", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1629,15 +1739,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Notification>("/auth/user/notifications/{notificationId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetNotification", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<Notification>("/auth/user/notifications/{notificationId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Notification>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Notification), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1650,6 +1761,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Notification> GetNotificationAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = await GetNotificationWithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetNotification", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1694,16 +1813,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Notification>("/auth/user/notifications/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetNotification", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Notification>("/auth/user/notifications/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Notification>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Notification), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1716,6 +1835,14 @@ namespace VRChat.API.Api
         public NotificationV2 GetNotificationV2(string notificationId)
         {
             VRChat.API.Client.ApiResponse<NotificationV2> localVarResponse = GetNotificationV2WithHttpInfo(notificationId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetNotificationV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1758,15 +1885,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<NotificationV2>("/notifications/{notificationId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetNotificationV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<NotificationV2>("/notifications/{notificationId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<NotificationV2>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(NotificationV2), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1780,6 +1908,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<NotificationV2> GetNotificationV2Async(string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<NotificationV2> localVarResponse = await GetNotificationV2WithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetNotificationV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1825,16 +1961,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<NotificationV2>("/notifications/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetNotificationV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<NotificationV2>("/notifications/{notificationId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<NotificationV2>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(NotificationV2), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1846,6 +1982,14 @@ namespace VRChat.API.Api
         public List<NotificationV2> GetNotificationV2s(int? limit = default)
         {
             VRChat.API.Client.ApiResponse<List<NotificationV2>> localVarResponse = GetNotificationV2sWithHttpInfo(limit);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetNotificationV2s", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1886,15 +2030,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<NotificationV2>>("/notifications", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetNotificationV2s", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<NotificationV2>>("/notifications", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<NotificationV2>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<NotificationV2>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1907,6 +2052,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<NotificationV2>> GetNotificationV2sAsync(int? limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<NotificationV2>> localVarResponse = await GetNotificationV2sWithHttpInfoAsync(limit, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetNotificationV2s", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1950,16 +2103,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<NotificationV2>>("/notifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetNotificationV2s", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<NotificationV2>>("/notifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<NotificationV2>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<NotificationV2>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1976,6 +2129,14 @@ namespace VRChat.API.Api
         public List<Notification> GetNotifications(string? type = default, bool? sent = default, bool? hidden = default, string? after = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<Notification>> localVarResponse = GetNotificationsWithHttpInfo(type, sent, hidden, after, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetNotifications", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2041,15 +2202,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Notification>>("/auth/user/notifications", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetNotifications", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<Notification>>("/auth/user/notifications", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Notification>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Notification>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2067,6 +2229,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<Notification>> GetNotificationsAsync(string? type = default, bool? sent = default, bool? hidden = default, string? after = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Notification>> localVarResponse = await GetNotificationsWithHttpInfoAsync(type, sent, hidden, after, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetNotifications", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2135,16 +2305,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Notification>>("/auth/user/notifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetNotifications", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Notification>>("/auth/user/notifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Notification>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Notification>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2156,6 +2326,14 @@ namespace VRChat.API.Api
         public Notification MarkNotificationAsRead(string notificationId)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = MarkNotificationAsReadWithHttpInfo(notificationId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MarkNotificationAsRead", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2197,15 +2375,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Notification>("/auth/user/notifications/{notificationId}/see", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("MarkNotificationAsRead", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Notification>("/auth/user/notifications/{notificationId}/see", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Notification>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Notification), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2218,6 +2397,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Notification> MarkNotificationAsReadAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Notification> localVarResponse = await MarkNotificationAsReadWithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MarkNotificationAsRead", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2262,16 +2449,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Notification>("/auth/user/notifications/{notificationId}/see", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("MarkNotificationAsRead", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Notification>("/auth/user/notifications/{notificationId}/see", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Notification>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Notification), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2284,6 +2471,14 @@ namespace VRChat.API.Api
         public NotificationV2 ReplyNotificationV2(string notificationId, Object body)
         {
             VRChat.API.Client.ApiResponse<NotificationV2> localVarResponse = ReplyNotificationV2WithHttpInfo(notificationId, body);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReplyNotificationV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2332,15 +2527,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<NotificationV2>("/notifications/{notificationId}/reply", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ReplyNotificationV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<NotificationV2>("/notifications/{notificationId}/reply", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<NotificationV2>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(NotificationV2), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2354,6 +2550,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<NotificationV2> ReplyNotificationV2Async(string notificationId, Object body, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<NotificationV2> localVarResponse = await ReplyNotificationV2WithHttpInfoAsync(notificationId, body, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ReplyNotificationV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2405,16 +2609,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<NotificationV2>("/notifications/{notificationId}/reply", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ReplyNotificationV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<NotificationV2>("/notifications/{notificationId}/reply", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<NotificationV2>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(NotificationV2), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2427,6 +2631,14 @@ namespace VRChat.API.Api
         public NotificationV2 RespondNotificationV2(string notificationId, RespondNotificationV2Request respondNotificationV2Request)
         {
             VRChat.API.Client.ApiResponse<NotificationV2> localVarResponse = RespondNotificationV2WithHttpInfo(notificationId, respondNotificationV2Request);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RespondNotificationV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2475,15 +2687,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<NotificationV2>("/notifications/{notificationId}/respond", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("RespondNotificationV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<NotificationV2>("/notifications/{notificationId}/respond", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<NotificationV2>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(NotificationV2), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2497,6 +2710,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<NotificationV2> RespondNotificationV2Async(string notificationId, RespondNotificationV2Request respondNotificationV2Request, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<NotificationV2> localVarResponse = await RespondNotificationV2WithHttpInfoAsync(notificationId, respondNotificationV2Request, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RespondNotificationV2", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2548,16 +2769,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<NotificationV2>("/notifications/{notificationId}/respond", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("RespondNotificationV2", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<NotificationV2>("/notifications/{notificationId}/respond", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<NotificationV2>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(NotificationV2), ex.Message);
+            }
         }
 
     }

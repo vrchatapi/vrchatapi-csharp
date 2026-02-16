@@ -43,11 +43,7 @@ namespace VRChat.API.Model
         /// <param name="requirements">requirements (required).</param>
         public GroupTransferable(GroupTransferableRequirements requirements = default)
         {
-            // to ensure "requirements" is required (not null)
-            if (requirements == null)
-            {
-                throw new ArgumentNullException("requirements is a required property for GroupTransferable and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Requirements = requirements;
         }
 

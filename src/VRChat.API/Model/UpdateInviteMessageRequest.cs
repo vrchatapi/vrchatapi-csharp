@@ -43,11 +43,7 @@ namespace VRChat.API.Model
         /// <param name="message">message (required).</param>
         public UpdateInviteMessageRequest(string message = default)
         {
-            // to ensure "message" is required (not null)
-            if (message == null)
-            {
-                throw new ArgumentNullException("message is a required property for UpdateInviteMessageRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Message = message;
         }
 

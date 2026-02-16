@@ -57,35 +57,15 @@ namespace VRChat.API.Model
         public SentNotification(DateTime createdAt = default, Dictionary<string, string> details = default, string id = default, string message = default, string receiverUserId = default, string senderUserId = default, string senderUsername = default, NotificationType type = default)
         {
             this.CreatedAt = createdAt;
-            // to ensure "details" is required (not null)
-            if (details == null)
-            {
-                throw new ArgumentNullException("details is a required property for SentNotification and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Details = details;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for SentNotification and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "message" is required (not null)
-            if (message == null)
-            {
-                throw new ArgumentNullException("message is a required property for SentNotification and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Message = message;
-            // to ensure "receiverUserId" is required (not null)
-            if (receiverUserId == null)
-            {
-                throw new ArgumentNullException("receiverUserId is a required property for SentNotification and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ReceiverUserId = receiverUserId;
-            // to ensure "senderUserId" is required (not null)
-            if (senderUserId == null)
-            {
-                throw new ArgumentNullException("senderUserId is a required property for SentNotification and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SenderUserId = senderUserId;
             this.Type = type;
             this.SenderUsername = senderUsername;
