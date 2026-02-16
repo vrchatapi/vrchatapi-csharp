@@ -62,23 +62,11 @@ namespace VRChat.API.Model
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
         public CreateWorldRequest(string assetUrl = default, int assetVersion = default, string authorId = default, string authorName = default, int capacity = default, string description = default, string id = default, string imageUrl = default, string name = default, string platform = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1")
         {
-            // to ensure "assetUrl" is required (not null)
-            if (assetUrl == null)
-            {
-                throw new ArgumentNullException("assetUrl is a required property for CreateWorldRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AssetUrl = assetUrl;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for CreateWorldRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for CreateWorldRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             this.AssetVersion = assetVersion;
             this.AuthorId = authorId;

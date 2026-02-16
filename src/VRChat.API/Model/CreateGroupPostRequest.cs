@@ -55,17 +55,9 @@ namespace VRChat.API.Model
         public CreateGroupPostRequest(string imageId = default, List<string> roleIds = default, bool sendNotification = false, string text = default, string title = default, GroupPostVisibility visibility = default)
         {
             this.SendNotification = sendNotification;
-            // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new ArgumentNullException("text is a required property for CreateGroupPostRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Text = text;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for CreateGroupPostRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Title = title;
             this.Visibility = visibility;
             this.ImageId = imageId;

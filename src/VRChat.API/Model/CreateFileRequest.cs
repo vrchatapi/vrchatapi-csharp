@@ -52,18 +52,10 @@ namespace VRChat.API.Model
         /// <param name="tags"> .</param>
         public CreateFileRequest(string extension = default, MIMEType mimeType = default, string name = default, List<string> tags = default)
         {
-            // to ensure "extension" is required (not null)
-            if (extension == null)
-            {
-                throw new ArgumentNullException("extension is a required property for CreateFileRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Extension = extension;
             this.MimeType = mimeType;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for CreateFileRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             this.Tags = tags;
         }

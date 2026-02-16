@@ -49,29 +49,13 @@ namespace VRChat.API.Model
         public UserNote(DateTime createdAt = default, string id = default, string note = default, UserNoteTargetUser targetUser = default, string targetUserId = default, string userId = default)
         {
             this.CreatedAt = createdAt;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for UserNote and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "note" is required (not null)
-            if (note == null)
-            {
-                throw new ArgumentNullException("note is a required property for UserNote and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Note = note;
-            // to ensure "targetUserId" is required (not null)
-            if (targetUserId == null)
-            {
-                throw new ArgumentNullException("targetUserId is a required property for UserNote and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TargetUserId = targetUserId;
-            // to ensure "userId" is required (not null)
-            if (userId == null)
-            {
-                throw new ArgumentNullException("userId is a required property for UserNote and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserId = userId;
             this.TargetUser = targetUser;
         }

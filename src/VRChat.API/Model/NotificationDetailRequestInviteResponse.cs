@@ -44,11 +44,7 @@ namespace VRChat.API.Model
         /// <param name="requestMessage">Used when using InviteMessage Slot..</param>
         public NotificationDetailRequestInviteResponse(string inResponseTo = default, string requestMessage = default)
         {
-            // to ensure "inResponseTo" is required (not null)
-            if (inResponseTo == null)
-            {
-                throw new ArgumentNullException("inResponseTo is a required property for NotificationDetailRequestInviteResponse and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.InResponseTo = inResponseTo;
             this.RequestMessage = requestMessage;
         }

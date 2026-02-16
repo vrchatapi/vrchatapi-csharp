@@ -56,17 +56,9 @@ namespace VRChat.API.Model
         public InviteMessage(bool canBeUpdated = true, string id = default, string message = default, InviteMessageType messageType = default, int remainingCooldownMinutes = 0, int slot = default, DateTime updatedAt = default)
         {
             this.CanBeUpdated = canBeUpdated;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for InviteMessage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "message" is required (not null)
-            if (message == null)
-            {
-                throw new ArgumentNullException("message is a required property for InviteMessage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Message = message;
             this.MessageType = messageType;
             this.RemainingCooldownMinutes = remainingCooldownMinutes;

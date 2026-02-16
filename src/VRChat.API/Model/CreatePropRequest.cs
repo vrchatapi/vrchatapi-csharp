@@ -54,55 +54,23 @@ namespace VRChat.API.Model
         /// <param name="worldPlacementMask">Bitmask for restrictions on what world surfaces a prop may be summoned. 0: no restrictions 1: floors 2: walls 4: ceilings (required) (default to 1).</param>
         public CreatePropRequest(string assetUrl = default, int assetVersion = default, string description = default, string id = default, string imageUrl = default, string name = default, string platform = default, string propSignature = default, int spawnType = 1, List<string> tags = default, string unityVersion = default, int worldPlacementMask = 1)
         {
-            // to ensure "assetUrl" is required (not null)
-            if (assetUrl == null)
-            {
-                throw new ArgumentNullException("assetUrl is a required property for CreatePropRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AssetUrl = assetUrl;
             this.AssetVersion = assetVersion;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for CreatePropRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for CreatePropRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for CreatePropRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for CreatePropRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
-                throw new ArgumentNullException("platform is a required property for CreatePropRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Platform = platform;
             this.SpawnType = spawnType;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for CreatePropRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // to ensure "unityVersion" is required (not null)
-            if (unityVersion == null)
-            {
-                throw new ArgumentNullException("unityVersion is a required property for CreatePropRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityVersion = unityVersion;
             this.WorldPlacementMask = worldPlacementMask;
             this.PropSignature = propSignature;

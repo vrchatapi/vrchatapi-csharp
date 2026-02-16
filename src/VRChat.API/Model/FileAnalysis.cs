@@ -49,11 +49,7 @@ namespace VRChat.API.Model
         /// <param name="uncompressedSize">uncompressedSize (required).</param>
         public FileAnalysis(FileAnalysisAvatarStats avatarStats = default, DateTime createdAt = default, string encryptionKey = default, int fileSize = default, string performanceRating = default, bool success = default, int uncompressedSize = default)
         {
-            // to ensure "avatarStats" is required (not null)
-            if (avatarStats == null)
-            {
-                throw new ArgumentNullException("avatarStats is a required property for FileAnalysis and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AvatarStats = avatarStats;
             this.FileSize = fileSize;
             this.Success = success;

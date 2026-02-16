@@ -44,17 +44,9 @@ namespace VRChat.API.Model
         /// <param name="text">Announcement text (required).</param>
         public APIConfigAnnouncement(string name = default, string text = default)
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for APIConfigAnnouncement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new ArgumentNullException("text is a required property for APIConfigAnnouncement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Text = text;
         }
 

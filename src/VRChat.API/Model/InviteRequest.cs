@@ -44,11 +44,7 @@ namespace VRChat.API.Model
         /// <param name="messageSlot">messageSlot.</param>
         public InviteRequest(string instanceId = default, int messageSlot = default)
         {
-            // to ensure "instanceId" is required (not null)
-            if (instanceId == null)
-            {
-                throw new ArgumentNullException("instanceId is a required property for InviteRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.InstanceId = instanceId;
             this.MessageSlot = messageSlot;
         }

@@ -43,11 +43,7 @@ namespace VRChat.API.Model
         /// <param name="fileId">fileId (required).</param>
         public AddGroupGalleryImageRequest(string fileId = default)
         {
-            // to ensure "fileId" is required (not null)
-            if (fileId == null)
-            {
-                throw new ArgumentNullException("fileId is a required property for AddGroupGalleryImageRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FileId = fileId;
         }
 

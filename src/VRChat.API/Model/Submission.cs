@@ -49,36 +49,16 @@ namespace VRChat.API.Model
         /// <param name="submitterId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         public Submission(string contentId = default, DateTime createdAt = default, string description = default, string id = default, string jamId = default, int ratingScore = default, string submitterId = default)
         {
-            // to ensure "contentId" is required (not null)
-            if (contentId == null)
-            {
-                throw new ArgumentNullException("contentId is a required property for Submission and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentId = contentId;
             this.CreatedAt = createdAt;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for Submission and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Submission and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "jamId" is required (not null)
-            if (jamId == null)
-            {
-                throw new ArgumentNullException("jamId is a required property for Submission and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.JamId = jamId;
-            // to ensure "submitterId" is required (not null)
-            if (submitterId == null)
-            {
-                throw new ArgumentNullException("submitterId is a required property for Submission and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SubmitterId = submitterId;
             this.RatingScore = ratingScore;
         }

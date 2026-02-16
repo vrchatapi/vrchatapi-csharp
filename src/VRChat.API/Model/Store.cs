@@ -62,48 +62,20 @@ namespace VRChat.API.Model
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
         public Store(string description = default, string displayName = default, string groupId = default, string id = default, List<string> listingIds = default, List<ProductListing> listings = default, string sellerDisplayName = default, string sellerId = default, List<string> shelfIds = default, List<StoreShelf> shelves = default, string storeId = default, StoreType storeType = default, List<string> tags = default, string worldId = default)
         {
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for Store and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for Store and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Store and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "sellerDisplayName" is required (not null)
-            if (sellerDisplayName == null)
-            {
-                throw new ArgumentNullException("sellerDisplayName is a required property for Store and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerDisplayName = sellerDisplayName;
-            // to ensure "sellerId" is required (not null)
-            if (sellerId == null)
-            {
-                throw new ArgumentNullException("sellerId is a required property for Store and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerId = sellerId;
-            // to ensure "storeId" is required (not null)
-            if (storeId == null)
-            {
-                throw new ArgumentNullException("storeId is a required property for Store and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StoreId = storeId;
             this.StoreType = storeType;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for Store and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.GroupId = groupId;
             this.ListingIds = listingIds;

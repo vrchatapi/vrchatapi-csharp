@@ -52,23 +52,11 @@ namespace VRChat.API.Model
         /// <param name="type">type (required).</param>
         public Favorite(string favoriteId = default, string id = default, List<string> tags = default, FavoriteType type = default)
         {
-            // to ensure "favoriteId" is required (not null)
-            if (favoriteId == null)
-            {
-                throw new ArgumentNullException("favoriteId is a required property for Favorite and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FavoriteId = favoriteId;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Favorite and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for Favorite and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.Type = type;
         }

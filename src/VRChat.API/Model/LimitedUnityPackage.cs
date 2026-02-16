@@ -45,23 +45,11 @@ namespace VRChat.API.Model
         /// <param name="unityVersion">unityVersion (required).</param>
         public LimitedUnityPackage(DateTime? createdAt = default, string platform = default, string unityVersion = default)
         {
-            // to ensure "createdAt" is required (not null)
-            if (createdAt == null)
-            {
-                throw new ArgumentNullException("createdAt is a required property for LimitedUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CreatedAt = createdAt;
-            // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
-                throw new ArgumentNullException("platform is a required property for LimitedUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Platform = platform;
-            // to ensure "unityVersion" is required (not null)
-            if (unityVersion == null)
-            {
-                throw new ArgumentNullException("unityVersion is a required property for LimitedUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityVersion = unityVersion;
         }
 

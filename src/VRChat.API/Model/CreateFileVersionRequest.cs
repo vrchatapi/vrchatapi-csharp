@@ -46,11 +46,7 @@ namespace VRChat.API.Model
         /// <param name="signatureSizeInBytes">signatureSizeInBytes (required).</param>
         public CreateFileVersionRequest(string fileMd5 = default, int fileSizeInBytes = default, string signatureMd5 = default, int signatureSizeInBytes = default)
         {
-            // to ensure "signatureMd5" is required (not null)
-            if (signatureMd5 == null)
-            {
-                throw new ArgumentNullException("signatureMd5 is a required property for CreateFileVersionRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SignatureMd5 = signatureMd5;
             this.SignatureSizeInBytes = signatureSizeInBytes;
             this.FileMd5 = fileMd5;

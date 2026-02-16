@@ -45,23 +45,11 @@ namespace VRChat.API.Model
         /// <param name="inventoryItemId">inventoryItemId (required).</param>
         public NotificationV2DetailsBoop(string emojiId = default, int? emojiVersion = default, string inventoryItemId = default)
         {
-            // to ensure "emojiId" is required (not null)
-            if (emojiId == null)
-            {
-                throw new ArgumentNullException("emojiId is a required property for NotificationV2DetailsBoop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.EmojiId = emojiId;
-            // to ensure "emojiVersion" is required (not null)
-            if (emojiVersion == null)
-            {
-                throw new ArgumentNullException("emojiVersion is a required property for NotificationV2DetailsBoop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.EmojiVersion = emojiVersion;
-            // to ensure "inventoryItemId" is required (not null)
-            if (inventoryItemId == null)
-            {
-                throw new ArgumentNullException("inventoryItemId is a required property for NotificationV2DetailsBoop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.InventoryItemId = inventoryItemId;
         }
 

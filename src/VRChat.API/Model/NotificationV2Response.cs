@@ -47,35 +47,15 @@ namespace VRChat.API.Model
         /// <param name="type">type (required).</param>
         public NotificationV2Response(string data = default, string icon = default, string text = default, string textKey = default, string type = default)
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new ArgumentNullException("data is a required property for NotificationV2Response and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Data = data;
-            // to ensure "icon" is required (not null)
-            if (icon == null)
-            {
-                throw new ArgumentNullException("icon is a required property for NotificationV2Response and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Icon = icon;
-            // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new ArgumentNullException("text is a required property for NotificationV2Response and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Text = text;
-            // to ensure "textKey" is required (not null)
-            if (textKey == null)
-            {
-                throw new ArgumentNullException("textKey is a required property for NotificationV2Response and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TextKey = textKey;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for NotificationV2Response and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Type = type;
         }
 

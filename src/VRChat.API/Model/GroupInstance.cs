@@ -46,24 +46,12 @@ namespace VRChat.API.Model
         /// <param name="world">world (required).</param>
         public GroupInstance(string instanceId = default, string location = default, int memberCount = default, World world = default)
         {
-            // to ensure "instanceId" is required (not null)
-            if (instanceId == null)
-            {
-                throw new ArgumentNullException("instanceId is a required property for GroupInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.InstanceId = instanceId;
-            // to ensure "location" is required (not null)
-            if (location == null)
-            {
-                throw new ArgumentNullException("location is a required property for GroupInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Location = location;
             this.MemberCount = memberCount;
-            // to ensure "world" is required (not null)
-            if (world == null)
-            {
-                throw new ArgumentNullException("world is a required property for GroupInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.World = world;
         }
 

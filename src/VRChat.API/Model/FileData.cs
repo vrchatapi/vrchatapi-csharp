@@ -87,25 +87,13 @@ namespace VRChat.API.Model
         public FileData(CategoryEnum category = CategoryEnum.Queued, string fileName = default, string md5 = default, int sizeInBytes = default, FileStatus status = default, string uploadId = @"", string url = default)
         {
             this.Category = category;
-            // to ensure "fileName" is required (not null)
-            if (fileName == null)
-            {
-                throw new ArgumentNullException("fileName is a required property for FileData and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FileName = fileName;
             this.SizeInBytes = sizeInBytes;
             this.Status = status;
-            // to ensure "uploadId" is required (not null)
-            if (uploadId == null)
-            {
-                throw new ArgumentNullException("uploadId is a required property for FileData and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UploadId = uploadId;
-            // to ensure "url" is required (not null)
-            if (url == null)
-            {
-                throw new ArgumentNullException("url is a required property for FileData and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Url = url;
             this.Md5 = md5;
         }

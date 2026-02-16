@@ -48,31 +48,15 @@ namespace VRChat.API.Model
         /// <param name="uploadId">uploadId (required).</param>
         public FileVersionUploadStatus(List<Object> etags = default, string fileName = default, int maxParts = default, int nextPartNumber = default, List<Object> parts = default, string uploadId = default)
         {
-            // to ensure "etags" is required (not null)
-            if (etags == null)
-            {
-                throw new ArgumentNullException("etags is a required property for FileVersionUploadStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Etags = etags;
-            // to ensure "fileName" is required (not null)
-            if (fileName == null)
-            {
-                throw new ArgumentNullException("fileName is a required property for FileVersionUploadStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FileName = fileName;
             this.MaxParts = maxParts;
             this.NextPartNumber = nextPartNumber;
-            // to ensure "parts" is required (not null)
-            if (parts == null)
-            {
-                throw new ArgumentNullException("parts is a required property for FileVersionUploadStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Parts = parts;
-            // to ensure "uploadId" is required (not null)
-            if (uploadId == null)
-            {
-                throw new ArgumentNullException("uploadId is a required property for FileVersionUploadStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UploadId = uploadId;
         }
 

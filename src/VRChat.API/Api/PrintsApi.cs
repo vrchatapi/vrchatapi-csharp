@@ -501,7 +501,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void DeletePrint(string printId)
         {
-            DeletePrintWithHttpInfo(printId);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = DeletePrintWithHttpInfo(printId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeletePrint", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -542,15 +550,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/prints/{printId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeletePrint", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Object>("/prints/{printId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -562,7 +571,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeletePrintAsync(string printId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await DeletePrintWithHttpInfoAsync(printId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await DeletePrintWithHttpInfoAsync(printId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeletePrint", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -606,16 +623,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/prints/{printId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeletePrint", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/prints/{printId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -629,6 +646,14 @@ namespace VRChat.API.Api
         public Print EditPrint(string printId, FileParameter image, string? note = default)
         {
             VRChat.API.Client.ApiResponse<Print> localVarResponse = EditPrintWithHttpInfo(printId, image, note);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EditPrint", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -682,15 +707,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("EditPrint", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Print>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Print), ex.Message);
+            }
         }
 
         /// <summary>
@@ -705,6 +731,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Print> EditPrintAsync(string printId, FileParameter image, string? note = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Print> localVarResponse = await EditPrintWithHttpInfoAsync(printId, image, note, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EditPrint", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -761,16 +795,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("EditPrint", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Print>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Print), ex.Message);
+            }
         }
 
         /// <summary>
@@ -782,6 +816,14 @@ namespace VRChat.API.Api
         public Print GetPrint(string printId)
         {
             VRChat.API.Client.ApiResponse<Print> localVarResponse = GetPrintWithHttpInfo(printId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPrint", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -823,15 +865,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetPrint", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Print>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Print), ex.Message);
+            }
         }
 
         /// <summary>
@@ -844,6 +887,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Print> GetPrintAsync(string printId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Print> localVarResponse = await GetPrintWithHttpInfoAsync(printId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPrint", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -888,16 +939,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetPrint", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Print>("/prints/{printId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Print>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Print), ex.Message);
+            }
         }
 
         /// <summary>
@@ -909,6 +960,14 @@ namespace VRChat.API.Api
         public List<Print> GetUserPrints(string userId)
         {
             VRChat.API.Client.ApiResponse<List<Print>> localVarResponse = GetUserPrintsWithHttpInfo(userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserPrints", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -950,15 +1009,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Print>>("/prints/user/{userId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetUserPrints", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<Print>>("/prints/user/{userId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Print>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Print>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -971,6 +1031,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<Print>> GetUserPrintsAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Print>> localVarResponse = await GetUserPrintsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserPrints", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1015,16 +1083,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Print>>("/prints/user/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetUserPrints", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Print>>("/prints/user/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Print>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Print>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1040,6 +1108,14 @@ namespace VRChat.API.Api
         public Print UploadPrint(FileParameter image, DateTime timestamp, string? note = default, string? worldId = default, string? worldName = default)
         {
             VRChat.API.Client.ApiResponse<Print> localVarResponse = UploadPrintWithHttpInfo(image, timestamp, note, worldId, worldName);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UploadPrint", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1099,15 +1175,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Print>("/prints", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UploadPrint", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Print>("/prints", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Print>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Print), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1124,6 +1201,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Print> UploadPrintAsync(FileParameter image, DateTime timestamp, string? note = default, string? worldId = default, string? worldName = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Print> localVarResponse = await UploadPrintWithHttpInfoAsync(image, timestamp, note, worldId, worldName, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UploadPrint", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1186,16 +1271,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Print>("/prints", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UploadPrint", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Print>("/prints", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Print>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Print), ex.Message);
+            }
         }
 
     }

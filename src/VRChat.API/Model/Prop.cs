@@ -66,68 +66,28 @@ namespace VRChat.API.Model
         {
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            // to ensure "authorId" is required (not null)
-            if (authorId == null)
-            {
-                throw new ArgumentNullException("authorId is a required property for Prop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
-            // to ensure "authorName" is required (not null)
-            if (authorName == null)
-            {
-                throw new ArgumentNullException("authorName is a required property for Prop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorName = authorName;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for Prop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Prop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for Prop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
             this.MaxCountPerUser = maxCountPerUser;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for Prop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             this.ReleaseStatus = releaseStatus;
             this.SpawnType = spawnType;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for Prop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // to ensure "thumbnailImageUrl" is required (not null)
-            if (thumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("thumbnailImageUrl is a required property for Prop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ThumbnailImageUrl = thumbnailImageUrl;
-            // to ensure "unityPackageUrl" is required (not null)
-            if (unityPackageUrl == null)
-            {
-                throw new ArgumentNullException("unityPackageUrl is a required property for Prop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityPackageUrl = unityPackageUrl;
-            // to ensure "unityPackages" is required (not null)
-            if (unityPackages == null)
-            {
-                throw new ArgumentNullException("unityPackages is a required property for Prop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityPackages = unityPackages;
             this.WorldPlacementMask = worldPlacementMask;
         }

@@ -658,6 +658,14 @@ namespace VRChat.API.Api
         public Favorite AddFavorite(AddFavoriteRequest? addFavoriteRequest = default)
         {
             VRChat.API.Client.ApiResponse<Favorite> localVarResponse = AddFavoriteWithHttpInfo(addFavoriteRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddFavorite", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -696,15 +704,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Favorite>("/favorites", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AddFavorite", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Favorite>("/favorites", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Favorite>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Favorite), ex.Message);
+            }
         }
 
         /// <summary>
@@ -717,6 +726,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Favorite> AddFavoriteAsync(AddFavoriteRequest? addFavoriteRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Favorite> localVarResponse = await AddFavoriteWithHttpInfoAsync(addFavoriteRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddFavorite", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -758,16 +775,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Favorite>("/favorites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("AddFavorite", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Favorite>("/favorites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Favorite>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Favorite), ex.Message);
+            }
         }
 
         /// <summary>
@@ -781,6 +798,14 @@ namespace VRChat.API.Api
         public Success ClearFavoriteGroup(string favoriteGroupType, string favoriteGroupName, string userId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = ClearFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClearFavoriteGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -834,15 +859,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ClearFavoriteGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -857,6 +883,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> ClearFavoriteGroupAsync(string favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await ClearFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClearFavoriteGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -913,16 +947,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ClearFavoriteGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -936,6 +970,14 @@ namespace VRChat.API.Api
         public FavoriteGroup GetFavoriteGroup(string favoriteGroupType, string favoriteGroupName, string userId)
         {
             VRChat.API.Client.ApiResponse<FavoriteGroup> localVarResponse = GetFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavoriteGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -989,15 +1031,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FavoriteGroup>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFavoriteGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<FavoriteGroup>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FavoriteGroup>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FavoriteGroup), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1012,6 +1055,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<FavoriteGroup> GetFavoriteGroupAsync(string favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FavoriteGroup> localVarResponse = await GetFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavoriteGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1068,16 +1119,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FavoriteGroup>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFavoriteGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<FavoriteGroup>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FavoriteGroup>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FavoriteGroup), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1092,6 +1143,14 @@ namespace VRChat.API.Api
         public List<FavoriteGroup> GetFavoriteGroups(int? n = default, int? offset = default, string? userId = default, string? ownerId = default)
         {
             VRChat.API.Client.ApiResponse<List<FavoriteGroup>> localVarResponse = GetFavoriteGroupsWithHttpInfo(n, offset, userId, ownerId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavoriteGroups", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1147,15 +1206,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<FavoriteGroup>>("/favorite/groups", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFavoriteGroups", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<FavoriteGroup>>("/favorite/groups", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<FavoriteGroup>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<FavoriteGroup>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1171,6 +1231,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<FavoriteGroup>> GetFavoriteGroupsAsync(int? n = default, int? offset = default, string? userId = default, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<FavoriteGroup>> localVarResponse = await GetFavoriteGroupsWithHttpInfoAsync(n, offset, userId, ownerId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavoriteGroups", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1229,16 +1297,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<FavoriteGroup>>("/favorite/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFavoriteGroups", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<FavoriteGroup>>("/favorite/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<FavoriteGroup>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<FavoriteGroup>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1249,6 +1317,14 @@ namespace VRChat.API.Api
         public FavoriteLimits GetFavoriteLimits()
         {
             VRChat.API.Client.ApiResponse<FavoriteLimits> localVarResponse = GetFavoriteLimitsWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavoriteLimits", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1284,15 +1360,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FavoriteLimits>("/auth/user/favoritelimits", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFavoriteLimits", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<FavoriteLimits>("/auth/user/favoritelimits", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FavoriteLimits>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FavoriteLimits), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1304,6 +1381,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<FavoriteLimits> GetFavoriteLimitsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FavoriteLimits> localVarResponse = await GetFavoriteLimitsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavoriteLimits", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1342,16 +1427,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FavoriteLimits>("/auth/user/favoritelimits", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFavoriteLimits", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<FavoriteLimits>("/auth/user/favoritelimits", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FavoriteLimits>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FavoriteLimits), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1366,6 +1451,14 @@ namespace VRChat.API.Api
         public List<Favorite> GetFavorites(int? n = default, int? offset = default, string? type = default, string? tag = default)
         {
             VRChat.API.Client.ApiResponse<List<Favorite>> localVarResponse = GetFavoritesWithHttpInfo(n, offset, type, tag);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavorites", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1421,15 +1514,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Favorite>>("/favorites", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFavorites", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<Favorite>>("/favorites", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Favorite>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Favorite>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1445,6 +1539,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<Favorite>> GetFavoritesAsync(int? n = default, int? offset = default, string? type = default, string? tag = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Favorite>> localVarResponse = await GetFavoritesWithHttpInfoAsync(n, offset, type, tag, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavorites", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1503,16 +1605,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Favorite>>("/favorites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFavorites", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Favorite>>("/favorites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Favorite>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Favorite>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1524,6 +1626,14 @@ namespace VRChat.API.Api
         public Success RemoveFavorite(string favoriteId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = RemoveFavoriteWithHttpInfo(favoriteId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RemoveFavorite", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1565,15 +1675,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/favorites/{favoriteId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("RemoveFavorite", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/favorites/{favoriteId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1586,6 +1697,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> RemoveFavoriteAsync(string favoriteId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await RemoveFavoriteWithHttpInfoAsync(favoriteId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RemoveFavorite", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1630,16 +1749,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/favorites/{favoriteId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("RemoveFavorite", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/favorites/{favoriteId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1653,7 +1772,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void UpdateFavoriteGroup(string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default)
         {
-            UpdateFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = UpdateFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateFavoriteGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -1708,15 +1835,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateFavoriteGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Object>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1731,7 +1859,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task UpdateFavoriteGroupAsync(string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            await UpdateFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await UpdateFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateFavoriteGroup", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -1789,16 +1925,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateFavoriteGroup", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
     }

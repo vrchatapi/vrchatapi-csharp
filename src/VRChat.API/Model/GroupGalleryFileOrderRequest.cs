@@ -44,17 +44,9 @@ namespace VRChat.API.Model
         /// <param name="ids">ids (required).</param>
         public GroupGalleryFileOrderRequest(string galleryId = default, List<string> ids = default)
         {
-            // to ensure "galleryId" is required (not null)
-            if (galleryId == null)
-            {
-                throw new ArgumentNullException("galleryId is a required property for GroupGalleryFileOrderRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.GalleryId = galleryId;
-            // to ensure "ids" is required (not null)
-            if (ids == null)
-            {
-                throw new ArgumentNullException("ids is a required property for GroupGalleryFileOrderRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Ids = ids;
         }
 

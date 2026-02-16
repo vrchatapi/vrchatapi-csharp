@@ -52,49 +52,21 @@ namespace VRChat.API.Model
         /// <param name="worldName">worldName (required).</param>
         public Print(string authorId = default, string authorName = default, DateTime createdAt = default, PrintFiles files = default, string id = default, string note = default, string ownerId = default, DateTime timestamp = default, string worldId = default, string worldName = default)
         {
-            // to ensure "authorId" is required (not null)
-            if (authorId == null)
-            {
-                throw new ArgumentNullException("authorId is a required property for Print and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
-            // to ensure "authorName" is required (not null)
-            if (authorName == null)
-            {
-                throw new ArgumentNullException("authorName is a required property for Print and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorName = authorName;
             this.CreatedAt = createdAt;
-            // to ensure "files" is required (not null)
-            if (files == null)
-            {
-                throw new ArgumentNullException("files is a required property for Print and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Files = files;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Print and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "note" is required (not null)
-            if (note == null)
-            {
-                throw new ArgumentNullException("note is a required property for Print and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Note = note;
             this.Timestamp = timestamp;
-            // to ensure "worldId" is required (not null)
-            if (worldId == null)
-            {
-                throw new ArgumentNullException("worldId is a required property for Print and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.WorldId = worldId;
-            // to ensure "worldName" is required (not null)
-            if (worldName == null)
-            {
-                throw new ArgumentNullException("worldName is a required property for Print and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.WorldName = worldName;
             this.OwnerId = ownerId;
         }

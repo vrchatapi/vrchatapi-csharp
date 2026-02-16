@@ -45,17 +45,9 @@ namespace VRChat.API.Model
         /// <param name="worldName">worldName (required).</param>
         public NotificationDetailInvite(string inviteMessage = default, string worldId = default, string worldName = default)
         {
-            // to ensure "worldId" is required (not null)
-            if (worldId == null)
-            {
-                throw new ArgumentNullException("worldId is a required property for NotificationDetailInvite and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.WorldId = worldId;
-            // to ensure "worldName" is required (not null)
-            if (worldName == null)
-            {
-                throw new ArgumentNullException("worldName is a required property for NotificationDetailInvite and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.WorldName = worldName;
             this.InviteMessage = inviteMessage;
         }

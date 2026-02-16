@@ -96,80 +96,32 @@ namespace VRChat.API.Model
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
             this.AllowAvatarCopying = allowAvatarCopying;
-            // to ensure "currentAvatarImageUrl" is required (not null)
-            if (currentAvatarImageUrl == null)
-            {
-                throw new ArgumentNullException("currentAvatarImageUrl is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatarImageUrl = currentAvatarImageUrl;
-            // to ensure "currentAvatarTags" is required (not null)
-            if (currentAvatarTags == null)
-            {
-                throw new ArgumentNullException("currentAvatarTags is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatarTags = currentAvatarTags;
-            // to ensure "currentAvatarThumbnailImageUrl" is required (not null)
-            if (currentAvatarThumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("currentAvatarThumbnailImageUrl is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
-            // to ensure "dateJoined" is required (not null)
-            if (dateJoined == null)
-            {
-                throw new ArgumentNullException("dateJoined is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DateJoined = dateJoined;
             this.DeveloperType = developerType;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
-            // to ensure "friendKey" is required (not null)
-            if (friendKey == null)
-            {
-                throw new ArgumentNullException("friendKey is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FriendKey = friendKey;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsFriend = isFriend;
-            // to ensure "lastActivity" is required (not null)
-            if (lastActivity == null)
-            {
-                throw new ArgumentNullException("lastActivity is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastActivity = lastActivity;
-            // to ensure "lastPlatform" is required (not null)
-            if (lastPlatform == null)
-            {
-                throw new ArgumentNullException("lastPlatform is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastPlatform = lastPlatform;
-            // to ensure "pronouns" is required (not null)
-            if (pronouns == null)
-            {
-                throw new ArgumentNullException("pronouns is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Pronouns = pronouns;
             this.Status = status;
-            // to ensure "statusDescription" is required (not null)
-            if (statusDescription == null)
-            {
-                throw new ArgumentNullException("statusDescription is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StatusDescription = statusDescription;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for LimitedUserInstance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.Bio = bio;
             this.BioLinks = bioLinks;

@@ -63,17 +63,9 @@ namespace VRChat.API.Model
         /// <param name="varVersion">varVersion (default to 1).</param>
         public CreateAvatarRequest(string assetUrl = default, string assetVersion = default, string createdAt = default, string description = default, string id = default, string imageUrl = default, string name = default, string platform = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1", string updatedAt = default, int varVersion = 1)
         {
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for CreateAvatarRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for CreateAvatarRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             this.AssetUrl = assetUrl;
             this.AssetVersion = assetVersion;

@@ -45,11 +45,7 @@ namespace VRChat.API.Model
         /// <param name="totalPrice">totalPrice (required).</param>
         public PurchaseProductListingRequest(string listingId = default, int quantity = 1, int totalPrice = default)
         {
-            // to ensure "listingId" is required (not null)
-            if (listingId == null)
-            {
-                throw new ArgumentNullException("listingId is a required property for PurchaseProductListingRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ListingId = listingId;
             this.Quantity = quantity;
             this.TotalPrice = totalPrice;

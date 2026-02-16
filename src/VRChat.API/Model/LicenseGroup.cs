@@ -46,29 +46,13 @@ namespace VRChat.API.Model
         /// <param name="name">name (required).</param>
         public LicenseGroup(string description = default, string id = default, List<License> licenses = default, string name = default)
         {
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for LicenseGroup and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for LicenseGroup and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "licenses" is required (not null)
-            if (licenses == null)
-            {
-                throw new ArgumentNullException("licenses is a required property for LicenseGroup and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Licenses = licenses;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for LicenseGroup and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
         }
 

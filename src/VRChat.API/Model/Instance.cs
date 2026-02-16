@@ -110,76 +110,36 @@ namespace VRChat.API.Model
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
         public Instance(bool active = true, bool? ageGate = default, string calendarEntryId = default, bool canRequestInvite = true, int capacity = default, string clientNumber = default, DateTime? closedAt = default, InstanceContentSettings contentSettings = default, string creatorId = default, string displayName = default, string friends = default, bool full = false, int? gameServerVersion = default, GroupAccessType? groupAccessType = default, bool? hardClose = default, bool hasCapacityForYou = default, string hidden = default, string id = default, string instanceId = default, bool? instancePersistenceEnabled = default, string location = default, int nUsers = default, string name = default, string nonce = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool? playerPersistenceEnabled = default, string varPrivate = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string secureName = default, string shortName = default, bool strict = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<LimitedUserInstance> users = default, World world = default, string worldId = default)
         {
-            // to ensure "clientNumber" is required (not null)
-            if (clientNumber == null)
-            {
-                throw new ArgumentNullException("clientNumber is a required property for Instance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ClientNumber = clientNumber;
             this.Full = full;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Instance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "instanceId" is required (not null)
-            if (instanceId == null)
-            {
-                throw new ArgumentNullException("instanceId is a required property for Instance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.InstanceId = instanceId;
-            // to ensure "location" is required (not null)
-            if (location == null)
-            {
-                throw new ArgumentNullException("location is a required property for Instance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Location = location;
             this.NUsers = nUsers;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for Instance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             this.Permanent = permanent;
             this.PhotonRegion = photonRegion;
-            // to ensure "platforms" is required (not null)
-            if (platforms == null)
-            {
-                throw new ArgumentNullException("platforms is a required property for Instance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Platforms = platforms;
             this.QueueEnabled = queueEnabled;
             this.QueueSize = queueSize;
             this.RecommendedCapacity = recommendedCapacity;
             this.Region = region;
-            // to ensure "secureName" is required (not null)
-            if (secureName == null)
-            {
-                throw new ArgumentNullException("secureName is a required property for Instance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SecureName = secureName;
             this.Strict = strict;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for Instance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.Type = type;
             this.UserCount = userCount;
-            // to ensure "world" is required (not null)
-            if (world == null)
-            {
-                throw new ArgumentNullException("world is a required property for Instance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.World = world;
-            // to ensure "worldId" is required (not null)
-            if (worldId == null)
-            {
-                throw new ArgumentNullException("worldId is a required property for Instance and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.WorldId = worldId;
             this.Active = active;
             this.AgeGate = ageGate;

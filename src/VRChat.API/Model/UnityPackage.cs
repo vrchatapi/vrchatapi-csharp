@@ -65,23 +65,11 @@ namespace VRChat.API.Model
         public UnityPackage(string assetUrl = default, Object assetUrlObject = default, int assetVersion = default, DateTime createdAt = default, string id = default, string impostorUrl = default, string impostorizerVersion = default, PerformanceRatings? performanceRating = default, string platform = default, string pluginUrl = default, Object pluginUrlObject = default, string scanStatus = default, long unitySortNumber = default, string unityVersion = @"5.3.4p1", string variant = default, string worldSignature = default)
         {
             this.AssetVersion = assetVersion;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for UnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
-                throw new ArgumentNullException("platform is a required property for UnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Platform = platform;
-            // to ensure "unityVersion" is required (not null)
-            if (unityVersion == null)
-            {
-                throw new ArgumentNullException("unityVersion is a required property for UnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityVersion = unityVersion;
             this.AssetUrl = assetUrl;
             this.AssetUrlObject = assetUrlObject;

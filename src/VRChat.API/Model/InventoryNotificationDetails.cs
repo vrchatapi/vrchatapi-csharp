@@ -45,23 +45,11 @@ namespace VRChat.API.Model
         /// <param name="title">title (required).</param>
         public InventoryNotificationDetails(string body = default, string imageUrl = default, string title = default)
         {
-            // to ensure "body" is required (not null)
-            if (body == null)
-            {
-                throw new ArgumentNullException("body is a required property for InventoryNotificationDetails and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Body = body;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for InventoryNotificationDetails and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for InventoryNotificationDetails and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Title = title;
         }
 

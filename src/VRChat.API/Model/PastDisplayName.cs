@@ -44,11 +44,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         public PastDisplayName(string displayName = default, DateTime updatedAt = default)
         {
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for PastDisplayName and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
             this.UpdatedAt = updatedAt;
         }

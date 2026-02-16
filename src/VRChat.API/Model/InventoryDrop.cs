@@ -56,63 +56,27 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         public InventoryDrop(string authorId = default, DateTime createdAt = default, DateTime? dropExpiryDate = default, DateTime endDropDate = default, string id = default, bool isDisabled = default, string name = default, InventoryNotificationDetails notificationDetails = default, DateTime startDropDate = default, string status = default, List<string> tags = default, string targetGroup = default, List<string> templateIds = default, DateTime updatedAt = default)
         {
-            // to ensure "authorId" is required (not null)
-            if (authorId == null)
-            {
-                throw new ArgumentNullException("authorId is a required property for InventoryDrop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
             this.CreatedAt = createdAt;
-            // to ensure "dropExpiryDate" is required (not null)
-            if (dropExpiryDate == null)
-            {
-                throw new ArgumentNullException("dropExpiryDate is a required property for InventoryDrop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DropExpiryDate = dropExpiryDate;
             this.EndDropDate = endDropDate;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for InventoryDrop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsDisabled = isDisabled;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for InventoryDrop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            // to ensure "notificationDetails" is required (not null)
-            if (notificationDetails == null)
-            {
-                throw new ArgumentNullException("notificationDetails is a required property for InventoryDrop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.NotificationDetails = notificationDetails;
             this.StartDropDate = startDropDate;
-            // to ensure "status" is required (not null)
-            if (status == null)
-            {
-                throw new ArgumentNullException("status is a required property for InventoryDrop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Status = status;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for InventoryDrop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // to ensure "targetGroup" is required (not null)
-            if (targetGroup == null)
-            {
-                throw new ArgumentNullException("targetGroup is a required property for InventoryDrop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TargetGroup = targetGroup;
-            // to ensure "templateIds" is required (not null)
-            if (templateIds == null)
-            {
-                throw new ArgumentNullException("templateIds is a required property for InventoryDrop and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TemplateIds = templateIds;
             this.UpdatedAt = updatedAt;
         }

@@ -1286,6 +1286,14 @@ namespace VRChat.API.Api
         public File CreateFile(CreateFileRequest? createFileRequest = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = CreateFileWithHttpInfo(createFileRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateFile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1324,15 +1332,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<File>("/file", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateFile", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<File>("/file", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1345,6 +1354,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<File> CreateFileAsync(CreateFileRequest? createFileRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = await CreateFileWithHttpInfoAsync(createFileRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateFile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1386,16 +1403,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/file", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateFile", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/file", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1408,6 +1425,14 @@ namespace VRChat.API.Api
         public File CreateFileVersion(string fileId, CreateFileVersionRequest? createFileVersionRequest = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = CreateFileVersionWithHttpInfo(fileId, createFileVersionRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateFileVersion", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1452,15 +1477,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<File>("/file/{fileId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateFileVersion", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<File>("/file/{fileId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1474,6 +1500,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<File> CreateFileVersionAsync(string fileId, CreateFileVersionRequest? createFileVersionRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = await CreateFileVersionWithHttpInfoAsync(fileId, createFileVersionRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateFileVersion", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1521,16 +1555,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/file/{fileId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateFileVersion", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/file/{fileId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1542,6 +1576,14 @@ namespace VRChat.API.Api
         public File DeleteFile(string fileId)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = DeleteFileWithHttpInfo(fileId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteFile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1583,15 +1625,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<File>("/file/{fileId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteFile", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<File>("/file/{fileId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1604,6 +1647,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<File> DeleteFileAsync(string fileId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = await DeleteFileWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteFile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1648,16 +1699,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<File>("/file/{fileId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteFile", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<File>("/file/{fileId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1670,6 +1721,14 @@ namespace VRChat.API.Api
         public File DeleteFileVersion(string fileId, int versionId)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = DeleteFileVersionWithHttpInfo(fileId, versionId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteFileVersion", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1713,15 +1772,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<File>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteFileVersion", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<File>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1735,6 +1795,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<File> DeleteFileVersionAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = await DeleteFileVersionWithHttpInfoAsync(fileId, versionId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteFileVersion", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1781,16 +1849,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<File>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteFileVersion", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<File>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1803,6 +1871,14 @@ namespace VRChat.API.Api
         public FileParameter DownloadFileVersion(string fileId, int versionId)
         {
             VRChat.API.Client.ApiResponse<FileParameter> localVarResponse = DownloadFileVersionWithHttpInfo(fileId, versionId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DownloadFileVersion", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1847,15 +1923,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DownloadFileVersion", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<FileParameter>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileParameter>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1869,6 +1946,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<FileParameter> DownloadFileVersionAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FileParameter> localVarResponse = await DownloadFileVersionWithHttpInfoAsync(fileId, versionId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DownloadFileVersion", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1916,16 +2001,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DownloadFileVersion", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/file/{fileId}/{versionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileParameter>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1940,6 +2025,14 @@ namespace VRChat.API.Api
         public File FinishFileDataUpload(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = FinishFileDataUploadWithHttpInfo(fileId, versionId, fileType, finishFileDataUploadRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FinishFileDataUpload", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1992,15 +2085,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<File>("/file/{fileId}/{versionId}/{fileType}/finish", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("FinishFileDataUpload", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<File>("/file/{fileId}/{versionId}/{fileType}/finish", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2016,6 +2110,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<File> FinishFileDataUploadAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = await FinishFileDataUploadWithHttpInfoAsync(fileId, versionId, fileType, finishFileDataUploadRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FinishFileDataUpload", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2071,16 +2173,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<File>("/file/{fileId}/{versionId}/{fileType}/finish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("FinishFileDataUpload", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<File>("/file/{fileId}/{versionId}/{fileType}/finish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2092,6 +2194,14 @@ namespace VRChat.API.Api
         public AdminAssetBundle GetAdminAssetBundle(string adminAssetBundleId)
         {
             VRChat.API.Client.ApiResponse<AdminAssetBundle> localVarResponse = GetAdminAssetBundleWithHttpInfo(adminAssetBundleId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAdminAssetBundle", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2133,15 +2243,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<AdminAssetBundle>("/adminassetbundles/{adminAssetBundleId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetAdminAssetBundle", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<AdminAssetBundle>("/adminassetbundles/{adminAssetBundleId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<AdminAssetBundle>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AdminAssetBundle), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2154,6 +2265,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<AdminAssetBundle> GetAdminAssetBundleAsync(string adminAssetBundleId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<AdminAssetBundle> localVarResponse = await GetAdminAssetBundleWithHttpInfoAsync(adminAssetBundleId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAdminAssetBundle", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2198,16 +2317,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<AdminAssetBundle>("/adminassetbundles/{adminAssetBundleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetAdminAssetBundle", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<AdminAssetBundle>("/adminassetbundles/{adminAssetBundleId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<AdminAssetBundle>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AdminAssetBundle), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2221,6 +2340,14 @@ namespace VRChat.API.Api
         public AgreementStatus GetContentAgreementStatus(AgreementCode agreementCode, string contentId, int version)
         {
             VRChat.API.Client.ApiResponse<AgreementStatus> localVarResponse = GetContentAgreementStatusWithHttpInfo(agreementCode, contentId, version);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetContentAgreementStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2266,15 +2393,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<AgreementStatus>("/agreement", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetContentAgreementStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<AgreementStatus>("/agreement", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<AgreementStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AgreementStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2289,6 +2417,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<AgreementStatus> GetContentAgreementStatusAsync(AgreementCode agreementCode, string contentId, int version, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<AgreementStatus> localVarResponse = await GetContentAgreementStatusWithHttpInfoAsync(agreementCode, contentId, version, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetContentAgreementStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2337,16 +2473,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<AgreementStatus>("/agreement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetContentAgreementStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<AgreementStatus>("/agreement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<AgreementStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AgreementStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2358,6 +2494,14 @@ namespace VRChat.API.Api
         public File GetFile(string fileId)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = GetFileWithHttpInfo(fileId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2399,15 +2543,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<File>("/file/{fileId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFile", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<File>("/file/{fileId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2420,6 +2565,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<File> GetFileAsync(string fileId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = await GetFileWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFile", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2464,16 +2617,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<File>("/file/{fileId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFile", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<File>("/file/{fileId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2486,6 +2639,14 @@ namespace VRChat.API.Api
         public FileAnalysis GetFileAnalysis(string fileId, int versionId)
         {
             VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = GetFileAnalysisWithHttpInfo(fileId, versionId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFileAnalysis", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2529,15 +2690,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileAnalysis>("/analysis/{fileId}/{versionId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFileAnalysis", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<FileAnalysis>("/analysis/{fileId}/{versionId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2551,6 +2713,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = await GetFileAnalysisWithHttpInfoAsync(fileId, versionId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFileAnalysis", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2597,16 +2767,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileAnalysis>("/analysis/{fileId}/{versionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFileAnalysis", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<FileAnalysis>("/analysis/{fileId}/{versionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2619,6 +2789,14 @@ namespace VRChat.API.Api
         public FileAnalysis GetFileAnalysisSecurity(string fileId, int versionId)
         {
             VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = GetFileAnalysisSecurityWithHttpInfo(fileId, versionId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFileAnalysisSecurity", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2662,15 +2840,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileAnalysis>("/analysis/{fileId}/{versionId}/security", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFileAnalysisSecurity", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<FileAnalysis>("/analysis/{fileId}/{versionId}/security", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2684,6 +2863,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisSecurityAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = await GetFileAnalysisSecurityWithHttpInfoAsync(fileId, versionId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFileAnalysisSecurity", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2730,16 +2917,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileAnalysis>("/analysis/{fileId}/{versionId}/security", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFileAnalysisSecurity", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<FileAnalysis>("/analysis/{fileId}/{versionId}/security", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2752,6 +2939,14 @@ namespace VRChat.API.Api
         public FileAnalysis GetFileAnalysisStandard(string fileId, int versionId)
         {
             VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = GetFileAnalysisStandardWithHttpInfo(fileId, versionId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFileAnalysisStandard", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2795,15 +2990,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileAnalysis>("/analysis/{fileId}/{versionId}/standard", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFileAnalysisStandard", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<FileAnalysis>("/analysis/{fileId}/{versionId}/standard", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2817,6 +3013,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<FileAnalysis> GetFileAnalysisStandardAsync(string fileId, int versionId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FileAnalysis> localVarResponse = await GetFileAnalysisStandardWithHttpInfoAsync(fileId, versionId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFileAnalysisStandard", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2863,16 +3067,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileAnalysis>("/analysis/{fileId}/{versionId}/standard", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFileAnalysisStandard", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<FileAnalysis>("/analysis/{fileId}/{versionId}/standard", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2886,6 +3090,14 @@ namespace VRChat.API.Api
         public FileVersionUploadStatus GetFileDataUploadStatus(string fileId, int versionId, string fileType)
         {
             VRChat.API.Client.ApiResponse<FileVersionUploadStatus> localVarResponse = GetFileDataUploadStatusWithHttpInfo(fileId, versionId, fileType);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFileDataUploadStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2935,15 +3147,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileVersionUploadStatus>("/file/{fileId}/{versionId}/{fileType}/status", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFileDataUploadStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<FileVersionUploadStatus>("/file/{fileId}/{versionId}/{fileType}/status", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileVersionUploadStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileVersionUploadStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2958,6 +3171,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<FileVersionUploadStatus> GetFileDataUploadStatusAsync(string fileId, int versionId, string fileType, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FileVersionUploadStatus> localVarResponse = await GetFileDataUploadStatusWithHttpInfoAsync(fileId, versionId, fileType, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFileDataUploadStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3010,16 +3231,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileVersionUploadStatus>("/file/{fileId}/{versionId}/{fileType}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFileDataUploadStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<FileVersionUploadStatus>("/file/{fileId}/{versionId}/{fileType}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileVersionUploadStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileVersionUploadStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3034,6 +3255,14 @@ namespace VRChat.API.Api
         public List<File> GetFiles(string? tag = default, string? userId = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<File>> localVarResponse = GetFilesWithHttpInfo(tag, userId, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFiles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3089,15 +3318,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<File>>("/files", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<File>>("/files", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<File>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<File>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3113,6 +3343,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<File>> GetFilesAsync(string? tag = default, string? userId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<File>> localVarResponse = await GetFilesWithHttpInfoAsync(tag, userId, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFiles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3171,16 +3409,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<File>>("/files", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<File>>("/files", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<File>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<File>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3192,6 +3430,14 @@ namespace VRChat.API.Api
         public GroupGalleryFileOrder SetGroupGalleryFileOrder(GroupGalleryFileOrderRequest? groupGalleryFileOrderRequest = default)
         {
             VRChat.API.Client.ApiResponse<GroupGalleryFileOrder> localVarResponse = SetGroupGalleryFileOrderWithHttpInfo(groupGalleryFileOrderRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetGroupGalleryFileOrder", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3230,15 +3476,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<GroupGalleryFileOrder>("/files/order", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SetGroupGalleryFileOrder", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<GroupGalleryFileOrder>("/files/order", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupGalleryFileOrder>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGalleryFileOrder), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3251,6 +3498,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<GroupGalleryFileOrder> SetGroupGalleryFileOrderAsync(GroupGalleryFileOrderRequest? groupGalleryFileOrderRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<GroupGalleryFileOrder> localVarResponse = await SetGroupGalleryFileOrderWithHttpInfoAsync(groupGalleryFileOrderRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetGroupGalleryFileOrder", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3292,16 +3547,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<GroupGalleryFileOrder>("/files/order", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SetGroupGalleryFileOrder", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<GroupGalleryFileOrder>("/files/order", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<GroupGalleryFileOrder>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGalleryFileOrder), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3316,6 +3571,14 @@ namespace VRChat.API.Api
         public FileUploadURL StartFileDataUpload(string fileId, int versionId, string fileType, int? partNumber = default)
         {
             VRChat.API.Client.ApiResponse<FileUploadURL> localVarResponse = StartFileDataUploadWithHttpInfo(fileId, versionId, fileType, partNumber);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("StartFileDataUpload", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3370,15 +3633,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<FileUploadURL>("/file/{fileId}/{versionId}/{fileType}/start", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("StartFileDataUpload", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<FileUploadURL>("/file/{fileId}/{versionId}/{fileType}/start", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileUploadURL>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileUploadURL), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3394,6 +3658,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<FileUploadURL> StartFileDataUploadAsync(string fileId, int versionId, string fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FileUploadURL> localVarResponse = await StartFileDataUploadWithHttpInfoAsync(fileId, versionId, fileType, partNumber, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("StartFileDataUpload", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3451,16 +3723,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<FileUploadURL>("/file/{fileId}/{versionId}/{fileType}/start", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("StartFileDataUpload", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<FileUploadURL>("/file/{fileId}/{versionId}/{fileType}/start", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileUploadURL>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileUploadURL), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3472,6 +3744,14 @@ namespace VRChat.API.Api
         public Agreement SubmitContentAgreement(AgreementRequest? agreementRequest = default)
         {
             VRChat.API.Client.ApiResponse<Agreement> localVarResponse = SubmitContentAgreementWithHttpInfo(agreementRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubmitContentAgreement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3510,15 +3790,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Agreement>("/agreement", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SubmitContentAgreement", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Agreement>("/agreement", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Agreement>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Agreement), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3531,6 +3812,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Agreement> SubmitContentAgreementAsync(AgreementRequest? agreementRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Agreement> localVarResponse = await SubmitContentAgreementWithHttpInfoAsync(agreementRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubmitContentAgreement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3572,16 +3861,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Agreement>("/agreement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SubmitContentAgreement", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Agreement>("/agreement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Agreement>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Agreement), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3593,7 +3882,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void UpdateAssetReviewNotes(string assetReviewId, UpdateAssetReviewNotesRequest? updateAssetReviewNotesRequest = default)
         {
-            UpdateAssetReviewNotesWithHttpInfo(assetReviewId, updateAssetReviewNotesRequest);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = UpdateAssetReviewNotesWithHttpInfo(assetReviewId, updateAssetReviewNotesRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateAssetReviewNotes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -3637,15 +3934,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/assetReview/{assetReviewId}/notes", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateAssetReviewNotes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Object>("/assetReview/{assetReviewId}/notes", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3658,7 +3956,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task UpdateAssetReviewNotesAsync(string assetReviewId, UpdateAssetReviewNotesRequest? updateAssetReviewNotesRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            await UpdateAssetReviewNotesWithHttpInfoAsync(assetReviewId, updateAssetReviewNotesRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await UpdateAssetReviewNotesWithHttpInfoAsync(assetReviewId, updateAssetReviewNotesRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateAssetReviewNotes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -3705,16 +4011,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/assetReview/{assetReviewId}/notes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateAssetReviewNotes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/assetReview/{assetReviewId}/notes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3726,6 +4032,14 @@ namespace VRChat.API.Api
         public File UploadGalleryImage(FileParameter file)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = UploadGalleryImageWithHttpInfo(file);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UploadGalleryImage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3768,15 +4082,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<File>("/gallery", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UploadGalleryImage", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<File>("/gallery", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3789,6 +4104,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<File> UploadGalleryImageAsync(FileParameter file, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = await UploadGalleryImageWithHttpInfoAsync(file, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UploadGalleryImage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3834,16 +4157,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/gallery", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UploadGalleryImage", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/gallery", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3855,6 +4178,14 @@ namespace VRChat.API.Api
         public File UploadIcon(FileParameter file)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = UploadIconWithHttpInfo(file);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UploadIcon", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3897,15 +4228,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<File>("/icon", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UploadIcon", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<File>("/icon", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3918,6 +4250,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<File> UploadIconAsync(FileParameter file, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = await UploadIconWithHttpInfoAsync(file, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UploadIcon", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3963,16 +4303,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/icon", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UploadIcon", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/icon", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3990,6 +4330,14 @@ namespace VRChat.API.Api
         public File UploadImage(FileParameter file, ImagePurpose tag, ImageAnimationStyle? animationStyle = default, int? frames = default, int? framesOverTime = default, ImageLoopStyle? loopStyle = default, ImageMask? maskTag = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = UploadImageWithHttpInfo(file, tag, animationStyle, frames, framesOverTime, loopStyle, maskTag);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UploadImage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4059,15 +4407,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<File>("/file/image", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UploadImage", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<File>("/file/image", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4086,6 +4435,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<File> UploadImageAsync(FileParameter file, ImagePurpose tag, ImageAnimationStyle? animationStyle = default, int? frames = default, int? framesOverTime = default, ImageLoopStyle? loopStyle = default, ImageMask? maskTag = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = await UploadImageWithHttpInfoAsync(file, tag, animationStyle, frames, framesOverTime, loopStyle, maskTag, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UploadImage", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4158,16 +4515,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/file/image", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UploadImage", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<File>("/file/image", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+            }
         }
 
     }

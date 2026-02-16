@@ -49,11 +49,7 @@ namespace VRChat.API.Model
         /// <param name="roleIdsToView"> .</param>
         public CreateGroupGalleryRequest(string description = default, bool membersOnly = false, string name = default, List<string> roleIdsToAutoApprove = default, List<string> roleIdsToManage = default, List<string> roleIdsToSubmit = default, List<string> roleIdsToView = default)
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for CreateGroupGalleryRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             this.Description = description;
             this.MembersOnly = membersOnly;

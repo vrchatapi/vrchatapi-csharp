@@ -67,56 +67,24 @@ namespace VRChat.API.Model
         /// <param name="visibility">visibility (required).</param>
         public GroupMember(string acceptedByDisplayName = default, string acceptedById = default, DateTime? bannedAt = default, DateTime? createdAt = default, string groupId = default, bool hasJoinedFromPurchase = default, string id = default, bool isRepresenting = false, bool isSubscribedToAnnouncements = false, bool isSubscribedToEventAnnouncements = default, DateTime? joinedAt = default, DateTime? lastPostReadAt = default, List<string> mRoleIds = default, string managerNotes = default, GroupMemberStatus membershipStatus = default, List<string> roleIds = default, GroupMemberLimitedUser user = default, string userId = default, string visibility = default)
         {
-            // to ensure "groupId" is required (not null)
-            if (groupId == null)
-            {
-                throw new ArgumentNullException("groupId is a required property for GroupMember and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.GroupId = groupId;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for GroupMember and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsRepresenting = isRepresenting;
             this.IsSubscribedToAnnouncements = isSubscribedToAnnouncements;
-            // to ensure "joinedAt" is required (not null)
-            if (joinedAt == null)
-            {
-                throw new ArgumentNullException("joinedAt is a required property for GroupMember and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.JoinedAt = joinedAt;
-            // to ensure "lastPostReadAt" is required (not null)
-            if (lastPostReadAt == null)
-            {
-                throw new ArgumentNullException("lastPostReadAt is a required property for GroupMember and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastPostReadAt = lastPostReadAt;
-            // to ensure "mRoleIds" is required (not null)
-            if (mRoleIds == null)
-            {
-                throw new ArgumentNullException("mRoleIds is a required property for GroupMember and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.MRoleIds = mRoleIds;
             this.MembershipStatus = membershipStatus;
-            // to ensure "roleIds" is required (not null)
-            if (roleIds == null)
-            {
-                throw new ArgumentNullException("roleIds is a required property for GroupMember and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.RoleIds = roleIds;
-            // to ensure "userId" is required (not null)
-            if (userId == null)
-            {
-                throw new ArgumentNullException("userId is a required property for GroupMember and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserId = userId;
-            // to ensure "visibility" is required (not null)
-            if (visibility == null)
-            {
-                throw new ArgumentNullException("visibility is a required property for GroupMember and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Visibility = visibility;
             this.AcceptedByDisplayName = acceptedByDisplayName;
             this.AcceptedById = acceptedById;

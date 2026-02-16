@@ -46,17 +46,9 @@ namespace VRChat.API.Model
         /// <param name="tooltip">The tooltip that describes the category (required).</param>
         public ReportCategory(string description = default, string text = default, string title = default, string tooltip = default)
         {
-            // to ensure "text" is required (not null)
-            if (text == null)
-            {
-                throw new ArgumentNullException("text is a required property for ReportCategory and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Text = text;
-            // to ensure "tooltip" is required (not null)
-            if (tooltip == null)
-            {
-                throw new ArgumentNullException("tooltip is a required property for ReportCategory and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tooltip = tooltip;
             this.Description = description;
             this.Title = title;

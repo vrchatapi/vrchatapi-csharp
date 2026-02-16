@@ -53,11 +53,7 @@ namespace VRChat.API.Model
         {
             this.AvatarModerationType = avatarModerationType;
             this.Created = created;
-            // to ensure "targetAvatarId" is required (not null)
-            if (targetAvatarId == null)
-            {
-                throw new ArgumentNullException("targetAvatarId is a required property for AvatarModerationCreated and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TargetAvatarId = targetAvatarId;
         }
 

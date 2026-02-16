@@ -47,30 +47,14 @@ namespace VRChat.API.Model
         /// <param name="variant">variant (required).</param>
         public AdminUnityPackage(string assetUrl = default, int assetVersion = default, string platform = default, string unityVersion = @"2022.3.22f1-DWR", string variant = default)
         {
-            // to ensure "assetUrl" is required (not null)
-            if (assetUrl == null)
-            {
-                throw new ArgumentNullException("assetUrl is a required property for AdminUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AssetUrl = assetUrl;
             this.AssetVersion = assetVersion;
-            // to ensure "platform" is required (not null)
-            if (platform == null)
-            {
-                throw new ArgumentNullException("platform is a required property for AdminUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Platform = platform;
-            // to ensure "unityVersion" is required (not null)
-            if (unityVersion == null)
-            {
-                throw new ArgumentNullException("unityVersion is a required property for AdminUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityVersion = unityVersion;
-            // to ensure "variant" is required (not null)
-            if (variant == null)
-            {
-                throw new ArgumentNullException("variant is a required property for AdminUnityPackage and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Variant = variant;
         }
 

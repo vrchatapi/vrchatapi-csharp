@@ -1277,6 +1277,14 @@ namespace VRChat.API.Api
         public Disable2FAResult CancelPending2FA()
         {
             VRChat.API.Client.ApiResponse<Disable2FAResult> localVarResponse = CancelPending2FAWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelPending2FA", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1312,15 +1320,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Disable2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CancelPending2FA", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Disable2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Disable2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Disable2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1332,6 +1341,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Disable2FAResult> CancelPending2FAAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Disable2FAResult> localVarResponse = await CancelPending2FAWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelPending2FA", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1370,16 +1387,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Disable2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CancelPending2FA", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Disable2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Disable2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Disable2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1394,6 +1411,14 @@ namespace VRChat.API.Api
         public UserExists CheckUserExists(string? email = default, string? displayName = default, string? username = default, string? excludeUserId = default)
         {
             VRChat.API.Client.ApiResponse<UserExists> localVarResponse = CheckUserExistsWithHttpInfo(email, displayName, username, excludeUserId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CheckUserExists", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1443,15 +1468,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<UserExists>("/auth/exists", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CheckUserExists", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<UserExists>("/auth/exists", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<UserExists>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserExists), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1467,6 +1493,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<UserExists> CheckUserExistsAsync(string? email = default, string? displayName = default, string? username = default, string? excludeUserId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<UserExists> localVarResponse = await CheckUserExistsWithHttpInfoAsync(email, displayName, username, excludeUserId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CheckUserExists", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1519,16 +1553,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<UserExists>("/auth/exists", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CheckUserExists", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<UserExists>("/auth/exists", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<UserExists>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserExists), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1540,7 +1574,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void ConfirmEmail(string id, string verifyEmail)
         {
-            ConfirmEmailWithHttpInfo(id, verifyEmail);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = ConfirmEmailWithHttpInfo(id, verifyEmail);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ConfirmEmail", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -1580,15 +1622,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/auth/confirmEmail", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ConfirmEmail", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<Object>("/auth/confirmEmail", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1601,7 +1644,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task ConfirmEmailAsync(string id, string verifyEmail, System.Threading.CancellationToken cancellationToken = default)
         {
-            await ConfirmEmailWithHttpInfoAsync(id, verifyEmail, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await ConfirmEmailWithHttpInfoAsync(id, verifyEmail, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ConfirmEmail", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -1644,16 +1695,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/auth/confirmEmail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ConfirmEmail", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/auth/confirmEmail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1665,6 +1716,14 @@ namespace VRChat.API.Api
         public AvatarModerationCreated CreateGlobalAvatarModeration(CreateAvatarModerationRequest createAvatarModerationRequest)
         {
             VRChat.API.Client.ApiResponse<AvatarModerationCreated> localVarResponse = CreateGlobalAvatarModerationWithHttpInfo(createAvatarModerationRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGlobalAvatarModeration", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1707,15 +1766,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<AvatarModerationCreated>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGlobalAvatarModeration", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<AvatarModerationCreated>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<AvatarModerationCreated>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AvatarModerationCreated), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1728,6 +1788,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<AvatarModerationCreated> CreateGlobalAvatarModerationAsync(CreateAvatarModerationRequest createAvatarModerationRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<AvatarModerationCreated> localVarResponse = await CreateGlobalAvatarModerationWithHttpInfoAsync(createAvatarModerationRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGlobalAvatarModeration", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1773,16 +1841,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<AvatarModerationCreated>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGlobalAvatarModeration", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<AvatarModerationCreated>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<AvatarModerationCreated>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AvatarModerationCreated), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1795,6 +1863,14 @@ namespace VRChat.API.Api
         public OkStatus2 DeleteGlobalAvatarModeration(string targetAvatarId, AvatarModerationType avatarModerationType)
         {
             VRChat.API.Client.ApiResponse<OkStatus2> localVarResponse = DeleteGlobalAvatarModerationWithHttpInfo(targetAvatarId, avatarModerationType);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGlobalAvatarModeration", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1838,15 +1914,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<OkStatus2>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGlobalAvatarModeration", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<OkStatus2>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<OkStatus2>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(OkStatus2), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1860,6 +1937,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<OkStatus2> DeleteGlobalAvatarModerationAsync(string targetAvatarId, AvatarModerationType avatarModerationType, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<OkStatus2> localVarResponse = await DeleteGlobalAvatarModerationWithHttpInfoAsync(targetAvatarId, avatarModerationType, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGlobalAvatarModeration", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1906,16 +1991,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<OkStatus2>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGlobalAvatarModeration", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<OkStatus2>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<OkStatus2>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(OkStatus2), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1927,6 +2012,14 @@ namespace VRChat.API.Api
         public SuccessFlag DeleteModerationReport(string moderationReportId)
         {
             VRChat.API.Client.ApiResponse<SuccessFlag> localVarResponse = DeleteModerationReportWithHttpInfo(moderationReportId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteModerationReport", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1968,15 +2061,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<SuccessFlag>("/moderationReports/{moderationReportId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteModerationReport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<SuccessFlag>("/moderationReports/{moderationReportId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SuccessFlag>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SuccessFlag), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1989,6 +2083,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<SuccessFlag> DeleteModerationReportAsync(string moderationReportId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<SuccessFlag> localVarResponse = await DeleteModerationReportWithHttpInfoAsync(moderationReportId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteModerationReport", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2033,16 +2135,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<SuccessFlag>("/moderationReports/{moderationReportId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteModerationReport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<SuccessFlag>("/moderationReports/{moderationReportId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SuccessFlag>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SuccessFlag), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2054,6 +2156,14 @@ namespace VRChat.API.Api
         public CurrentUser DeleteUser(string userId)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = DeleteUserWithHttpInfo(userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2095,15 +2205,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<CurrentUser>("/users/{userId}/delete", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteUser", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<CurrentUser>("/users/{userId}/delete", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CurrentUser>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2116,6 +2227,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<CurrentUser> DeleteUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await DeleteUserWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2160,16 +2279,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<CurrentUser>("/users/{userId}/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteUser", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<CurrentUser>("/users/{userId}/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CurrentUser>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2180,6 +2299,14 @@ namespace VRChat.API.Api
         public Disable2FAResult Disable2FA()
         {
             VRChat.API.Client.ApiResponse<Disable2FAResult> localVarResponse = Disable2FAWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Disable2FA", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2215,15 +2342,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Disable2FAResult>("/auth/twofactorauth", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("Disable2FA", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Disable2FAResult>("/auth/twofactorauth", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Disable2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Disable2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2235,6 +2363,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Disable2FAResult> Disable2FAAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Disable2FAResult> localVarResponse = await Disable2FAWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Disable2FA", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2273,16 +2409,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Disable2FAResult>("/auth/twofactorauth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("Disable2FA", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Disable2FAResult>("/auth/twofactorauth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Disable2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Disable2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2293,6 +2429,14 @@ namespace VRChat.API.Api
         public Pending2FAResult Enable2FA()
         {
             VRChat.API.Client.ApiResponse<Pending2FAResult> localVarResponse = Enable2FAWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Enable2FA", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2328,15 +2472,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Pending2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("Enable2FA", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Pending2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Pending2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Pending2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2348,6 +2493,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Pending2FAResult> Enable2FAAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Pending2FAResult> localVarResponse = await Enable2FAWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Enable2FA", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2386,16 +2539,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Pending2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("Enable2FA", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Pending2FAResult>("/auth/twofactorauth/totp/pending", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Pending2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Pending2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2406,6 +2559,14 @@ namespace VRChat.API.Api
         public CurrentUser GetCurrentUser()
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = GetCurrentUserWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCurrentUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2453,15 +2614,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<CurrentUser>("/auth/user", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetCurrentUser", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<CurrentUser>("/auth/user", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CurrentUser>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2473,6 +2635,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<CurrentUser> GetCurrentUserAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await GetCurrentUserWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCurrentUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2523,16 +2693,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CurrentUser>("/auth/user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetCurrentUser", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<CurrentUser>("/auth/user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CurrentUser>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2543,6 +2713,14 @@ namespace VRChat.API.Api
         public List<AvatarModeration> GetGlobalAvatarModerations()
         {
             VRChat.API.Client.ApiResponse<List<AvatarModeration>> localVarResponse = GetGlobalAvatarModerationsWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGlobalAvatarModerations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2578,15 +2756,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<AvatarModeration>>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGlobalAvatarModerations", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<AvatarModeration>>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<AvatarModeration>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<AvatarModeration>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2598,6 +2777,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<AvatarModeration>> GetGlobalAvatarModerationsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<AvatarModeration>> localVarResponse = await GetGlobalAvatarModerationsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGlobalAvatarModerations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2636,16 +2823,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<AvatarModeration>>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGlobalAvatarModerations", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<AvatarModeration>>("/auth/user/avatarmoderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<AvatarModeration>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<AvatarModeration>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2661,6 +2848,14 @@ namespace VRChat.API.Api
         public PaginatedModerationReportList GetModerationReports(int? offset = default, int? n = default, string? reportingUserId = default, string? status = default, string? type = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedModerationReportList> localVarResponse = GetModerationReportsWithHttpInfo(offset, n, reportingUserId, status, type);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetModerationReports", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2721,15 +2916,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PaginatedModerationReportList>("/moderationReports", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetModerationReports", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<PaginatedModerationReportList>("/moderationReports", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedModerationReportList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedModerationReportList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2746,6 +2942,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PaginatedModerationReportList> GetModerationReportsAsync(int? offset = default, int? n = default, string? reportingUserId = default, string? status = default, string? type = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedModerationReportList> localVarResponse = await GetModerationReportsWithHttpInfoAsync(offset, n, reportingUserId, status, type, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetModerationReports", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2809,16 +3013,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedModerationReportList>("/moderationReports", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetModerationReports", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedModerationReportList>("/moderationReports", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedModerationReportList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedModerationReportList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2829,6 +3033,14 @@ namespace VRChat.API.Api
         public TwoFactorRecoveryCodes GetRecoveryCodes()
         {
             VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes> localVarResponse = GetRecoveryCodesWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetRecoveryCodes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2864,15 +3076,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TwoFactorRecoveryCodes>("/auth/user/twofactorauth/otp", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetRecoveryCodes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<TwoFactorRecoveryCodes>("/auth/user/twofactorauth/otp", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TwoFactorRecoveryCodes), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2884,6 +3097,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<TwoFactorRecoveryCodes> GetRecoveryCodesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes> localVarResponse = await GetRecoveryCodesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetRecoveryCodes", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2922,16 +3143,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TwoFactorRecoveryCodes>("/auth/user/twofactorauth/otp", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetRecoveryCodes", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<TwoFactorRecoveryCodes>("/auth/user/twofactorauth/otp", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TwoFactorRecoveryCodes), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2942,6 +3163,14 @@ namespace VRChat.API.Api
         public Success Logout()
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = LogoutWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Logout", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2977,15 +3206,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Success>("/logout", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("Logout", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Success>("/logout", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2997,6 +3227,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> LogoutAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await LogoutWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Logout", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3035,16 +3273,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/logout", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("Logout", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/logout", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3057,6 +3295,14 @@ namespace VRChat.API.Api
         public CurrentUser RegisterUserAccount(RegisterUserAccountRequest registerUserAccountRequest)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = RegisterUserAccountWithHttpInfo(registerUserAccountRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RegisterUserAccount", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3094,15 +3340,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<CurrentUser>("/auth/register", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("RegisterUserAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<CurrentUser>("/auth/register", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CurrentUser>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3116,6 +3363,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<CurrentUser> RegisterUserAccountAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await RegisterUserAccountWithHttpInfoAsync(registerUserAccountRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RegisterUserAccount", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3156,16 +3411,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<CurrentUser>("/auth/register", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("RegisterUserAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<CurrentUser>("/auth/register", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CurrentUser>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3176,6 +3431,14 @@ namespace VRChat.API.Api
         public Success ResendEmailConfirmation()
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = ResendEmailConfirmationWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResendEmailConfirmation", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3211,15 +3474,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Success>("/auth/user/resendEmail", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ResendEmailConfirmation", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Success>("/auth/user/resendEmail", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3231,6 +3495,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> ResendEmailConfirmationAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await ResendEmailConfirmationWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResendEmailConfirmation", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3269,16 +3541,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Success>("/auth/user/resendEmail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ResendEmailConfirmation", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Success>("/auth/user/resendEmail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3290,6 +3562,14 @@ namespace VRChat.API.Api
         public ModerationReport SubmitModerationReport(SubmitModerationReportRequest submitModerationReportRequest)
         {
             VRChat.API.Client.ApiResponse<ModerationReport> localVarResponse = SubmitModerationReportWithHttpInfo(submitModerationReportRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubmitModerationReport", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3332,15 +3612,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<ModerationReport>("/moderationReports", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SubmitModerationReport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<ModerationReport>("/moderationReports", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ModerationReport>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ModerationReport), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3353,6 +3634,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<ModerationReport> SubmitModerationReportAsync(SubmitModerationReportRequest submitModerationReportRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<ModerationReport> localVarResponse = await SubmitModerationReportWithHttpInfoAsync(submitModerationReportRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubmitModerationReport", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3398,16 +3687,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ModerationReport>("/moderationReports", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SubmitModerationReport", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<ModerationReport>("/moderationReports", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ModerationReport>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ModerationReport), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3419,6 +3708,14 @@ namespace VRChat.API.Api
         public Verify2FAResult Verify2FA(TwoFactorAuthCode twoFactorAuthCode)
         {
             VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = Verify2FAWithHttpInfo(twoFactorAuthCode);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Verify2FA", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3461,15 +3758,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Verify2FAResult>("/auth/twofactorauth/totp/verify", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("Verify2FA", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Verify2FAResult>("/auth/twofactorauth/totp/verify", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Verify2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Verify2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3482,6 +3780,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Verify2FAResult> Verify2FAAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = await Verify2FAWithHttpInfoAsync(twoFactorAuthCode, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Verify2FA", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3527,16 +3833,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAResult>("/auth/twofactorauth/totp/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("Verify2FA", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAResult>("/auth/twofactorauth/totp/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Verify2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Verify2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3548,6 +3854,14 @@ namespace VRChat.API.Api
         public Verify2FAEmailCodeResult Verify2FAEmailCode(TwoFactorEmailCode twoFactorEmailCode)
         {
             VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult> localVarResponse = Verify2FAEmailCodeWithHttpInfo(twoFactorEmailCode);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Verify2FAEmailCode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3590,15 +3904,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Verify2FAEmailCodeResult>("/auth/twofactorauth/emailotp/verify", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("Verify2FAEmailCode", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Verify2FAEmailCodeResult>("/auth/twofactorauth/emailotp/verify", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Verify2FAEmailCodeResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3611,6 +3926,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Verify2FAEmailCodeResult> Verify2FAEmailCodeAsync(TwoFactorEmailCode twoFactorEmailCode, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult> localVarResponse = await Verify2FAEmailCodeWithHttpInfoAsync(twoFactorEmailCode, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Verify2FAEmailCode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3656,16 +3979,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAEmailCodeResult>("/auth/twofactorauth/emailotp/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("Verify2FAEmailCode", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAEmailCodeResult>("/auth/twofactorauth/emailotp/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Verify2FAEmailCodeResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Verify2FAEmailCodeResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3676,6 +3999,14 @@ namespace VRChat.API.Api
         public VerifyAuthTokenResult VerifyAuthToken()
         {
             VRChat.API.Client.ApiResponse<VerifyAuthTokenResult> localVarResponse = VerifyAuthTokenWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyAuthToken", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3711,15 +4042,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<VerifyAuthTokenResult>("/auth", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("VerifyAuthToken", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<VerifyAuthTokenResult>("/auth", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<VerifyAuthTokenResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(VerifyAuthTokenResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3731,6 +4063,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<VerifyAuthTokenResult> VerifyAuthTokenAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<VerifyAuthTokenResult> localVarResponse = await VerifyAuthTokenWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyAuthToken", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3769,16 +4109,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<VerifyAuthTokenResult>("/auth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("VerifyAuthToken", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<VerifyAuthTokenResult>("/auth", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<VerifyAuthTokenResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(VerifyAuthTokenResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3790,7 +4130,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void VerifyLoginPlace(string token, string? userId = default)
         {
-            VerifyLoginPlaceWithHttpInfo(token, userId);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = VerifyLoginPlaceWithHttpInfo(token, userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyLoginPlace", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -3829,15 +4177,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/auth/verifyLoginPlace", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("VerifyLoginPlace", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<Object>("/auth/verifyLoginPlace", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3850,7 +4199,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task VerifyLoginPlaceAsync(string token, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            await VerifyLoginPlaceWithHttpInfoAsync(token, userId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await VerifyLoginPlaceWithHttpInfoAsync(token, userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyLoginPlace", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -3892,16 +4249,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/auth/verifyLoginPlace", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("VerifyLoginPlace", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/auth/verifyLoginPlace", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3913,6 +4270,14 @@ namespace VRChat.API.Api
         public Verify2FAResult VerifyPending2FA(TwoFactorAuthCode twoFactorAuthCode)
         {
             VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = VerifyPending2FAWithHttpInfo(twoFactorAuthCode);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyPending2FA", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -3955,15 +4320,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Verify2FAResult>("/auth/twofactorauth/totp/pending/verify", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("VerifyPending2FA", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Verify2FAResult>("/auth/twofactorauth/totp/pending/verify", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Verify2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Verify2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -3976,6 +4342,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Verify2FAResult> VerifyPending2FAAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = await VerifyPending2FAWithHttpInfoAsync(twoFactorAuthCode, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyPending2FA", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4021,16 +4395,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAResult>("/auth/twofactorauth/totp/pending/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("VerifyPending2FA", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAResult>("/auth/twofactorauth/totp/pending/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Verify2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Verify2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4042,6 +4416,14 @@ namespace VRChat.API.Api
         public Verify2FAResult VerifyRecoveryCode(TwoFactorAuthCode twoFactorAuthCode)
         {
             VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = VerifyRecoveryCodeWithHttpInfo(twoFactorAuthCode);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyRecoveryCode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4084,15 +4466,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Verify2FAResult>("/auth/twofactorauth/otp/verify", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("VerifyRecoveryCode", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Verify2FAResult>("/auth/twofactorauth/otp/verify", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Verify2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Verify2FAResult), ex.Message);
+            }
         }
 
         /// <summary>
@@ -4105,6 +4488,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Verify2FAResult> VerifyRecoveryCodeAsync(TwoFactorAuthCode twoFactorAuthCode, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Verify2FAResult> localVarResponse = await VerifyRecoveryCodeWithHttpInfoAsync(twoFactorAuthCode, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VerifyRecoveryCode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -4150,16 +4541,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAResult>("/auth/twofactorauth/otp/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("VerifyRecoveryCode", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Verify2FAResult>("/auth/twofactorauth/otp/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Verify2FAResult>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Verify2FAResult), ex.Message);
+            }
         }
 
     }

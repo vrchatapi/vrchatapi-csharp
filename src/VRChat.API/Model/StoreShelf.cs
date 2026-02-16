@@ -51,35 +51,15 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         public StoreShelf(ProductListing highlightListing = default, string highlightListingId = default, string id = default, List<string> listingIds = default, List<ProductListing> listings = default, string shelfDescription = default, string shelfLayout = default, string shelfTitle = default, DateTime updatedAt = default)
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for StoreShelf and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "listingIds" is required (not null)
-            if (listingIds == null)
-            {
-                throw new ArgumentNullException("listingIds is a required property for StoreShelf and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ListingIds = listingIds;
-            // to ensure "shelfDescription" is required (not null)
-            if (shelfDescription == null)
-            {
-                throw new ArgumentNullException("shelfDescription is a required property for StoreShelf and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ShelfDescription = shelfDescription;
-            // to ensure "shelfLayout" is required (not null)
-            if (shelfLayout == null)
-            {
-                throw new ArgumentNullException("shelfLayout is a required property for StoreShelf and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ShelfLayout = shelfLayout;
-            // to ensure "shelfTitle" is required (not null)
-            if (shelfTitle == null)
-            {
-                throw new ArgumentNullException("shelfTitle is a required property for StoreShelf and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ShelfTitle = shelfTitle;
             this.UpdatedAt = updatedAt;
             this.HighlightListing = highlightListing;

@@ -48,17 +48,9 @@ namespace VRChat.API.Model
         {
             this.DefaultMaxFavoriteGroups = defaultMaxFavoriteGroups;
             this.DefaultMaxFavoritesPerGroup = defaultMaxFavoritesPerGroup;
-            // to ensure "maxFavoriteGroups" is required (not null)
-            if (maxFavoriteGroups == null)
-            {
-                throw new ArgumentNullException("maxFavoriteGroups is a required property for FavoriteLimits and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.MaxFavoriteGroups = maxFavoriteGroups;
-            // to ensure "maxFavoritesPerGroup" is required (not null)
-            if (maxFavoritesPerGroup == null)
-            {
-                throw new ArgumentNullException("maxFavoritesPerGroup is a required property for FavoriteLimits and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.MaxFavoritesPerGroup = maxFavoritesPerGroup;
         }
 

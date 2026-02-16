@@ -50,29 +50,13 @@ namespace VRChat.API.Model
         /// <param name="type">type.</param>
         public Permission(PermissionData data = default, string description = default, string displayName = default, string id = default, string name = default, string ownerDisplayName = default, string ownerId = default, string type = default)
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Permission and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for Permission and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            // to ensure "ownerDisplayName" is required (not null)
-            if (ownerDisplayName == null)
-            {
-                throw new ArgumentNullException("ownerDisplayName is a required property for Permission and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.OwnerDisplayName = ownerDisplayName;
-            // to ensure "ownerId" is required (not null)
-            if (ownerId == null)
-            {
-                throw new ArgumentNullException("ownerId is a required property for Permission and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.OwnerId = ownerId;
             this.Data = data;
             this.Description = description;

@@ -622,6 +622,14 @@ namespace VRChat.API.Api
         public Prop CreateProp(CreatePropRequest createPropRequest)
         {
             VRChat.API.Client.ApiResponse<Prop> localVarResponse = CreatePropWithHttpInfo(createPropRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -664,15 +672,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Prop>("/props", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<Prop>("/props", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Prop>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
+            }
         }
 
         /// <summary>
@@ -685,6 +694,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Prop> CreatePropAsync(CreatePropRequest createPropRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Prop> localVarResponse = await CreatePropWithHttpInfoAsync(createPropRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -730,16 +747,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Prop>("/props", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Prop>("/props", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Prop>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
+            }
         }
 
         /// <summary>
@@ -750,7 +767,15 @@ namespace VRChat.API.Api
         /// <returns></returns>
         public void DeleteProp(string propId)
         {
-            DeletePropWithHttpInfo(propId);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = DeletePropWithHttpInfo(propId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -791,15 +816,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/props/{propId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Object>("/props/{propId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -811,7 +837,15 @@ namespace VRChat.API.Api
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task DeletePropAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
-            await DeletePropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await DeletePropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
         }
 
         /// <summary>
@@ -855,16 +889,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/props/{propId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/props/{propId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
         }
 
         /// <summary>
@@ -876,6 +910,14 @@ namespace VRChat.API.Api
         public Prop GetProp(string propId)
         {
             VRChat.API.Client.ApiResponse<Prop> localVarResponse = GetPropWithHttpInfo(propId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -917,15 +959,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Prop>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
+            }
         }
 
         /// <summary>
@@ -938,6 +981,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Prop> GetPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Prop> localVarResponse = await GetPropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -982,16 +1033,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Prop>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1003,6 +1054,14 @@ namespace VRChat.API.Api
         public PropPublishStatus GetPropPublishStatus(string propId)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = GetPropPublishStatusWithHttpInfo(propId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPropPublishStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1044,15 +1103,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetPropPublishStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PropPublishStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1065,6 +1125,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PropPublishStatus> GetPropPublishStatusAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = await GetPropPublishStatusWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPropPublishStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1109,16 +1177,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetPropPublishStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PropPublishStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1132,6 +1200,14 @@ namespace VRChat.API.Api
         public List<Prop> ListProps(string authorId, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<Prop>> localVarResponse = ListPropsWithHttpInfo(authorId, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListProps", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1183,15 +1259,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Prop>>("/props", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ListProps", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<List<Prop>>("/props", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Prop>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Prop>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1206,6 +1283,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<List<Prop>> ListPropsAsync(string authorId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Prop>> localVarResponse = await ListPropsWithHttpInfoAsync(authorId, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListProps", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1260,16 +1345,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Prop>>("/props", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("ListProps", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Prop>>("/props", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Prop>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Prop>), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1281,6 +1366,14 @@ namespace VRChat.API.Api
         public PropPublishStatus PublishProp(string propId)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = PublishPropWithHttpInfo(propId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PublishProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1322,15 +1415,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("PublishProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PropPublishStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1343,6 +1437,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PropPublishStatus> PublishPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = await PublishPropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PublishProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1387,16 +1489,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("PublishProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PropPublishStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1408,6 +1510,14 @@ namespace VRChat.API.Api
         public PropPublishStatus UnpublishProp(string propId)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = UnpublishPropWithHttpInfo(propId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnpublishProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1449,15 +1559,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UnpublishProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PropPublishStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1470,6 +1581,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PropPublishStatus> UnpublishPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = await UnpublishPropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UnpublishProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1514,16 +1633,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UnpublishProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PropPublishStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1536,6 +1655,14 @@ namespace VRChat.API.Api
         public Prop UpdateProp(string propId, UpdatePropRequest updatePropRequest)
         {
             VRChat.API.Client.ApiResponse<Prop> localVarResponse = UpdatePropWithHttpInfo(propId, updatePropRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1584,15 +1711,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Prop>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1606,6 +1734,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Prop> UpdatePropAsync(string propId, UpdatePropRequest updatePropRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Prop> localVarResponse = await UpdatePropWithHttpInfoAsync(propId, updatePropRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateProp", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1657,16 +1793,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateProp", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Prop>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
+            }
         }
 
     }

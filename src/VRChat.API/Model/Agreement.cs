@@ -57,35 +57,15 @@ namespace VRChat.API.Model
         public Agreement(AgreementCode agreementCode = default, string agreementFulltext = default, string contentId = default, string created = default, string id = default, List<string> tags = default, string userId = default, int varVersion = default)
         {
             this.AgreementCode = agreementCode;
-            // to ensure "contentId" is required (not null)
-            if (contentId == null)
-            {
-                throw new ArgumentNullException("contentId is a required property for Agreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentId = contentId;
-            // to ensure "created" is required (not null)
-            if (created == null)
-            {
-                throw new ArgumentNullException("created is a required property for Agreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Created = created;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Agreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for Agreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // to ensure "userId" is required (not null)
-            if (userId == null)
-            {
-                throw new ArgumentNullException("userId is a required property for Agreement and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserId = userId;
             this.VarVersion = varVersion;
             this.AgreementFulltext = agreementFulltext;

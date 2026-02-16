@@ -43,11 +43,7 @@ namespace VRChat.API.Model
         /// <param name="code">code (required).</param>
         public TwoFactorAuthCode(string code = default)
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for TwoFactorAuthCode and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Code = code;
         }
 

@@ -52,47 +52,19 @@ namespace VRChat.API.Model
         public ServiceStatus(DateTime createdAt = default, string id = default, List<Object> progress = default, string requesterUserId = default, string state = default, string subjectId = default, string subjectType = default, string type = default, DateTime updatedAt = default)
         {
             this.CreatedAt = createdAt;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for ServiceStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "progress" is required (not null)
-            if (progress == null)
-            {
-                throw new ArgumentNullException("progress is a required property for ServiceStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Progress = progress;
-            // to ensure "requesterUserId" is required (not null)
-            if (requesterUserId == null)
-            {
-                throw new ArgumentNullException("requesterUserId is a required property for ServiceStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.RequesterUserId = requesterUserId;
-            // to ensure "state" is required (not null)
-            if (state == null)
-            {
-                throw new ArgumentNullException("state is a required property for ServiceStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.State = state;
-            // to ensure "subjectId" is required (not null)
-            if (subjectId == null)
-            {
-                throw new ArgumentNullException("subjectId is a required property for ServiceStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SubjectId = subjectId;
-            // to ensure "subjectType" is required (not null)
-            if (subjectType == null)
-            {
-                throw new ArgumentNullException("subjectType is a required property for ServiceStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SubjectType = subjectType;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for ServiceStatus and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Type = type;
             this.UpdatedAt = updatedAt;
         }

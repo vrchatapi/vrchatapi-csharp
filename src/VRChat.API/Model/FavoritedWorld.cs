@@ -78,50 +78,22 @@ namespace VRChat.API.Model
         /// <param name="visits">visits (default to 0).</param>
         public FavoritedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, string favoriteGroup = default, string favoriteId = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = default, int visits = 0)
         {
-            // to ensure "authorName" is required (not null)
-            if (authorName == null)
-            {
-                throw new ArgumentNullException("authorName is a required property for FavoritedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorName = authorName;
             this.Capacity = capacity;
-            // to ensure "favoriteGroup" is required (not null)
-            if (favoriteGroup == null)
-            {
-                throw new ArgumentNullException("favoriteGroup is a required property for FavoritedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FavoriteGroup = favoriteGroup;
-            // to ensure "favoriteId" is required (not null)
-            if (favoriteId == null)
-            {
-                throw new ArgumentNullException("favoriteId is a required property for FavoritedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FavoriteId = favoriteId;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for FavoritedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for FavoritedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for FavoritedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             this.Occupants = occupants;
             this.ReleaseStatus = releaseStatus;
-            // to ensure "thumbnailImageUrl" is required (not null)
-            if (thumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("thumbnailImageUrl is a required property for FavoritedWorld and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ThumbnailImageUrl = thumbnailImageUrl;
             this.AuthorId = authorId;
             this.CreatedAt = createdAt;

@@ -50,29 +50,13 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">only present in CurrentUser badges.</param>
         public Badge(DateTime? assignedAt = default, string badgeDescription = default, string badgeId = default, string badgeImageUrl = default, string badgeName = default, bool? hidden = default, bool showcased = default, DateTime? updatedAt = default)
         {
-            // to ensure "badgeDescription" is required (not null)
-            if (badgeDescription == null)
-            {
-                throw new ArgumentNullException("badgeDescription is a required property for Badge and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BadgeDescription = badgeDescription;
-            // to ensure "badgeId" is required (not null)
-            if (badgeId == null)
-            {
-                throw new ArgumentNullException("badgeId is a required property for Badge and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BadgeId = badgeId;
-            // to ensure "badgeImageUrl" is required (not null)
-            if (badgeImageUrl == null)
-            {
-                throw new ArgumentNullException("badgeImageUrl is a required property for Badge and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BadgeImageUrl = badgeImageUrl;
-            // to ensure "badgeName" is required (not null)
-            if (badgeName == null)
-            {
-                throw new ArgumentNullException("badgeName is a required property for Badge and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BadgeName = badgeName;
             this.Showcased = showcased;
             this.AssignedAt = assignedAt;

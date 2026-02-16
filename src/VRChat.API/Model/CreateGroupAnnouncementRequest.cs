@@ -46,11 +46,7 @@ namespace VRChat.API.Model
         /// <param name="title">Announcement title (required).</param>
         public CreateGroupAnnouncementRequest(string imageId = default, bool sendNotification = false, string text = default, string title = default)
         {
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for CreateGroupAnnouncementRequest and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Title = title;
             this.ImageId = imageId;
             this.SendNotification = sendNotification;

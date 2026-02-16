@@ -146,188 +146,76 @@ namespace VRChat.API.Model
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
             this.AllowAvatarCopying = allowAvatarCopying;
-            // to ensure "bio" is required (not null)
-            if (bio == null)
-            {
-                throw new ArgumentNullException("bio is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Bio = bio;
-            // to ensure "bioLinks" is required (not null)
-            if (bioLinks == null)
-            {
-                throw new ArgumentNullException("bioLinks is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BioLinks = bioLinks;
-            // to ensure "currentAvatar" is required (not null)
-            if (currentAvatar == null)
-            {
-                throw new ArgumentNullException("currentAvatar is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatar = currentAvatar;
-            // to ensure "currentAvatarImageUrl" is required (not null)
-            if (currentAvatarImageUrl == null)
-            {
-                throw new ArgumentNullException("currentAvatarImageUrl is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatarImageUrl = currentAvatarImageUrl;
-            // to ensure "currentAvatarTags" is required (not null)
-            if (currentAvatarTags == null)
-            {
-                throw new ArgumentNullException("currentAvatarTags is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatarTags = currentAvatarTags;
-            // to ensure "currentAvatarThumbnailImageUrl" is required (not null)
-            if (currentAvatarThumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("currentAvatarThumbnailImageUrl is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
             this.DateJoined = dateJoined;
             this.DeveloperType = developerType;
-            // to ensure "displayName" is required (not null)
-            if (displayName == null)
-            {
-                throw new ArgumentNullException("displayName is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
             this.EmailVerified = emailVerified;
-            // to ensure "friendGroupNames" is required (not null)
-            if (friendGroupNames == null)
-            {
-                throw new ArgumentNullException("friendGroupNames is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FriendGroupNames = friendGroupNames;
-            // to ensure "friendKey" is required (not null)
-            if (friendKey == null)
-            {
-                throw new ArgumentNullException("friendKey is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FriendKey = friendKey;
-            // to ensure "friends" is required (not null)
-            if (friends == null)
-            {
-                throw new ArgumentNullException("friends is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Friends = friends;
             this.HasBirthday = hasBirthday;
             this.HasEmail = hasEmail;
             this.HasLoggedInFromClient = hasLoggedInFromClient;
             this.HasPendingEmail = hasPendingEmail;
-            // to ensure "homeLocation" is required (not null)
-            if (homeLocation == null)
-            {
-                throw new ArgumentNullException("homeLocation is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.HomeLocation = homeLocation;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsAdult = isAdult;
             this.IsFriend = isFriend;
             this.LastLogin = lastLogin;
-            // to ensure "lastMobile" is required (not null)
-            if (lastMobile == null)
-            {
-                throw new ArgumentNullException("lastMobile is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastMobile = lastMobile;
-            // to ensure "lastPlatform" is required (not null)
-            if (lastPlatform == null)
-            {
-                throw new ArgumentNullException("lastPlatform is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastPlatform = lastPlatform;
-            // to ensure "obfuscatedEmail" is required (not null)
-            if (obfuscatedEmail == null)
-            {
-                throw new ArgumentNullException("obfuscatedEmail is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ObfuscatedEmail = obfuscatedEmail;
-            // to ensure "obfuscatedPendingEmail" is required (not null)
-            if (obfuscatedPendingEmail == null)
-            {
-                throw new ArgumentNullException("obfuscatedPendingEmail is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ObfuscatedPendingEmail = obfuscatedPendingEmail;
-            // to ensure "oculusId" is required (not null)
-            if (oculusId == null)
-            {
-                throw new ArgumentNullException("oculusId is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.OculusId = oculusId;
-            // to ensure "pastDisplayNames" is required (not null)
-            if (pastDisplayNames == null)
-            {
-                throw new ArgumentNullException("pastDisplayNames is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PastDisplayNames = pastDisplayNames;
-            // to ensure "profilePicOverride" is required (not null)
-            if (profilePicOverride == null)
-            {
-                throw new ArgumentNullException("profilePicOverride is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ProfilePicOverride = profilePicOverride;
-            // to ensure "profilePicOverrideThumbnail" is required (not null)
-            if (profilePicOverrideThumbnail == null)
-            {
-                throw new ArgumentNullException("profilePicOverrideThumbnail is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ProfilePicOverrideThumbnail = profilePicOverrideThumbnail;
-            // to ensure "pronouns" is required (not null)
-            if (pronouns == null)
-            {
-                throw new ArgumentNullException("pronouns is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Pronouns = pronouns;
-            // to ensure "pronounsHistory" is required (not null)
-            if (pronounsHistory == null)
-            {
-                throw new ArgumentNullException("pronounsHistory is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PronounsHistory = pronounsHistory;
             this.State = state;
             this.Status = status;
-            // to ensure "statusDescription" is required (not null)
-            if (statusDescription == null)
-            {
-                throw new ArgumentNullException("statusDescription is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StatusDescription = statusDescription;
             this.StatusFirstTime = statusFirstTime;
-            // to ensure "statusHistory" is required (not null)
-            if (statusHistory == null)
-            {
-                throw new ArgumentNullException("statusHistory is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StatusHistory = statusHistory;
-            // to ensure "steamDetails" is required (not null)
-            if (steamDetails == null)
-            {
-                throw new ArgumentNullException("steamDetails is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SteamDetails = steamDetails;
-            // to ensure "steamId" is required (not null)
-            if (steamId == null)
-            {
-                throw new ArgumentNullException("steamId is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SteamId = steamId;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.TwoFactorAuthEnabled = twoFactorAuthEnabled;
             this.Unsubscribe = unsubscribe;
-            // to ensure "userIcon" is required (not null)
-            if (userIcon == null)
-            {
-                throw new ArgumentNullException("userIcon is a required property for CurrentUser and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserIcon = userIcon;
             this.UsesGeneratedPassword = usesGeneratedPassword;
             this.AcceptedPrivacyVersion = acceptedPrivacyVersion;

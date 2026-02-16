@@ -55,71 +55,27 @@ namespace VRChat.API.Model
         /// <param name="type">type (required).</param>
         public Feedback(string commenterId = default, string commenterName = default, string contentAuthorId = default, string contentAuthorName = default, string contentId = default, string contentName = default, string contentType = default, int? contentVersion = default, string description = default, string id = default, string reason = default, List<string> tags = default, string type = default)
         {
-            // to ensure "commenterId" is required (not null)
-            if (commenterId == null)
-            {
-                throw new ArgumentNullException("commenterId is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CommenterId = commenterId;
-            // to ensure "commenterName" is required (not null)
-            if (commenterName == null)
-            {
-                throw new ArgumentNullException("commenterName is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CommenterName = commenterName;
-            // to ensure "contentAuthorId" is required (not null)
-            if (contentAuthorId == null)
-            {
-                throw new ArgumentNullException("contentAuthorId is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentAuthorId = contentAuthorId;
-            // to ensure "contentAuthorName" is required (not null)
-            if (contentAuthorName == null)
-            {
-                throw new ArgumentNullException("contentAuthorName is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentAuthorName = contentAuthorName;
-            // to ensure "contentId" is required (not null)
-            if (contentId == null)
-            {
-                throw new ArgumentNullException("contentId is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentId = contentId;
-            // to ensure "contentType" is required (not null)
-            if (contentType == null)
-            {
-                throw new ArgumentNullException("contentType is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentType = contentType;
-            // to ensure "contentVersion" is required (not null)
-            if (contentVersion == null)
-            {
-                throw new ArgumentNullException("contentVersion is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentVersion = contentVersion;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "reason" is required (not null)
-            if (reason == null)
-            {
-                throw new ArgumentNullException("reason is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Reason = reason;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for Feedback and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Type = type;
             this.ContentName = contentName;
             this.Description = description;

@@ -44,11 +44,7 @@ namespace VRChat.API.Model
         /// <param name="varVersion">varVersion (required).</param>
         public InventorySpawn(string token = default, int varVersion = default)
         {
-            // to ensure "token" is required (not null)
-            if (token == null)
-            {
-                throw new ArgumentNullException("token is a required property for InventorySpawn and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Token = token;
             this.VarVersion = varVersion;
         }

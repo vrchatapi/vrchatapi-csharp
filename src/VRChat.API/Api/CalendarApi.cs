@@ -955,6 +955,14 @@ namespace VRChat.API.Api
         public CalendarEvent CreateGroupCalendarEvent(string groupId, CreateCalendarEventRequest createCalendarEventRequest)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = CreateGroupCalendarEventWithHttpInfo(groupId, createCalendarEventRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroupCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1003,15 +1011,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<CalendarEvent>("/calendar/{groupId}/event", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroupCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<CalendarEvent>("/calendar/{groupId}/event", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1025,6 +1034,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<CalendarEvent> CreateGroupCalendarEventAsync(string groupId, CreateCalendarEventRequest createCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await CreateGroupCalendarEventWithHttpInfoAsync(groupId, createCalendarEventRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGroupCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1076,16 +1093,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<CalendarEvent>("/calendar/{groupId}/event", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("CreateGroupCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<CalendarEvent>("/calendar/{groupId}/event", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1098,6 +1115,14 @@ namespace VRChat.API.Api
         public Success DeleteGroupCalendarEvent(string groupId, string calendarId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupCalendarEventWithHttpInfo(groupId, calendarId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1145,15 +1170,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Success>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Delete<Success>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1167,6 +1193,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<Success> DeleteGroupCalendarEventAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteGroupCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1217,16 +1251,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DeleteGroupCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1248,6 +1282,14 @@ namespace VRChat.API.Api
         public CalendarEventDiscovery DiscoverCalendarEvents(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default)
         {
             VRChat.API.Client.ApiResponse<CalendarEventDiscovery> localVarResponse = DiscoverCalendarEventsWithHttpInfo(scope, categories, tags, featuredResults, nonFeaturedResults, personalizedResults, minimumInterestCount, minimumRemainingMinutes, upcomingOffsetMinutes, n, nextCursor);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DiscoverCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1338,15 +1380,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<CalendarEventDiscovery>("/calendar/discover", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DiscoverCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<CalendarEventDiscovery>("/calendar/discover", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEventDiscovery>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEventDiscovery), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1369,6 +1412,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<CalendarEventDiscovery> DiscoverCalendarEventsAsync(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<CalendarEventDiscovery> localVarResponse = await DiscoverCalendarEventsWithHttpInfoAsync(scope, categories, tags, featuredResults, nonFeaturedResults, personalizedResults, minimumInterestCount, minimumRemainingMinutes, upcomingOffsetMinutes, n, nextCursor, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DiscoverCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1462,16 +1513,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CalendarEventDiscovery>("/calendar/discover", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("DiscoverCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<CalendarEventDiscovery>("/calendar/discover", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEventDiscovery>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEventDiscovery), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1485,6 +1536,14 @@ namespace VRChat.API.Api
         public CalendarEvent FollowGroupCalendarEvent(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = FollowGroupCalendarEventWithHttpInfo(groupId, calendarId, followCalendarEventRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FollowGroupCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1539,15 +1598,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<CalendarEvent>("/calendar/{groupId}/{calendarId}/follow", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("FollowGroupCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Post<CalendarEvent>("/calendar/{groupId}/{calendarId}/follow", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1562,6 +1622,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<CalendarEvent> FollowGroupCalendarEventAsync(string groupId, string calendarId, FollowCalendarEventRequest followCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await FollowGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, followCalendarEventRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FollowGroupCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1619,16 +1687,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<CalendarEvent>("/calendar/{groupId}/{calendarId}/follow", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("FollowGroupCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PostAsync<CalendarEvent>("/calendar/{groupId}/{calendarId}/follow", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1642,6 +1710,14 @@ namespace VRChat.API.Api
         public PaginatedCalendarEventList GetCalendarEvents(DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = GetCalendarEventsWithHttpInfo(date, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1692,15 +1768,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1715,6 +1792,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetCalendarEventsAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetCalendarEventsWithHttpInfoAsync(date, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1768,16 +1853,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1791,6 +1876,14 @@ namespace VRChat.API.Api
         public PaginatedCalendarEventList GetFeaturedCalendarEvents(DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = GetFeaturedCalendarEventsWithHttpInfo(date, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFeaturedCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1841,15 +1934,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/featured", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFeaturedCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/featured", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1864,6 +1958,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetFeaturedCalendarEventsAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetFeaturedCalendarEventsWithHttpInfoAsync(date, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFeaturedCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1917,16 +2019,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/featured", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFeaturedCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/featured", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1940,6 +2042,14 @@ namespace VRChat.API.Api
         public PaginatedCalendarEventList GetFollowedCalendarEvents(DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = GetFollowedCalendarEventsWithHttpInfo(date, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFollowedCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -1990,15 +2100,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/following", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFollowedCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/following", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2013,6 +2124,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetFollowedCalendarEventsAsync(DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetFollowedCalendarEventsWithHttpInfoAsync(date, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFollowedCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2066,16 +2185,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/following", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetFollowedCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/following", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2088,6 +2207,14 @@ namespace VRChat.API.Api
         public CalendarEvent GetGroupCalendarEvent(string groupId, string calendarId)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = GetGroupCalendarEventWithHttpInfo(groupId, calendarId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2135,15 +2262,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<CalendarEvent>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<CalendarEvent>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2157,6 +2285,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<CalendarEvent> GetGroupCalendarEventAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await GetGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2207,16 +2343,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CalendarEvent>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<CalendarEvent>("/calendar/{groupId}/{calendarId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2229,6 +2365,14 @@ namespace VRChat.API.Api
         public FileParameter GetGroupCalendarEventICS(string groupId, string calendarId)
         {
             VRChat.API.Client.ApiResponse<FileParameter> localVarResponse = GetGroupCalendarEventICSWithHttpInfo(groupId, calendarId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupCalendarEventICS", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2271,15 +2415,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/calendar/{groupId}/{calendarId}.ics", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupCalendarEventICS", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<FileParameter>("/calendar/{groupId}/{calendarId}.ics", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileParameter>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2293,6 +2438,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<FileParameter> GetGroupCalendarEventICSAsync(string groupId, string calendarId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FileParameter> localVarResponse = await GetGroupCalendarEventICSWithHttpInfoAsync(groupId, calendarId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupCalendarEventICS", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2338,16 +2491,16 @@ namespace VRChat.API.Api
 
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/calendar/{groupId}/{calendarId}.ics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupCalendarEventICS", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/calendar/{groupId}/{calendarId}.ics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FileParameter>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2362,6 +2515,14 @@ namespace VRChat.API.Api
         public PaginatedCalendarEventList GetGroupCalendarEvents(string groupId, DateTime? date = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = GetGroupCalendarEventsWithHttpInfo(groupId, date, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2418,15 +2579,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/{groupId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/{groupId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2442,6 +2604,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetGroupCalendarEventsAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetGroupCalendarEventsWithHttpInfoAsync(groupId, date, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2501,16 +2671,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2522,6 +2692,14 @@ namespace VRChat.API.Api
         public CalendarEvent GetGroupNextCalendarEvent(string groupId)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = GetGroupNextCalendarEventWithHttpInfo(groupId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupNextCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2563,15 +2741,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<CalendarEvent>("/calendar/{groupId}/next", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupNextCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<CalendarEvent>("/calendar/{groupId}/next", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2584,6 +2763,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<CalendarEvent> GetGroupNextCalendarEventAsync(string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await GetGroupNextCalendarEventWithHttpInfoAsync(groupId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetGroupNextCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2628,16 +2815,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CalendarEvent>("/calendar/{groupId}/next", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("GetGroupNextCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<CalendarEvent>("/calendar/{groupId}/next", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2653,6 +2840,14 @@ namespace VRChat.API.Api
         public PaginatedCalendarEventList SearchCalendarEvents(string searchTerm, int? utcOffset = default, int? n = default, int? offset = default, bool? isInternalVariant = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = SearchCalendarEventsWithHttpInfo(searchTerm, utcOffset, n, offset, isInternalVariant);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2714,15 +2909,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/search", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SearchCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Get<PaginatedCalendarEventList>("/calendar/search", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2739,6 +2935,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<PaginatedCalendarEventList> SearchCalendarEventsAsync(string searchTerm, int? utcOffset = default, int? n = default, int? offset = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await SearchCalendarEventsWithHttpInfoAsync(searchTerm, utcOffset, n, offset, isInternalVariant, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchCalendarEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2803,16 +3007,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("SearchCalendarEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedCalendarEventList>("/calendar/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2826,6 +3030,14 @@ namespace VRChat.API.Api
         public CalendarEvent UpdateGroupCalendarEvent(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = UpdateGroupCalendarEventWithHttpInfo(groupId, calendarId, updateCalendarEventRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2880,15 +3092,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<CalendarEvent>("/calendar/{groupId}/{calendarId}/event", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = this.Client.Put<CalendarEvent>("/calendar/{groupId}/{calendarId}/event", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2903,6 +3116,14 @@ namespace VRChat.API.Api
         public async System.Threading.Tasks.Task<CalendarEvent> UpdateGroupCalendarEventAsync(string groupId, string calendarId, UpdateCalendarEventRequest updateCalendarEventRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<CalendarEvent> localVarResponse = await UpdateGroupCalendarEventWithHttpInfoAsync(groupId, calendarId, updateCalendarEventRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateGroupCalendarEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
             return localVarResponse.Data;
         }
 
@@ -2960,16 +3181,16 @@ namespace VRChat.API.Api
             }
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<CalendarEvent>("/calendar/{groupId}/{calendarId}/event", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
+            try
             {
-                Exception _exception = this.ExceptionFactory("UpdateGroupCalendarEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                var localVarResponse = await this.AsynchronousClient.PutAsync<CalendarEvent>("/calendar/{groupId}/{calendarId}/event", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
             }
-
-            return localVarResponse;
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+            }
         }
 
     }

@@ -44,11 +44,7 @@ namespace VRChat.API.Model
         /// <param name="responseType">responseType (required).</param>
         public RespondNotificationV2Request(string responseData = @"", string responseType = default)
         {
-            // to ensure "responseType" is required (not null)
-            if (responseType == null)
-            {
-                throw new ArgumentNullException("responseType is a required property for RespondNotificationV2Request and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ResponseType = responseType;
             // use default value if no "responseData" provided
             this.ResponseData = responseData ?? @"";

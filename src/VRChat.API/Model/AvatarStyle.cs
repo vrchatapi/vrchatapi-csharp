@@ -44,17 +44,9 @@ namespace VRChat.API.Model
         /// <param name="styleName">styleName (required).</param>
         public AvatarStyle(string id = default, string styleName = default)
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for AvatarStyle and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "styleName" is required (not null)
-            if (styleName == null)
-            {
-                throw new ArgumentNullException("styleName is a required property for AvatarStyle and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StyleName = styleName;
         }
 

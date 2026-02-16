@@ -78,92 +78,36 @@ namespace VRChat.API.Model
         /// <param name="varVersion">varVersion (required) (default to 0).</param>
         public Avatar(string acknowledgements = default, string activeAssetReviewId = default, string assetUrl = default, Object assetUrlObject = default, string authorId = default, string authorName = default, DateTime createdAt = default, string description = default, bool featured = false, int highestPrice = default, string id = default, string imageUrl = default, string listingDate = default, bool varLock = default, int lowestPrice = default, string name = default, bool pendingUpload = false, AvatarPerformance performance = default, string productId = default, List<AvatarPublishedListingsInner> publishedListings = default, ReleaseStatus releaseStatus = default, bool searchable = false, AvatarStyles styles = default, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, AvatarUnityPackageUrlObject unityPackageUrlObject = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, int varVersion = 0)
         {
-            // to ensure "authorId" is required (not null)
-            if (authorId == null)
-            {
-                throw new ArgumentNullException("authorId is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
-            // to ensure "authorName" is required (not null)
-            if (authorName == null)
-            {
-                throw new ArgumentNullException("authorName is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorName = authorName;
             this.CreatedAt = createdAt;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
             this.Featured = featured;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
-            // to ensure "listingDate" is required (not null)
-            if (listingDate == null)
-            {
-                throw new ArgumentNullException("listingDate is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ListingDate = listingDate;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            // to ensure "performance" is required (not null)
-            if (performance == null)
-            {
-                throw new ArgumentNullException("performance is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Performance = performance;
             this.ReleaseStatus = releaseStatus;
-            // to ensure "styles" is required (not null)
-            if (styles == null)
-            {
-                throw new ArgumentNullException("styles is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Styles = styles;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // to ensure "thumbnailImageUrl" is required (not null)
-            if (thumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("thumbnailImageUrl is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ThumbnailImageUrl = thumbnailImageUrl;
-            // to ensure "unityPackageUrl" is required (not null)
-            if (unityPackageUrl == null)
-            {
-                throw new ArgumentNullException("unityPackageUrl is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityPackageUrl = unityPackageUrl;
-            // to ensure "unityPackageUrlObject" is required (not null)
-            if (unityPackageUrlObject == null)
-            {
-                throw new ArgumentNullException("unityPackageUrlObject is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityPackageUrlObject = unityPackageUrlObject;
-            // to ensure "unityPackages" is required (not null)
-            if (unityPackages == null)
-            {
-                throw new ArgumentNullException("unityPackages is a required property for Avatar and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UnityPackages = unityPackages;
             this.UpdatedAt = updatedAt;
             this.VarVersion = varVersion;

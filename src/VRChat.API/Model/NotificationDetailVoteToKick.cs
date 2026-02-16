@@ -44,17 +44,9 @@ namespace VRChat.API.Model
         /// <param name="userToKickId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         public NotificationDetailVoteToKick(string initiatorUserId = default, string userToKickId = default)
         {
-            // to ensure "initiatorUserId" is required (not null)
-            if (initiatorUserId == null)
-            {
-                throw new ArgumentNullException("initiatorUserId is a required property for NotificationDetailVoteToKick and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.InitiatorUserId = initiatorUserId;
-            // to ensure "userToKickId" is required (not null)
-            if (userToKickId == null)
-            {
-                throw new ArgumentNullException("userToKickId is a required property for NotificationDetailVoteToKick and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserToKickId = userToKickId;
         }
 

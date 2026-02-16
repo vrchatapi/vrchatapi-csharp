@@ -81,78 +81,34 @@ namespace VRChat.API.Model
         /// <param name="visits">visits (required) (default to 0).</param>
         public World(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, List<List<Object>> instances = default, string labsPublicationDate = default, string name = default, string varNamespace = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = 0, int visits = 0)
         {
-            // to ensure "authorId" is required (not null)
-            if (authorId == null)
-            {
-                throw new ArgumentNullException("authorId is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
-            // to ensure "authorName" is required (not null)
-            if (authorName == null)
-            {
-                throw new ArgumentNullException("authorName is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorName = authorName;
             this.Capacity = capacity;
             this.CreatedAt = createdAt;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
             this.Featured = featured;
             this.Heat = heat;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "imageUrl" is required (not null)
-            if (imageUrl == null)
-            {
-                throw new ArgumentNullException("imageUrl is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
-            // to ensure "labsPublicationDate" is required (not null)
-            if (labsPublicationDate == null)
-            {
-                throw new ArgumentNullException("labsPublicationDate is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LabsPublicationDate = labsPublicationDate;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            // to ensure "organization" is required (not null)
-            if (organization == null)
-            {
-                throw new ArgumentNullException("organization is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Organization = organization;
             this.Popularity = popularity;
-            // to ensure "publicationDate" is required (not null)
-            if (publicationDate == null)
-            {
-                throw new ArgumentNullException("publicationDate is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PublicationDate = publicationDate;
             this.RecommendedCapacity = recommendedCapacity;
             this.ReleaseStatus = releaseStatus;
-            // to ensure "tags" is required (not null)
-            if (tags == null)
-            {
-                throw new ArgumentNullException("tags is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // to ensure "thumbnailImageUrl" is required (not null)
-            if (thumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("thumbnailImageUrl is a required property for World and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ThumbnailImageUrl = thumbnailImageUrl;
             this.UpdatedAt = updatedAt;
             this.VarVersion = varVersion;

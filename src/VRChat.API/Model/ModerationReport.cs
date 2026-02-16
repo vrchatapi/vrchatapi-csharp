@@ -52,55 +52,23 @@ namespace VRChat.API.Model
         /// <param name="type">Valid values are the keys of the object &#x60;$.reportOptions&#x60; from &#x60;GET /config&#x60;. (required).</param>
         public ModerationReport(string category = default, string contentId = default, string contentName = default, string contentThumbnailImageUrl = default, string description = default, bool evidenceRequired = default, string id = default, string reason = default, bool supportRequired = default, string type = default)
         {
-            // to ensure "category" is required (not null)
-            if (category == null)
-            {
-                throw new ArgumentNullException("category is a required property for ModerationReport and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Category = category;
-            // to ensure "contentId" is required (not null)
-            if (contentId == null)
-            {
-                throw new ArgumentNullException("contentId is a required property for ModerationReport and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentId = contentId;
-            // to ensure "contentName" is required (not null)
-            if (contentName == null)
-            {
-                throw new ArgumentNullException("contentName is a required property for ModerationReport and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentName = contentName;
-            // to ensure "contentThumbnailImageUrl" is required (not null)
-            if (contentThumbnailImageUrl == null)
-            {
-                throw new ArgumentNullException("contentThumbnailImageUrl is a required property for ModerationReport and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentThumbnailImageUrl = contentThumbnailImageUrl;
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for ModerationReport and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
             this.EvidenceRequired = evidenceRequired;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for ModerationReport and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // to ensure "reason" is required (not null)
-            if (reason == null)
-            {
-                throw new ArgumentNullException("reason is a required property for ModerationReport and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Reason = reason;
             this.SupportRequired = supportRequired;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for ModerationReport and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Type = type;
         }
 

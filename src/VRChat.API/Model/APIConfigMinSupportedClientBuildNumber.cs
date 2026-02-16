@@ -53,71 +53,27 @@ namespace VRChat.API.Model
         /// <param name="xRElite">xRElite (required).</param>
         public APIConfigMinSupportedClientBuildNumber(PlatformBuildInfo appStore = default, PlatformBuildInfo varDefault = default, PlatformBuildInfo firebase = default, PlatformBuildInfo firebaseiOS = default, PlatformBuildInfo googlePlay = default, PlatformBuildInfo pC = default, PlatformBuildInfo picoStore = default, PlatformBuildInfo questAppLab = default, PlatformBuildInfo questStore = default, PlatformBuildInfo testFlight = default, PlatformBuildInfo xRElite = default)
         {
-            // to ensure "appStore" is required (not null)
-            if (appStore == null)
-            {
-                throw new ArgumentNullException("appStore is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.AppStore = appStore;
-            // to ensure "varDefault" is required (not null)
-            if (varDefault == null)
-            {
-                throw new ArgumentNullException("varDefault is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Default = varDefault;
-            // to ensure "firebase" is required (not null)
-            if (firebase == null)
-            {
-                throw new ArgumentNullException("firebase is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Firebase = firebase;
-            // to ensure "firebaseiOS" is required (not null)
-            if (firebaseiOS == null)
-            {
-                throw new ArgumentNullException("firebaseiOS is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.FirebaseiOS = firebaseiOS;
-            // to ensure "googlePlay" is required (not null)
-            if (googlePlay == null)
-            {
-                throw new ArgumentNullException("googlePlay is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.GooglePlay = googlePlay;
-            // to ensure "pC" is required (not null)
-            if (pC == null)
-            {
-                throw new ArgumentNullException("pC is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PC = pC;
-            // to ensure "picoStore" is required (not null)
-            if (picoStore == null)
-            {
-                throw new ArgumentNullException("picoStore is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PicoStore = picoStore;
-            // to ensure "questAppLab" is required (not null)
-            if (questAppLab == null)
-            {
-                throw new ArgumentNullException("questAppLab is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.QuestAppLab = questAppLab;
-            // to ensure "questStore" is required (not null)
-            if (questStore == null)
-            {
-                throw new ArgumentNullException("questStore is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.QuestStore = questStore;
-            // to ensure "testFlight" is required (not null)
-            if (testFlight == null)
-            {
-                throw new ArgumentNullException("testFlight is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TestFlight = testFlight;
-            // to ensure "xRElite" is required (not null)
-            if (xRElite == null)
-            {
-                throw new ArgumentNullException("xRElite is a required property for APIConfigMinSupportedClientBuildNumber and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.XRElite = xRElite;
         }
 

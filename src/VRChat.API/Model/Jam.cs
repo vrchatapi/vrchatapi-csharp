@@ -52,49 +52,21 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         public Jam(string description = default, string id = default, bool isVisible = default, string moreInfo = default, string state = default, JamStateChangeDates stateChangeDates = default, DateTime? submissionContentGateDate = default, bool submissionContentGated = default, string title = default, DateTime updatedAt = default)
         {
-            // to ensure "description" is required (not null)
-            if (description == null)
-            {
-                throw new ArgumentNullException("description is a required property for Jam and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for Jam and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsVisible = isVisible;
-            // to ensure "moreInfo" is required (not null)
-            if (moreInfo == null)
-            {
-                throw new ArgumentNullException("moreInfo is a required property for Jam and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.MoreInfo = moreInfo;
-            // to ensure "state" is required (not null)
-            if (state == null)
-            {
-                throw new ArgumentNullException("state is a required property for Jam and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.State = state;
-            // to ensure "stateChangeDates" is required (not null)
-            if (stateChangeDates == null)
-            {
-                throw new ArgumentNullException("stateChangeDates is a required property for Jam and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StateChangeDates = stateChangeDates;
-            // to ensure "submissionContentGateDate" is required (not null)
-            if (submissionContentGateDate == null)
-            {
-                throw new ArgumentNullException("submissionContentGateDate is a required property for Jam and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SubmissionContentGateDate = submissionContentGateDate;
             this.SubmissionContentGated = submissionContentGated;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for Jam and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Title = title;
             this.UpdatedAt = updatedAt;
         }

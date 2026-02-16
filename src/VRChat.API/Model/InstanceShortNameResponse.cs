@@ -44,11 +44,7 @@ namespace VRChat.API.Model
         /// <param name="shortName">shortName.</param>
         public InstanceShortNameResponse(string secureName = default, string shortName = default)
         {
-            // to ensure "secureName" is required (not null)
-            if (secureName == null)
-            {
-                throw new ArgumentNullException("secureName is a required property for InstanceShortNameResponse and cannot be null");
-            }
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SecureName = secureName;
             this.ShortName = shortName;
         }
