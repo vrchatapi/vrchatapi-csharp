@@ -1019,7 +1019,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
             }
         }
 
@@ -1101,7 +1101,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
             }
         }
 
@@ -1178,7 +1178,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
             }
         }
 
@@ -1259,7 +1259,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Success>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
             }
         }
 
@@ -1388,7 +1388,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEventDiscovery>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEventDiscovery), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEventDiscovery>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEventDiscovery), ex.Message);
             }
         }
 
@@ -1521,7 +1521,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEventDiscovery>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEventDiscovery), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEventDiscovery>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEventDiscovery), ex.Message);
             }
         }
 
@@ -1606,7 +1606,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
             }
         }
 
@@ -1695,7 +1695,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
             }
         }
 
@@ -1776,7 +1776,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
             }
         }
 
@@ -1861,7 +1861,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
             }
         }
 
@@ -1942,7 +1942,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
             }
         }
 
@@ -2027,7 +2027,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
             }
         }
 
@@ -2108,7 +2108,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
             }
         }
 
@@ -2193,7 +2193,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
             }
         }
 
@@ -2270,7 +2270,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
             }
         }
 
@@ -2351,7 +2351,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
             }
         }
 
@@ -2423,7 +2423,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileParameter>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileParameter>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
             }
         }
 
@@ -2499,7 +2499,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileParameter>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileParameter>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
             }
         }
 
@@ -2587,7 +2587,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
             }
         }
 
@@ -2679,7 +2679,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
             }
         }
 
@@ -2749,7 +2749,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
             }
         }
 
@@ -2823,7 +2823,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
             }
         }
 
@@ -2917,7 +2917,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
             }
         }
 
@@ -3015,7 +3015,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedCalendarEventList), ex.Message);
             }
         }
 
@@ -3100,7 +3100,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
             }
         }
 
@@ -3189,7 +3189,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CalendarEvent>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CalendarEvent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CalendarEvent), ex.Message);
             }
         }
 

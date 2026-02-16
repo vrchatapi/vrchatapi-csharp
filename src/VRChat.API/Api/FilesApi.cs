@@ -1340,7 +1340,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -1411,7 +1411,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -1485,7 +1485,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -1563,7 +1563,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -1633,7 +1633,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -1707,7 +1707,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -1780,7 +1780,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -1857,7 +1857,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -1931,7 +1931,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileParameter>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileParameter>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
             }
         }
 
@@ -2009,7 +2009,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileParameter>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileParameter>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileParameter), ex.Message);
             }
         }
 
@@ -2093,7 +2093,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -2181,7 +2181,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -2251,7 +2251,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<AdminAssetBundle>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AdminAssetBundle), ex.Message);
+                return new VRChat.API.Client.ApiResponse<AdminAssetBundle>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AdminAssetBundle), ex.Message);
             }
         }
 
@@ -2325,7 +2325,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<AdminAssetBundle>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AdminAssetBundle), ex.Message);
+                return new VRChat.API.Client.ApiResponse<AdminAssetBundle>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AdminAssetBundle), ex.Message);
             }
         }
 
@@ -2401,7 +2401,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<AgreementStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AgreementStatus), ex.Message);
+                return new VRChat.API.Client.ApiResponse<AgreementStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AgreementStatus), ex.Message);
             }
         }
 
@@ -2481,7 +2481,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<AgreementStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AgreementStatus), ex.Message);
+                return new VRChat.API.Client.ApiResponse<AgreementStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AgreementStatus), ex.Message);
             }
         }
 
@@ -2551,7 +2551,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -2625,7 +2625,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -2698,7 +2698,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
             }
         }
 
@@ -2775,7 +2775,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
             }
         }
 
@@ -2848,7 +2848,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
             }
         }
 
@@ -2925,7 +2925,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
             }
         }
 
@@ -2998,7 +2998,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
             }
         }
 
@@ -3075,7 +3075,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileAnalysis>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileAnalysis>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileAnalysis), ex.Message);
             }
         }
 
@@ -3155,7 +3155,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileVersionUploadStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileVersionUploadStatus), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileVersionUploadStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileVersionUploadStatus), ex.Message);
             }
         }
 
@@ -3239,7 +3239,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileVersionUploadStatus>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileVersionUploadStatus), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileVersionUploadStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileVersionUploadStatus), ex.Message);
             }
         }
 
@@ -3326,7 +3326,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<List<File>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<File>), ex.Message);
+                return new VRChat.API.Client.ApiResponse<List<File>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<File>), ex.Message);
             }
         }
 
@@ -3417,7 +3417,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<List<File>>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<File>), ex.Message);
+                return new VRChat.API.Client.ApiResponse<List<File>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<File>), ex.Message);
             }
         }
 
@@ -3484,7 +3484,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<GroupGalleryFileOrder>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGalleryFileOrder), ex.Message);
+                return new VRChat.API.Client.ApiResponse<GroupGalleryFileOrder>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGalleryFileOrder), ex.Message);
             }
         }
 
@@ -3555,7 +3555,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<GroupGalleryFileOrder>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGalleryFileOrder), ex.Message);
+                return new VRChat.API.Client.ApiResponse<GroupGalleryFileOrder>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGalleryFileOrder), ex.Message);
             }
         }
 
@@ -3641,7 +3641,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileUploadURL>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileUploadURL), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileUploadURL>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileUploadURL), ex.Message);
             }
         }
 
@@ -3731,7 +3731,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<FileUploadURL>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileUploadURL), ex.Message);
+                return new VRChat.API.Client.ApiResponse<FileUploadURL>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FileUploadURL), ex.Message);
             }
         }
 
@@ -3798,7 +3798,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Agreement>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Agreement), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Agreement>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Agreement), ex.Message);
             }
         }
 
@@ -3869,7 +3869,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Agreement>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Agreement), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Agreement>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Agreement), ex.Message);
             }
         }
 
@@ -3942,7 +3942,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
             }
         }
 
@@ -4019,7 +4019,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
             }
         }
 
@@ -4090,7 +4090,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -4165,7 +4165,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -4236,7 +4236,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -4311,7 +4311,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -4415,7 +4415,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
@@ -4523,7 +4523,7 @@ namespace VRChat.API.Api
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<File>(ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
+                return new VRChat.API.Client.ApiResponse<File>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(File), ex.Message);
             }
         }
 
