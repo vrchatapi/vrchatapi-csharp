@@ -510,7 +510,7 @@ namespace {{packageName}}.{{apiPackage}}
             catch ({{packageName}}.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new {{packageName}}.Client.ApiResponse<{{{returnType}}}{{^returnType}}Object{{/returnType}}>(ex.ErrorCode, new {{packageName}}.Client.Multimap<string, string>({{#caseInsensitiveResponseHeaders}}StringComparer.OrdinalIgnoreCase{{/caseInsensitiveResponseHeaders}}), default({{{returnType}}}{{^returnType}}Object{{/returnType}}), ex.Message);
+                return new {{packageName}}.Client.ApiResponse<{{{returnType}}}{{^returnType}}Object{{/returnType}}>((System.Net.HttpStatusCode)ex.ErrorCode, new {{packageName}}.Client.Multimap<string, string>({{#caseInsensitiveResponseHeaders}}StringComparer.OrdinalIgnoreCase{{/caseInsensitiveResponseHeaders}}), default({{{returnType}}}{{^returnType}}Object{{/returnType}}), ex.Message);
             }
         }
 
@@ -817,7 +817,7 @@ namespace {{packageName}}.{{apiPackage}}
             catch ({{packageName}}.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new {{packageName}}.Client.ApiResponse<{{{returnType}}}{{^returnType}}Object{{/returnType}}>(ex.ErrorCode, new {{packageName}}.Client.Multimap<string, string>({{#caseInsensitiveResponseHeaders}}StringComparer.OrdinalIgnoreCase{{/caseInsensitiveResponseHeaders}}), default({{{returnType}}}{{^returnType}}Object{{/returnType}}), ex.Message);
+                return new {{packageName}}.Client.ApiResponse<{{{returnType}}}{{^returnType}}Object{{/returnType}}>((System.Net.HttpStatusCode)ex.ErrorCode, new {{packageName}}.Client.Multimap<string, string>({{#caseInsensitiveResponseHeaders}}StringComparer.OrdinalIgnoreCase{{/caseInsensitiveResponseHeaders}}), default({{{returnType}}}{{^returnType}}Object{{/returnType}}), ex.Message);
             }
         }
 
