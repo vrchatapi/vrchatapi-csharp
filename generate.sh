@@ -10,6 +10,7 @@ rm src docs *.nupkg *.snupkg -rf
 
 ./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
 -g csharp \
+-t ./templates \
 --library httpclient \
 --additional-properties=packageGuid=1c420561-97f1-4810-ad2d-cd344d27170a,packageName=VRChat.API,packageTags=vrchat,packageVersion="${2}",targetFramework=net8.0,licenseId=MIT,equatable=true \
 --git-user-id=vrchatapi \
