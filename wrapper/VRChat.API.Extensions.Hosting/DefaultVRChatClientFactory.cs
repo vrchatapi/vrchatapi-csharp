@@ -15,7 +15,7 @@ namespace VRChat.API.Extensions.Hosting
         public DefaultVRChatClientFactory() =>
             _builders = new Dictionary<string, VRChatClientBuilder>();
 
-        internal bool IsDefaultRegistered => _builders.ContainsKey("vrc_default"); // Not sure where I was going with this, but I'll keep it in here for now
+        public bool IsDefaultRegistered => _builders.ContainsKey("vrc_default"); // Not sure where I was going with this, but I'll keep it in here for now
 
         public async Task<Dictionary<string, VRChatLoginResult>> LoginAllClientsAsync(bool throwOnFail = false, CancellationToken ct = default)
         {
@@ -68,7 +68,7 @@ namespace VRChat.API.Extensions.Hosting
                 throw new NullReferenceException("The specified client does not exist!");
         }
 
-        internal bool TryAddClient(string clientName, VRChatClientBuilder vcb, bool overrideIfExists = false)
+        public bool TryAddClient(string clientName, VRChatClientBuilder vcb, bool overrideIfExists = false)
         {
             if (_builders.ContainsKey(clientName) && !overrideIfExists) // So that the default may be registered in the case of it being nonexistant
                 return false;

@@ -17,6 +17,12 @@ namespace VRChat.API.Extensions.Hosting
         IVRChat CreateClient();
 
         /// <summary>
+        /// A flag to check and see if the default client, vrc_default, was registered.
+        /// </summary>
+        /// <returns>A boolean indicating if the default client is registered.</returns>
+        bool IsDefaultRegistered { get; }
+
+        /// <summary>
         /// Creates a named client from the client provider and named configuration.
         /// </summary>
         /// <param name="name">The name of the client to create</param>
@@ -43,5 +49,7 @@ namespace VRChat.API.Extensions.Hosting
         /// A <see cref="Task"/> of <see cref="VRChatLoginResult"/> representing this asynchronous operation. The result contains a <see cref="VRChatLoginResult"/> specifying if the current client is logged in successfully and any exceptions returned.
         /// </returns>
         Task<VRChatLoginResult> LoginClientAsync(string name = "vrc_default", bool throwOnFail = false, CancellationToken ct = default);
+
+        bool TryAddClient(string clientName, VRChatClientBuilder vcb, bool overrideIfExists = false);
     }
 }
