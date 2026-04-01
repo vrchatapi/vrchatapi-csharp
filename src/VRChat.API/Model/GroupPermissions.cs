@@ -87,106 +87,112 @@ namespace VRChat.API.Model
         group_instance_age_gated_create = 9,
 
         /// <summary>
+        /// Enum group_instance_announcement_create for value: group-instance-announcement-create
+        /// </summary>
+        [EnumMember(Value = "group-instance-announcement-create")]
+        group_instance_announcement_create = 10,
+
+        /// <summary>
         /// Enum group_instance_calendar_link for value: group-instance-calendar-link
         /// </summary>
         [EnumMember(Value = "group-instance-calendar-link")]
-        group_instance_calendar_link = 10,
+        group_instance_calendar_link = 11,
 
         /// <summary>
         /// Enum group_instance_join for value: group-instance-join
         /// </summary>
         [EnumMember(Value = "group-instance-join")]
-        group_instance_join = 11,
+        group_instance_join = 12,
 
         /// <summary>
         /// Enum group_instance_manage for value: group-instance-manage
         /// </summary>
         [EnumMember(Value = "group-instance-manage")]
-        group_instance_manage = 12,
+        group_instance_manage = 13,
 
         /// <summary>
         /// Enum group_instance_moderate for value: group-instance-moderate
         /// </summary>
         [EnumMember(Value = "group-instance-moderate")]
-        group_instance_moderate = 13,
+        group_instance_moderate = 14,
 
         /// <summary>
         /// Enum group_instance_open_create for value: group-instance-open-create
         /// </summary>
         [EnumMember(Value = "group-instance-open-create")]
-        group_instance_open_create = 14,
+        group_instance_open_create = 15,
 
         /// <summary>
         /// Enum group_instance_plus_create for value: group-instance-plus-create
         /// </summary>
         [EnumMember(Value = "group-instance-plus-create")]
-        group_instance_plus_create = 15,
+        group_instance_plus_create = 16,
 
         /// <summary>
         /// Enum group_instance_plus_portal for value: group-instance-plus-portal
         /// </summary>
         [EnumMember(Value = "group-instance-plus-portal")]
-        group_instance_plus_portal = 16,
+        group_instance_plus_portal = 17,
 
         /// <summary>
         /// Enum group_instance_plus_portal_unlocked for value: group-instance-plus-portal-unlocked
         /// </summary>
         [EnumMember(Value = "group-instance-plus-portal-unlocked")]
-        group_instance_plus_portal_unlocked = 17,
+        group_instance_plus_portal_unlocked = 18,
 
         /// <summary>
         /// Enum group_instance_public_create for value: group-instance-public-create
         /// </summary>
         [EnumMember(Value = "group-instance-public-create")]
-        group_instance_public_create = 18,
+        group_instance_public_create = 19,
 
         /// <summary>
         /// Enum group_instance_queue_priority for value: group-instance-queue-priority
         /// </summary>
         [EnumMember(Value = "group-instance-queue-priority")]
-        group_instance_queue_priority = 19,
+        group_instance_queue_priority = 20,
 
         /// <summary>
         /// Enum group_instance_restricted_create for value: group-instance-restricted-create
         /// </summary>
         [EnumMember(Value = "group-instance-restricted-create")]
-        group_instance_restricted_create = 20,
+        group_instance_restricted_create = 21,
 
         /// <summary>
         /// Enum group_invites_manage for value: group-invites-manage
         /// </summary>
         [EnumMember(Value = "group-invites-manage")]
-        group_invites_manage = 21,
+        group_invites_manage = 22,
 
         /// <summary>
         /// Enum group_members_manage for value: group-members-manage
         /// </summary>
         [EnumMember(Value = "group-members-manage")]
-        group_members_manage = 22,
+        group_members_manage = 23,
 
         /// <summary>
         /// Enum group_members_remove for value: group-members-remove
         /// </summary>
         [EnumMember(Value = "group-members-remove")]
-        group_members_remove = 23,
+        group_members_remove = 24,
 
         /// <summary>
         /// Enum group_members_viewall for value: group-members-viewall
         /// </summary>
         [EnumMember(Value = "group-members-viewall")]
-        group_members_viewall = 24,
+        group_members_viewall = 25,
 
         /// <summary>
         /// Enum group_roles_assign for value: group-roles-assign
         /// </summary>
         [EnumMember(Value = "group-roles-assign")]
-        group_roles_assign = 25,
+        group_roles_assign = 26,
 
         /// <summary>
         /// Enum group_roles_manage for value: group-roles-manage
         /// </summary>
         [EnumMember(Value = "group-roles-manage")]
-        group_roles_manage = 26
+        group_roles_manage = 27
     }
 
 }
