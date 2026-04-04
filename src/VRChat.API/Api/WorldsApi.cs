@@ -28,6 +28,29 @@ namespace VRChat.API.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Add World Tags
+        /// </summary>
+        /// <remarks>
+        /// Adds tags to the world&#39;s profile
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <returns>World</returns>
+        World AddWorldTags(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest);
+
+        /// <summary>
+        /// Add World Tags
+        /// </summary>
+        /// <remarks>
+        /// Adds tags to the world&#39;s profile
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <returns>ApiResponse of World</returns>
+        ApiResponse<World> AddWorldTagsWithHttpInfo(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest);
+        /// <summary>
         /// Check User Persistence Exists
         /// </summary>
         /// <remarks>
@@ -136,6 +159,29 @@ namespace VRChat.API.Api
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteWorldWithHttpInfo(string worldId);
+        /// <summary>
+        /// Delete World Platform
+        /// </summary>
+        /// <remarks>
+        /// Deletes a world platform.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="publishedPlatform">A platform the world supports.</param>
+        /// <returns></returns>
+        void DeleteWorldPlatform(string worldId, string publishedPlatform);
+
+        /// <summary>
+        /// Delete World Platform
+        /// </summary>
+        /// <remarks>
+        /// Deletes a world platform.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="publishedPlatform">A platform the world supports.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteWorldPlatformWithHttpInfo(string worldId, string publishedPlatform);
         /// <summary>
         /// List Active Worlds
         /// </summary>
@@ -381,6 +427,29 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> PublishWorldWithHttpInfo(string worldId);
         /// <summary>
+        /// Remove World Tags
+        /// </summary>
+        /// <remarks>
+        /// Removes tags from the world&#39;s profile
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <returns>World</returns>
+        World RemoveWorldTags(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest);
+
+        /// <summary>
+        /// Remove World Tags
+        /// </summary>
+        /// <remarks>
+        /// Removes tags from the world&#39;s profile
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <returns>ApiResponse of World</returns>
+        ApiResponse<World> RemoveWorldTagsWithHttpInfo(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest);
+        /// <summary>
         /// Search All Worlds
         /// </summary>
         /// <remarks>
@@ -486,6 +555,31 @@ namespace VRChat.API.Api
     public interface IWorldsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Add World Tags
+        /// </summary>
+        /// <remarks>
+        /// Adds tags to the world&#39;s profile
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of World</returns>
+        System.Threading.Tasks.Task<World> AddWorldTagsAsync(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Add World Tags
+        /// </summary>
+        /// <remarks>
+        /// Adds tags to the world&#39;s profile
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (World)</returns>
+        System.Threading.Tasks.Task<ApiResponse<World>> AddWorldTagsWithHttpInfoAsync(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Check User Persistence Exists
         /// </summary>
@@ -605,6 +699,31 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Delete World Platform
+        /// </summary>
+        /// <remarks>
+        /// Deletes a world platform.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="publishedPlatform">A platform the world supports.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteWorldPlatformAsync(string worldId, string publishedPlatform, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete World Platform
+        /// </summary>
+        /// <remarks>
+        /// Deletes a world platform.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="publishedPlatform">A platform the world supports.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWorldPlatformWithHttpInfoAsync(string worldId, string publishedPlatform, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Active Worlds
         /// </summary>
@@ -865,6 +984,31 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> PublishWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Remove World Tags
+        /// </summary>
+        /// <remarks>
+        /// Removes tags from the world&#39;s profile
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of World</returns>
+        System.Threading.Tasks.Task<World> RemoveWorldTagsAsync(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Remove World Tags
+        /// </summary>
+        /// <remarks>
+        /// Removes tags from the world&#39;s profile
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (World)</returns>
+        System.Threading.Tasks.Task<ApiResponse<World>> RemoveWorldTagsWithHttpInfoAsync(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search All Worlds
         /// </summary>
@@ -1179,6 +1323,166 @@ namespace VRChat.API.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Add World Tags Adds tags to the world&#39;s profile
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <returns>World</returns>
+        public World AddWorldTags(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest)
+        {
+            VRChat.API.Client.ApiResponse<World> localVarResponse = AddWorldTagsWithHttpInfo(worldId, changeWorldTagsRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddWorldTags", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add World Tags Adds tags to the world&#39;s profile
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <returns>ApiResponse of World</returns>
+        public VRChat.API.Client.ApiResponse<World> AddWorldTagsWithHttpInfo(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->AddWorldTags");
+
+            // verify the required parameter 'changeWorldTagsRequest' is set
+            if (changeWorldTagsRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'changeWorldTagsRequest' when calling WorldsApi->AddWorldTags");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.Data = changeWorldTagsRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<World>("/worlds/{worldId}/addTags", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<World>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(World), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Add World Tags Adds tags to the world&#39;s profile
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of World</returns>
+        public async System.Threading.Tasks.Task<World> AddWorldTagsAsync(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<World> localVarResponse = await AddWorldTagsWithHttpInfoAsync(worldId, changeWorldTagsRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AddWorldTags", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add World Tags Adds tags to the world&#39;s profile
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (World)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<World>> AddWorldTagsWithHttpInfoAsync(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->AddWorldTags");
+
+            // verify the required parameter 'changeWorldTagsRequest' is set
+            if (changeWorldTagsRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'changeWorldTagsRequest' when calling WorldsApi->AddWorldTags");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.Data = changeWorldTagsRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<World>("/worlds/{worldId}/addTags", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<World>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(World), ex.Message);
+            }
         }
 
         /// <summary>
@@ -1894,6 +2198,162 @@ namespace VRChat.API.Api
             try
             {
                 var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/worlds/{worldId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete World Platform Deletes a world platform.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="publishedPlatform">A platform the world supports.</param>
+        /// <returns></returns>
+        public void DeleteWorldPlatform(string worldId, string publishedPlatform)
+        {
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = DeleteWorldPlatformWithHttpInfo(worldId, publishedPlatform);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteWorldPlatform", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Delete World Platform Deletes a world platform.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="publishedPlatform">A platform the world supports.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public VRChat.API.Client.ApiResponse<Object> DeleteWorldPlatformWithHttpInfo(string worldId, string publishedPlatform)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->DeleteWorldPlatform");
+
+            // verify the required parameter 'publishedPlatform' is set
+            if (publishedPlatform == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'publishedPlatform' when calling WorldsApi->DeleteWorldPlatform");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("publishedPlatform", VRChat.API.Client.ClientUtils.ParameterToString(publishedPlatform)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Delete<Object>("/worlds/{worldId}/platform/{publishedPlatform}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete World Platform Deletes a world platform.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="publishedPlatform">A platform the world supports.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteWorldPlatformAsync(string worldId, string publishedPlatform, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await DeleteWorldPlatformWithHttpInfoAsync(worldId, publishedPlatform, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteWorldPlatform", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Delete World Platform Deletes a world platform.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="publishedPlatform">A platform the world supports.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeleteWorldPlatformWithHttpInfoAsync(string worldId, string publishedPlatform, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->DeleteWorldPlatform");
+
+            // verify the required parameter 'publishedPlatform' is set
+            if (publishedPlatform == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'publishedPlatform' when calling WorldsApi->DeleteWorldPlatform");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("publishedPlatform", VRChat.API.Client.ClientUtils.ParameterToString(publishedPlatform)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/worlds/{worldId}/platform/{publishedPlatform}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
@@ -3470,6 +3930,166 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Remove World Tags Removes tags from the world&#39;s profile
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <returns>World</returns>
+        public World RemoveWorldTags(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest)
+        {
+            VRChat.API.Client.ApiResponse<World> localVarResponse = RemoveWorldTagsWithHttpInfo(worldId, changeWorldTagsRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RemoveWorldTags", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Remove World Tags Removes tags from the world&#39;s profile
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <returns>ApiResponse of World</returns>
+        public VRChat.API.Client.ApiResponse<World> RemoveWorldTagsWithHttpInfo(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->RemoveWorldTags");
+
+            // verify the required parameter 'changeWorldTagsRequest' is set
+            if (changeWorldTagsRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'changeWorldTagsRequest' when calling WorldsApi->RemoveWorldTags");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.Data = changeWorldTagsRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<World>("/worlds/{worldId}/removeTags", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<World>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(World), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Remove World Tags Removes tags from the world&#39;s profile
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of World</returns>
+        public async System.Threading.Tasks.Task<World> RemoveWorldTagsAsync(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<World> localVarResponse = await RemoveWorldTagsWithHttpInfoAsync(worldId, changeWorldTagsRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RemoveWorldTags", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Remove World Tags Removes tags from the world&#39;s profile
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="changeWorldTagsRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (World)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<World>> RemoveWorldTagsWithHttpInfoAsync(string worldId, ChangeWorldTagsRequest changeWorldTagsRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->RemoveWorldTags");
+
+            // verify the required parameter 'changeWorldTagsRequest' is set
+            if (changeWorldTagsRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'changeWorldTagsRequest' when calling WorldsApi->RemoveWorldTags");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.Data = changeWorldTagsRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<World>("/worlds/{worldId}/removeTags", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<World>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(World), ex.Message);
             }
         }
 

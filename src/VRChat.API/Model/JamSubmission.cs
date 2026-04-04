@@ -27,18 +27,18 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Submission
+    /// JamSubmission
     /// </summary>
-    [DataContract(Name = "Submission")]
-    public partial class Submission : IEquatable<Submission>, IValidatableObject
+    [DataContract(Name = "JamSubmission")]
+    public partial class JamSubmission : IEquatable<JamSubmission>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Submission" /> class.
+        /// Initializes a new instance of the <see cref="JamSubmission" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Submission() { }
+        protected JamSubmission() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Submission" /> class.
+        /// Initializes a new instance of the <see cref="JamSubmission" /> class.
         /// </summary>
         /// <param name="contentId">Either world ID or avatar ID (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
@@ -47,7 +47,7 @@ namespace VRChat.API.Model
         /// <param name="jamId">jamId (required).</param>
         /// <param name="ratingScore">ratingScore.</param>
         /// <param name="submitterId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        public Submission(string contentId = default, DateTime createdAt = default, string description = default, string id = default, string jamId = default, int ratingScore = default, string submitterId = default)
+        public JamSubmission(string contentId = default, DateTime createdAt = default, string description = default, string id = default, string jamId = default, int ratingScore = default, string submitterId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentId = contentId;
@@ -123,7 +123,7 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class Submission {\n");
+            sb.Append("class JamSubmission {\n");
             sb.Append("  ContentId: ").Append(ContentId).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -151,15 +151,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Submission);
+            return this.Equals(input as JamSubmission);
         }
 
         /// <summary>
-        /// Returns true if Submission instances are equal
+        /// Returns true if JamSubmission instances are equal
         /// </summary>
-        /// <param name="input">Instance of Submission to be compared</param>
+        /// <param name="input">Instance of JamSubmission to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Submission input)
+        public bool Equals(JamSubmission input)
         {
             if (input == null)
             {
@@ -251,18 +251,6 @@ namespace VRChat.API.Model
             if (this.ContentId != null && this.ContentId.Length < 1)
             {
                 yield return new ValidationResult("Invalid value for ContentId, length must be greater than 1.", new [] { "ContentId" });
-            }
-
-            // Id (string) minLength
-            if (this.Id != null && this.Id.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
-            }
-
-            // JamId (string) minLength
-            if (this.JamId != null && this.JamId.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for JamId, length must be greater than 1.", new [] { "JamId" });
             }
 
             // RatingScore (int) minimum

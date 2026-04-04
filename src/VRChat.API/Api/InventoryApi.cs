@@ -239,6 +239,27 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of InventoryItem</returns>
         ApiResponse<InventoryItem> GetUserInventoryItemWithHttpInfo(string userId, string inventoryItemId);
         /// <summary>
+        /// Redeem Reward
+        /// </summary>
+        /// <remarks>
+        /// Redeem a reward for the currently logged in user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rewardRedemptionRequest"></param>
+        /// <returns>List&lt;RewardRedemptionResult&gt;</returns>
+        List<RewardRedemptionResult> RedeemReward(RewardRedemptionRequest rewardRedemptionRequest);
+
+        /// <summary>
+        /// Redeem Reward
+        /// </summary>
+        /// <remarks>
+        /// Redeem a reward for the currently logged in user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rewardRedemptionRequest"></param>
+        /// <returns>ApiResponse of List&lt;RewardRedemptionResult&gt;</returns>
+        ApiResponse<List<RewardRedemptionResult>> RedeemRewardWithHttpInfo(RewardRedemptionRequest rewardRedemptionRequest);
+        /// <summary>
         /// Share Inventory Item Direct
         /// </summary>
         /// <remarks>
@@ -589,6 +610,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InventoryItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<InventoryItem>> GetUserInventoryItemWithHttpInfoAsync(string userId, string inventoryItemId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Redeem Reward
+        /// </summary>
+        /// <remarks>
+        /// Redeem a reward for the currently logged in user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rewardRedemptionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;RewardRedemptionResult&gt;</returns>
+        System.Threading.Tasks.Task<List<RewardRedemptionResult>> RedeemRewardAsync(RewardRedemptionRequest rewardRedemptionRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Redeem Reward
+        /// </summary>
+        /// <remarks>
+        /// Redeem a reward for the currently logged in user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rewardRedemptionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;RewardRedemptionResult&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<RewardRedemptionResult>>> RedeemRewardWithHttpInfoAsync(RewardRedemptionRequest rewardRedemptionRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Share Inventory Item Direct
         /// </summary>
@@ -2342,6 +2386,152 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<InventoryItem>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryItem), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Redeem Reward Redeem a reward for the currently logged in user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rewardRedemptionRequest"></param>
+        /// <returns>List&lt;RewardRedemptionResult&gt;</returns>
+        public List<RewardRedemptionResult> RedeemReward(RewardRedemptionRequest rewardRedemptionRequest)
+        {
+            VRChat.API.Client.ApiResponse<List<RewardRedemptionResult>> localVarResponse = RedeemRewardWithHttpInfo(rewardRedemptionRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RedeemReward", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Redeem Reward Redeem a reward for the currently logged in user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rewardRedemptionRequest"></param>
+        /// <returns>ApiResponse of List&lt;RewardRedemptionResult&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<RewardRedemptionResult>> RedeemRewardWithHttpInfo(RewardRedemptionRequest rewardRedemptionRequest)
+        {
+            // verify the required parameter 'rewardRedemptionRequest' is set
+            if (rewardRedemptionRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'rewardRedemptionRequest' when calling InventoryApi->RedeemReward");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = rewardRedemptionRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<List<RewardRedemptionResult>>("/reward/redeem", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<RewardRedemptionResult>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<RewardRedemptionResult>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Redeem Reward Redeem a reward for the currently logged in user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rewardRedemptionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;RewardRedemptionResult&gt;</returns>
+        public async System.Threading.Tasks.Task<List<RewardRedemptionResult>> RedeemRewardAsync(RewardRedemptionRequest rewardRedemptionRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<RewardRedemptionResult>> localVarResponse = await RedeemRewardWithHttpInfoAsync(rewardRedemptionRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RedeemReward", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Redeem Reward Redeem a reward for the currently logged in user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rewardRedemptionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;RewardRedemptionResult&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<RewardRedemptionResult>>> RedeemRewardWithHttpInfoAsync(RewardRedemptionRequest rewardRedemptionRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'rewardRedemptionRequest' is set
+            if (rewardRedemptionRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'rewardRedemptionRequest' when calling InventoryApi->RedeemReward");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = rewardRedemptionRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<List<RewardRedemptionResult>>("/reward/redeem", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<RewardRedemptionResult>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<RewardRedemptionResult>), ex.Message);
             }
         }
 

@@ -55,6 +55,7 @@ docs/CalendarEventDiscoveryScope.md
 docs/CalendarEventPlatform.md
 docs/CalendarEventUserInterest.md
 docs/ChangeUserTagsRequest.md
+docs/ChangeWorldTagsRequest.md
 docs/ContentFilter.md
 docs/CreateAvatarModerationRequest.md
 docs/CreateAvatarRequest.md
@@ -68,6 +69,7 @@ docs/CreateGroupPostRequest.md
 docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
 docs/CreateInstanceRequest.md
+docs/CreateJamSubmissionRequest.md
 docs/CreatePropRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
@@ -78,6 +80,8 @@ docs/DeveloperType.md
 docs/Disable2FAResult.md
 docs/DiscordDetails.md
 docs/DynamicContentRow.md
+docs/EarningsMetrics.md
+docs/EarningsMetricsTotals.md
 docs/EconomyAccount.md
 docs/EconomyApi.md
 docs/EquipInventoryItemRequest.md
@@ -173,6 +177,7 @@ docs/InviteRequest.md
 docs/InviteResponse.md
 docs/Jam.md
 docs/JamStateChangeDates.md
+docs/JamSubmission.md
 docs/JamsApi.md
 docs/JoinGroupRequest.md
 docs/License.md
@@ -229,12 +234,16 @@ docs/ProductListing.md
 docs/ProductListingType.md
 docs/ProductListingVariant.md
 docs/ProductPurchase.md
+docs/ProductPurchaseHistory.md
+docs/ProductPurchaseLocationType.md
 docs/ProductPurchasePurchaseContext.md
+docs/ProductPurchaseRecord.md
 docs/ProductType.md
 docs/Prop.md
 docs/PropPublishStatus.md
 docs/PropUnityPackage.md
 docs/PropsApi.md
+docs/PurchaseContextData.md
 docs/PurchaseProductListingRequest.md
 docs/Region.md
 docs/RegisterUserAccountRequest.md
@@ -246,7 +255,13 @@ docs/RequestInviteRequest.md
 docs/RespondGroupJoinRequest.md
 docs/RespondNotificationV2Request.md
 docs/Response.md
+docs/RewardBadge.md
+docs/RewardRedemption.md
+docs/RewardRedemptionData.md
+docs/RewardRedemptionRequest.md
+docs/RewardRedemptionResult.md
 docs/SearchGroupMembers200Response.md
+docs/SellerEligibility.md
 docs/SentNotification.md
 docs/ServiceQueueStats.md
 docs/ServiceStatus.md
@@ -257,7 +272,6 @@ docs/Store.md
 docs/StoreShelf.md
 docs/StoreType.md
 docs/StoreView.md
-docs/Submission.md
 docs/SubmitModerationReportRequest.md
 docs/SubmitModerationReportRequestDetails.md
 docs/Subscription.md
@@ -273,6 +287,7 @@ docs/TransactionStatus.md
 docs/TransactionSteamInfo.md
 docs/TransactionSteamWalletInfo.md
 docs/TransferGroupRequest.md
+docs/TutorialStatus.md
 docs/TwoFactorAuthCode.md
 docs/TwoFactorEmailCode.md
 docs/TwoFactorRecoveryCodes.md
@@ -401,6 +416,7 @@ src/VRChat.API/Model/CalendarEventDiscoveryScope.cs
 src/VRChat.API/Model/CalendarEventPlatform.cs
 src/VRChat.API/Model/CalendarEventUserInterest.cs
 src/VRChat.API/Model/ChangeUserTagsRequest.cs
+src/VRChat.API/Model/ChangeWorldTagsRequest.cs
 src/VRChat.API/Model/ContentFilter.cs
 src/VRChat.API/Model/CreateAvatarModerationRequest.cs
 src/VRChat.API/Model/CreateAvatarRequest.cs
@@ -414,6 +430,7 @@ src/VRChat.API/Model/CreateGroupPostRequest.cs
 src/VRChat.API/Model/CreateGroupRequest.cs
 src/VRChat.API/Model/CreateGroupRoleRequest.cs
 src/VRChat.API/Model/CreateInstanceRequest.cs
+src/VRChat.API/Model/CreateJamSubmissionRequest.cs
 src/VRChat.API/Model/CreatePropRequest.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
 src/VRChat.API/Model/CurrentUser.cs
@@ -424,6 +441,8 @@ src/VRChat.API/Model/DeveloperType.cs
 src/VRChat.API/Model/Disable2FAResult.cs
 src/VRChat.API/Model/DiscordDetails.cs
 src/VRChat.API/Model/DynamicContentRow.cs
+src/VRChat.API/Model/EarningsMetrics.cs
+src/VRChat.API/Model/EarningsMetricsTotals.cs
 src/VRChat.API/Model/EconomyAccount.cs
 src/VRChat.API/Model/EquipInventoryItemRequest.cs
 src/VRChat.API/Model/Error.cs
@@ -511,6 +530,7 @@ src/VRChat.API/Model/InviteRequest.cs
 src/VRChat.API/Model/InviteResponse.cs
 src/VRChat.API/Model/Jam.cs
 src/VRChat.API/Model/JamStateChangeDates.cs
+src/VRChat.API/Model/JamSubmission.cs
 src/VRChat.API/Model/JoinGroupRequest.cs
 src/VRChat.API/Model/License.cs
 src/VRChat.API/Model/LicenseAction.cs
@@ -562,11 +582,15 @@ src/VRChat.API/Model/ProductListing.cs
 src/VRChat.API/Model/ProductListingType.cs
 src/VRChat.API/Model/ProductListingVariant.cs
 src/VRChat.API/Model/ProductPurchase.cs
+src/VRChat.API/Model/ProductPurchaseHistory.cs
+src/VRChat.API/Model/ProductPurchaseLocationType.cs
 src/VRChat.API/Model/ProductPurchasePurchaseContext.cs
+src/VRChat.API/Model/ProductPurchaseRecord.cs
 src/VRChat.API/Model/ProductType.cs
 src/VRChat.API/Model/Prop.cs
 src/VRChat.API/Model/PropPublishStatus.cs
 src/VRChat.API/Model/PropUnityPackage.cs
+src/VRChat.API/Model/PurchaseContextData.cs
 src/VRChat.API/Model/PurchaseProductListingRequest.cs
 src/VRChat.API/Model/Region.cs
 src/VRChat.API/Model/RegisterUserAccountRequest.cs
@@ -578,7 +602,13 @@ src/VRChat.API/Model/RequestInviteRequest.cs
 src/VRChat.API/Model/RespondGroupJoinRequest.cs
 src/VRChat.API/Model/RespondNotificationV2Request.cs
 src/VRChat.API/Model/Response.cs
+src/VRChat.API/Model/RewardBadge.cs
+src/VRChat.API/Model/RewardRedemption.cs
+src/VRChat.API/Model/RewardRedemptionData.cs
+src/VRChat.API/Model/RewardRedemptionRequest.cs
+src/VRChat.API/Model/RewardRedemptionResult.cs
 src/VRChat.API/Model/SearchGroupMembers200Response.cs
+src/VRChat.API/Model/SellerEligibility.cs
 src/VRChat.API/Model/SentNotification.cs
 src/VRChat.API/Model/ServiceQueueStats.cs
 src/VRChat.API/Model/ServiceStatus.cs
@@ -589,7 +619,6 @@ src/VRChat.API/Model/Store.cs
 src/VRChat.API/Model/StoreShelf.cs
 src/VRChat.API/Model/StoreType.cs
 src/VRChat.API/Model/StoreView.cs
-src/VRChat.API/Model/Submission.cs
 src/VRChat.API/Model/SubmitModerationReportRequest.cs
 src/VRChat.API/Model/SubmitModerationReportRequestDetails.cs
 src/VRChat.API/Model/Subscription.cs
@@ -605,6 +634,7 @@ src/VRChat.API/Model/TransactionStatus.cs
 src/VRChat.API/Model/TransactionSteamInfo.cs
 src/VRChat.API/Model/TransactionSteamWalletInfo.cs
 src/VRChat.API/Model/TransferGroupRequest.cs
+src/VRChat.API/Model/TutorialStatus.cs
 src/VRChat.API/Model/TwoFactorAuthCode.cs
 src/VRChat.API/Model/TwoFactorEmailCode.cs
 src/VRChat.API/Model/TwoFactorRecoveryCodes.cs

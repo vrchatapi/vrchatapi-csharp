@@ -298,12 +298,6 @@ namespace VRChat.API.Model
                 yield return new ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
             }
 
-            // Id (string) minLength
-            if (this.Id != null && this.Id.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
-            }
-
             // MoreInfo (string) minLength
             if (this.MoreInfo != null && this.MoreInfo.Length < 1)
             {

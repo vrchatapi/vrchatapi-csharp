@@ -45,10 +45,16 @@ namespace VRChat.API.Model
         Friend = 2,
 
         /// <summary>
+        /// Enum VrcPlusWorld for value: vrcPlusWorld
+        /// </summary>
+        [EnumMember(Value = "vrcPlusWorld")]
+        VrcPlusWorld = 3,
+
+        /// <summary>
         /// Enum World for value: world
         /// </summary>
         [EnumMember(Value = "world")]
-        World = 3
+        World = 4
     }
 
 }

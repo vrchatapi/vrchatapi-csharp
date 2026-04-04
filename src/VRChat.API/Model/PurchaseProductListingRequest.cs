@@ -40,16 +40,30 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PurchaseProductListingRequest" /> class.
         /// </summary>
+        /// <param name="contextData">contextData.</param>
         /// <param name="listingId">listingId (required).</param>
+        /// <param name="listingVariantId">listingVariantId.</param>
         /// <param name="quantity">quantity (required) (default to 1).</param>
+        /// <param name="receiverId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="stackable">stackable.</param>
         /// <param name="totalPrice">totalPrice (required).</param>
-        public PurchaseProductListingRequest(string listingId = default, int quantity = 1, int totalPrice = default)
+        public PurchaseProductListingRequest(PurchaseContextData contextData = default, string listingId = default, string listingVariantId = default, int quantity = 1, string receiverId = default, bool stackable = default, int totalPrice = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ListingId = listingId;
             this.Quantity = quantity;
             this.TotalPrice = totalPrice;
+            this.ContextData = contextData;
+            this.ListingVariantId = listingVariantId;
+            this.ReceiverId = receiverId;
+            this.Stackable = stackable;
         }
+
+        /// <summary>
+        /// Gets or Sets ContextData
+        /// </summary>
+        [DataMember(Name = "contextData", EmitDefaultValue = false)]
+        public PurchaseContextData ContextData { get; set; }
 
         /// <summary>
         /// Gets or Sets ListingId
@@ -61,10 +75,35 @@ namespace VRChat.API.Model
         public string ListingId { get; set; }
 
         /// <summary>
+        /// Gets or Sets ListingVariantId
+        /// </summary>
+        /*
+        <example>listvar_e8658b56-1662-436c-935a-afcf6a7d4fed</example>
+        */
+        [DataMember(Name = "listingVariantId", EmitDefaultValue = false)]
+        public string ListingVariantId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Quantity
         /// </summary>
         [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
         public int Quantity { get; set; }
+
+        /// <summary>
+        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// </summary>
+        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
+        [DataMember(Name = "receiverId", EmitDefaultValue = false)]
+        public string ReceiverId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Stackable
+        /// </summary>
+        [DataMember(Name = "stackable", EmitDefaultValue = true)]
+        public bool Stackable { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalPrice
@@ -80,8 +119,12 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class PurchaseProductListingRequest {\n");
+            sb.Append("  ContextData: ").Append(ContextData).Append("\n");
             sb.Append("  ListingId: ").Append(ListingId).Append("\n");
+            sb.Append("  ListingVariantId: ").Append(ListingVariantId).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  ReceiverId: ").Append(ReceiverId).Append("\n");
+            sb.Append("  Stackable: ").Append(Stackable).Append("\n");
             sb.Append("  TotalPrice: ").Append(TotalPrice).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -119,13 +162,32 @@ namespace VRChat.API.Model
             }
             return 
                 (
+                    this.ContextData == input.ContextData ||
+                    (this.ContextData != null &&
+                    this.ContextData.Equals(input.ContextData))
+                ) && 
+                (
                     this.ListingId == input.ListingId ||
                     (this.ListingId != null &&
                     this.ListingId.Equals(input.ListingId))
                 ) && 
                 (
+                    this.ListingVariantId == input.ListingVariantId ||
+                    (this.ListingVariantId != null &&
+                    this.ListingVariantId.Equals(input.ListingVariantId))
+                ) && 
+                (
                     this.Quantity == input.Quantity ||
                     this.Quantity.Equals(input.Quantity)
+                ) && 
+                (
+                    this.ReceiverId == input.ReceiverId ||
+                    (this.ReceiverId != null &&
+                    this.ReceiverId.Equals(input.ReceiverId))
+                ) && 
+                (
+                    this.Stackable == input.Stackable ||
+                    this.Stackable.Equals(input.Stackable)
                 ) && 
                 (
                     this.TotalPrice == input.TotalPrice ||
@@ -142,11 +204,24 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ContextData != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContextData.GetHashCode();
+                }
                 if (this.ListingId != null)
                 {
                     hashCode = (hashCode * 59) + this.ListingId.GetHashCode();
                 }
+                if (this.ListingVariantId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ListingVariantId.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Quantity.GetHashCode();
+                if (this.ReceiverId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReceiverId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Stackable.GetHashCode();
                 hashCode = (hashCode * 59) + this.TotalPrice.GetHashCode();
                 return hashCode;
             }

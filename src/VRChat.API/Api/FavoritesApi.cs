@@ -59,7 +59,7 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Success</returns>
-        Success ClearFavoriteGroup(string favoriteGroupType, string favoriteGroupName, string userId);
+        Success ClearFavoriteGroup(FavoriteType favoriteGroupType, string favoriteGroupName, string userId);
 
         /// <summary>
         /// Clear Favorite Group
@@ -72,7 +72,7 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> ClearFavoriteGroupWithHttpInfo(string favoriteGroupType, string favoriteGroupName, string userId);
+        ApiResponse<Success> ClearFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId);
         /// <summary>
         /// Show Favorite Group
         /// </summary>
@@ -84,7 +84,7 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>FavoriteGroup</returns>
-        FavoriteGroup GetFavoriteGroup(string favoriteGroupType, string favoriteGroupName, string userId);
+        FavoriteGroup GetFavoriteGroup(FavoriteType favoriteGroupType, string favoriteGroupName, string userId);
 
         /// <summary>
         /// Show Favorite Group
@@ -97,7 +97,7 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of FavoriteGroup</returns>
-        ApiResponse<FavoriteGroup> GetFavoriteGroupWithHttpInfo(string favoriteGroupType, string favoriteGroupName, string userId);
+        ApiResponse<FavoriteGroup> GetFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId);
         /// <summary>
         /// List Favorite Groups
         /// </summary>
@@ -204,7 +204,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <returns></returns>
-        void UpdateFavoriteGroup(string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default);
+        void UpdateFavoriteGroup(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default);
 
         /// <summary>
         /// Update Favorite Group
@@ -218,7 +218,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateFavoriteGroupWithHttpInfo(string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default);
+        ApiResponse<Object> UpdateFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default);
         #endregion Synchronous Operations
     }
 
@@ -263,7 +263,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> ClearFavoriteGroupAsync(string favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<Success> ClearFavoriteGroupAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Clear Favorite Group
@@ -277,7 +277,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> ClearFavoriteGroupWithHttpInfoAsync(string favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Success>> ClearFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Show Favorite Group
         /// </summary>
@@ -290,7 +290,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FavoriteGroup</returns>
-        System.Threading.Tasks.Task<FavoriteGroup> GetFavoriteGroupAsync(string favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<FavoriteGroup> GetFavoriteGroupAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Show Favorite Group
@@ -304,7 +304,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FavoriteGroup)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FavoriteGroup>> GetFavoriteGroupWithHttpInfoAsync(string favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<FavoriteGroup>> GetFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Favorite Groups
         /// </summary>
@@ -420,7 +420,7 @@ namespace VRChat.API.Api
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateFavoriteGroupAsync(string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task UpdateFavoriteGroupAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Favorite Group
@@ -435,7 +435,7 @@ namespace VRChat.API.Api
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateFavoriteGroupWithHttpInfoAsync(string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -795,7 +795,7 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Success</returns>
-        public Success ClearFavoriteGroup(string favoriteGroupType, string favoriteGroupName, string userId)
+        public Success ClearFavoriteGroup(FavoriteType favoriteGroupType, string favoriteGroupName, string userId)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = ClearFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId);
             if (this.ExceptionFactory != null)
@@ -817,12 +817,8 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> ClearFavoriteGroupWithHttpInfo(string favoriteGroupType, string favoriteGroupName, string userId)
+        public VRChat.API.Client.ApiResponse<Success> ClearFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId)
         {
-            // verify the required parameter 'favoriteGroupType' is set
-            if (favoriteGroupType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupType' when calling FavoritesApi->ClearFavoriteGroup");
-
             // verify the required parameter 'favoriteGroupName' is set
             if (favoriteGroupName == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupName' when calling FavoritesApi->ClearFavoriteGroup");
@@ -880,7 +876,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> ClearFavoriteGroupAsync(string favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Success> ClearFavoriteGroupAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Success> localVarResponse = await ClearFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -903,12 +899,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> ClearFavoriteGroupWithHttpInfoAsync(string favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> ClearFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'favoriteGroupType' is set
-            if (favoriteGroupType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupType' when calling FavoritesApi->ClearFavoriteGroup");
-
             // verify the required parameter 'favoriteGroupName' is set
             if (favoriteGroupName == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupName' when calling FavoritesApi->ClearFavoriteGroup");
@@ -967,7 +959,7 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>FavoriteGroup</returns>
-        public FavoriteGroup GetFavoriteGroup(string favoriteGroupType, string favoriteGroupName, string userId)
+        public FavoriteGroup GetFavoriteGroup(FavoriteType favoriteGroupType, string favoriteGroupName, string userId)
         {
             VRChat.API.Client.ApiResponse<FavoriteGroup> localVarResponse = GetFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId);
             if (this.ExceptionFactory != null)
@@ -989,12 +981,8 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of FavoriteGroup</returns>
-        public VRChat.API.Client.ApiResponse<FavoriteGroup> GetFavoriteGroupWithHttpInfo(string favoriteGroupType, string favoriteGroupName, string userId)
+        public VRChat.API.Client.ApiResponse<FavoriteGroup> GetFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId)
         {
-            // verify the required parameter 'favoriteGroupType' is set
-            if (favoriteGroupType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupType' when calling FavoritesApi->GetFavoriteGroup");
-
             // verify the required parameter 'favoriteGroupName' is set
             if (favoriteGroupName == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupName' when calling FavoritesApi->GetFavoriteGroup");
@@ -1052,7 +1040,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FavoriteGroup</returns>
-        public async System.Threading.Tasks.Task<FavoriteGroup> GetFavoriteGroupAsync(string favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<FavoriteGroup> GetFavoriteGroupAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FavoriteGroup> localVarResponse = await GetFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -1075,12 +1063,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FavoriteGroup)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FavoriteGroup>> GetFavoriteGroupWithHttpInfoAsync(string favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FavoriteGroup>> GetFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'favoriteGroupType' is set
-            if (favoriteGroupType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupType' when calling FavoritesApi->GetFavoriteGroup");
-
             // verify the required parameter 'favoriteGroupName' is set
             if (favoriteGroupName == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupName' when calling FavoritesApi->GetFavoriteGroup");
@@ -1770,7 +1754,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <returns></returns>
-        public void UpdateFavoriteGroup(string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default)
+        public void UpdateFavoriteGroup(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default)
         {
             VRChat.API.Client.ApiResponse<Object> localVarResponse = UpdateFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest);
             if (this.ExceptionFactory != null)
@@ -1792,12 +1776,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> UpdateFavoriteGroupWithHttpInfo(string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default)
+        public VRChat.API.Client.ApiResponse<Object> UpdateFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default)
         {
-            // verify the required parameter 'favoriteGroupType' is set
-            if (favoriteGroupType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupType' when calling FavoritesApi->UpdateFavoriteGroup");
-
             // verify the required parameter 'favoriteGroupName' is set
             if (favoriteGroupName == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupName' when calling FavoritesApi->UpdateFavoriteGroup");
@@ -1857,7 +1837,7 @@ namespace VRChat.API.Api
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateFavoriteGroupAsync(string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task UpdateFavoriteGroupAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Object> localVarResponse = await UpdateFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -1880,12 +1860,8 @@ namespace VRChat.API.Api
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> UpdateFavoriteGroupWithHttpInfoAsync(string favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> UpdateFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'favoriteGroupType' is set
-            if (favoriteGroupType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupType' when calling FavoritesApi->UpdateFavoriteGroup");
-
             // verify the required parameter 'favoriteGroupName' is set
             if (favoriteGroupName == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupName' when calling FavoritesApi->UpdateFavoriteGroup");

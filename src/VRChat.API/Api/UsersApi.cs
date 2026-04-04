@@ -305,12 +305,12 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="contentId">Filter for users&#39; previously submitted feedback, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>List&lt;Feedback&gt;</returns>
         [Obsolete]
-        List<Feedback> GetUserFeedback(string userId, bool? contentId = default, int? n = default, int? offset = default);
+        List<Feedback> GetUserFeedback(string userId, string? contentId = default, int? n = default, int? offset = default);
 
         /// <summary>
         /// Get User Feedback
@@ -320,12 +320,12 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="contentId">Filter for users&#39; previously submitted feedback, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>ApiResponse of List&lt;Feedback&gt;</returns>
         [Obsolete]
-        ApiResponse<List<Feedback>> GetUserFeedbackWithHttpInfo(string userId, bool? contentId = default, int? n = default, int? offset = default);
+        ApiResponse<List<Feedback>> GetUserFeedbackWithHttpInfo(string userId, string? contentId = default, int? n = default, int? offset = default);
         /// <summary>
         /// Get User Group Instances
         /// </summary>
@@ -477,6 +477,27 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of RepresentedGroup</returns>
         ApiResponse<RepresentedGroup> GetUserRepresentedGroupWithHttpInfo(string userId);
+        /// <summary>
+        /// Get User Tutorial Status
+        /// </summary>
+        /// <remarks>
+        /// Gets the status of completed or outstanding tutorials for the specified user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>TutorialStatus</returns>
+        TutorialStatus GetUserTutorialStatus(string userId);
+
+        /// <summary>
+        /// Get User Tutorial Status
+        /// </summary>
+        /// <remarks>
+        /// Gets the status of completed or outstanding tutorials for the specified user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of TutorialStatus</returns>
+        ApiResponse<TutorialStatus> GetUserTutorialStatusWithHttpInfo(string userId);
         /// <summary>
         /// Remove User Tags
         /// </summary>
@@ -909,13 +930,13 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="contentId">Filter for users&#39; previously submitted feedback, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feedback&gt;</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<List<Feedback>> GetUserFeedbackAsync(string userId, bool? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<Feedback>> GetUserFeedbackAsync(string userId, string? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User Feedback
@@ -925,13 +946,13 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="contentId">Filter for users&#39; previously submitted feedback, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Feedback&gt;)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<List<Feedback>>> GetUserFeedbackWithHttpInfoAsync(string userId, bool? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<Feedback>>> GetUserFeedbackWithHttpInfoAsync(string userId, string? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get User Group Instances
         /// </summary>
@@ -1097,6 +1118,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RepresentedGroup)</returns>
         System.Threading.Tasks.Task<ApiResponse<RepresentedGroup>> GetUserRepresentedGroupWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get User Tutorial Status
+        /// </summary>
+        /// <remarks>
+        /// Gets the status of completed or outstanding tutorials for the specified user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TutorialStatus</returns>
+        System.Threading.Tasks.Task<TutorialStatus> GetUserTutorialStatusAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get User Tutorial Status
+        /// </summary>
+        /// <remarks>
+        /// Gets the status of completed or outstanding tutorials for the specified user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TutorialStatus)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TutorialStatus>> GetUserTutorialStatusWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Remove User Tags
         /// </summary>
@@ -3276,12 +3320,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="contentId">Filter for users&#39; previously submitted feedback, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>List&lt;Feedback&gt;</returns>
         [Obsolete]
-        public List<Feedback> GetUserFeedback(string userId, bool? contentId = default, int? n = default, int? offset = default)
+        public List<Feedback> GetUserFeedback(string userId, string? contentId = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<Feedback>> localVarResponse = GetUserFeedbackWithHttpInfo(userId, contentId, n, offset);
             if (this.ExceptionFactory != null)
@@ -3300,12 +3344,12 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="contentId">Filter for users&#39; previously submitted feedback, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>ApiResponse of List&lt;Feedback&gt;</returns>
         [Obsolete]
-        public VRChat.API.Client.ApiResponse<List<Feedback>> GetUserFeedbackWithHttpInfo(string userId, bool? contentId = default, int? n = default, int? offset = default)
+        public VRChat.API.Client.ApiResponse<List<Feedback>> GetUserFeedbackWithHttpInfo(string userId, string? contentId = default, int? n = default, int? offset = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3366,13 +3410,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="contentId">Filter for users&#39; previously submitted feedback, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feedback&gt;</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<List<Feedback>> GetUserFeedbackAsync(string userId, bool? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<Feedback>> GetUserFeedbackAsync(string userId, string? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Feedback>> localVarResponse = await GetUserFeedbackWithHttpInfoAsync(userId, contentId, n, offset, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -3391,13 +3435,13 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <param name="contentId">Filter for users&#39; previously submitted feedback, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Feedback&gt;)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Feedback>>> GetUserFeedbackWithHttpInfoAsync(string userId, bool? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Feedback>>> GetUserFeedbackWithHttpInfoAsync(string userId, string? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -4484,6 +4528,150 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<RepresentedGroup>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(RepresentedGroup), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>TutorialStatus</returns>
+        public TutorialStatus GetUserTutorialStatus(string userId)
+        {
+            VRChat.API.Client.ApiResponse<TutorialStatus> localVarResponse = GetUserTutorialStatusWithHttpInfo(userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserTutorialStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of TutorialStatus</returns>
+        public VRChat.API.Client.ApiResponse<TutorialStatus> GetUserTutorialStatusWithHttpInfo(string userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->GetUserTutorialStatus");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<TutorialStatus>("/users/{userId}/tutorial", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<TutorialStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TutorialStatus), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TutorialStatus</returns>
+        public async System.Threading.Tasks.Task<TutorialStatus> GetUserTutorialStatusAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<TutorialStatus> localVarResponse = await GetUserTutorialStatusWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserTutorialStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TutorialStatus)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<TutorialStatus>> GetUserTutorialStatusWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->GetUserTutorialStatus");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<TutorialStatus>("/users/{userId}/tutorial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<TutorialStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TutorialStatus), ex.Message);
             }
         }
 

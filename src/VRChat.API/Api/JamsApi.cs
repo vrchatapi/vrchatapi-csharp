@@ -28,13 +28,36 @@ namespace VRChat.API.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Delete Jam Submission
+        /// </summary>
+        /// <remarks>
+        /// Withdraws a content submission from a jam.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="jamSubmissionId">Must be a valid jam submission ID.</param>
+        /// <returns>Success</returns>
+        Success DeleteJamSubmission(string jamId, string jamSubmissionId);
+
+        /// <summary>
+        /// Delete Jam Submission
+        /// </summary>
+        /// <remarks>
+        /// Withdraws a content submission from a jam.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="jamSubmissionId">Must be a valid jam submission ID.</param>
+        /// <returns>ApiResponse of Success</returns>
+        ApiResponse<Success> DeleteJamSubmissionWithHttpInfo(string jamId, string jamSubmissionId);
+        /// <summary>
         /// Show jam information
         /// </summary>
         /// <remarks>
         /// Returns a jam.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
         /// <returns>Jam</returns>
         Jam GetJam(string jamId);
 
@@ -45,30 +68,34 @@ namespace VRChat.API.Api
         /// Returns a jam.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
         /// <returns>ApiResponse of Jam</returns>
         ApiResponse<Jam> GetJamWithHttpInfo(string jamId);
         /// <summary>
         /// Show jam submissions
         /// </summary>
         /// <remarks>
-        /// Returns all submissions of a jam.
+        /// Returns all submissions of a jam. Can filter by contentId (for world or avatar jams) or submitterId (for a participant).
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
-        /// <returns>List&lt;Submission&gt;</returns>
-        List<Submission> GetJamSubmissions(string jamId);
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="submitterId">Must be a valid user ID. (optional)</param>
+        /// <returns>List&lt;JamSubmission&gt;</returns>
+        List<JamSubmission> GetJamSubmissions(string jamId, string? contentId = default, string? submitterId = default);
 
         /// <summary>
         /// Show jam submissions
         /// </summary>
         /// <remarks>
-        /// Returns all submissions of a jam.
+        /// Returns all submissions of a jam. Can filter by contentId (for world or avatar jams) or submitterId (for a participant).
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
-        /// <returns>ApiResponse of List&lt;Submission&gt;</returns>
-        ApiResponse<List<Submission>> GetJamSubmissionsWithHttpInfo(string jamId);
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="submitterId">Must be a valid user ID. (optional)</param>
+        /// <returns>ApiResponse of List&lt;JamSubmission&gt;</returns>
+        ApiResponse<List<JamSubmission>> GetJamSubmissionsWithHttpInfo(string jamId, string? contentId = default, string? submitterId = default);
         /// <summary>
         /// Show jams list
         /// </summary>
@@ -90,6 +117,29 @@ namespace VRChat.API.Api
         /// <param name="type">Only show jams of this type (&#x60;avatar&#x60; or &#x60;world&#x60;). (optional)</param>
         /// <returns>ApiResponse of List&lt;Jam&gt;</returns>
         ApiResponse<List<Jam>> GetJamsWithHttpInfo(string? type = default);
+        /// <summary>
+        /// Submit Jam Content
+        /// </summary>
+        /// <remarks>
+        /// Submits content to a jam. The content must have been uploaded by the submitter, and both the content upload and jam submission must be made within the jam&#39;s designated times.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="createJamSubmissionRequest"> (optional)</param>
+        /// <returns>JamSubmission</returns>
+        JamSubmission SubmitJamContent(string jamId, CreateJamSubmissionRequest? createJamSubmissionRequest = default);
+
+        /// <summary>
+        /// Submit Jam Content
+        /// </summary>
+        /// <remarks>
+        /// Submits content to a jam. The content must have been uploaded by the submitter, and both the content upload and jam submission must be made within the jam&#39;s designated times.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="createJamSubmissionRequest"> (optional)</param>
+        /// <returns>ApiResponse of JamSubmission</returns>
+        ApiResponse<JamSubmission> SubmitJamContentWithHttpInfo(string jamId, CreateJamSubmissionRequest? createJamSubmissionRequest = default);
         #endregion Synchronous Operations
     }
 
@@ -100,13 +150,38 @@ namespace VRChat.API.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// Delete Jam Submission
+        /// </summary>
+        /// <remarks>
+        /// Withdraws a content submission from a jam.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="jamSubmissionId">Must be a valid jam submission ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Success</returns>
+        System.Threading.Tasks.Task<Success> DeleteJamSubmissionAsync(string jamId, string jamSubmissionId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete Jam Submission
+        /// </summary>
+        /// <remarks>
+        /// Withdraws a content submission from a jam.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="jamSubmissionId">Must be a valid jam submission ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Success)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteJamSubmissionWithHttpInfoAsync(string jamId, string jamSubmissionId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Show jam information
         /// </summary>
         /// <remarks>
         /// Returns a jam.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Jam</returns>
         System.Threading.Tasks.Task<Jam> GetJamAsync(string jamId, System.Threading.CancellationToken cancellationToken = default);
@@ -118,7 +193,7 @@ namespace VRChat.API.Api
         /// Returns a jam.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Jam)</returns>
         System.Threading.Tasks.Task<ApiResponse<Jam>> GetJamWithHttpInfoAsync(string jamId, System.Threading.CancellationToken cancellationToken = default);
@@ -126,25 +201,29 @@ namespace VRChat.API.Api
         /// Show jam submissions
         /// </summary>
         /// <remarks>
-        /// Returns all submissions of a jam.
+        /// Returns all submissions of a jam. Can filter by contentId (for world or avatar jams) or submitterId (for a participant).
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="submitterId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Submission&gt;</returns>
-        System.Threading.Tasks.Task<List<Submission>> GetJamSubmissionsAsync(string jamId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of List&lt;JamSubmission&gt;</returns>
+        System.Threading.Tasks.Task<List<JamSubmission>> GetJamSubmissionsAsync(string jamId, string? contentId = default, string? submitterId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Show jam submissions
         /// </summary>
         /// <remarks>
-        /// Returns all submissions of a jam.
+        /// Returns all submissions of a jam. Can filter by contentId (for world or avatar jams) or submitterId (for a participant).
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="submitterId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Submission&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Submission>>> GetJamSubmissionsWithHttpInfoAsync(string jamId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (List&lt;JamSubmission&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<JamSubmission>>> GetJamSubmissionsWithHttpInfoAsync(string jamId, string? contentId = default, string? submitterId = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Show jams list
         /// </summary>
@@ -168,6 +247,31 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Jam&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Jam>>> GetJamsWithHttpInfoAsync(string? type = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Submit Jam Content
+        /// </summary>
+        /// <remarks>
+        /// Submits content to a jam. The content must have been uploaded by the submitter, and both the content upload and jam submission must be made within the jam&#39;s designated times.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="createJamSubmissionRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of JamSubmission</returns>
+        System.Threading.Tasks.Task<JamSubmission> SubmitJamContentAsync(string jamId, CreateJamSubmissionRequest? createJamSubmissionRequest = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Submit Jam Content
+        /// </summary>
+        /// <remarks>
+        /// Submits content to a jam. The content must have been uploaded by the submitter, and both the content upload and jam submission must be made within the jam&#39;s designated times.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="createJamSubmissionRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (JamSubmission)</returns>
+        System.Threading.Tasks.Task<ApiResponse<JamSubmission>> SubmitJamContentWithHttpInfoAsync(string jamId, CreateJamSubmissionRequest? createJamSubmissionRequest = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -382,10 +486,168 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Delete Jam Submission Withdraws a content submission from a jam.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="jamSubmissionId">Must be a valid jam submission ID.</param>
+        /// <returns>Success</returns>
+        public Success DeleteJamSubmission(string jamId, string jamSubmissionId)
+        {
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteJamSubmissionWithHttpInfo(jamId, jamSubmissionId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteJamSubmission", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Jam Submission Withdraws a content submission from a jam.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="jamSubmissionId">Must be a valid jam submission ID.</param>
+        /// <returns>ApiResponse of Success</returns>
+        public VRChat.API.Client.ApiResponse<Success> DeleteJamSubmissionWithHttpInfo(string jamId, string jamSubmissionId)
+        {
+            // verify the required parameter 'jamId' is set
+            if (jamId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'jamId' when calling JamsApi->DeleteJamSubmission");
+
+            // verify the required parameter 'jamSubmissionId' is set
+            if (jamSubmissionId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'jamSubmissionId' when calling JamsApi->DeleteJamSubmission");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("jamId", VRChat.API.Client.ClientUtils.ParameterToString(jamId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("jamSubmissionId", VRChat.API.Client.ClientUtils.ParameterToString(jamSubmissionId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Delete<Success>("/jams/{jamId}/submissions/{jamSubmissionId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete Jam Submission Withdraws a content submission from a jam.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="jamSubmissionId">Must be a valid jam submission ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Success</returns>
+        public async System.Threading.Tasks.Task<Success> DeleteJamSubmissionAsync(string jamId, string jamSubmissionId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteJamSubmissionWithHttpInfoAsync(jamId, jamSubmissionId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteJamSubmission", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Jam Submission Withdraws a content submission from a jam.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="jamSubmissionId">Must be a valid jam submission ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Success)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteJamSubmissionWithHttpInfoAsync(string jamId, string jamSubmissionId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'jamId' is set
+            if (jamId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'jamId' when calling JamsApi->DeleteJamSubmission");
+
+            // verify the required parameter 'jamSubmissionId' is set
+            if (jamSubmissionId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'jamSubmissionId' when calling JamsApi->DeleteJamSubmission");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("jamId", VRChat.API.Client.ClientUtils.ParameterToString(jamId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("jamSubmissionId", VRChat.API.Client.ClientUtils.ParameterToString(jamSubmissionId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/jams/{jamId}/submissions/{jamSubmissionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Show jam information Returns a jam.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
         /// <returns>Jam</returns>
         public Jam GetJam(string jamId)
         {
@@ -405,7 +667,7 @@ namespace VRChat.API.Api
         /// Show jam information Returns a jam.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
         /// <returns>ApiResponse of Jam</returns>
         public VRChat.API.Client.ApiResponse<Jam> GetJamWithHttpInfo(string jamId)
         {
@@ -455,7 +717,7 @@ namespace VRChat.API.Api
         /// Show jam information Returns a jam.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Jam</returns>
         public async System.Threading.Tasks.Task<Jam> GetJamAsync(string jamId, System.Threading.CancellationToken cancellationToken = default)
@@ -476,7 +738,7 @@ namespace VRChat.API.Api
         /// Show jam information Returns a jam.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Jam)</returns>
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Jam>> GetJamWithHttpInfoAsync(string jamId, System.Threading.CancellationToken cancellationToken = default)
@@ -526,14 +788,16 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Show jam submissions Returns all submissions of a jam.
+        /// Show jam submissions Returns all submissions of a jam. Can filter by contentId (for world or avatar jams) or submitterId (for a participant).
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
-        /// <returns>List&lt;Submission&gt;</returns>
-        public List<Submission> GetJamSubmissions(string jamId)
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="submitterId">Must be a valid user ID. (optional)</param>
+        /// <returns>List&lt;JamSubmission&gt;</returns>
+        public List<JamSubmission> GetJamSubmissions(string jamId, string? contentId = default, string? submitterId = default)
         {
-            VRChat.API.Client.ApiResponse<List<Submission>> localVarResponse = GetJamSubmissionsWithHttpInfo(jamId);
+            VRChat.API.Client.ApiResponse<List<JamSubmission>> localVarResponse = GetJamSubmissionsWithHttpInfo(jamId, contentId, submitterId);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetJamSubmissions", localVarResponse);
@@ -546,12 +810,14 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Show jam submissions Returns all submissions of a jam.
+        /// Show jam submissions Returns all submissions of a jam. Can filter by contentId (for world or avatar jams) or submitterId (for a participant).
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
-        /// <returns>ApiResponse of List&lt;Submission&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Submission>> GetJamSubmissionsWithHttpInfo(string jamId)
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="submitterId">Must be a valid user ID. (optional)</param>
+        /// <returns>ApiResponse of List&lt;JamSubmission&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<JamSubmission>> GetJamSubmissionsWithHttpInfo(string jamId, string? contentId = default, string? submitterId = default)
         {
             // verify the required parameter 'jamId' is set
             if (jamId == null)
@@ -574,6 +840,14 @@ namespace VRChat.API.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("jamId", VRChat.API.Client.ClientUtils.ParameterToString(jamId)); // path parameter
+            if (contentId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "contentId", contentId));
+            }
+            if (submitterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "submitterId", submitterId));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -585,26 +859,28 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<List<Submission>>("/jams/{jamId}/submissions", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<List<JamSubmission>>("/jams/{jamId}/submissions", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<List<Submission>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Submission>), ex.Message);
+                return new VRChat.API.Client.ApiResponse<List<JamSubmission>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<JamSubmission>), ex.Message);
             }
         }
 
         /// <summary>
-        /// Show jam submissions Returns all submissions of a jam.
+        /// Show jam submissions Returns all submissions of a jam. Can filter by contentId (for world or avatar jams) or submitterId (for a participant).
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="submitterId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Submission&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Submission>> GetJamSubmissionsAsync(string jamId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of List&lt;JamSubmission&gt;</returns>
+        public async System.Threading.Tasks.Task<List<JamSubmission>> GetJamSubmissionsAsync(string jamId, string? contentId = default, string? submitterId = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<Submission>> localVarResponse = await GetJamSubmissionsWithHttpInfoAsync(jamId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<JamSubmission>> localVarResponse = await GetJamSubmissionsWithHttpInfoAsync(jamId, contentId, submitterId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetJamSubmissions", localVarResponse);
@@ -617,13 +893,15 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Show jam submissions Returns all submissions of a jam.
+        /// Show jam submissions Returns all submissions of a jam. Can filter by contentId (for world or avatar jams) or submitterId (for a participant).
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jamId">Must be a valid query ID.</param>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="contentId">Filter for particular content submitted, e.g., a groupId, userId, avatarId, etc. (optional)</param>
+        /// <param name="submitterId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Submission&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Submission>>> GetJamSubmissionsWithHttpInfoAsync(string jamId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (List&lt;JamSubmission&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<JamSubmission>>> GetJamSubmissionsWithHttpInfoAsync(string jamId, string? contentId = default, string? submitterId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'jamId' is set
             if (jamId == null)
@@ -648,6 +926,14 @@ namespace VRChat.API.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("jamId", VRChat.API.Client.ClientUtils.ParameterToString(jamId)); // path parameter
+            if (contentId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "contentId", contentId));
+            }
+            if (submitterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "submitterId", submitterId));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -659,13 +945,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Submission>>("/jams/{jamId}/submissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<JamSubmission>>("/jams/{jamId}/submissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<List<Submission>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Submission>), ex.Message);
+                return new VRChat.API.Client.ApiResponse<List<JamSubmission>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<JamSubmission>), ex.Message);
             }
         }
 
@@ -808,6 +1094,158 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<List<Jam>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Jam>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Submit Jam Content Submits content to a jam. The content must have been uploaded by the submitter, and both the content upload and jam submission must be made within the jam&#39;s designated times.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="createJamSubmissionRequest"> (optional)</param>
+        /// <returns>JamSubmission</returns>
+        public JamSubmission SubmitJamContent(string jamId, CreateJamSubmissionRequest? createJamSubmissionRequest = default)
+        {
+            VRChat.API.Client.ApiResponse<JamSubmission> localVarResponse = SubmitJamContentWithHttpInfo(jamId, createJamSubmissionRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubmitJamContent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Submit Jam Content Submits content to a jam. The content must have been uploaded by the submitter, and both the content upload and jam submission must be made within the jam&#39;s designated times.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="createJamSubmissionRequest"> (optional)</param>
+        /// <returns>ApiResponse of JamSubmission</returns>
+        public VRChat.API.Client.ApiResponse<JamSubmission> SubmitJamContentWithHttpInfo(string jamId, CreateJamSubmissionRequest? createJamSubmissionRequest = default)
+        {
+            // verify the required parameter 'jamId' is set
+            if (jamId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'jamId' when calling JamsApi->SubmitJamContent");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("jamId", VRChat.API.Client.ClientUtils.ParameterToString(jamId)); // path parameter
+            localVarRequestOptions.Data = createJamSubmissionRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<JamSubmission>("/jams/{jamId}/submissions", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<JamSubmission>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(JamSubmission), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Submit Jam Content Submits content to a jam. The content must have been uploaded by the submitter, and both the content upload and jam submission must be made within the jam&#39;s designated times.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="createJamSubmissionRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of JamSubmission</returns>
+        public async System.Threading.Tasks.Task<JamSubmission> SubmitJamContentAsync(string jamId, CreateJamSubmissionRequest? createJamSubmissionRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<JamSubmission> localVarResponse = await SubmitJamContentWithHttpInfoAsync(jamId, createJamSubmissionRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SubmitJamContent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Submit Jam Content Submits content to a jam. The content must have been uploaded by the submitter, and both the content upload and jam submission must be made within the jam&#39;s designated times.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="jamId">Must be a valid jam ID.</param>
+        /// <param name="createJamSubmissionRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (JamSubmission)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<JamSubmission>> SubmitJamContentWithHttpInfoAsync(string jamId, CreateJamSubmissionRequest? createJamSubmissionRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'jamId' is set
+            if (jamId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'jamId' when calling JamsApi->SubmitJamContent");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("jamId", VRChat.API.Client.ClientUtils.ParameterToString(jamId)); // path parameter
+            localVarRequestOptions.Data = createJamSubmissionRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<JamSubmission>("/jams/{jamId}/submissions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<JamSubmission>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(JamSubmission), ex.Message);
             }
         }
 

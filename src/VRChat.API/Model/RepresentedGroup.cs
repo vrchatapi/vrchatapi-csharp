@@ -29,7 +29,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// RepresentedGroup
     /// </summary>
-    [DataContract(Name = "representedGroup")]
+    [DataContract(Name = "RepresentedGroup")]
     public partial class RepresentedGroup : IEquatable<RepresentedGroup>, IValidatableObject
     {
 

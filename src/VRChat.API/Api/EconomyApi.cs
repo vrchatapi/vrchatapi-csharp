@@ -129,6 +129,25 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of List&lt;UserSubscription&gt;</returns>
         ApiResponse<List<UserSubscription>> GetCurrentSubscriptionsWithHttpInfo();
         /// <summary>
+        /// Get Earnings Metrics
+        /// </summary>
+        /// <remarks>
+        /// Gets earnings totals and breakdown metrics for the currently authenticated user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>EarningsMetrics</returns>
+        EarningsMetrics GetEarningsMetrics();
+
+        /// <summary>
+        /// Get Earnings Metrics
+        /// </summary>
+        /// <remarks>
+        /// Gets earnings totals and breakdown metrics for the currently authenticated user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of EarningsMetrics</returns>
+        ApiResponse<EarningsMetrics> GetEarningsMetricsWithHttpInfo();
+        /// <summary>
         /// Get Economy Account
         /// </summary>
         /// <remarks>
@@ -248,6 +267,83 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of List&lt;ProductListing&gt;</returns>
         ApiResponse<List<ProductListing>> GetProductListingsWithHttpInfo(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default);
         /// <summary>
+        /// Get Product Purchase
+        /// </summary>
+        /// <remarks>
+        /// Gets a single product purchase
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <returns>ProductPurchase</returns>
+        ProductPurchase GetProductPurchase(string productPurchaseId);
+
+        /// <summary>
+        /// Get Product Purchase
+        /// </summary>
+        /// <remarks>
+        /// Gets a single product purchase
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <returns>ApiResponse of ProductPurchase</returns>
+        ApiResponse<ProductPurchase> GetProductPurchaseWithHttpInfo(string productPurchaseId);
+        /// <summary>
+        /// Get Product Purchase History
+        /// </summary>
+        /// <remarks>
+        /// Gets a history of product purchases
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="dateMin">The start date of the search range. (optional)</param>
+        /// <param name="dateMax">The end date of the search range. (optional)</param>
+        /// <param name="fromUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="toUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
+        /// <param name="order">Result ordering (optional)</param>
+        /// <returns>ProductPurchaseHistory</returns>
+        ProductPurchaseHistory GetProductPurchaseHistory(string userId, int? n = default, DateTime? dateMin = default, DateTime? dateMax = default, string? fromUserId = default, string? toUserId = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default);
+
+        /// <summary>
+        /// Get Product Purchase History
+        /// </summary>
+        /// <remarks>
+        /// Gets a history of product purchases
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="dateMin">The start date of the search range. (optional)</param>
+        /// <param name="dateMax">The end date of the search range. (optional)</param>
+        /// <param name="fromUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="toUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
+        /// <param name="order">Result ordering (optional)</param>
+        /// <returns>ApiResponse of ProductPurchaseHistory</returns>
+        ApiResponse<ProductPurchaseHistory> GetProductPurchaseHistoryWithHttpInfo(string userId, int? n = default, DateTime? dateMin = default, DateTime? dateMax = default, string? fromUserId = default, string? toUserId = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default);
+        /// <summary>
+        /// Get Product Purchase Stacks
+        /// </summary>
+        /// <remarks>
+        /// Gets stacks for a product purchase
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <returns>List&lt;Object&gt;</returns>
+        List<Object> GetProductPurchaseStacks(string productPurchaseId);
+
+        /// <summary>
+        /// Get Product Purchase Stacks
+        /// </summary>
+        /// <remarks>
+        /// Gets stacks for a product purchase
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        ApiResponse<List<Object>> GetProductPurchaseStacksWithHttpInfo(string productPurchaseId);
+        /// <summary>
         /// Get Product Purchases
         /// </summary>
         /// <remarks>
@@ -297,6 +393,25 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of UserSubscription</returns>
         ApiResponse<UserSubscription> GetRecentSubscriptionWithHttpInfo();
+        /// <summary>
+        /// Get Seller Eligibility
+        /// </summary>
+        /// <remarks>
+        /// Get the eligibility of the currently authenticated user to become a seller
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SellerEligibility</returns>
+        SellerEligibility GetSellerEligibility();
+
+        /// <summary>
+        /// Get Seller Eligibility
+        /// </summary>
+        /// <remarks>
+        /// Get the eligibility of the currently authenticated user to become a seller
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SellerEligibility</returns>
+        ApiResponse<SellerEligibility> GetSellerEligibilityWithHttpInfo();
         /// <summary>
         /// Get Steam Transaction
         /// </summary>
@@ -678,6 +793,27 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (List&lt;UserSubscription&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<UserSubscription>>> GetCurrentSubscriptionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get Earnings Metrics
+        /// </summary>
+        /// <remarks>
+        /// Gets earnings totals and breakdown metrics for the currently authenticated user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EarningsMetrics</returns>
+        System.Threading.Tasks.Task<EarningsMetrics> GetEarningsMetricsAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Earnings Metrics
+        /// </summary>
+        /// <remarks>
+        /// Gets earnings totals and breakdown metrics for the currently authenticated user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EarningsMetrics)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EarningsMetrics>> GetEarningsMetricsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get Economy Account
         /// </summary>
         /// <remarks>
@@ -807,6 +943,89 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (List&lt;ProductListing&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<ProductListing>>> GetProductListingsWithHttpInfoAsync(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get Product Purchase
+        /// </summary>
+        /// <remarks>
+        /// Gets a single product purchase
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProductPurchase</returns>
+        System.Threading.Tasks.Task<ProductPurchase> GetProductPurchaseAsync(string productPurchaseId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Product Purchase
+        /// </summary>
+        /// <remarks>
+        /// Gets a single product purchase
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProductPurchase)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProductPurchase>> GetProductPurchaseWithHttpInfoAsync(string productPurchaseId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Product Purchase History
+        /// </summary>
+        /// <remarks>
+        /// Gets a history of product purchases
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="dateMin">The start date of the search range. (optional)</param>
+        /// <param name="dateMax">The end date of the search range. (optional)</param>
+        /// <param name="fromUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="toUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
+        /// <param name="order">Result ordering (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProductPurchaseHistory</returns>
+        System.Threading.Tasks.Task<ProductPurchaseHistory> GetProductPurchaseHistoryAsync(string userId, int? n = default, DateTime? dateMin = default, DateTime? dateMax = default, string? fromUserId = default, string? toUserId = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Product Purchase History
+        /// </summary>
+        /// <remarks>
+        /// Gets a history of product purchases
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="dateMin">The start date of the search range. (optional)</param>
+        /// <param name="dateMax">The end date of the search range. (optional)</param>
+        /// <param name="fromUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="toUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
+        /// <param name="order">Result ordering (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProductPurchaseHistory)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProductPurchaseHistory>> GetProductPurchaseHistoryWithHttpInfoAsync(string userId, int? n = default, DateTime? dateMin = default, DateTime? dateMax = default, string? fromUserId = default, string? toUserId = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Product Purchase Stacks
+        /// </summary>
+        /// <remarks>
+        /// Gets stacks for a product purchase
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Object&gt;</returns>
+        System.Threading.Tasks.Task<List<Object>> GetProductPurchaseStacksAsync(string productPurchaseId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Product Purchase Stacks
+        /// </summary>
+        /// <remarks>
+        /// Gets stacks for a product purchase
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Object>>> GetProductPurchaseStacksWithHttpInfoAsync(string productPurchaseId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get Product Purchases
         /// </summary>
         /// <remarks>
@@ -860,6 +1079,27 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserSubscription)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserSubscription>> GetRecentSubscriptionWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Seller Eligibility
+        /// </summary>
+        /// <remarks>
+        /// Get the eligibility of the currently authenticated user to become a seller
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SellerEligibility</returns>
+        System.Threading.Tasks.Task<SellerEligibility> GetSellerEligibilityAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Seller Eligibility
+        /// </summary>
+        /// <remarks>
+        /// Get the eligibility of the currently authenticated user to become a seller
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SellerEligibility)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SellerEligibility>> GetSellerEligibilityWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Steam Transaction
         /// </summary>
@@ -2048,6 +2288,136 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>EarningsMetrics</returns>
+        public EarningsMetrics GetEarningsMetrics()
+        {
+            VRChat.API.Client.ApiResponse<EarningsMetrics> localVarResponse = GetEarningsMetricsWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEarningsMetrics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of EarningsMetrics</returns>
+        public VRChat.API.Client.ApiResponse<EarningsMetrics> GetEarningsMetricsWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<EarningsMetrics>("/economy/metrics/earnings", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<EarningsMetrics>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(EarningsMetrics), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EarningsMetrics</returns>
+        public async System.Threading.Tasks.Task<EarningsMetrics> GetEarningsMetricsAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<EarningsMetrics> localVarResponse = await GetEarningsMetricsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEarningsMetrics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EarningsMetrics)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<EarningsMetrics>> GetEarningsMetricsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<EarningsMetrics>("/economy/metrics/earnings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<EarningsMetrics>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(EarningsMetrics), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Get Economy Account Gets the economy account of a user
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2844,6 +3214,522 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Get Product Purchase Gets a single product purchase
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <returns>ProductPurchase</returns>
+        public ProductPurchase GetProductPurchase(string productPurchaseId)
+        {
+            VRChat.API.Client.ApiResponse<ProductPurchase> localVarResponse = GetProductPurchaseWithHttpInfo(productPurchaseId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetProductPurchase", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Product Purchase Gets a single product purchase
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <returns>ApiResponse of ProductPurchase</returns>
+        public VRChat.API.Client.ApiResponse<ProductPurchase> GetProductPurchaseWithHttpInfo(string productPurchaseId)
+        {
+            // verify the required parameter 'productPurchaseId' is set
+            if (productPurchaseId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productPurchaseId' when calling EconomyApi->GetProductPurchase");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productPurchaseId", VRChat.API.Client.ClientUtils.ParameterToString(productPurchaseId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<ProductPurchase>("/economy/purchases/{productPurchaseId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ProductPurchase>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProductPurchase), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Product Purchase Gets a single product purchase
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProductPurchase</returns>
+        public async System.Threading.Tasks.Task<ProductPurchase> GetProductPurchaseAsync(string productPurchaseId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<ProductPurchase> localVarResponse = await GetProductPurchaseWithHttpInfoAsync(productPurchaseId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetProductPurchase", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Product Purchase Gets a single product purchase
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProductPurchase)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<ProductPurchase>> GetProductPurchaseWithHttpInfoAsync(string productPurchaseId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'productPurchaseId' is set
+            if (productPurchaseId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productPurchaseId' when calling EconomyApi->GetProductPurchase");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productPurchaseId", VRChat.API.Client.ClientUtils.ParameterToString(productPurchaseId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<ProductPurchase>("/economy/purchases/{productPurchaseId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ProductPurchase>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProductPurchase), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Product Purchase History Gets a history of product purchases
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="dateMin">The start date of the search range. (optional)</param>
+        /// <param name="dateMax">The end date of the search range. (optional)</param>
+        /// <param name="fromUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="toUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
+        /// <param name="order">Result ordering (optional)</param>
+        /// <returns>ProductPurchaseHistory</returns>
+        public ProductPurchaseHistory GetProductPurchaseHistory(string userId, int? n = default, DateTime? dateMin = default, DateTime? dateMax = default, string? fromUserId = default, string? toUserId = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default)
+        {
+            VRChat.API.Client.ApiResponse<ProductPurchaseHistory> localVarResponse = GetProductPurchaseHistoryWithHttpInfo(userId, n, dateMin, dateMax, fromUserId, toUserId, sort, order);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetProductPurchaseHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Product Purchase History Gets a history of product purchases
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="dateMin">The start date of the search range. (optional)</param>
+        /// <param name="dateMax">The end date of the search range. (optional)</param>
+        /// <param name="fromUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="toUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
+        /// <param name="order">Result ordering (optional)</param>
+        /// <returns>ApiResponse of ProductPurchaseHistory</returns>
+        public VRChat.API.Client.ApiResponse<ProductPurchaseHistory> GetProductPurchaseHistoryWithHttpInfo(string userId, int? n = default, DateTime? dateMin = default, DateTime? dateMax = default, string? fromUserId = default, string? toUserId = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetProductPurchaseHistory");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (dateMin != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "dateMin", dateMin));
+            }
+            if (dateMax != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "dateMax", dateMax));
+            }
+            if (fromUserId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "fromUserId", fromUserId));
+            }
+            if (toUserId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "toUserId", toUserId));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
+            }
+            if (order != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "order", order));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<ProductPurchaseHistory>("/user/{userId}/economy/transactions", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ProductPurchaseHistory>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProductPurchaseHistory), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Product Purchase History Gets a history of product purchases
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="dateMin">The start date of the search range. (optional)</param>
+        /// <param name="dateMax">The end date of the search range. (optional)</param>
+        /// <param name="fromUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="toUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
+        /// <param name="order">Result ordering (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProductPurchaseHistory</returns>
+        public async System.Threading.Tasks.Task<ProductPurchaseHistory> GetProductPurchaseHistoryAsync(string userId, int? n = default, DateTime? dateMin = default, DateTime? dateMax = default, string? fromUserId = default, string? toUserId = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<ProductPurchaseHistory> localVarResponse = await GetProductPurchaseHistoryWithHttpInfoAsync(userId, n, dateMin, dateMax, fromUserId, toUserId, sort, order, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetProductPurchaseHistory", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Product Purchase History Gets a history of product purchases
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="dateMin">The start date of the search range. (optional)</param>
+        /// <param name="dateMax">The end date of the search range. (optional)</param>
+        /// <param name="fromUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="toUserId">Must be a valid user ID. (optional)</param>
+        /// <param name="sort">The sort order of the results. (optional)</param>
+        /// <param name="order">Result ordering (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProductPurchaseHistory)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<ProductPurchaseHistory>> GetProductPurchaseHistoryWithHttpInfoAsync(string userId, int? n = default, DateTime? dateMin = default, DateTime? dateMax = default, string? fromUserId = default, string? toUserId = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetProductPurchaseHistory");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (dateMin != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "dateMin", dateMin));
+            }
+            if (dateMax != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "dateMax", dateMax));
+            }
+            if (fromUserId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "fromUserId", fromUserId));
+            }
+            if (toUserId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "toUserId", toUserId));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
+            }
+            if (order != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "order", order));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<ProductPurchaseHistory>("/user/{userId}/economy/transactions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ProductPurchaseHistory>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProductPurchaseHistory), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Product Purchase Stacks Gets stacks for a product purchase
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <returns>List&lt;Object&gt;</returns>
+        public List<Object> GetProductPurchaseStacks(string productPurchaseId)
+        {
+            VRChat.API.Client.ApiResponse<List<Object>> localVarResponse = GetProductPurchaseStacksWithHttpInfo(productPurchaseId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetProductPurchaseStacks", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Product Purchase Stacks Gets stacks for a product purchase
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<Object>> GetProductPurchaseStacksWithHttpInfo(string productPurchaseId)
+        {
+            // verify the required parameter 'productPurchaseId' is set
+            if (productPurchaseId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productPurchaseId' when calling EconomyApi->GetProductPurchaseStacks");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productPurchaseId", VRChat.API.Client.ClientUtils.ParameterToString(productPurchaseId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<List<Object>>("/economy/purchases/{productPurchaseId}/stacks", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Object>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Object>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Product Purchase Stacks Gets stacks for a product purchase
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Object&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Object>> GetProductPurchaseStacksAsync(string productPurchaseId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Object>> localVarResponse = await GetProductPurchaseStacksWithHttpInfoAsync(productPurchaseId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetProductPurchaseStacks", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Product Purchase Stacks Gets stacks for a product purchase
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productPurchaseId">Must be a valid purchase ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Object>>> GetProductPurchaseStacksWithHttpInfoAsync(string productPurchaseId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'productPurchaseId' is set
+            if (productPurchaseId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productPurchaseId' when calling EconomyApi->GetProductPurchaseStacks");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productPurchaseId", VRChat.API.Client.ClientUtils.ParameterToString(productPurchaseId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Object>>("/economy/purchases/{productPurchaseId}/stacks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Object>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Object>), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Get Product Purchases Gets product purchases
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3174,6 +4060,136 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<UserSubscription>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserSubscription), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Seller Eligibility Get the eligibility of the currently authenticated user to become a seller
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>SellerEligibility</returns>
+        public SellerEligibility GetSellerEligibility()
+        {
+            VRChat.API.Client.ApiResponse<SellerEligibility> localVarResponse = GetSellerEligibilityWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSellerEligibility", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Seller Eligibility Get the eligibility of the currently authenticated user to become a seller
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of SellerEligibility</returns>
+        public VRChat.API.Client.ApiResponse<SellerEligibility> GetSellerEligibilityWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<SellerEligibility>("/economy/seller/eligibility", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SellerEligibility>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SellerEligibility), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Seller Eligibility Get the eligibility of the currently authenticated user to become a seller
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SellerEligibility</returns>
+        public async System.Threading.Tasks.Task<SellerEligibility> GetSellerEligibilityAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<SellerEligibility> localVarResponse = await GetSellerEligibilityWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSellerEligibility", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Seller Eligibility Get the eligibility of the currently authenticated user to become a seller
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SellerEligibility)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SellerEligibility>> GetSellerEligibilityWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<SellerEligibility>("/economy/seller/eligibility", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SellerEligibility>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SellerEligibility), ex.Message);
             }
         }
 
