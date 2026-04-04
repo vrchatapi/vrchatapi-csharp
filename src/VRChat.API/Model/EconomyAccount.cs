@@ -42,11 +42,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="accountActivatedOn">accountActivatedOn (required).</param>
         /// <param name="accountId">accountId (required).</param>
+        /// <param name="accountSellerRegisteredOn">accountSellerRegisteredOn.</param>
+        /// <param name="accountSellerStatus">accountSellerStatus.</param>
         /// <param name="blocked">blocked (required).</param>
+        /// <param name="canEarn">canEarn.</param>
+        /// <param name="canPayout">canPayout.</param>
         /// <param name="canSpend">canSpend (required).</param>
+        /// <param name="skrillEmail">skrillEmail.</param>
         /// <param name="source">source (required).</param>
+        /// <param name="tiliaId">tiliaId.</param>
+        /// <param name="tiliaType">tiliaType.</param>
         /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        public EconomyAccount(DateTime? accountActivatedOn = default, string accountId = default, bool blocked = default, bool canSpend = default, string source = default, string userId = default)
+        public EconomyAccount(DateTime? accountActivatedOn = default, string accountId = default, DateTime? accountSellerRegisteredOn = default, string accountSellerStatus = default, bool blocked = default, bool canEarn = default, bool canPayout = default, bool canSpend = default, string skrillEmail = default, string source = default, string tiliaId = default, string tiliaType = default, string userId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AccountActivatedOn = accountActivatedOn;
@@ -58,6 +65,13 @@ namespace VRChat.API.Model
             this.Source = source;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserId = userId;
+            this.AccountSellerRegisteredOn = accountSellerRegisteredOn;
+            this.AccountSellerStatus = accountSellerStatus;
+            this.CanEarn = canEarn;
+            this.CanPayout = canPayout;
+            this.SkrillEmail = skrillEmail;
+            this.TiliaId = tiliaId;
+            this.TiliaType = tiliaType;
         }
 
         /// <summary>
@@ -73,10 +87,34 @@ namespace VRChat.API.Model
         public string AccountId { get; set; }
 
         /// <summary>
+        /// Gets or Sets AccountSellerRegisteredOn
+        /// </summary>
+        [DataMember(Name = "accountSellerRegisteredOn", EmitDefaultValue = true)]
+        public DateTime? AccountSellerRegisteredOn { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AccountSellerStatus
+        /// </summary>
+        [DataMember(Name = "accountSellerStatus", EmitDefaultValue = true)]
+        public string AccountSellerStatus { get; set; }
+
+        /// <summary>
         /// Gets or Sets Blocked
         /// </summary>
         [DataMember(Name = "blocked", IsRequired = true, EmitDefaultValue = true)]
         public bool Blocked { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CanEarn
+        /// </summary>
+        [DataMember(Name = "canEarn", EmitDefaultValue = true)]
+        public bool CanEarn { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CanPayout
+        /// </summary>
+        [DataMember(Name = "canPayout", EmitDefaultValue = true)]
+        public bool CanPayout { get; set; }
 
         /// <summary>
         /// Gets or Sets CanSpend
@@ -85,10 +123,28 @@ namespace VRChat.API.Model
         public bool CanSpend { get; set; }
 
         /// <summary>
+        /// Gets or Sets SkrillEmail
+        /// </summary>
+        [DataMember(Name = "skrillEmail", EmitDefaultValue = true)]
+        public string SkrillEmail { get; set; }
+
+        /// <summary>
         /// Gets or Sets Source
         /// </summary>
         [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = true)]
         public string Source { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TiliaId
+        /// </summary>
+        [DataMember(Name = "tiliaId", EmitDefaultValue = true)]
+        public string TiliaId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TiliaType
+        /// </summary>
+        [DataMember(Name = "tiliaType", EmitDefaultValue = true)]
+        public string TiliaType { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -110,9 +166,16 @@ namespace VRChat.API.Model
             sb.Append("class EconomyAccount {\n");
             sb.Append("  AccountActivatedOn: ").Append(AccountActivatedOn).Append("\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            sb.Append("  AccountSellerRegisteredOn: ").Append(AccountSellerRegisteredOn).Append("\n");
+            sb.Append("  AccountSellerStatus: ").Append(AccountSellerStatus).Append("\n");
             sb.Append("  Blocked: ").Append(Blocked).Append("\n");
+            sb.Append("  CanEarn: ").Append(CanEarn).Append("\n");
+            sb.Append("  CanPayout: ").Append(CanPayout).Append("\n");
             sb.Append("  CanSpend: ").Append(CanSpend).Append("\n");
+            sb.Append("  SkrillEmail: ").Append(SkrillEmail).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  TiliaId: ").Append(TiliaId).Append("\n");
+            sb.Append("  TiliaType: ").Append(TiliaType).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -160,17 +223,50 @@ namespace VRChat.API.Model
                     this.AccountId.Equals(input.AccountId))
                 ) && 
                 (
+                    this.AccountSellerRegisteredOn == input.AccountSellerRegisteredOn ||
+                    (this.AccountSellerRegisteredOn != null &&
+                    this.AccountSellerRegisteredOn.Equals(input.AccountSellerRegisteredOn))
+                ) && 
+                (
+                    this.AccountSellerStatus == input.AccountSellerStatus ||
+                    (this.AccountSellerStatus != null &&
+                    this.AccountSellerStatus.Equals(input.AccountSellerStatus))
+                ) && 
+                (
                     this.Blocked == input.Blocked ||
                     this.Blocked.Equals(input.Blocked)
+                ) && 
+                (
+                    this.CanEarn == input.CanEarn ||
+                    this.CanEarn.Equals(input.CanEarn)
+                ) && 
+                (
+                    this.CanPayout == input.CanPayout ||
+                    this.CanPayout.Equals(input.CanPayout)
                 ) && 
                 (
                     this.CanSpend == input.CanSpend ||
                     this.CanSpend.Equals(input.CanSpend)
                 ) && 
                 (
+                    this.SkrillEmail == input.SkrillEmail ||
+                    (this.SkrillEmail != null &&
+                    this.SkrillEmail.Equals(input.SkrillEmail))
+                ) && 
+                (
                     this.Source == input.Source ||
                     (this.Source != null &&
                     this.Source.Equals(input.Source))
+                ) && 
+                (
+                    this.TiliaId == input.TiliaId ||
+                    (this.TiliaId != null &&
+                    this.TiliaId.Equals(input.TiliaId))
+                ) && 
+                (
+                    this.TiliaType == input.TiliaType ||
+                    (this.TiliaType != null &&
+                    this.TiliaType.Equals(input.TiliaType))
                 ) && 
                 (
                     this.UserId == input.UserId ||
@@ -196,11 +292,33 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.AccountId.GetHashCode();
                 }
+                if (this.AccountSellerRegisteredOn != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountSellerRegisteredOn.GetHashCode();
+                }
+                if (this.AccountSellerStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountSellerStatus.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Blocked.GetHashCode();
+                hashCode = (hashCode * 59) + this.CanEarn.GetHashCode();
+                hashCode = (hashCode * 59) + this.CanPayout.GetHashCode();
                 hashCode = (hashCode * 59) + this.CanSpend.GetHashCode();
+                if (this.SkrillEmail != null)
+                {
+                    hashCode = (hashCode * 59) + this.SkrillEmail.GetHashCode();
+                }
                 if (this.Source != null)
                 {
                     hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
+                if (this.TiliaId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TiliaId.GetHashCode();
+                }
+                if (this.TiliaType != null)
+                {
+                    hashCode = (hashCode * 59) + this.TiliaType.GetHashCode();
                 }
                 if (this.UserId != null)
                 {

@@ -28,6 +28,92 @@ namespace VRChat.API.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Create Product
+        /// </summary>
+        /// <remarks>
+        /// Creates a product and returns the new Product object.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProductRequest"></param>
+        /// <returns>Product</returns>
+        Product CreateProduct(CreateProductRequest createProductRequest);
+
+        /// <summary>
+        /// Create Product
+        /// </summary>
+        /// <remarks>
+        /// Creates a product and returns the new Product object.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProductRequest"></param>
+        /// <returns>ApiResponse of Product</returns>
+        ApiResponse<Product> CreateProductWithHttpInfo(CreateProductRequest createProductRequest);
+        /// <summary>
+        /// Create Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Creates a listing and returns the new ProductListing object. The request body is based on observed fields and may be incomplete.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createListingRequest"></param>
+        /// <returns>ProductListing</returns>
+        ProductListing CreateProductListingDirect(CreateListingRequest createListingRequest);
+
+        /// <summary>
+        /// Create Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Creates a listing and returns the new ProductListing object. The request body is based on observed fields and may be incomplete.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createListingRequest"></param>
+        /// <returns>ApiResponse of ProductListing</returns>
+        ApiResponse<ProductListing> CreateProductListingDirectWithHttpInfo(CreateListingRequest createListingRequest);
+        /// <summary>
+        /// Delete Product
+        /// </summary>
+        /// <remarks>
+        /// Deletes a product.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <returns>SuccessFlag</returns>
+        SuccessFlag DeleteProduct(string productId);
+
+        /// <summary>
+        /// Delete Product
+        /// </summary>
+        /// <remarks>
+        /// Deletes a product.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <returns>ApiResponse of SuccessFlag</returns>
+        ApiResponse<SuccessFlag> DeleteProductWithHttpInfo(string productId);
+        /// <summary>
+        /// Delete Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Deletes a listing.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <returns>SuccessFlag</returns>
+        SuccessFlag DeleteProductListingDirect(string productId, bool? hydrate = default);
+
+        /// <summary>
+        /// Delete Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Deletes a listing.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <returns>ApiResponse of SuccessFlag</returns>
+        ApiResponse<SuccessFlag> DeleteProductListingDirectWithHttpInfo(string productId, bool? hydrate = default);
+        /// <summary>
         /// Get Active Licenses
         /// </summary>
         /// <remarks>
@@ -135,8 +221,12 @@ namespace VRChat.API.Api
         /// Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
+        /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <returns>EarningsMetrics</returns>
-        EarningsMetrics GetEarningsMetrics();
+        EarningsMetrics GetEarningsMetrics(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default);
 
         /// <summary>
         /// Get Earnings Metrics
@@ -145,8 +235,12 @@ namespace VRChat.API.Api
         /// Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
+        /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <returns>ApiResponse of EarningsMetrics</returns>
-        ApiResponse<EarningsMetrics> GetEarningsMetricsWithHttpInfo();
+        ApiResponse<EarningsMetrics> GetEarningsMetricsWithHttpInfo(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default);
         /// <summary>
         /// Get Economy Account
         /// </summary>
@@ -168,6 +262,69 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of EconomyAccount</returns>
         ApiResponse<EconomyAccount> GetEconomyAccountWithHttpInfo(string userId);
+        /// <summary>
+        /// Get Economy Balances
+        /// </summary>
+        /// <remarks>
+        /// Gets the combined balances for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>EconomyBalances</returns>
+        EconomyBalances GetEconomyBalances(string userId);
+
+        /// <summary>
+        /// Get Economy Balances
+        /// </summary>
+        /// <remarks>
+        /// Gets the combined balances for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of EconomyBalances</returns>
+        ApiResponse<EconomyBalances> GetEconomyBalancesWithHttpInfo(string userId);
+        /// <summary>
+        /// Get Economy Payout Status
+        /// </summary>
+        /// <remarks>
+        /// Gets the current payout status and eligibility information for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>EconomyPayoutStatus</returns>
+        EconomyPayoutStatus GetEconomyPayoutStatus(string userId);
+
+        /// <summary>
+        /// Get Economy Payout Status
+        /// </summary>
+        /// <remarks>
+        /// Gets the current payout status and eligibility information for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of EconomyPayoutStatus</returns>
+        ApiResponse<EconomyPayoutStatus> GetEconomyPayoutStatusWithHttpInfo(string userId);
+        /// <summary>
+        /// Get Economy Payouts
+        /// </summary>
+        /// <remarks>
+        /// Gets the payout history for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>EconomyPayoutList</returns>
+        EconomyPayoutList GetEconomyPayouts(string userId);
+
+        /// <summary>
+        /// Get Economy Payouts
+        /// </summary>
+        /// <remarks>
+        /// Gets the payout history for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of EconomyPayoutList</returns>
+        ApiResponse<EconomyPayoutList> GetEconomyPayoutsWithHttpInfo(string userId);
         /// <summary>
         /// Get License Group
         /// </summary>
@@ -246,10 +403,11 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="listingType">Filter user listings by category. Observed values include &#x60;otp&#x60; and &#x60;subscription&#x60;. (optional)</param>
         /// <param name="groupId">Must be a valid group ID. (optional)</param>
         /// <param name="active">Filter for users&#39; listings and inventory bundles. (optional)</param>
         /// <returns>List&lt;ProductListing&gt;</returns>
-        List<ProductListing> GetProductListings(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default);
+        List<ProductListing> GetProductListings(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? listingType = default, string? groupId = default, bool? active = default);
 
         /// <summary>
         /// Get User Product Listings
@@ -262,10 +420,11 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="listingType">Filter user listings by category. Observed values include &#x60;otp&#x60; and &#x60;subscription&#x60;. (optional)</param>
         /// <param name="groupId">Must be a valid group ID. (optional)</param>
         /// <param name="active">Filter for users&#39; listings and inventory bundles. (optional)</param>
         /// <returns>ApiResponse of List&lt;ProductListing&gt;</returns>
-        ApiResponse<List<ProductListing>> GetProductListingsWithHttpInfo(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default);
+        ApiResponse<List<ProductListing>> GetProductListingsWithHttpInfo(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? listingType = default, string? groupId = default, bool? active = default);
         /// <summary>
         /// Get Product Purchase
         /// </summary>
@@ -351,13 +510,14 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="buyerId">Must be a valid user ID.</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="mostRecent"> (optional)</param>
         /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="order">Result ordering (optional)</param>
         /// <returns>List&lt;ProductPurchase&gt;</returns>
-        List<ProductPurchase> GetProductPurchases(string buyerId, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default);
+        List<ProductPurchase> GetProductPurchases(string buyerId, string? sellerId = default, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default);
 
         /// <summary>
         /// Get Product Purchases
@@ -367,13 +527,14 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="buyerId">Must be a valid user ID.</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="mostRecent"> (optional)</param>
         /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="order">Result ordering (optional)</param>
         /// <returns>ApiResponse of List&lt;ProductPurchase&gt;</returns>
-        ApiResponse<List<ProductPurchase>> GetProductPurchasesWithHttpInfo(string buyerId, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default);
+        ApiResponse<List<ProductPurchase>> GetProductPurchasesWithHttpInfo(string buyerId, string? sellerId = default, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default);
         /// <summary>
         /// Get Recent Subscription
         /// </summary>
@@ -629,6 +790,79 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of UserSubscriptionEligible</returns>
         ApiResponse<UserSubscriptionEligible> GetUserSubscriptionEligibleWithHttpInfo(string userId, string? steamId = default);
         /// <summary>
+        /// Get User Tilia KYC
+        /// </summary>
+        /// <remarks>
+        /// Gets KYC status details for a user&#39;s Tilia account.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>TiliaKyc</returns>
+        TiliaKyc GetUserTiliaKyc(string userId);
+
+        /// <summary>
+        /// Get User Tilia KYC
+        /// </summary>
+        /// <remarks>
+        /// Gets KYC status details for a user&#39;s Tilia account.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of TiliaKyc</returns>
+        ApiResponse<TiliaKyc> GetUserTiliaKycWithHttpInfo(string userId);
+        /// <summary>
+        /// List Stores
+        /// </summary>
+        /// <remarks>
+        /// Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>List&lt;Store&gt;</returns>
+        List<Store> ListStores(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default);
+
+        /// <summary>
+        /// List Stores
+        /// </summary>
+        /// <remarks>
+        /// Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>ApiResponse of List&lt;Store&gt;</returns>
+        ApiResponse<List<Store>> ListStoresWithHttpInfo(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default);
+        /// <summary>
+        /// List User Products
+        /// </summary>
+        /// <remarks>
+        /// Gets the products of a given user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>List&lt;Product&gt;</returns>
+        List<Product> ListUserProducts(string userId, int? n = default, int? offset = default);
+
+        /// <summary>
+        /// List User Products
+        /// </summary>
+        /// <remarks>
+        /// Gets the products of a given user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>ApiResponse of List&lt;Product&gt;</returns>
+        ApiResponse<List<Product>> ListUserProductsWithHttpInfo(string userId, int? n = default, int? offset = default);
+        /// <summary>
         /// Purchase Product Listing
         /// </summary>
         /// <remarks>
@@ -649,6 +883,54 @@ namespace VRChat.API.Api
         /// <param name="purchaseProductListingRequest"> (optional)</param>
         /// <returns>ApiResponse of ProductPurchase</returns>
         ApiResponse<ProductPurchase> PurchaseProductListingWithHttpInfo(PurchaseProductListingRequest? purchaseProductListingRequest = default);
+        /// <summary>
+        /// Update Product
+        /// </summary>
+        /// <remarks>
+        /// Updates a product and returns the updated Product object.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateProductRequest"></param>
+        /// <returns>Product</returns>
+        Product UpdateProduct(string productId, UpdateProductRequest updateProductRequest);
+
+        /// <summary>
+        /// Update Product
+        /// </summary>
+        /// <remarks>
+        /// Updates a product and returns the updated Product object.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateProductRequest"></param>
+        /// <returns>ApiResponse of Product</returns>
+        ApiResponse<Product> UpdateProductWithHttpInfo(string productId, UpdateProductRequest updateProductRequest);
+        /// <summary>
+        /// Update Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Updates the active state of a listing. Setting &#x60;active&#x60; to &#x60;true&#x60; publishes the listing, while &#x60;false&#x60; unpublishes it.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateListingRequest"></param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <returns>ProductListing</returns>
+        ProductListing UpdateProductListingDirect(string productId, UpdateListingRequest updateListingRequest, bool? hydrate = default);
+
+        /// <summary>
+        /// Update Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Updates the active state of a listing. Setting &#x60;active&#x60; to &#x60;true&#x60; publishes the listing, while &#x60;false&#x60; unpublishes it.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateListingRequest"></param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <returns>ApiResponse of ProductListing</returns>
+        ApiResponse<ProductListing> UpdateProductListingDirectWithHttpInfo(string productId, UpdateListingRequest updateListingRequest, bool? hydrate = default);
         /// <summary>
         /// Update Tilia TOS Agreement Status
         /// </summary>
@@ -681,6 +963,100 @@ namespace VRChat.API.Api
     public interface IEconomyApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Create Product
+        /// </summary>
+        /// <remarks>
+        /// Creates a product and returns the new Product object.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProductRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Product</returns>
+        System.Threading.Tasks.Task<Product> CreateProductAsync(CreateProductRequest createProductRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Create Product
+        /// </summary>
+        /// <remarks>
+        /// Creates a product and returns the new Product object.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProductRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Product)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Product>> CreateProductWithHttpInfoAsync(CreateProductRequest createProductRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Creates a listing and returns the new ProductListing object. The request body is based on observed fields and may be incomplete.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createListingRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProductListing</returns>
+        System.Threading.Tasks.Task<ProductListing> CreateProductListingDirectAsync(CreateListingRequest createListingRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Create Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Creates a listing and returns the new ProductListing object. The request body is based on observed fields and may be incomplete.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createListingRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProductListing)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProductListing>> CreateProductListingDirectWithHttpInfoAsync(CreateListingRequest createListingRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Delete Product
+        /// </summary>
+        /// <remarks>
+        /// Deletes a product.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SuccessFlag</returns>
+        System.Threading.Tasks.Task<SuccessFlag> DeleteProductAsync(string productId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete Product
+        /// </summary>
+        /// <remarks>
+        /// Deletes a product.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SuccessFlag)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SuccessFlag>> DeleteProductWithHttpInfoAsync(string productId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Delete Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Deletes a listing.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SuccessFlag</returns>
+        System.Threading.Tasks.Task<SuccessFlag> DeleteProductListingDirectAsync(string productId, bool? hydrate = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Deletes a listing.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SuccessFlag)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SuccessFlag>> DeleteProductListingDirectWithHttpInfoAsync(string productId, bool? hydrate = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Active Licenses
         /// </summary>
@@ -799,9 +1175,13 @@ namespace VRChat.API.Api
         /// Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
+        /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EarningsMetrics</returns>
-        System.Threading.Tasks.Task<EarningsMetrics> GetEarningsMetricsAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<EarningsMetrics> GetEarningsMetricsAsync(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Earnings Metrics
@@ -810,9 +1190,13 @@ namespace VRChat.API.Api
         /// Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
+        /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EarningsMetrics)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EarningsMetrics>> GetEarningsMetricsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<EarningsMetrics>> GetEarningsMetricsWithHttpInfoAsync(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Economy Account
         /// </summary>
@@ -836,6 +1220,75 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EconomyAccount)</returns>
         System.Threading.Tasks.Task<ApiResponse<EconomyAccount>> GetEconomyAccountWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Economy Balances
+        /// </summary>
+        /// <remarks>
+        /// Gets the combined balances for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EconomyBalances</returns>
+        System.Threading.Tasks.Task<EconomyBalances> GetEconomyBalancesAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Economy Balances
+        /// </summary>
+        /// <remarks>
+        /// Gets the combined balances for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EconomyBalances)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EconomyBalances>> GetEconomyBalancesWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Economy Payout Status
+        /// </summary>
+        /// <remarks>
+        /// Gets the current payout status and eligibility information for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EconomyPayoutStatus</returns>
+        System.Threading.Tasks.Task<EconomyPayoutStatus> GetEconomyPayoutStatusAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Economy Payout Status
+        /// </summary>
+        /// <remarks>
+        /// Gets the current payout status and eligibility information for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EconomyPayoutStatus)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EconomyPayoutStatus>> GetEconomyPayoutStatusWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Economy Payouts
+        /// </summary>
+        /// <remarks>
+        /// Gets the payout history for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EconomyPayoutList</returns>
+        System.Threading.Tasks.Task<EconomyPayoutList> GetEconomyPayoutsAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Economy Payouts
+        /// </summary>
+        /// <remarks>
+        /// Gets the payout history for a user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EconomyPayoutList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EconomyPayoutList>> GetEconomyPayoutsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get License Group
         /// </summary>
@@ -920,11 +1373,12 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="listingType">Filter user listings by category. Observed values include &#x60;otp&#x60; and &#x60;subscription&#x60;. (optional)</param>
         /// <param name="groupId">Must be a valid group ID. (optional)</param>
         /// <param name="active">Filter for users&#39; listings and inventory bundles. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ProductListing&gt;</returns>
-        System.Threading.Tasks.Task<List<ProductListing>> GetProductListingsAsync(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<ProductListing>> GetProductListingsAsync(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? listingType = default, string? groupId = default, bool? active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User Product Listings
@@ -937,11 +1391,12 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="listingType">Filter user listings by category. Observed values include &#x60;otp&#x60; and &#x60;subscription&#x60;. (optional)</param>
         /// <param name="groupId">Must be a valid group ID. (optional)</param>
         /// <param name="active">Filter for users&#39; listings and inventory bundles. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProductListing&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ProductListing>>> GetProductListingsWithHttpInfoAsync(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<ProductListing>>> GetProductListingsWithHttpInfoAsync(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? listingType = default, string? groupId = default, bool? active = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Product Purchase
         /// </summary>
@@ -1033,6 +1488,7 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="buyerId">Must be a valid user ID.</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="mostRecent"> (optional)</param>
@@ -1040,7 +1496,7 @@ namespace VRChat.API.Api
         /// <param name="order">Result ordering (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ProductPurchase&gt;</returns>
-        System.Threading.Tasks.Task<List<ProductPurchase>> GetProductPurchasesAsync(string buyerId, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<ProductPurchase>> GetProductPurchasesAsync(string buyerId, string? sellerId = default, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Product Purchases
@@ -1050,6 +1506,7 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="buyerId">Must be a valid user ID.</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="mostRecent"> (optional)</param>
@@ -1057,7 +1514,7 @@ namespace VRChat.API.Api
         /// <param name="order">Result ordering (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProductPurchase&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ProductPurchase>>> GetProductPurchasesWithHttpInfoAsync(string buyerId, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<ProductPurchase>>> GetProductPurchasesWithHttpInfoAsync(string buyerId, string? sellerId = default, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Recent Subscription
         /// </summary>
@@ -1337,6 +1794,85 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (UserSubscriptionEligible)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserSubscriptionEligible>> GetUserSubscriptionEligibleWithHttpInfoAsync(string userId, string? steamId = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get User Tilia KYC
+        /// </summary>
+        /// <remarks>
+        /// Gets KYC status details for a user&#39;s Tilia account.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TiliaKyc</returns>
+        System.Threading.Tasks.Task<TiliaKyc> GetUserTiliaKycAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get User Tilia KYC
+        /// </summary>
+        /// <remarks>
+        /// Gets KYC status details for a user&#39;s Tilia account.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TiliaKyc)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TiliaKyc>> GetUserTiliaKycWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// List Stores
+        /// </summary>
+        /// <remarks>
+        /// Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Store&gt;</returns>
+        System.Threading.Tasks.Task<List<Store>> ListStoresAsync(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// List Stores
+        /// </summary>
+        /// <remarks>
+        /// Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Store&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Store>>> ListStoresWithHttpInfoAsync(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// List User Products
+        /// </summary>
+        /// <remarks>
+        /// Gets the products of a given user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Product&gt;</returns>
+        System.Threading.Tasks.Task<List<Product>> ListUserProductsAsync(string userId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// List User Products
+        /// </summary>
+        /// <remarks>
+        /// Gets the products of a given user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Product&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Product>>> ListUserProductsWithHttpInfoAsync(string userId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Purchase Product Listing
         /// </summary>
         /// <remarks>
@@ -1359,6 +1895,58 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductPurchase)</returns>
         System.Threading.Tasks.Task<ApiResponse<ProductPurchase>> PurchaseProductListingWithHttpInfoAsync(PurchaseProductListingRequest? purchaseProductListingRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Product
+        /// </summary>
+        /// <remarks>
+        /// Updates a product and returns the updated Product object.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateProductRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Product</returns>
+        System.Threading.Tasks.Task<Product> UpdateProductAsync(string productId, UpdateProductRequest updateProductRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Update Product
+        /// </summary>
+        /// <remarks>
+        /// Updates a product and returns the updated Product object.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateProductRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Product)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Product>> UpdateProductWithHttpInfoAsync(string productId, UpdateProductRequest updateProductRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Updates the active state of a listing. Setting &#x60;active&#x60; to &#x60;true&#x60; publishes the listing, while &#x60;false&#x60; unpublishes it.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateListingRequest"></param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProductListing</returns>
+        System.Threading.Tasks.Task<ProductListing> UpdateProductListingDirectAsync(string productId, UpdateListingRequest updateListingRequest, bool? hydrate = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Update Product Listing
+        /// </summary>
+        /// <remarks>
+        /// Updates the active state of a listing. Setting &#x60;active&#x60; to &#x60;true&#x60; publishes the listing, while &#x60;false&#x60; unpublishes it.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateListingRequest"></param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProductListing)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProductListing>> UpdateProductListingDirectWithHttpInfoAsync(string productId, UpdateListingRequest updateListingRequest, bool? hydrate = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Tilia TOS Agreement Status
         /// </summary>
@@ -1595,6 +2183,598 @@ namespace VRChat.API.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Create Product Creates a product and returns the new Product object.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProductRequest"></param>
+        /// <returns>Product</returns>
+        public Product CreateProduct(CreateProductRequest createProductRequest)
+        {
+            VRChat.API.Client.ApiResponse<Product> localVarResponse = CreateProductWithHttpInfo(createProductRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateProduct", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Product Creates a product and returns the new Product object.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProductRequest"></param>
+        /// <returns>ApiResponse of Product</returns>
+        public VRChat.API.Client.ApiResponse<Product> CreateProductWithHttpInfo(CreateProductRequest createProductRequest)
+        {
+            // verify the required parameter 'createProductRequest' is set
+            if (createProductRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createProductRequest' when calling EconomyApi->CreateProduct");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createProductRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<Product>("/products", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Product>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Product), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Create Product Creates a product and returns the new Product object.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProductRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Product</returns>
+        public async System.Threading.Tasks.Task<Product> CreateProductAsync(CreateProductRequest createProductRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Product> localVarResponse = await CreateProductWithHttpInfoAsync(createProductRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateProduct", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Product Creates a product and returns the new Product object.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProductRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Product)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Product>> CreateProductWithHttpInfoAsync(CreateProductRequest createProductRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'createProductRequest' is set
+            if (createProductRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createProductRequest' when calling EconomyApi->CreateProduct");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createProductRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Product>("/products", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Product>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Product), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Create Product Listing Creates a listing and returns the new ProductListing object. The request body is based on observed fields and may be incomplete.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createListingRequest"></param>
+        /// <returns>ProductListing</returns>
+        public ProductListing CreateProductListingDirect(CreateListingRequest createListingRequest)
+        {
+            VRChat.API.Client.ApiResponse<ProductListing> localVarResponse = CreateProductListingDirectWithHttpInfo(createListingRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateProductListingDirect", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Product Listing Creates a listing and returns the new ProductListing object. The request body is based on observed fields and may be incomplete.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createListingRequest"></param>
+        /// <returns>ApiResponse of ProductListing</returns>
+        public VRChat.API.Client.ApiResponse<ProductListing> CreateProductListingDirectWithHttpInfo(CreateListingRequest createListingRequest)
+        {
+            // verify the required parameter 'createListingRequest' is set
+            if (createListingRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createListingRequest' when calling EconomyApi->CreateProductListingDirect");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createListingRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<ProductListing>("/listing", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ProductListing>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProductListing), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Create Product Listing Creates a listing and returns the new ProductListing object. The request body is based on observed fields and may be incomplete.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createListingRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProductListing</returns>
+        public async System.Threading.Tasks.Task<ProductListing> CreateProductListingDirectAsync(CreateListingRequest createListingRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<ProductListing> localVarResponse = await CreateProductListingDirectWithHttpInfoAsync(createListingRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateProductListingDirect", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Product Listing Creates a listing and returns the new ProductListing object. The request body is based on observed fields and may be incomplete.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createListingRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProductListing)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<ProductListing>> CreateProductListingDirectWithHttpInfoAsync(CreateListingRequest createListingRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'createListingRequest' is set
+            if (createListingRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createListingRequest' when calling EconomyApi->CreateProductListingDirect");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createListingRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<ProductListing>("/listing", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ProductListing>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProductListing), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete Product Deletes a product.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <returns>SuccessFlag</returns>
+        public SuccessFlag DeleteProduct(string productId)
+        {
+            VRChat.API.Client.ApiResponse<SuccessFlag> localVarResponse = DeleteProductWithHttpInfo(productId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteProduct", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Product Deletes a product.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <returns>ApiResponse of SuccessFlag</returns>
+        public VRChat.API.Client.ApiResponse<SuccessFlag> DeleteProductWithHttpInfo(string productId)
+        {
+            // verify the required parameter 'productId' is set
+            if (productId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productId' when calling EconomyApi->DeleteProduct");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productId", VRChat.API.Client.ClientUtils.ParameterToString(productId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Delete<SuccessFlag>("/products/{productId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SuccessFlag>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SuccessFlag), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete Product Deletes a product.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SuccessFlag</returns>
+        public async System.Threading.Tasks.Task<SuccessFlag> DeleteProductAsync(string productId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<SuccessFlag> localVarResponse = await DeleteProductWithHttpInfoAsync(productId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteProduct", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Product Deletes a product.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SuccessFlag)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SuccessFlag>> DeleteProductWithHttpInfoAsync(string productId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'productId' is set
+            if (productId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productId' when calling EconomyApi->DeleteProduct");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productId", VRChat.API.Client.ClientUtils.ParameterToString(productId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<SuccessFlag>("/products/{productId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SuccessFlag>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SuccessFlag), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete Product Listing Deletes a listing.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <returns>SuccessFlag</returns>
+        public SuccessFlag DeleteProductListingDirect(string productId, bool? hydrate = default)
+        {
+            VRChat.API.Client.ApiResponse<SuccessFlag> localVarResponse = DeleteProductListingDirectWithHttpInfo(productId, hydrate);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteProductListingDirect", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Product Listing Deletes a listing.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <returns>ApiResponse of SuccessFlag</returns>
+        public VRChat.API.Client.ApiResponse<SuccessFlag> DeleteProductListingDirectWithHttpInfo(string productId, bool? hydrate = default)
+        {
+            // verify the required parameter 'productId' is set
+            if (productId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productId' when calling EconomyApi->DeleteProductListingDirect");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productId", VRChat.API.Client.ClientUtils.ParameterToString(productId)); // path parameter
+            if (hydrate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "hydrate", hydrate));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Delete<SuccessFlag>("/listing/{productId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SuccessFlag>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SuccessFlag), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete Product Listing Deletes a listing.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SuccessFlag</returns>
+        public async System.Threading.Tasks.Task<SuccessFlag> DeleteProductListingDirectAsync(string productId, bool? hydrate = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<SuccessFlag> localVarResponse = await DeleteProductListingDirectWithHttpInfoAsync(productId, hydrate, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteProductListingDirect", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Product Listing Deletes a listing.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SuccessFlag)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SuccessFlag>> DeleteProductListingDirectWithHttpInfoAsync(string productId, bool? hydrate = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'productId' is set
+            if (productId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productId' when calling EconomyApi->DeleteProductListingDirect");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productId", VRChat.API.Client.ClientUtils.ParameterToString(productId)); // path parameter
+            if (hydrate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "hydrate", hydrate));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<SuccessFlag>("/listing/{productId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SuccessFlag>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SuccessFlag), ex.Message);
+            }
         }
 
         /// <summary>
@@ -2291,10 +3471,14 @@ namespace VRChat.API.Api
         /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
+        /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <returns>EarningsMetrics</returns>
-        public EarningsMetrics GetEarningsMetrics()
+        public EarningsMetrics GetEarningsMetrics(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default)
         {
-            VRChat.API.Client.ApiResponse<EarningsMetrics> localVarResponse = GetEarningsMetricsWithHttpInfo();
+            VRChat.API.Client.ApiResponse<EarningsMetrics> localVarResponse = GetEarningsMetricsWithHttpInfo(sellerId, metricDateStart, metricDateEnd, groupByDuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEarningsMetrics", localVarResponse);
@@ -2310,9 +3494,17 @@ namespace VRChat.API.Api
         /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
+        /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <returns>ApiResponse of EarningsMetrics</returns>
-        public VRChat.API.Client.ApiResponse<EarningsMetrics> GetEarningsMetricsWithHttpInfo()
+        public VRChat.API.Client.ApiResponse<EarningsMetrics> GetEarningsMetricsWithHttpInfo(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default)
         {
+            // verify the required parameter 'sellerId' is set
+            if (sellerId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'sellerId' when calling EconomyApi->GetEarningsMetrics");
+
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -2329,6 +3521,19 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (metricDateStart != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "metricDateStart", metricDateStart));
+            }
+            if (metricDateEnd != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "metricDateEnd", metricDateEnd));
+            }
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
+            if (groupByDuration != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "groupByDuration", groupByDuration));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2354,11 +3559,15 @@ namespace VRChat.API.Api
         /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
+        /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EarningsMetrics</returns>
-        public async System.Threading.Tasks.Task<EarningsMetrics> GetEarningsMetricsAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<EarningsMetrics> GetEarningsMetricsAsync(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<EarningsMetrics> localVarResponse = await GetEarningsMetricsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<EarningsMetrics> localVarResponse = await GetEarningsMetricsWithHttpInfoAsync(sellerId, metricDateStart, metricDateEnd, groupByDuration, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEarningsMetrics", localVarResponse);
@@ -2374,10 +3583,18 @@ namespace VRChat.API.Api
         /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
+        /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EarningsMetrics)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<EarningsMetrics>> GetEarningsMetricsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<EarningsMetrics>> GetEarningsMetricsWithHttpInfoAsync(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'sellerId' is set
+            if (sellerId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'sellerId' when calling EconomyApi->GetEarningsMetrics");
+
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2396,6 +3613,19 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (metricDateStart != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "metricDateStart", metricDateStart));
+            }
+            if (metricDateEnd != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "metricDateEnd", metricDateEnd));
+            }
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
+            if (groupByDuration != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "groupByDuration", groupByDuration));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2558,6 +3788,438 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<EconomyAccount>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(EconomyAccount), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Economy Balances Gets the combined balances for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>EconomyBalances</returns>
+        public EconomyBalances GetEconomyBalances(string userId)
+        {
+            VRChat.API.Client.ApiResponse<EconomyBalances> localVarResponse = GetEconomyBalancesWithHttpInfo(userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEconomyBalances", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Economy Balances Gets the combined balances for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of EconomyBalances</returns>
+        public VRChat.API.Client.ApiResponse<EconomyBalances> GetEconomyBalancesWithHttpInfo(string userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetEconomyBalances");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<EconomyBalances>("/user/{userId}/economy/balances", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<EconomyBalances>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(EconomyBalances), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Economy Balances Gets the combined balances for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EconomyBalances</returns>
+        public async System.Threading.Tasks.Task<EconomyBalances> GetEconomyBalancesAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<EconomyBalances> localVarResponse = await GetEconomyBalancesWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEconomyBalances", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Economy Balances Gets the combined balances for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EconomyBalances)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<EconomyBalances>> GetEconomyBalancesWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetEconomyBalances");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<EconomyBalances>("/user/{userId}/economy/balances", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<EconomyBalances>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(EconomyBalances), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Economy Payout Status Gets the current payout status and eligibility information for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>EconomyPayoutStatus</returns>
+        public EconomyPayoutStatus GetEconomyPayoutStatus(string userId)
+        {
+            VRChat.API.Client.ApiResponse<EconomyPayoutStatus> localVarResponse = GetEconomyPayoutStatusWithHttpInfo(userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEconomyPayoutStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Economy Payout Status Gets the current payout status and eligibility information for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of EconomyPayoutStatus</returns>
+        public VRChat.API.Client.ApiResponse<EconomyPayoutStatus> GetEconomyPayoutStatusWithHttpInfo(string userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetEconomyPayoutStatus");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<EconomyPayoutStatus>("/user/{userId}/economy/payouts/status", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<EconomyPayoutStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(EconomyPayoutStatus), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Economy Payout Status Gets the current payout status and eligibility information for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EconomyPayoutStatus</returns>
+        public async System.Threading.Tasks.Task<EconomyPayoutStatus> GetEconomyPayoutStatusAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<EconomyPayoutStatus> localVarResponse = await GetEconomyPayoutStatusWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEconomyPayoutStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Economy Payout Status Gets the current payout status and eligibility information for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EconomyPayoutStatus)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<EconomyPayoutStatus>> GetEconomyPayoutStatusWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetEconomyPayoutStatus");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<EconomyPayoutStatus>("/user/{userId}/economy/payouts/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<EconomyPayoutStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(EconomyPayoutStatus), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Economy Payouts Gets the payout history for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>EconomyPayoutList</returns>
+        public EconomyPayoutList GetEconomyPayouts(string userId)
+        {
+            VRChat.API.Client.ApiResponse<EconomyPayoutList> localVarResponse = GetEconomyPayoutsWithHttpInfo(userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEconomyPayouts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Economy Payouts Gets the payout history for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of EconomyPayoutList</returns>
+        public VRChat.API.Client.ApiResponse<EconomyPayoutList> GetEconomyPayoutsWithHttpInfo(string userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetEconomyPayouts");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<EconomyPayoutList>("/user/{userId}/economy/payouts/list", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<EconomyPayoutList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(EconomyPayoutList), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Economy Payouts Gets the payout history for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EconomyPayoutList</returns>
+        public async System.Threading.Tasks.Task<EconomyPayoutList> GetEconomyPayoutsAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<EconomyPayoutList> localVarResponse = await GetEconomyPayoutsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEconomyPayouts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Economy Payouts Gets the payout history for a user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EconomyPayoutList)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<EconomyPayoutList>> GetEconomyPayoutsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetEconomyPayouts");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<EconomyPayoutList>("/user/{userId}/economy/payouts/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<EconomyPayoutList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(EconomyPayoutList), ex.Message);
             }
         }
 
@@ -3017,12 +4679,13 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="listingType">Filter user listings by category. Observed values include &#x60;otp&#x60; and &#x60;subscription&#x60;. (optional)</param>
         /// <param name="groupId">Must be a valid group ID. (optional)</param>
         /// <param name="active">Filter for users&#39; listings and inventory bundles. (optional)</param>
         /// <returns>List&lt;ProductListing&gt;</returns>
-        public List<ProductListing> GetProductListings(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default)
+        public List<ProductListing> GetProductListings(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? listingType = default, string? groupId = default, bool? active = default)
         {
-            VRChat.API.Client.ApiResponse<List<ProductListing>> localVarResponse = GetProductListingsWithHttpInfo(userId, n, offset, hydrate, groupId, active);
+            VRChat.API.Client.ApiResponse<List<ProductListing>> localVarResponse = GetProductListingsWithHttpInfo(userId, n, offset, hydrate, listingType, groupId, active);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProductListings", localVarResponse);
@@ -3042,10 +4705,11 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="listingType">Filter user listings by category. Observed values include &#x60;otp&#x60; and &#x60;subscription&#x60;. (optional)</param>
         /// <param name="groupId">Must be a valid group ID. (optional)</param>
         /// <param name="active">Filter for users&#39; listings and inventory bundles. (optional)</param>
         /// <returns>ApiResponse of List&lt;ProductListing&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<ProductListing>> GetProductListingsWithHttpInfo(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default)
+        public VRChat.API.Client.ApiResponse<List<ProductListing>> GetProductListingsWithHttpInfo(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? listingType = default, string? groupId = default, bool? active = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3079,6 +4743,10 @@ namespace VRChat.API.Api
             if (hydrate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "hydrate", hydrate));
+            }
+            if (listingType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "listingType", listingType));
             }
             if (groupId != null)
             {
@@ -3117,13 +4785,14 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="listingType">Filter user listings by category. Observed values include &#x60;otp&#x60; and &#x60;subscription&#x60;. (optional)</param>
         /// <param name="groupId">Must be a valid group ID. (optional)</param>
         /// <param name="active">Filter for users&#39; listings and inventory bundles. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ProductListing&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ProductListing>> GetProductListingsAsync(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<ProductListing>> GetProductListingsAsync(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? listingType = default, string? groupId = default, bool? active = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<ProductListing>> localVarResponse = await GetProductListingsWithHttpInfoAsync(userId, n, offset, hydrate, groupId, active, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<ProductListing>> localVarResponse = await GetProductListingsWithHttpInfoAsync(userId, n, offset, hydrate, listingType, groupId, active, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProductListings", localVarResponse);
@@ -3143,11 +4812,12 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="listingType">Filter user listings by category. Observed values include &#x60;otp&#x60; and &#x60;subscription&#x60;. (optional)</param>
         /// <param name="groupId">Must be a valid group ID. (optional)</param>
         /// <param name="active">Filter for users&#39; listings and inventory bundles. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProductListing&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<ProductListing>>> GetProductListingsWithHttpInfoAsync(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? groupId = default, bool? active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<ProductListing>>> GetProductListingsWithHttpInfoAsync(string userId, int? n = default, int? offset = default, bool? hydrate = default, string? listingType = default, string? groupId = default, bool? active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3183,6 +4853,10 @@ namespace VRChat.API.Api
             if (hydrate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "hydrate", hydrate));
+            }
+            if (listingType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "listingType", listingType));
             }
             if (groupId != null)
             {
@@ -3734,15 +5408,16 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="buyerId">Must be a valid user ID.</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="mostRecent"> (optional)</param>
         /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="order">Result ordering (optional)</param>
         /// <returns>List&lt;ProductPurchase&gt;</returns>
-        public List<ProductPurchase> GetProductPurchases(string buyerId, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default)
+        public List<ProductPurchase> GetProductPurchases(string buyerId, string? sellerId = default, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default)
         {
-            VRChat.API.Client.ApiResponse<List<ProductPurchase>> localVarResponse = GetProductPurchasesWithHttpInfo(buyerId, n, offset, mostRecent, sort, order);
+            VRChat.API.Client.ApiResponse<List<ProductPurchase>> localVarResponse = GetProductPurchasesWithHttpInfo(buyerId, sellerId, n, offset, mostRecent, sort, order);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProductPurchases", localVarResponse);
@@ -3759,13 +5434,14 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="buyerId">Must be a valid user ID.</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="mostRecent"> (optional)</param>
         /// <param name="sort">The sort order of the results. (optional)</param>
         /// <param name="order">Result ordering (optional)</param>
         /// <returns>ApiResponse of List&lt;ProductPurchase&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<ProductPurchase>> GetProductPurchasesWithHttpInfo(string buyerId, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default)
+        public VRChat.API.Client.ApiResponse<List<ProductPurchase>> GetProductPurchasesWithHttpInfo(string buyerId, string? sellerId = default, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default)
         {
             // verify the required parameter 'buyerId' is set
             if (buyerId == null)
@@ -3788,6 +5464,10 @@ namespace VRChat.API.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "buyerId", buyerId));
+            if (sellerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
+            }
             if (n != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
@@ -3834,6 +5514,7 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="buyerId">Must be a valid user ID.</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="mostRecent"> (optional)</param>
@@ -3841,9 +5522,9 @@ namespace VRChat.API.Api
         /// <param name="order">Result ordering (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ProductPurchase&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ProductPurchase>> GetProductPurchasesAsync(string buyerId, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<ProductPurchase>> GetProductPurchasesAsync(string buyerId, string? sellerId = default, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<ProductPurchase>> localVarResponse = await GetProductPurchasesWithHttpInfoAsync(buyerId, n, offset, mostRecent, sort, order, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<ProductPurchase>> localVarResponse = await GetProductPurchasesWithHttpInfoAsync(buyerId, sellerId, n, offset, mostRecent, sort, order, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProductPurchases", localVarResponse);
@@ -3860,6 +5541,7 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="buyerId">Must be a valid user ID.</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="mostRecent"> (optional)</param>
@@ -3867,7 +5549,7 @@ namespace VRChat.API.Api
         /// <param name="order">Result ordering (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProductPurchase&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<ProductPurchase>>> GetProductPurchasesWithHttpInfoAsync(string buyerId, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<ProductPurchase>>> GetProductPurchasesWithHttpInfoAsync(string buyerId, string? sellerId = default, int? n = default, int? offset = default, bool? mostRecent = default, SortOptionProductPurchase? sort = default, OrderOptionShort? order = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'buyerId' is set
             if (buyerId == null)
@@ -3892,6 +5574,10 @@ namespace VRChat.API.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "buyerId", buyerId));
+            if (sellerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
+            }
             if (n != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
@@ -5656,6 +7342,496 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Get User Tilia KYC Gets KYC status details for a user&#39;s Tilia account.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>TiliaKyc</returns>
+        public TiliaKyc GetUserTiliaKyc(string userId)
+        {
+            VRChat.API.Client.ApiResponse<TiliaKyc> localVarResponse = GetUserTiliaKycWithHttpInfo(userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserTiliaKyc", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get User Tilia KYC Gets KYC status details for a user&#39;s Tilia account.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of TiliaKyc</returns>
+        public VRChat.API.Client.ApiResponse<TiliaKyc> GetUserTiliaKycWithHttpInfo(string userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetUserTiliaKyc");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<TiliaKyc>("/user/{userId}/tilia/kyc", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<TiliaKyc>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TiliaKyc), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get User Tilia KYC Gets KYC status details for a user&#39;s Tilia account.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TiliaKyc</returns>
+        public async System.Threading.Tasks.Task<TiliaKyc> GetUserTiliaKycAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<TiliaKyc> localVarResponse = await GetUserTiliaKycWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserTiliaKyc", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get User Tilia KYC Gets KYC status details for a user&#39;s Tilia account.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TiliaKyc)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<TiliaKyc>> GetUserTiliaKycWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->GetUserTiliaKyc");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<TiliaKyc>("/user/{userId}/tilia/kyc", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<TiliaKyc>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TiliaKyc), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Stores Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>List&lt;Store&gt;</returns>
+        public List<Store> ListStores(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Store>> localVarResponse = ListStoresWithHttpInfo(sellerId, managementPov, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListStores", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Stores Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>ApiResponse of List&lt;Store&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<Store>> ListStoresWithHttpInfo(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default)
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (sellerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
+            }
+            if (managementPov != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "managementPov", managementPov));
+            }
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<List<Store>>("/economy/stores", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Store>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Store>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Stores Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Store&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Store>> ListStoresAsync(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Store>> localVarResponse = await ListStoresWithHttpInfoAsync(sellerId, managementPov, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListStores", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Stores Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Store&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Store>>> ListStoresWithHttpInfoAsync(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (sellerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
+            }
+            if (managementPov != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "managementPov", managementPov));
+            }
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Store>>("/economy/stores", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Store>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Store>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List User Products Gets the products of a given user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>List&lt;Product&gt;</returns>
+        public List<Product> ListUserProducts(string userId, int? n = default, int? offset = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Product>> localVarResponse = ListUserProductsWithHttpInfo(userId, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListUserProducts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List User Products Gets the products of a given user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>ApiResponse of List&lt;Product&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<Product>> ListUserProductsWithHttpInfo(string userId, int? n = default, int? offset = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->ListUserProducts");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<List<Product>>("/user/{userId}/products", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Product>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Product>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List User Products Gets the products of a given user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Product&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Product>> ListUserProductsAsync(string userId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Product>> localVarResponse = await ListUserProductsWithHttpInfoAsync(userId, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListUserProducts", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List User Products Gets the products of a given user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Product&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Product>>> ListUserProductsWithHttpInfoAsync(string userId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling EconomyApi->ListUserProducts");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Product>>("/user/{userId}/products", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Product>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Product>), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Purchase Product Listing Purchases a product listing
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5790,6 +7966,338 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<ProductPurchase>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProductPurchase), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update Product Updates a product and returns the updated Product object.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateProductRequest"></param>
+        /// <returns>Product</returns>
+        public Product UpdateProduct(string productId, UpdateProductRequest updateProductRequest)
+        {
+            VRChat.API.Client.ApiResponse<Product> localVarResponse = UpdateProductWithHttpInfo(productId, updateProductRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateProduct", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Product Updates a product and returns the updated Product object.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateProductRequest"></param>
+        /// <returns>ApiResponse of Product</returns>
+        public VRChat.API.Client.ApiResponse<Product> UpdateProductWithHttpInfo(string productId, UpdateProductRequest updateProductRequest)
+        {
+            // verify the required parameter 'productId' is set
+            if (productId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productId' when calling EconomyApi->UpdateProduct");
+
+            // verify the required parameter 'updateProductRequest' is set
+            if (updateProductRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updateProductRequest' when calling EconomyApi->UpdateProduct");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productId", VRChat.API.Client.ClientUtils.ParameterToString(productId)); // path parameter
+            localVarRequestOptions.Data = updateProductRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Put<Product>("/products/{productId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Product>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Product), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update Product Updates a product and returns the updated Product object.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateProductRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Product</returns>
+        public async System.Threading.Tasks.Task<Product> UpdateProductAsync(string productId, UpdateProductRequest updateProductRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Product> localVarResponse = await UpdateProductWithHttpInfoAsync(productId, updateProductRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateProduct", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Product Updates a product and returns the updated Product object.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateProductRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Product)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Product>> UpdateProductWithHttpInfoAsync(string productId, UpdateProductRequest updateProductRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'productId' is set
+            if (productId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productId' when calling EconomyApi->UpdateProduct");
+
+            // verify the required parameter 'updateProductRequest' is set
+            if (updateProductRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updateProductRequest' when calling EconomyApi->UpdateProduct");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productId", VRChat.API.Client.ClientUtils.ParameterToString(productId)); // path parameter
+            localVarRequestOptions.Data = updateProductRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Product>("/products/{productId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Product>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Product), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update Product Listing Updates the active state of a listing. Setting &#x60;active&#x60; to &#x60;true&#x60; publishes the listing, while &#x60;false&#x60; unpublishes it.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateListingRequest"></param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <returns>ProductListing</returns>
+        public ProductListing UpdateProductListingDirect(string productId, UpdateListingRequest updateListingRequest, bool? hydrate = default)
+        {
+            VRChat.API.Client.ApiResponse<ProductListing> localVarResponse = UpdateProductListingDirectWithHttpInfo(productId, updateListingRequest, hydrate);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateProductListingDirect", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Product Listing Updates the active state of a listing. Setting &#x60;active&#x60; to &#x60;true&#x60; publishes the listing, while &#x60;false&#x60; unpublishes it.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateListingRequest"></param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <returns>ApiResponse of ProductListing</returns>
+        public VRChat.API.Client.ApiResponse<ProductListing> UpdateProductListingDirectWithHttpInfo(string productId, UpdateListingRequest updateListingRequest, bool? hydrate = default)
+        {
+            // verify the required parameter 'productId' is set
+            if (productId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productId' when calling EconomyApi->UpdateProductListingDirect");
+
+            // verify the required parameter 'updateListingRequest' is set
+            if (updateListingRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updateListingRequest' when calling EconomyApi->UpdateProductListingDirect");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productId", VRChat.API.Client.ClientUtils.ParameterToString(productId)); // path parameter
+            if (hydrate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "hydrate", hydrate));
+            }
+            localVarRequestOptions.Data = updateListingRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Put<ProductListing>("/listing/{productId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ProductListing>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProductListing), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update Product Listing Updates the active state of a listing. Setting &#x60;active&#x60; to &#x60;true&#x60; publishes the listing, while &#x60;false&#x60; unpublishes it.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateListingRequest"></param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProductListing</returns>
+        public async System.Threading.Tasks.Task<ProductListing> UpdateProductListingDirectAsync(string productId, UpdateListingRequest updateListingRequest, bool? hydrate = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<ProductListing> localVarResponse = await UpdateProductListingDirectWithHttpInfoAsync(productId, updateListingRequest, hydrate, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateProductListingDirect", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Product Listing Updates the active state of a listing. Setting &#x60;active&#x60; to &#x60;true&#x60; publishes the listing, while &#x60;false&#x60; unpublishes it.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId">Must be a valid product ID.</param>
+        /// <param name="updateListingRequest"></param>
+        /// <param name="hydrate">Populates some fields and changes types of others for certain objects. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProductListing)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<ProductListing>> UpdateProductListingDirectWithHttpInfoAsync(string productId, UpdateListingRequest updateListingRequest, bool? hydrate = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'productId' is set
+            if (productId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'productId' when calling EconomyApi->UpdateProductListingDirect");
+
+            // verify the required parameter 'updateListingRequest' is set
+            if (updateListingRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updateListingRequest' when calling EconomyApi->UpdateProductListingDirect");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("productId", VRChat.API.Client.ClientUtils.ParameterToString(productId)); // path parameter
+            if (hydrate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "hydrate", hydrate));
+            }
+            localVarRequestOptions.Data = updateListingRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PutAsync<ProductListing>("/listing/{productId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ProductListing>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProductListing), ex.Message);
             }
         }
 

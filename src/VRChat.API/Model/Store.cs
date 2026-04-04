@@ -46,6 +46,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Store" /> class.
         /// </summary>
+        /// <param name="created">created.</param>
         /// <param name="description">description (required).</param>
         /// <param name="displayName">displayName (required).</param>
         /// <param name="groupId">groupId.</param>
@@ -56,11 +57,14 @@ namespace VRChat.API.Model
         /// <param name="sellerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="shelfIds">Only for store type house.</param>
         /// <param name="shelves">Only for store type house.</param>
+        /// <param name="storeContext">storeContext.</param>
         /// <param name="storeId">storeId (required).</param>
+        /// <param name="storeStatus">storeStatus.</param>
         /// <param name="storeType">storeType (required).</param>
         /// <param name="tags">tags (required).</param>
+        /// <param name="updated">updated.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public Store(string description = default, string displayName = default, string groupId = default, string id = default, List<string> listingIds = default, List<ProductListing> listings = default, string sellerDisplayName = default, string sellerId = default, List<string> shelfIds = default, List<StoreShelf> shelves = default, string storeId = default, StoreType storeType = default, List<string> tags = default, string worldId = default)
+        public Store(DateTime created = default, string description = default, string displayName = default, string groupId = default, string id = default, List<string> listingIds = default, List<ProductListing> listings = default, string sellerDisplayName = default, string sellerId = default, List<string> shelfIds = default, List<StoreShelf> shelves = default, StoreContext storeContext = default, string storeId = default, string storeStatus = default, StoreType storeType = default, List<string> tags = default, DateTime updated = default, string worldId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
@@ -77,13 +81,23 @@ namespace VRChat.API.Model
             this.StoreType = storeType;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
+            this.Created = created;
             this.GroupId = groupId;
             this.ListingIds = listingIds;
             this.Listings = listings;
             this.ShelfIds = shelfIds;
             this.Shelves = shelves;
+            this.StoreContext = storeContext;
+            this.StoreStatus = storeStatus;
+            this.Updated = updated;
             this.WorldId = worldId;
         }
+
+        /// <summary>
+        /// Gets or Sets Created
+        /// </summary>
+        [DataMember(Name = "created", EmitDefaultValue = false)]
+        public DateTime Created { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
@@ -160,6 +174,12 @@ namespace VRChat.API.Model
         public List<StoreShelf> Shelves { get; set; }
 
         /// <summary>
+        /// Gets or Sets StoreContext
+        /// </summary>
+        [DataMember(Name = "storeContext", EmitDefaultValue = false)]
+        public StoreContext StoreContext { get; set; }
+
+        /// <summary>
         /// Gets or Sets StoreId
         /// </summary>
         /*
@@ -169,10 +189,22 @@ namespace VRChat.API.Model
         public string StoreId { get; set; }
 
         /// <summary>
+        /// Gets or Sets StoreStatus
+        /// </summary>
+        [DataMember(Name = "storeStatus", EmitDefaultValue = false)]
+        public string StoreStatus { get; set; }
+
+        /// <summary>
         /// Gets or Sets Tags
         /// </summary>
         [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Updated
+        /// </summary>
+        [DataMember(Name = "updated", EmitDefaultValue = false)]
+        public DateTime Updated { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
@@ -192,6 +224,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Store {\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
@@ -202,9 +235,12 @@ namespace VRChat.API.Model
             sb.Append("  SellerId: ").Append(SellerId).Append("\n");
             sb.Append("  ShelfIds: ").Append(ShelfIds).Append("\n");
             sb.Append("  Shelves: ").Append(Shelves).Append("\n");
+            sb.Append("  StoreContext: ").Append(StoreContext).Append("\n");
             sb.Append("  StoreId: ").Append(StoreId).Append("\n");
+            sb.Append("  StoreStatus: ").Append(StoreStatus).Append("\n");
             sb.Append("  StoreType: ").Append(StoreType).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  WorldId: ").Append(WorldId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -241,6 +277,11 @@ namespace VRChat.API.Model
                 return false;
             }
             return 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
                 (
                     this.Description == input.Description ||
                     (this.Description != null &&
@@ -296,9 +337,19 @@ namespace VRChat.API.Model
                     this.Shelves.SequenceEqual(input.Shelves)
                 ) && 
                 (
+                    this.StoreContext == input.StoreContext ||
+                    (this.StoreContext != null &&
+                    this.StoreContext.Equals(input.StoreContext))
+                ) && 
+                (
                     this.StoreId == input.StoreId ||
                     (this.StoreId != null &&
                     this.StoreId.Equals(input.StoreId))
+                ) && 
+                (
+                    this.StoreStatus == input.StoreStatus ||
+                    (this.StoreStatus != null &&
+                    this.StoreStatus.Equals(input.StoreStatus))
                 ) && 
                 (
                     this.StoreType == input.StoreType ||
@@ -309,6 +360,11 @@ namespace VRChat.API.Model
                     this.Tags != null &&
                     input.Tags != null &&
                     this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
                 ) && 
                 (
                     this.WorldId == input.WorldId ||
@@ -326,6 +382,10 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Created != null)
+                {
+                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
+                }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
@@ -366,14 +426,26 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Shelves.GetHashCode();
                 }
+                if (this.StoreContext != null)
+                {
+                    hashCode = (hashCode * 59) + this.StoreContext.GetHashCode();
+                }
                 if (this.StoreId != null)
                 {
                     hashCode = (hashCode * 59) + this.StoreId.GetHashCode();
+                }
+                if (this.StoreStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.StoreStatus.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.StoreType.GetHashCode();
                 if (this.Tags != null)
                 {
                     hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.Updated != null)
+                {
+                    hashCode = (hashCode * 59) + this.Updated.GetHashCode();
                 }
                 if (this.WorldId != null)
                 {

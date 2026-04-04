@@ -56,14 +56,18 @@ namespace VRChat.API.Model
         /// <param name="groupRoleId">groupRoleId.</param>
         /// <param name="id">id (required).</param>
         /// <param name="imageId">imageId (required).</param>
+        /// <param name="imageUrl">imageUrl.</param>
         /// <param name="parentListings">parentListings (required).</param>
         /// <param name="productType">productType (required).</param>
+        /// <param name="productTypeLabel">productTypeLabel.</param>
+        /// <param name="purchaseCount">purchaseCount.</param>
+        /// <param name="purchaseCountQuantity">purchaseCountQuantity.</param>
         /// <param name="sellerDisplayName">sellerDisplayName (required).</param>
         /// <param name="sellerId">sellerId (required).</param>
         /// <param name="tags">tags (required).</param>
         /// <param name="updated">updated.</param>
         /// <param name="useForSubscriberList">useForSubscriberList (default to false).</param>
-        public Product(bool archived = default, DateTime created = default, string description = default, string displayName = default, bool groupAccess = false, bool groupAccessRemove = false, string groupId = default, string groupRoleId = default, string id = default, string imageId = default, List<string> parentListings = default, ProductType productType = default, string sellerDisplayName = default, string sellerId = default, List<string> tags = default, DateTime? updated = default, bool useForSubscriberList = false)
+        public Product(bool archived = default, DateTime created = default, string description = default, string displayName = default, bool groupAccess = false, bool groupAccessRemove = false, string groupId = default, string groupRoleId = default, string id = default, string imageId = default, string imageUrl = default, List<string> parentListings = default, ProductType productType = default, string productTypeLabel = default, int purchaseCount = default, int purchaseCountQuantity = default, string sellerDisplayName = default, string sellerId = default, List<string> tags = default, DateTime? updated = default, bool useForSubscriberList = false)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
@@ -88,6 +92,10 @@ namespace VRChat.API.Model
             this.GroupAccessRemove = groupAccessRemove;
             this.GroupId = groupId;
             this.GroupRoleId = groupRoleId;
+            this.ImageUrl = imageUrl;
+            this.ProductTypeLabel = productTypeLabel;
+            this.PurchaseCount = purchaseCount;
+            this.PurchaseCountQuantity = purchaseCountQuantity;
             this.Updated = updated;
             this.UseForSubscriberList = useForSubscriberList;
         }
@@ -165,10 +173,34 @@ namespace VRChat.API.Model
         public string ImageId { get; set; }
 
         /// <summary>
+        /// Gets or Sets ImageUrl
+        /// </summary>
+        [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
+        public string ImageUrl { get; set; }
+
+        /// <summary>
         /// Gets or Sets ParentListings
         /// </summary>
         [DataMember(Name = "parentListings", IsRequired = true, EmitDefaultValue = true)]
         public List<string> ParentListings { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProductTypeLabel
+        /// </summary>
+        [DataMember(Name = "productTypeLabel", EmitDefaultValue = false)]
+        public string ProductTypeLabel { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PurchaseCount
+        /// </summary>
+        [DataMember(Name = "purchaseCount", EmitDefaultValue = false)]
+        public int PurchaseCount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PurchaseCountQuantity
+        /// </summary>
+        [DataMember(Name = "purchaseCountQuantity", EmitDefaultValue = false)]
+        public int PurchaseCountQuantity { get; set; }
 
         /// <summary>
         /// Gets or Sets SellerDisplayName
@@ -218,8 +250,12 @@ namespace VRChat.API.Model
             sb.Append("  GroupRoleId: ").Append(GroupRoleId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ImageId: ").Append(ImageId).Append("\n");
+            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
             sb.Append("  ParentListings: ").Append(ParentListings).Append("\n");
             sb.Append("  ProductType: ").Append(ProductType).Append("\n");
+            sb.Append("  ProductTypeLabel: ").Append(ProductTypeLabel).Append("\n");
+            sb.Append("  PurchaseCount: ").Append(PurchaseCount).Append("\n");
+            sb.Append("  PurchaseCountQuantity: ").Append(PurchaseCountQuantity).Append("\n");
             sb.Append("  SellerDisplayName: ").Append(SellerDisplayName).Append("\n");
             sb.Append("  SellerId: ").Append(SellerId).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
@@ -308,6 +344,11 @@ namespace VRChat.API.Model
                     this.ImageId.Equals(input.ImageId))
                 ) && 
                 (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
                     this.ParentListings == input.ParentListings ||
                     this.ParentListings != null &&
                     input.ParentListings != null &&
@@ -316,6 +357,19 @@ namespace VRChat.API.Model
                 (
                     this.ProductType == input.ProductType ||
                     this.ProductType.Equals(input.ProductType)
+                ) && 
+                (
+                    this.ProductTypeLabel == input.ProductTypeLabel ||
+                    (this.ProductTypeLabel != null &&
+                    this.ProductTypeLabel.Equals(input.ProductTypeLabel))
+                ) && 
+                (
+                    this.PurchaseCount == input.PurchaseCount ||
+                    this.PurchaseCount.Equals(input.PurchaseCount)
+                ) && 
+                (
+                    this.PurchaseCountQuantity == input.PurchaseCountQuantity ||
+                    this.PurchaseCountQuantity.Equals(input.PurchaseCountQuantity)
                 ) && 
                 (
                     this.SellerDisplayName == input.SellerDisplayName ||
@@ -384,11 +438,21 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
                 }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
                 if (this.ParentListings != null)
                 {
                     hashCode = (hashCode * 59) + this.ParentListings.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ProductType.GetHashCode();
+                if (this.ProductTypeLabel != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProductTypeLabel.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PurchaseCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.PurchaseCountQuantity.GetHashCode();
                 if (this.SellerDisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.SellerDisplayName.GetHashCode();

@@ -53,7 +53,9 @@ namespace VRChat.API.Model
         /// <param name="isGift">isGift (required).</param>
         /// <param name="isReceiver">isReceiver (required).</param>
         /// <param name="isSeller">isSeller (required).</param>
+        /// <param name="ledgerTransactionId">ledgerTransactionId.</param>
         /// <param name="listingCurrentlyAvailable">listingCurrentlyAvailable (required).</param>
+        /// <param name="listingDescription">listingDescription.</param>
         /// <param name="listingDisplayName">listingDisplayName (required).</param>
         /// <param name="listingId">listingId (required).</param>
         /// <param name="listingImageId">listingImageId (required).</param>
@@ -67,6 +69,7 @@ namespace VRChat.API.Model
         /// <param name="purchaseDuration">purchaseDuration.</param>
         /// <param name="purchaseDurationType">purchaseDurationType.</param>
         /// <param name="purchaseEndDate">purchaseEndDate (required).</param>
+        /// <param name="purchaseFee">purchaseFee.</param>
         /// <param name="purchaseId">purchaseId (required).</param>
         /// <param name="purchaseLatest">purchaseLatest (required).</param>
         /// <param name="purchasePrice">purchasePrice (required).</param>
@@ -75,6 +78,7 @@ namespace VRChat.API.Model
         /// <param name="purchaseToken">purchaseToken (required).</param>
         /// <param name="purchaseType">purchaseType (required).</param>
         /// <param name="purchaseUnitPrice">purchaseUnitPrice (required).</param>
+        /// <param name="purchaseValue">purchaseValue.</param>
         /// <param name="receiverDisplayName">receiverDisplayName (required).</param>
         /// <param name="receiverId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="recurrable">recurrable (required).</param>
@@ -83,7 +87,7 @@ namespace VRChat.API.Model
         /// <param name="sellerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="stackable">stackable (required).</param>
         /// <param name="willRecur">willRecur (required).</param>
-        public ProductPurchase(string buyerDisplayName = default, string buyerId = default, bool firstParty = default, bool isBuyer = default, bool isGift = default, bool isReceiver = default, bool isSeller = default, bool listingCurrentlyAvailable = default, string listingDisplayName = default, string listingId = default, string listingImageId = default, string listingSubtitle = default, ProductListingType listingType = default, List<Object> products = default, bool purchaseActive = default, ProductPurchasePurchaseContext purchaseContext = default, string purchaseCurrentStatus = default, DateTime purchaseDate = default, int purchaseDuration = default, string purchaseDurationType = default, DateTime purchaseEndDate = default, string purchaseId = default, bool purchaseLatest = default, int purchasePrice = default, int purchaseQuantity = default, DateTime purchaseStartDate = default, Object purchaseToken = default, string purchaseType = default, int purchaseUnitPrice = default, string receiverDisplayName = default, string receiverId = default, bool recurrable = default, bool refundable = default, string sellerDisplayName = default, string sellerId = default, bool stackable = default, bool willRecur = default)
+        public ProductPurchase(string buyerDisplayName = default, string buyerId = default, bool firstParty = default, bool isBuyer = default, bool isGift = default, bool isReceiver = default, bool isSeller = default, int ledgerTransactionId = default, bool listingCurrentlyAvailable = default, string listingDescription = default, string listingDisplayName = default, string listingId = default, string listingImageId = default, string listingSubtitle = default, ProductListingType listingType = default, List<ProductPurchaseProduct> products = default, bool purchaseActive = default, ProductPurchasePurchaseContext purchaseContext = default, string purchaseCurrentStatus = default, DateTime purchaseDate = default, int purchaseDuration = default, string purchaseDurationType = default, DateTime? purchaseEndDate = default, int purchaseFee = default, string purchaseId = default, bool purchaseLatest = default, int purchasePrice = default, int purchaseQuantity = default, DateTime? purchaseStartDate = default, Object purchaseToken = default, string purchaseType = default, int purchaseUnitPrice = default, int purchaseValue = default, string receiverDisplayName = default, string receiverId = default, bool recurrable = default, bool refundable = default, string sellerDisplayName = default, string sellerId = default, bool stackable = default, bool willRecur = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.BuyerDisplayName = buyerDisplayName;
@@ -111,12 +115,14 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.PurchaseCurrentStatus = purchaseCurrentStatus;
             this.PurchaseDate = purchaseDate;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PurchaseEndDate = purchaseEndDate;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.PurchaseId = purchaseId;
             this.PurchaseLatest = purchaseLatest;
             this.PurchasePrice = purchasePrice;
             this.PurchaseQuantity = purchaseQuantity;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.PurchaseStartDate = purchaseStartDate;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.PurchaseToken = purchaseToken;
@@ -136,8 +142,12 @@ namespace VRChat.API.Model
             this.Stackable = stackable;
             this.WillRecur = willRecur;
             this.FirstParty = firstParty;
+            this.LedgerTransactionId = ledgerTransactionId;
+            this.ListingDescription = listingDescription;
             this.PurchaseDuration = purchaseDuration;
             this.PurchaseDurationType = purchaseDurationType;
+            this.PurchaseFee = purchaseFee;
+            this.PurchaseValue = purchaseValue;
         }
 
         /// <summary>
@@ -187,10 +197,22 @@ namespace VRChat.API.Model
         public bool IsSeller { get; set; }
 
         /// <summary>
+        /// Gets or Sets LedgerTransactionId
+        /// </summary>
+        [DataMember(Name = "ledgerTransactionId", EmitDefaultValue = false)]
+        public int LedgerTransactionId { get; set; }
+
+        /// <summary>
         /// Gets or Sets ListingCurrentlyAvailable
         /// </summary>
         [DataMember(Name = "listingCurrentlyAvailable", IsRequired = true, EmitDefaultValue = true)]
         public bool ListingCurrentlyAvailable { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ListingDescription
+        /// </summary>
+        [DataMember(Name = "listingDescription", EmitDefaultValue = false)]
+        public string ListingDescription { get; set; }
 
         /// <summary>
         /// Gets or Sets ListingDisplayName
@@ -226,7 +248,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Products
         /// </summary>
         [DataMember(Name = "products", IsRequired = true, EmitDefaultValue = true)]
-        public List<Object> Products { get; set; }
+        public List<ProductPurchaseProduct> Products { get; set; }
 
         /// <summary>
         /// Gets or Sets PurchaseActive
@@ -268,7 +290,13 @@ namespace VRChat.API.Model
         /// Gets or Sets PurchaseEndDate
         /// </summary>
         [DataMember(Name = "purchaseEndDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime PurchaseEndDate { get; set; }
+        public DateTime? PurchaseEndDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PurchaseFee
+        /// </summary>
+        [DataMember(Name = "purchaseFee", EmitDefaultValue = false)]
+        public int PurchaseFee { get; set; }
 
         /// <summary>
         /// Gets or Sets PurchaseId
@@ -301,7 +329,7 @@ namespace VRChat.API.Model
         /// Gets or Sets PurchaseStartDate
         /// </summary>
         [DataMember(Name = "purchaseStartDate", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime PurchaseStartDate { get; set; }
+        public DateTime? PurchaseStartDate { get; set; }
 
         /// <summary>
         /// Gets or Sets PurchaseToken
@@ -320,6 +348,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "purchaseUnitPrice", IsRequired = true, EmitDefaultValue = true)]
         public int PurchaseUnitPrice { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PurchaseValue
+        /// </summary>
+        [DataMember(Name = "purchaseValue", EmitDefaultValue = false)]
+        public int PurchaseValue { get; set; }
 
         /// <summary>
         /// Gets or Sets ReceiverDisplayName
@@ -392,7 +426,9 @@ namespace VRChat.API.Model
             sb.Append("  IsGift: ").Append(IsGift).Append("\n");
             sb.Append("  IsReceiver: ").Append(IsReceiver).Append("\n");
             sb.Append("  IsSeller: ").Append(IsSeller).Append("\n");
+            sb.Append("  LedgerTransactionId: ").Append(LedgerTransactionId).Append("\n");
             sb.Append("  ListingCurrentlyAvailable: ").Append(ListingCurrentlyAvailable).Append("\n");
+            sb.Append("  ListingDescription: ").Append(ListingDescription).Append("\n");
             sb.Append("  ListingDisplayName: ").Append(ListingDisplayName).Append("\n");
             sb.Append("  ListingId: ").Append(ListingId).Append("\n");
             sb.Append("  ListingImageId: ").Append(ListingImageId).Append("\n");
@@ -406,6 +442,7 @@ namespace VRChat.API.Model
             sb.Append("  PurchaseDuration: ").Append(PurchaseDuration).Append("\n");
             sb.Append("  PurchaseDurationType: ").Append(PurchaseDurationType).Append("\n");
             sb.Append("  PurchaseEndDate: ").Append(PurchaseEndDate).Append("\n");
+            sb.Append("  PurchaseFee: ").Append(PurchaseFee).Append("\n");
             sb.Append("  PurchaseId: ").Append(PurchaseId).Append("\n");
             sb.Append("  PurchaseLatest: ").Append(PurchaseLatest).Append("\n");
             sb.Append("  PurchasePrice: ").Append(PurchasePrice).Append("\n");
@@ -414,6 +451,7 @@ namespace VRChat.API.Model
             sb.Append("  PurchaseToken: ").Append(PurchaseToken).Append("\n");
             sb.Append("  PurchaseType: ").Append(PurchaseType).Append("\n");
             sb.Append("  PurchaseUnitPrice: ").Append(PurchaseUnitPrice).Append("\n");
+            sb.Append("  PurchaseValue: ").Append(PurchaseValue).Append("\n");
             sb.Append("  ReceiverDisplayName: ").Append(ReceiverDisplayName).Append("\n");
             sb.Append("  ReceiverId: ").Append(ReceiverId).Append("\n");
             sb.Append("  Recurrable: ").Append(Recurrable).Append("\n");
@@ -488,8 +526,17 @@ namespace VRChat.API.Model
                     this.IsSeller.Equals(input.IsSeller)
                 ) && 
                 (
+                    this.LedgerTransactionId == input.LedgerTransactionId ||
+                    this.LedgerTransactionId.Equals(input.LedgerTransactionId)
+                ) && 
+                (
                     this.ListingCurrentlyAvailable == input.ListingCurrentlyAvailable ||
                     this.ListingCurrentlyAvailable.Equals(input.ListingCurrentlyAvailable)
+                ) && 
+                (
+                    this.ListingDescription == input.ListingDescription ||
+                    (this.ListingDescription != null &&
+                    this.ListingDescription.Equals(input.ListingDescription))
                 ) && 
                 (
                     this.ListingDisplayName == input.ListingDisplayName ||
@@ -555,6 +602,10 @@ namespace VRChat.API.Model
                     this.PurchaseEndDate.Equals(input.PurchaseEndDate))
                 ) && 
                 (
+                    this.PurchaseFee == input.PurchaseFee ||
+                    this.PurchaseFee.Equals(input.PurchaseFee)
+                ) && 
+                (
                     this.PurchaseId == input.PurchaseId ||
                     (this.PurchaseId != null &&
                     this.PurchaseId.Equals(input.PurchaseId))
@@ -589,6 +640,10 @@ namespace VRChat.API.Model
                 (
                     this.PurchaseUnitPrice == input.PurchaseUnitPrice ||
                     this.PurchaseUnitPrice.Equals(input.PurchaseUnitPrice)
+                ) && 
+                (
+                    this.PurchaseValue == input.PurchaseValue ||
+                    this.PurchaseValue.Equals(input.PurchaseValue)
                 ) && 
                 (
                     this.ReceiverDisplayName == input.ReceiverDisplayName ||
@@ -650,7 +705,12 @@ namespace VRChat.API.Model
                 hashCode = (hashCode * 59) + this.IsGift.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsReceiver.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsSeller.GetHashCode();
+                hashCode = (hashCode * 59) + this.LedgerTransactionId.GetHashCode();
                 hashCode = (hashCode * 59) + this.ListingCurrentlyAvailable.GetHashCode();
+                if (this.ListingDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.ListingDescription.GetHashCode();
+                }
                 if (this.ListingDisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.ListingDisplayName.GetHashCode();
@@ -694,6 +754,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.PurchaseEndDate.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.PurchaseFee.GetHashCode();
                 if (this.PurchaseId != null)
                 {
                     hashCode = (hashCode * 59) + this.PurchaseId.GetHashCode();
@@ -714,6 +775,7 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.PurchaseType.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.PurchaseUnitPrice.GetHashCode();
+                hashCode = (hashCode * 59) + this.PurchaseValue.GetHashCode();
                 if (this.ReceiverDisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.ReceiverDisplayName.GetHashCode();

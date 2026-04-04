@@ -53,7 +53,9 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="ProductListing" /> class.
         /// </summary>
         /// <param name="active">active (required).</param>
+        /// <param name="archived">archived.</param>
         /// <param name="buyerRefundable">buyerRefundable (required).</param>
+        /// <param name="created">created.</param>
         /// <param name="description">description (required).</param>
         /// <param name="displayName">displayName (required).</param>
         /// <param name="duration">duration.</param>
@@ -74,6 +76,8 @@ namespace VRChat.API.Model
         /// <param name="productIds">productIds (required).</param>
         /// <param name="productType">productType (required).</param>
         /// <param name="products">products (required).</param>
+        /// <param name="purchaseCount">purchaseCount.</param>
+        /// <param name="purchaseCountQuantity">purchaseCountQuantity.</param>
         /// <param name="quantifiable">quantifiable.</param>
         /// <param name="recurrable">recurrable (required).</param>
         /// <param name="refundable">refundable (required).</param>
@@ -84,9 +88,10 @@ namespace VRChat.API.Model
         /// <param name="storeIds">storeIds (required).</param>
         /// <param name="subtitle">subtitle.</param>
         /// <param name="tags">tags.</param>
+        /// <param name="updated">updated.</param>
         /// <param name="vrcPlusDiscountPrice">vrcPlusDiscountPrice.</param>
         /// <param name="whenToExpire">whenToExpire.</param>
-        public ProductListing(bool active = default, bool buyerRefundable = default, string description = default, string displayName = default, int? duration = default, string durationType = default, string groupIcon = default, string groupId = default, string groupName = default, bool hasAvatar = default, bool hasUdon = default, List<Product> hydratedProducts = default, string id = default, string imageId = default, string imageUrl = default, ProductListingType listingType = default, List<ProductListingVariant> listingVariants = default, bool permanent = default, int priceTokens = default, List<string> productIds = default, ProductType productType = default, List<Object> products = default, bool quantifiable = default, bool recurrable = default, bool refundable = default, string sellerDisplayName = default, string sellerId = default, bool soldByVrc = default, bool stackable = default, List<string> storeIds = default, string subtitle = default, List<string> tags = default, int vrcPlusDiscountPrice = default, DateTime? whenToExpire = default)
+        public ProductListing(bool active = default, bool archived = default, bool buyerRefundable = default, DateTime created = default, string description = default, string displayName = default, int? duration = default, string durationType = default, string groupIcon = default, string groupId = default, string groupName = default, bool hasAvatar = default, bool hasUdon = default, List<Product> hydratedProducts = default, string id = default, string imageId = default, string imageUrl = default, ProductListingType listingType = default, List<ProductListingVariant> listingVariants = default, bool permanent = default, int priceTokens = default, List<string> productIds = default, ProductType productType = default, List<Object> products = default, int purchaseCount = default, int purchaseCountQuantity = default, bool quantifiable = default, bool recurrable = default, bool refundable = default, string sellerDisplayName = default, string sellerId = default, bool soldByVrc = default, bool stackable = default, List<string> storeIds = default, string subtitle = default, List<string> tags = default, DateTime updated = default, int vrcPlusDiscountPrice = default, DateTime? whenToExpire = default)
         {
             this.Active = active;
             this.BuyerRefundable = buyerRefundable;
@@ -114,6 +119,8 @@ namespace VRChat.API.Model
             this.Stackable = stackable;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.StoreIds = storeIds;
+            this.Archived = archived;
+            this.Created = created;
             this.Duration = duration;
             this.DurationType = durationType;
             this.GroupIcon = groupIcon;
@@ -124,10 +131,13 @@ namespace VRChat.API.Model
             this.ImageUrl = imageUrl;
             this.ListingVariants = listingVariants;
             this.Permanent = permanent;
+            this.PurchaseCount = purchaseCount;
+            this.PurchaseCountQuantity = purchaseCountQuantity;
             this.Quantifiable = quantifiable;
             this.SoldByVrc = soldByVrc;
             this.Subtitle = subtitle;
             this.Tags = tags;
+            this.Updated = updated;
             this.VrcPlusDiscountPrice = vrcPlusDiscountPrice;
             this.WhenToExpire = whenToExpire;
         }
@@ -139,10 +149,22 @@ namespace VRChat.API.Model
         public bool Active { get; set; }
 
         /// <summary>
+        /// Gets or Sets Archived
+        /// </summary>
+        [DataMember(Name = "archived", EmitDefaultValue = true)]
+        public bool Archived { get; set; }
+
+        /// <summary>
         /// Gets or Sets BuyerRefundable
         /// </summary>
         [DataMember(Name = "buyerRefundable", IsRequired = true, EmitDefaultValue = true)]
         public bool BuyerRefundable { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Created
+        /// </summary>
+        [DataMember(Name = "created", EmitDefaultValue = false)]
+        public DateTime Created { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
@@ -265,6 +287,18 @@ namespace VRChat.API.Model
         public List<Object> Products { get; set; }
 
         /// <summary>
+        /// Gets or Sets PurchaseCount
+        /// </summary>
+        [DataMember(Name = "purchaseCount", EmitDefaultValue = false)]
+        public int PurchaseCount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PurchaseCountQuantity
+        /// </summary>
+        [DataMember(Name = "purchaseCountQuantity", EmitDefaultValue = false)]
+        public int PurchaseCountQuantity { get; set; }
+
+        /// <summary>
         /// Gets or Sets Quantifiable
         /// </summary>
         [DataMember(Name = "quantifiable", EmitDefaultValue = true)]
@@ -325,6 +359,12 @@ namespace VRChat.API.Model
         public List<string> Tags { get; set; }
 
         /// <summary>
+        /// Gets or Sets Updated
+        /// </summary>
+        [DataMember(Name = "updated", EmitDefaultValue = false)]
+        public DateTime Updated { get; set; }
+
+        /// <summary>
         /// Gets or Sets VrcPlusDiscountPrice
         /// </summary>
         [DataMember(Name = "vrcPlusDiscountPrice", EmitDefaultValue = false)]
@@ -345,7 +385,9 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ProductListing {\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
+            sb.Append("  Archived: ").Append(Archived).Append("\n");
             sb.Append("  BuyerRefundable: ").Append(BuyerRefundable).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Duration: ").Append(Duration).Append("\n");
@@ -366,6 +408,8 @@ namespace VRChat.API.Model
             sb.Append("  ProductIds: ").Append(ProductIds).Append("\n");
             sb.Append("  ProductType: ").Append(ProductType).Append("\n");
             sb.Append("  Products: ").Append(Products).Append("\n");
+            sb.Append("  PurchaseCount: ").Append(PurchaseCount).Append("\n");
+            sb.Append("  PurchaseCountQuantity: ").Append(PurchaseCountQuantity).Append("\n");
             sb.Append("  Quantifiable: ").Append(Quantifiable).Append("\n");
             sb.Append("  Recurrable: ").Append(Recurrable).Append("\n");
             sb.Append("  Refundable: ").Append(Refundable).Append("\n");
@@ -376,6 +420,7 @@ namespace VRChat.API.Model
             sb.Append("  StoreIds: ").Append(StoreIds).Append("\n");
             sb.Append("  Subtitle: ").Append(Subtitle).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  VrcPlusDiscountPrice: ").Append(VrcPlusDiscountPrice).Append("\n");
             sb.Append("  WhenToExpire: ").Append(WhenToExpire).Append("\n");
             sb.Append("}\n");
@@ -418,8 +463,17 @@ namespace VRChat.API.Model
                     this.Active.Equals(input.Active)
                 ) && 
                 (
+                    this.Archived == input.Archived ||
+                    this.Archived.Equals(input.Archived)
+                ) && 
+                (
                     this.BuyerRefundable == input.BuyerRefundable ||
                     this.BuyerRefundable.Equals(input.BuyerRefundable)
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -520,6 +574,14 @@ namespace VRChat.API.Model
                     this.Products.SequenceEqual(input.Products)
                 ) && 
                 (
+                    this.PurchaseCount == input.PurchaseCount ||
+                    this.PurchaseCount.Equals(input.PurchaseCount)
+                ) && 
+                (
+                    this.PurchaseCountQuantity == input.PurchaseCountQuantity ||
+                    this.PurchaseCountQuantity.Equals(input.PurchaseCountQuantity)
+                ) && 
+                (
                     this.Quantifiable == input.Quantifiable ||
                     this.Quantifiable.Equals(input.Quantifiable)
                 ) && 
@@ -567,6 +629,11 @@ namespace VRChat.API.Model
                     this.Tags.SequenceEqual(input.Tags)
                 ) && 
                 (
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
+                ) && 
+                (
                     this.VrcPlusDiscountPrice == input.VrcPlusDiscountPrice ||
                     this.VrcPlusDiscountPrice.Equals(input.VrcPlusDiscountPrice)
                 ) && 
@@ -587,7 +654,12 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Active.GetHashCode();
+                hashCode = (hashCode * 59) + this.Archived.GetHashCode();
                 hashCode = (hashCode * 59) + this.BuyerRefundable.GetHashCode();
+                if (this.Created != null)
+                {
+                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
+                }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
@@ -650,6 +722,8 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Products.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.PurchaseCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.PurchaseCountQuantity.GetHashCode();
                 hashCode = (hashCode * 59) + this.Quantifiable.GetHashCode();
                 hashCode = (hashCode * 59) + this.Recurrable.GetHashCode();
                 hashCode = (hashCode * 59) + this.Refundable.GetHashCode();
@@ -674,6 +748,10 @@ namespace VRChat.API.Model
                 if (this.Tags != null)
                 {
                     hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.Updated != null)
+                {
+                    hashCode = (hashCode * 59) + this.Updated.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.VrcPlusDiscountPrice.GetHashCode();
                 if (this.WhenToExpire != null)

@@ -70,6 +70,8 @@ docs/CreateGroupRequest.md
 docs/CreateGroupRoleRequest.md
 docs/CreateInstanceRequest.md
 docs/CreateJamSubmissionRequest.md
+docs/CreateListingRequest.md
+docs/CreateProductRequest.md
 docs/CreatePropRequest.md
 docs/CreateWorldRequest.md
 docs/CurrentUser.md
@@ -84,6 +86,11 @@ docs/EarningsMetrics.md
 docs/EarningsMetricsTotals.md
 docs/EconomyAccount.md
 docs/EconomyApi.md
+docs/EconomyBalances.md
+docs/EconomyPayout.md
+docs/EconomyPayoutEligibility.md
+docs/EconomyPayoutList.md
+docs/EconomyPayoutStatus.md
 docs/EquipInventoryItemRequest.md
 docs/Error.md
 docs/Favorite.md
@@ -236,6 +243,7 @@ docs/ProductListingVariant.md
 docs/ProductPurchase.md
 docs/ProductPurchaseHistory.md
 docs/ProductPurchaseLocationType.md
+docs/ProductPurchaseProduct.md
 docs/ProductPurchasePurchaseContext.md
 docs/ProductPurchaseRecord.md
 docs/ProductType.md
@@ -269,6 +277,7 @@ docs/ShareInventoryItemDirectRequest.md
 docs/SortOption.md
 docs/SortOptionProductPurchase.md
 docs/Store.md
+docs/StoreContext.md
 docs/StoreShelf.md
 docs/StoreType.md
 docs/StoreView.md
@@ -278,6 +287,7 @@ docs/Subscription.md
 docs/SubscriptionPeriod.md
 docs/Success.md
 docs/SuccessFlag.md
+docs/TiliaKyc.md
 docs/TiliaStatus.md
 docs/TiliaTOS.md
 docs/TokenBundle.md
@@ -304,6 +314,8 @@ docs/UpdateGroupRequest.md
 docs/UpdateGroupRoleRequest.md
 docs/UpdateInventoryItemRequest.md
 docs/UpdateInviteMessageRequest.md
+docs/UpdateListingRequest.md
+docs/UpdateProductRequest.md
 docs/UpdatePropRequest.md
 docs/UpdateTiliaTOSRequest.md
 docs/UpdateUserBadgeRequest.md
@@ -431,6 +443,8 @@ src/VRChat.API/Model/CreateGroupRequest.cs
 src/VRChat.API/Model/CreateGroupRoleRequest.cs
 src/VRChat.API/Model/CreateInstanceRequest.cs
 src/VRChat.API/Model/CreateJamSubmissionRequest.cs
+src/VRChat.API/Model/CreateListingRequest.cs
+src/VRChat.API/Model/CreateProductRequest.cs
 src/VRChat.API/Model/CreatePropRequest.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
 src/VRChat.API/Model/CurrentUser.cs
@@ -444,6 +458,11 @@ src/VRChat.API/Model/DynamicContentRow.cs
 src/VRChat.API/Model/EarningsMetrics.cs
 src/VRChat.API/Model/EarningsMetricsTotals.cs
 src/VRChat.API/Model/EconomyAccount.cs
+src/VRChat.API/Model/EconomyBalances.cs
+src/VRChat.API/Model/EconomyPayout.cs
+src/VRChat.API/Model/EconomyPayoutEligibility.cs
+src/VRChat.API/Model/EconomyPayoutList.cs
+src/VRChat.API/Model/EconomyPayoutStatus.cs
 src/VRChat.API/Model/EquipInventoryItemRequest.cs
 src/VRChat.API/Model/Error.cs
 src/VRChat.API/Model/Favorite.cs
@@ -584,6 +603,7 @@ src/VRChat.API/Model/ProductListingVariant.cs
 src/VRChat.API/Model/ProductPurchase.cs
 src/VRChat.API/Model/ProductPurchaseHistory.cs
 src/VRChat.API/Model/ProductPurchaseLocationType.cs
+src/VRChat.API/Model/ProductPurchaseProduct.cs
 src/VRChat.API/Model/ProductPurchasePurchaseContext.cs
 src/VRChat.API/Model/ProductPurchaseRecord.cs
 src/VRChat.API/Model/ProductType.cs
@@ -616,6 +636,7 @@ src/VRChat.API/Model/ShareInventoryItemDirectRequest.cs
 src/VRChat.API/Model/SortOption.cs
 src/VRChat.API/Model/SortOptionProductPurchase.cs
 src/VRChat.API/Model/Store.cs
+src/VRChat.API/Model/StoreContext.cs
 src/VRChat.API/Model/StoreShelf.cs
 src/VRChat.API/Model/StoreType.cs
 src/VRChat.API/Model/StoreView.cs
@@ -625,6 +646,7 @@ src/VRChat.API/Model/Subscription.cs
 src/VRChat.API/Model/SubscriptionPeriod.cs
 src/VRChat.API/Model/Success.cs
 src/VRChat.API/Model/SuccessFlag.cs
+src/VRChat.API/Model/TiliaKyc.cs
 src/VRChat.API/Model/TiliaStatus.cs
 src/VRChat.API/Model/TiliaTOS.cs
 src/VRChat.API/Model/TokenBundle.cs
@@ -651,6 +673,8 @@ src/VRChat.API/Model/UpdateGroupRequest.cs
 src/VRChat.API/Model/UpdateGroupRoleRequest.cs
 src/VRChat.API/Model/UpdateInventoryItemRequest.cs
 src/VRChat.API/Model/UpdateInviteMessageRequest.cs
+src/VRChat.API/Model/UpdateListingRequest.cs
+src/VRChat.API/Model/UpdateProductRequest.cs
 src/VRChat.API/Model/UpdatePropRequest.cs
 src/VRChat.API/Model/UpdateTiliaTOSRequest.cs
 src/VRChat.API/Model/UpdateUserBadgeRequest.cs

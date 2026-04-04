@@ -27,48 +27,49 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// ProductPurchasePurchaseContext
+    /// StoreContext
     /// </summary>
-    [DataContract(Name = "ProductPurchase_purchaseContext")]
-    public partial class ProductPurchasePurchaseContext : IEquatable<ProductPurchasePurchaseContext>, IValidatableObject
+    [DataContract(Name = "StoreContext")]
+    public partial class StoreContext : IEquatable<StoreContext>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProductPurchasePurchaseContext" /> class.
+        /// Initializes a new instance of the <see cref="StoreContext" /> class.
         /// </summary>
-        /// <param name="locationType">locationType.</param>
-        /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        /// <param name="worldName">worldName.</param>
-        public ProductPurchasePurchaseContext(string locationType = default, string worldId = default, string worldName = default)
+        [JsonConstructorAttribute]
+        protected StoreContext() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StoreContext" /> class.
+        /// </summary>
+        /// <param name="id">id (required).</param>
+        /// <param name="imageUrl">imageUrl (required).</param>
+        /// <param name="name">name (required).</param>
+        public StoreContext(string id = default, string imageUrl = default, string name = default)
         {
-            this.LocationType = locationType;
-            this.WorldId = worldId;
-            this.WorldName = worldName;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Id = id;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ImageUrl = imageUrl;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Name = name;
         }
 
         /// <summary>
-        /// Gets or Sets LocationType
+        /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>undefined</example>
-        */
-        [DataMember(Name = "locationType", EmitDefaultValue = false)]
-        public string LocationType { get; set; }
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
+        /// Gets or Sets ImageUrl
         /// </summary>
-        /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
-        [DataMember(Name = "worldId", EmitDefaultValue = false)]
-        public string WorldId { get; set; }
+        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
+        public string ImageUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets WorldName
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "worldName", EmitDefaultValue = false)]
-        public string WorldName { get; set; }
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,10 +78,10 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProductPurchasePurchaseContext {\n");
-            sb.Append("  LocationType: ").Append(LocationType).Append("\n");
-            sb.Append("  WorldId: ").Append(WorldId).Append("\n");
-            sb.Append("  WorldName: ").Append(WorldName).Append("\n");
+            sb.Append("class StoreContext {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,15 +102,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProductPurchasePurchaseContext);
+            return this.Equals(input as StoreContext);
         }
 
         /// <summary>
-        /// Returns true if ProductPurchasePurchaseContext instances are equal
+        /// Returns true if StoreContext instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProductPurchasePurchaseContext to be compared</param>
+        /// <param name="input">Instance of StoreContext to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProductPurchasePurchaseContext input)
+        public bool Equals(StoreContext input)
         {
             if (input == null)
             {
@@ -117,19 +118,19 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.LocationType == input.LocationType ||
-                    (this.LocationType != null &&
-                    this.LocationType.Equals(input.LocationType))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.WorldId == input.WorldId ||
-                    (this.WorldId != null &&
-                    this.WorldId.Equals(input.WorldId))
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
                 ) && 
                 (
-                    this.WorldName == input.WorldName ||
-                    (this.WorldName != null &&
-                    this.WorldName.Equals(input.WorldName))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -142,17 +143,17 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.LocationType != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.LocationType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.WorldId != null)
+                if (this.ImageUrl != null)
                 {
-                    hashCode = (hashCode * 59) + this.WorldId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
                 }
-                if (this.WorldName != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.WorldName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 return hashCode;
             }
