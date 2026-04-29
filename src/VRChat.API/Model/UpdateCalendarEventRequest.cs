@@ -47,13 +47,14 @@ namespace VRChat.API.Model
         /// <param name="languages">languages.</param>
         /// <param name="parentId">parentId.</param>
         /// <param name="platforms">platforms.</param>
+        /// <param name="recurrence">recurrence.</param>
         /// <param name="roleIds">roleIds.</param>
         /// <param name="sendCreationNotification">Send notification to group members. (default to false).</param>
         /// <param name="startsAt">Time the vent starts at.</param>
         /// <param name="tags">tags.</param>
         /// <param name="title">Event title.</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
-        public UpdateCalendarEventRequest(string category = default, int closeInstanceAfterEndMinutes = default, string description = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string imageId = default, bool isDraft = default, List<string> languages = default, string parentId = default, List<string> platforms = default, List<string> roleIds = default, bool sendCreationNotification = false, DateTime startsAt = default, List<string> tags = default, string title = default, bool usesInstanceOverflow = default)
+        public UpdateCalendarEventRequest(string category = default, int closeInstanceAfterEndMinutes = default, string description = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string imageId = default, bool isDraft = default, List<string> languages = default, string parentId = default, List<string> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, bool sendCreationNotification = false, DateTime startsAt = default, List<string> tags = default, string title = default, bool usesInstanceOverflow = default)
         {
             this.Category = category;
             this.CloseInstanceAfterEndMinutes = closeInstanceAfterEndMinutes;
@@ -67,6 +68,7 @@ namespace VRChat.API.Model
             this.Languages = languages;
             this.ParentId = parentId;
             this.Platforms = platforms;
+            this.Recurrence = recurrence;
             this.RoleIds = roleIds;
             this.SendCreationNotification = sendCreationNotification;
             this.StartsAt = startsAt;
@@ -164,6 +166,12 @@ namespace VRChat.API.Model
         public List<string> Platforms { get; set; }
 
         /// <summary>
+        /// Gets or Sets Recurrence
+        /// </summary>
+        [DataMember(Name = "recurrence", EmitDefaultValue = true)]
+        public CalendarEventRecurrence Recurrence { get; set; }
+
+        /// <summary>
         /// Gets or Sets RoleIds
         /// </summary>
         [DataMember(Name = "roleIds", EmitDefaultValue = false)]
@@ -231,6 +239,7 @@ namespace VRChat.API.Model
             sb.Append("  Languages: ").Append(Languages).Append("\n");
             sb.Append("  ParentId: ").Append(ParentId).Append("\n");
             sb.Append("  Platforms: ").Append(Platforms).Append("\n");
+            sb.Append("  Recurrence: ").Append(Recurrence).Append("\n");
             sb.Append("  RoleIds: ").Append(RoleIds).Append("\n");
             sb.Append("  SendCreationNotification: ").Append(SendCreationNotification).Append("\n");
             sb.Append("  StartsAt: ").Append(StartsAt).Append("\n");
@@ -330,6 +339,11 @@ namespace VRChat.API.Model
                     this.Platforms.SequenceEqual(input.Platforms)
                 ) && 
                 (
+                    this.Recurrence == input.Recurrence ||
+                    (this.Recurrence != null &&
+                    this.Recurrence.Equals(input.Recurrence))
+                ) && 
+                (
                     this.RoleIds == input.RoleIds ||
                     this.RoleIds != null &&
                     input.RoleIds != null &&
@@ -402,6 +416,10 @@ namespace VRChat.API.Model
                 if (this.Platforms != null)
                 {
                     hashCode = (hashCode * 59) + this.Platforms.GetHashCode();
+                }
+                if (this.Recurrence != null)
+                {
+                    hashCode = (hashCode * 59) + this.Recurrence.GetHashCode();
                 }
                 if (this.RoleIds != null)
                 {

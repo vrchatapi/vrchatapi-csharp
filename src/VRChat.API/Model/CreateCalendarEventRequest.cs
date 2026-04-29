@@ -44,6 +44,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public CalendarEventCategory Category { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OccurrenceKind
+        /// </summary>
+        [DataMember(Name = "occurrenceKind", EmitDefaultValue = false)]
+        public CalendarEventOccurrenceKind? OccurrenceKind { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateCalendarEventRequest" /> class.
         /// </summary>
@@ -63,15 +69,17 @@ namespace VRChat.API.Model
         /// <param name="imageId">imageId.</param>
         /// <param name="isDraft">isDraft.</param>
         /// <param name="languages">languages.</param>
+        /// <param name="occurrenceKind">occurrenceKind.</param>
         /// <param name="parentId">parentId.</param>
         /// <param name="platforms">platforms.</param>
+        /// <param name="recurrence">recurrence.</param>
         /// <param name="roleIds">roleIds.</param>
         /// <param name="sendCreationNotification">Send notification to group members. (required).</param>
         /// <param name="startsAt">Time the event starts at (required).</param>
         /// <param name="tags">tags.</param>
         /// <param name="title">Event title (required).</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
-        public CreateCalendarEventRequest(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, string description = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string imageId = default, bool isDraft = default, List<string> languages = default, string parentId = default, List<CalendarEventPlatform> platforms = default, List<string> roleIds = default, bool sendCreationNotification = default, DateTime startsAt = default, List<string> tags = default, string title = default, bool usesInstanceOverflow = default)
+        public CreateCalendarEventRequest(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, string description = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string imageId = default, bool isDraft = default, List<string> languages = default, CalendarEventOccurrenceKind? occurrenceKind = default, string parentId = default, List<CalendarEventPlatform> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, bool sendCreationNotification = default, DateTime startsAt = default, List<string> tags = default, string title = default, bool usesInstanceOverflow = default)
         {
             this.AccessType = accessType;
             this.Category = category;
@@ -89,8 +97,10 @@ namespace VRChat.API.Model
             this.ImageId = imageId;
             this.IsDraft = isDraft;
             this.Languages = languages;
+            this.OccurrenceKind = occurrenceKind;
             this.ParentId = parentId;
             this.Platforms = platforms;
+            this.Recurrence = recurrence;
             this.RoleIds = roleIds;
             this.Tags = tags;
             this.UsesInstanceOverflow = usesInstanceOverflow;
@@ -179,6 +189,12 @@ namespace VRChat.API.Model
         public List<CalendarEventPlatform> Platforms { get; set; }
 
         /// <summary>
+        /// Gets or Sets Recurrence
+        /// </summary>
+        [DataMember(Name = "recurrence", EmitDefaultValue = true)]
+        public CalendarEventRecurrence Recurrence { get; set; }
+
+        /// <summary>
         /// Gets or Sets RoleIds
         /// </summary>
         [DataMember(Name = "roleIds", EmitDefaultValue = false)]
@@ -245,8 +261,10 @@ namespace VRChat.API.Model
             sb.Append("  ImageId: ").Append(ImageId).Append("\n");
             sb.Append("  IsDraft: ").Append(IsDraft).Append("\n");
             sb.Append("  Languages: ").Append(Languages).Append("\n");
+            sb.Append("  OccurrenceKind: ").Append(OccurrenceKind).Append("\n");
             sb.Append("  ParentId: ").Append(ParentId).Append("\n");
             sb.Append("  Platforms: ").Append(Platforms).Append("\n");
+            sb.Append("  Recurrence: ").Append(Recurrence).Append("\n");
             sb.Append("  RoleIds: ").Append(RoleIds).Append("\n");
             sb.Append("  SendCreationNotification: ").Append(SendCreationNotification).Append("\n");
             sb.Append("  StartsAt: ").Append(StartsAt).Append("\n");
@@ -338,6 +356,10 @@ namespace VRChat.API.Model
                     this.Languages.SequenceEqual(input.Languages)
                 ) && 
                 (
+                    this.OccurrenceKind == input.OccurrenceKind ||
+                    this.OccurrenceKind.Equals(input.OccurrenceKind)
+                ) && 
+                (
                     this.ParentId == input.ParentId ||
                     (this.ParentId != null &&
                     this.ParentId.Equals(input.ParentId))
@@ -347,6 +369,11 @@ namespace VRChat.API.Model
                     this.Platforms != null &&
                     input.Platforms != null &&
                     this.Platforms.SequenceEqual(input.Platforms)
+                ) && 
+                (
+                    this.Recurrence == input.Recurrence ||
+                    (this.Recurrence != null &&
+                    this.Recurrence.Equals(input.Recurrence))
                 ) && 
                 (
                     this.RoleIds == input.RoleIds ||
@@ -412,6 +439,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Languages.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.OccurrenceKind.GetHashCode();
                 if (this.ParentId != null)
                 {
                     hashCode = (hashCode * 59) + this.ParentId.GetHashCode();
@@ -419,6 +447,10 @@ namespace VRChat.API.Model
                 if (this.Platforms != null)
                 {
                     hashCode = (hashCode * 59) + this.Platforms.GetHashCode();
+                }
+                if (this.Recurrence != null)
+                {
+                    hashCode = (hashCode * 59) + this.Recurrence.GetHashCode();
                 }
                 if (this.RoleIds != null)
                 {

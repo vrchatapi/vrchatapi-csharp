@@ -44,6 +44,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public CalendarEventCategory Category { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OccurrenceKind
+        /// </summary>
+        [DataMember(Name = "occurrenceKind", EmitDefaultValue = false)]
+        public CalendarEventOccurrenceKind? OccurrenceKind { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CalendarEvent" /> class.
         /// </summary>
@@ -69,10 +75,10 @@ namespace VRChat.API.Model
         /// <param name="interestedUserCount">interestedUserCount.</param>
         /// <param name="isDraft">isDraft.</param>
         /// <param name="languages">Languages that might be spoken at this event.</param>
-        /// <param name="occurrenceKind">So far if it exists, always the string \&quot;single\&quot;.</param>
+        /// <param name="occurrenceKind">occurrenceKind.</param>
         /// <param name="ownerId">ownerId.</param>
         /// <param name="platforms">platforms.</param>
-        /// <param name="recurrence">So far unused, always \&quot;null\&quot;.</param>
+        /// <param name="recurrence">recurrence.</param>
         /// <param name="roleIds">Group roles that may join this event.</param>
         /// <param name="seriesId">So far unused, always \&quot;null\&quot;.</param>
         /// <param name="startsAt">startsAt (required).</param>
@@ -82,7 +88,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="userInterest">userInterest.</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
-        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, long durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, string occurrenceKind = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, string recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
+        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, long durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, CalendarEventOccurrenceKind? occurrenceKind = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
         {
             this.AccessType = accessType;
             this.Category = category;
@@ -217,13 +223,6 @@ namespace VRChat.API.Model
         public List<string> Languages { get; set; }
 
         /// <summary>
-        /// So far if it exists, always the string \&quot;single\&quot;
-        /// </summary>
-        /// <value>So far if it exists, always the string \&quot;single\&quot;</value>
-        [DataMember(Name = "occurrenceKind", EmitDefaultValue = false)]
-        public string OccurrenceKind { get; set; }
-
-        /// <summary>
         /// Gets or Sets OwnerId
         /// </summary>
         /*
@@ -239,11 +238,10 @@ namespace VRChat.API.Model
         public List<CalendarEventPlatform> Platforms { get; set; }
 
         /// <summary>
-        /// So far unused, always \&quot;null\&quot;
+        /// Gets or Sets Recurrence
         /// </summary>
-        /// <value>So far unused, always \&quot;null\&quot;</value>
         [DataMember(Name = "recurrence", EmitDefaultValue = true)]
-        public string Recurrence { get; set; }
+        public CalendarEventRecurrence Recurrence { get; set; }
 
         /// <summary>
         /// Group roles that may join this event
@@ -457,8 +455,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.OccurrenceKind == input.OccurrenceKind ||
-                    (this.OccurrenceKind != null &&
-                    this.OccurrenceKind.Equals(input.OccurrenceKind))
+                    this.OccurrenceKind.Equals(input.OccurrenceKind)
                 ) && 
                 (
                     this.OwnerId == input.OwnerId ||
@@ -574,10 +571,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Languages.GetHashCode();
                 }
-                if (this.OccurrenceKind != null)
-                {
-                    hashCode = (hashCode * 59) + this.OccurrenceKind.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.OccurrenceKind.GetHashCode();
                 if (this.OwnerId != null)
                 {
                     hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
