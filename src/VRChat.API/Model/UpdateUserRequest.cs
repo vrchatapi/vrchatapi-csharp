@@ -49,6 +49,7 @@ namespace VRChat.API.Model
         /// <param name="currentPassword">currentPassword.</param>
         /// <param name="displayName">MUST specify currentPassword as well to change display name.</param>
         /// <param name="email">email.</param>
+        /// <param name="hasDiscordFriendsOptOut">Opt out of the Discord Friend Connections feature.</param>
         /// <param name="hasSharedConnectionsOptOut">Opt out of the Mutuals feature.</param>
         /// <param name="isBoopingEnabled">isBoopingEnabled.</param>
         /// <param name="password">MUST specify currentPassword as well to change password.</param>
@@ -59,7 +60,7 @@ namespace VRChat.API.Model
         /// <param name="tags"> .</param>
         /// <param name="unsubscribe">unsubscribe.</param>
         /// <param name="userIcon">MUST be a valid VRChat /file/ url..</param>
-        public UpdateUserRequest(int acceptedTOSVersion = default, string bio = default, List<string> bioLinks = default, DateOnly birthday = default, List<ContentFilter> contentFilters = default, string currentPassword = default, string displayName = default, string email = default, bool hasSharedConnectionsOptOut = default, bool isBoopingEnabled = default, string password = default, string pronouns = default, bool revertDisplayName = default, UserStatus? status = default, string statusDescription = default, List<string> tags = default, bool unsubscribe = default, string userIcon = default)
+        public UpdateUserRequest(int acceptedTOSVersion = default, string bio = default, List<string> bioLinks = default, DateOnly birthday = default, List<ContentFilter> contentFilters = default, string currentPassword = default, string displayName = default, string email = default, bool hasDiscordFriendsOptOut = default, bool hasSharedConnectionsOptOut = default, bool isBoopingEnabled = default, string password = default, string pronouns = default, bool revertDisplayName = default, UserStatus? status = default, string statusDescription = default, List<string> tags = default, bool unsubscribe = default, string userIcon = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.Bio = bio;
@@ -69,6 +70,7 @@ namespace VRChat.API.Model
             this.CurrentPassword = currentPassword;
             this.DisplayName = displayName;
             this.Email = email;
+            this.HasDiscordFriendsOptOut = hasDiscordFriendsOptOut;
             this.HasSharedConnectionsOptOut = hasSharedConnectionsOptOut;
             this.IsBoopingEnabled = isBoopingEnabled;
             this.Password = password;
@@ -130,6 +132,13 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
+
+        /// <summary>
+        /// Opt out of the Discord Friend Connections feature
+        /// </summary>
+        /// <value>Opt out of the Discord Friend Connections feature</value>
+        [DataMember(Name = "hasDiscordFriendsOptOut", EmitDefaultValue = true)]
+        public bool HasDiscordFriendsOptOut { get; set; }
 
         /// <summary>
         /// Opt out of the Mutuals feature
@@ -209,6 +218,7 @@ namespace VRChat.API.Model
             sb.Append("  CurrentPassword: ").Append(CurrentPassword).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  HasDiscordFriendsOptOut: ").Append(HasDiscordFriendsOptOut).Append("\n");
             sb.Append("  HasSharedConnectionsOptOut: ").Append(HasSharedConnectionsOptOut).Append("\n");
             sb.Append("  IsBoopingEnabled: ").Append(IsBoopingEnabled).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
@@ -296,6 +306,10 @@ namespace VRChat.API.Model
                     this.Email.Equals(input.Email))
                 ) && 
                 (
+                    this.HasDiscordFriendsOptOut == input.HasDiscordFriendsOptOut ||
+                    this.HasDiscordFriendsOptOut.Equals(input.HasDiscordFriendsOptOut)
+                ) && 
+                (
                     this.HasSharedConnectionsOptOut == input.HasSharedConnectionsOptOut ||
                     this.HasSharedConnectionsOptOut.Equals(input.HasSharedConnectionsOptOut)
                 ) && 
@@ -381,6 +395,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Email.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.HasDiscordFriendsOptOut.GetHashCode();
                 hashCode = (hashCode * 59) + this.HasSharedConnectionsOptOut.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsBoopingEnabled.GetHashCode();
                 if (this.Password != null)

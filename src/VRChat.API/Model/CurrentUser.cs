@@ -94,9 +94,11 @@ namespace VRChat.API.Model
         /// <param name="googleDetails">googleDetails.</param>
         /// <param name="googleId">googleId.</param>
         /// <param name="hasBirthday">hasBirthday (required).</param>
+        /// <param name="hasDiscordFriendsOptOut">hasDiscordFriendsOptOut.</param>
         /// <param name="hasEmail">hasEmail (required).</param>
         /// <param name="hasLoggedInFromClient">hasLoggedInFromClient (required).</param>
         /// <param name="hasPendingEmail">hasPendingEmail (required).</param>
+        /// <param name="hasSharedConnectionsOptOut">hasSharedConnectionsOptOut.</param>
         /// <param name="hideContentFilterSettings">hideContentFilterSettings.</param>
         /// <param name="homeLocation">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
         /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
@@ -140,7 +142,7 @@ namespace VRChat.API.Model
         /// <param name="username">-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
         /// <param name="usesGeneratedPassword">usesGeneratedPassword (required).</param>
         /// <param name="viveId">viveId.</param>
-        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, string authToken = default, List<Badge> badges = default, string bio = default, List<string> bioLinks = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hideContentFilterSettings = default, string homeLocation = default, string id = default, bool isAdult = default, bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, string picoId = default, List<CurrentUserPlatformHistoryInner> platformHistory = default, CurrentUserPresence presence = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userIcon = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default)
+        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, string authToken = default, List<Badge> badges = default, string bio = default, List<string> bioLinks = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string id = default, bool isAdult = default, bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, string picoId = default, List<CurrentUserPlatformHistoryInner> platformHistory = default, CurrentUserPresence presence = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userIcon = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.AgeVerificationStatus = ageVerificationStatus;
@@ -230,6 +232,8 @@ namespace VRChat.API.Model
             this.FallbackAvatar = fallbackAvatar;
             this.GoogleDetails = googleDetails;
             this.GoogleId = googleId;
+            this.HasDiscordFriendsOptOut = hasDiscordFriendsOptOut;
+            this.HasSharedConnectionsOptOut = hasSharedConnectionsOptOut;
             this.HideContentFilterSettings = hideContentFilterSettings;
             this.IsBoopingEnabled = isBoopingEnabled;
             this.LastActivity = lastActivity;
@@ -450,6 +454,12 @@ namespace VRChat.API.Model
         public bool HasBirthday { get; set; }
 
         /// <summary>
+        /// Gets or Sets HasDiscordFriendsOptOut
+        /// </summary>
+        [DataMember(Name = "hasDiscordFriendsOptOut", EmitDefaultValue = true)]
+        public bool HasDiscordFriendsOptOut { get; set; }
+
+        /// <summary>
         /// Gets or Sets HasEmail
         /// </summary>
         [DataMember(Name = "hasEmail", IsRequired = false, EmitDefaultValue = true)]
@@ -466,6 +476,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "hasPendingEmail", IsRequired = false, EmitDefaultValue = true)]
         public bool HasPendingEmail { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HasSharedConnectionsOptOut
+        /// </summary>
+        [DataMember(Name = "hasSharedConnectionsOptOut", EmitDefaultValue = true)]
+        public bool HasSharedConnectionsOptOut { get; set; }
 
         /// <summary>
         /// Gets or Sets HideContentFilterSettings
@@ -772,9 +788,11 @@ namespace VRChat.API.Model
             sb.Append("  GoogleDetails: ").Append(GoogleDetails).Append("\n");
             sb.Append("  GoogleId: ").Append(GoogleId).Append("\n");
             sb.Append("  HasBirthday: ").Append(HasBirthday).Append("\n");
+            sb.Append("  HasDiscordFriendsOptOut: ").Append(HasDiscordFriendsOptOut).Append("\n");
             sb.Append("  HasEmail: ").Append(HasEmail).Append("\n");
             sb.Append("  HasLoggedInFromClient: ").Append(HasLoggedInFromClient).Append("\n");
             sb.Append("  HasPendingEmail: ").Append(HasPendingEmail).Append("\n");
+            sb.Append("  HasSharedConnectionsOptOut: ").Append(HasSharedConnectionsOptOut).Append("\n");
             sb.Append("  HideContentFilterSettings: ").Append(HideContentFilterSettings).Append("\n");
             sb.Append("  HomeLocation: ").Append(HomeLocation).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -1004,6 +1022,10 @@ namespace VRChat.API.Model
                     this.HasBirthday.Equals(input.HasBirthday)
                 ) && 
                 (
+                    this.HasDiscordFriendsOptOut == input.HasDiscordFriendsOptOut ||
+                    this.HasDiscordFriendsOptOut.Equals(input.HasDiscordFriendsOptOut)
+                ) && 
+                (
                     this.HasEmail == input.HasEmail ||
                     this.HasEmail.Equals(input.HasEmail)
                 ) && 
@@ -1014,6 +1036,10 @@ namespace VRChat.API.Model
                 (
                     this.HasPendingEmail == input.HasPendingEmail ||
                     this.HasPendingEmail.Equals(input.HasPendingEmail)
+                ) && 
+                (
+                    this.HasSharedConnectionsOptOut == input.HasSharedConnectionsOptOut ||
+                    this.HasSharedConnectionsOptOut.Equals(input.HasSharedConnectionsOptOut)
                 ) && 
                 (
                     this.HideContentFilterSettings == input.HideContentFilterSettings ||
@@ -1333,9 +1359,11 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.GoogleId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.HasBirthday.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasDiscordFriendsOptOut.GetHashCode();
                 hashCode = (hashCode * 59) + this.HasEmail.GetHashCode();
                 hashCode = (hashCode * 59) + this.HasLoggedInFromClient.GetHashCode();
                 hashCode = (hashCode * 59) + this.HasPendingEmail.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasSharedConnectionsOptOut.GetHashCode();
                 hashCode = (hashCode * 59) + this.HideContentFilterSettings.GetHashCode();
                 if (this.HomeLocation != null)
                 {
