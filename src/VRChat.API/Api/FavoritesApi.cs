@@ -108,7 +108,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="ownerId">The owner of whoms favorite groups to return. Must be a UserID. (optional)</param>
+        /// <param name="ownerId">The owner whose favorite groups to return. Must be a UserID. (optional)</param>
         /// <returns>List&lt;FavoriteGroup&gt;</returns>
         List<FavoriteGroup> GetFavoriteGroups(int? n = default, int? offset = default, string? userId = default, string? ownerId = default);
 
@@ -122,7 +122,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="ownerId">The owner of whoms favorite groups to return. Must be a UserID. (optional)</param>
+        /// <param name="ownerId">The owner whose favorite groups to return. Must be a UserID. (optional)</param>
         /// <returns>ApiResponse of List&lt;FavoriteGroup&gt;</returns>
         ApiResponse<List<FavoriteGroup>> GetFavoriteGroupsWithHttpInfo(int? n = default, int? offset = default, string? userId = default, string? ownerId = default);
         /// <summary>
@@ -315,7 +315,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="ownerId">The owner of whoms favorite groups to return. Must be a UserID. (optional)</param>
+        /// <param name="ownerId">The owner whose favorite groups to return. Must be a UserID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;FavoriteGroup&gt;</returns>
         System.Threading.Tasks.Task<List<FavoriteGroup>> GetFavoriteGroupsAsync(int? n = default, int? offset = default, string? userId = default, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default);
@@ -330,7 +330,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="ownerId">The owner of whoms favorite groups to return. Must be a UserID. (optional)</param>
+        /// <param name="ownerId">The owner whose favorite groups to return. Must be a UserID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;FavoriteGroup&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<FavoriteGroup>>> GetFavoriteGroupsWithHttpInfoAsync(int? n = default, int? offset = default, string? userId = default, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default);
@@ -1122,7 +1122,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="ownerId">The owner of whoms favorite groups to return. Must be a UserID. (optional)</param>
+        /// <param name="ownerId">The owner whose favorite groups to return. Must be a UserID. (optional)</param>
         /// <returns>List&lt;FavoriteGroup&gt;</returns>
         public List<FavoriteGroup> GetFavoriteGroups(int? n = default, int? offset = default, string? userId = default, string? ownerId = default)
         {
@@ -1145,7 +1145,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="ownerId">The owner of whoms favorite groups to return. Must be a UserID. (optional)</param>
+        /// <param name="ownerId">The owner whose favorite groups to return. Must be a UserID. (optional)</param>
         /// <returns>ApiResponse of List&lt;FavoriteGroup&gt;</returns>
         public VRChat.API.Client.ApiResponse<List<FavoriteGroup>> GetFavoriteGroupsWithHttpInfo(int? n = default, int? offset = default, string? userId = default, string? ownerId = default)
         {
@@ -1209,7 +1209,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="ownerId">The owner of whoms favorite groups to return. Must be a UserID. (optional)</param>
+        /// <param name="ownerId">The owner whose favorite groups to return. Must be a UserID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;FavoriteGroup&gt;</returns>
         public async System.Threading.Tasks.Task<List<FavoriteGroup>> GetFavoriteGroupsAsync(int? n = default, int? offset = default, string? userId = default, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default)
@@ -1233,7 +1233,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
-        /// <param name="ownerId">The owner of whoms favorite groups to return. Must be a UserID. (optional)</param>
+        /// <param name="ownerId">The owner whose favorite groups to return. Must be a UserID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;FavoriteGroup&gt;)</returns>
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<FavoriteGroup>>> GetFavoriteGroupsWithHttpInfoAsync(int? n = default, int? offset = default, string? userId = default, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default)

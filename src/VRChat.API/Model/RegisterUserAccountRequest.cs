@@ -46,7 +46,7 @@ namespace VRChat.API.Model
         /// <param name="email">Email address (required).</param>
         /// <param name="month">Birth month of year (required).</param>
         /// <param name="password">Password (required).</param>
-        /// <param name="subscribe">Whether to recieve promotional emails (required).</param>
+        /// <param name="subscribe">Whether to receive promotional emails (required).</param>
         /// <param name="username">Display Name / Username (Username is a sanitized version) (required).</param>
         /// <param name="year">Birth year (required).</param>
         public RegisterUserAccountRequest(int acceptedTOSVersion = default, string captchaCode = default, string day = default, string email = default, string month = default, string password = default, bool subscribe = default, string username = default, string year = default)
@@ -112,9 +112,9 @@ namespace VRChat.API.Model
         public string Password { get; set; }
 
         /// <summary>
-        /// Whether to recieve promotional emails
+        /// Whether to receive promotional emails
         /// </summary>
-        /// <value>Whether to recieve promotional emails</value>
+        /// <value>Whether to receive promotional emails</value>
         [DataMember(Name = "subscribe", IsRequired = true, EmitDefaultValue = true)]
         public bool Subscribe { get; set; }
 

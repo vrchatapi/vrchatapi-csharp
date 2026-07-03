@@ -877,7 +877,7 @@ namespace VRChat.API.Api
         /// Initiate or Accept Group Transfer
         /// </summary>
         /// <remarks>
-        /// To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targetted by a pending transfer, no body is required.
+        /// To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targeted by a pending transfer, no body is required.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -889,7 +889,7 @@ namespace VRChat.API.Api
         /// Initiate or Accept Group Transfer
         /// </summary>
         /// <remarks>
-        /// To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targetted by a pending transfer, no body is required.
+        /// To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targeted by a pending transfer, no body is required.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -2167,7 +2167,7 @@ namespace VRChat.API.Api
         /// Initiate or Accept Group Transfer
         /// </summary>
         /// <remarks>
-        /// To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targetted by a pending transfer, no body is required.
+        /// To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targeted by a pending transfer, no body is required.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -2180,7 +2180,7 @@ namespace VRChat.API.Api
         /// Initiate or Accept Group Transfer
         /// </summary>
         /// <remarks>
-        /// To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targetted by a pending transfer, no body is required.
+        /// To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targeted by a pending transfer, no body is required.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -8534,7 +8534,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Initiate or Accept Group Transfer To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targetted by a pending transfer, no body is required.
+        /// Initiate or Accept Group Transfer To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targeted by a pending transfer, no body is required.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -8555,7 +8555,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Initiate or Accept Group Transfer To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targetted by a pending transfer, no body is required.
+        /// Initiate or Accept Group Transfer To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targeted by a pending transfer, no body is required.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -8608,7 +8608,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Initiate or Accept Group Transfer To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targetted by a pending transfer, no body is required.
+        /// Initiate or Accept Group Transfer To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targeted by a pending transfer, no body is required.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -8630,7 +8630,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Initiate or Accept Group Transfer To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targetted by a pending transfer, no body is required.
+        /// Initiate or Accept Group Transfer To initiate, must be logged in as the current owner and specify the transferTargetId in the body. To accept, must be logged in as the user targeted by a pending transfer, no body is required.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>

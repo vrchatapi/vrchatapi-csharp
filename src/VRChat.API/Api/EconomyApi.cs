@@ -744,7 +744,7 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of List&lt;TokenBundle&gt;</returns>
         ApiResponse<List<TokenBundle>> GetTokenBundlesWithHttpInfo();
         /// <summary>
-        /// Get User Credits Eligiblity
+        /// Get User Credits Eligibility
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s eligibility status for subscriptions based on available credits.
@@ -756,7 +756,7 @@ namespace VRChat.API.Api
         UserCreditsEligible GetUserCreditsEligible(string userId, string subscriptionId);
 
         /// <summary>
-        /// Get User Credits Eligiblity
+        /// Get User Credits Eligibility
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s eligibility status for subscriptions based on available credits.
@@ -767,7 +767,7 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of UserCreditsEligible</returns>
         ApiResponse<UserCreditsEligible> GetUserCreditsEligibleWithHttpInfo(string userId, string subscriptionId);
         /// <summary>
-        /// Get User Subscription Eligiblity
+        /// Get User Subscription Eligibility
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s eligibility status for subscriptions.
@@ -779,7 +779,7 @@ namespace VRChat.API.Api
         UserSubscriptionEligible GetUserSubscriptionEligible(string userId, string? steamId = default);
 
         /// <summary>
-        /// Get User Subscription Eligiblity
+        /// Get User Subscription Eligibility
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s eligibility status for subscriptions.
@@ -1744,7 +1744,7 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (List&lt;TokenBundle&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<TokenBundle>>> GetTokenBundlesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get User Credits Eligiblity
+        /// Get User Credits Eligibility
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s eligibility status for subscriptions based on available credits.
@@ -1757,7 +1757,7 @@ namespace VRChat.API.Api
         System.Threading.Tasks.Task<UserCreditsEligible> GetUserCreditsEligibleAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get User Credits Eligiblity
+        /// Get User Credits Eligibility
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s eligibility status for subscriptions based on available credits.
@@ -1769,7 +1769,7 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (UserCreditsEligible)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserCreditsEligible>> GetUserCreditsEligibleWithHttpInfoAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get User Subscription Eligiblity
+        /// Get User Subscription Eligibility
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s eligibility status for subscriptions.
@@ -1782,7 +1782,7 @@ namespace VRChat.API.Api
         System.Threading.Tasks.Task<UserSubscriptionEligible> GetUserSubscriptionEligibleAsync(string userId, string? steamId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get User Subscription Eligiblity
+        /// Get User Subscription Eligibility
         /// </summary>
         /// <remarks>
         /// Get the user&#39;s eligibility status for subscriptions.
@@ -7028,7 +7028,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Credits Eligiblity Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Get User Credits Eligibility Get the user&#39;s eligibility status for subscriptions based on available credits.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -7049,7 +7049,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Credits Eligiblity Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Get User Credits Eligibility Get the user&#39;s eligibility status for subscriptions based on available credits.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -7105,7 +7105,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Credits Eligiblity Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Get User Credits Eligibility Get the user&#39;s eligibility status for subscriptions based on available credits.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -7127,7 +7127,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Credits Eligiblity Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Get User Credits Eligibility Get the user&#39;s eligibility status for subscriptions based on available credits.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -7186,7 +7186,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Subscription Eligiblity Get the user&#39;s eligibility status for subscriptions.
+        /// Get User Subscription Eligibility Get the user&#39;s eligibility status for subscriptions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -7207,7 +7207,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Subscription Eligiblity Get the user&#39;s eligibility status for subscriptions.
+        /// Get User Subscription Eligibility Get the user&#39;s eligibility status for subscriptions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -7262,7 +7262,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Subscription Eligiblity Get the user&#39;s eligibility status for subscriptions.
+        /// Get User Subscription Eligibility Get the user&#39;s eligibility status for subscriptions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -7284,7 +7284,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Subscription Eligiblity Get the user&#39;s eligibility status for subscriptions.
+        /// Get User Subscription Eligibility Get the user&#39;s eligibility status for subscriptions.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
