@@ -30,7 +30,7 @@ namespace VRChat.API.Client
             {
                 foreach (var parameter in parameters)
                 {
-                    _path = _path.Replace("{" + parameter.Key + "}", Uri.EscapeDataString(parameter.Value));
+                    _path = _path.Replace("{" + parameter.Key + "}", Uri.EscapeDataString(parameter.Value).Replace("%28", "(").Replace("%29", ")"));
                 }
             }
 
@@ -40,7 +40,7 @@ namespace VRChat.API.Client
                 {
                     foreach (var value in parameter.Value)
                     {
-                        _query = _query + parameter.Key + "=" + Uri.EscapeDataString(value) + "&";
+                        _query = _query + parameter.Key + "=" + Uri.EscapeDataString(value).Replace("%28", "(").Replace("%29", ")") + "&";
                     }
                 }
             }

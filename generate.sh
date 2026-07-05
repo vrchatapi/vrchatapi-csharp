@@ -83,6 +83,9 @@ sed -i 's/IsRequired = true/IsRequired = false/g' src/VRChat.API/Model/CurrentUs
 # Add RequiresTwoFactorAuth property to CurrentUser
 sed -i '/public string UserIcon { get; set; }/a\\n        /// <summary>\n        /// An array of two-factor authentication methods available to use to with two factor authentication.\n        /// </summary>\n        [DataMember(Name = "requiresTwoFactorAuth", IsRequired = false, EmitDefaultValue = true)]\n        public List<string> RequiresTwoFactorAuth { get; set; }' src/VRChat.API/Model/CurrentUser.cs
 
+# Avoid percent-encoding for "(" and ")" characters in URI
+sed -i 's/Uri.EscapeDataString(\([\.a-zA-Z _]*\))\([^\.]\)/Uri.EscapeDataString(\1).Replace("%28", "(").Replace("%29", ")")\2/g' src/VRChat.API/Client/WebRequestPathBuilder.cs
+
 # Remove messily pasted markdown at top of every file
 for i in src/VRChat.API/*/*.cs; do
     sed -i '/VRChat API Banner/d' $i
