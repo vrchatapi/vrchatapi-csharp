@@ -242,6 +242,8 @@ docs/PlayermoderationApi.md
 docs/Print.md
 docs/PrintFiles.md
 docs/PrintsApi.md
+docs/PrivateProfile.md
+docs/PrivateProfileActivity.md
 docs/Product.md
 docs/ProductListing.md
 docs/ProductListingType.md
@@ -253,10 +255,12 @@ docs/ProductPurchaseProduct.md
 docs/ProductPurchasePurchaseContext.md
 docs/ProductPurchaseRecord.md
 docs/ProductType.md
+docs/ProfileRepresentedGroup.md
 docs/Prop.md
 docs/PropPublishStatus.md
 docs/PropUnityPackage.md
 docs/PropsApi.md
+docs/PublicProfile.md
 docs/PurchaseContextData.md
 docs/PurchaseProductListingRequest.md
 docs/Region.md
@@ -608,6 +612,8 @@ src/VRChat.API/Model/PlayerModeration.cs
 src/VRChat.API/Model/PlayerModerationType.cs
 src/VRChat.API/Model/Print.cs
 src/VRChat.API/Model/PrintFiles.cs
+src/VRChat.API/Model/PrivateProfile.cs
+src/VRChat.API/Model/PrivateProfileActivity.cs
 src/VRChat.API/Model/Product.cs
 src/VRChat.API/Model/ProductListing.cs
 src/VRChat.API/Model/ProductListingType.cs
@@ -619,9 +625,11 @@ src/VRChat.API/Model/ProductPurchaseProduct.cs
 src/VRChat.API/Model/ProductPurchasePurchaseContext.cs
 src/VRChat.API/Model/ProductPurchaseRecord.cs
 src/VRChat.API/Model/ProductType.cs
+src/VRChat.API/Model/ProfileRepresentedGroup.cs
 src/VRChat.API/Model/Prop.cs
 src/VRChat.API/Model/PropPublishStatus.cs
 src/VRChat.API/Model/PropUnityPackage.cs
+src/VRChat.API/Model/PublicProfile.cs
 src/VRChat.API/Model/PurchaseContextData.cs
 src/VRChat.API/Model/PurchaseProductListingRequest.cs
 src/VRChat.API/Model/Region.cs

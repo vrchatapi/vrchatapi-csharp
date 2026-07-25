@@ -46,9 +46,10 @@ namespace VRChat.API.Model
         /// <param name="badgeImageUrl">direct url to image (required).</param>
         /// <param name="badgeName">badgeName (required).</param>
         /// <param name="hidden">only present in CurrentUser badges.</param>
+        /// <param name="isQuantifiable">isQuantifiable.</param>
         /// <param name="showcased">showcased (required).</param>
         /// <param name="updatedAt">only present in CurrentUser badges.</param>
-        public Badge(DateTime? assignedAt = default, string badgeDescription = default, string badgeId = default, string badgeImageUrl = default, string badgeName = default, bool? hidden = default, bool showcased = default, DateTime? updatedAt = default)
+        public Badge(DateTime? assignedAt = default, string badgeDescription = default, string badgeId = default, string badgeImageUrl = default, string badgeName = default, bool? hidden = default, bool isQuantifiable = default, bool showcased = default, DateTime? updatedAt = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.BadgeDescription = badgeDescription;
@@ -61,6 +62,7 @@ namespace VRChat.API.Model
             this.Showcased = showcased;
             this.AssignedAt = assignedAt;
             this.Hidden = hidden;
+            this.IsQuantifiable = isQuantifiable;
             this.UpdatedAt = updatedAt;
         }
 
@@ -107,6 +109,12 @@ namespace VRChat.API.Model
         public bool? Hidden { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsQuantifiable
+        /// </summary>
+        [DataMember(Name = "isQuantifiable", EmitDefaultValue = true)]
+        public bool IsQuantifiable { get; set; }
+
+        /// <summary>
         /// Gets or Sets Showcased
         /// </summary>
         [DataMember(Name = "showcased", IsRequired = true, EmitDefaultValue = true)]
@@ -133,6 +141,7 @@ namespace VRChat.API.Model
             sb.Append("  BadgeImageUrl: ").Append(BadgeImageUrl).Append("\n");
             sb.Append("  BadgeName: ").Append(BadgeName).Append("\n");
             sb.Append("  Hidden: ").Append(Hidden).Append("\n");
+            sb.Append("  IsQuantifiable: ").Append(IsQuantifiable).Append("\n");
             sb.Append("  Showcased: ").Append(Showcased).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("}\n");
@@ -201,6 +210,10 @@ namespace VRChat.API.Model
                     this.Hidden.Equals(input.Hidden))
                 ) && 
                 (
+                    this.IsQuantifiable == input.IsQuantifiable ||
+                    this.IsQuantifiable.Equals(input.IsQuantifiable)
+                ) && 
+                (
                     this.Showcased == input.Showcased ||
                     this.Showcased.Equals(input.Showcased)
                 ) && 
@@ -244,6 +257,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Hidden.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsQuantifiable.GetHashCode();
                 hashCode = (hashCode * 59) + this.Showcased.GetHashCode();
                 if (this.UpdatedAt != null)
                 {
