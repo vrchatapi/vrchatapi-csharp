@@ -36,76 +36,54 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AgeVerificationStatus
         /// </summary>
-        [DataMember(Name = "ageVerificationStatus", IsRequired = true, EmitDefaultValue = true)]
-        public AgeVerificationStatus AgeVerificationStatus { get; set; }
+        [DataMember(Name = "ageVerificationStatus", EmitDefaultValue = false)]
+        public AgeVerificationStatus? AgeVerificationStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PublicProfile" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PublicProfile() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PublicProfile" /> class.
-        /// </summary>
-        /// <param name="ageVerificationStatus">ageVerificationStatus (required).</param>
-        /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+). (required).</param>
-        /// <param name="backgroundType">backgroundType (required).</param>
-        /// <param name="badges">badges (required).</param>
-        /// <param name="bannerColor">bannerColor (required).</param>
-        /// <param name="bannerType">bannerType (required).</param>
-        /// <param name="bio">bio (required).</param>
-        /// <param name="bioLinks">bioLinks (required).</param>
-        /// <param name="displayName">displayName (required).</param>
-        /// <param name="hasVrcPlus">hasVrcPlus (required).</param>
-        /// <param name="iconFrame">iconFrame (required).</param>
-        /// <param name="iconUrl">iconUrl (required).</param>
-        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="isEconomyCreator">isEconomyCreator (required).</param>
-        /// <param name="languages">languages (required).</param>
-        /// <param name="nameplateEffect">nameplateEffect (required).</param>
-        /// <param name="profileEffect">profileEffect (required).</param>
-        /// <param name="pronouns">pronouns (required).</param>
-        /// <param name="representedGroup">representedGroup (required).</param>
-        /// <param name="themeId">themeId (required).</param>
-        /// <param name="trustTags">trustTags (required).</param>
-        public PublicProfile(AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, string backgroundType = default, List<Badge> badges = default, string bannerColor = default, string bannerType = default, string bio = default, List<string> bioLinks = default, string displayName = default, bool hasVrcPlus = default, string iconFrame = default, string iconUrl = default, string id = default, bool isEconomyCreator = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, ProfileRepresentedGroup representedGroup = default, string themeId = default, List<string> trustTags = default)
+        /// <param name="ageVerificationStatus">ageVerificationStatus.</param>
+        /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+)..</param>
+        /// <param name="backgroundType">backgroundType.</param>
+        /// <param name="badges">badges.</param>
+        /// <param name="bannerColor">bannerColor.</param>
+        /// <param name="bannerType">bannerType.</param>
+        /// <param name="bio">bio.</param>
+        /// <param name="bioLinks">bioLinks.</param>
+        /// <param name="displayName">displayName.</param>
+        /// <param name="hasVrcPlus">hasVrcPlus.</param>
+        /// <param name="iconFrame">iconFrame.</param>
+        /// <param name="iconUrl">iconUrl.</param>
+        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="isEconomyCreator">isEconomyCreator.</param>
+        /// <param name="languages">languages.</param>
+        /// <param name="nameplateEffect">nameplateEffect.</param>
+        /// <param name="profileEffect">profileEffect.</param>
+        /// <param name="pronouns">pronouns.</param>
+        /// <param name="representedGroup">representedGroup.</param>
+        /// <param name="themeId">themeId.</param>
+        /// <param name="trustTags">trustTags.</param>
+        public PublicProfile(AgeVerificationStatus? ageVerificationStatus = default, bool ageVerified = default, string backgroundType = default, List<Badge> badges = default, string bannerColor = default, string bannerType = default, string bio = default, List<string> bioLinks = default, string displayName = default, bool hasVrcPlus = default, string iconFrame = default, string iconUrl = default, string id = default, bool isEconomyCreator = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, ProfileRepresentedGroup representedGroup = default, string themeId = default, List<string> trustTags = default)
         {
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BackgroundType = backgroundType;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Badges = badges;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BannerColor = bannerColor;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BannerType = bannerType;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Bio = bio;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BioLinks = bioLinks;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
             this.HasVrcPlus = hasVrcPlus;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.IconFrame = iconFrame;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.IconUrl = iconUrl;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsEconomyCreator = isEconomyCreator;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Languages = languages;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.NameplateEffect = nameplateEffect;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ProfileEffect = profileEffect;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Pronouns = pronouns;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.RepresentedGroup = representedGroup;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ThemeId = themeId;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TrustTags = trustTags;
         }
 
@@ -113,67 +91,67 @@ namespace VRChat.API.Model
         /// &#x60;true&#x60; if, user is age verified (not 18+).
         /// </summary>
         /// <value>&#x60;true&#x60; if, user is age verified (not 18+).</value>
-        [DataMember(Name = "ageVerified", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "ageVerified", EmitDefaultValue = true)]
         public bool AgeVerified { get; set; }
 
         /// <summary>
         /// Gets or Sets BackgroundType
         /// </summary>
-        [DataMember(Name = "backgroundType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "backgroundType", EmitDefaultValue = false)]
         public string BackgroundType { get; set; }
 
         /// <summary>
         /// Gets or Sets Badges
         /// </summary>
-        [DataMember(Name = "badges", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "badges", EmitDefaultValue = false)]
         public List<Badge> Badges { get; set; }
 
         /// <summary>
         /// Gets or Sets BannerColor
         /// </summary>
-        [DataMember(Name = "bannerColor", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
         /// <summary>
         /// Gets or Sets BannerType
         /// </summary>
-        [DataMember(Name = "bannerType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
         public string BannerType { get; set; }
 
         /// <summary>
         /// Gets or Sets Bio
         /// </summary>
-        [DataMember(Name = "bio", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bio", EmitDefaultValue = false)]
         public string Bio { get; set; }
 
         /// <summary>
         /// Gets or Sets BioLinks
         /// </summary>
-        [DataMember(Name = "bioLinks", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bioLinks", EmitDefaultValue = false)]
         public List<string> BioLinks { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets HasVrcPlus
         /// </summary>
-        [DataMember(Name = "hasVrcPlus", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hasVrcPlus", EmitDefaultValue = true)]
         public bool HasVrcPlus { get; set; }
 
         /// <summary>
         /// Gets or Sets IconFrame
         /// </summary>
-        [DataMember(Name = "iconFrame", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "iconFrame", EmitDefaultValue = false)]
         public string IconFrame { get; set; }
 
         /// <summary>
         /// Gets or Sets IconUrl
         /// </summary>
-        [DataMember(Name = "iconUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "iconUrl", EmitDefaultValue = false)]
         public string IconUrl { get; set; }
 
         /// <summary>
@@ -183,55 +161,55 @@ namespace VRChat.API.Model
         /*
         <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets IsEconomyCreator
         /// </summary>
-        [DataMember(Name = "isEconomyCreator", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isEconomyCreator", EmitDefaultValue = true)]
         public bool IsEconomyCreator { get; set; }
 
         /// <summary>
         /// Gets or Sets Languages
         /// </summary>
-        [DataMember(Name = "languages", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "languages", EmitDefaultValue = false)]
         public List<string> Languages { get; set; }
 
         /// <summary>
         /// Gets or Sets NameplateEffect
         /// </summary>
-        [DataMember(Name = "nameplateEffect", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "nameplateEffect", EmitDefaultValue = false)]
         public string NameplateEffect { get; set; }
 
         /// <summary>
         /// Gets or Sets ProfileEffect
         /// </summary>
-        [DataMember(Name = "profileEffect", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "profileEffect", EmitDefaultValue = false)]
         public string ProfileEffect { get; set; }
 
         /// <summary>
         /// Gets or Sets Pronouns
         /// </summary>
-        [DataMember(Name = "pronouns", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "pronouns", EmitDefaultValue = false)]
         public string Pronouns { get; set; }
 
         /// <summary>
         /// Gets or Sets RepresentedGroup
         /// </summary>
-        [DataMember(Name = "representedGroup", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "representedGroup", EmitDefaultValue = true)]
         public ProfileRepresentedGroup RepresentedGroup { get; set; }
 
         /// <summary>
         /// Gets or Sets ThemeId
         /// </summary>
-        [DataMember(Name = "themeId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "themeId", EmitDefaultValue = false)]
         public string ThemeId { get; set; }
 
         /// <summary>
         /// Gets or Sets TrustTags
         /// </summary>
-        [DataMember(Name = "trustTags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "trustTags", EmitDefaultValue = false)]
         public List<string> TrustTags { get; set; }
 
         /// <summary>

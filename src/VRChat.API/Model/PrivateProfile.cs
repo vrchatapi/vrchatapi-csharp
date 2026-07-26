@@ -36,40 +36,31 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public UserStatus Status { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public UserStatus? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PrivateProfile" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PrivateProfile() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PrivateProfile" /> class.
-        /// </summary>
-        /// <param name="activity">activity (required).</param>
-        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="isFriend">isFriend (required).</param>
-        /// <param name="note">note (required).</param>
-        /// <param name="status">status (required).</param>
-        /// <param name="statusDescription">statusDescription (required).</param>
-        public PrivateProfile(PrivateProfileActivity activity = default, string id = default, bool isFriend = default, string note = default, UserStatus status = default, string statusDescription = default)
+        /// <param name="activity">activity.</param>
+        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="isFriend">isFriend.</param>
+        /// <param name="note">note.</param>
+        /// <param name="status">status.</param>
+        /// <param name="statusDescription">statusDescription.</param>
+        public PrivateProfile(PrivateProfileActivity activity = default, string id = default, bool isFriend = default, string note = default, UserStatus? status = default, string statusDescription = default)
         {
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Activity = activity;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsFriend = isFriend;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Note = note;
             this.Status = status;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.StatusDescription = statusDescription;
         }
 
         /// <summary>
         /// Gets or Sets Activity
         /// </summary>
-        [DataMember(Name = "activity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "activity", EmitDefaultValue = false)]
         public PrivateProfileActivity Activity { get; set; }
 
         /// <summary>
@@ -79,25 +70,25 @@ namespace VRChat.API.Model
         /*
         <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets IsFriend
         /// </summary>
-        [DataMember(Name = "isFriend", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isFriend", EmitDefaultValue = true)]
         public bool IsFriend { get; set; }
 
         /// <summary>
         /// Gets or Sets Note
         /// </summary>
-        [DataMember(Name = "note", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "note", EmitDefaultValue = false)]
         public string Note { get; set; }
 
         /// <summary>
         /// Gets or Sets StatusDescription
         /// </summary>
-        [DataMember(Name = "statusDescription", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "statusDescription", EmitDefaultValue = false)]
         public string StatusDescription { get; set; }
 
         /// <summary>

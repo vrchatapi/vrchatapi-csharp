@@ -36,46 +36,32 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets State
         /// </summary>
-        [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
-        public UserState State { get; set; }
+        [DataMember(Name = "state", EmitDefaultValue = false)]
+        public UserState? State { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PrivateProfileActivity" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PrivateProfileActivity() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PrivateProfileActivity" /> class.
-        /// </summary>
-        /// <param name="instanceId">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. (required).</param>
-        /// <param name="lastActivity">Either a date-time or an empty string. (required).</param>
-        /// <param name="lastLogin">Either a date-time or an empty string. (required).</param>
-        /// <param name="location">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. (required).</param>
-        /// <param name="platform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
-        /// <param name="state">state (required).</param>
-        /// <param name="travelingToInstance">travelingToInstance (required).</param>
-        /// <param name="travelingToLocation">travelingToLocation (required).</param>
-        /// <param name="travelingToWorld">travelingToWorld (required).</param>
-        /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public PrivateProfileActivity(string instanceId = default, string lastActivity = default, string lastLogin = default, string location = default, string platform = default, UserState state = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
+        /// <param name="instanceId">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance..</param>
+        /// <param name="lastActivity">Either a date-time or an empty string..</param>
+        /// <param name="lastLogin">Either a date-time or an empty string..</param>
+        /// <param name="location">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list..</param>
+        /// <param name="platform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
+        /// <param name="state">state.</param>
+        /// <param name="travelingToInstance">travelingToInstance.</param>
+        /// <param name="travelingToLocation">travelingToLocation.</param>
+        /// <param name="travelingToWorld">travelingToWorld.</param>
+        /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
+        public PrivateProfileActivity(string instanceId = default, string lastActivity = default, string lastLogin = default, string location = default, string platform = default, UserState? state = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
         {
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.InstanceId = instanceId;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastActivity = lastActivity;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastLogin = lastLogin;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Location = location;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Platform = platform;
             this.State = state;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TravelingToInstance = travelingToInstance;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TravelingToLocation = travelingToLocation;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.TravelingToWorld = travelingToWorld;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.WorldId = worldId;
         }
 
@@ -86,21 +72,21 @@ namespace VRChat.API.Model
         /*
         <example>12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
         */
-        [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "instanceId", EmitDefaultValue = false)]
         public string InstanceId { get; set; }
 
         /// <summary>
         /// Either a date-time or an empty string.
         /// </summary>
         /// <value>Either a date-time or an empty string.</value>
-        [DataMember(Name = "last_activity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "last_activity", EmitDefaultValue = false)]
         public string LastActivity { get; set; }
 
         /// <summary>
         /// Either a date-time or an empty string.
         /// </summary>
         /// <value>Either a date-time or an empty string.</value>
-        [DataMember(Name = "last_login", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "last_login", EmitDefaultValue = false)]
         public string LastLogin { get; set; }
 
         /// <summary>
@@ -110,7 +96,7 @@ namespace VRChat.API.Model
         /*
         <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
         */
-        [DataMember(Name = "location", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "location", EmitDefaultValue = false)]
         public string Location { get; set; }
 
         /// <summary>
@@ -120,25 +106,25 @@ namespace VRChat.API.Model
         /*
         <example>standalonewindows</example>
         */
-        [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets TravelingToInstance
         /// </summary>
-        [DataMember(Name = "travelingToInstance", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "travelingToInstance", EmitDefaultValue = false)]
         public string TravelingToInstance { get; set; }
 
         /// <summary>
         /// Gets or Sets TravelingToLocation
         /// </summary>
-        [DataMember(Name = "travelingToLocation", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "travelingToLocation", EmitDefaultValue = false)]
         public string TravelingToLocation { get; set; }
 
         /// <summary>
         /// Gets or Sets TravelingToWorld
         /// </summary>
-        [DataMember(Name = "travelingToWorld", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "travelingToWorld", EmitDefaultValue = false)]
         public string TravelingToWorld { get; set; }
 
         /// <summary>
@@ -148,7 +134,7 @@ namespace VRChat.API.Model
         /*
         <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
         */
-        [DataMember(Name = "worldId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "worldId", EmitDefaultValue = false)]
         public string WorldId { get; set; }
 
         /// <summary>

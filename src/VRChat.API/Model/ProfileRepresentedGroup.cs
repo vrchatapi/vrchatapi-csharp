@@ -35,37 +35,28 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProfileRepresentedGroup" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ProfileRepresentedGroup() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProfileRepresentedGroup" /> class.
-        /// </summary>
-        /// <param name="bannerUrl">bannerUrl (required).</param>
-        /// <param name="iconUrl">iconUrl (required).</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="name">name (required).</param>
+        /// <param name="bannerUrl">bannerUrl.</param>
+        /// <param name="iconUrl">iconUrl.</param>
+        /// <param name="id">id.</param>
+        /// <param name="name">name.</param>
         public ProfileRepresentedGroup(string bannerUrl = default, string iconUrl = default, string id = default, string name = default)
         {
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.BannerUrl = bannerUrl;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.IconUrl = iconUrl;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
         }
 
         /// <summary>
         /// Gets or Sets BannerUrl
         /// </summary>
-        [DataMember(Name = "bannerUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "bannerUrl", EmitDefaultValue = true)]
         public string BannerUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets IconUrl
         /// </summary>
-        [DataMember(Name = "iconUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "iconUrl", EmitDefaultValue = true)]
         public string IconUrl { get; set; }
 
         /// <summary>
@@ -74,13 +65,13 @@ namespace VRChat.API.Model
         /*
         <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
