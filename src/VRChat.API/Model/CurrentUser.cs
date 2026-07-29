@@ -72,6 +72,8 @@ namespace VRChat.API.Model
         /// <param name="ageVerificationStatus">ageVerificationStatus (required).</param>
         /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+). (required).</param>
         /// <param name="allowAvatarCopying">allowAvatarCopying (required).</param>
+        /// <param name="appleDetails">appleDetails.</param>
+        /// <param name="appleId">appleId.</param>
         /// <param name="authToken">The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register).</param>
         /// <param name="badges"> .</param>
         /// <param name="bio">bio (required).</param>
@@ -132,6 +134,8 @@ namespace VRChat.API.Model
         /// <param name="steamDetails">steamDetails (required).</param>
         /// <param name="steamId">steamId (required).</param>
         /// <param name="tags">tags (required).</param>
+        /// <param name="twitchDetails">twitchDetails.</param>
+        /// <param name="twitchId">twitchId.</param>
         /// <param name="twoFactorAuthEnabled">twoFactorAuthEnabled (required).</param>
         /// <param name="twoFactorAuthEnabledDate">twoFactorAuthEnabledDate.</param>
         /// <param name="unsubscribe">unsubscribe (required).</param>
@@ -142,7 +146,7 @@ namespace VRChat.API.Model
         /// <param name="username">-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
         /// <param name="usesGeneratedPassword">usesGeneratedPassword (required).</param>
         /// <param name="viveId">viveId.</param>
-        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, string authToken = default, List<Badge> badges = default, string bio = default, List<string> bioLinks = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string id = default, bool isAdult = default, bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, string picoId = default, List<CurrentUserPlatformHistoryInner> platformHistory = default, CurrentUserPresence presence = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userIcon = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default)
+        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, Object appleDetails = default, string appleId = default, string authToken = default, List<Badge> badges = default, string bio = default, List<string> bioLinks = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string id = default, bool isAdult = default, bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, string picoId = default, List<CurrentUserPlatformHistoryInner> platformHistory = default, CurrentUserPresence presence = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userIcon = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.AgeVerificationStatus = ageVerificationStatus;
@@ -224,6 +228,8 @@ namespace VRChat.API.Model
             this.AccountDeletionDate = accountDeletionDate;
             this.AccountDeletionLog = accountDeletionLog;
             this.ActiveFriends = activeFriends;
+            this.AppleDetails = appleDetails;
+            this.AppleId = appleId;
             this.AuthToken = authToken;
             this.Badges = badges;
             this.ContentFilters = contentFilters;
@@ -244,6 +250,8 @@ namespace VRChat.API.Model
             this.Presence = presence;
             this.QueuedInstance = queuedInstance;
             this.ReceiveMobileInvitations = receiveMobileInvitations;
+            this.TwitchDetails = twitchDetails;
+            this.TwitchId = twitchId;
             this.TwoFactorAuthEnabledDate = twoFactorAuthEnabledDate;
             this.UpdatedAt = updatedAt;
             this.UserLanguage = userLanguage;
@@ -302,6 +310,18 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "allowAvatarCopying", IsRequired = false, EmitDefaultValue = true)]
         public bool AllowAvatarCopying { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AppleDetails
+        /// </summary>
+        [DataMember(Name = "appleDetails", EmitDefaultValue = false)]
+        public Object AppleDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AppleId
+        /// </summary>
+        [DataMember(Name = "appleId", EmitDefaultValue = false)]
+        public string AppleId { get; set; }
 
         /// <summary>
         /// The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register)
@@ -683,6 +703,18 @@ namespace VRChat.API.Model
         public List<string> Tags { get; set; }
 
         /// <summary>
+        /// Gets or Sets TwitchDetails
+        /// </summary>
+        [DataMember(Name = "twitchDetails", EmitDefaultValue = false)]
+        public Object TwitchDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TwitchId
+        /// </summary>
+        [DataMember(Name = "twitchId", EmitDefaultValue = false)]
+        public string TwitchId { get; set; }
+
+        /// <summary>
         /// Gets or Sets TwoFactorAuthEnabled
         /// </summary>
         [DataMember(Name = "twoFactorAuthEnabled", IsRequired = false, EmitDefaultValue = true)]
@@ -766,6 +798,8 @@ namespace VRChat.API.Model
             sb.Append("  AgeVerificationStatus: ").Append(AgeVerificationStatus).Append("\n");
             sb.Append("  AgeVerified: ").Append(AgeVerified).Append("\n");
             sb.Append("  AllowAvatarCopying: ").Append(AllowAvatarCopying).Append("\n");
+            sb.Append("  AppleDetails: ").Append(AppleDetails).Append("\n");
+            sb.Append("  AppleId: ").Append(AppleId).Append("\n");
             sb.Append("  AuthToken: ").Append(AuthToken).Append("\n");
             sb.Append("  Badges: ").Append(Badges).Append("\n");
             sb.Append("  Bio: ").Append(Bio).Append("\n");
@@ -826,6 +860,8 @@ namespace VRChat.API.Model
             sb.Append("  SteamDetails: ").Append(SteamDetails).Append("\n");
             sb.Append("  SteamId: ").Append(SteamId).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  TwitchDetails: ").Append(TwitchDetails).Append("\n");
+            sb.Append("  TwitchId: ").Append(TwitchId).Append("\n");
             sb.Append("  TwoFactorAuthEnabled: ").Append(TwoFactorAuthEnabled).Append("\n");
             sb.Append("  TwoFactorAuthEnabledDate: ").Append(TwoFactorAuthEnabledDate).Append("\n");
             sb.Append("  Unsubscribe: ").Append(Unsubscribe).Append("\n");
@@ -907,6 +943,16 @@ namespace VRChat.API.Model
                 (
                     this.AllowAvatarCopying == input.AllowAvatarCopying ||
                     this.AllowAvatarCopying.Equals(input.AllowAvatarCopying)
+                ) && 
+                (
+                    this.AppleDetails == input.AppleDetails ||
+                    (this.AppleDetails != null &&
+                    this.AppleDetails.Equals(input.AppleDetails))
+                ) && 
+                (
+                    this.AppleId == input.AppleId ||
+                    (this.AppleId != null &&
+                    this.AppleId.Equals(input.AppleId))
                 ) && 
                 (
                     this.AuthToken == input.AuthToken ||
@@ -1206,6 +1252,16 @@ namespace VRChat.API.Model
                     this.Tags.SequenceEqual(input.Tags)
                 ) && 
                 (
+                    this.TwitchDetails == input.TwitchDetails ||
+                    (this.TwitchDetails != null &&
+                    this.TwitchDetails.Equals(input.TwitchDetails))
+                ) && 
+                (
+                    this.TwitchId == input.TwitchId ||
+                    (this.TwitchId != null &&
+                    this.TwitchId.Equals(input.TwitchId))
+                ) && 
+                (
                     this.TwoFactorAuthEnabled == input.TwoFactorAuthEnabled ||
                     this.TwoFactorAuthEnabled.Equals(input.TwoFactorAuthEnabled)
                 ) && 
@@ -1280,6 +1336,14 @@ namespace VRChat.API.Model
                 hashCode = (hashCode * 59) + this.AgeVerificationStatus.GetHashCode();
                 hashCode = (hashCode * 59) + this.AgeVerified.GetHashCode();
                 hashCode = (hashCode * 59) + this.AllowAvatarCopying.GetHashCode();
+                if (this.AppleDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.AppleDetails.GetHashCode();
+                }
+                if (this.AppleId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AppleId.GetHashCode();
+                }
                 if (this.AuthToken != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthToken.GetHashCode();
@@ -1471,6 +1535,14 @@ namespace VRChat.API.Model
                 if (this.Tags != null)
                 {
                     hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.TwitchDetails != null)
+                {
+                    hashCode = (hashCode * 59) + this.TwitchDetails.GetHashCode();
+                }
+                if (this.TwitchId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TwitchId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.TwoFactorAuthEnabled.GetHashCode();
                 if (this.TwoFactorAuthEnabledDate != null)
