@@ -3,6 +3,19 @@ on:
     branches:
       - '**'
   pull_request:
+  repository_dispatch:
+    types: [release]
+  workflow_dispatch:
+    inputs:
+      json:
+        description: Passed json from repository_dispatch
+        required: true
+        type: string
+      version_postfix:
+        description: Additional string to concatenate onto the existing version before release
+        required: false
+        type: string
+        default: ''
   workflow_call:
     inputs:
       ref:
@@ -13,9 +26,15 @@ on:
 
 name: CI
 
+env:
+  PASSED_VERSION: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload || fromJSON(inputs.json || '{}'))['version'] }}
+  VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
+
 jobs:
   generate:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -28,11 +47,24 @@ jobs:
         with:
           bundle: openapi-legacy.yaml
 
-      - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
+      # The SDK is a major version ahead of the specification.
+      - id: version
+        run: |
+          version="${PASSED_VERSION:-$(yq -r '.info.version' openapi-legacy.yaml)}"
+          version="$(( ${version%%.*} + 1 )).${version#*.}${VERSION_POSTPEND}"
+
+          echo "version=${version}" >> $GITHUB_OUTPUT
+
+      - if: env.VERSION_POSTPEND != ''
+        run: yq '--inplace' ".info.version |= \"${{ steps.version.outputs.version }}\"" openapi-legacy.yaml
+
+      - run: bash ./generate.sh openapi-legacy.yaml "${{ steps.version.outputs.version }}"
+
+      - run: cp README.md src/
 
       - uses: actions/upload-artifact@v7
         with:
-          name: generated-csharp
+          name: csharp-generated
           path: .
           include-hidden-files: true
 
@@ -42,10 +74,53 @@ jobs:
     steps:
       - uses: actions/download-artifact@v8
         with:
-          name: generated-csharp
+          name: csharp-generated
 
       - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '8.0.x'
 
       - run: dotnet build VRChat.API.sln --configuration Release
+
+  publish:
+    needs:
+      - generate
+      - build
+    if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: csharp-generated
+
+      - run: rm -f openapi-legacy.yaml
+
+      - uses: NuGet/setup-nuget@v4.0
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '8.0.x'
+
+      - uses: JamesIves/github-pages-deploy-action@v4.9.0
+        with:
+          branch: main
+          folder: .
+          commit-message: Upgrade .NET SDK to spec ${{ needs.generate.outputs.version }}
+
+      - if: github.event_name == 'repository_dispatch'
+        uses: pairbit/publish-nuget@v2.6.2
+        with:
+          PROJECT_FILE_PATH: src/VRChat.API/VRChat.API.csproj
+          PACKAGE_NAME: VRChat.API
+          NUGET_KEY: ${{ secrets.NUGET_KEY }}
+          INCLUDE_SYMBOLS: true
+
+      - if: github.event_name == 'repository_dispatch'
+        uses: pairbit/publish-nuget@v2.6.2
+        with:
+          PROJECT_FILE_PATH: wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
+          PACKAGE_NAME: VRChat.API.Extensions.Hosting
+          NUGET_KEY: ${{ secrets.NUGET_KEY }}
+          INCLUDE_SYMBOLS: true
