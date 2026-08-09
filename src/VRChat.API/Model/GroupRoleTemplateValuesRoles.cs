@@ -27,43 +27,25 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// InfoPushEmbeddedLink
+    /// GroupRoleTemplateValuesRoles
     /// </summary>
-    [DataContract(Name = "InfoPushEmbeddedLink")]
-    public partial class InfoPushEmbeddedLink : IEquatable<InfoPushEmbeddedLink>, IValidatableObject
+    [DataContract(Name = "GroupRoleTemplateValues_roles")]
+    public partial class GroupRoleTemplateValuesRoles : IEquatable<GroupRoleTemplateValuesRoles>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InfoPushEmbeddedLink" /> class.
+        /// Initializes a new instance of the <see cref="GroupRoleTemplateValuesRoles" /> class.
         /// </summary>
-        /// <param name="parameters">parameters.</param>
-        /// <param name="command">command.</param>
-        /// <param name="id">id.</param>
         /// <param name="name">name.</param>
-        public InfoPushEmbeddedLink(List<string> parameters = default, string command = default, string id = default, string name = default)
+        /// <param name="description">description.</param>
+        /// <param name="basePermissions">basePermissions.</param>
+        /// <param name="isAddedOnJoin">isAddedOnJoin (default to false).</param>
+        public GroupRoleTemplateValuesRoles(string name = default, string description = default, List<GroupPermissions> basePermissions = default, bool isAddedOnJoin = false)
         {
-            this.Parameters = parameters;
-            this.Command = command;
-            this.Id = id;
             this.Name = name;
+            this.Description = description;
+            this.BasePermissions = basePermissions;
+            this.IsAddedOnJoin = isAddedOnJoin;
         }
-
-        /// <summary>
-        /// Gets or Sets Parameters
-        /// </summary>
-        [DataMember(Name = "parameters", EmitDefaultValue = false)]
-        public List<string> Parameters { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Command
-        /// </summary>
-        [DataMember(Name = "command", EmitDefaultValue = false)]
-        public string Command { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -72,17 +54,35 @@ namespace VRChat.API.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or Sets Description
+        /// </summary>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BasePermissions
+        /// </summary>
+        [DataMember(Name = "basePermissions", EmitDefaultValue = false)]
+        public List<GroupPermissions> BasePermissions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsAddedOnJoin
+        /// </summary>
+        [DataMember(Name = "isAddedOnJoin", EmitDefaultValue = true)]
+        public bool IsAddedOnJoin { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class InfoPushEmbeddedLink {\n");
-            sb.Append("  Parameters: ").Append(Parameters).Append("\n");
-            sb.Append("  Command: ").Append(Command).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("class GroupRoleTemplateValuesRoles {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  BasePermissions: ").Append(BasePermissions).Append("\n");
+            sb.Append("  IsAddedOnJoin: ").Append(IsAddedOnJoin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,15 +103,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InfoPushEmbeddedLink);
+            return this.Equals(input as GroupRoleTemplateValuesRoles);
         }
 
         /// <summary>
-        /// Returns true if InfoPushEmbeddedLink instances are equal
+        /// Returns true if GroupRoleTemplateValuesRoles instances are equal
         /// </summary>
-        /// <param name="input">Instance of InfoPushEmbeddedLink to be compared</param>
+        /// <param name="input">Instance of GroupRoleTemplateValuesRoles to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InfoPushEmbeddedLink input)
+        public bool Equals(GroupRoleTemplateValuesRoles input)
         {
             if (input == null)
             {
@@ -119,25 +119,24 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Parameters == input.Parameters ||
-                    this.Parameters != null &&
-                    input.Parameters != null &&
-                    this.Parameters.SequenceEqual(input.Parameters)
-                ) && 
-                (
-                    this.Command == input.Command ||
-                    (this.Command != null &&
-                    this.Command.Equals(input.Command))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.BasePermissions == input.BasePermissions ||
+                    this.BasePermissions != null &&
+                    input.BasePermissions != null &&
+                    this.BasePermissions.SequenceEqual(input.BasePermissions)
+                ) && 
+                (
+                    this.IsAddedOnJoin == input.IsAddedOnJoin ||
+                    this.IsAddedOnJoin.Equals(input.IsAddedOnJoin)
                 );
         }
 
@@ -150,22 +149,19 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Parameters != null)
-                {
-                    hashCode = (hashCode * 59) + this.Parameters.GetHashCode();
-                }
-                if (this.Command != null)
-                {
-                    hashCode = (hashCode * 59) + this.Command.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.BasePermissions != null)
+                {
+                    hashCode = (hashCode * 59) + this.BasePermissions.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsAddedOnJoin.GetHashCode();
                 return hashCode;
             }
         }

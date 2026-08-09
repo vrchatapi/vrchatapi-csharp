@@ -50,9 +50,8 @@ namespace VRChat.API.Model
         /// <param name="playerOrderFactor">Unknown (required).</param>
         /// <param name="slowUpdateFactorThreshold">Unknown (required).</param>
         /// <param name="useDirectPlayerSerialization">Unknown (required).</param>
-        /// <param name="useSparseRotationForPlayerSerialization">useSparseRotationForPlayerSerialization.</param>
         /// <param name="viewSegmentLength">Unknown (required).</param>
-        public APIConfigEvents(int distanceClose = default, int distanceFactor = default, int distanceFar = default, int groupDistance = default, int maximumBunchSize = default, int notVisibleFactor = default, int playerOrderBucketSize = default, int playerOrderFactor = default, int slowUpdateFactorThreshold = default, bool useDirectPlayerSerialization = default, bool useSparseRotationForPlayerSerialization = default, int viewSegmentLength = default)
+        public APIConfigEvents(int distanceClose = default, int distanceFactor = default, int distanceFar = default, int groupDistance = default, int maximumBunchSize = default, int notVisibleFactor = default, int playerOrderBucketSize = default, int playerOrderFactor = default, int slowUpdateFactorThreshold = default, bool useDirectPlayerSerialization = default, int viewSegmentLength = default)
         {
             this.DistanceClose = distanceClose;
             this.DistanceFactor = distanceFactor;
@@ -65,7 +64,6 @@ namespace VRChat.API.Model
             this.SlowUpdateFactorThreshold = slowUpdateFactorThreshold;
             this.UseDirectPlayerSerialization = useDirectPlayerSerialization;
             this.ViewSegmentLength = viewSegmentLength;
-            this.UseSparseRotationForPlayerSerialization = useSparseRotationForPlayerSerialization;
         }
 
         /// <summary>
@@ -139,12 +137,6 @@ namespace VRChat.API.Model
         public bool UseDirectPlayerSerialization { get; set; }
 
         /// <summary>
-        /// Gets or Sets UseSparseRotationForPlayerSerialization
-        /// </summary>
-        [DataMember(Name = "useSparseRotationForPlayerSerialization", EmitDefaultValue = true)]
-        public bool UseSparseRotationForPlayerSerialization { get; set; }
-
-        /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
@@ -169,7 +161,6 @@ namespace VRChat.API.Model
             sb.Append("  PlayerOrderFactor: ").Append(PlayerOrderFactor).Append("\n");
             sb.Append("  SlowUpdateFactorThreshold: ").Append(SlowUpdateFactorThreshold).Append("\n");
             sb.Append("  UseDirectPlayerSerialization: ").Append(UseDirectPlayerSerialization).Append("\n");
-            sb.Append("  UseSparseRotationForPlayerSerialization: ").Append(UseSparseRotationForPlayerSerialization).Append("\n");
             sb.Append("  ViewSegmentLength: ").Append(ViewSegmentLength).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -247,10 +238,6 @@ namespace VRChat.API.Model
                     this.UseDirectPlayerSerialization.Equals(input.UseDirectPlayerSerialization)
                 ) && 
                 (
-                    this.UseSparseRotationForPlayerSerialization == input.UseSparseRotationForPlayerSerialization ||
-                    this.UseSparseRotationForPlayerSerialization.Equals(input.UseSparseRotationForPlayerSerialization)
-                ) && 
-                (
                     this.ViewSegmentLength == input.ViewSegmentLength ||
                     this.ViewSegmentLength.Equals(input.ViewSegmentLength)
                 );
@@ -275,7 +262,6 @@ namespace VRChat.API.Model
                 hashCode = (hashCode * 59) + this.PlayerOrderFactor.GetHashCode();
                 hashCode = (hashCode * 59) + this.SlowUpdateFactorThreshold.GetHashCode();
                 hashCode = (hashCode * 59) + this.UseDirectPlayerSerialization.GetHashCode();
-                hashCode = (hashCode * 59) + this.UseSparseRotationForPlayerSerialization.GetHashCode();
                 hashCode = (hashCode * 59) + this.ViewSegmentLength.GetHashCode();
                 return hashCode;
             }

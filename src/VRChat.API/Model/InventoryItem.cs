@@ -52,8 +52,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InventoryItem" /> class.
         /// </summary>
-        /// <param name="acquisition">acquisition.</param>
-        /// <param name="attribution">attribution.</param>
         /// <param name="collections">collections (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="defaultAttributes">defaultAttributes (required).</param>
@@ -69,7 +67,6 @@ namespace VRChat.API.Model
         /// <param name="isSeen">isSeen (required).</param>
         /// <param name="itemType">itemType (required).</param>
         /// <param name="itemTypeLabel">itemTypeLabel (required).</param>
-        /// <param name="lastEquipped">lastEquipped.</param>
         /// <param name="metadata">metadata (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="quantifiable">quantifiable (required).</param>
@@ -80,7 +77,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="userAttributes">userAttributes (required).</param>
         /// <param name="validateUserAttributes">validateUserAttributes (required).</param>
-        public InventoryItem(string acquisition = default, Object attribution = default, List<string> collections = default, DateTime createdAt = default, Dictionary<string, InventoryDefaultAttributesValue> defaultAttributes = default, string description = default, InventoryEquipSlot? equipSlot = default, List<InventoryEquipSlot> equipSlots = default, DateTime? expiryDate = default, List<string> flags = default, string holderId = default, string id = default, string imageUrl = default, bool isArchived = default, bool isSeen = default, InventoryItemType itemType = default, string itemTypeLabel = default, Dictionary<string, Object> lastEquipped = default, InventoryMetadata metadata = default, string name = default, bool quantifiable = default, List<string> tags = default, string templateId = default, DateTime templateCreatedAt = default, DateTime templateUpdatedAt = default, DateTime updatedAt = default, InventoryUserAttributes userAttributes = default, bool validateUserAttributes = default)
+        public InventoryItem(List<string> collections = default, DateTime createdAt = default, Dictionary<string, InventoryDefaultAttributesValue> defaultAttributes = default, string description = default, InventoryEquipSlot? equipSlot = default, List<InventoryEquipSlot> equipSlots = default, DateTime? expiryDate = default, List<string> flags = default, string holderId = default, string id = default, string imageUrl = default, bool isArchived = default, bool isSeen = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, bool quantifiable = default, List<string> tags = default, string templateId = default, DateTime templateCreatedAt = default, DateTime templateUpdatedAt = default, DateTime updatedAt = default, InventoryUserAttributes userAttributes = default, bool validateUserAttributes = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Collections = collections;
@@ -117,25 +114,10 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserAttributes = userAttributes;
             this.ValidateUserAttributes = validateUserAttributes;
-            this.Acquisition = acquisition;
-            this.Attribution = attribution;
             this.EquipSlot = equipSlot;
             this.EquipSlots = equipSlots;
             this.ExpiryDate = expiryDate;
-            this.LastEquipped = lastEquipped;
         }
-
-        /// <summary>
-        /// Gets or Sets Acquisition
-        /// </summary>
-        [DataMember(Name = "acquisition", EmitDefaultValue = false)]
-        public string Acquisition { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Attribution
-        /// </summary>
-        [DataMember(Name = "attribution", EmitDefaultValue = true)]
-        public Object Attribution { get; set; }
 
         /// <summary>
         /// Gets or Sets Collections
@@ -229,12 +211,6 @@ namespace VRChat.API.Model
         public string ItemTypeLabel { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastEquipped
-        /// </summary>
-        [DataMember(Name = "last_equipped", EmitDefaultValue = false)]
-        public Dictionary<string, Object> LastEquipped { get; set; }
-
-        /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name = "metadata", IsRequired = true, EmitDefaultValue = true)]
@@ -314,8 +290,6 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InventoryItem {\n");
-            sb.Append("  Acquisition: ").Append(Acquisition).Append("\n");
-            sb.Append("  Attribution: ").Append(Attribution).Append("\n");
             sb.Append("  Collections: ").Append(Collections).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  DefaultAttributes: ").Append(DefaultAttributes).Append("\n");
@@ -331,7 +305,6 @@ namespace VRChat.API.Model
             sb.Append("  IsSeen: ").Append(IsSeen).Append("\n");
             sb.Append("  ItemType: ").Append(ItemType).Append("\n");
             sb.Append("  ItemTypeLabel: ").Append(ItemTypeLabel).Append("\n");
-            sb.Append("  LastEquipped: ").Append(LastEquipped).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Quantifiable: ").Append(Quantifiable).Append("\n");
@@ -377,16 +350,6 @@ namespace VRChat.API.Model
                 return false;
             }
             return 
-                (
-                    this.Acquisition == input.Acquisition ||
-                    (this.Acquisition != null &&
-                    this.Acquisition.Equals(input.Acquisition))
-                ) && 
-                (
-                    this.Attribution == input.Attribution ||
-                    (this.Attribution != null &&
-                    this.Attribution.Equals(input.Attribution))
-                ) && 
                 (
                     this.Collections == input.Collections ||
                     this.Collections != null &&
@@ -463,12 +426,6 @@ namespace VRChat.API.Model
                     this.ItemTypeLabel.Equals(input.ItemTypeLabel))
                 ) && 
                 (
-                    this.LastEquipped == input.LastEquipped ||
-                    this.LastEquipped != null &&
-                    input.LastEquipped != null &&
-                    this.LastEquipped.SequenceEqual(input.LastEquipped)
-                ) && 
-                (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
@@ -528,14 +485,6 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Acquisition != null)
-                {
-                    hashCode = (hashCode * 59) + this.Acquisition.GetHashCode();
-                }
-                if (this.Attribution != null)
-                {
-                    hashCode = (hashCode * 59) + this.Attribution.GetHashCode();
-                }
                 if (this.Collections != null)
                 {
                     hashCode = (hashCode * 59) + this.Collections.GetHashCode();
@@ -583,10 +532,6 @@ namespace VRChat.API.Model
                 if (this.ItemTypeLabel != null)
                 {
                     hashCode = (hashCode * 59) + this.ItemTypeLabel.GetHashCode();
-                }
-                if (this.LastEquipped != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastEquipped.GetHashCode();
                 }
                 if (this.Metadata != null)
                 {

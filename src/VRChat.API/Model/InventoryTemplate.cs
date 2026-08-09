@@ -46,13 +46,11 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InventoryTemplate" /> class.
         /// </summary>
-        /// <param name="attribution">attribution.</param>
         /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="collections">collections (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="defaultAttributes">defaultAttributes (required).</param>
         /// <param name="description">description (required).</param>
-        /// <param name="dropStatus">dropStatus.</param>
         /// <param name="equipSlots">equipSlots (required).</param>
         /// <param name="flags">flags (required).</param>
         /// <param name="id">id (required).</param>
@@ -62,11 +60,11 @@ namespace VRChat.API.Model
         /// <param name="metadata">metadata.</param>
         /// <param name="name">name (required).</param>
         /// <param name="notificationDetails">notificationDetails.</param>
-        /// <param name="status">status.</param>
+        /// <param name="status">status (required).</param>
         /// <param name="tags">tags (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="validateUserAttributes">validateUserAttributes (required).</param>
-        public InventoryTemplate(Object attribution = default, string authorId = default, List<string> collections = default, DateTime createdAt = default, Object defaultAttributes = default, string description = default, string dropStatus = default, List<string> equipSlots = default, List<string> flags = default, string id = default, string imageUrl = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, InventoryNotificationDetails notificationDetails = default, string status = default, List<string> tags = default, DateTime updatedAt = default, bool validateUserAttributes = default)
+        public InventoryTemplate(string authorId = default, List<string> collections = default, DateTime createdAt = default, Object defaultAttributes = default, string description = default, List<string> equipSlots = default, List<string> flags = default, string id = default, string imageUrl = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, InventoryNotificationDetails notificationDetails = default, string status = default, List<string> tags = default, DateTime updatedAt = default, bool validateUserAttributes = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -91,21 +89,14 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Status = status;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.UpdatedAt = updatedAt;
             this.ValidateUserAttributes = validateUserAttributes;
-            this.Attribution = attribution;
-            this.DropStatus = dropStatus;
             this.Metadata = metadata;
             this.NotificationDetails = notificationDetails;
-            this.Status = status;
         }
-
-        /// <summary>
-        /// Gets or Sets Attribution
-        /// </summary>
-        [DataMember(Name = "attribution", EmitDefaultValue = true)]
-        public Object Attribution { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -143,12 +134,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DropStatus
-        /// </summary>
-        [DataMember(Name = "dropStatus", EmitDefaultValue = false)]
-        public string DropStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets EquipSlots
@@ -207,7 +192,7 @@ namespace VRChat.API.Model
         /*
         <example>live</example>
         */
-        [DataMember(Name = "status", EmitDefaultValue = false)]
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 
         /// <summary>
@@ -239,13 +224,11 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InventoryTemplate {\n");
-            sb.Append("  Attribution: ").Append(Attribution).Append("\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
             sb.Append("  Collections: ").Append(Collections).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  DefaultAttributes: ").Append(DefaultAttributes).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  DropStatus: ").Append(DropStatus).Append("\n");
             sb.Append("  EquipSlots: ").Append(EquipSlots).Append("\n");
             sb.Append("  Flags: ").Append(Flags).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -295,11 +278,6 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Attribution == input.Attribution ||
-                    (this.Attribution != null &&
-                    this.Attribution.Equals(input.Attribution))
-                ) && 
-                (
                     this.AuthorId == input.AuthorId ||
                     (this.AuthorId != null &&
                     this.AuthorId.Equals(input.AuthorId))
@@ -324,11 +302,6 @@ namespace VRChat.API.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.DropStatus == input.DropStatus ||
-                    (this.DropStatus != null &&
-                    this.DropStatus.Equals(input.DropStatus))
                 ) && 
                 (
                     this.EquipSlots == input.EquipSlots ||
@@ -407,10 +380,6 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Attribution != null)
-                {
-                    hashCode = (hashCode * 59) + this.Attribution.GetHashCode();
-                }
                 if (this.AuthorId != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
@@ -430,10 +399,6 @@ namespace VRChat.API.Model
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.DropStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.DropStatus.GetHashCode();
                 }
                 if (this.EquipSlots != null)
                 {

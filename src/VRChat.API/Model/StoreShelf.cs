@@ -45,14 +45,11 @@ namespace VRChat.API.Model
         /// <param name="id">id (required).</param>
         /// <param name="listingIds">listingIds (required).</param>
         /// <param name="listings">listings.</param>
-        /// <param name="shelfBackgroundImageId">shelfBackgroundImageId.</param>
         /// <param name="shelfDescription">shelfDescription (required).</param>
-        /// <param name="shelfIconImageId">shelfIconImageId.</param>
         /// <param name="shelfLayout">shelfLayout (required).</param>
-        /// <param name="shelfTabBackgroundImageId">shelfTabBackgroundImageId.</param>
         /// <param name="shelfTitle">shelfTitle (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public StoreShelf(ProductListing highlightListing = default, string highlightListingId = default, string id = default, List<string> listingIds = default, List<ProductListing> listings = default, string shelfBackgroundImageId = default, string shelfDescription = default, string shelfIconImageId = default, string shelfLayout = default, string shelfTabBackgroundImageId = default, string shelfTitle = default, DateTime updatedAt = default)
+        public StoreShelf(ProductListing highlightListing = default, string highlightListingId = default, string id = default, List<string> listingIds = default, List<ProductListing> listings = default, string shelfDescription = default, string shelfLayout = default, string shelfTitle = default, DateTime updatedAt = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
@@ -68,9 +65,6 @@ namespace VRChat.API.Model
             this.HighlightListing = highlightListing;
             this.HighlightListingId = highlightListingId;
             this.Listings = listings;
-            this.ShelfBackgroundImageId = shelfBackgroundImageId;
-            this.ShelfIconImageId = shelfIconImageId;
-            this.ShelfTabBackgroundImageId = shelfTabBackgroundImageId;
         }
 
         /// <summary>
@@ -110,43 +104,16 @@ namespace VRChat.API.Model
         public List<ProductListing> Listings { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShelfBackgroundImageId
-        /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
-        [DataMember(Name = "shelfBackgroundImageId", EmitDefaultValue = false)]
-        public string ShelfBackgroundImageId { get; set; }
-
-        /// <summary>
         /// Gets or Sets ShelfDescription
         /// </summary>
         [DataMember(Name = "shelfDescription", IsRequired = true, EmitDefaultValue = true)]
         public string ShelfDescription { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShelfIconImageId
-        /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
-        [DataMember(Name = "shelfIconImageId", EmitDefaultValue = false)]
-        public string ShelfIconImageId { get; set; }
-
-        /// <summary>
         /// Gets or Sets ShelfLayout
         /// </summary>
         [DataMember(Name = "shelfLayout", IsRequired = true, EmitDefaultValue = true)]
         public string ShelfLayout { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ShelfTabBackgroundImageId
-        /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
-        [DataMember(Name = "shelfTabBackgroundImageId", EmitDefaultValue = false)]
-        public string ShelfTabBackgroundImageId { get; set; }
 
         /// <summary>
         /// Gets or Sets ShelfTitle
@@ -173,11 +140,8 @@ namespace VRChat.API.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ListingIds: ").Append(ListingIds).Append("\n");
             sb.Append("  Listings: ").Append(Listings).Append("\n");
-            sb.Append("  ShelfBackgroundImageId: ").Append(ShelfBackgroundImageId).Append("\n");
             sb.Append("  ShelfDescription: ").Append(ShelfDescription).Append("\n");
-            sb.Append("  ShelfIconImageId: ").Append(ShelfIconImageId).Append("\n");
             sb.Append("  ShelfLayout: ").Append(ShelfLayout).Append("\n");
-            sb.Append("  ShelfTabBackgroundImageId: ").Append(ShelfTabBackgroundImageId).Append("\n");
             sb.Append("  ShelfTitle: ").Append(ShelfTitle).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("}\n");
@@ -243,29 +207,14 @@ namespace VRChat.API.Model
                     this.Listings.SequenceEqual(input.Listings)
                 ) && 
                 (
-                    this.ShelfBackgroundImageId == input.ShelfBackgroundImageId ||
-                    (this.ShelfBackgroundImageId != null &&
-                    this.ShelfBackgroundImageId.Equals(input.ShelfBackgroundImageId))
-                ) && 
-                (
                     this.ShelfDescription == input.ShelfDescription ||
                     (this.ShelfDescription != null &&
                     this.ShelfDescription.Equals(input.ShelfDescription))
                 ) && 
                 (
-                    this.ShelfIconImageId == input.ShelfIconImageId ||
-                    (this.ShelfIconImageId != null &&
-                    this.ShelfIconImageId.Equals(input.ShelfIconImageId))
-                ) && 
-                (
                     this.ShelfLayout == input.ShelfLayout ||
                     (this.ShelfLayout != null &&
                     this.ShelfLayout.Equals(input.ShelfLayout))
-                ) && 
-                (
-                    this.ShelfTabBackgroundImageId == input.ShelfTabBackgroundImageId ||
-                    (this.ShelfTabBackgroundImageId != null &&
-                    this.ShelfTabBackgroundImageId.Equals(input.ShelfTabBackgroundImageId))
                 ) && 
                 (
                     this.ShelfTitle == input.ShelfTitle ||
@@ -308,25 +257,13 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Listings.GetHashCode();
                 }
-                if (this.ShelfBackgroundImageId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShelfBackgroundImageId.GetHashCode();
-                }
                 if (this.ShelfDescription != null)
                 {
                     hashCode = (hashCode * 59) + this.ShelfDescription.GetHashCode();
                 }
-                if (this.ShelfIconImageId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShelfIconImageId.GetHashCode();
-                }
                 if (this.ShelfLayout != null)
                 {
                     hashCode = (hashCode * 59) + this.ShelfLayout.GetHashCode();
-                }
-                if (this.ShelfTabBackgroundImageId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShelfTabBackgroundImageId.GetHashCode();
                 }
                 if (this.ShelfTitle != null)
                 {

@@ -46,22 +46,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPush" /> class.
         /// </summary>
-        /// <param name="clientMinVersion">clientMinVersion.</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="data">data (required).</param>
         /// <param name="endDate">endDate.</param>
-        /// <param name="experiment">experiment.</param>
         /// <param name="hash">Unknown usage, MD5 (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="isEnabled">isEnabled (required) (default to true).</param>
         /// <param name="priority">priority (required).</param>
-        /// <param name="regions">regions.</param>
         /// <param name="releaseStatus">releaseStatus (required).</param>
-        /// <param name="requireClientTags">requireClientTags.</param>
         /// <param name="startDate">startDate.</param>
         /// <param name="tags">  (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public InfoPush(Object clientMinVersion = default, DateTime createdAt = default, InfoPushData data = default, DateTime? endDate = default, InfoPushExperiment experiment = default, string hash = default, string id = default, bool isEnabled = true, int priority = default, List<string> regions = default, ReleaseStatus releaseStatus = default, List<string> requireClientTags = default, DateTime? startDate = default, List<string> tags = default, DateTime updatedAt = default)
+        public InfoPush(DateTime createdAt = default, InfoPushData data = default, DateTime endDate = default, string hash = default, string id = default, bool isEnabled = true, int priority = default, ReleaseStatus releaseStatus = default, DateTime startDate = default, List<string> tags = default, DateTime updatedAt = default)
         {
             this.CreatedAt = createdAt;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -76,19 +72,9 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             this.UpdatedAt = updatedAt;
-            this.ClientMinVersion = clientMinVersion;
             this.EndDate = endDate;
-            this.Experiment = experiment;
-            this.Regions = regions;
-            this.RequireClientTags = requireClientTags;
             this.StartDate = startDate;
         }
-
-        /// <summary>
-        /// Gets or Sets ClientMinVersion
-        /// </summary>
-        [DataMember(Name = "clientMinVersion", EmitDefaultValue = true)]
-        public Object ClientMinVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
@@ -105,14 +91,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets EndDate
         /// </summary>
-        [DataMember(Name = "endDate", EmitDefaultValue = true)]
-        public DateTime? EndDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Experiment
-        /// </summary>
-        [DataMember(Name = "experiment", EmitDefaultValue = false)]
-        public InfoPushExperiment Experiment { get; set; }
+        [DataMember(Name = "endDate", EmitDefaultValue = false)]
+        public DateTime EndDate { get; set; }
 
         /// <summary>
         /// Unknown usage, MD5
@@ -143,22 +123,10 @@ namespace VRChat.API.Model
         public int Priority { get; set; }
 
         /// <summary>
-        /// Gets or Sets Regions
-        /// </summary>
-        [DataMember(Name = "regions", EmitDefaultValue = false)]
-        public List<string> Regions { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RequireClientTags
-        /// </summary>
-        [DataMember(Name = "requireClientTags", EmitDefaultValue = false)]
-        public List<string> RequireClientTags { get; set; }
-
-        /// <summary>
         /// Gets or Sets StartDate
         /// </summary>
-        [DataMember(Name = "startDate", EmitDefaultValue = true)]
-        public DateTime? StartDate { get; set; }
+        [DataMember(Name = "startDate", EmitDefaultValue = false)]
+        public DateTime StartDate { get; set; }
 
         /// <summary>
         ///  
@@ -181,18 +149,14 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InfoPush {\n");
-            sb.Append("  ClientMinVersion: ").Append(ClientMinVersion).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
-            sb.Append("  Experiment: ").Append(Experiment).Append("\n");
             sb.Append("  Hash: ").Append(Hash).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IsEnabled: ").Append(IsEnabled).Append("\n");
             sb.Append("  Priority: ").Append(Priority).Append("\n");
-            sb.Append("  Regions: ").Append(Regions).Append("\n");
             sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
-            sb.Append("  RequireClientTags: ").Append(RequireClientTags).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
@@ -232,11 +196,6 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.ClientMinVersion == input.ClientMinVersion ||
-                    (this.ClientMinVersion != null &&
-                    this.ClientMinVersion.Equals(input.ClientMinVersion))
-                ) && 
-                (
                     this.CreatedAt == input.CreatedAt ||
                     (this.CreatedAt != null &&
                     this.CreatedAt.Equals(input.CreatedAt))
@@ -250,11 +209,6 @@ namespace VRChat.API.Model
                     this.EndDate == input.EndDate ||
                     (this.EndDate != null &&
                     this.EndDate.Equals(input.EndDate))
-                ) && 
-                (
-                    this.Experiment == input.Experiment ||
-                    (this.Experiment != null &&
-                    this.Experiment.Equals(input.Experiment))
                 ) && 
                 (
                     this.Hash == input.Hash ||
@@ -275,20 +229,8 @@ namespace VRChat.API.Model
                     this.Priority.Equals(input.Priority)
                 ) && 
                 (
-                    this.Regions == input.Regions ||
-                    this.Regions != null &&
-                    input.Regions != null &&
-                    this.Regions.SequenceEqual(input.Regions)
-                ) && 
-                (
                     this.ReleaseStatus == input.ReleaseStatus ||
                     this.ReleaseStatus.Equals(input.ReleaseStatus)
-                ) && 
-                (
-                    this.RequireClientTags == input.RequireClientTags ||
-                    this.RequireClientTags != null &&
-                    input.RequireClientTags != null &&
-                    this.RequireClientTags.SequenceEqual(input.RequireClientTags)
                 ) && 
                 (
                     this.StartDate == input.StartDate ||
@@ -317,10 +259,6 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ClientMinVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientMinVersion.GetHashCode();
-                }
                 if (this.CreatedAt != null)
                 {
                     hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
@@ -333,10 +271,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
                 }
-                if (this.Experiment != null)
-                {
-                    hashCode = (hashCode * 59) + this.Experiment.GetHashCode();
-                }
                 if (this.Hash != null)
                 {
                     hashCode = (hashCode * 59) + this.Hash.GetHashCode();
@@ -347,15 +281,7 @@ namespace VRChat.API.Model
                 }
                 hashCode = (hashCode * 59) + this.IsEnabled.GetHashCode();
                 hashCode = (hashCode * 59) + this.Priority.GetHashCode();
-                if (this.Regions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Regions.GetHashCode();
-                }
                 hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
-                if (this.RequireClientTags != null)
-                {
-                    hashCode = (hashCode * 59) + this.RequireClientTags.GetHashCode();
-                }
                 if (this.StartDate != null)
                 {
                     hashCode = (hashCode * 59) + this.StartDate.GetHashCode();

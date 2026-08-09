@@ -36,11 +36,9 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="GetGroupPosts200Response" /> class.
         /// </summary>
         /// <param name="posts">posts.</param>
-        /// <param name="total">total.</param>
-        public GetGroupPosts200Response(List<GroupPost> posts = default, int total = default)
+        public GetGroupPosts200Response(List<GroupPost> posts = default)
         {
             this.Posts = posts;
-            this.Total = total;
         }
 
         /// <summary>
@@ -48,12 +46,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "posts", EmitDefaultValue = false)]
         public List<GroupPost> Posts { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Total
-        /// </summary>
-        [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,7 +56,6 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetGroupPosts200Response {\n");
             sb.Append("  Posts: ").Append(Posts).Append("\n");
-            sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,10 +96,6 @@ namespace VRChat.API.Model
                     this.Posts != null &&
                     input.Posts != null &&
                     this.Posts.SequenceEqual(input.Posts)
-                ) && 
-                (
-                    this.Total == input.Total ||
-                    this.Total.Equals(input.Total)
                 );
         }
 
@@ -125,7 +112,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Posts.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Total.GetHashCode();
                 return hashCode;
             }
         }

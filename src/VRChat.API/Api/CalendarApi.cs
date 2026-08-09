@@ -291,7 +291,7 @@ namespace VRChat.API.Api
         /// Get next calendar event
         /// </summary>
         /// <remarks>
-        /// Return the closest future calendar event scheduled for a group. A group with no future scheduled events answers 404.
+        /// Get the closest future calendar event scheduled for a group
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -302,7 +302,7 @@ namespace VRChat.API.Api
         /// Get next calendar event
         /// </summary>
         /// <remarks>
-        /// Return the closest future calendar event scheduled for a group. A group with no future scheduled events answers 404.
+        /// Get the closest future calendar event scheduled for a group
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -655,7 +655,7 @@ namespace VRChat.API.Api
         /// Get next calendar event
         /// </summary>
         /// <remarks>
-        /// Return the closest future calendar event scheduled for a group. A group with no future scheduled events answers 404.
+        /// Get the closest future calendar event scheduled for a group
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -667,7 +667,7 @@ namespace VRChat.API.Api
         /// Get next calendar event
         /// </summary>
         /// <remarks>
-        /// Return the closest future calendar event scheduled for a group. A group with no future scheduled events answers 404.
+        /// Get the closest future calendar event scheduled for a group
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -2684,7 +2684,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get next calendar event Return the closest future calendar event scheduled for a group. A group with no future scheduled events answers 404.
+        /// Get next calendar event Get the closest future calendar event scheduled for a group
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -2704,7 +2704,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get next calendar event Return the closest future calendar event scheduled for a group. A group with no future scheduled events answers 404.
+        /// Get next calendar event Get the closest future calendar event scheduled for a group
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -2754,7 +2754,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get next calendar event Return the closest future calendar event scheduled for a group. A group with no future scheduled events answers 404.
+        /// Get next calendar event Get the closest future calendar event scheduled for a group
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
@@ -2775,7 +2775,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get next calendar event Return the closest future calendar event scheduled for a group. A group with no future scheduled events answers 404.
+        /// Get next calendar event Get the closest future calendar event scheduled for a group
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>

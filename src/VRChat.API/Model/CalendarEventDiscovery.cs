@@ -40,20 +40,21 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CalendarEventDiscovery" /> class.
         /// </summary>
-        /// <param name="nextCursor">Base64-encoded JSON:   type: object   properties:     dataSource:       type: string       enum:         - featured         - personalized     dataIndex:       type: integer       format: int32     phase:       type: string       enum:         - all         - live         - upcoming       description: see CalendarEventDiscoveryScope     asOf:       type: integer       format: int64       description: milliseconds since Unix epoch     paramHash:       type: string       format: string       description: Base64-encoded 256-bit hash of the original query parameters.</param>
+        /// <param name="nextCursor">Base64-encoded JSON:   type: object   properties:     dataSource:       type: string       enum:         - featured         - personalized     dataIndex:       type: integer       format: int32     phase:       type: string       enum:         - all         - live         - upcoming       description: see CalendarEventDiscoveryScope     asOf:       type: integer       format: int64       description: milliseconds since Unix epoch     paramHash:       type: string       format: string       description: Base64-encoded 256-bit hash of the original query parameters (required).</param>
         /// <param name="results">results (required).</param>
         public CalendarEventDiscovery(string nextCursor = default, List<CalendarEvent> results = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Results = results;
             this.NextCursor = nextCursor;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Results = results;
         }
 
         /// <summary>
         /// Base64-encoded JSON:   type: object   properties:     dataSource:       type: string       enum:         - featured         - personalized     dataIndex:       type: integer       format: int32     phase:       type: string       enum:         - all         - live         - upcoming       description: see CalendarEventDiscoveryScope     asOf:       type: integer       format: int64       description: milliseconds since Unix epoch     paramHash:       type: string       format: string       description: Base64-encoded 256-bit hash of the original query parameters
         /// </summary>
         /// <value>Base64-encoded JSON:   type: object   properties:     dataSource:       type: string       enum:         - featured         - personalized     dataIndex:       type: integer       format: int32     phase:       type: string       enum:         - all         - live         - upcoming       description: see CalendarEventDiscoveryScope     asOf:       type: integer       format: int64       description: milliseconds since Unix epoch     paramHash:       type: string       format: string       description: Base64-encoded 256-bit hash of the original query parameters</value>
-        [DataMember(Name = "nextCursor", EmitDefaultValue = false)]
+        [DataMember(Name = "nextCursor", IsRequired = true, EmitDefaultValue = true)]
         public string NextCursor { get; set; }
 
         /// <summary>

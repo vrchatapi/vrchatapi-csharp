@@ -35,44 +35,34 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentUserPresence" /> class.
         /// </summary>
-        /// <param name="avatarImageUrl">avatarImageUrl.</param>
         /// <param name="avatarThumbnail">avatarThumbnail.</param>
-        /// <param name="banner">banner.</param>
         /// <param name="currentAvatarTags">currentAvatarTags.</param>
         /// <param name="debugflag">debugflag.</param>
         /// <param name="displayName">displayName.</param>
         /// <param name="groups">groups.</param>
-        /// <param name="iconFrame">iconFrame.</param>
         /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="instance">instance.</param>
         /// <param name="instanceType">either an InstanceType or an empty string.</param>
         /// <param name="isRejoining">isRejoining.</param>
-        /// <param name="nameplateEffect">nameplateEffect.</param>
         /// <param name="platform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
-        /// <param name="profileEffect">profileEffect.</param>
         /// <param name="profilePicOverride">profilePicOverride.</param>
         /// <param name="status">either a UserStatus or empty string.</param>
         /// <param name="travelingToInstance">travelingToInstance.</param>
         /// <param name="travelingToWorld">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list..</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="world">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUserPresence(string avatarImageUrl = default, string avatarThumbnail = default, string banner = default, List<string> currentAvatarTags = default, string debugflag = default, string displayName = default, List<string> groups = default, string iconFrame = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string nameplateEffect = default, string platform = default, string profileEffect = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
+        public CurrentUserPresence(string avatarThumbnail = default, List<string> currentAvatarTags = default, string debugflag = default, string displayName = default, List<string> groups = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string platform = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
         {
-            this.AvatarImageUrl = avatarImageUrl;
             this.AvatarThumbnail = avatarThumbnail;
-            this.Banner = banner;
             this.CurrentAvatarTags = currentAvatarTags;
             this.Debugflag = debugflag;
             this.DisplayName = displayName;
             this.Groups = groups;
-            this.IconFrame = iconFrame;
             this.Id = id;
             this.Instance = instance;
             this.InstanceType = instanceType;
             this.IsRejoining = isRejoining;
-            this.NameplateEffect = nameplateEffect;
             this.Platform = platform;
-            this.ProfileEffect = profileEffect;
             this.ProfilePicOverride = profilePicOverride;
             this.Status = status;
             this.TravelingToInstance = travelingToInstance;
@@ -82,22 +72,10 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets AvatarImageUrl
-        /// </summary>
-        [DataMember(Name = "avatarImageUrl", EmitDefaultValue = false)]
-        public string AvatarImageUrl { get; set; }
-
-        /// <summary>
         /// Gets or Sets AvatarThumbnail
         /// </summary>
         [DataMember(Name = "avatarThumbnail", EmitDefaultValue = true)]
         public string AvatarThumbnail { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Banner
-        /// </summary>
-        [DataMember(Name = "banner", EmitDefaultValue = false)]
-        public string Banner { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentAvatarTags
@@ -122,12 +100,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<string> Groups { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IconFrame
-        /// </summary>
-        [DataMember(Name = "iconFrame", EmitDefaultValue = false)]
-        public string IconFrame { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -159,12 +131,6 @@ namespace VRChat.API.Model
         public string IsRejoining { get; set; }
 
         /// <summary>
-        /// Gets or Sets NameplateEffect
-        /// </summary>
-        [DataMember(Name = "nameplateEffect", EmitDefaultValue = false)]
-        public string NameplateEffect { get; set; }
-
-        /// <summary>
         /// This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
@@ -173,12 +139,6 @@ namespace VRChat.API.Model
         */
         [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProfileEffect
-        /// </summary>
-        [DataMember(Name = "profileEffect", EmitDefaultValue = false)]
-        public string ProfileEffect { get; set; }
 
         /// <summary>
         /// Gets or Sets ProfilePicOverride
@@ -233,21 +193,16 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class CurrentUserPresence {\n");
-            sb.Append("  AvatarImageUrl: ").Append(AvatarImageUrl).Append("\n");
             sb.Append("  AvatarThumbnail: ").Append(AvatarThumbnail).Append("\n");
-            sb.Append("  Banner: ").Append(Banner).Append("\n");
             sb.Append("  CurrentAvatarTags: ").Append(CurrentAvatarTags).Append("\n");
             sb.Append("  Debugflag: ").Append(Debugflag).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
-            sb.Append("  IconFrame: ").Append(IconFrame).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Instance: ").Append(Instance).Append("\n");
             sb.Append("  InstanceType: ").Append(InstanceType).Append("\n");
             sb.Append("  IsRejoining: ").Append(IsRejoining).Append("\n");
-            sb.Append("  NameplateEffect: ").Append(NameplateEffect).Append("\n");
             sb.Append("  Platform: ").Append(Platform).Append("\n");
-            sb.Append("  ProfileEffect: ").Append(ProfileEffect).Append("\n");
             sb.Append("  ProfilePicOverride: ").Append(ProfilePicOverride).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  TravelingToInstance: ").Append(TravelingToInstance).Append("\n");
@@ -290,19 +245,9 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.AvatarImageUrl == input.AvatarImageUrl ||
-                    (this.AvatarImageUrl != null &&
-                    this.AvatarImageUrl.Equals(input.AvatarImageUrl))
-                ) && 
-                (
                     this.AvatarThumbnail == input.AvatarThumbnail ||
                     (this.AvatarThumbnail != null &&
                     this.AvatarThumbnail.Equals(input.AvatarThumbnail))
-                ) && 
-                (
-                    this.Banner == input.Banner ||
-                    (this.Banner != null &&
-                    this.Banner.Equals(input.Banner))
                 ) && 
                 (
                     this.CurrentAvatarTags == input.CurrentAvatarTags ||
@@ -327,11 +272,6 @@ namespace VRChat.API.Model
                     this.Groups.SequenceEqual(input.Groups)
                 ) && 
                 (
-                    this.IconFrame == input.IconFrame ||
-                    (this.IconFrame != null &&
-                    this.IconFrame.Equals(input.IconFrame))
-                ) && 
-                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
@@ -352,19 +292,9 @@ namespace VRChat.API.Model
                     this.IsRejoining.Equals(input.IsRejoining))
                 ) && 
                 (
-                    this.NameplateEffect == input.NameplateEffect ||
-                    (this.NameplateEffect != null &&
-                    this.NameplateEffect.Equals(input.NameplateEffect))
-                ) && 
-                (
                     this.Platform == input.Platform ||
                     (this.Platform != null &&
                     this.Platform.Equals(input.Platform))
-                ) && 
-                (
-                    this.ProfileEffect == input.ProfileEffect ||
-                    (this.ProfileEffect != null &&
-                    this.ProfileEffect.Equals(input.ProfileEffect))
                 ) && 
                 (
                     this.ProfilePicOverride == input.ProfilePicOverride ||
@@ -407,17 +337,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AvatarImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.AvatarImageUrl.GetHashCode();
-                }
                 if (this.AvatarThumbnail != null)
                 {
                     hashCode = (hashCode * 59) + this.AvatarThumbnail.GetHashCode();
-                }
-                if (this.Banner != null)
-                {
-                    hashCode = (hashCode * 59) + this.Banner.GetHashCode();
                 }
                 if (this.CurrentAvatarTags != null)
                 {
@@ -435,10 +357,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Groups.GetHashCode();
                 }
-                if (this.IconFrame != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconFrame.GetHashCode();
-                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
@@ -455,17 +373,9 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.IsRejoining.GetHashCode();
                 }
-                if (this.NameplateEffect != null)
-                {
-                    hashCode = (hashCode * 59) + this.NameplateEffect.GetHashCode();
-                }
                 if (this.Platform != null)
                 {
                     hashCode = (hashCode * 59) + this.Platform.GetHashCode();
-                }
-                if (this.ProfileEffect != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfileEffect.GetHashCode();
                 }
                 if (this.ProfilePicOverride != null)
                 {

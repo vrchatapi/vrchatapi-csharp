@@ -36,11 +36,9 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="GroupRole" /> class.
         /// </summary>
         /// <param name="createdAt">createdAt.</param>
-        /// <param name="defaultRole">defaultRole (default to false).</param>
         /// <param name="description">description.</param>
         /// <param name="groupId">groupId.</param>
         /// <param name="id">id.</param>
-        /// <param name="isAddedOnJoin">isAddedOnJoin (default to false).</param>
         /// <param name="isManagementRole">isManagementRole (default to false).</param>
         /// <param name="isSelfAssignable">isSelfAssignable (default to false).</param>
         /// <param name="name">name.</param>
@@ -49,14 +47,12 @@ namespace VRChat.API.Model
         /// <param name="requiresPurchase">requiresPurchase (default to false).</param>
         /// <param name="requiresTwoFactor">requiresTwoFactor (default to false).</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public GroupRole(DateTime createdAt = default, bool defaultRole = false, string description = default, string groupId = default, string id = default, bool isAddedOnJoin = false, bool isManagementRole = false, bool isSelfAssignable = false, string name = default, int order = default, List<GroupPermissions> permissions = default, bool requiresPurchase = false, bool requiresTwoFactor = false, DateTime updatedAt = default)
+        public GroupRole(DateTime createdAt = default, string description = default, string groupId = default, string id = default, bool isManagementRole = false, bool isSelfAssignable = false, string name = default, int order = default, List<GroupPermissions> permissions = default, bool requiresPurchase = false, bool requiresTwoFactor = false, DateTime updatedAt = default)
         {
             this.CreatedAt = createdAt;
-            this.DefaultRole = defaultRole;
             this.Description = description;
             this.GroupId = groupId;
             this.Id = id;
-            this.IsAddedOnJoin = isAddedOnJoin;
             this.IsManagementRole = isManagementRole;
             this.IsSelfAssignable = isSelfAssignable;
             this.Name = name;
@@ -72,12 +68,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "createdAt", EmitDefaultValue = false)]
         public DateTime CreatedAt { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DefaultRole
-        /// </summary>
-        [DataMember(Name = "defaultRole", EmitDefaultValue = true)]
-        public bool DefaultRole { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
@@ -102,12 +92,6 @@ namespace VRChat.API.Model
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsAddedOnJoin
-        /// </summary>
-        [DataMember(Name = "isAddedOnJoin", EmitDefaultValue = true)]
-        public bool IsAddedOnJoin { get; set; }
 
         /// <summary>
         /// Gets or Sets IsManagementRole
@@ -166,11 +150,9 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class GroupRole {\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  DefaultRole: ").Append(DefaultRole).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  IsAddedOnJoin: ").Append(IsAddedOnJoin).Append("\n");
             sb.Append("  IsManagementRole: ").Append(IsManagementRole).Append("\n");
             sb.Append("  IsSelfAssignable: ").Append(IsSelfAssignable).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -220,10 +202,6 @@ namespace VRChat.API.Model
                     this.CreatedAt.Equals(input.CreatedAt))
                 ) && 
                 (
-                    this.DefaultRole == input.DefaultRole ||
-                    this.DefaultRole.Equals(input.DefaultRole)
-                ) && 
-                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
@@ -237,10 +215,6 @@ namespace VRChat.API.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.IsAddedOnJoin == input.IsAddedOnJoin ||
-                    this.IsAddedOnJoin.Equals(input.IsAddedOnJoin)
                 ) && 
                 (
                     this.IsManagementRole == input.IsManagementRole ||
@@ -293,7 +267,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.DefaultRole.GetHashCode();
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
@@ -306,7 +279,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.IsAddedOnJoin.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsManagementRole.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsSelfAssignable.GetHashCode();
                 if (this.Name != null)
