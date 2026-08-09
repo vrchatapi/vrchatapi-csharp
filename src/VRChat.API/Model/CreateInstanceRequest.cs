@@ -132,7 +132,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>

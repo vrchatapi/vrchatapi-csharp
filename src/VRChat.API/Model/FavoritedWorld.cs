@@ -52,7 +52,6 @@ namespace VRChat.API.Model
         /// <param name="createdAt">createdAt.</param>
         /// <param name="defaultContentSettings">defaultContentSettings.</param>
         /// <param name="description">description.</param>
-        /// <param name="disabledPropAbilities">disabledPropAbilities.</param>
         /// <param name="favoriteGroup">favoriteGroup (required).</param>
         /// <param name="favoriteId">favoriteId (required).</param>
         /// <param name="favorites">favorites (default to 0).</param>
@@ -77,7 +76,7 @@ namespace VRChat.API.Model
         /// <param name="urlList">urlList.</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="visits">visits (default to 0).</param>
-        public FavoritedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, List<Object> disabledPropAbilities = default, string favoriteGroup = default, string favoriteId = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = default, int visits = 0)
+        public FavoritedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, string favoriteGroup = default, string favoriteId = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = default, int visits = 0)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorName = authorName;
@@ -100,7 +99,6 @@ namespace VRChat.API.Model
             this.CreatedAt = createdAt;
             this.DefaultContentSettings = defaultContentSettings;
             this.Description = description;
-            this.DisabledPropAbilities = disabledPropAbilities;
             this.Favorites = favorites;
             this.Featured = featured;
             this.Heat = heat;
@@ -162,12 +160,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DisabledPropAbilities
-        /// </summary>
-        [DataMember(Name = "disabledPropAbilities", EmitDefaultValue = false)]
-        public List<Object> DisabledPropAbilities { get; set; }
 
         /// <summary>
         /// Gets or Sets FavoriteGroup
@@ -354,7 +346,6 @@ namespace VRChat.API.Model
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  DefaultContentSettings: ").Append(DefaultContentSettings).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  DisabledPropAbilities: ").Append(DisabledPropAbilities).Append("\n");
             sb.Append("  FavoriteGroup: ").Append(FavoriteGroup).Append("\n");
             sb.Append("  FavoriteId: ").Append(FavoriteId).Append("\n");
             sb.Append("  Favorites: ").Append(Favorites).Append("\n");
@@ -442,12 +433,6 @@ namespace VRChat.API.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.DisabledPropAbilities == input.DisabledPropAbilities ||
-                    this.DisabledPropAbilities != null &&
-                    input.DisabledPropAbilities != null &&
-                    this.DisabledPropAbilities.SequenceEqual(input.DisabledPropAbilities)
                 ) && 
                 (
                     this.FavoriteGroup == input.FavoriteGroup ||
@@ -595,10 +580,6 @@ namespace VRChat.API.Model
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.DisabledPropAbilities != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisabledPropAbilities.GetHashCode();
                 }
                 if (this.FavoriteGroup != null)
                 {

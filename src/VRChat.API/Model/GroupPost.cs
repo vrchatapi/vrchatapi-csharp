@@ -48,12 +48,12 @@ namespace VRChat.API.Model
         /// <param name="id">id.</param>
         /// <param name="imageId">imageId.</param>
         /// <param name="imageUrl">imageUrl.</param>
-        /// <param name="roleIds"> .</param>
+        /// <param name="roleId"> .</param>
         /// <param name="text">text.</param>
         /// <param name="title">title.</param>
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="visibility">visibility.</param>
-        public GroupPost(string authorId = default, DateTime createdAt = default, string editorId = default, string groupId = default, string id = default, string imageId = default, string imageUrl = default, List<string> roleIds = default, string text = default, string title = default, DateTime updatedAt = default, GroupPostVisibility? visibility = default)
+        public GroupPost(string authorId = default, DateTime createdAt = default, string editorId = default, string groupId = default, string id = default, string imageId = default, string imageUrl = default, List<string> roleId = default, string text = default, string title = default, DateTime updatedAt = default, GroupPostVisibility? visibility = default)
         {
             this.AuthorId = authorId;
             this.CreatedAt = createdAt;
@@ -62,7 +62,7 @@ namespace VRChat.API.Model
             this.Id = id;
             this.ImageId = imageId;
             this.ImageUrl = imageUrl;
-            this.RoleIds = roleIds;
+            this.RoleId = roleId;
             this.Text = text;
             this.Title = title;
             this.UpdatedAt = updatedAt;
@@ -132,8 +132,8 @@ namespace VRChat.API.Model
         ///  
         /// </summary>
         /// <value> </value>
-        [DataMember(Name = "roleIds", EmitDefaultValue = false)]
-        public List<string> RoleIds { get; set; }
+        [DataMember(Name = "roleId", EmitDefaultValue = false)]
+        public List<string> RoleId { get; set; }
 
         /// <summary>
         /// Gets or Sets Text
@@ -168,7 +168,7 @@ namespace VRChat.API.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ImageId: ").Append(ImageId).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
-            sb.Append("  RoleIds: ").Append(RoleIds).Append("\n");
+            sb.Append("  RoleId: ").Append(RoleId).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
@@ -244,10 +244,10 @@ namespace VRChat.API.Model
                     this.ImageUrl.Equals(input.ImageUrl))
                 ) && 
                 (
-                    this.RoleIds == input.RoleIds ||
-                    this.RoleIds != null &&
-                    input.RoleIds != null &&
-                    this.RoleIds.SequenceEqual(input.RoleIds)
+                    this.RoleId == input.RoleId ||
+                    this.RoleId != null &&
+                    input.RoleId != null &&
+                    this.RoleId.SequenceEqual(input.RoleId)
                 ) && 
                 (
                     this.Text == input.Text ||
@@ -307,9 +307,9 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
                 }
-                if (this.RoleIds != null)
+                if (this.RoleId != null)
                 {
-                    hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
+                    hashCode = (hashCode * 59) + this.RoleId.GetHashCode();
                 }
                 if (this.Text != null)
                 {

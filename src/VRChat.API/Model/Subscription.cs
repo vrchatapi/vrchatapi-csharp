@@ -48,19 +48,16 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="amount">amount (required).</param>
         /// <param name="appleProductId">appleProductId.</param>
-        /// <param name="bulkSize">How many subscriptions a gifted bundle grants..</param>
         /// <param name="description">description (required).</param>
-        /// <param name="discountPercentage">Discount applied to a gifted bundle..</param>
         /// <param name="googlePlanId">googlePlanId.</param>
         /// <param name="googleProductId">googleProductId.</param>
         /// <param name="id">id (required).</param>
         /// <param name="oculusSku">oculusSku.</param>
         /// <param name="period">period (required).</param>
-        /// <param name="periodAmount">periodAmount.</param>
         /// <param name="picoSku">picoSku.</param>
         /// <param name="steamItemId">steamItemId (required).</param>
         /// <param name="tier">tier (required).</param>
-        public Subscription(decimal amount = default, string appleProductId = default, int bulkSize = default, string description = default, int discountPercentage = default, string googlePlanId = default, string googleProductId = default, string id = default, string oculusSku = default, SubscriptionPeriod period = default, Object periodAmount = default, string picoSku = default, string steamItemId = default, int tier = default)
+        public Subscription(decimal amount = default, string appleProductId = default, string description = default, string googlePlanId = default, string googleProductId = default, string id = default, string oculusSku = default, SubscriptionPeriod period = default, string picoSku = default, string steamItemId = default, int tier = default)
         {
             this.Amount = amount;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -72,12 +69,9 @@ namespace VRChat.API.Model
             this.SteamItemId = steamItemId;
             this.Tier = tier;
             this.AppleProductId = appleProductId;
-            this.BulkSize = bulkSize;
-            this.DiscountPercentage = discountPercentage;
             this.GooglePlanId = googlePlanId;
             this.GoogleProductId = googleProductId;
             this.OculusSku = oculusSku;
-            this.PeriodAmount = periodAmount;
             this.PicoSku = picoSku;
         }
 
@@ -94,30 +88,10 @@ namespace VRChat.API.Model
         public string AppleProductId { get; set; }
 
         /// <summary>
-        /// How many subscriptions a gifted bundle grants.
-        /// </summary>
-        /// <value>How many subscriptions a gifted bundle grants.</value>
-        /*
-        <example>5</example>
-        */
-        [DataMember(Name = "bulkSize", EmitDefaultValue = false)]
-        public int BulkSize { get; set; }
-
-        /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Discount applied to a gifted bundle.
-        /// </summary>
-        /// <value>Discount applied to a gifted bundle.</value>
-        /*
-        <example>10</example>
-        */
-        [DataMember(Name = "discountPercentage", EmitDefaultValue = false)]
-        public int DiscountPercentage { get; set; }
 
         /// <summary>
         /// Gets or Sets GooglePlanId
@@ -142,12 +116,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "oculusSku", EmitDefaultValue = false)]
         public string OculusSku { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PeriodAmount
-        /// </summary>
-        [DataMember(Name = "periodAmount", EmitDefaultValue = true)]
-        public Object PeriodAmount { get; set; }
 
         /// <summary>
         /// Gets or Sets PicoSku
@@ -177,15 +145,12 @@ namespace VRChat.API.Model
             sb.Append("class Subscription {\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  AppleProductId: ").Append(AppleProductId).Append("\n");
-            sb.Append("  BulkSize: ").Append(BulkSize).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  DiscountPercentage: ").Append(DiscountPercentage).Append("\n");
             sb.Append("  GooglePlanId: ").Append(GooglePlanId).Append("\n");
             sb.Append("  GoogleProductId: ").Append(GoogleProductId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  OculusSku: ").Append(OculusSku).Append("\n");
             sb.Append("  Period: ").Append(Period).Append("\n");
-            sb.Append("  PeriodAmount: ").Append(PeriodAmount).Append("\n");
             sb.Append("  PicoSku: ").Append(PicoSku).Append("\n");
             sb.Append("  SteamItemId: ").Append(SteamItemId).Append("\n");
             sb.Append("  Tier: ").Append(Tier).Append("\n");
@@ -234,17 +199,9 @@ namespace VRChat.API.Model
                     this.AppleProductId.Equals(input.AppleProductId))
                 ) && 
                 (
-                    this.BulkSize == input.BulkSize ||
-                    this.BulkSize.Equals(input.BulkSize)
-                ) && 
-                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.DiscountPercentage == input.DiscountPercentage ||
-                    this.DiscountPercentage.Equals(input.DiscountPercentage)
                 ) && 
                 (
                     this.GooglePlanId == input.GooglePlanId ||
@@ -269,11 +226,6 @@ namespace VRChat.API.Model
                 (
                     this.Period == input.Period ||
                     this.Period.Equals(input.Period)
-                ) && 
-                (
-                    this.PeriodAmount == input.PeriodAmount ||
-                    (this.PeriodAmount != null &&
-                    this.PeriodAmount.Equals(input.PeriodAmount))
                 ) && 
                 (
                     this.PicoSku == input.PicoSku ||
@@ -305,12 +257,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.AppleProductId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.BulkSize.GetHashCode();
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.DiscountPercentage.GetHashCode();
                 if (this.GooglePlanId != null)
                 {
                     hashCode = (hashCode * 59) + this.GooglePlanId.GetHashCode();
@@ -328,10 +278,6 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.OculusSku.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Period.GetHashCode();
-                if (this.PeriodAmount != null)
-                {
-                    hashCode = (hashCode * 59) + this.PeriodAmount.GetHashCode();
-                }
                 if (this.PicoSku != null)
                 {
                     hashCode = (hashCode * 59) + this.PicoSku.GetHashCode();

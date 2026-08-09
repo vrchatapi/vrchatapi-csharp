@@ -370,6 +370,7 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <returns>WorldMetadata</returns>
+        [Obsolete]
         WorldMetadata GetWorldMetadata(string worldId);
 
         /// <summary>
@@ -381,6 +382,7 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <returns>ApiResponse of WorldMetadata</returns>
+        [Obsolete]
         ApiResponse<WorldMetadata> GetWorldMetadataWithHttpInfo(string worldId);
         /// <summary>
         /// Get World Publish Status
@@ -428,7 +430,7 @@ namespace VRChat.API.Api
         /// Remove World Tags
         /// </summary>
         /// <remarks>
-        /// Remove tags from the world&#39;s profile.  The path is &#x60;deleteTags&#x60;, not &#x60;removeTags&#x60; as the user equivalent uses.
+        /// Removes tags from the world&#39;s profile
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
@@ -440,7 +442,7 @@ namespace VRChat.API.Api
         /// Remove World Tags
         /// </summary>
         /// <remarks>
-        /// Remove tags from the world&#39;s profile.  The path is &#x60;deleteTags&#x60;, not &#x60;removeTags&#x60; as the user equivalent uses.
+        /// Removes tags from the world&#39;s profile
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
@@ -921,6 +923,7 @@ namespace VRChat.API.Api
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WorldMetadata</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<WorldMetadata> GetWorldMetadataAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -933,6 +936,7 @@ namespace VRChat.API.Api
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WorldMetadata)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<WorldMetadata>> GetWorldMetadataWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get World Publish Status
@@ -984,7 +988,7 @@ namespace VRChat.API.Api
         /// Remove World Tags
         /// </summary>
         /// <remarks>
-        /// Remove tags from the world&#39;s profile.  The path is &#x60;deleteTags&#x60;, not &#x60;removeTags&#x60; as the user equivalent uses.
+        /// Removes tags from the world&#39;s profile
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
@@ -997,7 +1001,7 @@ namespace VRChat.API.Api
         /// Remove World Tags
         /// </summary>
         /// <remarks>
-        /// Remove tags from the world&#39;s profile.  The path is &#x60;deleteTags&#x60;, not &#x60;removeTags&#x60; as the user equivalent uses.
+        /// Removes tags from the world&#39;s profile
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
@@ -3513,6 +3517,7 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <returns>WorldMetadata</returns>
+        [Obsolete]
         public WorldMetadata GetWorldMetadata(string worldId)
         {
             VRChat.API.Client.ApiResponse<WorldMetadata> localVarResponse = GetWorldMetadataWithHttpInfo(worldId);
@@ -3533,6 +3538,7 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <returns>ApiResponse of WorldMetadata</returns>
+        [Obsolete]
         public VRChat.API.Client.ApiResponse<WorldMetadata> GetWorldMetadataWithHttpInfo(string worldId)
         {
             // verify the required parameter 'worldId' is set
@@ -3578,6 +3584,7 @@ namespace VRChat.API.Api
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WorldMetadata</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<WorldMetadata> GetWorldMetadataAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<WorldMetadata> localVarResponse = await GetWorldMetadataWithHttpInfoAsync(worldId, cancellationToken).ConfigureAwait(false);
@@ -3599,6 +3606,7 @@ namespace VRChat.API.Api
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WorldMetadata)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<WorldMetadata>> GetWorldMetadataWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
@@ -3926,7 +3934,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Remove World Tags Remove tags from the world&#39;s profile.  The path is &#x60;deleteTags&#x60;, not &#x60;removeTags&#x60; as the user equivalent uses.
+        /// Remove World Tags Removes tags from the world&#39;s profile
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
@@ -3947,7 +3955,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Remove World Tags Remove tags from the world&#39;s profile.  The path is &#x60;deleteTags&#x60;, not &#x60;removeTags&#x60; as the user equivalent uses.
+        /// Remove World Tags Removes tags from the world&#39;s profile
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
@@ -3993,7 +4001,7 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Post<World>("/worlds/{worldId}/deleteTags", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Post<World>("/worlds/{worldId}/removeTags", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
@@ -4004,7 +4012,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Remove World Tags Remove tags from the world&#39;s profile.  The path is &#x60;deleteTags&#x60;, not &#x60;removeTags&#x60; as the user equivalent uses.
+        /// Remove World Tags Removes tags from the world&#39;s profile
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
@@ -4026,7 +4034,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Remove World Tags Remove tags from the world&#39;s profile.  The path is &#x60;deleteTags&#x60;, not &#x60;removeTags&#x60; as the user equivalent uses.
+        /// Remove World Tags Removes tags from the world&#39;s profile
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
@@ -4075,7 +4083,7 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.PostAsync<World>("/worlds/{worldId}/deleteTags", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.PostAsync<World>("/worlds/{worldId}/removeTags", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)

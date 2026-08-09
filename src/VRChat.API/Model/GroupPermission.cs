@@ -36,15 +36,13 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="GroupPermission" /> class.
         /// </summary>
         /// <param name="allowedToAdd">Whether the user is allowed to add this permission to a role. (default to false).</param>
-        /// <param name="dependsOn">Other permission names this one is listed against..</param>
         /// <param name="displayName">The display name of the permission..</param>
         /// <param name="help">Human-readable description of the permission..</param>
         /// <param name="isManagementPermission">Whether this permission is a \&quot;management\&quot; permission. (default to false).</param>
         /// <param name="name">The name of the permission..</param>
-        public GroupPermission(bool allowedToAdd = false, List<GroupPermissions> dependsOn = default, string displayName = default, string help = default, bool isManagementPermission = false, string name = default)
+        public GroupPermission(bool allowedToAdd = false, string displayName = default, string help = default, bool isManagementPermission = false, string name = default)
         {
             this.AllowedToAdd = allowedToAdd;
-            this.DependsOn = dependsOn;
             this.DisplayName = displayName;
             this.Help = help;
             this.IsManagementPermission = isManagementPermission;
@@ -60,13 +58,6 @@ namespace VRChat.API.Model
         */
         [DataMember(Name = "allowedToAdd", EmitDefaultValue = true)]
         public bool AllowedToAdd { get; set; }
-
-        /// <summary>
-        /// Other permission names this one is listed against.
-        /// </summary>
-        /// <value>Other permission names this one is listed against.</value>
-        [DataMember(Name = "dependsOn", EmitDefaultValue = false)]
-        public List<GroupPermissions> DependsOn { get; set; }
 
         /// <summary>
         /// The display name of the permission.
@@ -117,7 +108,6 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class GroupPermission {\n");
             sb.Append("  AllowedToAdd: ").Append(AllowedToAdd).Append("\n");
-            sb.Append("  DependsOn: ").Append(DependsOn).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Help: ").Append(Help).Append("\n");
             sb.Append("  IsManagementPermission: ").Append(IsManagementPermission).Append("\n");
@@ -162,12 +152,6 @@ namespace VRChat.API.Model
                     this.AllowedToAdd.Equals(input.AllowedToAdd)
                 ) && 
                 (
-                    this.DependsOn == input.DependsOn ||
-                    this.DependsOn != null &&
-                    input.DependsOn != null &&
-                    this.DependsOn.SequenceEqual(input.DependsOn)
-                ) && 
-                (
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
                     this.DisplayName.Equals(input.DisplayName))
@@ -198,10 +182,6 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.AllowedToAdd.GetHashCode();
-                if (this.DependsOn != null)
-                {
-                    hashCode = (hashCode * 59) + this.DependsOn.GetHashCode();
-                }
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();

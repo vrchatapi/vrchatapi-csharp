@@ -52,19 +52,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LimitedUserFriend" /> class.
         /// </summary>
-        /// <param name="bannerColor">bannerColor.</param>
-        /// <param name="bannerType">bannerType.</param>
         /// <param name="bio">bio.</param>
         /// <param name="bioLinks"> .</param>
         /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead..</param>
         /// <param name="currentAvatarTags">currentAvatarTags.</param>
         /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead..</param>
         /// <param name="developerType">developerType (required).</param>
-        /// <param name="discordId">https://discord.com/developers/docs/reference#snowflakes.</param>
         /// <param name="displayName">displayName (required).</param>
         /// <param name="friendKey">friendKey (required).</param>
-        /// <param name="iconFrame">iconFrame.</param>
-        /// <param name="iconUrl">iconUrl.</param>
         /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="imageUrl">imageUrl (required).</param>
         /// <param name="isFriend">isFriend (required).</param>
@@ -73,16 +68,14 @@ namespace VRChat.API.Model
         /// <param name="lastMobile">lastMobile (required).</param>
         /// <param name="lastPlatform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
         /// <param name="location">location (required).</param>
-        /// <param name="nameplateEffect">nameplateEffect.</param>
         /// <param name="platform">platform (required).</param>
-        /// <param name="profileEffect">profileEffect.</param>
         /// <param name="profilePicOverride">profilePicOverride.</param>
         /// <param name="profilePicOverrideThumbnail">profilePicOverrideThumbnail.</param>
         /// <param name="status">status (required).</param>
         /// <param name="statusDescription">statusDescription (required).</param>
         /// <param name="tags">&lt;- Always empty. (required).</param>
         /// <param name="userIcon">userIcon.</param>
-        public LimitedUserFriend(string bannerColor = default, string bannerType = default, string bio = default, List<string> bioLinks = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DeveloperType developerType = default, string discordId = default, string displayName = default, string friendKey = default, string iconFrame = default, string iconUrl = default, string id = default, string imageUrl = default, bool isFriend = default, DateTime? lastActivity = default, DateTime? lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string platform = default, string profileEffect = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string userIcon = default)
+        public LimitedUserFriend(string bio = default, List<string> bioLinks = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string id = default, string imageUrl = default, bool isFriend = default, DateTime? lastActivity = default, DateTime? lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string platform = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string userIcon = default)
         {
             this.DeveloperType = developerType;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -111,34 +104,15 @@ namespace VRChat.API.Model
             this.StatusDescription = statusDescription;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            this.BannerColor = bannerColor;
-            this.BannerType = bannerType;
             this.Bio = bio;
             this.BioLinks = bioLinks;
             this.CurrentAvatarImageUrl = currentAvatarImageUrl;
             this.CurrentAvatarTags = currentAvatarTags;
             this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
-            this.DiscordId = discordId;
-            this.IconFrame = iconFrame;
-            this.IconUrl = iconUrl;
-            this.NameplateEffect = nameplateEffect;
-            this.ProfileEffect = profileEffect;
             this.ProfilePicOverride = profilePicOverride;
             this.ProfilePicOverrideThumbnail = profilePicOverrideThumbnail;
             this.UserIcon = userIcon;
         }
-
-        /// <summary>
-        /// Gets or Sets BannerColor
-        /// </summary>
-        [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
-        public string BannerColor { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BannerType
-        /// </summary>
-        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
-        public string BannerType { get; set; }
 
         /// <summary>
         /// Gets or Sets Bio
@@ -180,16 +154,6 @@ namespace VRChat.API.Model
         public string CurrentAvatarThumbnailImageUrl { get; set; }
 
         /// <summary>
-        /// https://discord.com/developers/docs/reference#snowflakes
-        /// </summary>
-        /// <value>https://discord.com/developers/docs/reference#snowflakes</value>
-        /*
-        <example>1280064052206370848</example>
-        */
-        [DataMember(Name = "discordId", EmitDefaultValue = false)]
-        public string DiscordId { get; set; }
-
-        /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
         [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
@@ -200,18 +164,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "friendKey", IsRequired = true, EmitDefaultValue = true)]
         public string FriendKey { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IconFrame
-        /// </summary>
-        [DataMember(Name = "iconFrame", EmitDefaultValue = false)]
-        public string IconFrame { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IconUrl
-        /// </summary>
-        [DataMember(Name = "iconUrl", EmitDefaultValue = false)]
-        public string IconUrl { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -270,22 +222,10 @@ namespace VRChat.API.Model
         public string Location { get; set; }
 
         /// <summary>
-        /// Gets or Sets NameplateEffect
-        /// </summary>
-        [DataMember(Name = "nameplateEffect", EmitDefaultValue = false)]
-        public string NameplateEffect { get; set; }
-
-        /// <summary>
         /// Gets or Sets Platform
         /// </summary>
         [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
         public string Platform { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProfileEffect
-        /// </summary>
-        [DataMember(Name = "profileEffect", EmitDefaultValue = false)]
-        public string ProfileEffect { get; set; }
 
         /// <summary>
         /// Gets or Sets ProfilePicOverride
@@ -326,19 +266,14 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class LimitedUserFriend {\n");
-            sb.Append("  BannerColor: ").Append(BannerColor).Append("\n");
-            sb.Append("  BannerType: ").Append(BannerType).Append("\n");
             sb.Append("  Bio: ").Append(Bio).Append("\n");
             sb.Append("  BioLinks: ").Append(BioLinks).Append("\n");
             sb.Append("  CurrentAvatarImageUrl: ").Append(CurrentAvatarImageUrl).Append("\n");
             sb.Append("  CurrentAvatarTags: ").Append(CurrentAvatarTags).Append("\n");
             sb.Append("  CurrentAvatarThumbnailImageUrl: ").Append(CurrentAvatarThumbnailImageUrl).Append("\n");
             sb.Append("  DeveloperType: ").Append(DeveloperType).Append("\n");
-            sb.Append("  DiscordId: ").Append(DiscordId).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  FriendKey: ").Append(FriendKey).Append("\n");
-            sb.Append("  IconFrame: ").Append(IconFrame).Append("\n");
-            sb.Append("  IconUrl: ").Append(IconUrl).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
             sb.Append("  IsFriend: ").Append(IsFriend).Append("\n");
@@ -347,9 +282,7 @@ namespace VRChat.API.Model
             sb.Append("  LastMobile: ").Append(LastMobile).Append("\n");
             sb.Append("  LastPlatform: ").Append(LastPlatform).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
-            sb.Append("  NameplateEffect: ").Append(NameplateEffect).Append("\n");
             sb.Append("  Platform: ").Append(Platform).Append("\n");
-            sb.Append("  ProfileEffect: ").Append(ProfileEffect).Append("\n");
             sb.Append("  ProfilePicOverride: ").Append(ProfilePicOverride).Append("\n");
             sb.Append("  ProfilePicOverrideThumbnail: ").Append(ProfilePicOverrideThumbnail).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -392,16 +325,6 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.BannerColor == input.BannerColor ||
-                    (this.BannerColor != null &&
-                    this.BannerColor.Equals(input.BannerColor))
-                ) && 
-                (
-                    this.BannerType == input.BannerType ||
-                    (this.BannerType != null &&
-                    this.BannerType.Equals(input.BannerType))
-                ) && 
-                (
                     this.Bio == input.Bio ||
                     (this.Bio != null &&
                     this.Bio.Equals(input.Bio))
@@ -433,11 +356,6 @@ namespace VRChat.API.Model
                     this.DeveloperType.Equals(input.DeveloperType)
                 ) && 
                 (
-                    this.DiscordId == input.DiscordId ||
-                    (this.DiscordId != null &&
-                    this.DiscordId.Equals(input.DiscordId))
-                ) && 
-                (
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
                     this.DisplayName.Equals(input.DisplayName))
@@ -446,16 +364,6 @@ namespace VRChat.API.Model
                     this.FriendKey == input.FriendKey ||
                     (this.FriendKey != null &&
                     this.FriendKey.Equals(input.FriendKey))
-                ) && 
-                (
-                    this.IconFrame == input.IconFrame ||
-                    (this.IconFrame != null &&
-                    this.IconFrame.Equals(input.IconFrame))
-                ) && 
-                (
-                    this.IconUrl == input.IconUrl ||
-                    (this.IconUrl != null &&
-                    this.IconUrl.Equals(input.IconUrl))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -497,19 +405,9 @@ namespace VRChat.API.Model
                     this.Location.Equals(input.Location))
                 ) && 
                 (
-                    this.NameplateEffect == input.NameplateEffect ||
-                    (this.NameplateEffect != null &&
-                    this.NameplateEffect.Equals(input.NameplateEffect))
-                ) && 
-                (
                     this.Platform == input.Platform ||
                     (this.Platform != null &&
                     this.Platform.Equals(input.Platform))
-                ) && 
-                (
-                    this.ProfileEffect == input.ProfileEffect ||
-                    (this.ProfileEffect != null &&
-                    this.ProfileEffect.Equals(input.ProfileEffect))
                 ) && 
                 (
                     this.ProfilePicOverride == input.ProfilePicOverride ||
@@ -552,14 +450,6 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.BannerColor != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerColor.GetHashCode();
-                }
-                if (this.BannerType != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
-                }
                 if (this.Bio != null)
                 {
                     hashCode = (hashCode * 59) + this.Bio.GetHashCode();
@@ -581,10 +471,6 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.DeveloperType.GetHashCode();
-                if (this.DiscordId != null)
-                {
-                    hashCode = (hashCode * 59) + this.DiscordId.GetHashCode();
-                }
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
@@ -592,14 +478,6 @@ namespace VRChat.API.Model
                 if (this.FriendKey != null)
                 {
                     hashCode = (hashCode * 59) + this.FriendKey.GetHashCode();
-                }
-                if (this.IconFrame != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconFrame.GetHashCode();
-                }
-                if (this.IconUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
                 }
                 if (this.Id != null)
                 {
@@ -630,17 +508,9 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Location.GetHashCode();
                 }
-                if (this.NameplateEffect != null)
-                {
-                    hashCode = (hashCode * 59) + this.NameplateEffect.GetHashCode();
-                }
                 if (this.Platform != null)
                 {
                     hashCode = (hashCode * 59) + this.Platform.GetHashCode();
-                }
-                if (this.ProfileEffect != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfileEffect.GetHashCode();
                 }
                 if (this.ProfilePicOverride != null)
                 {

@@ -45,58 +45,22 @@ namespace VRChat.API.Model
             CannedWorldSearch = 1,
 
             /// <summary>
-            /// Enum OpenAccountUpgrade for value: OpenAccountUpgrade
-            /// </summary>
-            [EnumMember(Value = "OpenAccountUpgrade")]
-            OpenAccountUpgrade = 2,
-
-            /// <summary>
-            /// Enum OpenAvatarsMenu for value: OpenAvatarsMenu
-            /// </summary>
-            [EnumMember(Value = "OpenAvatarsMenu")]
-            OpenAvatarsMenu = 3,
-
-            /// <summary>
-            /// Enum OpenHelpArticle for value: OpenHelpArticle
-            /// </summary>
-            [EnumMember(Value = "OpenHelpArticle")]
-            OpenHelpArticle = 4,
-
-            /// <summary>
-            /// Enum OpenListingDetails for value: OpenListingDetails
-            /// </summary>
-            [EnumMember(Value = "OpenListingDetails")]
-            OpenListingDetails = 5,
-
-            /// <summary>
             /// Enum OpenSafetyMenu for value: OpenSafetyMenu
             /// </summary>
             [EnumMember(Value = "OpenSafetyMenu")]
-            OpenSafetyMenu = 6,
+            OpenSafetyMenu = 2,
 
             /// <summary>
             /// Enum OpenURL for value: OpenURL
             /// </summary>
             [EnumMember(Value = "OpenURL")]
-            OpenURL = 7,
+            OpenURL = 3,
 
             /// <summary>
             /// Enum OpenVRCPlusMenu for value: OpenVRCPlusMenu
             /// </summary>
             [EnumMember(Value = "OpenVRCPlusMenu")]
-            OpenVRCPlusMenu = 8,
-
-            /// <summary>
-            /// Enum OpenVRChatStore for value: OpenVRChatStore
-            /// </summary>
-            [EnumMember(Value = "OpenVRChatStore")]
-            OpenVRChatStore = 9,
-
-            /// <summary>
-            /// Enum OpenWorldDetails for value: OpenWorldDetails
-            /// </summary>
-            [EnumMember(Value = "OpenWorldDetails")]
-            OpenWorldDetails = 10
+            OpenVRCPlusMenu = 4
         }
 
 

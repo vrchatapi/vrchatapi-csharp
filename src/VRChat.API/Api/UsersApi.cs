@@ -320,7 +320,7 @@ namespace VRChat.API.Api
         /// Get User by Username
         /// </summary>
         /// <remarks>
-        /// Get public user information about a specific user using their name.  VRChat no longer returns the usernames of other users, and this endpoint now requires admin credentials. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
+        /// ~~Get public user information about a specific user using their name.~~  **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). This endpoint now require Admin Credentials.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
@@ -332,7 +332,7 @@ namespace VRChat.API.Api
         /// Get User by Username
         /// </summary>
         /// <remarks>
-        /// Get public user information about a specific user using their name.  VRChat no longer returns the usernames of other users, and this endpoint now requires admin credentials. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
+        /// ~~Get public user information about a specific user using their name.~~  **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). This endpoint now require Admin Credentials.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
@@ -351,6 +351,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>List&lt;Feedback&gt;</returns>
+        [Obsolete]
         List<Feedback> GetUserFeedback(string userId, string? contentId = default, int? n = default, int? offset = default);
 
         /// <summary>
@@ -365,6 +366,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>ApiResponse of List&lt;Feedback&gt;</returns>
+        [Obsolete]
         ApiResponse<List<Feedback>> GetUserFeedbackWithHttpInfo(string userId, string? contentId = default, int? n = default, int? offset = default);
         /// <summary>
         /// Get User Group Instances
@@ -987,7 +989,7 @@ namespace VRChat.API.Api
         /// Get User by Username
         /// </summary>
         /// <remarks>
-        /// Get public user information about a specific user using their name.  VRChat no longer returns the usernames of other users, and this endpoint now requires admin credentials. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
+        /// ~~Get public user information about a specific user using their name.~~  **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). This endpoint now require Admin Credentials.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
@@ -1000,7 +1002,7 @@ namespace VRChat.API.Api
         /// Get User by Username
         /// </summary>
         /// <remarks>
-        /// Get public user information about a specific user using their name.  VRChat no longer returns the usernames of other users, and this endpoint now requires admin credentials. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
+        /// ~~Get public user information about a specific user using their name.~~  **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). This endpoint now require Admin Credentials.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
@@ -1021,6 +1023,7 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feedback&gt;</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<List<Feedback>> GetUserFeedbackAsync(string userId, string? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -1036,6 +1039,7 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Feedback&gt;)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<List<Feedback>>> GetUserFeedbackWithHttpInfoAsync(string userId, string? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get User Group Instances
@@ -3540,7 +3544,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User by Username Get public user information about a specific user using their name.  VRChat no longer returns the usernames of other users, and this endpoint now requires admin credentials. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
+        /// Get User by Username ~~Get public user information about a specific user using their name.~~  **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). This endpoint now require Admin Credentials.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
@@ -3561,7 +3565,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User by Username Get public user information about a specific user using their name.  VRChat no longer returns the usernames of other users, and this endpoint now requires admin credentials. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
+        /// Get User by Username ~~Get public user information about a specific user using their name.~~  **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). This endpoint now require Admin Credentials.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
@@ -3612,7 +3616,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User by Username Get public user information about a specific user using their name.  VRChat no longer returns the usernames of other users, and this endpoint now requires admin credentials. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
+        /// Get User by Username ~~Get public user information about a specific user using their name.~~  **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). This endpoint now require Admin Credentials.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
@@ -3634,7 +3638,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User by Username Get public user information about a specific user using their name.  VRChat no longer returns the usernames of other users, and this endpoint now requires admin credentials. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
+        /// Get User by Username ~~Get public user information about a specific user using their name.~~  **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429). This endpoint now require Admin Credentials.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
@@ -3696,6 +3700,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>List&lt;Feedback&gt;</returns>
+        [Obsolete]
         public List<Feedback> GetUserFeedback(string userId, string? contentId = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<Feedback>> localVarResponse = GetUserFeedbackWithHttpInfo(userId, contentId, n, offset);
@@ -3719,6 +3724,7 @@ namespace VRChat.API.Api
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>ApiResponse of List&lt;Feedback&gt;</returns>
+        [Obsolete]
         public VRChat.API.Client.ApiResponse<List<Feedback>> GetUserFeedbackWithHttpInfo(string userId, string? contentId = default, int? n = default, int? offset = default)
         {
             // verify the required parameter 'userId' is set
@@ -3785,6 +3791,7 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Feedback&gt;</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<List<Feedback>> GetUserFeedbackAsync(string userId, string? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Feedback>> localVarResponse = await GetUserFeedbackWithHttpInfoAsync(userId, contentId, n, offset, cancellationToken).ConfigureAwait(false);
@@ -3809,6 +3816,7 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Feedback&gt;)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Feedback>>> GetUserFeedbackWithHttpInfoAsync(string userId, string? contentId = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set

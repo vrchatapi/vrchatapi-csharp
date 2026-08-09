@@ -42,16 +42,14 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="PrivateProfile" /> class.
         /// </summary>
         /// <param name="activity">activity.</param>
-        /// <param name="friendRequestStatus">State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;..</param>
         /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="isFriend">isFriend.</param>
         /// <param name="note">note.</param>
         /// <param name="status">status.</param>
         /// <param name="statusDescription">statusDescription.</param>
-        public PrivateProfile(PrivateProfileActivity activity = default, string friendRequestStatus = default, string id = default, bool isFriend = default, string note = default, UserStatus? status = default, string statusDescription = default)
+        public PrivateProfile(PrivateProfileActivity activity = default, string id = default, bool isFriend = default, string note = default, UserStatus? status = default, string statusDescription = default)
         {
             this.Activity = activity;
-            this.FriendRequestStatus = friendRequestStatus;
             this.Id = id;
             this.IsFriend = isFriend;
             this.Note = note;
@@ -64,16 +62,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "activity", EmitDefaultValue = false)]
         public PrivateProfileActivity Activity { get; set; }
-
-        /// <summary>
-        /// State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;.
-        /// </summary>
-        /// <value>State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;.</value>
-        /*
-        <example>null</example>
-        */
-        [DataMember(Name = "friendRequestStatus", EmitDefaultValue = false)]
-        public string FriendRequestStatus { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -94,7 +82,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Note
         /// </summary>
-        [DataMember(Name = "note", EmitDefaultValue = true)]
+        [DataMember(Name = "note", EmitDefaultValue = false)]
         public string Note { get; set; }
 
         /// <summary>
@@ -112,7 +100,6 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PrivateProfile {\n");
             sb.Append("  Activity: ").Append(Activity).Append("\n");
-            sb.Append("  FriendRequestStatus: ").Append(FriendRequestStatus).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IsFriend: ").Append(IsFriend).Append("\n");
             sb.Append("  Note: ").Append(Note).Append("\n");
@@ -159,11 +146,6 @@ namespace VRChat.API.Model
                     this.Activity.Equals(input.Activity))
                 ) && 
                 (
-                    this.FriendRequestStatus == input.FriendRequestStatus ||
-                    (this.FriendRequestStatus != null &&
-                    this.FriendRequestStatus.Equals(input.FriendRequestStatus))
-                ) && 
-                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
@@ -200,10 +182,6 @@ namespace VRChat.API.Model
                 if (this.Activity != null)
                 {
                     hashCode = (hashCode * 59) + this.Activity.GetHashCode();
-                }
-                if (this.FriendRequestStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.FriendRequestStatus.GetHashCode();
                 }
                 if (this.Id != null)
                 {

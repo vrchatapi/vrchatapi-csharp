@@ -115,8 +115,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <returns>Success</returns>
-        Success DeleteNotification(string notificationId);
+        /// <returns>Notification</returns>
+        Notification DeleteNotification(string notificationId);
 
         /// <summary>
         /// Delete Notification
@@ -126,8 +126,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <returns>ApiResponse of Success</returns>
-        ApiResponse<Success> DeleteNotificationWithHttpInfo(string notificationId);
+        /// <returns>ApiResponse of Notification</returns>
+        ApiResponse<Notification> DeleteNotificationWithHttpInfo(string notificationId);
         /// <summary>
         /// Delete NotificationV2
         /// </summary>
@@ -418,8 +418,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Success</returns>
-        System.Threading.Tasks.Task<Success> DeleteNotificationAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of Notification</returns>
+        System.Threading.Tasks.Task<Notification> DeleteNotificationAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Notification
@@ -430,8 +430,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Success)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteNotificationWithHttpInfoAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (Notification)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Notification>> DeleteNotificationWithHttpInfoAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete NotificationV2
         /// </summary>
@@ -1398,10 +1398,10 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <returns>Success</returns>
-        public Success DeleteNotification(string notificationId)
+        /// <returns>Notification</returns>
+        public Notification DeleteNotification(string notificationId)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteNotificationWithHttpInfo(notificationId);
+            VRChat.API.Client.ApiResponse<Notification> localVarResponse = DeleteNotificationWithHttpInfo(notificationId);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteNotification", localVarResponse);
@@ -1418,8 +1418,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
-        /// <returns>ApiResponse of Success</returns>
-        public VRChat.API.Client.ApiResponse<Success> DeleteNotificationWithHttpInfo(string notificationId)
+        /// <returns>ApiResponse of Notification</returns>
+        public VRChat.API.Client.ApiResponse<Notification> DeleteNotificationWithHttpInfo(string notificationId)
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
@@ -1453,13 +1453,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Put<Success>("/auth/user/notifications/{notificationId}/hide", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Put<Notification>("/auth/user/notifications/{notificationId}/hide", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Notification>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Notification), ex.Message);
             }
         }
 
@@ -1469,10 +1469,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Success</returns>
-        public async System.Threading.Tasks.Task<Success> DeleteNotificationAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of Notification</returns>
+        public async System.Threading.Tasks.Task<Notification> DeleteNotificationAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteNotificationWithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Notification> localVarResponse = await DeleteNotificationWithHttpInfoAsync(notificationId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteNotification", localVarResponse);
@@ -1490,8 +1490,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notificationId">Must be a valid notification ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Success)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteNotificationWithHttpInfoAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (Notification)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Notification>> DeleteNotificationWithHttpInfoAsync(string notificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'notificationId' is set
             if (notificationId == null)
@@ -1527,13 +1527,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/notifications/{notificationId}/hide", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Notification>("/auth/user/notifications/{notificationId}/hide", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Notification>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Notification), ex.Message);
             }
         }
 

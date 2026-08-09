@@ -64,16 +64,10 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
         /// </summary>
-        /// <param name="acceptedPrivacyVersion">acceptedPrivacyVersion.</param>
-        /// <param name="acceptedTOSVersion">acceptedTOSVersion.</param>
-        /// <param name="accountDeletionDate">accountDeletionDate.</param>
-        /// <param name="accountDeletionLog">accountDeletionLog.</param>
         /// <param name="ageVerificationStatus">ageVerificationStatus (required).</param>
         /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+). (required).</param>
         /// <param name="allowAvatarCopying">allowAvatarCopying (required) (default to true).</param>
-        /// <param name="appleDetails">appleDetails.</param>
         /// <param name="badges"> .</param>
-        /// <param name="bannerColor">bannerColor.</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
         /// <param name="bio">bio (required).</param>
@@ -85,7 +79,7 @@ namespace VRChat.API.Model
         /// <param name="developerType">developerType (required).</param>
         /// <param name="displayName">A users visual display name. This is what shows up in-game, and can different from their &#x60;username&#x60;. Changing display name is restricted to a cooldown period. (required).</param>
         /// <param name="friendKey">friendKey (required).</param>
-        /// <param name="friendRequestStatus">State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;..</param>
+        /// <param name="friendRequestStatus">friendRequestStatus.</param>
         /// <param name="iconFrame">iconFrame.</param>
         /// <param name="iconUrl">iconUrl.</param>
         /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
@@ -112,8 +106,9 @@ namespace VRChat.API.Model
         /// <param name="travelingToLocation">travelingToLocation.</param>
         /// <param name="travelingToWorld">travelingToWorld.</param>
         /// <param name="userIcon">userIcon (required).</param>
+        /// <param name="username">-| A users unique name, used during login. This is different from &#x60;displayName&#x60; which is what shows up in-game. A users &#x60;username&#x60; can never be changed.&#39; **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public User(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = true, Dictionary<string, Object> appleDetails = default, List<Badge> badges = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, string bio = default, List<string> bioLinks = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, string lastActivity = default, string lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string userIcon = default, string worldId = default)
+        public User(AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = true, List<Badge> badges = default, string bannerType = default, string bannerUrl = default, string bio = default, List<string> bioLinks = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, string lastActivity = default, string lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string userIcon = default, string username = default, string worldId = default)
         {
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
@@ -157,13 +152,7 @@ namespace VRChat.API.Model
             this.Tags = tags;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserIcon = userIcon;
-            this.AcceptedPrivacyVersion = acceptedPrivacyVersion;
-            this.AcceptedTOSVersion = acceptedTOSVersion;
-            this.AccountDeletionDate = accountDeletionDate;
-            this.AccountDeletionLog = accountDeletionLog;
-            this.AppleDetails = appleDetails;
             this.Badges = badges;
-            this.BannerColor = bannerColor;
             this.BannerType = bannerType;
             this.BannerUrl = bannerUrl;
             this.FriendRequestStatus = friendRequestStatus;
@@ -180,32 +169,9 @@ namespace VRChat.API.Model
             this.TravelingToInstance = travelingToInstance;
             this.TravelingToLocation = travelingToLocation;
             this.TravelingToWorld = travelingToWorld;
+            this.Username = username;
             this.WorldId = worldId;
         }
-
-        /// <summary>
-        /// Gets or Sets AcceptedPrivacyVersion
-        /// </summary>
-        [DataMember(Name = "acceptedPrivacyVersion", EmitDefaultValue = false)]
-        public int AcceptedPrivacyVersion { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AcceptedTOSVersion
-        /// </summary>
-        [DataMember(Name = "acceptedTOSVersion", EmitDefaultValue = false)]
-        public int AcceptedTOSVersion { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AccountDeletionDate
-        /// </summary>
-        [DataMember(Name = "accountDeletionDate", EmitDefaultValue = true)]
-        public string AccountDeletionDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AccountDeletionLog
-        /// </summary>
-        [DataMember(Name = "accountDeletionLog", EmitDefaultValue = true)]
-        public List<Object> AccountDeletionLog { get; set; }
 
         /// <summary>
         /// &#x60;true&#x60; if, user is age verified (not 18+).
@@ -221,23 +187,11 @@ namespace VRChat.API.Model
         public bool AllowAvatarCopying { get; set; }
 
         /// <summary>
-        /// Gets or Sets AppleDetails
-        /// </summary>
-        [DataMember(Name = "appleDetails", EmitDefaultValue = false)]
-        public Dictionary<string, Object> AppleDetails { get; set; }
-
-        /// <summary>
         ///  
         /// </summary>
         /// <value> </value>
         [DataMember(Name = "badges", EmitDefaultValue = false)]
         public List<Badge> Badges { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BannerColor
-        /// </summary>
-        [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
-        public string BannerColor { get; set; }
 
         /// <summary>
         /// Gets or Sets BannerType
@@ -309,12 +263,8 @@ namespace VRChat.API.Model
         public string FriendKey { get; set; }
 
         /// <summary>
-        /// State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;.
+        /// Gets or Sets FriendRequestStatus
         /// </summary>
-        /// <value>State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;.</value>
-        /*
-        <example>null</example>
-        */
         [DataMember(Name = "friendRequestStatus", EmitDefaultValue = false)]
         public string FriendRequestStatus { get; set; }
 
@@ -483,6 +433,14 @@ namespace VRChat.API.Model
         public string UserIcon { get; set; }
 
         /// <summary>
+        /// -| A users unique name, used during login. This is different from &#x60;displayName&#x60; which is what shows up in-game. A users &#x60;username&#x60; can never be changed.&#39; **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
+        /// </summary>
+        /// <value>-| A users unique name, used during login. This is different from &#x60;displayName&#x60; which is what shows up in-game. A users &#x60;username&#x60; can never be changed.&#39; **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).</value>
+        [DataMember(Name = "username", EmitDefaultValue = false)]
+        [Obsolete]
+        public string Username { get; set; }
+
+        /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
@@ -500,16 +458,10 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class User {\n");
-            sb.Append("  AcceptedPrivacyVersion: ").Append(AcceptedPrivacyVersion).Append("\n");
-            sb.Append("  AcceptedTOSVersion: ").Append(AcceptedTOSVersion).Append("\n");
-            sb.Append("  AccountDeletionDate: ").Append(AccountDeletionDate).Append("\n");
-            sb.Append("  AccountDeletionLog: ").Append(AccountDeletionLog).Append("\n");
             sb.Append("  AgeVerificationStatus: ").Append(AgeVerificationStatus).Append("\n");
             sb.Append("  AgeVerified: ").Append(AgeVerified).Append("\n");
             sb.Append("  AllowAvatarCopying: ").Append(AllowAvatarCopying).Append("\n");
-            sb.Append("  AppleDetails: ").Append(AppleDetails).Append("\n");
             sb.Append("  Badges: ").Append(Badges).Append("\n");
-            sb.Append("  BannerColor: ").Append(BannerColor).Append("\n");
             sb.Append("  BannerType: ").Append(BannerType).Append("\n");
             sb.Append("  BannerUrl: ").Append(BannerUrl).Append("\n");
             sb.Append("  Bio: ").Append(Bio).Append("\n");
@@ -548,6 +500,7 @@ namespace VRChat.API.Model
             sb.Append("  TravelingToLocation: ").Append(TravelingToLocation).Append("\n");
             sb.Append("  TravelingToWorld: ").Append(TravelingToWorld).Append("\n");
             sb.Append("  UserIcon: ").Append(UserIcon).Append("\n");
+            sb.Append("  Username: ").Append(Username).Append("\n");
             sb.Append("  WorldId: ").Append(WorldId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -585,25 +538,6 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.AcceptedPrivacyVersion == input.AcceptedPrivacyVersion ||
-                    this.AcceptedPrivacyVersion.Equals(input.AcceptedPrivacyVersion)
-                ) && 
-                (
-                    this.AcceptedTOSVersion == input.AcceptedTOSVersion ||
-                    this.AcceptedTOSVersion.Equals(input.AcceptedTOSVersion)
-                ) && 
-                (
-                    this.AccountDeletionDate == input.AccountDeletionDate ||
-                    (this.AccountDeletionDate != null &&
-                    this.AccountDeletionDate.Equals(input.AccountDeletionDate))
-                ) && 
-                (
-                    this.AccountDeletionLog == input.AccountDeletionLog ||
-                    this.AccountDeletionLog != null &&
-                    input.AccountDeletionLog != null &&
-                    this.AccountDeletionLog.SequenceEqual(input.AccountDeletionLog)
-                ) && 
-                (
                     this.AgeVerificationStatus == input.AgeVerificationStatus ||
                     this.AgeVerificationStatus.Equals(input.AgeVerificationStatus)
                 ) && 
@@ -616,21 +550,10 @@ namespace VRChat.API.Model
                     this.AllowAvatarCopying.Equals(input.AllowAvatarCopying)
                 ) && 
                 (
-                    this.AppleDetails == input.AppleDetails ||
-                    this.AppleDetails != null &&
-                    input.AppleDetails != null &&
-                    this.AppleDetails.SequenceEqual(input.AppleDetails)
-                ) && 
-                (
                     this.Badges == input.Badges ||
                     this.Badges != null &&
                     input.Badges != null &&
                     this.Badges.SequenceEqual(input.Badges)
-                ) && 
-                (
-                    this.BannerColor == input.BannerColor ||
-                    (this.BannerColor != null &&
-                    this.BannerColor.Equals(input.BannerColor))
                 ) && 
                 (
                     this.BannerType == input.BannerType ||
@@ -821,6 +744,11 @@ namespace VRChat.API.Model
                     this.UserIcon.Equals(input.UserIcon))
                 ) && 
                 (
+                    this.Username == input.Username ||
+                    (this.Username != null &&
+                    this.Username.Equals(input.Username))
+                ) && 
+                (
                     this.WorldId == input.WorldId ||
                     (this.WorldId != null &&
                     this.WorldId.Equals(input.WorldId))
@@ -836,30 +764,12 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.AcceptedPrivacyVersion.GetHashCode();
-                hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
-                if (this.AccountDeletionDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.AccountDeletionDate.GetHashCode();
-                }
-                if (this.AccountDeletionLog != null)
-                {
-                    hashCode = (hashCode * 59) + this.AccountDeletionLog.GetHashCode();
-                }
                 hashCode = (hashCode * 59) + this.AgeVerificationStatus.GetHashCode();
                 hashCode = (hashCode * 59) + this.AgeVerified.GetHashCode();
                 hashCode = (hashCode * 59) + this.AllowAvatarCopying.GetHashCode();
-                if (this.AppleDetails != null)
-                {
-                    hashCode = (hashCode * 59) + this.AppleDetails.GetHashCode();
-                }
                 if (this.Badges != null)
                 {
                     hashCode = (hashCode * 59) + this.Badges.GetHashCode();
-                }
-                if (this.BannerColor != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerColor.GetHashCode();
                 }
                 if (this.BannerType != null)
                 {
@@ -997,6 +907,10 @@ namespace VRChat.API.Model
                 if (this.UserIcon != null)
                 {
                     hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
+                }
+                if (this.Username != null)
+                {
+                    hashCode = (hashCode * 59) + this.Username.GetHashCode();
                 }
                 if (this.WorldId != null)
                 {

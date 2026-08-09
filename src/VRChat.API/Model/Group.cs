@@ -77,8 +77,6 @@ namespace VRChat.API.Model
         /// <param name="membershipStatus">membershipStatus.</param>
         /// <param name="myMember">myMember.</param>
         /// <param name="name">name.</param>
-        /// <param name="nameplateId">nameplateId.</param>
-        /// <param name="nameplateUrl">nameplateUrl.</param>
         /// <param name="onlineMemberCount">onlineMemberCount.</param>
         /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="privacy">privacy.</param>
@@ -88,7 +86,7 @@ namespace VRChat.API.Model
         /// <param name="tags">tags.</param>
         /// <param name="transferTargetId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public Group(string ageVerificationBetaCode = default, decimal ageVerificationBetaSlots = default, bool ageVerificationSlotsAvailable = default, bool allowGroupJoinPrompt = default, List<string> badges = default, string bannerId = default, string bannerUrl = default, DateTime createdAt = default, string description = default, string discriminator = default, List<GroupGallery> galleries = default, string iconId = default, string iconUrl = default, string id = default, bool isVerified = false, GroupJoinState? joinState = default, List<string> languages = default, DateTime? lastPostCreatedAt = default, List<string> links = default, int memberCount = default, DateTime memberCountSyncedAt = default, GroupMemberStatus? membershipStatus = default, GroupMyMember myMember = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, int onlineMemberCount = default, string ownerId = default, GroupPrivacy? privacy = default, List<GroupRole> roles = default, string rules = default, string shortCode = default, List<string> tags = default, string transferTargetId = default, DateTime updatedAt = default)
+        public Group(string ageVerificationBetaCode = default, decimal ageVerificationBetaSlots = default, bool ageVerificationSlotsAvailable = default, bool allowGroupJoinPrompt = default, List<string> badges = default, string bannerId = default, string bannerUrl = default, DateTime createdAt = default, string description = default, string discriminator = default, List<GroupGallery> galleries = default, string iconId = default, string iconUrl = default, string id = default, bool isVerified = false, GroupJoinState? joinState = default, List<string> languages = default, DateTime? lastPostCreatedAt = default, List<string> links = default, int memberCount = default, DateTime memberCountSyncedAt = default, GroupMemberStatus? membershipStatus = default, GroupMyMember myMember = default, string name = default, int onlineMemberCount = default, string ownerId = default, GroupPrivacy? privacy = default, List<GroupRole> roles = default, string rules = default, string shortCode = default, List<string> tags = default, string transferTargetId = default, DateTime updatedAt = default)
         {
             this.AgeVerificationBetaCode = ageVerificationBetaCode;
             this.AgeVerificationBetaSlots = ageVerificationBetaSlots;
@@ -114,8 +112,6 @@ namespace VRChat.API.Model
             this.MembershipStatus = membershipStatus;
             this.MyMember = myMember;
             this.Name = name;
-            this.NameplateId = nameplateId;
-            this.NameplateUrl = nameplateUrl;
             this.OnlineMemberCount = onlineMemberCount;
             this.OwnerId = ownerId;
             this.Privacy = privacy;
@@ -272,18 +268,6 @@ namespace VRChat.API.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets NameplateId
-        /// </summary>
-        [DataMember(Name = "nameplateId", EmitDefaultValue = true)]
-        public Object NameplateId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets NameplateUrl
-        /// </summary>
-        [DataMember(Name = "nameplateUrl", EmitDefaultValue = true)]
-        public Object NameplateUrl { get; set; }
-
-        /// <summary>
         /// Gets or Sets OnlineMemberCount
         /// </summary>
         [DataMember(Name = "onlineMemberCount", EmitDefaultValue = false)]
@@ -375,8 +359,6 @@ namespace VRChat.API.Model
             sb.Append("  MembershipStatus: ").Append(MembershipStatus).Append("\n");
             sb.Append("  MyMember: ").Append(MyMember).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  NameplateId: ").Append(NameplateId).Append("\n");
-            sb.Append("  NameplateUrl: ").Append(NameplateUrl).Append("\n");
             sb.Append("  OnlineMemberCount: ").Append(OnlineMemberCount).Append("\n");
             sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
             sb.Append("  Privacy: ").Append(Privacy).Append("\n");
@@ -539,16 +521,6 @@ namespace VRChat.API.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.NameplateId == input.NameplateId ||
-                    (this.NameplateId != null &&
-                    this.NameplateId.Equals(input.NameplateId))
-                ) && 
-                (
-                    this.NameplateUrl == input.NameplateUrl ||
-                    (this.NameplateUrl != null &&
-                    this.NameplateUrl.Equals(input.NameplateUrl))
-                ) && 
-                (
                     this.OnlineMemberCount == input.OnlineMemberCount ||
                     this.OnlineMemberCount.Equals(input.OnlineMemberCount)
                 ) && 
@@ -678,14 +650,6 @@ namespace VRChat.API.Model
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.NameplateId != null)
-                {
-                    hashCode = (hashCode * 59) + this.NameplateId.GetHashCode();
-                }
-                if (this.NameplateUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.NameplateUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.OnlineMemberCount.GetHashCode();
                 if (this.OwnerId != null)

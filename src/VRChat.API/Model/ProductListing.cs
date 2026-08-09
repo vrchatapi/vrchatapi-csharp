@@ -54,10 +54,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="active">active (required).</param>
         /// <param name="archived">archived.</param>
-        /// <param name="attribution">attribution.</param>
         /// <param name="buyerRefundable">buyerRefundable (required).</param>
-        /// <param name="collabUserDisplayName">collabUserDisplayName.</param>
-        /// <param name="collabUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="created">created.</param>
         /// <param name="description">description (required).</param>
         /// <param name="displayName">displayName (required).</param>
@@ -67,8 +64,6 @@ namespace VRChat.API.Model
         /// <param name="groupId">groupId.</param>
         /// <param name="groupName">groupName.</param>
         /// <param name="hasAvatar">hasAvatar (required).</param>
-        /// <param name="hasCompanion">hasCompanion.</param>
-        /// <param name="hasInventory">hasInventory.</param>
         /// <param name="hasUdon">hasUdon (required).</param>
         /// <param name="hydratedProducts">hydratedProducts.</param>
         /// <param name="id">id (required).</param>
@@ -80,8 +75,7 @@ namespace VRChat.API.Model
         /// <param name="priceTokens">priceTokens (required).</param>
         /// <param name="productIds">productIds (required).</param>
         /// <param name="productType">productType (required).</param>
-        /// <param name="productTypes">productTypes.</param>
-        /// <param name="products">Product ids. The products themselves arrive in &#x60;hydratedProducts&#x60;. (required).</param>
+        /// <param name="products">products (required).</param>
         /// <param name="purchaseCount">purchaseCount.</param>
         /// <param name="purchaseCountQuantity">purchaseCountQuantity.</param>
         /// <param name="quantifiable">quantifiable.</param>
@@ -97,7 +91,7 @@ namespace VRChat.API.Model
         /// <param name="updated">updated.</param>
         /// <param name="vrcPlusDiscountPrice">vrcPlusDiscountPrice.</param>
         /// <param name="whenToExpire">whenToExpire.</param>
-        public ProductListing(bool active = default, bool archived = default, ProductListingAttribution attribution = default, bool buyerRefundable = default, string collabUserDisplayName = default, string collabUserId = default, DateTime created = default, string description = default, string displayName = default, int? duration = default, string durationType = default, string groupIcon = default, string groupId = default, string groupName = default, bool hasAvatar = default, bool hasCompanion = default, bool hasInventory = default, bool hasUdon = default, List<Product> hydratedProducts = default, string id = default, string imageId = default, string imageUrl = default, ProductListingType listingType = default, List<ProductListingVariant> listingVariants = default, bool permanent = default, int priceTokens = default, List<string> productIds = default, ProductType productType = default, List<string> productTypes = default, List<string> products = default, int purchaseCount = default, int purchaseCountQuantity = default, bool quantifiable = default, bool recurrable = default, bool refundable = default, string sellerDisplayName = default, string sellerId = default, bool soldByVrc = default, bool stackable = default, List<string> storeIds = default, string subtitle = default, List<string> tags = default, DateTime updated = default, int vrcPlusDiscountPrice = default, DateTime? whenToExpire = default)
+        public ProductListing(bool active = default, bool archived = default, bool buyerRefundable = default, DateTime created = default, string description = default, string displayName = default, int? duration = default, string durationType = default, string groupIcon = default, string groupId = default, string groupName = default, bool hasAvatar = default, bool hasUdon = default, List<Product> hydratedProducts = default, string id = default, string imageId = default, string imageUrl = default, ProductListingType listingType = default, List<ProductListingVariant> listingVariants = default, bool permanent = default, int priceTokens = default, List<string> productIds = default, ProductType productType = default, List<Object> products = default, int purchaseCount = default, int purchaseCountQuantity = default, bool quantifiable = default, bool recurrable = default, bool refundable = default, string sellerDisplayName = default, string sellerId = default, bool soldByVrc = default, bool stackable = default, List<string> storeIds = default, string subtitle = default, List<string> tags = default, DateTime updated = default, int vrcPlusDiscountPrice = default, DateTime? whenToExpire = default)
         {
             this.Active = active;
             this.BuyerRefundable = buyerRefundable;
@@ -126,23 +120,17 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.StoreIds = storeIds;
             this.Archived = archived;
-            this.Attribution = attribution;
-            this.CollabUserDisplayName = collabUserDisplayName;
-            this.CollabUserId = collabUserId;
             this.Created = created;
             this.Duration = duration;
             this.DurationType = durationType;
             this.GroupIcon = groupIcon;
             this.GroupId = groupId;
             this.GroupName = groupName;
-            this.HasCompanion = hasCompanion;
-            this.HasInventory = hasInventory;
             this.HydratedProducts = hydratedProducts;
             this.ImageId = imageId;
             this.ImageUrl = imageUrl;
             this.ListingVariants = listingVariants;
             this.Permanent = permanent;
-            this.ProductTypes = productTypes;
             this.PurchaseCount = purchaseCount;
             this.PurchaseCountQuantity = purchaseCountQuantity;
             this.Quantifiable = quantifiable;
@@ -167,32 +155,10 @@ namespace VRChat.API.Model
         public bool Archived { get; set; }
 
         /// <summary>
-        /// Gets or Sets Attribution
-        /// </summary>
-        [DataMember(Name = "attribution", EmitDefaultValue = false)]
-        public ProductListingAttribution Attribution { get; set; }
-
-        /// <summary>
         /// Gets or Sets BuyerRefundable
         /// </summary>
         [DataMember(Name = "buyerRefundable", IsRequired = true, EmitDefaultValue = true)]
         public bool BuyerRefundable { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CollabUserDisplayName
-        /// </summary>
-        [DataMember(Name = "collabUserDisplayName", EmitDefaultValue = true)]
-        public string CollabUserDisplayName { get; set; }
-
-        /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
-        /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
-        [DataMember(Name = "collabUserId", EmitDefaultValue = false)]
-        public string CollabUserId { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
@@ -255,18 +221,6 @@ namespace VRChat.API.Model
         public bool HasAvatar { get; set; }
 
         /// <summary>
-        /// Gets or Sets HasCompanion
-        /// </summary>
-        [DataMember(Name = "hasCompanion", EmitDefaultValue = true)]
-        public bool HasCompanion { get; set; }
-
-        /// <summary>
-        /// Gets or Sets HasInventory
-        /// </summary>
-        [DataMember(Name = "hasInventory", EmitDefaultValue = true)]
-        public bool HasInventory { get; set; }
-
-        /// <summary>
         /// Gets or Sets HasUdon
         /// </summary>
         [DataMember(Name = "hasUdon", IsRequired = true, EmitDefaultValue = true)]
@@ -327,17 +281,10 @@ namespace VRChat.API.Model
         public List<string> ProductIds { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProductTypes
+        /// Gets or Sets Products
         /// </summary>
-        [DataMember(Name = "productTypes", EmitDefaultValue = false)]
-        public List<string> ProductTypes { get; set; }
-
-        /// <summary>
-        /// Product ids. The products themselves arrive in &#x60;hydratedProducts&#x60;.
-        /// </summary>
-        /// <value>Product ids. The products themselves arrive in &#x60;hydratedProducts&#x60;.</value>
         [DataMember(Name = "products", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> Products { get; set; }
+        public List<Object> Products { get; set; }
 
         /// <summary>
         /// Gets or Sets PurchaseCount
@@ -439,10 +386,7 @@ namespace VRChat.API.Model
             sb.Append("class ProductListing {\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  Archived: ").Append(Archived).Append("\n");
-            sb.Append("  Attribution: ").Append(Attribution).Append("\n");
             sb.Append("  BuyerRefundable: ").Append(BuyerRefundable).Append("\n");
-            sb.Append("  CollabUserDisplayName: ").Append(CollabUserDisplayName).Append("\n");
-            sb.Append("  CollabUserId: ").Append(CollabUserId).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
@@ -452,8 +396,6 @@ namespace VRChat.API.Model
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  GroupName: ").Append(GroupName).Append("\n");
             sb.Append("  HasAvatar: ").Append(HasAvatar).Append("\n");
-            sb.Append("  HasCompanion: ").Append(HasCompanion).Append("\n");
-            sb.Append("  HasInventory: ").Append(HasInventory).Append("\n");
             sb.Append("  HasUdon: ").Append(HasUdon).Append("\n");
             sb.Append("  HydratedProducts: ").Append(HydratedProducts).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -465,7 +407,6 @@ namespace VRChat.API.Model
             sb.Append("  PriceTokens: ").Append(PriceTokens).Append("\n");
             sb.Append("  ProductIds: ").Append(ProductIds).Append("\n");
             sb.Append("  ProductType: ").Append(ProductType).Append("\n");
-            sb.Append("  ProductTypes: ").Append(ProductTypes).Append("\n");
             sb.Append("  Products: ").Append(Products).Append("\n");
             sb.Append("  PurchaseCount: ").Append(PurchaseCount).Append("\n");
             sb.Append("  PurchaseCountQuantity: ").Append(PurchaseCountQuantity).Append("\n");
@@ -526,23 +467,8 @@ namespace VRChat.API.Model
                     this.Archived.Equals(input.Archived)
                 ) && 
                 (
-                    this.Attribution == input.Attribution ||
-                    (this.Attribution != null &&
-                    this.Attribution.Equals(input.Attribution))
-                ) && 
-                (
                     this.BuyerRefundable == input.BuyerRefundable ||
                     this.BuyerRefundable.Equals(input.BuyerRefundable)
-                ) && 
-                (
-                    this.CollabUserDisplayName == input.CollabUserDisplayName ||
-                    (this.CollabUserDisplayName != null &&
-                    this.CollabUserDisplayName.Equals(input.CollabUserDisplayName))
-                ) && 
-                (
-                    this.CollabUserId == input.CollabUserId ||
-                    (this.CollabUserId != null &&
-                    this.CollabUserId.Equals(input.CollabUserId))
                 ) && 
                 (
                     this.Created == input.Created ||
@@ -587,14 +513,6 @@ namespace VRChat.API.Model
                 (
                     this.HasAvatar == input.HasAvatar ||
                     this.HasAvatar.Equals(input.HasAvatar)
-                ) && 
-                (
-                    this.HasCompanion == input.HasCompanion ||
-                    this.HasCompanion.Equals(input.HasCompanion)
-                ) && 
-                (
-                    this.HasInventory == input.HasInventory ||
-                    this.HasInventory.Equals(input.HasInventory)
                 ) && 
                 (
                     this.HasUdon == input.HasUdon ||
@@ -648,12 +566,6 @@ namespace VRChat.API.Model
                 (
                     this.ProductType == input.ProductType ||
                     this.ProductType.Equals(input.ProductType)
-                ) && 
-                (
-                    this.ProductTypes == input.ProductTypes ||
-                    this.ProductTypes != null &&
-                    input.ProductTypes != null &&
-                    this.ProductTypes.SequenceEqual(input.ProductTypes)
                 ) && 
                 (
                     this.Products == input.Products ||
@@ -743,19 +655,7 @@ namespace VRChat.API.Model
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Active.GetHashCode();
                 hashCode = (hashCode * 59) + this.Archived.GetHashCode();
-                if (this.Attribution != null)
-                {
-                    hashCode = (hashCode * 59) + this.Attribution.GetHashCode();
-                }
                 hashCode = (hashCode * 59) + this.BuyerRefundable.GetHashCode();
-                if (this.CollabUserDisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.CollabUserDisplayName.GetHashCode();
-                }
-                if (this.CollabUserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.CollabUserId.GetHashCode();
-                }
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();
@@ -789,8 +689,6 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.GroupName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.HasAvatar.GetHashCode();
-                hashCode = (hashCode * 59) + this.HasCompanion.GetHashCode();
-                hashCode = (hashCode * 59) + this.HasInventory.GetHashCode();
                 hashCode = (hashCode * 59) + this.HasUdon.GetHashCode();
                 if (this.HydratedProducts != null)
                 {
@@ -820,10 +718,6 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.ProductIds.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ProductType.GetHashCode();
-                if (this.ProductTypes != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProductTypes.GetHashCode();
-                }
                 if (this.Products != null)
                 {
                     hashCode = (hashCode * 59) + this.Products.GetHashCode();

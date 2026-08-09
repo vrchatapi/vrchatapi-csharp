@@ -94,24 +94,22 @@ namespace VRChat.API.Api
         /// Get Prop Publish Status
         /// </summary>
         /// <remarks>
-        /// Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Returns a PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>PropPublishStatus</returns>
-        [Obsolete]
         PropPublishStatus GetPropPublishStatus(string propId);
 
         /// <summary>
         /// Get Prop Publish Status
         /// </summary>
         /// <remarks>
-        /// Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Returns a PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
         ApiResponse<PropPublishStatus> GetPropPublishStatusWithHttpInfo(string propId);
         /// <summary>
         /// List Props
@@ -142,47 +140,43 @@ namespace VRChat.API.Api
         /// Publish Prop
         /// </summary>
         /// <remarks>
-        /// Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Publish a Prop and return the updated PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>PropPublishStatus</returns>
-        [Obsolete]
         PropPublishStatus PublishProp(string propId);
 
         /// <summary>
         /// Publish Prop
         /// </summary>
         /// <remarks>
-        /// Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Publish a Prop and return the updated PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
         ApiResponse<PropPublishStatus> PublishPropWithHttpInfo(string propId);
         /// <summary>
         /// Unpublish Prop
         /// </summary>
         /// <remarks>
-        /// Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Unpublish a Prop and return the updated PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>PropPublishStatus</returns>
-        [Obsolete]
         PropPublishStatus UnpublishProp(string propId);
 
         /// <summary>
         /// Unpublish Prop
         /// </summary>
         /// <remarks>
-        /// Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Unpublish a Prop and return the updated PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
         ApiResponse<PropPublishStatus> UnpublishPropWithHttpInfo(string propId);
         /// <summary>
         /// Update Prop
@@ -289,26 +283,24 @@ namespace VRChat.API.Api
         /// Get Prop Publish Status
         /// </summary>
         /// <remarks>
-        /// Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Returns a PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
         System.Threading.Tasks.Task<PropPublishStatus> GetPropPublishStatusAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Prop Publish Status
         /// </summary>
         /// <remarks>
-        /// Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Returns a PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<PropPublishStatus>> GetPropPublishStatusWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Props
@@ -341,51 +333,47 @@ namespace VRChat.API.Api
         /// Publish Prop
         /// </summary>
         /// <remarks>
-        /// Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Publish a Prop and return the updated PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
         System.Threading.Tasks.Task<PropPublishStatus> PublishPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Publish Prop
         /// </summary>
         /// <remarks>
-        /// Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Publish a Prop and return the updated PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<PropPublishStatus>> PublishPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Unpublish Prop
         /// </summary>
         /// <remarks>
-        /// Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Unpublish a Prop and return the updated PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
         System.Threading.Tasks.Task<PropPublishStatus> UnpublishPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Unpublish Prop
         /// </summary>
         /// <remarks>
-        /// Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Unpublish a Prop and return the updated PropPublishStatus object.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<PropPublishStatus>> UnpublishPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Prop
@@ -1058,12 +1046,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Prop Publish Status Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Get Prop Publish Status Returns a PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>PropPublishStatus</returns>
-        [Obsolete]
         public PropPublishStatus GetPropPublishStatus(string propId)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = GetPropPublishStatusWithHttpInfo(propId);
@@ -1079,12 +1066,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Prop Publish Status Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Get Prop Publish Status Returns a PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
         public VRChat.API.Client.ApiResponse<PropPublishStatus> GetPropPublishStatusWithHttpInfo(string propId)
         {
             // verify the required parameter 'propId' is set
@@ -1130,13 +1116,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Prop Publish Status Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Get Prop Publish Status Returns a PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
         public async System.Threading.Tasks.Task<PropPublishStatus> GetPropPublishStatusAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = await GetPropPublishStatusWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
@@ -1152,13 +1137,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Prop Publish Status Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Get Prop Publish Status Returns a PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PropPublishStatus>> GetPropPublishStatusWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'propId' is set
@@ -1374,12 +1358,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Publish Prop Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Publish Prop Publish a Prop and return the updated PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>PropPublishStatus</returns>
-        [Obsolete]
         public PropPublishStatus PublishProp(string propId)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = PublishPropWithHttpInfo(propId);
@@ -1395,12 +1378,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Publish Prop Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Publish Prop Publish a Prop and return the updated PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
         public VRChat.API.Client.ApiResponse<PropPublishStatus> PublishPropWithHttpInfo(string propId)
         {
             // verify the required parameter 'propId' is set
@@ -1446,13 +1428,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Publish Prop Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Publish Prop Publish a Prop and return the updated PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
         public async System.Threading.Tasks.Task<PropPublishStatus> PublishPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = await PublishPropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
@@ -1468,13 +1449,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Publish Prop Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Publish Prop Publish a Prop and return the updated PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PropPublishStatus>> PublishPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'propId' is set
@@ -1522,12 +1502,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Unpublish Prop Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Unpublish Prop Unpublish a Prop and return the updated PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>PropPublishStatus</returns>
-        [Obsolete]
         public PropPublishStatus UnpublishProp(string propId)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = UnpublishPropWithHttpInfo(propId);
@@ -1543,12 +1522,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Unpublish Prop Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Unpublish Prop Unpublish a Prop and return the updated PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
         public VRChat.API.Client.ApiResponse<PropPublishStatus> UnpublishPropWithHttpInfo(string propId)
         {
             // verify the required parameter 'propId' is set
@@ -1594,13 +1572,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Unpublish Prop Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Unpublish Prop Unpublish a Prop and return the updated PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
         public async System.Threading.Tasks.Task<PropPublishStatus> UnpublishPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = await UnpublishPropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
@@ -1616,13 +1593,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Unpublish Prop Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
+        /// Unpublish Prop Unpublish a Prop and return the updated PropPublishStatus object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="propId">Prop ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PropPublishStatus>> UnpublishPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'propId' is set

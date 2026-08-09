@@ -72,7 +72,6 @@ namespace VRChat.API.Model
         /// <param name="physBoneTransformCount">physBoneTransformCount (required).</param>
         /// <param name="physicsColliders">physicsColliders (required).</param>
         /// <param name="physicsRigidbodies">physicsRigidbodies (required).</param>
-        /// <param name="raycastCount">raycastCount.</param>
         /// <param name="skinnedMeshCount">skinnedMeshCount (required).</param>
         /// <param name="skinnedMeshIndices">skinnedMeshIndices (required).</param>
         /// <param name="skinnedMeshPolygons">skinnedMeshPolygons (required).</param>
@@ -85,7 +84,7 @@ namespace VRChat.API.Model
         /// <param name="totalVertices">totalVertices (required).</param>
         /// <param name="trailRendererCount">trailRendererCount (required).</param>
         /// <param name="writeDefaultsUsed">writeDefaultsUsed (required).</param>
-        public FileAnalysisAvatarStats(int animatorCount = default, int audioSourceCount = default, int blendShapeCount = default, int boneCount = default, List<decimal> bounds = default, int cameraCount = default, int clothCount = default, int constraintCount = default, int constraintDepth = default, int contactCount = default, bool customExpressions = default, bool customizeAnimationLayers = default, bool enableEyeLook = default, int lightCount = default, int lineRendererCount = default, int lipSync = default, int materialCount = default, int materialSlotsUsed = default, int meshCount = default, int meshIndices = default, int meshParticleMaxPolygons = default, int meshPolygons = default, int meshVertices = default, bool particleCollisionEnabled = default, int particleSystemCount = default, bool particleTrailsEnabled = default, int physBoneColliderCount = default, int physBoneCollisionCheckCount = default, int physBoneComponentCount = default, int physBoneTransformCount = default, int physicsColliders = default, int physicsRigidbodies = default, int raycastCount = default, int skinnedMeshCount = default, int skinnedMeshIndices = default, int skinnedMeshPolygons = default, int skinnedMeshVertices = default, int totalClothVertices = default, int totalIndices = default, int totalMaxParticles = default, int totalPolygons = default, int totalTextureUsage = default, int totalVertices = default, int trailRendererCount = default, bool writeDefaultsUsed = default)
+        public FileAnalysisAvatarStats(int animatorCount = default, int audioSourceCount = default, int blendShapeCount = default, int boneCount = default, List<decimal> bounds = default, int cameraCount = default, int clothCount = default, int constraintCount = default, int constraintDepth = default, int contactCount = default, bool customExpressions = default, bool customizeAnimationLayers = default, bool enableEyeLook = default, int lightCount = default, int lineRendererCount = default, int lipSync = default, int materialCount = default, int materialSlotsUsed = default, int meshCount = default, int meshIndices = default, int meshParticleMaxPolygons = default, int meshPolygons = default, int meshVertices = default, bool particleCollisionEnabled = default, int particleSystemCount = default, bool particleTrailsEnabled = default, int physBoneColliderCount = default, int physBoneCollisionCheckCount = default, int physBoneComponentCount = default, int physBoneTransformCount = default, int physicsColliders = default, int physicsRigidbodies = default, int skinnedMeshCount = default, int skinnedMeshIndices = default, int skinnedMeshPolygons = default, int skinnedMeshVertices = default, int totalClothVertices = default, int totalIndices = default, int totalMaxParticles = default, int totalPolygons = default, int totalTextureUsage = default, int totalVertices = default, int trailRendererCount = default, bool writeDefaultsUsed = default)
         {
             this.AnimatorCount = animatorCount;
             this.AudioSourceCount = audioSourceCount;
@@ -132,7 +131,6 @@ namespace VRChat.API.Model
             this.TrailRendererCount = trailRendererCount;
             this.WriteDefaultsUsed = writeDefaultsUsed;
             this.CameraCount = cameraCount;
-            this.RaycastCount = raycastCount;
         }
 
         /// <summary>
@@ -328,12 +326,6 @@ namespace VRChat.API.Model
         public int PhysicsRigidbodies { get; set; }
 
         /// <summary>
-        /// Gets or Sets RaycastCount
-        /// </summary>
-        [DataMember(Name = "raycastCount", EmitDefaultValue = false)]
-        public int RaycastCount { get; set; }
-
-        /// <summary>
         /// Gets or Sets SkinnedMeshCount
         /// </summary>
         [DataMember(Name = "skinnedMeshCount", IsRequired = true, EmitDefaultValue = true)]
@@ -445,7 +437,6 @@ namespace VRChat.API.Model
             sb.Append("  PhysBoneTransformCount: ").Append(PhysBoneTransformCount).Append("\n");
             sb.Append("  PhysicsColliders: ").Append(PhysicsColliders).Append("\n");
             sb.Append("  PhysicsRigidbodies: ").Append(PhysicsRigidbodies).Append("\n");
-            sb.Append("  RaycastCount: ").Append(RaycastCount).Append("\n");
             sb.Append("  SkinnedMeshCount: ").Append(SkinnedMeshCount).Append("\n");
             sb.Append("  SkinnedMeshIndices: ").Append(SkinnedMeshIndices).Append("\n");
             sb.Append("  SkinnedMeshPolygons: ").Append(SkinnedMeshPolygons).Append("\n");
@@ -624,10 +615,6 @@ namespace VRChat.API.Model
                     this.PhysicsRigidbodies.Equals(input.PhysicsRigidbodies)
                 ) && 
                 (
-                    this.RaycastCount == input.RaycastCount ||
-                    this.RaycastCount.Equals(input.RaycastCount)
-                ) && 
-                (
                     this.SkinnedMeshCount == input.SkinnedMeshCount ||
                     this.SkinnedMeshCount.Equals(input.SkinnedMeshCount)
                 ) && 
@@ -721,7 +708,6 @@ namespace VRChat.API.Model
                 hashCode = (hashCode * 59) + this.PhysBoneTransformCount.GetHashCode();
                 hashCode = (hashCode * 59) + this.PhysicsColliders.GetHashCode();
                 hashCode = (hashCode * 59) + this.PhysicsRigidbodies.GetHashCode();
-                hashCode = (hashCode * 59) + this.RaycastCount.GetHashCode();
                 hashCode = (hashCode * 59) + this.SkinnedMeshCount.GetHashCode();
                 hashCode = (hashCode * 59) + this.SkinnedMeshIndices.GetHashCode();
                 hashCode = (hashCode * 59) + this.SkinnedMeshPolygons.GetHashCode();

@@ -76,11 +76,8 @@ namespace VRChat.API.Model
         /// <param name="appleId">appleId.</param>
         /// <param name="authToken">The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register).</param>
         /// <param name="badges"> .</param>
-        /// <param name="bannerColor">bannerColor.</param>
-        /// <param name="bannerType">bannerType.</param>
         /// <param name="bio">bio (required).</param>
         /// <param name="bioLinks">  (required).</param>
-        /// <param name="completedTutorials">completedTutorials.</param>
         /// <param name="contentFilters">These tags begin with &#x60;content_&#x60; and control content gating.</param>
         /// <param name="currentAvatar">currentAvatar (required).</param>
         /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
@@ -95,7 +92,6 @@ namespace VRChat.API.Model
         /// <param name="fallbackAvatar">fallbackAvatar.</param>
         /// <param name="friendGroupNames">Always empty array. (required).</param>
         /// <param name="friendKey">friendKey (required).</param>
-        /// <param name="friendRequestStatus">State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;..</param>
         /// <param name="friends">friends (required).</param>
         /// <param name="googleDetails">googleDetails.</param>
         /// <param name="googleId">googleId.</param>
@@ -107,34 +103,23 @@ namespace VRChat.API.Model
         /// <param name="hasSharedConnectionsOptOut">hasSharedConnectionsOptOut.</param>
         /// <param name="hideContentFilterSettings">hideContentFilterSettings.</param>
         /// <param name="homeLocation">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        /// <param name="iconFrame">iconFrame.</param>
-        /// <param name="iconUrl">iconUrl.</param>
         /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="instanceId">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance..</param>
         /// <param name="isAdult">isAdult (required).</param>
         /// <param name="isBoopingEnabled">isBoopingEnabled (default to true).</param>
-        /// <param name="isEconomyCreator">isEconomyCreator (default to false).</param>
         /// <param name="isFriend">isFriend (required) (default to false).</param>
-        /// <param name="isTemporary">isTemporary (default to false).</param>
         /// <param name="lastActivity">lastActivity.</param>
         /// <param name="lastLogin">lastLogin (required).</param>
         /// <param name="lastMobile">lastMobile (required).</param>
         /// <param name="lastPlatform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
-        /// <param name="location">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list..</param>
-        /// <param name="nameplateEffect">nameplateEffect.</param>
-        /// <param name="note">note.</param>
         /// <param name="obfuscatedEmail">obfuscatedEmail (required).</param>
         /// <param name="obfuscatedPendingEmail">obfuscatedPendingEmail (required).</param>
         /// <param name="oculusId">oculusId (required).</param>
         /// <param name="offlineFriends">offlineFriends.</param>
         /// <param name="onlineFriends">onlineFriends.</param>
         /// <param name="pastDisplayNames">  (required).</param>
-        /// <param name="personalizationOptOut">personalizationOptOut.</param>
         /// <param name="picoId">picoId.</param>
-        /// <param name="platform">platform.</param>
         /// <param name="platformHistory">platformHistory.</param>
         /// <param name="presence">presence.</param>
-        /// <param name="profileEffect">profileEffect.</param>
         /// <param name="profilePicOverride">profilePicOverride (required).</param>
         /// <param name="profilePicOverrideThumbnail">profilePicOverrideThumbnail (required).</param>
         /// <param name="pronouns">pronouns (required).</param>
@@ -149,10 +134,6 @@ namespace VRChat.API.Model
         /// <param name="steamDetails">steamDetails (required).</param>
         /// <param name="steamId">steamId (required).</param>
         /// <param name="tags">tags (required).</param>
-        /// <param name="temporaryExpiryDate">temporaryExpiryDate.</param>
-        /// <param name="travelingToInstance">travelingToInstance.</param>
-        /// <param name="travelingToLocation">travelingToLocation.</param>
-        /// <param name="travelingToWorld">travelingToWorld.</param>
         /// <param name="twitchDetails">twitchDetails.</param>
         /// <param name="twitchId">twitchId.</param>
         /// <param name="twoFactorAuthEnabled">twoFactorAuthEnabled (required).</param>
@@ -162,11 +143,10 @@ namespace VRChat.API.Model
         /// <param name="userIcon">userIcon (required).</param>
         /// <param name="userLanguage">userLanguage.</param>
         /// <param name="userLanguageCode">userLanguageCode.</param>
-        /// <param name="username">Your own unique name, used during login. Distinct from &#x60;displayName&#x60;, and never returned for another user..</param>
+        /// <param name="username">-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
         /// <param name="usesGeneratedPassword">usesGeneratedPassword (required).</param>
         /// <param name="viveId">viveId.</param>
-        /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, Object appleDetails = default, string appleId = default, string authToken = default, List<Badge> badges = default, string bannerColor = default, string bannerType = default, string bio = default, List<string> bioLinks = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, string friendRequestStatus = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isAdult = default, bool isBoopingEnabled = true, bool isEconomyCreator = false, bool isFriend = false, bool isTemporary = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, string platform = default, List<CurrentUserPlatformHistoryInner> platformHistory = default, CurrentUserPresence presence = default, string profileEffect = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, Object temporaryExpiryDate = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userIcon = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default, string worldId = default)
+        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, Object appleDetails = default, string appleId = default, string authToken = default, List<Badge> badges = default, string bio = default, List<string> bioLinks = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string id = default, bool isAdult = default, bool isBoopingEnabled = true, bool isFriend = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, string picoId = default, List<CurrentUserPlatformHistoryInner> platformHistory = default, CurrentUserPresence presence = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userIcon = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.AgeVerificationStatus = ageVerificationStatus;
@@ -252,43 +232,24 @@ namespace VRChat.API.Model
             this.AppleId = appleId;
             this.AuthToken = authToken;
             this.Badges = badges;
-            this.BannerColor = bannerColor;
-            this.BannerType = bannerType;
-            this.CompletedTutorials = completedTutorials;
             this.ContentFilters = contentFilters;
             this.DiscordDetails = discordDetails;
             this.DiscordId = discordId;
             this.FallbackAvatar = fallbackAvatar;
-            this.FriendRequestStatus = friendRequestStatus;
             this.GoogleDetails = googleDetails;
             this.GoogleId = googleId;
             this.HasDiscordFriendsOptOut = hasDiscordFriendsOptOut;
             this.HasSharedConnectionsOptOut = hasSharedConnectionsOptOut;
             this.HideContentFilterSettings = hideContentFilterSettings;
-            this.IconFrame = iconFrame;
-            this.IconUrl = iconUrl;
-            this.InstanceId = instanceId;
             this.IsBoopingEnabled = isBoopingEnabled;
-            this.IsEconomyCreator = isEconomyCreator;
-            this.IsTemporary = isTemporary;
             this.LastActivity = lastActivity;
-            this.Location = location;
-            this.NameplateEffect = nameplateEffect;
-            this.Note = note;
             this.OfflineFriends = offlineFriends;
             this.OnlineFriends = onlineFriends;
-            this.PersonalizationOptOut = personalizationOptOut;
             this.PicoId = picoId;
-            this.Platform = platform;
             this.PlatformHistory = platformHistory;
             this.Presence = presence;
-            this.ProfileEffect = profileEffect;
             this.QueuedInstance = queuedInstance;
             this.ReceiveMobileInvitations = receiveMobileInvitations;
-            this.TemporaryExpiryDate = temporaryExpiryDate;
-            this.TravelingToInstance = travelingToInstance;
-            this.TravelingToLocation = travelingToLocation;
-            this.TravelingToWorld = travelingToWorld;
             this.TwitchDetails = twitchDetails;
             this.TwitchId = twitchId;
             this.TwoFactorAuthEnabledDate = twoFactorAuthEnabledDate;
@@ -297,7 +258,6 @@ namespace VRChat.API.Model
             this.UserLanguageCode = userLanguageCode;
             this.Username = username;
             this.ViveId = viveId;
-            this.WorldId = worldId;
         }
 
         /// <summary>
@@ -378,18 +338,6 @@ namespace VRChat.API.Model
         public List<Badge> Badges { get; set; }
 
         /// <summary>
-        /// Gets or Sets BannerColor
-        /// </summary>
-        [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
-        public string BannerColor { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BannerType
-        /// </summary>
-        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
-        public string BannerType { get; set; }
-
-        /// <summary>
         /// Gets or Sets Bio
         /// </summary>
         [DataMember(Name = "bio", IsRequired = false, EmitDefaultValue = true)]
@@ -401,12 +349,6 @@ namespace VRChat.API.Model
         /// <value> </value>
         [DataMember(Name = "bioLinks", IsRequired = false, EmitDefaultValue = true)]
         public List<string> BioLinks { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CompletedTutorials
-        /// </summary>
-        [DataMember(Name = "completedTutorials", EmitDefaultValue = false)]
-        public List<string> CompletedTutorials { get; set; }
 
         /// <summary>
         /// These tags begin with &#x60;content_&#x60; and control content gating
@@ -508,16 +450,6 @@ namespace VRChat.API.Model
         public string FriendKey { get; set; }
 
         /// <summary>
-        /// State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;.
-        /// </summary>
-        /// <value>State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;.</value>
-        /*
-        <example>null</example>
-        */
-        [DataMember(Name = "friendRequestStatus", EmitDefaultValue = false)]
-        public string FriendRequestStatus { get; set; }
-
-        /// <summary>
         /// Gets or Sets Friends
         /// </summary>
         [DataMember(Name = "friends", IsRequired = false, EmitDefaultValue = true)]
@@ -588,18 +520,6 @@ namespace VRChat.API.Model
         public string HomeLocation { get; set; }
 
         /// <summary>
-        /// Gets or Sets IconFrame
-        /// </summary>
-        [DataMember(Name = "iconFrame", EmitDefaultValue = false)]
-        public string IconFrame { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IconUrl
-        /// </summary>
-        [DataMember(Name = "iconUrl", EmitDefaultValue = false)]
-        public string IconUrl { get; set; }
-
-        /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
@@ -608,16 +528,6 @@ namespace VRChat.API.Model
         */
         [DataMember(Name = "id", IsRequired = false, EmitDefaultValue = true)]
         public string Id { get; set; }
-
-        /// <summary>
-        /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
-        /// </summary>
-        /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
-        /*
-        <example>12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
-        */
-        [DataMember(Name = "instanceId", EmitDefaultValue = false)]
-        public string InstanceId { get; set; }
 
         /// <summary>
         /// Gets or Sets IsAdult
@@ -632,22 +542,10 @@ namespace VRChat.API.Model
         public bool IsBoopingEnabled { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsEconomyCreator
-        /// </summary>
-        [DataMember(Name = "isEconomyCreator", EmitDefaultValue = true)]
-        public bool IsEconomyCreator { get; set; }
-
-        /// <summary>
         /// Gets or Sets IsFriend
         /// </summary>
         [DataMember(Name = "isFriend", IsRequired = false, EmitDefaultValue = true)]
         public bool IsFriend { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsTemporary
-        /// </summary>
-        [DataMember(Name = "isTemporary", EmitDefaultValue = true)]
-        public bool IsTemporary { get; set; }
 
         /// <summary>
         /// Gets or Sets LastActivity
@@ -676,28 +574,6 @@ namespace VRChat.API.Model
         */
         [DataMember(Name = "last_platform", IsRequired = false, EmitDefaultValue = true)]
         public string LastPlatform { get; set; }
-
-        /// <summary>
-        /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.
-        /// </summary>
-        /// <value>Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
-        */
-        [DataMember(Name = "location", EmitDefaultValue = false)]
-        public string Location { get; set; }
-
-        /// <summary>
-        /// Gets or Sets NameplateEffect
-        /// </summary>
-        [DataMember(Name = "nameplateEffect", EmitDefaultValue = false)]
-        public string NameplateEffect { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Note
-        /// </summary>
-        [DataMember(Name = "note", EmitDefaultValue = false)]
-        public string Note { get; set; }
 
         /// <summary>
         /// Gets or Sets ObfuscatedEmail
@@ -737,22 +613,10 @@ namespace VRChat.API.Model
         public List<PastDisplayName> PastDisplayNames { get; set; }
 
         /// <summary>
-        /// Gets or Sets PersonalizationOptOut
-        /// </summary>
-        [DataMember(Name = "personalizationOptOut", EmitDefaultValue = true)]
-        public bool PersonalizationOptOut { get; set; }
-
-        /// <summary>
         /// Gets or Sets PicoId
         /// </summary>
         [DataMember(Name = "picoId", EmitDefaultValue = false)]
         public string PicoId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Platform
-        /// </summary>
-        [DataMember(Name = "platform", EmitDefaultValue = false)]
-        public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets PlatformHistory
@@ -765,12 +629,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "presence", EmitDefaultValue = false)]
         public CurrentUserPresence Presence { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProfileEffect
-        /// </summary>
-        [DataMember(Name = "profileEffect", EmitDefaultValue = false)]
-        public string ProfileEffect { get; set; }
 
         /// <summary>
         /// Gets or Sets ProfilePicOverride
@@ -845,30 +703,6 @@ namespace VRChat.API.Model
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// Gets or Sets TemporaryExpiryDate
-        /// </summary>
-        [DataMember(Name = "temporaryExpiryDate", EmitDefaultValue = true)]
-        public Object TemporaryExpiryDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TravelingToInstance
-        /// </summary>
-        [DataMember(Name = "travelingToInstance", EmitDefaultValue = false)]
-        public string TravelingToInstance { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TravelingToLocation
-        /// </summary>
-        [DataMember(Name = "travelingToLocation", EmitDefaultValue = false)]
-        public string TravelingToLocation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TravelingToWorld
-        /// </summary>
-        [DataMember(Name = "travelingToWorld", EmitDefaultValue = false)]
-        public string TravelingToWorld { get; set; }
-
-        /// <summary>
         /// Gets or Sets TwitchDetails
         /// </summary>
         [DataMember(Name = "twitchDetails", EmitDefaultValue = false)]
@@ -929,10 +763,11 @@ namespace VRChat.API.Model
         public string UserLanguageCode { get; set; }
 
         /// <summary>
-        /// Your own unique name, used during login. Distinct from &#x60;displayName&#x60;, and never returned for another user.
+        /// -| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
         /// </summary>
-        /// <value>Your own unique name, used during login. Distinct from &#x60;displayName&#x60;, and never returned for another user.</value>
+        /// <value>-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).</value>
         [DataMember(Name = "username", EmitDefaultValue = false)]
+        [Obsolete]
         public string Username { get; set; }
 
         /// <summary>
@@ -946,16 +781,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "viveId", EmitDefaultValue = false)]
         public string ViveId { get; set; }
-
-        /// <summary>
-        /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
-        /// </summary>
-        /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
-        [DataMember(Name = "worldId", EmitDefaultValue = false)]
-        public string WorldId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -977,11 +802,8 @@ namespace VRChat.API.Model
             sb.Append("  AppleId: ").Append(AppleId).Append("\n");
             sb.Append("  AuthToken: ").Append(AuthToken).Append("\n");
             sb.Append("  Badges: ").Append(Badges).Append("\n");
-            sb.Append("  BannerColor: ").Append(BannerColor).Append("\n");
-            sb.Append("  BannerType: ").Append(BannerType).Append("\n");
             sb.Append("  Bio: ").Append(Bio).Append("\n");
             sb.Append("  BioLinks: ").Append(BioLinks).Append("\n");
-            sb.Append("  CompletedTutorials: ").Append(CompletedTutorials).Append("\n");
             sb.Append("  ContentFilters: ").Append(ContentFilters).Append("\n");
             sb.Append("  CurrentAvatar: ").Append(CurrentAvatar).Append("\n");
             sb.Append("  CurrentAvatarImageUrl: ").Append(CurrentAvatarImageUrl).Append("\n");
@@ -996,7 +818,6 @@ namespace VRChat.API.Model
             sb.Append("  FallbackAvatar: ").Append(FallbackAvatar).Append("\n");
             sb.Append("  FriendGroupNames: ").Append(FriendGroupNames).Append("\n");
             sb.Append("  FriendKey: ").Append(FriendKey).Append("\n");
-            sb.Append("  FriendRequestStatus: ").Append(FriendRequestStatus).Append("\n");
             sb.Append("  Friends: ").Append(Friends).Append("\n");
             sb.Append("  GoogleDetails: ").Append(GoogleDetails).Append("\n");
             sb.Append("  GoogleId: ").Append(GoogleId).Append("\n");
@@ -1008,34 +829,23 @@ namespace VRChat.API.Model
             sb.Append("  HasSharedConnectionsOptOut: ").Append(HasSharedConnectionsOptOut).Append("\n");
             sb.Append("  HideContentFilterSettings: ").Append(HideContentFilterSettings).Append("\n");
             sb.Append("  HomeLocation: ").Append(HomeLocation).Append("\n");
-            sb.Append("  IconFrame: ").Append(IconFrame).Append("\n");
-            sb.Append("  IconUrl: ").Append(IconUrl).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
             sb.Append("  IsAdult: ").Append(IsAdult).Append("\n");
             sb.Append("  IsBoopingEnabled: ").Append(IsBoopingEnabled).Append("\n");
-            sb.Append("  IsEconomyCreator: ").Append(IsEconomyCreator).Append("\n");
             sb.Append("  IsFriend: ").Append(IsFriend).Append("\n");
-            sb.Append("  IsTemporary: ").Append(IsTemporary).Append("\n");
             sb.Append("  LastActivity: ").Append(LastActivity).Append("\n");
             sb.Append("  LastLogin: ").Append(LastLogin).Append("\n");
             sb.Append("  LastMobile: ").Append(LastMobile).Append("\n");
             sb.Append("  LastPlatform: ").Append(LastPlatform).Append("\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
-            sb.Append("  NameplateEffect: ").Append(NameplateEffect).Append("\n");
-            sb.Append("  Note: ").Append(Note).Append("\n");
             sb.Append("  ObfuscatedEmail: ").Append(ObfuscatedEmail).Append("\n");
             sb.Append("  ObfuscatedPendingEmail: ").Append(ObfuscatedPendingEmail).Append("\n");
             sb.Append("  OculusId: ").Append(OculusId).Append("\n");
             sb.Append("  OfflineFriends: ").Append(OfflineFriends).Append("\n");
             sb.Append("  OnlineFriends: ").Append(OnlineFriends).Append("\n");
             sb.Append("  PastDisplayNames: ").Append(PastDisplayNames).Append("\n");
-            sb.Append("  PersonalizationOptOut: ").Append(PersonalizationOptOut).Append("\n");
             sb.Append("  PicoId: ").Append(PicoId).Append("\n");
-            sb.Append("  Platform: ").Append(Platform).Append("\n");
             sb.Append("  PlatformHistory: ").Append(PlatformHistory).Append("\n");
             sb.Append("  Presence: ").Append(Presence).Append("\n");
-            sb.Append("  ProfileEffect: ").Append(ProfileEffect).Append("\n");
             sb.Append("  ProfilePicOverride: ").Append(ProfilePicOverride).Append("\n");
             sb.Append("  ProfilePicOverrideThumbnail: ").Append(ProfilePicOverrideThumbnail).Append("\n");
             sb.Append("  Pronouns: ").Append(Pronouns).Append("\n");
@@ -1050,10 +860,6 @@ namespace VRChat.API.Model
             sb.Append("  SteamDetails: ").Append(SteamDetails).Append("\n");
             sb.Append("  SteamId: ").Append(SteamId).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  TemporaryExpiryDate: ").Append(TemporaryExpiryDate).Append("\n");
-            sb.Append("  TravelingToInstance: ").Append(TravelingToInstance).Append("\n");
-            sb.Append("  TravelingToLocation: ").Append(TravelingToLocation).Append("\n");
-            sb.Append("  TravelingToWorld: ").Append(TravelingToWorld).Append("\n");
             sb.Append("  TwitchDetails: ").Append(TwitchDetails).Append("\n");
             sb.Append("  TwitchId: ").Append(TwitchId).Append("\n");
             sb.Append("  TwoFactorAuthEnabled: ").Append(TwoFactorAuthEnabled).Append("\n");
@@ -1066,7 +872,6 @@ namespace VRChat.API.Model
             sb.Append("  Username: ").Append(Username).Append("\n");
             sb.Append("  UsesGeneratedPassword: ").Append(UsesGeneratedPassword).Append("\n");
             sb.Append("  ViveId: ").Append(ViveId).Append("\n");
-            sb.Append("  WorldId: ").Append(WorldId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -1161,16 +966,6 @@ namespace VRChat.API.Model
                     this.Badges.SequenceEqual(input.Badges)
                 ) && 
                 (
-                    this.BannerColor == input.BannerColor ||
-                    (this.BannerColor != null &&
-                    this.BannerColor.Equals(input.BannerColor))
-                ) && 
-                (
-                    this.BannerType == input.BannerType ||
-                    (this.BannerType != null &&
-                    this.BannerType.Equals(input.BannerType))
-                ) && 
-                (
                     this.Bio == input.Bio ||
                     (this.Bio != null &&
                     this.Bio.Equals(input.Bio))
@@ -1180,12 +975,6 @@ namespace VRChat.API.Model
                     this.BioLinks != null &&
                     input.BioLinks != null &&
                     this.BioLinks.SequenceEqual(input.BioLinks)
-                ) && 
-                (
-                    this.CompletedTutorials == input.CompletedTutorials ||
-                    this.CompletedTutorials != null &&
-                    input.CompletedTutorials != null &&
-                    this.CompletedTutorials.SequenceEqual(input.CompletedTutorials)
                 ) && 
                 (
                     this.ContentFilters == input.ContentFilters ||
@@ -1259,11 +1048,6 @@ namespace VRChat.API.Model
                     this.FriendKey.Equals(input.FriendKey))
                 ) && 
                 (
-                    this.FriendRequestStatus == input.FriendRequestStatus ||
-                    (this.FriendRequestStatus != null &&
-                    this.FriendRequestStatus.Equals(input.FriendRequestStatus))
-                ) && 
-                (
                     this.Friends == input.Friends ||
                     this.Friends != null &&
                     input.Friends != null &&
@@ -1313,24 +1097,9 @@ namespace VRChat.API.Model
                     this.HomeLocation.Equals(input.HomeLocation))
                 ) && 
                 (
-                    this.IconFrame == input.IconFrame ||
-                    (this.IconFrame != null &&
-                    this.IconFrame.Equals(input.IconFrame))
-                ) && 
-                (
-                    this.IconUrl == input.IconUrl ||
-                    (this.IconUrl != null &&
-                    this.IconUrl.Equals(input.IconUrl))
-                ) && 
-                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.InstanceId == input.InstanceId ||
-                    (this.InstanceId != null &&
-                    this.InstanceId.Equals(input.InstanceId))
                 ) && 
                 (
                     this.IsAdult == input.IsAdult ||
@@ -1341,16 +1110,8 @@ namespace VRChat.API.Model
                     this.IsBoopingEnabled.Equals(input.IsBoopingEnabled)
                 ) && 
                 (
-                    this.IsEconomyCreator == input.IsEconomyCreator ||
-                    this.IsEconomyCreator.Equals(input.IsEconomyCreator)
-                ) && 
-                (
                     this.IsFriend == input.IsFriend ||
                     this.IsFriend.Equals(input.IsFriend)
-                ) && 
-                (
-                    this.IsTemporary == input.IsTemporary ||
-                    this.IsTemporary.Equals(input.IsTemporary)
                 ) && 
                 (
                     this.LastActivity == input.LastActivity ||
@@ -1371,21 +1132,6 @@ namespace VRChat.API.Model
                     this.LastPlatform == input.LastPlatform ||
                     (this.LastPlatform != null &&
                     this.LastPlatform.Equals(input.LastPlatform))
-                ) && 
-                (
-                    this.Location == input.Location ||
-                    (this.Location != null &&
-                    this.Location.Equals(input.Location))
-                ) && 
-                (
-                    this.NameplateEffect == input.NameplateEffect ||
-                    (this.NameplateEffect != null &&
-                    this.NameplateEffect.Equals(input.NameplateEffect))
-                ) && 
-                (
-                    this.Note == input.Note ||
-                    (this.Note != null &&
-                    this.Note.Equals(input.Note))
                 ) && 
                 (
                     this.ObfuscatedEmail == input.ObfuscatedEmail ||
@@ -1421,18 +1167,9 @@ namespace VRChat.API.Model
                     this.PastDisplayNames.SequenceEqual(input.PastDisplayNames)
                 ) && 
                 (
-                    this.PersonalizationOptOut == input.PersonalizationOptOut ||
-                    this.PersonalizationOptOut.Equals(input.PersonalizationOptOut)
-                ) && 
-                (
                     this.PicoId == input.PicoId ||
                     (this.PicoId != null &&
                     this.PicoId.Equals(input.PicoId))
-                ) && 
-                (
-                    this.Platform == input.Platform ||
-                    (this.Platform != null &&
-                    this.Platform.Equals(input.Platform))
                 ) && 
                 (
                     this.PlatformHistory == input.PlatformHistory ||
@@ -1444,11 +1181,6 @@ namespace VRChat.API.Model
                     this.Presence == input.Presence ||
                     (this.Presence != null &&
                     this.Presence.Equals(input.Presence))
-                ) && 
-                (
-                    this.ProfileEffect == input.ProfileEffect ||
-                    (this.ProfileEffect != null &&
-                    this.ProfileEffect.Equals(input.ProfileEffect))
                 ) && 
                 (
                     this.ProfilePicOverride == input.ProfilePicOverride ||
@@ -1520,26 +1252,6 @@ namespace VRChat.API.Model
                     this.Tags.SequenceEqual(input.Tags)
                 ) && 
                 (
-                    this.TemporaryExpiryDate == input.TemporaryExpiryDate ||
-                    (this.TemporaryExpiryDate != null &&
-                    this.TemporaryExpiryDate.Equals(input.TemporaryExpiryDate))
-                ) && 
-                (
-                    this.TravelingToInstance == input.TravelingToInstance ||
-                    (this.TravelingToInstance != null &&
-                    this.TravelingToInstance.Equals(input.TravelingToInstance))
-                ) && 
-                (
-                    this.TravelingToLocation == input.TravelingToLocation ||
-                    (this.TravelingToLocation != null &&
-                    this.TravelingToLocation.Equals(input.TravelingToLocation))
-                ) && 
-                (
-                    this.TravelingToWorld == input.TravelingToWorld ||
-                    (this.TravelingToWorld != null &&
-                    this.TravelingToWorld.Equals(input.TravelingToWorld))
-                ) && 
-                (
                     this.TwitchDetails == input.TwitchDetails ||
                     (this.TwitchDetails != null &&
                     this.TwitchDetails.Equals(input.TwitchDetails))
@@ -1595,11 +1307,6 @@ namespace VRChat.API.Model
                     this.ViveId == input.ViveId ||
                     (this.ViveId != null &&
                     this.ViveId.Equals(input.ViveId))
-                ) && 
-                (
-                    this.WorldId == input.WorldId ||
-                    (this.WorldId != null &&
-                    this.WorldId.Equals(input.WorldId))
                 );
         }
 
@@ -1645,14 +1352,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Badges.GetHashCode();
                 }
-                if (this.BannerColor != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerColor.GetHashCode();
-                }
-                if (this.BannerType != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
-                }
                 if (this.Bio != null)
                 {
                     hashCode = (hashCode * 59) + this.Bio.GetHashCode();
@@ -1660,10 +1359,6 @@ namespace VRChat.API.Model
                 if (this.BioLinks != null)
                 {
                     hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
-                }
-                if (this.CompletedTutorials != null)
-                {
-                    hashCode = (hashCode * 59) + this.CompletedTutorials.GetHashCode();
                 }
                 if (this.ContentFilters != null)
                 {
@@ -1715,10 +1410,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.FriendKey.GetHashCode();
                 }
-                if (this.FriendRequestStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.FriendRequestStatus.GetHashCode();
-                }
                 if (this.Friends != null)
                 {
                     hashCode = (hashCode * 59) + this.Friends.GetHashCode();
@@ -1742,27 +1433,13 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.HomeLocation.GetHashCode();
                 }
-                if (this.IconFrame != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconFrame.GetHashCode();
-                }
-                if (this.IconUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
-                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.InstanceId != null)
-                {
-                    hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();
-                }
                 hashCode = (hashCode * 59) + this.IsAdult.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsBoopingEnabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsEconomyCreator.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsFriend.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsTemporary.GetHashCode();
                 if (this.LastActivity != null)
                 {
                     hashCode = (hashCode * 59) + this.LastActivity.GetHashCode();
@@ -1778,18 +1455,6 @@ namespace VRChat.API.Model
                 if (this.LastPlatform != null)
                 {
                     hashCode = (hashCode * 59) + this.LastPlatform.GetHashCode();
-                }
-                if (this.Location != null)
-                {
-                    hashCode = (hashCode * 59) + this.Location.GetHashCode();
-                }
-                if (this.NameplateEffect != null)
-                {
-                    hashCode = (hashCode * 59) + this.NameplateEffect.GetHashCode();
-                }
-                if (this.Note != null)
-                {
-                    hashCode = (hashCode * 59) + this.Note.GetHashCode();
                 }
                 if (this.ObfuscatedEmail != null)
                 {
@@ -1815,14 +1480,9 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.PastDisplayNames.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.PersonalizationOptOut.GetHashCode();
                 if (this.PicoId != null)
                 {
                     hashCode = (hashCode * 59) + this.PicoId.GetHashCode();
-                }
-                if (this.Platform != null)
-                {
-                    hashCode = (hashCode * 59) + this.Platform.GetHashCode();
                 }
                 if (this.PlatformHistory != null)
                 {
@@ -1831,10 +1491,6 @@ namespace VRChat.API.Model
                 if (this.Presence != null)
                 {
                     hashCode = (hashCode * 59) + this.Presence.GetHashCode();
-                }
-                if (this.ProfileEffect != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfileEffect.GetHashCode();
                 }
                 if (this.ProfilePicOverride != null)
                 {
@@ -1880,22 +1536,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Tags.GetHashCode();
                 }
-                if (this.TemporaryExpiryDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.TemporaryExpiryDate.GetHashCode();
-                }
-                if (this.TravelingToInstance != null)
-                {
-                    hashCode = (hashCode * 59) + this.TravelingToInstance.GetHashCode();
-                }
-                if (this.TravelingToLocation != null)
-                {
-                    hashCode = (hashCode * 59) + this.TravelingToLocation.GetHashCode();
-                }
-                if (this.TravelingToWorld != null)
-                {
-                    hashCode = (hashCode * 59) + this.TravelingToWorld.GetHashCode();
-                }
                 if (this.TwitchDetails != null)
                 {
                     hashCode = (hashCode * 59) + this.TwitchDetails.GetHashCode();
@@ -1934,10 +1574,6 @@ namespace VRChat.API.Model
                 if (this.ViveId != null)
                 {
                     hashCode = (hashCode * 59) + this.ViveId.GetHashCode();
-                }
-                if (this.WorldId != null)
-                {
-                    hashCode = (hashCode * 59) + this.WorldId.GetHashCode();
                 }
                 return hashCode;
             }

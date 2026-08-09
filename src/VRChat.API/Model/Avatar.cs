@@ -50,7 +50,6 @@ namespace VRChat.API.Model
         /// <param name="activeAssetReviewId">Only present for the avatar author on avatars under active review..</param>
         /// <param name="assetUrl">Not present from general search &#x60;/avatars&#x60;, only on specific requests &#x60;/avatars/{avatarId}&#x60;..</param>
         /// <param name="assetUrlObject">Not present from general search &#x60;/avatars&#x60;, only on specific requests &#x60;/avatars/{avatarId}&#x60;. **Deprecation:** &#x60;Object&#x60; has unknown usage/fields, and is always empty. Use normal &#x60;Url&#x60; field instead..</param>
-        /// <param name="attribution">attribution.</param>
         /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="authorName">authorName (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
@@ -77,7 +76,7 @@ namespace VRChat.API.Model
         /// <param name="unityPackages">unityPackages (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="varVersion">varVersion (required) (default to 0).</param>
-        public Avatar(string acknowledgements = default, string activeAssetReviewId = default, string assetUrl = default, Object assetUrlObject = default, Object attribution = default, string authorId = default, string authorName = default, DateTime createdAt = default, string description = default, bool featured = false, int highestPrice = default, string id = default, string imageUrl = default, string listingDate = default, bool varLock = default, int lowestPrice = default, string name = default, bool pendingUpload = false, AvatarPerformance performance = default, string productId = default, List<AvatarPublishedListingsInner> publishedListings = default, ReleaseStatus releaseStatus = default, bool searchable = false, AvatarStyles styles = default, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, AvatarUnityPackageUrlObject unityPackageUrlObject = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, int varVersion = 0)
+        public Avatar(string acknowledgements = default, string activeAssetReviewId = default, string assetUrl = default, Object assetUrlObject = default, string authorId = default, string authorName = default, DateTime createdAt = default, string description = default, bool featured = false, int highestPrice = default, string id = default, string imageUrl = default, string listingDate = default, bool varLock = default, int lowestPrice = default, string name = default, bool pendingUpload = false, AvatarPerformance performance = default, string productId = default, List<AvatarPublishedListingsInner> publishedListings = default, ReleaseStatus releaseStatus = default, bool searchable = false, AvatarStyles styles = default, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, AvatarUnityPackageUrlObject unityPackageUrlObject = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, int varVersion = 0)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -116,7 +115,6 @@ namespace VRChat.API.Model
             this.ActiveAssetReviewId = activeAssetReviewId;
             this.AssetUrl = assetUrl;
             this.AssetUrlObject = assetUrlObject;
-            this.Attribution = attribution;
             this.HighestPrice = highestPrice;
             this.Lock = varLock;
             this.LowestPrice = lowestPrice;
@@ -152,12 +150,6 @@ namespace VRChat.API.Model
         /// <value>Not present from general search &#x60;/avatars&#x60;, only on specific requests &#x60;/avatars/{avatarId}&#x60;. **Deprecation:** &#x60;Object&#x60; has unknown usage/fields, and is always empty. Use normal &#x60;Url&#x60; field instead.</value>
         [DataMember(Name = "assetUrlObject", EmitDefaultValue = false)]
         public Object AssetUrlObject { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Attribution
-        /// </summary>
-        [DataMember(Name = "attribution", EmitDefaultValue = true)]
-        public Object Attribution { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -333,7 +325,6 @@ namespace VRChat.API.Model
             sb.Append("  ActiveAssetReviewId: ").Append(ActiveAssetReviewId).Append("\n");
             sb.Append("  AssetUrl: ").Append(AssetUrl).Append("\n");
             sb.Append("  AssetUrlObject: ").Append(AssetUrlObject).Append("\n");
-            sb.Append("  Attribution: ").Append(Attribution).Append("\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
             sb.Append("  AuthorName: ").Append(AuthorName).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
@@ -414,11 +405,6 @@ namespace VRChat.API.Model
                     this.AssetUrlObject == input.AssetUrlObject ||
                     (this.AssetUrlObject != null &&
                     this.AssetUrlObject.Equals(input.AssetUrlObject))
-                ) && 
-                (
-                    this.Attribution == input.Attribution ||
-                    (this.Attribution != null &&
-                    this.Attribution.Equals(input.Attribution))
                 ) && 
                 (
                     this.AuthorId == input.AuthorId ||
@@ -571,10 +557,6 @@ namespace VRChat.API.Model
                 if (this.AssetUrlObject != null)
                 {
                     hashCode = (hashCode * 59) + this.AssetUrlObject.GetHashCode();
-                }
-                if (this.Attribution != null)
-                {
-                    hashCode = (hashCode * 59) + this.Attribution.GetHashCode();
                 }
                 if (this.AuthorId != null)
                 {

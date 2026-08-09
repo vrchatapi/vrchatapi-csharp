@@ -44,7 +44,6 @@ namespace VRChat.API.Model
         /// <param name="nearFieldILDNudge">Unknown (required).</param>
         /// <param name="nearFieldILDNudgeDistance">Unknown (required).</param>
         /// <param name="nearFieldILDNudgeEarRadius">Unknown (required).</param>
-        /// <param name="nearFieldILDNudgeEarTranslate">nearFieldILDNudgeEarTranslate.</param>
         /// <param name="perEarDirectionalityEarRadius">Unknown (required).</param>
         /// <param name="perEarDirectionalityFadeDistance">Unknown (required).</param>
         /// <param name="perEarDirectionalityMaxScale">Unknown (required).</param>
@@ -52,8 +51,7 @@ namespace VRChat.API.Model
         /// <param name="trackingScaleMax">Unknown (required).</param>
         /// <param name="trackingScaleMin">Unknown (required).</param>
         /// <param name="trackingScaleMultiplier">Unknown (required).</param>
-        /// <param name="useLegacyILDNudging">useLegacyILDNudging.</param>
-        public APIConfigAudioConfig(decimal eq = default, decimal nearFieldILDNudge = default, decimal nearFieldILDNudgeDistance = default, decimal nearFieldILDNudgeEarRadius = default, decimal nearFieldILDNudgeEarTranslate = default, decimal perEarDirectionalityEarRadius = default, decimal perEarDirectionalityFadeDistance = default, decimal perEarDirectionalityMaxScale = default, decimal perEarDirectionalityPCFactor = default, decimal trackingScaleMax = default, decimal trackingScaleMin = default, decimal trackingScaleMultiplier = default, bool useLegacyILDNudging = default)
+        public APIConfigAudioConfig(decimal eq = default, decimal nearFieldILDNudge = default, decimal nearFieldILDNudgeDistance = default, decimal nearFieldILDNudgeEarRadius = default, decimal perEarDirectionalityEarRadius = default, decimal perEarDirectionalityFadeDistance = default, decimal perEarDirectionalityMaxScale = default, decimal perEarDirectionalityPCFactor = default, decimal trackingScaleMax = default, decimal trackingScaleMin = default, decimal trackingScaleMultiplier = default)
         {
             this.Eq = eq;
             this.NearFieldILDNudge = nearFieldILDNudge;
@@ -66,8 +64,6 @@ namespace VRChat.API.Model
             this.TrackingScaleMax = trackingScaleMax;
             this.TrackingScaleMin = trackingScaleMin;
             this.TrackingScaleMultiplier = trackingScaleMultiplier;
-            this.NearFieldILDNudgeEarTranslate = nearFieldILDNudgeEarTranslate;
-            this.UseLegacyILDNudging = useLegacyILDNudging;
         }
 
         /// <summary>
@@ -97,12 +93,6 @@ namespace VRChat.API.Model
         /// <value>Unknown</value>
         [DataMember(Name = "nearFieldILDNudgeEarRadius", IsRequired = true, EmitDefaultValue = true)]
         public decimal NearFieldILDNudgeEarRadius { get; set; }
-
-        /// <summary>
-        /// Gets or Sets NearFieldILDNudgeEarTranslate
-        /// </summary>
-        [DataMember(Name = "nearFieldILDNudgeEarTranslate", EmitDefaultValue = false)]
-        public decimal NearFieldILDNudgeEarTranslate { get; set; }
 
         /// <summary>
         /// Unknown
@@ -154,12 +144,6 @@ namespace VRChat.API.Model
         public decimal TrackingScaleMultiplier { get; set; }
 
         /// <summary>
-        /// Gets or Sets UseLegacyILDNudging
-        /// </summary>
-        [DataMember(Name = "useLegacyILDNudging", EmitDefaultValue = true)]
-        public bool UseLegacyILDNudging { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -171,7 +155,6 @@ namespace VRChat.API.Model
             sb.Append("  NearFieldILDNudge: ").Append(NearFieldILDNudge).Append("\n");
             sb.Append("  NearFieldILDNudgeDistance: ").Append(NearFieldILDNudgeDistance).Append("\n");
             sb.Append("  NearFieldILDNudgeEarRadius: ").Append(NearFieldILDNudgeEarRadius).Append("\n");
-            sb.Append("  NearFieldILDNudgeEarTranslate: ").Append(NearFieldILDNudgeEarTranslate).Append("\n");
             sb.Append("  PerEarDirectionalityEarRadius: ").Append(PerEarDirectionalityEarRadius).Append("\n");
             sb.Append("  PerEarDirectionalityFadeDistance: ").Append(PerEarDirectionalityFadeDistance).Append("\n");
             sb.Append("  PerEarDirectionalityMaxScale: ").Append(PerEarDirectionalityMaxScale).Append("\n");
@@ -179,7 +162,6 @@ namespace VRChat.API.Model
             sb.Append("  TrackingScaleMax: ").Append(TrackingScaleMax).Append("\n");
             sb.Append("  TrackingScaleMin: ").Append(TrackingScaleMin).Append("\n");
             sb.Append("  TrackingScaleMultiplier: ").Append(TrackingScaleMultiplier).Append("\n");
-            sb.Append("  UseLegacyILDNudging: ").Append(UseLegacyILDNudging).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -232,10 +214,6 @@ namespace VRChat.API.Model
                     this.NearFieldILDNudgeEarRadius.Equals(input.NearFieldILDNudgeEarRadius)
                 ) && 
                 (
-                    this.NearFieldILDNudgeEarTranslate == input.NearFieldILDNudgeEarTranslate ||
-                    this.NearFieldILDNudgeEarTranslate.Equals(input.NearFieldILDNudgeEarTranslate)
-                ) && 
-                (
                     this.PerEarDirectionalityEarRadius == input.PerEarDirectionalityEarRadius ||
                     this.PerEarDirectionalityEarRadius.Equals(input.PerEarDirectionalityEarRadius)
                 ) && 
@@ -262,10 +240,6 @@ namespace VRChat.API.Model
                 (
                     this.TrackingScaleMultiplier == input.TrackingScaleMultiplier ||
                     this.TrackingScaleMultiplier.Equals(input.TrackingScaleMultiplier)
-                ) && 
-                (
-                    this.UseLegacyILDNudging == input.UseLegacyILDNudging ||
-                    this.UseLegacyILDNudging.Equals(input.UseLegacyILDNudging)
                 );
         }
 
@@ -282,7 +256,6 @@ namespace VRChat.API.Model
                 hashCode = (hashCode * 59) + this.NearFieldILDNudge.GetHashCode();
                 hashCode = (hashCode * 59) + this.NearFieldILDNudgeDistance.GetHashCode();
                 hashCode = (hashCode * 59) + this.NearFieldILDNudgeEarRadius.GetHashCode();
-                hashCode = (hashCode * 59) + this.NearFieldILDNudgeEarTranslate.GetHashCode();
                 hashCode = (hashCode * 59) + this.PerEarDirectionalityEarRadius.GetHashCode();
                 hashCode = (hashCode * 59) + this.PerEarDirectionalityFadeDistance.GetHashCode();
                 hashCode = (hashCode * 59) + this.PerEarDirectionalityMaxScale.GetHashCode();
@@ -290,7 +263,6 @@ namespace VRChat.API.Model
                 hashCode = (hashCode * 59) + this.TrackingScaleMax.GetHashCode();
                 hashCode = (hashCode * 59) + this.TrackingScaleMin.GetHashCode();
                 hashCode = (hashCode * 59) + this.TrackingScaleMultiplier.GetHashCode();
-                hashCode = (hashCode * 59) + this.UseLegacyILDNudging.GetHashCode();
                 return hashCode;
             }
         }
