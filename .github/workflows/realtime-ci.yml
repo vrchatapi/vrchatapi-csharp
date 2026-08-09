@@ -15,17 +15,17 @@ jobs:
     name: Build and Publish VRChat Realtime SDK
     steps:
       - name: Checkout current commit
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0  # Fetch all history to compare versions
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '8.0.x'
 
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1.1.1
+        uses: NuGet/setup-nuget@v4.0
 
       - name: Get current version from csproj
         id: current_version
@@ -67,7 +67,7 @@ jobs:
 
       - name: Publish to NuGet
         if: steps.version_check.outputs.changed == 'true'
-        uses: pairbit/publish-nuget@v2.5.8
+        uses: pairbit/publish-nuget@v2.6.2
         with:
           PROJECT_FILE_PATH: wrapper/VRChat.API.Realtime/VRChat.API.Realtime.csproj
           PACKAGE_NAME: VRChat.API.Realtime

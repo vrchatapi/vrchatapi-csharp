@@ -26,13 +26,13 @@ jobs:
       PASSED_VERSION: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload || fromJSON(inputs.json))['version'] }}
       VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
     steps:
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: 'Cache node_modules'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: ${{ runner.os }}-node-v22-${{ hashFiles('**/generate.sh') }}
@@ -46,9 +46,9 @@ jobs:
         run: ./node_modules/\@openapitools/openapi-generator-cli/main.js version-manager set 7.17.0
 
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1.1.1
+        uses: NuGet/setup-nuget@v4.0
 
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '8.0.x'
 
@@ -75,7 +75,7 @@ jobs:
         run: unlink ${ARTIFACT_NAME}
 
       - name: Deploy SDK back into main branch
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
           branch: main
           folder: .
@@ -83,7 +83,7 @@ jobs:
 
       - name: Publish to VRChat.API to NuGet
         if: github.event_name == 'repository_dispatch'
-        uses: pairbit/publish-nuget@v2.5.8
+        uses: pairbit/publish-nuget@v2.6.2
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: src/VRChat.API/VRChat.API.csproj
@@ -98,7 +98,7 @@ jobs:
           
       - name: Publish to VRChat.API.Extensions.Hosting to NuGet
         if: github.event_name == 'repository_dispatch'
-        uses: pairbit/publish-nuget@v2.5.8
+        uses: pairbit/publish-nuget@v2.6.2
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj
