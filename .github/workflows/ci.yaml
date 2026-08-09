@@ -14,9 +14,7 @@ on:
 name: CI
 
 jobs:
-  # The solution covers the generated client, the wrappers and the examples, so
-  # a spec change that breaks any of them fails here.
-  build:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -30,10 +28,24 @@ jobs:
         with:
           bundle: openapi-legacy.yaml
 
+      - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: generated-csharp
+          path: .
+          include-hidden-files: true
+
+  build:
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: generated-csharp
+
       - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '8.0.x'
-
-      - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
 
       - run: dotnet build VRChat.API.sln --configuration Release
