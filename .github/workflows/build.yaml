@@ -1,0 +1,41 @@
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+  workflow_call:
+    inputs:
+      spec-artifact:
+        description: >-
+          Artifact holding the bundled specification. Only reachable when the
+          caller shares this run; when empty the latest published one is used.
+        required: false
+        type: string
+        default: ''
+      ref:
+        description: Ref of this repository to build.
+        required: false
+        type: string
+        default: main
+
+name: Build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: vrchatapi/specification/.github/actions/sdk-spec@ci/modernise-actions
+        with:
+          repository: vrchatapi/vrchatapi-csharp
+          ref: ${{ inputs.ref || github.ref }}
+          generator-version: 7.17.0
+          spec-artifact: ${{ inputs.spec-artifact }}
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '8.0.x'
+
+      # generate.sh stamps packageVersion, so it comes from the spec.
+      - run: bash ./generate.sh openapi.json "$(jq -r '.info.version' openapi.json)"
+
+      - run: dotnet build src/VRChat.API/VRChat.API.csproj --configuration Release
