@@ -40,30 +40,111 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DynamicContentRow" /> class.
         /// </summary>
+        /// <param name="anyStyle">anyStyle.</param>
+        /// <param name="anyTag">anyTag.</param>
+        /// <param name="avatarSpecific">avatarSpecific.</param>
+        /// <param name="bannersTag">bannersTag.</param>
+        /// <param name="categories">categories.</param>
+        /// <param name="featuredResults">featuredResults.</param>
         /// <param name="index">index.</param>
+        /// <param name="marketplace">marketplace.</param>
+        /// <param name="maxPrice">maxPrice.</param>
+        /// <param name="minOccupants">minOccupants.</param>
+        /// <param name="minPrice">minPrice.</param>
+        /// <param name="minimumInterestCount">minimumInterestCount.</param>
+        /// <param name="minimumRemainingMinutes">minimumRemainingMinutes.</param>
+        /// <param name="mode">mode.</param>
+        /// <param name="n">n.</param>
         /// <param name="name">name (required).</param>
+        /// <param name="nonFeaturedResults">nonFeaturedResults.</param>
+        /// <param name="notag">notag.</param>
+        /// <param name="varParams">varParams.</param>
+        /// <param name="personalizedResults">personalizedResults.</param>
         /// <param name="platform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
-        /// <param name="sortHeading">sortHeading (required).</param>
-        /// <param name="sortOrder">sortOrder (required).</param>
-        /// <param name="sortOwnership">sortOwnership (required).</param>
-        /// <param name="tag">Tags are a way to grant various access, assign restrictions or other kinds of metadata to various to objects such as worlds, users and avatars.  System tags starting with &#x60;system_&#x60; are granted automatically by the system, while admin tags with &#x60;admin_&#x60; are granted manually. More prefixes such as &#x60;language_ &#x60; (to indicate that a player can speak the tagged language), and &#x60;author_tag_&#x60; (provided by a world author for search and sorting) exist as well..</param>
+        /// <param name="region">region.</param>
+        /// <param name="scope">scope.</param>
+        /// <param name="shortName">shortName.</param>
+        /// <param name="sortHeading">sortHeading.</param>
+        /// <param name="sortOrder">sortOrder.</param>
+        /// <param name="sortOwnership">sortOwnership.</param>
+        /// <param name="style">style.</param>
+        /// <param name="tag">Tag to filter content for this row. Not a &#x60;Tag&#x60;: that type forbids the empty string, which this field uses for a row that is not tag-filtered..</param>
+        /// <param name="tags">tags.</param>
         /// <param name="type">Type is not present if it is a world..</param>
-        public DynamicContentRow(int index = default, string name = default, string platform = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string tag = default, string type = default)
+        /// <param name="upcomingOffsetMinutes">upcomingOffsetMinutes.</param>
+        public DynamicContentRow(List<string> anyStyle = default, List<string> anyTag = default, bool avatarSpecific = default, string bannersTag = default, List<string> categories = default, string featuredResults = default, int index = default, string marketplace = default, int maxPrice = default, int minOccupants = default, int minPrice = default, int minimumInterestCount = default, int minimumRemainingMinutes = default, string mode = default, int n = default, string name = default, string nonFeaturedResults = default, List<string> notag = default, Dictionary<string, Object> varParams = default, string personalizedResults = default, string platform = default, string region = default, string scope = default, string shortName = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string style = default, string tag = default, List<string> tags = default, string type = default, int upcomingOffsetMinutes = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Platform = platform;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.SortHeading = sortHeading;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.SortOrder = sortOrder;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.SortOwnership = sortOwnership;
+            this.AnyStyle = anyStyle;
+            this.AnyTag = anyTag;
+            this.AvatarSpecific = avatarSpecific;
+            this.BannersTag = bannersTag;
+            this.Categories = categories;
+            this.FeaturedResults = featuredResults;
             this.Index = index;
+            this.Marketplace = marketplace;
+            this.MaxPrice = maxPrice;
+            this.MinOccupants = minOccupants;
+            this.MinPrice = minPrice;
+            this.MinimumInterestCount = minimumInterestCount;
+            this.MinimumRemainingMinutes = minimumRemainingMinutes;
+            this.Mode = mode;
+            this.N = n;
+            this.NonFeaturedResults = nonFeaturedResults;
+            this.Notag = notag;
+            this.Params = varParams;
+            this.PersonalizedResults = personalizedResults;
+            this.Region = region;
+            this.Scope = scope;
+            this.ShortName = shortName;
+            this.SortHeading = sortHeading;
+            this.SortOrder = sortOrder;
+            this.SortOwnership = sortOwnership;
+            this.Style = style;
             this.Tag = tag;
+            this.Tags = tags;
             this.Type = type;
+            this.UpcomingOffsetMinutes = upcomingOffsetMinutes;
         }
+
+        /// <summary>
+        /// Gets or Sets AnyStyle
+        /// </summary>
+        [DataMember(Name = "anyStyle", EmitDefaultValue = true)]
+        public List<string> AnyStyle { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AnyTag
+        /// </summary>
+        [DataMember(Name = "anyTag", EmitDefaultValue = true)]
+        public List<string> AnyTag { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AvatarSpecific
+        /// </summary>
+        [DataMember(Name = "avatarSpecific", EmitDefaultValue = true)]
+        public bool AvatarSpecific { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BannersTag
+        /// </summary>
+        [DataMember(Name = "bannersTag", EmitDefaultValue = false)]
+        public string BannersTag { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Categories
+        /// </summary>
+        [DataMember(Name = "categories", EmitDefaultValue = false)]
+        public List<string> Categories { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FeaturedResults
+        /// </summary>
+        [DataMember(Name = "featuredResults", EmitDefaultValue = false)]
+        public string FeaturedResults { get; set; }
 
         /// <summary>
         /// Gets or Sets Index
@@ -72,10 +153,85 @@ namespace VRChat.API.Model
         public int Index { get; set; }
 
         /// <summary>
+        /// Gets or Sets Marketplace
+        /// </summary>
+        [DataMember(Name = "marketplace", EmitDefaultValue = false)]
+        public string Marketplace { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MaxPrice
+        /// </summary>
+        [DataMember(Name = "maxPrice", EmitDefaultValue = false)]
+        public int MaxPrice { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MinOccupants
+        /// </summary>
+        [DataMember(Name = "minOccupants", EmitDefaultValue = false)]
+        public int MinOccupants { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MinPrice
+        /// </summary>
+        [DataMember(Name = "minPrice", EmitDefaultValue = false)]
+        public int MinPrice { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MinimumInterestCount
+        /// </summary>
+        [DataMember(Name = "minimumInterestCount", EmitDefaultValue = false)]
+        public int MinimumInterestCount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MinimumRemainingMinutes
+        /// </summary>
+        [DataMember(Name = "minimumRemainingMinutes", EmitDefaultValue = false)]
+        public int MinimumRemainingMinutes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Mode
+        /// </summary>
+        [DataMember(Name = "mode", EmitDefaultValue = false)]
+        public string Mode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets N
+        /// </summary>
+        [DataMember(Name = "n", EmitDefaultValue = false)]
+        public int N { get; set; }
+
+        /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NonFeaturedResults
+        /// </summary>
+        [DataMember(Name = "nonFeaturedResults", EmitDefaultValue = false)]
+        public string NonFeaturedResults { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Notag
+        /// </summary>
+        [DataMember(Name = "notag", EmitDefaultValue = true)]
+        public List<string> Notag { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Params
+        /// </summary>
+        [DataMember(Name = "params", EmitDefaultValue = false)]
+        public Dictionary<string, Object> Params { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PersonalizedResults
+        /// </summary>
+        /*
+        <example>include</example>
+        */
+        [DataMember(Name = "personalizedResults", EmitDefaultValue = false)]
+        public string PersonalizedResults { get; set; }
 
         /// <summary>
         /// This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
@@ -88,29 +244,65 @@ namespace VRChat.API.Model
         public string Platform { get; set; }
 
         /// <summary>
+        /// Gets or Sets Region
+        /// </summary>
+        [DataMember(Name = "region", EmitDefaultValue = true)]
+        public string Region { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Scope
+        /// </summary>
+        /*
+        <example>all</example>
+        */
+        [DataMember(Name = "scope", EmitDefaultValue = false)]
+        public string Scope { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShortName
+        /// </summary>
+        [DataMember(Name = "shortName", EmitDefaultValue = true)]
+        public string ShortName { get; set; }
+
+        /// <summary>
         /// Gets or Sets SortHeading
         /// </summary>
-        [DataMember(Name = "sortHeading", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sortHeading", EmitDefaultValue = false)]
         public string SortHeading { get; set; }
 
         /// <summary>
         /// Gets or Sets SortOrder
         /// </summary>
-        [DataMember(Name = "sortOrder", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sortOrder", EmitDefaultValue = false)]
         public string SortOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets SortOwnership
         /// </summary>
-        [DataMember(Name = "sortOwnership", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sortOwnership", EmitDefaultValue = false)]
         public string SortOwnership { get; set; }
 
         /// <summary>
-        /// Tags are a way to grant various access, assign restrictions or other kinds of metadata to various to objects such as worlds, users and avatars.  System tags starting with &#x60;system_&#x60; are granted automatically by the system, while admin tags with &#x60;admin_&#x60; are granted manually. More prefixes such as &#x60;language_ &#x60; (to indicate that a player can speak the tagged language), and &#x60;author_tag_&#x60; (provided by a world author for search and sorting) exist as well.
+        /// Gets or Sets Style
         /// </summary>
-        /// <value>Tags are a way to grant various access, assign restrictions or other kinds of metadata to various to objects such as worlds, users and avatars.  System tags starting with &#x60;system_&#x60; are granted automatically by the system, while admin tags with &#x60;admin_&#x60; are granted manually. More prefixes such as &#x60;language_ &#x60; (to indicate that a player can speak the tagged language), and &#x60;author_tag_&#x60; (provided by a world author for search and sorting) exist as well.</value>
-        [DataMember(Name = "tag", EmitDefaultValue = false)]
+        [DataMember(Name = "style", EmitDefaultValue = true)]
+        public string Style { get; set; }
+
+        /// <summary>
+        /// Tag to filter content for this row. Not a &#x60;Tag&#x60;: that type forbids the empty string, which this field uses for a row that is not tag-filtered.
+        /// </summary>
+        /// <value>Tag to filter content for this row. Not a &#x60;Tag&#x60;: that type forbids the empty string, which this field uses for a row that is not tag-filtered.</value>
+        /*
+        <example>admin_spotlight_pc</example>
+        */
+        [DataMember(Name = "tag", EmitDefaultValue = true)]
         public string Tag { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Tags
+        /// </summary>
+        [DataMember(Name = "tags", EmitDefaultValue = true)]
+        public List<string> Tags { get; set; }
 
         /// <summary>
         /// Type is not present if it is a world.
@@ -123,6 +315,15 @@ namespace VRChat.API.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// Gets or Sets UpcomingOffsetMinutes
+        /// </summary>
+        /*
+        <example>10080</example>
+        */
+        [DataMember(Name = "upcomingOffsetMinutes", EmitDefaultValue = false)]
+        public int UpcomingOffsetMinutes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -130,14 +331,38 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DynamicContentRow {\n");
+            sb.Append("  AnyStyle: ").Append(AnyStyle).Append("\n");
+            sb.Append("  AnyTag: ").Append(AnyTag).Append("\n");
+            sb.Append("  AvatarSpecific: ").Append(AvatarSpecific).Append("\n");
+            sb.Append("  BannersTag: ").Append(BannersTag).Append("\n");
+            sb.Append("  Categories: ").Append(Categories).Append("\n");
+            sb.Append("  FeaturedResults: ").Append(FeaturedResults).Append("\n");
             sb.Append("  Index: ").Append(Index).Append("\n");
+            sb.Append("  Marketplace: ").Append(Marketplace).Append("\n");
+            sb.Append("  MaxPrice: ").Append(MaxPrice).Append("\n");
+            sb.Append("  MinOccupants: ").Append(MinOccupants).Append("\n");
+            sb.Append("  MinPrice: ").Append(MinPrice).Append("\n");
+            sb.Append("  MinimumInterestCount: ").Append(MinimumInterestCount).Append("\n");
+            sb.Append("  MinimumRemainingMinutes: ").Append(MinimumRemainingMinutes).Append("\n");
+            sb.Append("  Mode: ").Append(Mode).Append("\n");
+            sb.Append("  N: ").Append(N).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  NonFeaturedResults: ").Append(NonFeaturedResults).Append("\n");
+            sb.Append("  Notag: ").Append(Notag).Append("\n");
+            sb.Append("  Params: ").Append(Params).Append("\n");
+            sb.Append("  PersonalizedResults: ").Append(PersonalizedResults).Append("\n");
             sb.Append("  Platform: ").Append(Platform).Append("\n");
+            sb.Append("  Region: ").Append(Region).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  ShortName: ").Append(ShortName).Append("\n");
             sb.Append("  SortHeading: ").Append(SortHeading).Append("\n");
             sb.Append("  SortOrder: ").Append(SortOrder).Append("\n");
             sb.Append("  SortOwnership: ").Append(SortOwnership).Append("\n");
+            sb.Append("  Style: ").Append(Style).Append("\n");
             sb.Append("  Tag: ").Append(Tag).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  UpcomingOffsetMinutes: ").Append(UpcomingOffsetMinutes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -174,8 +399,74 @@ namespace VRChat.API.Model
             }
             return 
                 (
+                    this.AnyStyle == input.AnyStyle ||
+                    this.AnyStyle != null &&
+                    input.AnyStyle != null &&
+                    this.AnyStyle.SequenceEqual(input.AnyStyle)
+                ) && 
+                (
+                    this.AnyTag == input.AnyTag ||
+                    this.AnyTag != null &&
+                    input.AnyTag != null &&
+                    this.AnyTag.SequenceEqual(input.AnyTag)
+                ) && 
+                (
+                    this.AvatarSpecific == input.AvatarSpecific ||
+                    this.AvatarSpecific.Equals(input.AvatarSpecific)
+                ) && 
+                (
+                    this.BannersTag == input.BannersTag ||
+                    (this.BannersTag != null &&
+                    this.BannersTag.Equals(input.BannersTag))
+                ) && 
+                (
+                    this.Categories == input.Categories ||
+                    this.Categories != null &&
+                    input.Categories != null &&
+                    this.Categories.SequenceEqual(input.Categories)
+                ) && 
+                (
+                    this.FeaturedResults == input.FeaturedResults ||
+                    (this.FeaturedResults != null &&
+                    this.FeaturedResults.Equals(input.FeaturedResults))
+                ) && 
+                (
                     this.Index == input.Index ||
                     this.Index.Equals(input.Index)
+                ) && 
+                (
+                    this.Marketplace == input.Marketplace ||
+                    (this.Marketplace != null &&
+                    this.Marketplace.Equals(input.Marketplace))
+                ) && 
+                (
+                    this.MaxPrice == input.MaxPrice ||
+                    this.MaxPrice.Equals(input.MaxPrice)
+                ) && 
+                (
+                    this.MinOccupants == input.MinOccupants ||
+                    this.MinOccupants.Equals(input.MinOccupants)
+                ) && 
+                (
+                    this.MinPrice == input.MinPrice ||
+                    this.MinPrice.Equals(input.MinPrice)
+                ) && 
+                (
+                    this.MinimumInterestCount == input.MinimumInterestCount ||
+                    this.MinimumInterestCount.Equals(input.MinimumInterestCount)
+                ) && 
+                (
+                    this.MinimumRemainingMinutes == input.MinimumRemainingMinutes ||
+                    this.MinimumRemainingMinutes.Equals(input.MinimumRemainingMinutes)
+                ) && 
+                (
+                    this.Mode == input.Mode ||
+                    (this.Mode != null &&
+                    this.Mode.Equals(input.Mode))
+                ) && 
+                (
+                    this.N == input.N ||
+                    this.N.Equals(input.N)
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -183,9 +474,46 @@ namespace VRChat.API.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.NonFeaturedResults == input.NonFeaturedResults ||
+                    (this.NonFeaturedResults != null &&
+                    this.NonFeaturedResults.Equals(input.NonFeaturedResults))
+                ) && 
+                (
+                    this.Notag == input.Notag ||
+                    this.Notag != null &&
+                    input.Notag != null &&
+                    this.Notag.SequenceEqual(input.Notag)
+                ) && 
+                (
+                    this.Params == input.Params ||
+                    this.Params != null &&
+                    input.Params != null &&
+                    this.Params.SequenceEqual(input.Params)
+                ) && 
+                (
+                    this.PersonalizedResults == input.PersonalizedResults ||
+                    (this.PersonalizedResults != null &&
+                    this.PersonalizedResults.Equals(input.PersonalizedResults))
+                ) && 
+                (
                     this.Platform == input.Platform ||
                     (this.Platform != null &&
                     this.Platform.Equals(input.Platform))
+                ) && 
+                (
+                    this.Region == input.Region ||
+                    (this.Region != null &&
+                    this.Region.Equals(input.Region))
+                ) && 
+                (
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
+                ) && 
+                (
+                    this.ShortName == input.ShortName ||
+                    (this.ShortName != null &&
+                    this.ShortName.Equals(input.ShortName))
                 ) && 
                 (
                     this.SortHeading == input.SortHeading ||
@@ -203,14 +531,29 @@ namespace VRChat.API.Model
                     this.SortOwnership.Equals(input.SortOwnership))
                 ) && 
                 (
+                    this.Style == input.Style ||
+                    (this.Style != null &&
+                    this.Style.Equals(input.Style))
+                ) && 
+                (
                     this.Tag == input.Tag ||
                     (this.Tag != null &&
                     this.Tag.Equals(input.Tag))
                 ) && 
                 (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.UpcomingOffsetMinutes == input.UpcomingOffsetMinutes ||
+                    this.UpcomingOffsetMinutes.Equals(input.UpcomingOffsetMinutes)
                 );
         }
 
@@ -223,14 +566,77 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AnyStyle != null)
+                {
+                    hashCode = (hashCode * 59) + this.AnyStyle.GetHashCode();
+                }
+                if (this.AnyTag != null)
+                {
+                    hashCode = (hashCode * 59) + this.AnyTag.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AvatarSpecific.GetHashCode();
+                if (this.BannersTag != null)
+                {
+                    hashCode = (hashCode * 59) + this.BannersTag.GetHashCode();
+                }
+                if (this.Categories != null)
+                {
+                    hashCode = (hashCode * 59) + this.Categories.GetHashCode();
+                }
+                if (this.FeaturedResults != null)
+                {
+                    hashCode = (hashCode * 59) + this.FeaturedResults.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Index.GetHashCode();
+                if (this.Marketplace != null)
+                {
+                    hashCode = (hashCode * 59) + this.Marketplace.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MaxPrice.GetHashCode();
+                hashCode = (hashCode * 59) + this.MinOccupants.GetHashCode();
+                hashCode = (hashCode * 59) + this.MinPrice.GetHashCode();
+                hashCode = (hashCode * 59) + this.MinimumInterestCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.MinimumRemainingMinutes.GetHashCode();
+                if (this.Mode != null)
+                {
+                    hashCode = (hashCode * 59) + this.Mode.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.N.GetHashCode();
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
+                if (this.NonFeaturedResults != null)
+                {
+                    hashCode = (hashCode * 59) + this.NonFeaturedResults.GetHashCode();
+                }
+                if (this.Notag != null)
+                {
+                    hashCode = (hashCode * 59) + this.Notag.GetHashCode();
+                }
+                if (this.Params != null)
+                {
+                    hashCode = (hashCode * 59) + this.Params.GetHashCode();
+                }
+                if (this.PersonalizedResults != null)
+                {
+                    hashCode = (hashCode * 59) + this.PersonalizedResults.GetHashCode();
+                }
                 if (this.Platform != null)
                 {
                     hashCode = (hashCode * 59) + this.Platform.GetHashCode();
+                }
+                if (this.Region != null)
+                {
+                    hashCode = (hashCode * 59) + this.Region.GetHashCode();
+                }
+                if (this.Scope != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scope.GetHashCode();
+                }
+                if (this.ShortName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
                 }
                 if (this.SortHeading != null)
                 {
@@ -244,14 +650,23 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.SortOwnership.GetHashCode();
                 }
+                if (this.Style != null)
+                {
+                    hashCode = (hashCode * 59) + this.Style.GetHashCode();
+                }
                 if (this.Tag != null)
                 {
                     hashCode = (hashCode * 59) + this.Tag.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
                 }
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.UpcomingOffsetMinutes.GetHashCode();
                 return hashCode;
             }
         }
@@ -291,12 +706,6 @@ namespace VRChat.API.Model
             if (this.SortOwnership != null && this.SortOwnership.Length < 1)
             {
                 yield return new ValidationResult("Invalid value for SortOwnership, length must be greater than 1.", new [] { "SortOwnership" });
-            }
-
-            // Tag (string) minLength
-            if (this.Tag != null && this.Tag.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for Tag, length must be greater than 1.", new [] { "Tag" });
             }
 
             yield break;

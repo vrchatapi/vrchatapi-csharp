@@ -35,15 +35,27 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushDataArticleContent" /> class.
         /// </summary>
+        /// <param name="id">id.</param>
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="onPressed">onPressed.</param>
         /// <param name="text">text.</param>
-        public InfoPushDataArticleContent(string imageUrl = default, InfoPushDataClickable onPressed = default, string text = default)
+        /// <param name="title">title.</param>
+        /// <param name="videoUrl">videoUrl.</param>
+        public InfoPushDataArticleContent(string id = default, string imageUrl = default, InfoPushDataClickable onPressed = default, string text = default, string title = default, string videoUrl = default)
         {
+            this.Id = id;
             this.ImageUrl = imageUrl;
             this.OnPressed = onPressed;
             this.Text = text;
+            this.Title = title;
+            this.VideoUrl = videoUrl;
         }
+
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageUrl
@@ -64,6 +76,18 @@ namespace VRChat.API.Model
         public string Text { get; set; }
 
         /// <summary>
+        /// Gets or Sets Title
+        /// </summary>
+        [DataMember(Name = "title", EmitDefaultValue = false)]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VideoUrl
+        /// </summary>
+        [DataMember(Name = "videoUrl", EmitDefaultValue = false)]
+        public string VideoUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,9 +95,12 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class InfoPushDataArticleContent {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
             sb.Append("  OnPressed: ").Append(OnPressed).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  VideoUrl: ").Append(VideoUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +137,11 @@ namespace VRChat.API.Model
             }
             return 
                 (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
                     this.ImageUrl == input.ImageUrl ||
                     (this.ImageUrl != null &&
                     this.ImageUrl.Equals(input.ImageUrl))
@@ -123,6 +155,16 @@ namespace VRChat.API.Model
                     this.Text == input.Text ||
                     (this.Text != null &&
                     this.Text.Equals(input.Text))
+                ) && 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.VideoUrl == input.VideoUrl ||
+                    (this.VideoUrl != null &&
+                    this.VideoUrl.Equals(input.VideoUrl))
                 );
         }
 
@@ -135,6 +177,10 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.ImageUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
@@ -146,6 +192,14 @@ namespace VRChat.API.Model
                 if (this.Text != null)
                 {
                     hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                if (this.Title != null)
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.VideoUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.VideoUrl.GetHashCode();
                 }
                 return hashCode;
             }

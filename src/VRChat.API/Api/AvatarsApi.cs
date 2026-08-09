@@ -336,7 +336,6 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>CurrentUser</returns>
-        [Obsolete]
         CurrentUser SelectFallbackAvatar(string avatarId);
 
         /// <summary>
@@ -348,7 +347,6 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
-        [Obsolete]
         ApiResponse<CurrentUser> SelectFallbackAvatarWithHttpInfo(string avatarId);
         /// <summary>
         /// Update Avatar
@@ -716,7 +714,6 @@ namespace VRChat.API.Api
         /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
-        [Obsolete]
         System.Threading.Tasks.Task<CurrentUser> SelectFallbackAvatarAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -729,7 +726,6 @@ namespace VRChat.API.Api
         /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<CurrentUser>> SelectFallbackAvatarWithHttpInfoAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Avatar
@@ -2961,7 +2957,6 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>CurrentUser</returns>
-        [Obsolete]
         public CurrentUser SelectFallbackAvatar(string avatarId)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = SelectFallbackAvatarWithHttpInfo(avatarId);
@@ -2982,7 +2977,6 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <returns>ApiResponse of CurrentUser</returns>
-        [Obsolete]
         public VRChat.API.Client.ApiResponse<CurrentUser> SelectFallbackAvatarWithHttpInfo(string avatarId)
         {
             // verify the required parameter 'avatarId' is set
@@ -3034,7 +3028,6 @@ namespace VRChat.API.Api
         /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrentUser</returns>
-        [Obsolete]
         public async System.Threading.Tasks.Task<CurrentUser> SelectFallbackAvatarAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await SelectFallbackAvatarWithHttpInfoAsync(avatarId, cancellationToken).ConfigureAwait(false);
@@ -3056,7 +3049,6 @@ namespace VRChat.API.Api
         /// <param name="avatarId">Must be a valid avatar ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> SelectFallbackAvatarWithHttpInfoAsync(string avatarId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'avatarId' is set

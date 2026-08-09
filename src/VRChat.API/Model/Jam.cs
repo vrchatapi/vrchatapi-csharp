@@ -40,6 +40,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Jam" /> class.
         /// </summary>
+        /// <param name="createdAt">createdAt.</param>
         /// <param name="description">description (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="isVisible">isVisible (required).</param>
@@ -49,8 +50,9 @@ namespace VRChat.API.Model
         /// <param name="submissionContentGateDate">submissionContentGateDate (required).</param>
         /// <param name="submissionContentGated">submissionContentGated (required).</param>
         /// <param name="title">title (required).</param>
+        /// <param name="type">type (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public Jam(string description = default, string id = default, bool isVisible = default, string moreInfo = default, string state = default, JamStateChangeDates stateChangeDates = default, DateTime? submissionContentGateDate = default, bool submissionContentGated = default, string title = default, DateTime updatedAt = default)
+        public Jam(DateTime createdAt = default, string description = default, string id = default, bool isVisible = default, string moreInfo = default, string state = default, JamStateChangeDates stateChangeDates = default, DateTime? submissionContentGateDate = default, bool submissionContentGated = default, string title = default, string type = default, DateTime updatedAt = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
@@ -68,8 +70,17 @@ namespace VRChat.API.Model
             this.SubmissionContentGated = submissionContentGated;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Title = title;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Type = type;
             this.UpdatedAt = updatedAt;
+            this.CreatedAt = createdAt;
         }
+
+        /// <summary>
+        /// Gets or Sets CreatedAt
+        /// </summary>
+        [DataMember(Name = "created_at", EmitDefaultValue = false)]
+        public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
@@ -130,6 +141,12 @@ namespace VRChat.API.Model
         public string Title { get; set; }
 
         /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public string Type { get; set; }
+
+        /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
         [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
@@ -143,6 +160,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Jam {\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IsVisible: ").Append(IsVisible).Append("\n");
@@ -152,6 +170,7 @@ namespace VRChat.API.Model
             sb.Append("  SubmissionContentGateDate: ").Append(SubmissionContentGateDate).Append("\n");
             sb.Append("  SubmissionContentGated: ").Append(SubmissionContentGated).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -188,6 +207,11 @@ namespace VRChat.API.Model
                 return false;
             }
             return 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
                 (
                     this.Description == input.Description ||
                     (this.Description != null &&
@@ -232,6 +256,11 @@ namespace VRChat.API.Model
                     this.Title.Equals(input.Title))
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
                     this.UpdatedAt == input.UpdatedAt ||
                     (this.UpdatedAt != null &&
                     this.UpdatedAt.Equals(input.UpdatedAt))
@@ -247,6 +276,10 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
@@ -276,6 +309,10 @@ namespace VRChat.API.Model
                 if (this.Title != null)
                 {
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
                 if (this.UpdatedAt != null)
                 {

@@ -42,15 +42,16 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="imageId">imageId.</param>
         /// <param name="sendNotification">Send notification to group members. (default to false).</param>
-        /// <param name="text">Announcement text.</param>
+        /// <param name="text">Announcement text (required).</param>
         /// <param name="title">Announcement title (required).</param>
         public CreateGroupAnnouncementRequest(string imageId = default, bool sendNotification = false, string text = default, string title = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Text = text;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Title = title;
             this.ImageId = imageId;
             this.SendNotification = sendNotification;
-            this.Text = text;
         }
 
         /// <summary>
@@ -79,7 +80,7 @@ namespace VRChat.API.Model
         /*
         <example>Come join us for the event!</example>
         */
-        [DataMember(Name = "text", EmitDefaultValue = false)]
+        [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>

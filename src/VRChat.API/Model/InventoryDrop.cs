@@ -43,18 +43,18 @@ namespace VRChat.API.Model
         /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="dropExpiryDate">dropExpiryDate (required).</param>
+        /// <param name="dropStatus">dropStatus.</param>
         /// <param name="endDropDate">endDropDate (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="isDisabled">isDisabled (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="notificationDetails">notificationDetails (required).</param>
         /// <param name="startDropDate">startDropDate (required).</param>
-        /// <param name="status">status (required).</param>
         /// <param name="tags">tags (required).</param>
         /// <param name="targetGroup">targetGroup (required).</param>
         /// <param name="templateIds">templateIds (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public InventoryDrop(string authorId = default, DateTime createdAt = default, DateTime? dropExpiryDate = default, DateTime endDropDate = default, string id = default, bool isDisabled = default, string name = default, InventoryNotificationDetails notificationDetails = default, DateTime startDropDate = default, string status = default, List<string> tags = default, string targetGroup = default, List<string> templateIds = default, DateTime updatedAt = default)
+        public InventoryDrop(string authorId = default, DateTime createdAt = default, DateTime? dropExpiryDate = default, string dropStatus = default, DateTime endDropDate = default, string id = default, bool isDisabled = default, string name = default, InventoryNotificationDetails notificationDetails = default, DateTime startDropDate = default, List<string> tags = default, string targetGroup = default, List<string> templateIds = default, DateTime updatedAt = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -71,14 +71,13 @@ namespace VRChat.API.Model
             this.NotificationDetails = notificationDetails;
             this.StartDropDate = startDropDate;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Status = status;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.TargetGroup = targetGroup;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.TemplateIds = templateIds;
             this.UpdatedAt = updatedAt;
+            this.DropStatus = dropStatus;
         }
 
         /// <summary>
@@ -105,6 +104,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "dropExpiryDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTime? DropExpiryDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DropStatus
+        /// </summary>
+        [DataMember(Name = "dropStatus", EmitDefaultValue = false)]
+        public string DropStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets EndDropDate
@@ -152,15 +157,6 @@ namespace VRChat.API.Model
         public DateTime StartDropDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        /*
-        <example>active</example>
-        */
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public string Status { get; set; }
-
-        /// <summary>
         /// Gets or Sets Tags
         /// </summary>
         [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
@@ -201,13 +197,13 @@ namespace VRChat.API.Model
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  DropExpiryDate: ").Append(DropExpiryDate).Append("\n");
+            sb.Append("  DropStatus: ").Append(DropStatus).Append("\n");
             sb.Append("  EndDropDate: ").Append(EndDropDate).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IsDisabled: ").Append(IsDisabled).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  NotificationDetails: ").Append(NotificationDetails).Append("\n");
             sb.Append("  StartDropDate: ").Append(StartDropDate).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  TargetGroup: ").Append(TargetGroup).Append("\n");
             sb.Append("  TemplateIds: ").Append(TemplateIds).Append("\n");
@@ -263,6 +259,11 @@ namespace VRChat.API.Model
                     this.DropExpiryDate.Equals(input.DropExpiryDate))
                 ) && 
                 (
+                    this.DropStatus == input.DropStatus ||
+                    (this.DropStatus != null &&
+                    this.DropStatus.Equals(input.DropStatus))
+                ) && 
+                (
                     this.EndDropDate == input.EndDropDate ||
                     (this.EndDropDate != null &&
                     this.EndDropDate.Equals(input.EndDropDate))
@@ -290,11 +291,6 @@ namespace VRChat.API.Model
                     this.StartDropDate == input.StartDropDate ||
                     (this.StartDropDate != null &&
                     this.StartDropDate.Equals(input.StartDropDate))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Tags == input.Tags ||
@@ -341,6 +337,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.DropExpiryDate.GetHashCode();
                 }
+                if (this.DropStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.DropStatus.GetHashCode();
+                }
                 if (this.EndDropDate != null)
                 {
                     hashCode = (hashCode * 59) + this.EndDropDate.GetHashCode();
@@ -361,10 +361,6 @@ namespace VRChat.API.Model
                 if (this.StartDropDate != null)
                 {
                     hashCode = (hashCode * 59) + this.StartDropDate.GetHashCode();
-                }
-                if (this.Status != null)
-                {
-                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 if (this.Tags != null)
                 {

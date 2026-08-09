@@ -52,6 +52,7 @@ namespace VRChat.API.Model
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="defaultContentSettings">defaultContentSettings.</param>
         /// <param name="description">description (required).</param>
+        /// <param name="disabledPropAbilities">disabledPropAbilities.</param>
         /// <param name="favorites">favorites (default to 0).</param>
         /// <param name="featured">featured (required) (default to false).</param>
         /// <param name="heat">heat (required) (default to 0).</param>
@@ -70,6 +71,7 @@ namespace VRChat.API.Model
         /// <param name="publicationDate">publicationDate (required).</param>
         /// <param name="recommendedCapacity">recommendedCapacity (required).</param>
         /// <param name="releaseStatus">releaseStatus (required).</param>
+        /// <param name="slimInstances">slimInstances.</param>
         /// <param name="storeId">storeId.</param>
         /// <param name="tags">  (required).</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
@@ -79,7 +81,7 @@ namespace VRChat.API.Model
         /// <param name="urlList">urlList.</param>
         /// <param name="varVersion">varVersion (required) (default to 0).</param>
         /// <param name="visits">visits (required) (default to 0).</param>
-        public World(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, List<List<Object>> instances = default, string labsPublicationDate = default, string name = default, string varNamespace = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = 0, int visits = 0)
+        public World(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, List<Object> disabledPropAbilities = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, List<List<Object>> instances = default, string labsPublicationDate = default, string name = default, string varNamespace = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, List<Object> slimInstances = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = 0, int visits = 0)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -114,6 +116,7 @@ namespace VRChat.API.Model
             this.VarVersion = varVersion;
             this.Visits = visits;
             this.DefaultContentSettings = defaultContentSettings;
+            this.DisabledPropAbilities = disabledPropAbilities;
             this.Favorites = favorites;
             this.Instances = instances;
             this.Namespace = varNamespace;
@@ -121,6 +124,7 @@ namespace VRChat.API.Model
             this.PreviewYoutubeId = previewYoutubeId;
             this.PrivateOccupants = privateOccupants;
             this.PublicOccupants = publicOccupants;
+            this.SlimInstances = slimInstances;
             this.StoreId = storeId;
             this.UdonProducts = udonProducts;
             this.UnityPackages = unityPackages;
@@ -169,6 +173,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DisabledPropAbilities
+        /// </summary>
+        [DataMember(Name = "disabledPropAbilities", EmitDefaultValue = false)]
+        public List<Object> DisabledPropAbilities { get; set; }
 
         /// <summary>
         /// Gets or Sets Favorites
@@ -308,6 +318,12 @@ namespace VRChat.API.Model
         public int RecommendedCapacity { get; set; }
 
         /// <summary>
+        /// Gets or Sets SlimInstances
+        /// </summary>
+        [DataMember(Name = "slimInstances", EmitDefaultValue = false)]
+        public List<Object> SlimInstances { get; set; }
+
+        /// <summary>
         /// Gets or Sets StoreId
         /// </summary>
         /*
@@ -386,6 +402,7 @@ namespace VRChat.API.Model
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  DefaultContentSettings: ").Append(DefaultContentSettings).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DisabledPropAbilities: ").Append(DisabledPropAbilities).Append("\n");
             sb.Append("  Favorites: ").Append(Favorites).Append("\n");
             sb.Append("  Featured: ").Append(Featured).Append("\n");
             sb.Append("  Heat: ").Append(Heat).Append("\n");
@@ -404,6 +421,7 @@ namespace VRChat.API.Model
             sb.Append("  PublicationDate: ").Append(PublicationDate).Append("\n");
             sb.Append("  RecommendedCapacity: ").Append(RecommendedCapacity).Append("\n");
             sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
+            sb.Append("  SlimInstances: ").Append(SlimInstances).Append("\n");
             sb.Append("  StoreId: ").Append(StoreId).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  ThumbnailImageUrl: ").Append(ThumbnailImageUrl).Append("\n");
@@ -476,6 +494,12 @@ namespace VRChat.API.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.DisabledPropAbilities == input.DisabledPropAbilities ||
+                    this.DisabledPropAbilities != null &&
+                    input.DisabledPropAbilities != null &&
+                    this.DisabledPropAbilities.SequenceEqual(input.DisabledPropAbilities)
                 ) && 
                 (
                     this.Favorites == input.Favorites ||
@@ -560,6 +584,12 @@ namespace VRChat.API.Model
                     this.ReleaseStatus.Equals(input.ReleaseStatus)
                 ) && 
                 (
+                    this.SlimInstances == input.SlimInstances ||
+                    this.SlimInstances != null &&
+                    input.SlimInstances != null &&
+                    this.SlimInstances.SequenceEqual(input.SlimInstances)
+                ) && 
+                (
                     this.StoreId == input.StoreId ||
                     (this.StoreId != null &&
                     this.StoreId.Equals(input.StoreId))
@@ -638,6 +668,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
+                if (this.DisabledPropAbilities != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisabledPropAbilities.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Favorites.GetHashCode();
                 hashCode = (hashCode * 59) + this.Featured.GetHashCode();
                 hashCode = (hashCode * 59) + this.Heat.GetHashCode();
@@ -683,6 +717,10 @@ namespace VRChat.API.Model
                 }
                 hashCode = (hashCode * 59) + this.RecommendedCapacity.GetHashCode();
                 hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
+                if (this.SlimInstances != null)
+                {
+                    hashCode = (hashCode * 59) + this.SlimInstances.GetHashCode();
+                }
                 if (this.StoreId != null)
                 {
                     hashCode = (hashCode * 59) + this.StoreId.GetHashCode();

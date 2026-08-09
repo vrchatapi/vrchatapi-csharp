@@ -76,6 +76,7 @@ namespace VRChat.API.Model
         /// <param name="isDraft">isDraft.</param>
         /// <param name="languages">Languages that might be spoken at this event.</param>
         /// <param name="occurrenceKind">occurrenceKind.</param>
+        /// <param name="occurrenceModified">occurrenceModified.</param>
         /// <param name="ownerId">ownerId.</param>
         /// <param name="platforms">platforms.</param>
         /// <param name="recurrence">recurrence.</param>
@@ -88,7 +89,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="userInterest">userInterest.</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
-        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, long durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, CalendarEventOccurrenceKind? occurrenceKind = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
+        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, long durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, CalendarEventOccurrenceKind? occurrenceKind = default, bool? occurrenceModified = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
         {
             this.AccessType = accessType;
             this.Category = category;
@@ -113,6 +114,7 @@ namespace VRChat.API.Model
             this.IsDraft = isDraft;
             this.Languages = languages;
             this.OccurrenceKind = occurrenceKind;
+            this.OccurrenceModified = occurrenceModified;
             this.OwnerId = ownerId;
             this.Platforms = platforms;
             this.Recurrence = recurrence;
@@ -223,6 +225,12 @@ namespace VRChat.API.Model
         public List<string> Languages { get; set; }
 
         /// <summary>
+        /// Gets or Sets OccurrenceModified
+        /// </summary>
+        [DataMember(Name = "occurrenceModified", EmitDefaultValue = true)]
+        public bool? OccurrenceModified { get; set; }
+
+        /// <summary>
         /// Gets or Sets OwnerId
         /// </summary>
         /*
@@ -329,6 +337,7 @@ namespace VRChat.API.Model
             sb.Append("  IsDraft: ").Append(IsDraft).Append("\n");
             sb.Append("  Languages: ").Append(Languages).Append("\n");
             sb.Append("  OccurrenceKind: ").Append(OccurrenceKind).Append("\n");
+            sb.Append("  OccurrenceModified: ").Append(OccurrenceModified).Append("\n");
             sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
             sb.Append("  Platforms: ").Append(Platforms).Append("\n");
             sb.Append("  Recurrence: ").Append(Recurrence).Append("\n");
@@ -458,6 +467,11 @@ namespace VRChat.API.Model
                     this.OccurrenceKind.Equals(input.OccurrenceKind)
                 ) && 
                 (
+                    this.OccurrenceModified == input.OccurrenceModified ||
+                    (this.OccurrenceModified != null &&
+                    this.OccurrenceModified.Equals(input.OccurrenceModified))
+                ) && 
+                (
                     this.OwnerId == input.OwnerId ||
                     (this.OwnerId != null &&
                     this.OwnerId.Equals(input.OwnerId))
@@ -572,6 +586,10 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.Languages.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.OccurrenceKind.GetHashCode();
+                if (this.OccurrenceModified != null)
+                {
+                    hashCode = (hashCode * 59) + this.OccurrenceModified.GetHashCode();
+                }
                 if (this.OwnerId != null)
                 {
                     hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();

@@ -41,16 +41,20 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="ReportCategory" /> class.
         /// </summary>
         /// <param name="description">The description of the report category.</param>
+        /// <param name="ipsArticle">ipsArticle.</param>
+        /// <param name="order">order.</param>
         /// <param name="text">The label of the report category (required).</param>
         /// <param name="title">The title of the report category.</param>
         /// <param name="tooltip">The tooltip that describes the category (required).</param>
-        public ReportCategory(string description = default, string text = default, string title = default, string tooltip = default)
+        public ReportCategory(string description = default, string ipsArticle = default, int order = default, string text = default, string title = default, string tooltip = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Text = text;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tooltip = tooltip;
             this.Description = description;
+            this.IpsArticle = ipsArticle;
+            this.Order = order;
             this.Title = title;
         }
 
@@ -60,6 +64,18 @@ namespace VRChat.API.Model
         /// <value>The description of the report category</value>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IpsArticle
+        /// </summary>
+        [DataMember(Name = "ipsArticle", EmitDefaultValue = false)]
+        public string IpsArticle { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Order
+        /// </summary>
+        [DataMember(Name = "order", EmitDefaultValue = false)]
+        public int Order { get; set; }
 
         /// <summary>
         /// The label of the report category
@@ -91,6 +107,8 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ReportCategory {\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  IpsArticle: ").Append(IpsArticle).Append("\n");
+            sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Tooltip: ").Append(Tooltip).Append("\n");
@@ -135,6 +153,15 @@ namespace VRChat.API.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.IpsArticle == input.IpsArticle ||
+                    (this.IpsArticle != null &&
+                    this.IpsArticle.Equals(input.IpsArticle))
+                ) && 
+                (
+                    this.Order == input.Order ||
+                    this.Order.Equals(input.Order)
+                ) && 
+                (
                     this.Text == input.Text ||
                     (this.Text != null &&
                     this.Text.Equals(input.Text))
@@ -164,6 +191,11 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
+                if (this.IpsArticle != null)
+                {
+                    hashCode = (hashCode * 59) + this.IpsArticle.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Order.GetHashCode();
                 if (this.Text != null)
                 {
                     hashCode = (hashCode * 59) + this.Text.GetHashCode();

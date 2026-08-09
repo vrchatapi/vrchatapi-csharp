@@ -288,6 +288,25 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of PaginatedModerationReportList</returns>
         ApiResponse<PaginatedModerationReportList> GetModerationReportsWithHttpInfo(int? offset = default, int? n = default, string? reportingUserId = default, string? status = default, string? type = default);
         /// <summary>
+        /// Get OAuth Redirect Code
+        /// </summary>
+        /// <remarks>
+        /// Generate a short-lived OAuth redirect code for the current session.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>OAuthRedirectCode</returns>
+        OAuthRedirectCode GetOAuthRedirectCode();
+
+        /// <summary>
+        /// Get OAuth Redirect Code
+        /// </summary>
+        /// <remarks>
+        /// Generate a short-lived OAuth redirect code for the current session.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of OAuthRedirectCode</returns>
+        ApiResponse<OAuthRedirectCode> GetOAuthRedirectCodeWithHttpInfo();
+        /// <summary>
         /// Get 2FA Recovery codes
         /// </summary>
         /// <remarks>
@@ -306,6 +325,27 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of TwoFactorRecoveryCodes</returns>
         ApiResponse<TwoFactorRecoveryCodes> GetRecoveryCodesWithHttpInfo();
+        /// <summary>
+        /// Get SSO Token
+        /// </summary>
+        /// <remarks>
+        /// Generate a token for the specified third-party service.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="provider">The third-party service to mint a token for.</param>
+        /// <returns>SsoToken</returns>
+        SsoToken GetSsoToken(SsoProvider provider);
+
+        /// <summary>
+        /// Get SSO Token
+        /// </summary>
+        /// <remarks>
+        /// Generate a token for the specified third-party service.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="provider">The third-party service to mint a token for.</param>
+        /// <returns>ApiResponse of SsoToken</returns>
+        ApiResponse<SsoToken> GetSsoTokenWithHttpInfo(SsoProvider provider);
         /// <summary>
         /// Logout
         /// </summary>
@@ -329,7 +369,7 @@ namespace VRChat.API.Api
         /// Register User Account
         /// </summary>
         /// <remarks>
-        /// ~~Register a new user account.~~  **DEPRECATED:** Automated creation of accounts has no legitimate public third-party use case, and would be in violation of ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness
+        /// Register a new user account.  Automated creation of accounts has no legitimate public third-party use case, and would violate ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
@@ -341,7 +381,7 @@ namespace VRChat.API.Api
         /// Register User Account
         /// </summary>
         /// <remarks>
-        /// ~~Register a new user account.~~  **DEPRECATED:** Automated creation of accounts has no legitimate public third-party use case, and would be in violation of ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness
+        /// Register a new user account.  Automated creation of accounts has no legitimate public third-party use case, and would violate ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
@@ -808,6 +848,27 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (PaginatedModerationReportList)</returns>
         System.Threading.Tasks.Task<ApiResponse<PaginatedModerationReportList>> GetModerationReportsWithHttpInfoAsync(int? offset = default, int? n = default, string? reportingUserId = default, string? status = default, string? type = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get OAuth Redirect Code
+        /// </summary>
+        /// <remarks>
+        /// Generate a short-lived OAuth redirect code for the current session.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of OAuthRedirectCode</returns>
+        System.Threading.Tasks.Task<OAuthRedirectCode> GetOAuthRedirectCodeAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get OAuth Redirect Code
+        /// </summary>
+        /// <remarks>
+        /// Generate a short-lived OAuth redirect code for the current session.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (OAuthRedirectCode)</returns>
+        System.Threading.Tasks.Task<ApiResponse<OAuthRedirectCode>> GetOAuthRedirectCodeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get 2FA Recovery codes
         /// </summary>
         /// <remarks>
@@ -828,6 +889,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TwoFactorRecoveryCodes)</returns>
         System.Threading.Tasks.Task<ApiResponse<TwoFactorRecoveryCodes>> GetRecoveryCodesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get SSO Token
+        /// </summary>
+        /// <remarks>
+        /// Generate a token for the specified third-party service.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="provider">The third-party service to mint a token for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SsoToken</returns>
+        System.Threading.Tasks.Task<SsoToken> GetSsoTokenAsync(SsoProvider provider, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get SSO Token
+        /// </summary>
+        /// <remarks>
+        /// Generate a token for the specified third-party service.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="provider">The third-party service to mint a token for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SsoToken)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SsoToken>> GetSsoTokenWithHttpInfoAsync(SsoProvider provider, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Logout
         /// </summary>
@@ -853,7 +937,7 @@ namespace VRChat.API.Api
         /// Register User Account
         /// </summary>
         /// <remarks>
-        /// ~~Register a new user account.~~  **DEPRECATED:** Automated creation of accounts has no legitimate public third-party use case, and would be in violation of ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness
+        /// Register a new user account.  Automated creation of accounts has no legitimate public third-party use case, and would violate ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
@@ -866,7 +950,7 @@ namespace VRChat.API.Api
         /// Register User Account
         /// </summary>
         /// <remarks>
-        /// ~~Register a new user account.~~  **DEPRECATED:** Automated creation of accounts has no legitimate public third-party use case, and would be in violation of ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness
+        /// Register a new user account.  Automated creation of accounts has no legitimate public third-party use case, and would violate ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
@@ -3026,6 +3110,136 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Get OAuth Redirect Code Generate a short-lived OAuth redirect code for the current session.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>OAuthRedirectCode</returns>
+        public OAuthRedirectCode GetOAuthRedirectCode()
+        {
+            VRChat.API.Client.ApiResponse<OAuthRedirectCode> localVarResponse = GetOAuthRedirectCodeWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetOAuthRedirectCode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get OAuth Redirect Code Generate a short-lived OAuth redirect code for the current session.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of OAuthRedirectCode</returns>
+        public VRChat.API.Client.ApiResponse<OAuthRedirectCode> GetOAuthRedirectCodeWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<OAuthRedirectCode>("/oauth/redirectCode", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<OAuthRedirectCode>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(OAuthRedirectCode), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get OAuth Redirect Code Generate a short-lived OAuth redirect code for the current session.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of OAuthRedirectCode</returns>
+        public async System.Threading.Tasks.Task<OAuthRedirectCode> GetOAuthRedirectCodeAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<OAuthRedirectCode> localVarResponse = await GetOAuthRedirectCodeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetOAuthRedirectCode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get OAuth Redirect Code Generate a short-lived OAuth redirect code for the current session.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (OAuthRedirectCode)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<OAuthRedirectCode>> GetOAuthRedirectCodeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<OAuthRedirectCode>("/oauth/redirectCode", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<OAuthRedirectCode>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(OAuthRedirectCode), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Get 2FA Recovery codes Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3152,6 +3366,142 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<TwoFactorRecoveryCodes>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TwoFactorRecoveryCodes), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get SSO Token Generate a token for the specified third-party service.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="provider">The third-party service to mint a token for.</param>
+        /// <returns>SsoToken</returns>
+        public SsoToken GetSsoToken(SsoProvider provider)
+        {
+            VRChat.API.Client.ApiResponse<SsoToken> localVarResponse = GetSsoTokenWithHttpInfo(provider);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSsoToken", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get SSO Token Generate a token for the specified third-party service.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="provider">The third-party service to mint a token for.</param>
+        /// <returns>ApiResponse of SsoToken</returns>
+        public VRChat.API.Client.ApiResponse<SsoToken> GetSsoTokenWithHttpInfo(SsoProvider provider)
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("provider", VRChat.API.Client.ClientUtils.ParameterToString(provider)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<SsoToken>("/sso/{provider}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SsoToken>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SsoToken), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get SSO Token Generate a token for the specified third-party service.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="provider">The third-party service to mint a token for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SsoToken</returns>
+        public async System.Threading.Tasks.Task<SsoToken> GetSsoTokenAsync(SsoProvider provider, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<SsoToken> localVarResponse = await GetSsoTokenWithHttpInfoAsync(provider, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSsoToken", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get SSO Token Generate a token for the specified third-party service.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="provider">The third-party service to mint a token for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SsoToken)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SsoToken>> GetSsoTokenWithHttpInfoAsync(SsoProvider provider, System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("provider", VRChat.API.Client.ClientUtils.ParameterToString(provider)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<SsoToken>("/sso/{provider}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<SsoToken>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SsoToken), ex.Message);
             }
         }
 
@@ -3286,7 +3636,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Register User Account ~~Register a new user account.~~  **DEPRECATED:** Automated creation of accounts has no legitimate public third-party use case, and would be in violation of ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness
+        /// Register User Account Register a new user account.  Automated creation of accounts has no legitimate public third-party use case, and would violate ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
@@ -3307,7 +3657,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Register User Account ~~Register a new user account.~~  **DEPRECATED:** Automated creation of accounts has no legitimate public third-party use case, and would be in violation of ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness
+        /// Register User Account Register a new user account.  Automated creation of accounts has no legitimate public third-party use case, and would violate ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
@@ -3353,7 +3703,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Register User Account ~~Register a new user account.~~  **DEPRECATED:** Automated creation of accounts has no legitimate public third-party use case, and would be in violation of ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness
+        /// Register User Account Register a new user account.  Automated creation of accounts has no legitimate public third-party use case, and would violate ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
@@ -3375,7 +3725,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Register User Account ~~Register a new user account.~~  **DEPRECATED:** Automated creation of accounts has no legitimate public third-party use case, and would be in violation of ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness
+        /// Register User Account Register a new user account.  Automated creation of accounts has no legitimate public third-party use case, and would violate ToS §13.2: *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage* This endpoint is documented in the interest of completeness.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
