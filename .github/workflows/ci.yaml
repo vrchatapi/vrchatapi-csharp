@@ -27,7 +27,7 @@ jobs:
       VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
     steps:
       - uses: actions/checkout@v7
-      - uses: vrchatapi/specification/.github/actions/generator@ci/modernise-actions
+      - uses: vrchatapi/specification/.github/actions/setup-generator@ci/modernise-actions
 
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v4.0
