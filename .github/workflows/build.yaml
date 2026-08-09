@@ -30,12 +30,13 @@ jobs:
           ref: ${{ inputs.ref || github.ref }}
           generator-version: 7.17.0
           spec-artifact: ${{ inputs.spec-artifact }}
+          spec-file: openapi-legacy.yaml
 
       - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '8.0.x'
 
       # generate.sh stamps packageVersion, so it comes from the spec.
-      - run: bash ./generate.sh openapi.json "$(jq -r '.info.version' openapi.json)"
+      - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
 
       - run: dotnet build src/VRChat.API/VRChat.API.csproj --configuration Release
