@@ -11,9 +11,9 @@ on:
         type: string
         default: main
     outputs:
-      artifact:
-        description: Download URL for the generated SDK.
-        value: ${{ jobs.generate.outputs.artifact }}
+      install:
+        description: How to get what this run built.
+        value: ${{ jobs.generate.outputs.install }}
 
 name: CI
 
@@ -21,7 +21,7 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     outputs:
-      artifact: ${{ steps.upload.outputs.artifact-url }}
+      install: "[download](${{ steps.upload.outputs.artifact-url }})"
     steps:
       - uses: actions/checkout@v7
         with:
