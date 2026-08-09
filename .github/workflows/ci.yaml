@@ -10,18 +10,12 @@ on:
         required: false
         type: string
         default: main
-    outputs:
-      install:
-        description: How to get what this run built.
-        value: ${{ jobs.generate.outputs.install }}
 
 name: CI
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-    outputs:
-      install: "[download](${{ steps.upload.outputs.artifact-url }})"
     steps:
       - uses: actions/checkout@v7
         with:
@@ -36,8 +30,7 @@ jobs:
 
       - run: bash ./generate.sh openapi-legacy.yaml "$(yq -r '.info.version' openapi-legacy.yaml)"
 
-      - id: upload
-        uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@v7
         with:
           name: generated-csharp
           path: .
