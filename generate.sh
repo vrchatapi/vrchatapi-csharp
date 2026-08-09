@@ -8,7 +8,7 @@ fi
 
 rm src docs *.nupkg *.snupkg -rf
 
-./node_modules/\@openapitools/openapi-generator-cli/main.js generate \
+openapi-generator generate \
 -g csharp \
 -t ./templates \
 --library httpclient \
