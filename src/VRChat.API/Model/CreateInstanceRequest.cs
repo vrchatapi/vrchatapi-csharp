@@ -60,9 +60,11 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="ageGate">ageGate (default to false).</param>
         /// <param name="calendarEntryId">calendarEntryId.</param>
-        /// <param name="canRequestInvite">Only applies to invite type instances to make them invite+ (default to false).</param>
+        /// <param name="canRequestInvite">Makes a private instance invite+. A friends instance is rejected. (default to false).</param>
+        /// <param name="categoryId">categoryId.</param>
         /// <param name="closedAt">The time after which users won&#39;t be allowed to join the instance. This doesn&#39;t work for public instances..</param>
         /// <param name="contentSettings">contentSettings.</param>
+        /// <param name="description">description.</param>
         /// <param name="displayName">displayName.</param>
         /// <param name="groupAccessType">groupAccessType.</param>
         /// <param name="hardClose">Currently unused, but will eventually be a flag to set if the closing of the instance should kick people. (default to false).</param>
@@ -74,8 +76,9 @@ namespace VRChat.API.Model
         /// <param name="region">region (required).</param>
         /// <param name="roleIds">Group roleIds that are allowed to join if the type is \&quot;group\&quot; and groupAccessType is \&quot;member\&quot;.</param>
         /// <param name="type">type (required).</param>
+        /// <param name="vibeIds">vibeIds.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public CreateInstanceRequest(bool ageGate = false, string calendarEntryId = default, bool canRequestInvite = false, DateTime closedAt = default, InstanceContentSettings contentSettings = default, string displayName = default, GroupAccessType? groupAccessType = default, bool hardClose = false, bool? instancePersistenceEnabled = default, bool inviteOnly = false, string ownerId = default, bool? playerPersistenceEnabled = default, bool queueEnabled = false, InstanceRegion region = default, List<string> roleIds = default, InstanceType type = default, string worldId = default)
+        public CreateInstanceRequest(bool ageGate = false, string calendarEntryId = default, bool canRequestInvite = false, string categoryId = default, DateTime closedAt = default, InstanceContentSettings contentSettings = default, string description = default, string displayName = default, GroupAccessType? groupAccessType = default, bool hardClose = false, bool? instancePersistenceEnabled = default, bool inviteOnly = false, string ownerId = default, bool? playerPersistenceEnabled = default, bool queueEnabled = false, InstanceRegion region = default, List<string> roleIds = default, InstanceType type = default, List<string> vibeIds = default, string worldId = default)
         {
             this.Region = region;
             this.Type = type;
@@ -84,8 +87,10 @@ namespace VRChat.API.Model
             this.AgeGate = ageGate;
             this.CalendarEntryId = calendarEntryId;
             this.CanRequestInvite = canRequestInvite;
+            this.CategoryId = categoryId;
             this.ClosedAt = closedAt;
             this.ContentSettings = contentSettings;
+            this.Description = description;
             this.DisplayName = displayName;
             this.GroupAccessType = groupAccessType;
             this.HardClose = hardClose;
@@ -95,6 +100,7 @@ namespace VRChat.API.Model
             this.PlayerPersistenceEnabled = playerPersistenceEnabled;
             this.QueueEnabled = queueEnabled;
             this.RoleIds = roleIds;
+            this.VibeIds = vibeIds;
         }
 
         /// <summary>
@@ -110,11 +116,20 @@ namespace VRChat.API.Model
         public string CalendarEntryId { get; set; }
 
         /// <summary>
-        /// Only applies to invite type instances to make them invite+
+        /// Makes a private instance invite+. A friends instance is rejected.
         /// </summary>
-        /// <value>Only applies to invite type instances to make them invite+</value>
+        /// <value>Makes a private instance invite+. A friends instance is rejected.</value>
         [DataMember(Name = "canRequestInvite", EmitDefaultValue = true)]
         public bool CanRequestInvite { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CategoryId
+        /// </summary>
+        /*
+        <example>icat_44bc6a70-493f-4f84-8a3b-1f290c864c2a</example>
+        */
+        [DataMember(Name = "categoryId", EmitDefaultValue = false)]
+        public string CategoryId { get; set; }
 
         /// <summary>
         /// The time after which users won&#39;t be allowed to join the instance. This doesn&#39;t work for public instances.
@@ -130,9 +145,15 @@ namespace VRChat.API.Model
         public InstanceContentSettings ContentSettings { get; set; }
 
         /// <summary>
+        /// Gets or Sets Description
+        /// </summary>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
         /// Gets or Sets DisplayName
         /// </summary>
-        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -184,6 +205,12 @@ namespace VRChat.API.Model
         public List<string> RoleIds { get; set; }
 
         /// <summary>
+        /// Gets or Sets VibeIds
+        /// </summary>
+        [DataMember(Name = "vibeIds", EmitDefaultValue = false)]
+        public List<string> VibeIds { get; set; }
+
+        /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
@@ -204,8 +231,10 @@ namespace VRChat.API.Model
             sb.Append("  AgeGate: ").Append(AgeGate).Append("\n");
             sb.Append("  CalendarEntryId: ").Append(CalendarEntryId).Append("\n");
             sb.Append("  CanRequestInvite: ").Append(CanRequestInvite).Append("\n");
+            sb.Append("  CategoryId: ").Append(CategoryId).Append("\n");
             sb.Append("  ClosedAt: ").Append(ClosedAt).Append("\n");
             sb.Append("  ContentSettings: ").Append(ContentSettings).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  GroupAccessType: ").Append(GroupAccessType).Append("\n");
             sb.Append("  HardClose: ").Append(HardClose).Append("\n");
@@ -217,6 +246,7 @@ namespace VRChat.API.Model
             sb.Append("  Region: ").Append(Region).Append("\n");
             sb.Append("  RoleIds: ").Append(RoleIds).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  VibeIds: ").Append(VibeIds).Append("\n");
             sb.Append("  WorldId: ").Append(WorldId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -267,6 +297,11 @@ namespace VRChat.API.Model
                     this.CanRequestInvite.Equals(input.CanRequestInvite)
                 ) && 
                 (
+                    this.CategoryId == input.CategoryId ||
+                    (this.CategoryId != null &&
+                    this.CategoryId.Equals(input.CategoryId))
+                ) && 
+                (
                     this.ClosedAt == input.ClosedAt ||
                     (this.ClosedAt != null &&
                     this.ClosedAt.Equals(input.ClosedAt))
@@ -275,6 +310,11 @@ namespace VRChat.API.Model
                     this.ContentSettings == input.ContentSettings ||
                     (this.ContentSettings != null &&
                     this.ContentSettings.Equals(input.ContentSettings))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -327,6 +367,12 @@ namespace VRChat.API.Model
                     this.Type.Equals(input.Type)
                 ) && 
                 (
+                    this.VibeIds == input.VibeIds ||
+                    this.VibeIds != null &&
+                    input.VibeIds != null &&
+                    this.VibeIds.SequenceEqual(input.VibeIds)
+                ) && 
+                (
                     this.WorldId == input.WorldId ||
                     (this.WorldId != null &&
                     this.WorldId.Equals(input.WorldId))
@@ -348,6 +394,10 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.CalendarEntryId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.CanRequestInvite.GetHashCode();
+                if (this.CategoryId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CategoryId.GetHashCode();
+                }
                 if (this.ClosedAt != null)
                 {
                     hashCode = (hashCode * 59) + this.ClosedAt.GetHashCode();
@@ -355,6 +405,10 @@ namespace VRChat.API.Model
                 if (this.ContentSettings != null)
                 {
                     hashCode = (hashCode * 59) + this.ContentSettings.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
                 if (this.DisplayName != null)
                 {
@@ -382,6 +436,10 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.VibeIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.VibeIds.GetHashCode();
+                }
                 if (this.WorldId != null)
                 {
                     hashCode = (hashCode * 59) + this.WorldId.GetHashCode();

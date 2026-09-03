@@ -47,14 +47,18 @@ namespace VRChat.API.Model
         /// <param name="authorName">authorName.</param>
         /// <param name="capacity">capacity.</param>
         /// <param name="description">description.</param>
+        /// <param name="disabledPropAbilities">disabledPropAbilities.</param>
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="name">name.</param>
         /// <param name="platform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
+        /// <param name="previewYoutubeId">previewYoutubeId.</param>
+        /// <param name="recommendedCapacity">recommendedCapacity.</param>
         /// <param name="releaseStatus">releaseStatus.</param>
         /// <param name="tags"> .</param>
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
-        public UpdateWorldRequest(string assetUrl = default, string assetVersion = default, string authorId = default, string authorName = default, int capacity = default, string description = default, string imageUrl = default, string name = default, string platform = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1")
+        /// <param name="urlList">urlList.</param>
+        public UpdateWorldRequest(string assetUrl = default, string assetVersion = default, string authorId = default, string authorName = default, int capacity = default, string description = default, List<string> disabledPropAbilities = default, string imageUrl = default, string name = default, string platform = default, string previewYoutubeId = default, int recommendedCapacity = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1", List<string> urlList = default)
         {
             this.AssetUrl = assetUrl;
             this.AssetVersion = assetVersion;
@@ -62,14 +66,18 @@ namespace VRChat.API.Model
             this.AuthorName = authorName;
             this.Capacity = capacity;
             this.Description = description;
+            this.DisabledPropAbilities = disabledPropAbilities;
             this.ImageUrl = imageUrl;
             this.Name = name;
             this.Platform = platform;
+            this.PreviewYoutubeId = previewYoutubeId;
+            this.RecommendedCapacity = recommendedCapacity;
             this.ReleaseStatus = releaseStatus;
             this.Tags = tags;
             this.UnityPackageUrl = unityPackageUrl;
             // use default value if no "unityVersion" provided
             this.UnityVersion = unityVersion ?? @"5.3.4p1";
+            this.UrlList = urlList;
         }
 
         /// <summary>
@@ -116,6 +124,12 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// Gets or Sets DisabledPropAbilities
+        /// </summary>
+        [DataMember(Name = "disabledPropAbilities", EmitDefaultValue = false)]
+        public List<string> DisabledPropAbilities { get; set; }
+
+        /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
         [DataMember(Name = "imageUrl", EmitDefaultValue = false)]
@@ -136,6 +150,21 @@ namespace VRChat.API.Model
         */
         [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PreviewYoutubeId
+        /// </summary>
+        [DataMember(Name = "previewYoutubeId", EmitDefaultValue = true)]
+        public string PreviewYoutubeId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecommendedCapacity
+        /// </summary>
+        /*
+        <example>4</example>
+        */
+        [DataMember(Name = "recommendedCapacity", EmitDefaultValue = false)]
+        public int RecommendedCapacity { get; set; }
 
         /// <summary>
         ///  
@@ -160,6 +189,12 @@ namespace VRChat.API.Model
         public string UnityVersion { get; set; }
 
         /// <summary>
+        /// Gets or Sets UrlList
+        /// </summary>
+        [DataMember(Name = "urlList", EmitDefaultValue = false)]
+        public List<string> UrlList { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -173,13 +208,17 @@ namespace VRChat.API.Model
             sb.Append("  AuthorName: ").Append(AuthorName).Append("\n");
             sb.Append("  Capacity: ").Append(Capacity).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DisabledPropAbilities: ").Append(DisabledPropAbilities).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Platform: ").Append(Platform).Append("\n");
+            sb.Append("  PreviewYoutubeId: ").Append(PreviewYoutubeId).Append("\n");
+            sb.Append("  RecommendedCapacity: ").Append(RecommendedCapacity).Append("\n");
             sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  UnityPackageUrl: ").Append(UnityPackageUrl).Append("\n");
             sb.Append("  UnityVersion: ").Append(UnityVersion).Append("\n");
+            sb.Append("  UrlList: ").Append(UrlList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -245,6 +284,12 @@ namespace VRChat.API.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.DisabledPropAbilities == input.DisabledPropAbilities ||
+                    this.DisabledPropAbilities != null &&
+                    input.DisabledPropAbilities != null &&
+                    this.DisabledPropAbilities.SequenceEqual(input.DisabledPropAbilities)
+                ) && 
+                (
                     this.ImageUrl == input.ImageUrl ||
                     (this.ImageUrl != null &&
                     this.ImageUrl.Equals(input.ImageUrl))
@@ -258,6 +303,15 @@ namespace VRChat.API.Model
                     this.Platform == input.Platform ||
                     (this.Platform != null &&
                     this.Platform.Equals(input.Platform))
+                ) && 
+                (
+                    this.PreviewYoutubeId == input.PreviewYoutubeId ||
+                    (this.PreviewYoutubeId != null &&
+                    this.PreviewYoutubeId.Equals(input.PreviewYoutubeId))
+                ) && 
+                (
+                    this.RecommendedCapacity == input.RecommendedCapacity ||
+                    this.RecommendedCapacity.Equals(input.RecommendedCapacity)
                 ) && 
                 (
                     this.ReleaseStatus == input.ReleaseStatus ||
@@ -278,6 +332,12 @@ namespace VRChat.API.Model
                     this.UnityVersion == input.UnityVersion ||
                     (this.UnityVersion != null &&
                     this.UnityVersion.Equals(input.UnityVersion))
+                ) && 
+                (
+                    this.UrlList == input.UrlList ||
+                    this.UrlList != null &&
+                    input.UrlList != null &&
+                    this.UrlList.SequenceEqual(input.UrlList)
                 );
         }
 
@@ -311,6 +371,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
+                if (this.DisabledPropAbilities != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisabledPropAbilities.GetHashCode();
+                }
                 if (this.ImageUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
@@ -323,6 +387,11 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Platform.GetHashCode();
                 }
+                if (this.PreviewYoutubeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviewYoutubeId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RecommendedCapacity.GetHashCode();
                 hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
                 if (this.Tags != null)
                 {
@@ -335,6 +404,10 @@ namespace VRChat.API.Model
                 if (this.UnityVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.UnityVersion.GetHashCode();
+                }
+                if (this.UrlList != null)
+                {
+                    hashCode = (hashCode * 59) + this.UrlList.GetHashCode();
                 }
                 return hashCode;
             }

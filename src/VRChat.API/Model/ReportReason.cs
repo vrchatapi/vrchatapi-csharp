@@ -40,15 +40,23 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportReason" /> class.
         /// </summary>
+        /// <param name="policy">policy.</param>
         /// <param name="text">The label or name of the report reason (required).</param>
         /// <param name="tooltip">A brief explanation of what this reason entails (required).</param>
-        public ReportReason(string text = default, string tooltip = default)
+        public ReportReason(List<string> policy = default, string text = default, string tooltip = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Text = text;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tooltip = tooltip;
+            this.Policy = policy;
         }
+
+        /// <summary>
+        /// Gets or Sets Policy
+        /// </summary>
+        [DataMember(Name = "policy", EmitDefaultValue = false)]
+        public List<string> Policy { get; set; }
 
         /// <summary>
         /// The label or name of the report reason
@@ -72,6 +80,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ReportReason {\n");
+            sb.Append("  Policy: ").Append(Policy).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Tooltip: ").Append(Tooltip).Append("\n");
             sb.Append("}\n");
@@ -110,6 +119,12 @@ namespace VRChat.API.Model
             }
             return 
                 (
+                    this.Policy == input.Policy ||
+                    this.Policy != null &&
+                    input.Policy != null &&
+                    this.Policy.SequenceEqual(input.Policy)
+                ) && 
+                (
                     this.Text == input.Text ||
                     (this.Text != null &&
                     this.Text.Equals(input.Text))
@@ -130,6 +145,10 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Policy != null)
+                {
+                    hashCode = (hashCode * 59) + this.Policy.GetHashCode();
+                }
                 if (this.Text != null)
                 {
                     hashCode = (hashCode * 59) + this.Text.GetHashCode();

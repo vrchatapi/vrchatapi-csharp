@@ -136,7 +136,7 @@ namespace VRChat.API.Api
         /// Get Balance
         /// </summary>
         /// <remarks>
-        /// Gets the balance of a user
+        /// Return the balance of a user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -147,7 +147,7 @@ namespace VRChat.API.Api
         /// Get Balance
         /// </summary>
         /// <remarks>
-        /// Gets the balance of a user
+        /// Return the balance of a user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -157,22 +157,24 @@ namespace VRChat.API.Api
         /// Get Balance Earnings
         /// </summary>
         /// <remarks>
-        /// Gets the balance of a user from earnings
+        /// Return the user&#39;s balance from earnings.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Balance</returns>
+        [Obsolete]
         Balance GetBalanceEarnings(string userId);
 
         /// <summary>
         /// Get Balance Earnings
         /// </summary>
         /// <remarks>
-        /// Gets the balance of a user from earnings
+        /// Return the user&#39;s balance from earnings.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Balance</returns>
+        [Obsolete]
         ApiResponse<Balance> GetBalanceEarningsWithHttpInfo(string userId);
         /// <summary>
         /// Get Bulk Gift Purchases
@@ -221,12 +223,12 @@ namespace VRChat.API.Api
         /// Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
         /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
         /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <returns>EarningsMetrics</returns>
-        EarningsMetrics GetEarningsMetrics(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default);
+        EarningsMetrics GetEarningsMetrics(string? metricDateStart = default, string? metricDateEnd = default, string? sellerId = default, string? groupByDuration = default);
 
         /// <summary>
         /// Get Earnings Metrics
@@ -235,12 +237,12 @@ namespace VRChat.API.Api
         /// Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
         /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
         /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <returns>ApiResponse of EarningsMetrics</returns>
-        ApiResponse<EarningsMetrics> GetEarningsMetricsWithHttpInfo(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default);
+        ApiResponse<EarningsMetrics> GetEarningsMetricsWithHttpInfo(string? metricDateStart = default, string? metricDateEnd = default, string? sellerId = default, string? groupByDuration = default);
         /// <summary>
         /// Get Economy Account
         /// </summary>
@@ -558,20 +560,22 @@ namespace VRChat.API.Api
         /// Get Seller Eligibility
         /// </summary>
         /// <remarks>
-        /// Get the eligibility of the currently authenticated user to become a seller
+        /// Return the current user&#39;s eligibility to become a seller.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>SellerEligibility</returns>
+        [Obsolete]
         SellerEligibility GetSellerEligibility();
 
         /// <summary>
         /// Get Seller Eligibility
         /// </summary>
         /// <remarks>
-        /// Get the eligibility of the currently authenticated user to become a seller
+        /// Return the current user&#39;s eligibility to become a seller.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SellerEligibility</returns>
+        [Obsolete]
         ApiResponse<SellerEligibility> GetSellerEligibilityWithHttpInfo();
         /// <summary>
         /// Get Steam Transaction
@@ -582,7 +586,6 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
         /// <returns>Transaction</returns>
-        [Obsolete]
         Transaction GetSteamTransaction(string transactionId);
 
         /// <summary>
@@ -594,7 +597,6 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
         /// <returns>ApiResponse of Transaction</returns>
-        [Obsolete]
         ApiResponse<Transaction> GetSteamTransactionWithHttpInfo(string transactionId);
         /// <summary>
         /// List Steam Transactions
@@ -672,8 +674,10 @@ namespace VRChat.API.Api
         /// List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="gifts">Return giftable subscriptions instead of standard ones. (optional)</param>
+        /// <param name="recurring">Return recurring subscriptions instead of standard ones. (optional)</param>
         /// <returns>List&lt;Subscription&gt;</returns>
-        List<Subscription> GetSubscriptions();
+        List<Subscription> GetSubscriptions(bool? gifts = default, bool? recurring = default);
 
         /// <summary>
         /// List Subscriptions
@@ -682,47 +686,53 @@ namespace VRChat.API.Api
         /// List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="gifts">Return giftable subscriptions instead of standard ones. (optional)</param>
+        /// <param name="recurring">Return recurring subscriptions instead of standard ones. (optional)</param>
         /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        ApiResponse<List<Subscription>> GetSubscriptionsWithHttpInfo();
+        ApiResponse<List<Subscription>> GetSubscriptionsWithHttpInfo(bool? gifts = default, bool? recurring = default);
         /// <summary>
         /// Get Tilia Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of Tilia integration
+        /// Return the Tilia integration status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>TiliaStatus</returns>
+        [Obsolete]
         TiliaStatus GetTiliaStatus();
 
         /// <summary>
         /// Get Tilia Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of Tilia integration
+        /// Return the Tilia integration status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of TiliaStatus</returns>
+        [Obsolete]
         ApiResponse<TiliaStatus> GetTiliaStatusWithHttpInfo();
         /// <summary>
         /// Get Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of the agreement of a user to the Tilia TOS
+        /// Return the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>TiliaTOS</returns>
+        [Obsolete]
         TiliaTOS GetTiliaTos(string userId);
 
         /// <summary>
         /// Get Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of the agreement of a user to the Tilia TOS
+        /// Return the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of TiliaTOS</returns>
+        [Obsolete]
         ApiResponse<TiliaTOS> GetTiliaTosWithHttpInfo(string userId);
         /// <summary>
         /// List Token Bundles
@@ -747,24 +757,26 @@ namespace VRChat.API.Api
         /// Get User Credits Eligibility
         /// </summary>
         /// <remarks>
-        /// Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Return the user&#39;s subscription credit eligibility.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="subscriptionId"></param>
         /// <returns>UserCreditsEligible</returns>
+        [Obsolete]
         UserCreditsEligible GetUserCreditsEligible(string userId, string subscriptionId);
 
         /// <summary>
         /// Get User Credits Eligibility
         /// </summary>
         /// <remarks>
-        /// Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Return the user&#39;s subscription credit eligibility.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="subscriptionId"></param>
         /// <returns>ApiResponse of UserCreditsEligible</returns>
+        [Obsolete]
         ApiResponse<UserCreditsEligible> GetUserCreditsEligibleWithHttpInfo(string userId, string subscriptionId);
         /// <summary>
         /// Get User Subscription Eligibility
@@ -814,29 +826,29 @@ namespace VRChat.API.Api
         /// List Stores
         /// </summary>
         /// <remarks>
-        /// Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// List a seller&#39;s stores, adjusted for management views.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="sellerId">Seller to scope the results to.</param>
         /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>List&lt;Store&gt;</returns>
-        List<Store> ListStores(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default);
+        List<Store> ListStores(string sellerId, bool? managementPov = default, int? n = default, int? offset = default);
 
         /// <summary>
         /// List Stores
         /// </summary>
         /// <remarks>
-        /// Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// List a seller&#39;s stores, adjusted for management views.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="sellerId">Seller to scope the results to.</param>
         /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>ApiResponse of List&lt;Store&gt;</returns>
-        ApiResponse<List<Store>> ListStoresWithHttpInfo(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default);
+        ApiResponse<List<Store>> ListStoresWithHttpInfo(string sellerId, bool? managementPov = default, int? n = default, int? offset = default);
         /// <summary>
         /// List User Products
         /// </summary>
@@ -935,24 +947,26 @@ namespace VRChat.API.Api
         /// Update Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Updates the status of the agreement of a user to the Tilia TOS
+        /// Update the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <returns>Object</returns>
+        [Obsolete]
         Object UpdateTiliaTos(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default);
 
         /// <summary>
         /// Update Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Updates the status of the agreement of a user to the Tilia TOS
+        /// Update the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
+        [Obsolete]
         ApiResponse<Object> UpdateTiliaTosWithHttpInfo(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default);
         #endregion Synchronous Operations
     }
@@ -1082,7 +1096,7 @@ namespace VRChat.API.Api
         /// Get Balance
         /// </summary>
         /// <remarks>
-        /// Gets the balance of a user
+        /// Return the balance of a user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -1094,7 +1108,7 @@ namespace VRChat.API.Api
         /// Get Balance
         /// </summary>
         /// <remarks>
-        /// Gets the balance of a user
+        /// Return the balance of a user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -1105,24 +1119,26 @@ namespace VRChat.API.Api
         /// Get Balance Earnings
         /// </summary>
         /// <remarks>
-        /// Gets the balance of a user from earnings
+        /// Return the user&#39;s balance from earnings.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Balance</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<Balance> GetBalanceEarningsAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Balance Earnings
         /// </summary>
         /// <remarks>
-        /// Gets the balance of a user from earnings
+        /// Return the user&#39;s balance from earnings.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Balance)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<Balance>> GetBalanceEarningsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Bulk Gift Purchases
@@ -1175,13 +1191,13 @@ namespace VRChat.API.Api
         /// Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
         /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
         /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EarningsMetrics</returns>
-        System.Threading.Tasks.Task<EarningsMetrics> GetEarningsMetricsAsync(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<EarningsMetrics> GetEarningsMetricsAsync(string? metricDateStart = default, string? metricDateEnd = default, string? sellerId = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Earnings Metrics
@@ -1190,13 +1206,13 @@ namespace VRChat.API.Api
         /// Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
         /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
         /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EarningsMetrics)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EarningsMetrics>> GetEarningsMetricsWithHttpInfoAsync(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<EarningsMetrics>> GetEarningsMetricsWithHttpInfoAsync(string? metricDateStart = default, string? metricDateEnd = default, string? sellerId = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Economy Account
         /// </summary>
@@ -1540,22 +1556,24 @@ namespace VRChat.API.Api
         /// Get Seller Eligibility
         /// </summary>
         /// <remarks>
-        /// Get the eligibility of the currently authenticated user to become a seller
+        /// Return the current user&#39;s eligibility to become a seller.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SellerEligibility</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<SellerEligibility> GetSellerEligibilityAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Seller Eligibility
         /// </summary>
         /// <remarks>
-        /// Get the eligibility of the currently authenticated user to become a seller
+        /// Return the current user&#39;s eligibility to become a seller.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SellerEligibility)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<SellerEligibility>> GetSellerEligibilityWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Steam Transaction
@@ -1567,7 +1585,6 @@ namespace VRChat.API.Api
         /// <param name="transactionId">Must be a valid transaction ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Transaction</returns>
-        [Obsolete]
         System.Threading.Tasks.Task<Transaction> GetSteamTransactionAsync(string transactionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -1580,7 +1597,6 @@ namespace VRChat.API.Api
         /// <param name="transactionId">Must be a valid transaction ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<Transaction>> GetSteamTransactionWithHttpInfoAsync(string transactionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Steam Transactions
@@ -1664,9 +1680,11 @@ namespace VRChat.API.Api
         /// List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="gifts">Return giftable subscriptions instead of standard ones. (optional)</param>
+        /// <param name="recurring">Return recurring subscriptions instead of standard ones. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        System.Threading.Tasks.Task<List<Subscription>> GetSubscriptionsAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<Subscription>> GetSubscriptionsAsync(bool? gifts = default, bool? recurring = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Subscriptions
@@ -1675,52 +1693,58 @@ namespace VRChat.API.Api
         /// List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="gifts">Return giftable subscriptions instead of standard ones. (optional)</param>
+        /// <param name="recurring">Return recurring subscriptions instead of standard ones. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Subscription&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Subscription>>> GetSubscriptionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<Subscription>>> GetSubscriptionsWithHttpInfoAsync(bool? gifts = default, bool? recurring = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Tilia Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of Tilia integration
+        /// Return the Tilia integration status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TiliaStatus</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<TiliaStatus> GetTiliaStatusAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Tilia Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of Tilia integration
+        /// Return the Tilia integration status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TiliaStatus)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<TiliaStatus>> GetTiliaStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of the agreement of a user to the Tilia TOS
+        /// Return the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TiliaTOS</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<TiliaTOS> GetTiliaTosAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of the agreement of a user to the Tilia TOS
+        /// Return the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TiliaTOS)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<TiliaTOS>> GetTiliaTosWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Token Bundles
@@ -1747,26 +1771,28 @@ namespace VRChat.API.Api
         /// Get User Credits Eligibility
         /// </summary>
         /// <remarks>
-        /// Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Return the user&#39;s subscription credit eligibility.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="subscriptionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserCreditsEligible</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<UserCreditsEligible> GetUserCreditsEligibleAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User Credits Eligibility
         /// </summary>
         /// <remarks>
-        /// Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Return the user&#39;s subscription credit eligibility.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="subscriptionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserCreditsEligible)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<UserCreditsEligible>> GetUserCreditsEligibleWithHttpInfoAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get User Subscription Eligibility
@@ -1820,31 +1846,31 @@ namespace VRChat.API.Api
         /// List Stores
         /// </summary>
         /// <remarks>
-        /// Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// List a seller&#39;s stores, adjusted for management views.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="sellerId">Seller to scope the results to.</param>
         /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Store&gt;</returns>
-        System.Threading.Tasks.Task<List<Store>> ListStoresAsync(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<Store>> ListStoresAsync(string sellerId, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Stores
         /// </summary>
         /// <remarks>
-        /// Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// List a seller&#39;s stores, adjusted for management views.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="sellerId">Seller to scope the results to.</param>
         /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Store&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Store>>> ListStoresWithHttpInfoAsync(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<Store>>> ListStoresWithHttpInfoAsync(string sellerId, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List User Products
         /// </summary>
@@ -1951,26 +1977,28 @@ namespace VRChat.API.Api
         /// Update Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Updates the status of the agreement of a user to the Tilia TOS
+        /// Update the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<Object> UpdateTiliaTosAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Updates the status of the agreement of a user to the Tilia TOS
+        /// Update the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateTiliaTosWithHttpInfoAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
@@ -2908,7 +2936,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Balance Gets the balance of a user
+        /// Get Balance Return the balance of a user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -2928,7 +2956,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Balance Gets the balance of a user
+        /// Get Balance Return the balance of a user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -2978,7 +3006,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Balance Gets the balance of a user
+        /// Get Balance Return the balance of a user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -2999,7 +3027,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Balance Gets the balance of a user
+        /// Get Balance Return the balance of a user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
@@ -3052,11 +3080,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Balance Earnings Gets the balance of a user from earnings
+        /// Get Balance Earnings Return the user&#39;s balance from earnings.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>Balance</returns>
+        [Obsolete]
         public Balance GetBalanceEarnings(string userId)
         {
             VRChat.API.Client.ApiResponse<Balance> localVarResponse = GetBalanceEarningsWithHttpInfo(userId);
@@ -3072,11 +3101,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Balance Earnings Gets the balance of a user from earnings
+        /// Get Balance Earnings Return the user&#39;s balance from earnings.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Balance</returns>
+        [Obsolete]
         public VRChat.API.Client.ApiResponse<Balance> GetBalanceEarningsWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
@@ -3122,12 +3152,13 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Balance Earnings Gets the balance of a user from earnings
+        /// Get Balance Earnings Return the user&#39;s balance from earnings.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Balance</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Balance> GetBalanceEarningsAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Balance> localVarResponse = await GetBalanceEarningsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
@@ -3143,12 +3174,13 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Balance Earnings Gets the balance of a user from earnings
+        /// Get Balance Earnings Return the user&#39;s balance from earnings.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Balance)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Balance>> GetBalanceEarningsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
@@ -3471,14 +3503,14 @@ namespace VRChat.API.Api
         /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
         /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
         /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <returns>EarningsMetrics</returns>
-        public EarningsMetrics GetEarningsMetrics(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default)
+        public EarningsMetrics GetEarningsMetrics(string? metricDateStart = default, string? metricDateEnd = default, string? sellerId = default, string? groupByDuration = default)
         {
-            VRChat.API.Client.ApiResponse<EarningsMetrics> localVarResponse = GetEarningsMetricsWithHttpInfo(sellerId, metricDateStart, metricDateEnd, groupByDuration);
+            VRChat.API.Client.ApiResponse<EarningsMetrics> localVarResponse = GetEarningsMetricsWithHttpInfo(metricDateStart, metricDateEnd, sellerId, groupByDuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEarningsMetrics", localVarResponse);
@@ -3494,17 +3526,13 @@ namespace VRChat.API.Api
         /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
         /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
         /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <returns>ApiResponse of EarningsMetrics</returns>
-        public VRChat.API.Client.ApiResponse<EarningsMetrics> GetEarningsMetricsWithHttpInfo(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default)
+        public VRChat.API.Client.ApiResponse<EarningsMetrics> GetEarningsMetricsWithHttpInfo(string? metricDateStart = default, string? metricDateEnd = default, string? sellerId = default, string? groupByDuration = default)
         {
-            // verify the required parameter 'sellerId' is set
-            if (sellerId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'sellerId' when calling EconomyApi->GetEarningsMetrics");
-
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3529,7 +3557,10 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "metricDateEnd", metricDateEnd));
             }
-            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
+            if (sellerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
+            }
             if (groupByDuration != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "groupByDuration", groupByDuration));
@@ -3559,15 +3590,15 @@ namespace VRChat.API.Api
         /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
         /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
         /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EarningsMetrics</returns>
-        public async System.Threading.Tasks.Task<EarningsMetrics> GetEarningsMetricsAsync(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<EarningsMetrics> GetEarningsMetricsAsync(string? metricDateStart = default, string? metricDateEnd = default, string? sellerId = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<EarningsMetrics> localVarResponse = await GetEarningsMetricsWithHttpInfoAsync(sellerId, metricDateStart, metricDateEnd, groupByDuration, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<EarningsMetrics> localVarResponse = await GetEarningsMetricsWithHttpInfoAsync(metricDateStart, metricDateEnd, sellerId, groupByDuration, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEarningsMetrics", localVarResponse);
@@ -3583,18 +3614,14 @@ namespace VRChat.API.Api
         /// Get Earnings Metrics Gets earnings totals and breakdown metrics for the currently authenticated user.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Seller to retrieve economy metrics for.</param>
         /// <param name="metricDateStart">Lower bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
         /// <param name="metricDateEnd">Upper bound for economy metrics queries. Observed formats include both date-only and full ISO timestamps. (optional)</param>
+        /// <param name="sellerId">Filter results by seller. (optional)</param>
         /// <param name="groupByDuration">Time bucket size for economy metrics. Observed values include &#x60;days&#x60; and &#x60;years&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EarningsMetrics)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<EarningsMetrics>> GetEarningsMetricsWithHttpInfoAsync(string sellerId, string? metricDateStart = default, string? metricDateEnd = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<EarningsMetrics>> GetEarningsMetricsWithHttpInfoAsync(string? metricDateStart = default, string? metricDateEnd = default, string? sellerId = default, string? groupByDuration = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'sellerId' is set
-            if (sellerId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'sellerId' when calling EconomyApi->GetEarningsMetrics");
-
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3621,7 +3648,10 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "metricDateEnd", metricDateEnd));
             }
-            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
+            if (sellerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
+            }
             if (groupByDuration != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "groupByDuration", groupByDuration));
@@ -5750,10 +5780,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Seller Eligibility Get the eligibility of the currently authenticated user to become a seller
+        /// Get Seller Eligibility Return the current user&#39;s eligibility to become a seller.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>SellerEligibility</returns>
+        [Obsolete]
         public SellerEligibility GetSellerEligibility()
         {
             VRChat.API.Client.ApiResponse<SellerEligibility> localVarResponse = GetSellerEligibilityWithHttpInfo();
@@ -5769,10 +5800,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Seller Eligibility Get the eligibility of the currently authenticated user to become a seller
+        /// Get Seller Eligibility Return the current user&#39;s eligibility to become a seller.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of SellerEligibility</returns>
+        [Obsolete]
         public VRChat.API.Client.ApiResponse<SellerEligibility> GetSellerEligibilityWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -5813,11 +5845,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Seller Eligibility Get the eligibility of the currently authenticated user to become a seller
+        /// Get Seller Eligibility Return the current user&#39;s eligibility to become a seller.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SellerEligibility</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<SellerEligibility> GetSellerEligibilityAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<SellerEligibility> localVarResponse = await GetSellerEligibilityWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
@@ -5833,11 +5866,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Seller Eligibility Get the eligibility of the currently authenticated user to become a seller
+        /// Get Seller Eligibility Return the current user&#39;s eligibility to become a seller.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SellerEligibility)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SellerEligibility>> GetSellerEligibilityWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
@@ -5885,7 +5919,6 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
         /// <returns>Transaction</returns>
-        [Obsolete]
         public Transaction GetSteamTransaction(string transactionId)
         {
             VRChat.API.Client.ApiResponse<Transaction> localVarResponse = GetSteamTransactionWithHttpInfo(transactionId);
@@ -5906,7 +5939,6 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="transactionId">Must be a valid transaction ID.</param>
         /// <returns>ApiResponse of Transaction</returns>
-        [Obsolete]
         public VRChat.API.Client.ApiResponse<Transaction> GetSteamTransactionWithHttpInfo(string transactionId)
         {
             // verify the required parameter 'transactionId' is set
@@ -5958,7 +5990,6 @@ namespace VRChat.API.Api
         /// <param name="transactionId">Must be a valid transaction ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Transaction</returns>
-        [Obsolete]
         public async System.Threading.Tasks.Task<Transaction> GetSteamTransactionAsync(string transactionId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Transaction> localVarResponse = await GetSteamTransactionWithHttpInfoAsync(transactionId, cancellationToken).ConfigureAwait(false);
@@ -5980,7 +6011,6 @@ namespace VRChat.API.Api
         /// <param name="transactionId">Must be a valid transaction ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Transaction>> GetSteamTransactionWithHttpInfoAsync(string transactionId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'transactionId' is set
@@ -6497,10 +6527,12 @@ namespace VRChat.API.Api
         /// List Subscriptions List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="gifts">Return giftable subscriptions instead of standard ones. (optional)</param>
+        /// <param name="recurring">Return recurring subscriptions instead of standard ones. (optional)</param>
         /// <returns>List&lt;Subscription&gt;</returns>
-        public List<Subscription> GetSubscriptions()
+        public List<Subscription> GetSubscriptions(bool? gifts = default, bool? recurring = default)
         {
-            VRChat.API.Client.ApiResponse<List<Subscription>> localVarResponse = GetSubscriptionsWithHttpInfo();
+            VRChat.API.Client.ApiResponse<List<Subscription>> localVarResponse = GetSubscriptionsWithHttpInfo(gifts, recurring);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSubscriptions", localVarResponse);
@@ -6516,8 +6548,10 @@ namespace VRChat.API.Api
         /// List Subscriptions List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="gifts">Return giftable subscriptions instead of standard ones. (optional)</param>
+        /// <param name="recurring">Return recurring subscriptions instead of standard ones. (optional)</param>
         /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Subscription>> GetSubscriptionsWithHttpInfo()
+        public VRChat.API.Client.ApiResponse<List<Subscription>> GetSubscriptionsWithHttpInfo(bool? gifts = default, bool? recurring = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -6535,6 +6569,14 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (gifts != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "gifts", gifts));
+            }
+            if (recurring != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "recurring", recurring));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -6560,11 +6602,13 @@ namespace VRChat.API.Api
         /// List Subscriptions List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="gifts">Return giftable subscriptions instead of standard ones. (optional)</param>
+        /// <param name="recurring">Return recurring subscriptions instead of standard ones. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Subscription>> GetSubscriptionsAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<Subscription>> GetSubscriptionsAsync(bool? gifts = default, bool? recurring = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<Subscription>> localVarResponse = await GetSubscriptionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<Subscription>> localVarResponse = await GetSubscriptionsWithHttpInfoAsync(gifts, recurring, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSubscriptions", localVarResponse);
@@ -6580,9 +6624,11 @@ namespace VRChat.API.Api
         /// List Subscriptions List all existing Subscriptions. For example, \&quot;vrchatplus-monthly\&quot; and \&quot;vrchatplus-yearly\&quot;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="gifts">Return giftable subscriptions instead of standard ones. (optional)</param>
+        /// <param name="recurring">Return recurring subscriptions instead of standard ones. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Subscription&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Subscription>>> GetSubscriptionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Subscription>>> GetSubscriptionsWithHttpInfoAsync(bool? gifts = default, bool? recurring = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -6602,6 +6648,14 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (gifts != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "gifts", gifts));
+            }
+            if (recurring != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "recurring", recurring));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -6624,10 +6678,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Tilia Status Gets the status of Tilia integration
+        /// Get Tilia Status Return the Tilia integration status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>TiliaStatus</returns>
+        [Obsolete]
         public TiliaStatus GetTiliaStatus()
         {
             VRChat.API.Client.ApiResponse<TiliaStatus> localVarResponse = GetTiliaStatusWithHttpInfo();
@@ -6643,10 +6698,11 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Tilia Status Gets the status of Tilia integration
+        /// Get Tilia Status Return the Tilia integration status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of TiliaStatus</returns>
+        [Obsolete]
         public VRChat.API.Client.ApiResponse<TiliaStatus> GetTiliaStatusWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -6687,11 +6743,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Tilia Status Gets the status of Tilia integration
+        /// Get Tilia Status Return the Tilia integration status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TiliaStatus</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<TiliaStatus> GetTiliaStatusAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<TiliaStatus> localVarResponse = await GetTiliaStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
@@ -6707,11 +6764,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Tilia Status Gets the status of Tilia integration
+        /// Get Tilia Status Return the Tilia integration status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TiliaStatus)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<TiliaStatus>> GetTiliaStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
@@ -6754,11 +6812,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Tilia TOS Agreement Status Gets the status of the agreement of a user to the Tilia TOS
+        /// Get Tilia TOS Agreement Status Return the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>TiliaTOS</returns>
+        [Obsolete]
         public TiliaTOS GetTiliaTos(string userId)
         {
             VRChat.API.Client.ApiResponse<TiliaTOS> localVarResponse = GetTiliaTosWithHttpInfo(userId);
@@ -6774,11 +6833,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Tilia TOS Agreement Status Gets the status of the agreement of a user to the Tilia TOS
+        /// Get Tilia TOS Agreement Status Return the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of TiliaTOS</returns>
+        [Obsolete]
         public VRChat.API.Client.ApiResponse<TiliaTOS> GetTiliaTosWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
@@ -6824,12 +6884,13 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Tilia TOS Agreement Status Gets the status of the agreement of a user to the Tilia TOS
+        /// Get Tilia TOS Agreement Status Return the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TiliaTOS</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<TiliaTOS> GetTiliaTosAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<TiliaTOS> localVarResponse = await GetTiliaTosWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
@@ -6845,12 +6906,13 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Tilia TOS Agreement Status Gets the status of the agreement of a user to the Tilia TOS
+        /// Get Tilia TOS Agreement Status Return the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TiliaTOS)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<TiliaTOS>> GetTiliaTosWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
@@ -7028,12 +7090,13 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Credits Eligibility Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Get User Credits Eligibility Return the user&#39;s subscription credit eligibility.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="subscriptionId"></param>
         /// <returns>UserCreditsEligible</returns>
+        [Obsolete]
         public UserCreditsEligible GetUserCreditsEligible(string userId, string subscriptionId)
         {
             VRChat.API.Client.ApiResponse<UserCreditsEligible> localVarResponse = GetUserCreditsEligibleWithHttpInfo(userId, subscriptionId);
@@ -7049,12 +7112,13 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Credits Eligibility Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Get User Credits Eligibility Return the user&#39;s subscription credit eligibility.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="subscriptionId"></param>
         /// <returns>ApiResponse of UserCreditsEligible</returns>
+        [Obsolete]
         public VRChat.API.Client.ApiResponse<UserCreditsEligible> GetUserCreditsEligibleWithHttpInfo(string userId, string subscriptionId)
         {
             // verify the required parameter 'userId' is set
@@ -7105,13 +7169,14 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Credits Eligibility Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Get User Credits Eligibility Return the user&#39;s subscription credit eligibility.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="subscriptionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserCreditsEligible</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<UserCreditsEligible> GetUserCreditsEligibleAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<UserCreditsEligible> localVarResponse = await GetUserCreditsEligibleWithHttpInfoAsync(userId, subscriptionId, cancellationToken).ConfigureAwait(false);
@@ -7127,13 +7192,14 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Credits Eligibility Get the user&#39;s eligibility status for subscriptions based on available credits.
+        /// Get User Credits Eligibility Return the user&#39;s subscription credit eligibility.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="subscriptionId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UserCreditsEligible)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UserCreditsEligible>> GetUserCreditsEligibleWithHttpInfoAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
@@ -7486,15 +7552,15 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// List Stores Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// List Stores List a seller&#39;s stores, adjusted for management views.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="sellerId">Seller to scope the results to.</param>
         /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>List&lt;Store&gt;</returns>
-        public List<Store> ListStores(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default)
+        public List<Store> ListStores(string sellerId, bool? managementPov = default, int? n = default, int? offset = default)
         {
             VRChat.API.Client.ApiResponse<List<Store>> localVarResponse = ListStoresWithHttpInfo(sellerId, managementPov, n, offset);
             if (this.ExceptionFactory != null)
@@ -7509,16 +7575,20 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// List Stores Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// List Stores List a seller&#39;s stores, adjusted for management views.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="sellerId">Seller to scope the results to.</param>
         /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>ApiResponse of List&lt;Store&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Store>> ListStoresWithHttpInfo(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default)
+        public VRChat.API.Client.ApiResponse<List<Store>> ListStoresWithHttpInfo(string sellerId, bool? managementPov = default, int? n = default, int? offset = default)
         {
+            // verify the required parameter 'sellerId' is set
+            if (sellerId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'sellerId' when calling EconomyApi->ListStores");
+
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -7535,10 +7605,7 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (sellerId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
-            }
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
             if (managementPov != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "managementPov", managementPov));
@@ -7573,16 +7640,16 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// List Stores Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// List Stores List a seller&#39;s stores, adjusted for management views.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="sellerId">Seller to scope the results to.</param>
         /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Store&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Store>> ListStoresAsync(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<Store>> ListStoresAsync(string sellerId, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Store>> localVarResponse = await ListStoresWithHttpInfoAsync(sellerId, managementPov, n, offset, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -7597,17 +7664,21 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// List Stores Lists stores, optionally filtered to a seller and adjusted for management views.
+        /// List Stores List a seller&#39;s stores, adjusted for management views.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sellerId">Filter results by seller. (optional)</param>
+        /// <param name="sellerId">Seller to scope the results to.</param>
         /// <param name="managementPov">Return stores from the seller management point of view. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Store&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Store>>> ListStoresWithHttpInfoAsync(string? sellerId = default, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Store>>> ListStoresWithHttpInfoAsync(string sellerId, bool? managementPov = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'sellerId' is set
+            if (sellerId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'sellerId' when calling EconomyApi->ListStores");
+
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -7626,10 +7697,7 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (sellerId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
-            }
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sellerId", sellerId));
             if (managementPov != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "managementPov", managementPov));
@@ -8302,12 +8370,13 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Tilia TOS Agreement Status Updates the status of the agreement of a user to the Tilia TOS
+        /// Update Tilia TOS Agreement Status Update the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <returns>Object</returns>
+        [Obsolete]
         public Object UpdateTiliaTos(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default)
         {
             VRChat.API.Client.ApiResponse<Object> localVarResponse = UpdateTiliaTosWithHttpInfo(userId, updateTiliaTOSRequest);
@@ -8323,12 +8392,13 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Tilia TOS Agreement Status Updates the status of the agreement of a user to the Tilia TOS
+        /// Update Tilia TOS Agreement Status Update the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
+        [Obsolete]
         public VRChat.API.Client.ApiResponse<Object> UpdateTiliaTosWithHttpInfo(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default)
         {
             // verify the required parameter 'userId' is set
@@ -8376,13 +8446,14 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Tilia TOS Agreement Status Updates the status of the agreement of a user to the Tilia TOS
+        /// Update Tilia TOS Agreement Status Update the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Object> UpdateTiliaTosAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Object> localVarResponse = await UpdateTiliaTosWithHttpInfoAsync(userId, updateTiliaTOSRequest, cancellationToken).ConfigureAwait(false);
@@ -8398,13 +8469,14 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Tilia TOS Agreement Status Updates the status of the agreement of a user to the Tilia TOS
+        /// Update Tilia TOS Agreement Status Update the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> UpdateTiliaTosWithHttpInfoAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set

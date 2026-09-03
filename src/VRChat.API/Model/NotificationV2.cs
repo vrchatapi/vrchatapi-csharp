@@ -51,6 +51,7 @@ namespace VRChat.API.Model
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="data">data (required).</param>
         /// <param name="details">details.</param>
+        /// <param name="displayData">displayData.</param>
         /// <param name="expiresAt">expiresAt (required).</param>
         /// <param name="expiryAfterSeen">expiryAfterSeen (required).</param>
         /// <param name="id">id (required).</param>
@@ -74,7 +75,7 @@ namespace VRChat.API.Model
         /// <param name="type">type (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="varVersion">varVersion (required) (default to 2).</param>
-        public NotificationV2(bool canDelete = default, string category = default, DateTime createdAt = default, Dictionary<string, string> data = default, NotificationV2DetailsBoop details = default, DateTime expiresAt = default, int? expiryAfterSeen = default, string id = default, bool ignoreDND = default, string imageUrl = default, bool isSystem = default, string link = default, string linkText = default, string linkTextKey = default, string message = default, string messageKey = default, string receiverUserId = default, string relatedNotificationsId = default, bool requireSeen = default, List<NotificationV2Response> responses = default, bool seen = default, string senderUserId = default, string senderUsername = default, string title = default, string titleKey = default, NotificationV2Type type = default, DateTime updatedAt = default, int varVersion = 2)
+        public NotificationV2(bool canDelete = default, string category = default, DateTime createdAt = default, Dictionary<string, string> data = default, NotificationV2DetailsBoop details = default, Object displayData = default, DateTime expiresAt = default, int? expiryAfterSeen = default, string id = default, bool ignoreDND = default, string imageUrl = default, bool isSystem = default, string link = default, string linkText = default, string linkTextKey = default, string message = default, string messageKey = default, string receiverUserId = default, string relatedNotificationsId = default, bool requireSeen = default, List<NotificationV2Response> responses = default, bool seen = default, string senderUserId = default, string senderUsername = default, string title = default, string titleKey = default, NotificationV2Type type = default, DateTime updatedAt = default, int varVersion = 2)
         {
             this.CanDelete = canDelete;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -119,6 +120,7 @@ namespace VRChat.API.Model
             this.UpdatedAt = updatedAt;
             this.VarVersion = varVersion;
             this.Details = details;
+            this.DisplayData = displayData;
             this.MessageKey = messageKey;
         }
 
@@ -158,6 +160,12 @@ Group:
         /// </summary>
         [DataMember(Name = "details", EmitDefaultValue = false)]
         public NotificationV2DetailsBoop Details { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DisplayData
+        /// </summary>
+        [DataMember(Name = "displayData", EmitDefaultValue = true)]
+        public Object DisplayData { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiresAt
@@ -318,6 +326,7 @@ Group:
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  DisplayData: ").Append(DisplayData).Append("\n");
             sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
             sb.Append("  ExpiryAfterSeen: ").Append(ExpiryAfterSeen).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -400,6 +409,11 @@ Group:
                     this.Details == input.Details ||
                     (this.Details != null &&
                     this.Details.Equals(input.Details))
+                ) && 
+                (
+                    this.DisplayData == input.DisplayData ||
+                    (this.DisplayData != null &&
+                    this.DisplayData.Equals(input.DisplayData))
                 ) && 
                 (
                     this.ExpiresAt == input.ExpiresAt ||
@@ -538,6 +552,10 @@ Group:
                 if (this.Details != null)
                 {
                     hashCode = (hashCode * 59) + this.Details.GetHashCode();
+                }
+                if (this.DisplayData != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayData.GetHashCode();
                 }
                 if (this.ExpiresAt != null)
                 {

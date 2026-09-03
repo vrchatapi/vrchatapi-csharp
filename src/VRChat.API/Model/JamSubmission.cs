@@ -45,9 +45,9 @@ namespace VRChat.API.Model
         /// <param name="description">description (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="jamId">jamId (required).</param>
-        /// <param name="ratingScore">ratingScore.</param>
+        /// <param name="ratingsScore">ratingsScore (required).</param>
         /// <param name="submitterId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        public JamSubmission(string contentId = default, DateTime createdAt = default, string description = default, string id = default, string jamId = default, int ratingScore = default, string submitterId = default)
+        public JamSubmission(string contentId = default, DateTime createdAt = default, string description = default, string id = default, string jamId = default, int ratingsScore = default, string submitterId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentId = contentId;
@@ -58,9 +58,9 @@ namespace VRChat.API.Model
             this.Id = id;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.JamId = jamId;
+            this.RatingsScore = ratingsScore;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.SubmitterId = submitterId;
-            this.RatingScore = ratingScore;
         }
 
         /// <summary>
@@ -101,10 +101,10 @@ namespace VRChat.API.Model
         public string JamId { get; set; }
 
         /// <summary>
-        /// Gets or Sets RatingScore
+        /// Gets or Sets RatingsScore
         /// </summary>
-        [DataMember(Name = "ratingScore", EmitDefaultValue = false)]
-        public int RatingScore { get; set; }
+        [DataMember(Name = "ratingsScore", IsRequired = true, EmitDefaultValue = true)]
+        public int RatingsScore { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -129,7 +129,7 @@ namespace VRChat.API.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  JamId: ").Append(JamId).Append("\n");
-            sb.Append("  RatingScore: ").Append(RatingScore).Append("\n");
+            sb.Append("  RatingsScore: ").Append(RatingsScore).Append("\n");
             sb.Append("  SubmitterId: ").Append(SubmitterId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -192,8 +192,8 @@ namespace VRChat.API.Model
                     this.JamId.Equals(input.JamId))
                 ) && 
                 (
-                    this.RatingScore == input.RatingScore ||
-                    this.RatingScore.Equals(input.RatingScore)
+                    this.RatingsScore == input.RatingsScore ||
+                    this.RatingsScore.Equals(input.RatingsScore)
                 ) && 
                 (
                     this.SubmitterId == input.SubmitterId ||
@@ -231,7 +231,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.JamId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.RatingScore.GetHashCode();
+                hashCode = (hashCode * 59) + this.RatingsScore.GetHashCode();
                 if (this.SubmitterId != null)
                 {
                     hashCode = (hashCode * 59) + this.SubmitterId.GetHashCode();
@@ -251,12 +251,6 @@ namespace VRChat.API.Model
             if (this.ContentId != null && this.ContentId.Length < 1)
             {
                 yield return new ValidationResult("Invalid value for ContentId, length must be greater than 1.", new [] { "ContentId" });
-            }
-
-            // RatingScore (int) minimum
-            if (this.RatingScore < (int)0)
-            {
-                yield return new ValidationResult("Invalid value for RatingScore, must be a value greater than or equal to 0.", new [] { "RatingScore" });
             }
 
             yield break;

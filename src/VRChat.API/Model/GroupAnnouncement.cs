@@ -27,7 +27,7 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// GroupAnnouncement
+    /// An announcement is stored as a group post, so &#x60;POST /groups/{groupId}/announcement&#x60; answers with the post fields below as well as the announcement ones.
     /// </summary>
     [DataContract(Name = "GroupAnnouncement")]
     public partial class GroupAnnouncement : IEquatable<GroupAnnouncement>, IValidatableObject
@@ -37,24 +37,30 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="createdAt">createdAt.</param>
+        /// <param name="editorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="groupId">groupId.</param>
         /// <param name="id">id.</param>
         /// <param name="imageId">imageId.</param>
         /// <param name="imageUrl">imageUrl.</param>
+        /// <param name="roleIds"> .</param>
         /// <param name="text">text.</param>
         /// <param name="title">title.</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public GroupAnnouncement(string authorId = default, DateTime? createdAt = default, string groupId = default, string id = default, string imageId = default, string imageUrl = default, string text = default, string title = default, DateTime? updatedAt = default)
+        /// <param name="visibility">visibility.</param>
+        public GroupAnnouncement(string authorId = default, DateTime? createdAt = default, string editorId = default, string groupId = default, string id = default, string imageId = default, string imageUrl = default, List<string> roleIds = default, string text = default, string title = default, DateTime? updatedAt = default, string visibility = default)
         {
             this.AuthorId = authorId;
             this.CreatedAt = createdAt;
+            this.EditorId = editorId;
             this.GroupId = groupId;
             this.Id = id;
             this.ImageId = imageId;
             this.ImageUrl = imageUrl;
+            this.RoleIds = roleIds;
             this.Text = text;
             this.Title = title;
             this.UpdatedAt = updatedAt;
+            this.Visibility = visibility;
         }
 
         /// <summary>
@@ -72,6 +78,16 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "createdAt", EmitDefaultValue = true)]
         public DateTime? CreatedAt { get; set; }
+
+        /// <summary>
+        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// </summary>
+        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
+        [DataMember(Name = "editorId", EmitDefaultValue = false)]
+        public string EditorId { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupId
@@ -107,6 +123,13 @@ namespace VRChat.API.Model
         public string ImageUrl { get; set; }
 
         /// <summary>
+        ///  
+        /// </summary>
+        /// <value> </value>
+        [DataMember(Name = "roleIds", EmitDefaultValue = false)]
+        public List<string> RoleIds { get; set; }
+
+        /// <summary>
         /// Gets or Sets Text
         /// </summary>
         [DataMember(Name = "text", EmitDefaultValue = true)]
@@ -125,6 +148,12 @@ namespace VRChat.API.Model
         public DateTime? UpdatedAt { get; set; }
 
         /// <summary>
+        /// Gets or Sets Visibility
+        /// </summary>
+        [DataMember(Name = "visibility", EmitDefaultValue = false)]
+        public string Visibility { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -134,13 +163,16 @@ namespace VRChat.API.Model
             sb.Append("class GroupAnnouncement {\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  EditorId: ").Append(EditorId).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ImageId: ").Append(ImageId).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+            sb.Append("  RoleIds: ").Append(RoleIds).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -187,6 +219,11 @@ namespace VRChat.API.Model
                     this.CreatedAt.Equals(input.CreatedAt))
                 ) && 
                 (
+                    this.EditorId == input.EditorId ||
+                    (this.EditorId != null &&
+                    this.EditorId.Equals(input.EditorId))
+                ) && 
+                (
                     this.GroupId == input.GroupId ||
                     (this.GroupId != null &&
                     this.GroupId.Equals(input.GroupId))
@@ -207,6 +244,12 @@ namespace VRChat.API.Model
                     this.ImageUrl.Equals(input.ImageUrl))
                 ) && 
                 (
+                    this.RoleIds == input.RoleIds ||
+                    this.RoleIds != null &&
+                    input.RoleIds != null &&
+                    this.RoleIds.SequenceEqual(input.RoleIds)
+                ) && 
+                (
                     this.Text == input.Text ||
                     (this.Text != null &&
                     this.Text.Equals(input.Text))
@@ -220,6 +263,11 @@ namespace VRChat.API.Model
                     this.UpdatedAt == input.UpdatedAt ||
                     (this.UpdatedAt != null &&
                     this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.Visibility == input.Visibility ||
+                    (this.Visibility != null &&
+                    this.Visibility.Equals(input.Visibility))
                 );
         }
 
@@ -240,6 +288,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
                 }
+                if (this.EditorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.EditorId.GetHashCode();
+                }
                 if (this.GroupId != null)
                 {
                     hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
@@ -256,6 +308,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
                 }
+                if (this.RoleIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.RoleIds.GetHashCode();
+                }
                 if (this.Text != null)
                 {
                     hashCode = (hashCode * 59) + this.Text.GetHashCode();
@@ -267,6 +323,10 @@ namespace VRChat.API.Model
                 if (this.UpdatedAt != null)
                 {
                     hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                }
+                if (this.Visibility != null)
+                {
+                    hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
                 }
                 return hashCode;
             }

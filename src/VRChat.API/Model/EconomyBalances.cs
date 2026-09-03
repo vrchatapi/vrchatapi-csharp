@@ -41,13 +41,13 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="EconomyBalances" /> class.
         /// </summary>
         /// <param name="balance">balance (required).</param>
-        /// <param name="earnings">earnings (required).</param>
+        /// <param name="earnings">earnings.</param>
         /// <param name="standard">standard (required).</param>
         public EconomyBalances(int balance = default, int earnings = default, int standard = default)
         {
             this.Balance = balance;
-            this.Earnings = earnings;
             this.Standard = standard;
+            this.Earnings = earnings;
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Earnings
         /// </summary>
-        [DataMember(Name = "earnings", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "earnings", EmitDefaultValue = false)]
         public int Earnings { get; set; }
 
         /// <summary>

@@ -111,7 +111,7 @@ namespace VRChat.API.Api
         /// Check API Health
         /// </summary>
         /// <remarks>
-        /// ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
+        /// Gets the overall health status, the server name, and the current build version tag of the API.  VRChat has restricted this endpoint, which now always returns 401 Unauthorized.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>APIHealth</returns>
@@ -122,7 +122,7 @@ namespace VRChat.API.Api
         /// Check API Health
         /// </summary>
         /// <remarks>
-        /// ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
+        /// Gets the overall health status, the server name, and the current build version tag of the API.  VRChat has restricted this endpoint, which now always returns 401 Unauthorized.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of APIHealth</returns>
@@ -315,7 +315,7 @@ namespace VRChat.API.Api
         /// Check API Health
         /// </summary>
         /// <remarks>
-        /// ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
+        /// Gets the overall health status, the server name, and the current build version tag of the API.  VRChat has restricted this endpoint, which now always returns 401 Unauthorized.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -327,7 +327,7 @@ namespace VRChat.API.Api
         /// Check API Health
         /// </summary>
         /// <remarks>
-        /// ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
+        /// Gets the overall health status, the server name, and the current build version tag of the API.  VRChat has restricted this endpoint, which now always returns 401 Unauthorized.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1152,7 +1152,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Check API Health ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
+        /// Check API Health Gets the overall health status, the server name, and the current build version tag of the API.  VRChat has restricted this endpoint, which now always returns 401 Unauthorized.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>APIHealth</returns>
@@ -1172,7 +1172,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Check API Health ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
+        /// Check API Health Gets the overall health status, the server name, and the current build version tag of the API.  VRChat has restricted this endpoint, which now always returns 401 Unauthorized.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of APIHealth</returns>
@@ -1211,7 +1211,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Check API Health ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
+        /// Check API Health Gets the overall health status, the server name, and the current build version tag of the API.  VRChat has restricted this endpoint, which now always returns 401 Unauthorized.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1232,7 +1232,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Check API Health ~~Gets the overall health status, the server name, and the current build version tag of the API.~~  **DEPRECATED:** VRChat has suddenly restricted this endpoint for unknown reasons, and now always return 401 Unauthorized.
+        /// Check API Health Gets the overall health status, the server name, and the current build version tag of the API.  VRChat has restricted this endpoint, which now always returns 401 Unauthorized.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

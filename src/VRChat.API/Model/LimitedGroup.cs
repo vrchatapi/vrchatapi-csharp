@@ -54,11 +54,13 @@ namespace VRChat.API.Model
         /// <param name="memberCount">memberCount.</param>
         /// <param name="membershipStatus">membershipStatus.</param>
         /// <param name="name">name.</param>
+        /// <param name="nameplateId">nameplateId.</param>
+        /// <param name="nameplateUrl">nameplateUrl.</param>
         /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="rules">rules.</param>
         /// <param name="shortCode">shortCode.</param>
         /// <param name="tags"> .</param>
-        public LimitedGroup(string bannerId = default, string bannerUrl = default, DateTime createdAt = default, string description = default, string discriminator = default, List<GroupGallery> galleries = default, string iconId = default, string iconUrl = default, string id = default, bool isSearchable = default, int memberCount = default, GroupMemberStatus? membershipStatus = default, string name = default, string ownerId = default, string rules = default, string shortCode = default, List<string> tags = default)
+        public LimitedGroup(string bannerId = default, string bannerUrl = default, DateTime createdAt = default, string description = default, string discriminator = default, List<GroupGallery> galleries = default, string iconId = default, string iconUrl = default, string id = default, bool isSearchable = default, int memberCount = default, GroupMemberStatus? membershipStatus = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, string ownerId = default, string rules = default, string shortCode = default, List<string> tags = default)
         {
             this.BannerId = bannerId;
             this.BannerUrl = bannerUrl;
@@ -73,6 +75,8 @@ namespace VRChat.API.Model
             this.MemberCount = memberCount;
             this.MembershipStatus = membershipStatus;
             this.Name = name;
+            this.NameplateId = nameplateId;
+            this.NameplateUrl = nameplateUrl;
             this.OwnerId = ownerId;
             this.Rules = rules;
             this.ShortCode = shortCode;
@@ -159,6 +163,18 @@ namespace VRChat.API.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or Sets NameplateId
+        /// </summary>
+        [DataMember(Name = "nameplateId", EmitDefaultValue = true)]
+        public Object NameplateId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NameplateUrl
+        /// </summary>
+        [DataMember(Name = "nameplateUrl", EmitDefaultValue = true)]
+        public Object NameplateUrl { get; set; }
+
+        /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
@@ -211,6 +227,8 @@ namespace VRChat.API.Model
             sb.Append("  MemberCount: ").Append(MemberCount).Append("\n");
             sb.Append("  MembershipStatus: ").Append(MembershipStatus).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  NameplateId: ").Append(NameplateId).Append("\n");
+            sb.Append("  NameplateUrl: ").Append(NameplateUrl).Append("\n");
             sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
             sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
@@ -314,6 +332,16 @@ namespace VRChat.API.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.NameplateId == input.NameplateId ||
+                    (this.NameplateId != null &&
+                    this.NameplateId.Equals(input.NameplateId))
+                ) && 
+                (
+                    this.NameplateUrl == input.NameplateUrl ||
+                    (this.NameplateUrl != null &&
+                    this.NameplateUrl.Equals(input.NameplateUrl))
+                ) && 
+                (
                     this.OwnerId == input.OwnerId ||
                     (this.OwnerId != null &&
                     this.OwnerId.Equals(input.OwnerId))
@@ -387,6 +415,14 @@ namespace VRChat.API.Model
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.NameplateId != null)
+                {
+                    hashCode = (hashCode * 59) + this.NameplateId.GetHashCode();
+                }
+                if (this.NameplateUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.NameplateUrl.GetHashCode();
                 }
                 if (this.OwnerId != null)
                 {

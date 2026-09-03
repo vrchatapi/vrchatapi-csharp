@@ -53,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="receiverUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="seen">Not included in notification objects received from the Websocket API (default to false).</param>
         /// <param name="senderUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="senderUsername">-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429)..</param>
+        /// <param name="senderUsername">The name of the user who sent the notification..</param>
         /// <param name="type">type (required).</param>
         public Notification(DateTime createdAt = default, string details = @"{}", string id = default, string message = default, string receiverUserId = default, bool seen = false, string senderUserId = default, string senderUsername = default, NotificationType type = default)
         {
@@ -131,11 +131,10 @@ namespace VRChat.API.Model
         public string SenderUserId { get; set; }
 
         /// <summary>
-        /// -| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).
+        /// The name of the user who sent the notification.
         /// </summary>
-        /// <value>-| **DEPRECATED:** VRChat API no longer return usernames of other users. [See issue by Tupper for more information](https://github.com/pypy-vrc/VRCX/issues/429).</value>
-        [DataMember(Name = "senderUsername", EmitDefaultValue = false)]
-        [Obsolete]
+        /// <value>The name of the user who sent the notification.</value>
+        [DataMember(Name = "senderUsername", EmitDefaultValue = true)]
         public string SenderUsername { get; set; }
 
         /// <summary>

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Global configuration for various features.
+    /// Global client configuration.  The response carries decoy properties: plausible-looking names VRChat rerolls at random as deliberate obfuscation.
     /// </summary>
     [DataContract(Name = "APIConfig")]
     public partial class APIConfig : IEquatable<APIConfig>, IValidatableObject
@@ -36,7 +36,10 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="APIConfig" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected APIConfig() { }
+        protected APIConfig()
+        {
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfig" /> class.
         /// </summary>
@@ -63,6 +66,7 @@ namespace VRChat.API.Model
         /// <param name="clientApiKey">apiKey to be used for all other requests (required).</param>
         /// <param name="clientBPSCeiling">Unknown (required) (default to 18432).</param>
         /// <param name="clientDisconnectTimeout">Unknown (required) (default to 30000).</param>
+        /// <param name="clientMaxDatagrams">clientMaxDatagrams.</param>
         /// <param name="clientNetDispatchThread">Unknown (default to false).</param>
         /// <param name="clientNetDispatchThreadMobile">Unknown (required) (default to true).</param>
         /// <param name="clientNetInThread">Unknown (default to false).</param>
@@ -76,6 +80,7 @@ namespace VRChat.API.Model
         /// <param name="clientQR">Unknown (default to 1).</param>
         /// <param name="clientReservedPlayerBPS">Unknown (required) (default to 7168).</param>
         /// <param name="clientSentCountAllowance">Unknown (required) (default to 15).</param>
+        /// <param name="clientUseAck2">clientUseAck2.</param>
         /// <param name="constants">constants (required).</param>
         /// <param name="contactEmail">VRChat&#39;s contact email (required).</param>
         /// <param name="copyrightEmail">VRChat&#39;s copyright-issues-related email (required).</param>
@@ -110,16 +115,21 @@ namespace VRChat.API.Model
         /// <param name="downloadUrls">downloadUrls (required).</param>
         /// <param name="dynamicWorldRows">Array of DynamicWorldRow objects, used by the game to display the list of world rows (required).</param>
         /// <param name="economyLedgerBackfill">Unknown (required).</param>
-        /// <param name="economyLedgerMigrationStop">Unknown (required).</param>
+        /// <param name="economyLedgerMigrationStop">Unknown.</param>
         /// <param name="economyLedgerMode">Unknown (required).</param>
         /// <param name="economyPauseEnd">Unknown (required).</param>
         /// <param name="economyPauseStart">Unknown (required).</param>
         /// <param name="economyPurchaseRepairEnabled">Unknown (required).</param>
         /// <param name="economyState">Unknown (required) (default to 1).</param>
+        /// <param name="enableVRCPlusWorldLists">enableVRCPlusWorldLists.</param>
+        /// <param name="eventShelfCampaigns">eventShelfCampaigns.</param>
         /// <param name="events">events (required).</param>
         /// <param name="forceUseLatestWorld">Unknown (required) (default to true).</param>
         /// <param name="giftDisplayType">Display type of gifts (required).</param>
+        /// <param name="globalCacheVersion">globalCacheVersion.</param>
+        /// <param name="globalCacheVersionDefault">globalCacheVersionDefault.</param>
         /// <param name="googleApiClientId">Unknown (required) (default to &quot;827942544393-r2ouvckvouldn9dg9uruseje575e878f.apps.googleusercontent.com&quot;).</param>
+        /// <param name="googleApiUnityClientId">googleApiUnityClientId.</param>
         /// <param name="homeWorldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
         /// <param name="homepageRedirectTarget">Redirect target if you try to open the base API domain in your browser (required) (default to &quot;https://hello.vrchat.com&quot;).</param>
         /// <param name="hubWorldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
@@ -127,8 +137,11 @@ namespace VRChat.API.Model
         /// <param name="iosAppVersion">Current app version for iOS (required).</param>
         /// <param name="iosVersion">iosVersion (required).</param>
         /// <param name="jobsEmail">VRChat&#39;s job application email (required).</param>
+        /// <param name="loadingScreenWeights">Relative weight of each info-push category on the loading screen, per audience..</param>
+        /// <param name="lowMemoryGoHomeTimeout">Low-memory timeout, keyed by platform..</param>
         /// <param name="maxUserEmoji">The maximum number of custom emoji each user may have at a given time. (required) (default to 18).</param>
         /// <param name="maxUserStickers">The maximum number of custom stickers each user may have at a given time. (required) (default to 18).</param>
+        /// <param name="maximumUnityVersionForUploads">maximumUnityVersionForUploads.</param>
         /// <param name="minSupportedClientBuildNumber">minSupportedClientBuildNumber (required).</param>
         /// <param name="minimumUnityVersionForUploads">Minimum Unity version required for uploading assets (required) (default to &quot;2019.0.0f1&quot;).</param>
         /// <param name="moderationEmail">VRChat&#39;s moderation related email (required).</param>
@@ -137,8 +150,13 @@ namespace VRChat.API.Model
         /// <param name="photonNameserverOverrides">Unknown (required).</param>
         /// <param name="photonPublicKeys">Unknown (required).</param>
         /// <param name="playerUrlResolverSha1">Currently used youtube-dl.exe hash in SHA1-delimited format (required).</param>
+        /// <param name="playerUrlResolverSha1GfnOverride">Overrides &#x60;player-url-resolver-sha1&#x60; on GeForce Now..</param>
         /// <param name="playerUrlResolverVersion">Currently used youtube-dl.exe version (required).</param>
+        /// <param name="playerUrlResolverVersionGfnOverride">Overrides &#x60;player-url-resolver-version&#x60; on GeForce Now..</param>
+        /// <param name="profileDefaults">profileDefaults.</param>
+        /// <param name="propComponentList">SDK3 component type names..</param>
         /// <param name="publicKey">Public key, hex encoded (required).</param>
+        /// <param name="questMinimumLowMemoryThreshold">Low-memory threshold, keyed by platform..</param>
         /// <param name="reportCategories">Categories available for reporting objectionable content (required).</param>
         /// <param name="reportFormUrl">URL to the report form (required) (default to &quot;https://help.vrchat.com/hc/en-us/requests/new?ticket_form_id&#x3D;1500000182242&amp;tf_360056455174&#x3D;user_report&amp;tf_360057451993&#x3D;{userId}&amp;tf_1500001445142&#x3D;{reportedId}&amp;tf_subject&#x3D;{reason} {category} By {contentType} {reportedName}&amp;tf_description&#x3D;{description}&quot;).</param>
         /// <param name="reportOptions">Options for reporting content. Select a key+value from this mapping as the &#x60;type&#x60; of the report. Select one key+value from the object at reportOptions[type] as the &#x60;category&#x60; of the report. reportCategories[category] contains user-facing text to display for all possible categories. Select one value from the array at reportOptions[type][category] as the &#x60;reason&#x60; of the report. reportReasons[reason] contains user-facing text to display for all possible categories. (required).</param>
@@ -162,11 +180,13 @@ namespace VRChat.API.Model
         /// <param name="urlList">List of allowed URLs that bypass the \&quot;Allow untrusted URL&#39;s\&quot; setting in-game (required).</param>
         /// <param name="useReliableUdpForVoice">Unknown (required) (default to false).</param>
         /// <param name="viveWindowsUrl">Download link for game on the Steam website. (required).</param>
+        /// <param name="voiceMaxPlaybackSourcesMobile">voiceMaxPlaybackSourcesMobile.</param>
+        /// <param name="voiceMaxPlaybackSourcesPC">voiceMaxPlaybackSourcesPC.</param>
         /// <param name="websocketMaxFriendsRefreshDelay">Unknown (required) (default to 900).</param>
         /// <param name="websocketQuickReconnectTime">Unknown (required) (default to 2).</param>
         /// <param name="websocketReconnectMaxDelay">Unknown (required) (default to 2).</param>
         /// <param name="whiteListedAssetUrls">List of allowed URLs that are allowed to host avatar assets (required).</param>
-        public APIConfig(string campaignStatus = default, bool disableBackgroundPreloads = true, bool locationGiftingNonSubPrioEnabled = true, bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, APIConfigAccessLogsUrls accessLogsUrls = default, string address = default, bool ageVerificationInviteVisible = default, bool ageVerificationP = default, bool ageVerificationStatusVisible = default, int analysisMaxRetries = default, int analysisRetryInterval = default, int analyticsSegmentNewUIPctOfUsers = default, string analyticsSegmentNewUISalt = default, List<APIConfigAnnouncement> announcements = default, APIConfigAudioConfig audioConfig = default, List<string> availableLanguageCodes = default, List<string> availableLanguages = default, APIConfigAvatarPerfLimiter avatarPerfLimiter = default, int chatboxLogBufferSeconds = 40, string clientApiKey = default, int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, bool clientNetDispatchThread = false, bool clientNetDispatchThreadMobile = true, bool clientNetInThread = false, bool clientNetInThread2 = false, bool clientNetInThreadMobile = false, bool clientNetInThreadMobile2 = false, bool clientNetOutThread = false, bool clientNetOutThread2 = false, bool clientNetOutThreadMobile = false, bool clientNetOutThreadMobile2 = false, int clientQR = 1, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, APIConfigConstants constants = default, string contactEmail = default, string copyrightEmail = default, string copyrightFormUrl = default, int currentPrivacyVersion = 1, int currentTOSVersion = default, string defaultAvatar = default, string defaultStickerSet = default, List<string> devLanguageCodes = default, string devSdkUrl = default, string devSdkVersion = default, DateTime disCountdown = default, bool disableAVProInProton = false, bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCaptcha = true, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableGiftDrops = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default, APIConfigDownloadURLList downloadUrls = default, List<DynamicContentRow> dynamicWorldRows = default, bool economyLedgerBackfill = default, string economyLedgerMigrationStop = default, string economyLedgerMode = default, DateTime economyPauseEnd = default, DateTime economyPauseStart = default, bool economyPurchaseRepairEnabled = default, int economyState = 1, APIConfigEvents events = default, bool forceUseLatestWorld = true, string giftDisplayType = default, string googleApiClientId = @"827942544393-r2ouvckvouldn9dg9uruseje575e878f.apps.googleusercontent.com", string homeWorldId = default, string homepageRedirectTarget = @"https://hello.vrchat.com", string hubWorldId = default, List<string> imageHostUrlList = default, List<string> iosAppVersion = default, APIConfigIosVersion iosVersion = default, string jobsEmail = default, int maxUserEmoji = 18, int maxUserStickers = 18, APIConfigMinSupportedClientBuildNumber minSupportedClientBuildNumber = default, string minimumUnityVersionForUploads = @"2019.0.0f1", string moderationEmail = default, string notAllowedToSelectAvatarInPrivateWorldMessage = default, APIConfigOfflineAnalysis offlineAnalysis = default, List<string> photonNameserverOverrides = default, List<string> photonPublicKeys = default, string playerUrlResolverSha1 = default, string playerUrlResolverVersion = default, string publicKey = default, Dictionary<string, ReportCategory> reportCategories = default, string reportFormUrl = @"https://help.vrchat.com/hc/en-us/requests/new?ticket_form_id=1500000182242&tf_360056455174=user_report&tf_360057451993={userId}&tf_1500001445142={reportedId}&tf_subject={reason} {category} By {contentType} {reportedName}&tf_description={description}", Dictionary<string, Dictionary<string, List<string>>> reportOptions = default, Dictionary<string, ReportReason> reportReasons = default, bool requireAgeVerificationBetaTag = default, string sdkDeveloperFaqUrl = default, string sdkDiscordUrl = default, string sdkNotAllowedToPublishMessage = default, string sdkUnityVersion = default, List<string> stringHostUrlList = default, string supportEmail = default, string supportFormUrl = default, string timeOutWorldId = default, bool timekeeping = true, string tutorialWorldId = default, int updateRateMsMaximum = default, int updateRateMsMinimum = default, int updateRateMsNormal = default, int updateRateMsUdonManual = default, int uploadAnalysisPercent = default, List<string> urlList = default, bool useReliableUdpForVoice = false, string viveWindowsUrl = default, int websocketMaxFriendsRefreshDelay = 900, int websocketQuickReconnectTime = 2, int websocketReconnectMaxDelay = 2, List<string> whiteListedAssetUrls = default)
+        public APIConfig(string campaignStatus = default, bool disableBackgroundPreloads = true, bool locationGiftingNonSubPrioEnabled = true, bool voiceEnableDegradation = false, bool voiceEnableReceiverLimiting = true, APIConfigAccessLogsUrls accessLogsUrls = default, string address = default, bool ageVerificationInviteVisible = default, bool ageVerificationP = default, bool ageVerificationStatusVisible = default, int analysisMaxRetries = default, int analysisRetryInterval = default, int analyticsSegmentNewUIPctOfUsers = default, string analyticsSegmentNewUISalt = default, List<APIConfigAnnouncement> announcements = default, APIConfigAudioConfig audioConfig = default, List<string> availableLanguageCodes = default, List<string> availableLanguages = default, APIConfigAvatarPerfLimiter avatarPerfLimiter = default, int chatboxLogBufferSeconds = 40, string clientApiKey = default, int clientBPSCeiling = 18432, int clientDisconnectTimeout = 30000, int clientMaxDatagrams = default, bool clientNetDispatchThread = false, bool clientNetDispatchThreadMobile = true, bool clientNetInThread = false, bool clientNetInThread2 = false, bool clientNetInThreadMobile = false, bool clientNetInThreadMobile2 = false, bool clientNetOutThread = false, bool clientNetOutThread2 = false, bool clientNetOutThreadMobile = false, bool clientNetOutThreadMobile2 = false, int clientQR = 1, int clientReservedPlayerBPS = 7168, int clientSentCountAllowance = 15, bool clientUseAck2 = default, APIConfigConstants constants = default, string contactEmail = default, string copyrightEmail = default, string copyrightFormUrl = default, int currentPrivacyVersion = 1, int currentTOSVersion = default, string defaultAvatar = default, string defaultStickerSet = default, List<string> devLanguageCodes = default, string devSdkUrl = default, string devSdkVersion = default, DateTime disCountdown = default, bool disableAVProInProton = false, bool disableAvatarCopying = false, bool disableAvatarGating = false, bool disableCaptcha = true, bool disableCommunityLabs = false, bool disableCommunityLabsPromotion = false, bool disableEmail = false, bool disableEventStream = false, bool disableFeedbackGating = false, bool disableFrontendBuilds = false, bool disableGiftDrops = false, bool disableHello = false, bool disableOculusSubs = false, bool disableRegistration = false, bool disableSteamNetworking = true, bool disableTwoFactorAuth = false, bool disableUdon = false, bool disableUpgradeAccount = false, string downloadLinkWindows = default, APIConfigDownloadURLList downloadUrls = default, List<DynamicContentRow> dynamicWorldRows = default, bool economyLedgerBackfill = default, string economyLedgerMigrationStop = default, string economyLedgerMode = default, DateTime economyPauseEnd = default, DateTime economyPauseStart = default, bool economyPurchaseRepairEnabled = default, int economyState = 1, bool enableVRCPlusWorldLists = default, List<APIConfigEventShelfCampaign> eventShelfCampaigns = default, APIConfigEvents events = default, bool forceUseLatestWorld = true, string giftDisplayType = default, int globalCacheVersion = default, int globalCacheVersionDefault = default, string googleApiClientId = @"827942544393-r2ouvckvouldn9dg9uruseje575e878f.apps.googleusercontent.com", string googleApiUnityClientId = default, string homeWorldId = default, string homepageRedirectTarget = @"https://hello.vrchat.com", string hubWorldId = default, List<string> imageHostUrlList = default, List<string> iosAppVersion = default, APIConfigIosVersion iosVersion = default, string jobsEmail = default, Dictionary<string, APIConfigLoadingScreenWeights> loadingScreenWeights = default, Dictionary<string, APIConfigLowMemoryGoHomeTimeoutValue> lowMemoryGoHomeTimeout = default, int maxUserEmoji = 18, int maxUserStickers = 18, string maximumUnityVersionForUploads = default, APIConfigMinSupportedClientBuildNumber minSupportedClientBuildNumber = default, string minimumUnityVersionForUploads = @"2019.0.0f1", string moderationEmail = default, string notAllowedToSelectAvatarInPrivateWorldMessage = default, APIConfigOfflineAnalysis offlineAnalysis = default, List<string> photonNameserverOverrides = default, List<string> photonPublicKeys = default, string playerUrlResolverSha1 = default, string playerUrlResolverSha1GfnOverride = default, string playerUrlResolverVersion = default, string playerUrlResolverVersionGfnOverride = default, APIConfigProfileDefaults profileDefaults = default, List<string> propComponentList = default, string publicKey = default, Dictionary<string, int> questMinimumLowMemoryThreshold = default, Dictionary<string, ReportCategory> reportCategories = default, string reportFormUrl = @"https://help.vrchat.com/hc/en-us/requests/new?ticket_form_id=1500000182242&tf_360056455174=user_report&tf_360057451993={userId}&tf_1500001445142={reportedId}&tf_subject={reason} {category} By {contentType} {reportedName}&tf_description={description}", Dictionary<string, Dictionary<string, List<string>>> reportOptions = default, Dictionary<string, ReportReason> reportReasons = default, bool requireAgeVerificationBetaTag = default, string sdkDeveloperFaqUrl = default, string sdkDiscordUrl = default, string sdkNotAllowedToPublishMessage = default, string sdkUnityVersion = default, List<string> stringHostUrlList = default, string supportEmail = default, string supportFormUrl = default, string timeOutWorldId = default, bool timekeeping = true, string tutorialWorldId = default, int updateRateMsMaximum = default, int updateRateMsMinimum = default, int updateRateMsNormal = default, int updateRateMsUdonManual = default, int uploadAnalysisPercent = default, List<string> urlList = default, bool useReliableUdpForVoice = false, string viveWindowsUrl = default, int voiceMaxPlaybackSourcesMobile = default, int voiceMaxPlaybackSourcesPC = default, int websocketMaxFriendsRefreshDelay = 900, int websocketQuickReconnectTime = 2, int websocketReconnectMaxDelay = 2, List<string> whiteListedAssetUrls = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.CampaignStatus = campaignStatus;
@@ -244,8 +264,6 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.DynamicWorldRows = dynamicWorldRows;
             this.EconomyLedgerBackfill = economyLedgerBackfill;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.EconomyLedgerMigrationStop = economyLedgerMigrationStop;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.EconomyLedgerMode = economyLedgerMode;
             this.EconomyPauseEnd = economyPauseEnd;
@@ -339,6 +357,7 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.WhiteListedAssetUrls = whiteListedAssetUrls;
             this.AudioConfig = audioConfig;
+            this.ClientMaxDatagrams = clientMaxDatagrams;
             this.ClientNetDispatchThread = clientNetDispatchThread;
             this.ClientNetInThread = clientNetInThread;
             this.ClientNetInThread2 = clientNetInThread2;
@@ -349,9 +368,27 @@ namespace VRChat.API.Model
             this.ClientNetOutThreadMobile = clientNetOutThreadMobile;
             this.ClientNetOutThreadMobile2 = clientNetOutThreadMobile2;
             this.ClientQR = clientQR;
+            this.ClientUseAck2 = clientUseAck2;
             this.DevLanguageCodes = devLanguageCodes;
             this.DisableAVProInProton = disableAVProInProton;
             this.DisableCaptcha = disableCaptcha;
+            this.EconomyLedgerMigrationStop = economyLedgerMigrationStop;
+            this.EnableVRCPlusWorldLists = enableVRCPlusWorldLists;
+            this.EventShelfCampaigns = eventShelfCampaigns;
+            this.GlobalCacheVersion = globalCacheVersion;
+            this.GlobalCacheVersionDefault = globalCacheVersionDefault;
+            this.GoogleApiUnityClientId = googleApiUnityClientId;
+            this.LoadingScreenWeights = loadingScreenWeights;
+            this.LowMemoryGoHomeTimeout = lowMemoryGoHomeTimeout;
+            this.MaximumUnityVersionForUploads = maximumUnityVersionForUploads;
+            this.PlayerUrlResolverSha1GfnOverride = playerUrlResolverSha1GfnOverride;
+            this.PlayerUrlResolverVersionGfnOverride = playerUrlResolverVersionGfnOverride;
+            this.ProfileDefaults = profileDefaults;
+            this.PropComponentList = propComponentList;
+            this.QuestMinimumLowMemoryThreshold = questMinimumLowMemoryThreshold;
+            this.VoiceMaxPlaybackSourcesMobile = voiceMaxPlaybackSourcesMobile;
+            this.VoiceMaxPlaybackSourcesPC = voiceMaxPlaybackSourcesPC;
+            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -510,6 +547,12 @@ namespace VRChat.API.Model
         public int ClientDisconnectTimeout { get; set; }
 
         /// <summary>
+        /// Gets or Sets ClientMaxDatagrams
+        /// </summary>
+        [DataMember(Name = "clientMaxDatagrams", EmitDefaultValue = false)]
+        public int ClientMaxDatagrams { get; set; }
+
+        /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
@@ -599,6 +642,12 @@ namespace VRChat.API.Model
         /// <value>Unknown</value>
         [DataMember(Name = "clientSentCountAllowance", IsRequired = true, EmitDefaultValue = true)]
         public int ClientSentCountAllowance { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ClientUseAck2
+        /// </summary>
+        [DataMember(Name = "clientUseAck2", EmitDefaultValue = true)]
+        public bool ClientUseAck2 { get; set; }
 
         /// <summary>
         /// Gets or Sets Constants
@@ -847,7 +896,7 @@ namespace VRChat.API.Model
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "economyLedgerMigrationStop", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "economyLedgerMigrationStop", EmitDefaultValue = false)]
         public string EconomyLedgerMigrationStop { get; set; }
 
         /// <summary>
@@ -886,6 +935,18 @@ namespace VRChat.API.Model
         public int EconomyState { get; set; }
 
         /// <summary>
+        /// Gets or Sets EnableVRCPlusWorldLists
+        /// </summary>
+        [DataMember(Name = "enableVRCPlusWorldLists", EmitDefaultValue = true)]
+        public bool EnableVRCPlusWorldLists { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EventShelfCampaigns
+        /// </summary>
+        [DataMember(Name = "eventShelfCampaigns", EmitDefaultValue = false)]
+        public List<APIConfigEventShelfCampaign> EventShelfCampaigns { get; set; }
+
+        /// <summary>
         /// Gets or Sets Events
         /// </summary>
         [DataMember(Name = "events", IsRequired = true, EmitDefaultValue = true)]
@@ -906,11 +967,29 @@ namespace VRChat.API.Model
         public string GiftDisplayType { get; set; }
 
         /// <summary>
+        /// Gets or Sets GlobalCacheVersion
+        /// </summary>
+        [DataMember(Name = "globalCacheVersion", EmitDefaultValue = false)]
+        public int GlobalCacheVersion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GlobalCacheVersionDefault
+        /// </summary>
+        [DataMember(Name = "globalCacheVersionDefault", EmitDefaultValue = false)]
+        public int GlobalCacheVersionDefault { get; set; }
+
+        /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
         [DataMember(Name = "googleApiClientId", IsRequired = true, EmitDefaultValue = true)]
         public string GoogleApiClientId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GoogleApiUnityClientId
+        /// </summary>
+        [DataMember(Name = "googleApiUnityClientId", EmitDefaultValue = false)]
+        public string GoogleApiUnityClientId { get; set; }
 
         /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
@@ -967,6 +1046,20 @@ namespace VRChat.API.Model
         public string JobsEmail { get; set; }
 
         /// <summary>
+        /// Relative weight of each info-push category on the loading screen, per audience.
+        /// </summary>
+        /// <value>Relative weight of each info-push category on the loading screen, per audience.</value>
+        [DataMember(Name = "loadingScreenWeights", EmitDefaultValue = false)]
+        public Dictionary<string, APIConfigLoadingScreenWeights> LoadingScreenWeights { get; set; }
+
+        /// <summary>
+        /// Low-memory timeout, keyed by platform.
+        /// </summary>
+        /// <value>Low-memory timeout, keyed by platform.</value>
+        [DataMember(Name = "lowMemoryGoHomeTimeout", EmitDefaultValue = false)]
+        public Dictionary<string, APIConfigLowMemoryGoHomeTimeoutValue> LowMemoryGoHomeTimeout { get; set; }
+
+        /// <summary>
         /// The maximum number of custom emoji each user may have at a given time.
         /// </summary>
         /// <value>The maximum number of custom emoji each user may have at a given time.</value>
@@ -979,6 +1072,15 @@ namespace VRChat.API.Model
         /// <value>The maximum number of custom stickers each user may have at a given time.</value>
         [DataMember(Name = "maxUserStickers", IsRequired = true, EmitDefaultValue = true)]
         public int MaxUserStickers { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MaximumUnityVersionForUploads
+        /// </summary>
+        /*
+        <example>2023.0.0f0</example>
+        */
+        [DataMember(Name = "maximumUnityVersionForUploads", EmitDefaultValue = false)]
+        public string MaximumUnityVersionForUploads { get; set; }
 
         /// <summary>
         /// Gets or Sets MinSupportedClientBuildNumber
@@ -1035,6 +1137,13 @@ namespace VRChat.API.Model
         public string PlayerUrlResolverSha1 { get; set; }
 
         /// <summary>
+        /// Overrides &#x60;player-url-resolver-sha1&#x60; on GeForce Now.
+        /// </summary>
+        /// <value>Overrides &#x60;player-url-resolver-sha1&#x60; on GeForce Now.</value>
+        [DataMember(Name = "player-url-resolver-sha1-gfn-override", EmitDefaultValue = false)]
+        public string PlayerUrlResolverSha1GfnOverride { get; set; }
+
+        /// <summary>
         /// Currently used youtube-dl.exe version
         /// </summary>
         /// <value>Currently used youtube-dl.exe version</value>
@@ -1042,11 +1151,41 @@ namespace VRChat.API.Model
         public string PlayerUrlResolverVersion { get; set; }
 
         /// <summary>
+        /// Overrides &#x60;player-url-resolver-version&#x60; on GeForce Now.
+        /// </summary>
+        /// <value>Overrides &#x60;player-url-resolver-version&#x60; on GeForce Now.</value>
+        /*
+        <example>2026-07-04-GFN</example>
+        */
+        [DataMember(Name = "player-url-resolver-version-gfn-override", EmitDefaultValue = false)]
+        public string PlayerUrlResolverVersionGfnOverride { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProfileDefaults
+        /// </summary>
+        [DataMember(Name = "profileDefaults", EmitDefaultValue = false)]
+        public APIConfigProfileDefaults ProfileDefaults { get; set; }
+
+        /// <summary>
+        /// SDK3 component type names.
+        /// </summary>
+        /// <value>SDK3 component type names.</value>
+        [DataMember(Name = "propComponentList", EmitDefaultValue = false)]
+        public List<string> PropComponentList { get; set; }
+
+        /// <summary>
         /// Public key, hex encoded
         /// </summary>
         /// <value>Public key, hex encoded</value>
         [DataMember(Name = "publicKey", IsRequired = true, EmitDefaultValue = true)]
         public string PublicKey { get; set; }
+
+        /// <summary>
+        /// Low-memory threshold, keyed by platform.
+        /// </summary>
+        /// <value>Low-memory threshold, keyed by platform.</value>
+        [DataMember(Name = "questMinimumLowMemoryThreshold", EmitDefaultValue = false)]
+        public Dictionary<string, int> QuestMinimumLowMemoryThreshold { get; set; }
 
         /// <summary>
         /// Categories available for reporting objectionable content
@@ -1215,6 +1354,18 @@ namespace VRChat.API.Model
         public string ViveWindowsUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets VoiceMaxPlaybackSourcesMobile
+        /// </summary>
+        [DataMember(Name = "voiceMaxPlaybackSourcesMobile", EmitDefaultValue = false)]
+        public int VoiceMaxPlaybackSourcesMobile { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VoiceMaxPlaybackSourcesPC
+        /// </summary>
+        [DataMember(Name = "voiceMaxPlaybackSourcesPC", EmitDefaultValue = false)]
+        public int VoiceMaxPlaybackSourcesPC { get; set; }
+
+        /// <summary>
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
@@ -1241,6 +1392,12 @@ namespace VRChat.API.Model
         /// <value>List of allowed URLs that are allowed to host avatar assets</value>
         [DataMember(Name = "whiteListedAssetUrls", IsRequired = true, EmitDefaultValue = true)]
         public List<string> WhiteListedAssetUrls { get; set; }
+
+        /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -1273,6 +1430,7 @@ namespace VRChat.API.Model
             sb.Append("  ClientApiKey: ").Append(ClientApiKey).Append("\n");
             sb.Append("  ClientBPSCeiling: ").Append(ClientBPSCeiling).Append("\n");
             sb.Append("  ClientDisconnectTimeout: ").Append(ClientDisconnectTimeout).Append("\n");
+            sb.Append("  ClientMaxDatagrams: ").Append(ClientMaxDatagrams).Append("\n");
             sb.Append("  ClientNetDispatchThread: ").Append(ClientNetDispatchThread).Append("\n");
             sb.Append("  ClientNetDispatchThreadMobile: ").Append(ClientNetDispatchThreadMobile).Append("\n");
             sb.Append("  ClientNetInThread: ").Append(ClientNetInThread).Append("\n");
@@ -1286,6 +1444,7 @@ namespace VRChat.API.Model
             sb.Append("  ClientQR: ").Append(ClientQR).Append("\n");
             sb.Append("  ClientReservedPlayerBPS: ").Append(ClientReservedPlayerBPS).Append("\n");
             sb.Append("  ClientSentCountAllowance: ").Append(ClientSentCountAllowance).Append("\n");
+            sb.Append("  ClientUseAck2: ").Append(ClientUseAck2).Append("\n");
             sb.Append("  Constants: ").Append(Constants).Append("\n");
             sb.Append("  ContactEmail: ").Append(ContactEmail).Append("\n");
             sb.Append("  CopyrightEmail: ").Append(CopyrightEmail).Append("\n");
@@ -1326,10 +1485,15 @@ namespace VRChat.API.Model
             sb.Append("  EconomyPauseStart: ").Append(EconomyPauseStart).Append("\n");
             sb.Append("  EconomyPurchaseRepairEnabled: ").Append(EconomyPurchaseRepairEnabled).Append("\n");
             sb.Append("  EconomyState: ").Append(EconomyState).Append("\n");
+            sb.Append("  EnableVRCPlusWorldLists: ").Append(EnableVRCPlusWorldLists).Append("\n");
+            sb.Append("  EventShelfCampaigns: ").Append(EventShelfCampaigns).Append("\n");
             sb.Append("  Events: ").Append(Events).Append("\n");
             sb.Append("  ForceUseLatestWorld: ").Append(ForceUseLatestWorld).Append("\n");
             sb.Append("  GiftDisplayType: ").Append(GiftDisplayType).Append("\n");
+            sb.Append("  GlobalCacheVersion: ").Append(GlobalCacheVersion).Append("\n");
+            sb.Append("  GlobalCacheVersionDefault: ").Append(GlobalCacheVersionDefault).Append("\n");
             sb.Append("  GoogleApiClientId: ").Append(GoogleApiClientId).Append("\n");
+            sb.Append("  GoogleApiUnityClientId: ").Append(GoogleApiUnityClientId).Append("\n");
             sb.Append("  HomeWorldId: ").Append(HomeWorldId).Append("\n");
             sb.Append("  HomepageRedirectTarget: ").Append(HomepageRedirectTarget).Append("\n");
             sb.Append("  HubWorldId: ").Append(HubWorldId).Append("\n");
@@ -1337,8 +1501,11 @@ namespace VRChat.API.Model
             sb.Append("  IosAppVersion: ").Append(IosAppVersion).Append("\n");
             sb.Append("  IosVersion: ").Append(IosVersion).Append("\n");
             sb.Append("  JobsEmail: ").Append(JobsEmail).Append("\n");
+            sb.Append("  LoadingScreenWeights: ").Append(LoadingScreenWeights).Append("\n");
+            sb.Append("  LowMemoryGoHomeTimeout: ").Append(LowMemoryGoHomeTimeout).Append("\n");
             sb.Append("  MaxUserEmoji: ").Append(MaxUserEmoji).Append("\n");
             sb.Append("  MaxUserStickers: ").Append(MaxUserStickers).Append("\n");
+            sb.Append("  MaximumUnityVersionForUploads: ").Append(MaximumUnityVersionForUploads).Append("\n");
             sb.Append("  MinSupportedClientBuildNumber: ").Append(MinSupportedClientBuildNumber).Append("\n");
             sb.Append("  MinimumUnityVersionForUploads: ").Append(MinimumUnityVersionForUploads).Append("\n");
             sb.Append("  ModerationEmail: ").Append(ModerationEmail).Append("\n");
@@ -1347,8 +1514,13 @@ namespace VRChat.API.Model
             sb.Append("  PhotonNameserverOverrides: ").Append(PhotonNameserverOverrides).Append("\n");
             sb.Append("  PhotonPublicKeys: ").Append(PhotonPublicKeys).Append("\n");
             sb.Append("  PlayerUrlResolverSha1: ").Append(PlayerUrlResolverSha1).Append("\n");
+            sb.Append("  PlayerUrlResolverSha1GfnOverride: ").Append(PlayerUrlResolverSha1GfnOverride).Append("\n");
             sb.Append("  PlayerUrlResolverVersion: ").Append(PlayerUrlResolverVersion).Append("\n");
+            sb.Append("  PlayerUrlResolverVersionGfnOverride: ").Append(PlayerUrlResolverVersionGfnOverride).Append("\n");
+            sb.Append("  ProfileDefaults: ").Append(ProfileDefaults).Append("\n");
+            sb.Append("  PropComponentList: ").Append(PropComponentList).Append("\n");
             sb.Append("  PublicKey: ").Append(PublicKey).Append("\n");
+            sb.Append("  QuestMinimumLowMemoryThreshold: ").Append(QuestMinimumLowMemoryThreshold).Append("\n");
             sb.Append("  ReportCategories: ").Append(ReportCategories).Append("\n");
             sb.Append("  ReportFormUrl: ").Append(ReportFormUrl).Append("\n");
             sb.Append("  ReportOptions: ").Append(ReportOptions).Append("\n");
@@ -1372,10 +1544,13 @@ namespace VRChat.API.Model
             sb.Append("  UrlList: ").Append(UrlList).Append("\n");
             sb.Append("  UseReliableUdpForVoice: ").Append(UseReliableUdpForVoice).Append("\n");
             sb.Append("  ViveWindowsUrl: ").Append(ViveWindowsUrl).Append("\n");
+            sb.Append("  VoiceMaxPlaybackSourcesMobile: ").Append(VoiceMaxPlaybackSourcesMobile).Append("\n");
+            sb.Append("  VoiceMaxPlaybackSourcesPC: ").Append(VoiceMaxPlaybackSourcesPC).Append("\n");
             sb.Append("  WebsocketMaxFriendsRefreshDelay: ").Append(WebsocketMaxFriendsRefreshDelay).Append("\n");
             sb.Append("  WebsocketQuickReconnectTime: ").Append(WebsocketQuickReconnectTime).Append("\n");
             sb.Append("  WebsocketReconnectMaxDelay: ").Append(WebsocketReconnectMaxDelay).Append("\n");
             sb.Append("  WhiteListedAssetUrls: ").Append(WhiteListedAssetUrls).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -1517,6 +1692,10 @@ namespace VRChat.API.Model
                     this.ClientDisconnectTimeout.Equals(input.ClientDisconnectTimeout)
                 ) && 
                 (
+                    this.ClientMaxDatagrams == input.ClientMaxDatagrams ||
+                    this.ClientMaxDatagrams.Equals(input.ClientMaxDatagrams)
+                ) && 
+                (
                     this.ClientNetDispatchThread == input.ClientNetDispatchThread ||
                     this.ClientNetDispatchThread.Equals(input.ClientNetDispatchThread)
                 ) && 
@@ -1567,6 +1746,10 @@ namespace VRChat.API.Model
                 (
                     this.ClientSentCountAllowance == input.ClientSentCountAllowance ||
                     this.ClientSentCountAllowance.Equals(input.ClientSentCountAllowance)
+                ) && 
+                (
+                    this.ClientUseAck2 == input.ClientUseAck2 ||
+                    this.ClientUseAck2.Equals(input.ClientUseAck2)
                 ) && 
                 (
                     this.Constants == input.Constants ||
@@ -1748,6 +1931,16 @@ namespace VRChat.API.Model
                     this.EconomyState.Equals(input.EconomyState)
                 ) && 
                 (
+                    this.EnableVRCPlusWorldLists == input.EnableVRCPlusWorldLists ||
+                    this.EnableVRCPlusWorldLists.Equals(input.EnableVRCPlusWorldLists)
+                ) && 
+                (
+                    this.EventShelfCampaigns == input.EventShelfCampaigns ||
+                    this.EventShelfCampaigns != null &&
+                    input.EventShelfCampaigns != null &&
+                    this.EventShelfCampaigns.SequenceEqual(input.EventShelfCampaigns)
+                ) && 
+                (
                     this.Events == input.Events ||
                     (this.Events != null &&
                     this.Events.Equals(input.Events))
@@ -1762,9 +1955,22 @@ namespace VRChat.API.Model
                     this.GiftDisplayType.Equals(input.GiftDisplayType))
                 ) && 
                 (
+                    this.GlobalCacheVersion == input.GlobalCacheVersion ||
+                    this.GlobalCacheVersion.Equals(input.GlobalCacheVersion)
+                ) && 
+                (
+                    this.GlobalCacheVersionDefault == input.GlobalCacheVersionDefault ||
+                    this.GlobalCacheVersionDefault.Equals(input.GlobalCacheVersionDefault)
+                ) && 
+                (
                     this.GoogleApiClientId == input.GoogleApiClientId ||
                     (this.GoogleApiClientId != null &&
                     this.GoogleApiClientId.Equals(input.GoogleApiClientId))
+                ) && 
+                (
+                    this.GoogleApiUnityClientId == input.GoogleApiUnityClientId ||
+                    (this.GoogleApiUnityClientId != null &&
+                    this.GoogleApiUnityClientId.Equals(input.GoogleApiUnityClientId))
                 ) && 
                 (
                     this.HomeWorldId == input.HomeWorldId ||
@@ -1804,12 +2010,29 @@ namespace VRChat.API.Model
                     this.JobsEmail.Equals(input.JobsEmail))
                 ) && 
                 (
+                    this.LoadingScreenWeights == input.LoadingScreenWeights ||
+                    this.LoadingScreenWeights != null &&
+                    input.LoadingScreenWeights != null &&
+                    this.LoadingScreenWeights.SequenceEqual(input.LoadingScreenWeights)
+                ) && 
+                (
+                    this.LowMemoryGoHomeTimeout == input.LowMemoryGoHomeTimeout ||
+                    this.LowMemoryGoHomeTimeout != null &&
+                    input.LowMemoryGoHomeTimeout != null &&
+                    this.LowMemoryGoHomeTimeout.SequenceEqual(input.LowMemoryGoHomeTimeout)
+                ) && 
+                (
                     this.MaxUserEmoji == input.MaxUserEmoji ||
                     this.MaxUserEmoji.Equals(input.MaxUserEmoji)
                 ) && 
                 (
                     this.MaxUserStickers == input.MaxUserStickers ||
                     this.MaxUserStickers.Equals(input.MaxUserStickers)
+                ) && 
+                (
+                    this.MaximumUnityVersionForUploads == input.MaximumUnityVersionForUploads ||
+                    (this.MaximumUnityVersionForUploads != null &&
+                    this.MaximumUnityVersionForUploads.Equals(input.MaximumUnityVersionForUploads))
                 ) && 
                 (
                     this.MinSupportedClientBuildNumber == input.MinSupportedClientBuildNumber ||
@@ -1854,14 +2077,41 @@ namespace VRChat.API.Model
                     this.PlayerUrlResolverSha1.Equals(input.PlayerUrlResolverSha1))
                 ) && 
                 (
+                    this.PlayerUrlResolverSha1GfnOverride == input.PlayerUrlResolverSha1GfnOverride ||
+                    (this.PlayerUrlResolverSha1GfnOverride != null &&
+                    this.PlayerUrlResolverSha1GfnOverride.Equals(input.PlayerUrlResolverSha1GfnOverride))
+                ) && 
+                (
                     this.PlayerUrlResolverVersion == input.PlayerUrlResolverVersion ||
                     (this.PlayerUrlResolverVersion != null &&
                     this.PlayerUrlResolverVersion.Equals(input.PlayerUrlResolverVersion))
                 ) && 
                 (
+                    this.PlayerUrlResolverVersionGfnOverride == input.PlayerUrlResolverVersionGfnOverride ||
+                    (this.PlayerUrlResolverVersionGfnOverride != null &&
+                    this.PlayerUrlResolverVersionGfnOverride.Equals(input.PlayerUrlResolverVersionGfnOverride))
+                ) && 
+                (
+                    this.ProfileDefaults == input.ProfileDefaults ||
+                    (this.ProfileDefaults != null &&
+                    this.ProfileDefaults.Equals(input.ProfileDefaults))
+                ) && 
+                (
+                    this.PropComponentList == input.PropComponentList ||
+                    this.PropComponentList != null &&
+                    input.PropComponentList != null &&
+                    this.PropComponentList.SequenceEqual(input.PropComponentList)
+                ) && 
+                (
                     this.PublicKey == input.PublicKey ||
                     (this.PublicKey != null &&
                     this.PublicKey.Equals(input.PublicKey))
+                ) && 
+                (
+                    this.QuestMinimumLowMemoryThreshold == input.QuestMinimumLowMemoryThreshold ||
+                    this.QuestMinimumLowMemoryThreshold != null &&
+                    input.QuestMinimumLowMemoryThreshold != null &&
+                    this.QuestMinimumLowMemoryThreshold.SequenceEqual(input.QuestMinimumLowMemoryThreshold)
                 ) && 
                 (
                     this.ReportCategories == input.ReportCategories ||
@@ -1976,6 +2226,14 @@ namespace VRChat.API.Model
                     this.ViveWindowsUrl.Equals(input.ViveWindowsUrl))
                 ) && 
                 (
+                    this.VoiceMaxPlaybackSourcesMobile == input.VoiceMaxPlaybackSourcesMobile ||
+                    this.VoiceMaxPlaybackSourcesMobile.Equals(input.VoiceMaxPlaybackSourcesMobile)
+                ) && 
+                (
+                    this.VoiceMaxPlaybackSourcesPC == input.VoiceMaxPlaybackSourcesPC ||
+                    this.VoiceMaxPlaybackSourcesPC.Equals(input.VoiceMaxPlaybackSourcesPC)
+                ) && 
+                (
                     this.WebsocketMaxFriendsRefreshDelay == input.WebsocketMaxFriendsRefreshDelay ||
                     this.WebsocketMaxFriendsRefreshDelay.Equals(input.WebsocketMaxFriendsRefreshDelay)
                 ) && 
@@ -1992,7 +2250,8 @@ namespace VRChat.API.Model
                     this.WhiteListedAssetUrls != null &&
                     input.WhiteListedAssetUrls != null &&
                     this.WhiteListedAssetUrls.SequenceEqual(input.WhiteListedAssetUrls)
-                );
+                )
+                && (this.AdditionalProperties.Count == input.AdditionalProperties.Count && !this.AdditionalProperties.Except(input.AdditionalProperties).Any());
         }
 
         /// <summary>
@@ -2057,6 +2316,7 @@ namespace VRChat.API.Model
                 }
                 hashCode = (hashCode * 59) + this.ClientBPSCeiling.GetHashCode();
                 hashCode = (hashCode * 59) + this.ClientDisconnectTimeout.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientMaxDatagrams.GetHashCode();
                 hashCode = (hashCode * 59) + this.ClientNetDispatchThread.GetHashCode();
                 hashCode = (hashCode * 59) + this.ClientNetDispatchThreadMobile.GetHashCode();
                 hashCode = (hashCode * 59) + this.ClientNetInThread.GetHashCode();
@@ -2070,6 +2330,7 @@ namespace VRChat.API.Model
                 hashCode = (hashCode * 59) + this.ClientQR.GetHashCode();
                 hashCode = (hashCode * 59) + this.ClientReservedPlayerBPS.GetHashCode();
                 hashCode = (hashCode * 59) + this.ClientSentCountAllowance.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClientUseAck2.GetHashCode();
                 if (this.Constants != null)
                 {
                     hashCode = (hashCode * 59) + this.Constants.GetHashCode();
@@ -2161,6 +2422,11 @@ namespace VRChat.API.Model
                 }
                 hashCode = (hashCode * 59) + this.EconomyPurchaseRepairEnabled.GetHashCode();
                 hashCode = (hashCode * 59) + this.EconomyState.GetHashCode();
+                hashCode = (hashCode * 59) + this.EnableVRCPlusWorldLists.GetHashCode();
+                if (this.EventShelfCampaigns != null)
+                {
+                    hashCode = (hashCode * 59) + this.EventShelfCampaigns.GetHashCode();
+                }
                 if (this.Events != null)
                 {
                     hashCode = (hashCode * 59) + this.Events.GetHashCode();
@@ -2170,9 +2436,15 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.GiftDisplayType.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.GlobalCacheVersion.GetHashCode();
+                hashCode = (hashCode * 59) + this.GlobalCacheVersionDefault.GetHashCode();
                 if (this.GoogleApiClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.GoogleApiClientId.GetHashCode();
+                }
+                if (this.GoogleApiUnityClientId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GoogleApiUnityClientId.GetHashCode();
                 }
                 if (this.HomeWorldId != null)
                 {
@@ -2202,8 +2474,20 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.JobsEmail.GetHashCode();
                 }
+                if (this.LoadingScreenWeights != null)
+                {
+                    hashCode = (hashCode * 59) + this.LoadingScreenWeights.GetHashCode();
+                }
+                if (this.LowMemoryGoHomeTimeout != null)
+                {
+                    hashCode = (hashCode * 59) + this.LowMemoryGoHomeTimeout.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.MaxUserEmoji.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxUserStickers.GetHashCode();
+                if (this.MaximumUnityVersionForUploads != null)
+                {
+                    hashCode = (hashCode * 59) + this.MaximumUnityVersionForUploads.GetHashCode();
+                }
                 if (this.MinSupportedClientBuildNumber != null)
                 {
                     hashCode = (hashCode * 59) + this.MinSupportedClientBuildNumber.GetHashCode();
@@ -2236,13 +2520,33 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.PlayerUrlResolverSha1.GetHashCode();
                 }
+                if (this.PlayerUrlResolverSha1GfnOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlayerUrlResolverSha1GfnOverride.GetHashCode();
+                }
                 if (this.PlayerUrlResolverVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.PlayerUrlResolverVersion.GetHashCode();
                 }
+                if (this.PlayerUrlResolverVersionGfnOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.PlayerUrlResolverVersionGfnOverride.GetHashCode();
+                }
+                if (this.ProfileDefaults != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProfileDefaults.GetHashCode();
+                }
+                if (this.PropComponentList != null)
+                {
+                    hashCode = (hashCode * 59) + this.PropComponentList.GetHashCode();
+                }
                 if (this.PublicKey != null)
                 {
                     hashCode = (hashCode * 59) + this.PublicKey.GetHashCode();
+                }
+                if (this.QuestMinimumLowMemoryThreshold != null)
+                {
+                    hashCode = (hashCode * 59) + this.QuestMinimumLowMemoryThreshold.GetHashCode();
                 }
                 if (this.ReportCategories != null)
                 {
@@ -2312,12 +2616,18 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ViveWindowsUrl.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.VoiceMaxPlaybackSourcesMobile.GetHashCode();
+                hashCode = (hashCode * 59) + this.VoiceMaxPlaybackSourcesPC.GetHashCode();
                 hashCode = (hashCode * 59) + this.WebsocketMaxFriendsRefreshDelay.GetHashCode();
                 hashCode = (hashCode * 59) + this.WebsocketQuickReconnectTime.GetHashCode();
                 hashCode = (hashCode * 59) + this.WebsocketReconnectMaxDelay.GetHashCode();
                 if (this.WhiteListedAssetUrls != null)
                 {
                     hashCode = (hashCode * 59) + this.WhiteListedAssetUrls.GetHashCode();
+                }
+                if (this.AdditionalProperties != null)
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

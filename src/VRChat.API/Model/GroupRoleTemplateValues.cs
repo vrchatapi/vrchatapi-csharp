@@ -44,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="description">description (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="roles">roles (required).</param>
-        public GroupRoleTemplateValues(List<GroupPermissions> basePermissions = default, string description = default, string name = default, GroupRoleTemplateValuesRoles roles = default)
+        public GroupRoleTemplateValues(List<GroupPermissions> basePermissions = default, string description = default, string name = default, List<GroupRoleTemplateRole> roles = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.BasePermissions = basePermissions;
@@ -78,7 +78,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Roles
         /// </summary>
         [DataMember(Name = "roles", IsRequired = true, EmitDefaultValue = true)]
-        public GroupRoleTemplateValuesRoles Roles { get; set; }
+        public List<GroupRoleTemplateRole> Roles { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -145,8 +145,9 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.Roles == input.Roles ||
-                    (this.Roles != null &&
-                    this.Roles.Equals(input.Roles))
+                    this.Roles != null &&
+                    input.Roles != null &&
+                    this.Roles.SequenceEqual(input.Roles)
                 );
         }
 

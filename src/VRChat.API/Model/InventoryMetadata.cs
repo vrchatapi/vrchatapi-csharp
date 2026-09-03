@@ -43,7 +43,8 @@ namespace VRChat.API.Model
         /// <param name="inventoryItemsToInstantiate">Only in bundles.</param>
         /// <param name="maskTag">maskTag.</param>
         /// <param name="propId">propId.</param>
-        public InventoryMetadata(bool animated = default, string animationStyle = default, string assetBundleId = default, string fileId = default, string imageUrl = default, List<string> inventoryItemsToInstantiate = default, string maskTag = default, string propId = default)
+        /// <param name="propKind">propKind.</param>
+        public InventoryMetadata(bool animated = default, string animationStyle = default, string assetBundleId = default, string fileId = default, string imageUrl = default, List<string> inventoryItemsToInstantiate = default, string maskTag = default, string propId = default, int propKind = default)
         {
             this.Animated = animated;
             this.AnimationStyle = animationStyle;
@@ -53,6 +54,7 @@ namespace VRChat.API.Model
             this.InventoryItemsToInstantiate = inventoryItemsToInstantiate;
             this.MaskTag = maskTag;
             this.PropId = propId;
+            this.PropKind = propKind;
         }
 
         /// <summary>
@@ -108,6 +110,12 @@ namespace VRChat.API.Model
         public string PropId { get; set; }
 
         /// <summary>
+        /// Gets or Sets PropKind
+        /// </summary>
+        [DataMember(Name = "propKind", EmitDefaultValue = false)]
+        public int PropKind { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,6 +131,7 @@ namespace VRChat.API.Model
             sb.Append("  InventoryItemsToInstantiate: ").Append(InventoryItemsToInstantiate).Append("\n");
             sb.Append("  MaskTag: ").Append(MaskTag).Append("\n");
             sb.Append("  PropId: ").Append(PropId).Append("\n");
+            sb.Append("  PropKind: ").Append(PropKind).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -197,6 +206,10 @@ namespace VRChat.API.Model
                     this.PropId == input.PropId ||
                     (this.PropId != null &&
                     this.PropId.Equals(input.PropId))
+                ) && 
+                (
+                    this.PropKind == input.PropKind ||
+                    this.PropKind.Equals(input.PropKind)
                 );
         }
 
@@ -238,6 +251,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.PropId.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.PropKind.GetHashCode();
                 return hashCode;
             }
         }

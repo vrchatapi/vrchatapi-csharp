@@ -36,16 +36,48 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="InfoPushDataArticle" /> class.
         /// </summary>
         /// <param name="content">content.</param>
-        public InfoPushDataArticle(InfoPushDataArticleContent content = default)
+        /// <param name="embeddedLinkData">embeddedLinkData.</param>
+        /// <param name="jumpLinks">jumpLinks.</param>
+        /// <param name="moreInfoLinks">moreInfoLinks.</param>
+        /// <param name="sectionLinks">sectionLinks.</param>
+        public InfoPushDataArticle(List<InfoPushDataArticleContent> content = default, List<InfoPushEmbeddedLink> embeddedLinkData = default, List<string> jumpLinks = default, List<InfoPushEmbeddedLink> moreInfoLinks = default, List<string> sectionLinks = default)
         {
             this.Content = content;
+            this.EmbeddedLinkData = embeddedLinkData;
+            this.JumpLinks = jumpLinks;
+            this.MoreInfoLinks = moreInfoLinks;
+            this.SectionLinks = sectionLinks;
         }
 
         /// <summary>
         /// Gets or Sets Content
         /// </summary>
         [DataMember(Name = "content", EmitDefaultValue = false)]
-        public InfoPushDataArticleContent Content { get; set; }
+        public List<InfoPushDataArticleContent> Content { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EmbeddedLinkData
+        /// </summary>
+        [DataMember(Name = "embeddedLinkData", EmitDefaultValue = false)]
+        public List<InfoPushEmbeddedLink> EmbeddedLinkData { get; set; }
+
+        /// <summary>
+        /// Gets or Sets JumpLinks
+        /// </summary>
+        [DataMember(Name = "jumpLinks", EmitDefaultValue = false)]
+        public List<string> JumpLinks { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MoreInfoLinks
+        /// </summary>
+        [DataMember(Name = "moreInfoLinks", EmitDefaultValue = false)]
+        public List<InfoPushEmbeddedLink> MoreInfoLinks { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SectionLinks
+        /// </summary>
+        [DataMember(Name = "sectionLinks", EmitDefaultValue = false)]
+        public List<string> SectionLinks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,6 +88,10 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InfoPushDataArticle {\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
+            sb.Append("  EmbeddedLinkData: ").Append(EmbeddedLinkData).Append("\n");
+            sb.Append("  JumpLinks: ").Append(JumpLinks).Append("\n");
+            sb.Append("  MoreInfoLinks: ").Append(MoreInfoLinks).Append("\n");
+            sb.Append("  SectionLinks: ").Append(SectionLinks).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,8 +129,33 @@ namespace VRChat.API.Model
             return 
                 (
                     this.Content == input.Content ||
-                    (this.Content != null &&
-                    this.Content.Equals(input.Content))
+                    this.Content != null &&
+                    input.Content != null &&
+                    this.Content.SequenceEqual(input.Content)
+                ) && 
+                (
+                    this.EmbeddedLinkData == input.EmbeddedLinkData ||
+                    this.EmbeddedLinkData != null &&
+                    input.EmbeddedLinkData != null &&
+                    this.EmbeddedLinkData.SequenceEqual(input.EmbeddedLinkData)
+                ) && 
+                (
+                    this.JumpLinks == input.JumpLinks ||
+                    this.JumpLinks != null &&
+                    input.JumpLinks != null &&
+                    this.JumpLinks.SequenceEqual(input.JumpLinks)
+                ) && 
+                (
+                    this.MoreInfoLinks == input.MoreInfoLinks ||
+                    this.MoreInfoLinks != null &&
+                    input.MoreInfoLinks != null &&
+                    this.MoreInfoLinks.SequenceEqual(input.MoreInfoLinks)
+                ) && 
+                (
+                    this.SectionLinks == input.SectionLinks ||
+                    this.SectionLinks != null &&
+                    input.SectionLinks != null &&
+                    this.SectionLinks.SequenceEqual(input.SectionLinks)
                 );
         }
 
@@ -110,6 +171,22 @@ namespace VRChat.API.Model
                 if (this.Content != null)
                 {
                     hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                }
+                if (this.EmbeddedLinkData != null)
+                {
+                    hashCode = (hashCode * 59) + this.EmbeddedLinkData.GetHashCode();
+                }
+                if (this.JumpLinks != null)
+                {
+                    hashCode = (hashCode * 59) + this.JumpLinks.GetHashCode();
+                }
+                if (this.MoreInfoLinks != null)
+                {
+                    hashCode = (hashCode * 59) + this.MoreInfoLinks.GetHashCode();
+                }
+                if (this.SectionLinks != null)
+                {
+                    hashCode = (hashCode * 59) + this.SectionLinks.GetHashCode();
                 }
                 return hashCode;
             }

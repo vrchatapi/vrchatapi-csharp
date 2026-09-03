@@ -47,7 +47,7 @@ namespace VRChat.API.Model
         /// <param name="googlePlay">googlePlay (required).</param>
         /// <param name="pC">pC (required).</param>
         /// <param name="picoStore">picoStore (required).</param>
-        /// <param name="questAppLab">questAppLab (required).</param>
+        /// <param name="questAppLab">questAppLab.</param>
         /// <param name="questStore">questStore (required).</param>
         /// <param name="testFlight">testFlight (required).</param>
         /// <param name="xRElite">xRElite (required).</param>
@@ -68,13 +68,12 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.PicoStore = picoStore;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.QuestAppLab = questAppLab;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.QuestStore = questStore;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.TestFlight = testFlight;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.XRElite = xRElite;
+            this.QuestAppLab = questAppLab;
         }
 
         /// <summary>
@@ -122,7 +121,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets QuestAppLab
         /// </summary>
-        [DataMember(Name = "QuestAppLab", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "QuestAppLab", EmitDefaultValue = false)]
         public PlatformBuildInfo QuestAppLab { get; set; }
 
         /// <summary>

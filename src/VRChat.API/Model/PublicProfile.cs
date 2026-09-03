@@ -197,7 +197,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets RepresentedGroup
         /// </summary>
-        [DataMember(Name = "representedGroup", EmitDefaultValue = true)]
+        [DataMember(Name = "representedGroup", EmitDefaultValue = false)]
         public ProfileRepresentedGroup RepresentedGroup { get; set; }
 
         /// <summary>
