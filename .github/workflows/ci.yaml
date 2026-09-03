@@ -65,7 +65,9 @@ jobs:
       - uses: actions/upload-artifact@v7
         with:
           name: csharp-generated
-          path: .
+          path: |
+            .
+            !.git/**
           include-hidden-files: true
 
   build:
