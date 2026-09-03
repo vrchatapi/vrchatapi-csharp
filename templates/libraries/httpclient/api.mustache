@@ -487,7 +487,7 @@ namespace {{packageName}}.{{apiPackage}}
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("{{keyParamName}}", this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}")));
+                localVarRequestOptions.Cookies.Add(new Cookie("{{keyParamName}}", this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}"), "/", "api.vrchat.cloud"));
             }
             {{/isKeyInCookie}}
             {{#isKeyInHeader}}
@@ -507,7 +507,7 @@ namespace {{packageName}}.{{apiPackage}}
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + {{packageName}}.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + {{packageName}}.Client.ClientUtils.Base64Encode(System.Web.HttpUtility.UrlEncode(this.Configuration.Username) + ":" + System.Web.HttpUtility.UrlEncode(this.Configuration.Password)));
             }
             {{/isBasicBasic}}
             {{#isBasicBearer}}
@@ -721,7 +721,7 @@ namespace {{packageName}}.{{apiPackage}}
             // cookie parameter support
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("{{keyParamName}}", this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}")));
+                localVarRequestOptions.Cookies.Add(new Cookie("{{keyParamName}}", this.Configuration.GetApiKeyWithPrefix("{{keyParamName}}"), "/", "api.vrchat.cloud"));
             }
             {{/isKeyInCookie}}
             {{#isKeyInHeader}}
@@ -742,7 +742,7 @@ namespace {{packageName}}.{{apiPackage}}
             // http basic authentication required
             if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + {{packageName}}.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + {{packageName}}.Client.ClientUtils.Base64Encode(System.Web.HttpUtility.UrlEncode(this.Configuration.Username) + ":" + System.Web.HttpUtility.UrlEncode(this.Configuration.Password)));
             }
             {{/isBasicBasic}}
             {{#isBasicBearer}}

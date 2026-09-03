@@ -72,9 +72,8 @@ namespace VRChat.API.Extensions.Hosting
         {
             if (_builders.ContainsKey(clientName) && !overrideIfExists) // So that the default may be registered in the case of it being nonexistant
                 return false;
-            else
-                _builders.Add(clientName, vcb);
 
+            _builders[clientName] = vcb; // Indexer rather than Add, so overrideIfExists actually overrides
             return true;
         }
     }

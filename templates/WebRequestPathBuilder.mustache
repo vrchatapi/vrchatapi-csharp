@@ -18,11 +18,22 @@ namespace {{packageName}}.Client
                 _path = path;
             }
 
+            /// <summary>
+            /// Percent-encodes a value, then restores "(" and ")".
+            /// </summary>
+            /// <remarks>VRChat's API answers 400 "malformed url" when parentheses arrive
+            /// percent-encoded, and instance IDs contain them, for example
+            /// wrld_0000:12345~group(grp_0000)~groupAccessType(plus)~region(use).</remarks>
+            private static string Escape(string value)
+            {
+                return Uri.EscapeDataString(value).Replace("%28", "(").Replace("%29", ")");
+            }
+
             public void AddPathParameters(Dictionary<string, string> parameters)
             {
                 foreach (var parameter in parameters)
                 {
-                    _path = _path.Replace("{" + parameter.Key + "}", Uri.EscapeDataString(parameter.Value));
+                    _path = _path.Replace("{" + parameter.Key + "}", Escape(parameter.Value));
                 }
             }
 
@@ -32,7 +43,7 @@ namespace {{packageName}}.Client
                 {
                     foreach (var value in parameter.Value)
                     {
-                        _query = _query + parameter.Key + "=" + Uri.EscapeDataString(value) + "&";
+                        _query = _query + parameter.Key + "=" + Escape(value) + "&";
                     }
                 }
             }

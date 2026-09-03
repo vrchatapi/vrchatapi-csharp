@@ -203,6 +203,13 @@ namespace VRChat.API.Client
         Task<CurrentUser> LoginWithExternalCodeAsync(Func<List<string>, ITwoFactorCode> codeAction, CancellationToken ct = default);
     }
 
+    /// <summary>
+    /// The default <see cref="IVRChat"/> implementation, exposing every VRChat API surface through a
+    /// single client that shares one <see cref="System.Net.Http.HttpClient"/>, cookie container and
+    /// <see cref="VRChat.API.Client.Configuration"/>.
+    /// </summary>
+    /// <remarks>Instances are created through <see cref="VRChatClientBuilder"/>, or through
+    /// <see cref="Create"/> when you need to supply the underlying HTTP plumbing yourself.</remarks>
     public class VRChatClient : IVRChat
     {
         private VRChatClient(Configuration configuration, string twoFactorSecret = null, ApiClient client = null, HttpClient httpClient = null, HttpClientHandler httpClientHandler = null)
@@ -266,42 +273,93 @@ namespace VRChat.API.Client
         private readonly PlayermoderationApi _moderations;
         private readonly AuthenticationApi _authentication;
 
+        /// <summary>
+        /// The <see cref="VRChat.API.Client.Configuration"/> every API surface on this client was built with.
+        /// </summary>
         public Configuration Configuration => _configuration;
+
+        /// <summary>
+        /// The <see cref="ApiClient"/> that performs the underlying requests for every API surface on this client.
+        /// </summary>
         public ApiClient Client => _client;
+
+        /// <summary>
+        /// The <see cref="System.Net.Http.HttpClient"/> shared by every API surface on this client.
+        /// </summary>
         public HttpClient HttpClient => _httpClient;
+
+        /// <summary>
+        /// The <see cref="System.Net.Http.HttpClientHandler"/> backing <see cref="HttpClient"/>, whose
+        /// <see cref="System.Net.CookieContainer"/> holds the session cookies returned by <see cref="GetCookies"/>.
+        /// </summary>
         public HttpClientHandler HttpClientHandler => _httpClientHandler;
 
+        /// <inheritdoc/>
         public IJamsApi Jams => _jams;
+        /// <inheritdoc/>
         public IFilesApi Files => _files;
+        /// <inheritdoc/>
         public IUsersApi Users => _users;
+        /// <inheritdoc/>
         public IPropsApi Props => _props;
+        /// <inheritdoc/>
         public IPrintsApi Prints => _prints;
+        /// <inheritdoc/>
         public IGroupsApi Groups => _groups;
+        /// <inheritdoc/>
         public IWorldsApi Worlds => _worlds;
+        /// <inheritdoc/>
         public IInviteApi Invites => _invites;
+        /// <inheritdoc/>
         public IAvatarsApi Avatars => _avatars;
+        /// <inheritdoc/>
         public IEconomyApi Economy => _economy;
+        /// <inheritdoc/>
         public IFriendsApi Friends => _friends;
+        /// <inheritdoc/>
         public ICalendarApi Calendar => _calendar;
+        /// <inheritdoc/>
         public IInventoryApi Inventory => _inventory;
+        /// <inheritdoc/>
         public IInstancesApi Instances => _instances;
+        /// <inheritdoc/>
         public IFavoritesApi Favorites => _favorites;
+        /// <inheritdoc/>
         public IMiscellaneousApi Miscellaneous => _miscellaneous;
+        /// <inheritdoc/>
         public INotificationsApi Notifications => _notifications;
+        /// <inheritdoc/>
         public IPlayermoderationApi Moderations => _moderations;
+        /// <inheritdoc/>
         public IAuthenticationApi Authentication => _authentication;
 
+        /// <inheritdoc/>
         public bool IsLoggedIn { get; private set; }
 
-        // Creates a new VRChatClient, compatible with IVRChat
-        public static VRChatClient Create(Configuration configuration, string twoFactorSecret, ApiClient client, HttpClient httpClient, HttpClientHandler handler) =>
-            new VRChatClient(configuration, twoFactorSecret, client, httpClient, handler);
+        /// <summary>
+        /// Creates a new <see cref="VRChatClient"/> from pre-built components.
+        /// </summary>
+        /// <remarks>Prefer <see cref="VRChatClientBuilder"/> unless you need to control the HTTP plumbing
+        /// yourself. Any argument left <see langword="null"/> is replaced with a default instance, and a
+        /// <see langword="null"/> <paramref name="httpClientHandler"/> yields a handler with cookies enabled.</remarks>
+        /// <param name="configuration">The <see cref="VRChat.API.Client.Configuration"/> to build every API surface with.</param>
+        /// <param name="twoFactorSecret">The TOTP secret used by <see cref="LoginAsync"/>, or <see langword="null"/>
+        /// if you intend to log in via <see cref="LoginWithExternalCodeAsync"/>.</param>
+        /// <param name="client">The <see cref="ApiClient"/> to issue requests through.</param>
+        /// <param name="httpClient">The <see cref="System.Net.Http.HttpClient"/> to send requests with.</param>
+        /// <param name="httpClientHandler">The handler backing <paramref name="httpClient"/>; its cookie
+        /// container carries the session returned by <see cref="GetCookies"/>.</param>
+        /// <returns>A new <see cref="VRChatClient"/>. It is not logged in until one of the login methods succeeds.</returns>
+        public static VRChatClient Create(Configuration configuration, string twoFactorSecret, ApiClient client, HttpClient httpClient, HttpClientHandler httpClientHandler) =>
+            new VRChatClient(configuration, twoFactorSecret, client, httpClient, httpClientHandler);
 
+        /// <inheritdoc/>
         public List<Cookie> GetCookies()
         {
             return _httpClientHandler.CookieContainer?.GetAllCookies().ToList();
         }
 
+        /// <inheritdoc/>
         public async Task<VRChatLoginResult> TryLoginAsync(CancellationToken ct = default)
         {
             CurrentUser user = null;
@@ -317,6 +375,7 @@ namespace VRChat.API.Client
             return new VRChatLoginResult(user == null, null);
         }
 
+        /// <inheritdoc/>
         public async Task<CurrentUser> LoginAsync(CancellationToken ct = default)
         {
             if (_twoFactorSecret == null)
@@ -348,6 +407,7 @@ namespace VRChat.API.Client
             return response.StatusCode == HttpStatusCode.OK ? user : null;
         }
 
+        /// <inheritdoc/>
         public async Task<CurrentUser> LoginWithExternalCodeAsync(Func<List<string>, ITwoFactorCode> codeAction, CancellationToken ct = default)
         {
             ApiResponse<CurrentUser> response = await this.Authentication.GetCurrentUserWithHttpInfoAsync(cancellationToken: ct);

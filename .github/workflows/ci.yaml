@@ -96,6 +96,10 @@ jobs:
         with:
           repository: vrchatapi/vrchatapi-csharp
 
+      # The artifact is overlaid onto the checkout rather than replacing it, so anything the
+      # generator stops emitting would otherwise survive in src/ forever.
+      - run: rm -rf src
+
       - uses: actions/download-artifact@v8
         with:
           name: csharp-generated

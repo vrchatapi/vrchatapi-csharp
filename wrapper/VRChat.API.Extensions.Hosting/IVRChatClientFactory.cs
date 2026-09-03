@@ -50,6 +50,16 @@ namespace VRChat.API.Extensions.Hosting
         /// </returns>
         Task<VRChatLoginResult> LoginClientAsync(string name = "vrc_default", bool throwOnFail = false, CancellationToken ct = default);
 
+        /// <summary>
+        /// Registers a <see cref="VRChatClientBuilder"/> under a name, so <see cref="CreateClient(string)"/>
+        /// can later build a client from it.
+        /// </summary>
+        /// <param name="clientName">The name to register the builder under.</param>
+        /// <param name="vcb">The <see cref="VRChatClientBuilder"/> to register.</param>
+        /// <param name="overrideIfExists">Whether to replace an existing registration under the same name.</param>
+        /// <returns><see langword="true"/> if the builder was registered; <see langword="false"/> if a builder
+        /// is already registered under <paramref name="clientName"/> and <paramref name="overrideIfExists"/>
+        /// is <see langword="false"/>.</returns>
         bool TryAddClient(string clientName, VRChatClientBuilder vcb, bool overrideIfExists = false);
     }
 }
