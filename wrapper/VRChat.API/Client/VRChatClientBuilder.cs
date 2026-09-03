@@ -64,13 +64,12 @@ namespace VRChat.API.Client
             new VRChatClientBuilder(incomingConfiguration, incomingClient);
 
         /// <summary>
-        /// 
+        /// Sets the username, password and TOTP secret in one call.
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <param name="auth"></param>
-        /// <param name="twoFactorSecret"></param>
-        /// <returns></returns>
+        /// <param name="username">The username to authenticate with.</param>
+        /// <param name="password">The password to authenticate with.</param>
+        /// <param name="twoFactorSecret">The TOTP secret used to answer a two-factor challenge.</param>
+        /// <returns>This <see cref="VRChatClientBuilder"/>, so calls can be chained.</returns>
         public VRChatClientBuilder WithCredentials(string username, string password, string twoFactorSecret) => this
             .WithUsername(username)
             .WithPassword(password)

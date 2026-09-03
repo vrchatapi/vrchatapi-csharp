@@ -22,6 +22,16 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
+# Files the generator emits that this repository does not ship. Listing them here stops
+# them being written at all, rather than deleting them afterwards in generate.sh.
 README.md
 VRChat.API.sln
-src/VRChat.API.Test/
+src/VRChat.API.Test/**
+docs/**
+api/**
+appveyor.yml
+git_push.sh
+build.sh
+build.bat
+mono_nunit_test.sh
+nuget.exe
