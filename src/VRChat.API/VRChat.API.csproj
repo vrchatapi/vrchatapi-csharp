@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
     <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>VRChat.API</AssemblyName>
     <PackageId>VRChat.API</PackageId>
@@ -10,24 +10,20 @@
     <Company>VRChat API Docs Community</Company>
     <AssemblyTitle>VRChat API Library for .NET</AssemblyTitle>
     <Description>VRChat API Library for .NET</Description>
-    <Copyright>Copyright Â© 2021 Owners of GitHub organisation "vrchatapi" and individual contributors.</Copyright>
+    <Copyright>Copyright © 2021 Owners of GitHub organisation &quot;vrchatapi&quot; and individual contributors.</Copyright>
     <RootNamespace>VRChat.API</RootNamespace>
-    <Version>2.20.9-nightly.24</Version>
+    <Version>2.20.9</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\VRChat.API.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/vrchatapi/vrchatapi-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
-    <PackageTags>vrchat,vrcapi,vrc-api,vrc</PackageTags>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>
+    <PackageReleaseNotes>Minor update</PackageReleaseNotes>
     <Nullable>annotations</Nullable>
     <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="JsonSubTypes" Version="2.0.1" />
-    <PackageReference Include="Otp.NET" Version="1.4.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Polly" Version="8.1.0" />
   </ItemGroup>
@@ -35,14 +31,39 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-  	  <Content Include="vrc_cat.ico" />
-	  <None Include="..\README.md">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
-	  <None Include="vrc_cat.png">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <!-- The stock template sets this to false for non-generic-host clients, which breaks the build:
+         https://github.com/dotnet/project-system/issues/3934 -->
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <!-- Set here because generator property values cannot contain a comma. -->
+    <PackageTags>vrchat,vrcapi,vrc-api,vrc</PackageTags>
+    <PackageReleaseNotes>Automated deployment</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <ApplicationIcon>vrc_cat.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Hand-written code that ships as part of this package, compiled straight from wrapper/
+         so there is exactly one definition of each type. Client/ holds the VRChatClient wrapper;
+         Model/ holds partial halves of generated model types. -->
+    <Compile Include="..\..\wrapper\VRChat.API\**\*.cs" Exclude="..\..\wrapper\VRChat.API\bin\**\*.cs;..\..\wrapper\VRChat.API\obj\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Required by the TOTP login path in wrapper/VRChat.API/Client/VRChat.cs. -->
+    <PackageReference Include="Otp.NET" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="vrc_cat.ico" />
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="vrc_cat.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 </Project>
