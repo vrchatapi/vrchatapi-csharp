@@ -130,11 +130,13 @@ namespace VRChat.API.Client
         /// <returns>This <see cref="VRChatClientBuilder"/>, so calls can be chained.</returns>
         public VRChatClientBuilder WithAuthCookie(string auth, string twoFactorAuth = null)
         {
+            // AddApiKey, not AddApiKeyPrefix: GetApiKeyWithPrefix returns `prefix + " " + value`, so
+            // storing a cookie as the prefix sent it with a trailing space and no value.
             if (auth != null)
-                _configuration.AddApiKeyPrefix("auth", auth);
+                _configuration.AddApiKey("auth", auth);
 
             if (twoFactorAuth != null)
-                _configuration.AddApiKeyPrefix("twoFactorAuth", twoFactorAuth);
+                _configuration.AddApiKey("twoFactorAuth", twoFactorAuth);
 
             return this;
         }
