@@ -372,7 +372,14 @@ namespace VRChat.API.Client
                 return new VRChatLoginResult(false, exception);
             }
 
-            return new VRChatLoginResult(user == null, null);
+            if (user != null)
+                return new VRChatLoginResult(true, null);
+
+            // LoginAsync returns null when the final GetCurrentUser response was not 200 OK, and
+            // discards the status. Surface a concrete exception rather than reporting failure with
+            // no explanation, which is indistinguishable from a bug in the caller.
+            return new VRChatLoginResult(false, new UnauthorizedAccessException(
+                "Login did not complete: VRChat did not return a current user."));
         }
 
         /// <inheritdoc/>
