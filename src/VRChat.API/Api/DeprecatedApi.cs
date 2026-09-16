@@ -16,72 +16,32 @@ namespace VRChat.API.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IPropsApiSync : IApiAccessor
+    public interface IDeprecatedApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create Prop
+        /// Get Balance Earnings
         /// </summary>
         /// <remarks>
-        /// Create a Prop and return the new Prop object.
+        /// Return the user&#39;s balance from earnings.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createPropRequest"></param>
-        /// <returns>Prop</returns>
-        Prop CreateProp(CreatePropRequest createPropRequest);
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>Balance</returns>
+        [Obsolete]
+        Balance GetBalanceEarnings(string userId);
 
         /// <summary>
-        /// Create Prop
+        /// Get Balance Earnings
         /// </summary>
         /// <remarks>
-        /// Create a Prop and return the new Prop object.
+        /// Return the user&#39;s balance from earnings.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createPropRequest"></param>
-        /// <returns>ApiResponse of Prop</returns>
-        ApiResponse<Prop> CreatePropWithHttpInfo(CreatePropRequest createPropRequest);
-        /// <summary>
-        /// Delete Prop
-        /// </summary>
-        /// <remarks>
-        /// Delete a Prop.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns></returns>
-        void DeleteProp(string propId);
-
-        /// <summary>
-        /// Delete Prop
-        /// </summary>
-        /// <remarks>
-        /// Delete a Prop.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeletePropWithHttpInfo(string propId);
-        /// <summary>
-        /// Get Prop
-        /// </summary>
-        /// <remarks>
-        /// Returns a Prop object.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>Prop</returns>
-        Prop GetProp(string propId);
-
-        /// <summary>
-        /// Get Prop
-        /// </summary>
-        /// <remarks>
-        /// Returns a Prop object.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>ApiResponse of Prop</returns>
-        ApiResponse<Prop> GetPropWithHttpInfo(string propId);
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of Balance</returns>
+        [Obsolete]
+        ApiResponse<Balance> GetBalanceEarningsWithHttpInfo(string userId);
         /// <summary>
         /// Get Prop Publish Status
         /// </summary>
@@ -106,30 +66,95 @@ namespace VRChat.API.Api
         [Obsolete]
         ApiResponse<PropPublishStatus> GetPropPublishStatusWithHttpInfo(string propId);
         /// <summary>
-        /// List Props
+        /// Get Seller Eligibility
         /// </summary>
         /// <remarks>
-        /// Returns a list Prop objects.
+        /// Return the current user&#39;s eligibility to become a seller.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="authorId">Must be a valid user ID. (optional)</param>
-        /// <returns>List&lt;Prop&gt;</returns>
-        List<Prop> ListProps(int? n = default, int? offset = default, string? authorId = default);
+        /// <returns>SellerEligibility</returns>
+        [Obsolete]
+        SellerEligibility GetSellerEligibility();
 
         /// <summary>
-        /// List Props
+        /// Get Seller Eligibility
         /// </summary>
         /// <remarks>
-        /// Returns a list Prop objects.
+        /// Return the current user&#39;s eligibility to become a seller.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="authorId">Must be a valid user ID. (optional)</param>
-        /// <returns>ApiResponse of List&lt;Prop&gt;</returns>
-        ApiResponse<List<Prop>> ListPropsWithHttpInfo(int? n = default, int? offset = default, string? authorId = default);
+        /// <returns>ApiResponse of SellerEligibility</returns>
+        [Obsolete]
+        ApiResponse<SellerEligibility> GetSellerEligibilityWithHttpInfo();
+        /// <summary>
+        /// Get Tilia Status
+        /// </summary>
+        /// <remarks>
+        /// Return the Tilia integration status.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TiliaStatus</returns>
+        [Obsolete]
+        TiliaStatus GetTiliaStatus();
+
+        /// <summary>
+        /// Get Tilia Status
+        /// </summary>
+        /// <remarks>
+        /// Return the Tilia integration status.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TiliaStatus</returns>
+        [Obsolete]
+        ApiResponse<TiliaStatus> GetTiliaStatusWithHttpInfo();
+        /// <summary>
+        /// Get Tilia TOS Agreement Status
+        /// </summary>
+        /// <remarks>
+        /// Return the user&#39;s Tilia TOS agreement status.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>TiliaTOS</returns>
+        [Obsolete]
+        TiliaTOS GetTiliaTos(string userId);
+
+        /// <summary>
+        /// Get Tilia TOS Agreement Status
+        /// </summary>
+        /// <remarks>
+        /// Return the user&#39;s Tilia TOS agreement status.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of TiliaTOS</returns>
+        [Obsolete]
+        ApiResponse<TiliaTOS> GetTiliaTosWithHttpInfo(string userId);
+        /// <summary>
+        /// Get User Credits Eligibility
+        /// </summary>
+        /// <remarks>
+        /// Return the user&#39;s subscription credit eligibility.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <returns>UserCreditsEligible</returns>
+        [Obsolete]
+        UserCreditsEligible GetUserCreditsEligible(string userId, string subscriptionId);
+
+        /// <summary>
+        /// Get User Credits Eligibility
+        /// </summary>
+        /// <remarks>
+        /// Return the user&#39;s subscription credit eligibility.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <returns>ApiResponse of UserCreditsEligible</returns>
+        [Obsolete]
+        ApiResponse<UserCreditsEligible> GetUserCreditsEligibleWithHttpInfo(string userId, string subscriptionId);
         /// <summary>
         /// Publish Prop
         /// </summary>
@@ -177,106 +202,64 @@ namespace VRChat.API.Api
         [Obsolete]
         ApiResponse<PropPublishStatus> UnpublishPropWithHttpInfo(string propId);
         /// <summary>
-        /// Update Prop
+        /// Update Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Updates a Prop and returns the updated Prop object. When updating the asset bundle, all of &#x60;name&#x60;, &#x60;assetUrl&#x60;, &#x60;platform&#x60;, &#x60;unityVersion&#x60;, &#x60;assetVersion&#x60;, &#x60;spawnType&#x60;, and &#x60;worldPlacementMask&#x60; must be present, as well as &#x60;propSignature&#x60; if this value is not blank.
+        /// Update the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="updatePropRequest"></param>
-        /// <returns>Prop</returns>
-        Prop UpdateProp(string propId, UpdatePropRequest updatePropRequest);
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <returns>Object</returns>
+        [Obsolete]
+        Object UpdateTiliaTos(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default);
 
         /// <summary>
-        /// Update Prop
+        /// Update Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Updates a Prop and returns the updated Prop object. When updating the asset bundle, all of &#x60;name&#x60;, &#x60;assetUrl&#x60;, &#x60;platform&#x60;, &#x60;unityVersion&#x60;, &#x60;assetVersion&#x60;, &#x60;spawnType&#x60;, and &#x60;worldPlacementMask&#x60; must be present, as well as &#x60;propSignature&#x60; if this value is not blank.
+        /// Update the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="updatePropRequest"></param>
-        /// <returns>ApiResponse of Prop</returns>
-        ApiResponse<Prop> UpdatePropWithHttpInfo(string propId, UpdatePropRequest updatePropRequest);
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object</returns>
+        [Obsolete]
+        ApiResponse<Object> UpdateTiliaTosWithHttpInfo(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IPropsApiAsync : IApiAccessor
+    public interface IDeprecatedApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create Prop
+        /// Get Balance Earnings
         /// </summary>
         /// <remarks>
-        /// Create a Prop and return the new Prop object.
+        /// Return the user&#39;s balance from earnings.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createPropRequest"></param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Prop</returns>
-        System.Threading.Tasks.Task<Prop> CreatePropAsync(CreatePropRequest createPropRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of Balance</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<Balance> GetBalanceEarningsAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create Prop
+        /// Get Balance Earnings
         /// </summary>
         /// <remarks>
-        /// Create a Prop and return the new Prop object.
+        /// Return the user&#39;s balance from earnings.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createPropRequest"></param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Prop)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Prop>> CreatePropWithHttpInfoAsync(CreatePropRequest createPropRequest, System.Threading.CancellationToken cancellationToken = default);
-        /// <summary>
-        /// Delete Prop
-        /// </summary>
-        /// <remarks>
-        /// Delete a Prop.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeletePropAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Delete Prop
-        /// </summary>
-        /// <remarks>
-        /// Delete a Prop.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
-        /// <summary>
-        /// Get Prop
-        /// </summary>
-        /// <remarks>
-        /// Returns a Prop object.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Prop</returns>
-        System.Threading.Tasks.Task<Prop> GetPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Get Prop
-        /// </summary>
-        /// <remarks>
-        /// Returns a Prop object.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Prop)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Prop>> GetPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (Balance)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse<Balance>> GetBalanceEarningsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Prop Publish Status
         /// </summary>
@@ -303,32 +286,103 @@ namespace VRChat.API.Api
         [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<PropPublishStatus>> GetPropPublishStatusWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// List Props
+        /// Get Seller Eligibility
         /// </summary>
         /// <remarks>
-        /// Returns a list Prop objects.
+        /// Return the current user&#39;s eligibility to become a seller.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Prop&gt;</returns>
-        System.Threading.Tasks.Task<List<Prop>> ListPropsAsync(int? n = default, int? offset = default, string? authorId = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of SellerEligibility</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<SellerEligibility> GetSellerEligibilityAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// List Props
+        /// Get Seller Eligibility
         /// </summary>
         /// <remarks>
-        /// Returns a list Prop objects.
+        /// Return the current user&#39;s eligibility to become a seller.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Prop&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Prop>>> ListPropsWithHttpInfoAsync(int? n = default, int? offset = default, string? authorId = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SellerEligibility)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse<SellerEligibility>> GetSellerEligibilityWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Tilia Status
+        /// </summary>
+        /// <remarks>
+        /// Return the Tilia integration status.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TiliaStatus</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<TiliaStatus> GetTiliaStatusAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Tilia Status
+        /// </summary>
+        /// <remarks>
+        /// Return the Tilia integration status.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TiliaStatus)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse<TiliaStatus>> GetTiliaStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Tilia TOS Agreement Status
+        /// </summary>
+        /// <remarks>
+        /// Return the user&#39;s Tilia TOS agreement status.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TiliaTOS</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<TiliaTOS> GetTiliaTosAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Tilia TOS Agreement Status
+        /// </summary>
+        /// <remarks>
+        /// Return the user&#39;s Tilia TOS agreement status.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TiliaTOS)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse<TiliaTOS>> GetTiliaTosWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get User Credits Eligibility
+        /// </summary>
+        /// <remarks>
+        /// Return the user&#39;s subscription credit eligibility.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UserCreditsEligible</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<UserCreditsEligible> GetUserCreditsEligibleAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get User Credits Eligibility
+        /// </summary>
+        /// <remarks>
+        /// Return the user&#39;s subscription credit eligibility.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UserCreditsEligible)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse<UserCreditsEligible>> GetUserCreditsEligibleWithHttpInfoAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Publish Prop
         /// </summary>
@@ -380,37 +434,39 @@ namespace VRChat.API.Api
         [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<PropPublishStatus>> UnpublishPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Prop
+        /// Update Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Updates a Prop and returns the updated Prop object. When updating the asset bundle, all of &#x60;name&#x60;, &#x60;assetUrl&#x60;, &#x60;platform&#x60;, &#x60;unityVersion&#x60;, &#x60;assetVersion&#x60;, &#x60;spawnType&#x60;, and &#x60;worldPlacementMask&#x60; must be present, as well as &#x60;propSignature&#x60; if this value is not blank.
+        /// Update the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="updatePropRequest"></param>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Prop</returns>
-        System.Threading.Tasks.Task<Prop> UpdatePropAsync(string propId, UpdatePropRequest updatePropRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of Object</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<Object> UpdateTiliaTosAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Update Prop
+        /// Update Tilia TOS Agreement Status
         /// </summary>
         /// <remarks>
-        /// Updates a Prop and returns the updated Prop object. When updating the asset bundle, all of &#x60;name&#x60;, &#x60;assetUrl&#x60;, &#x60;platform&#x60;, &#x60;unityVersion&#x60;, &#x60;assetVersion&#x60;, &#x60;spawnType&#x60;, and &#x60;worldPlacementMask&#x60; must be present, as well as &#x60;propSignature&#x60; if this value is not blank.
+        /// Update the user&#39;s Tilia TOS agreement status.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="updatePropRequest"></param>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Prop)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Prop>> UpdatePropWithHttpInfoAsync(string propId, UpdatePropRequest updatePropRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (Object)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateTiliaTosWithHttpInfoAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IPropsApi : IPropsApiSync, IPropsApiAsync
+    public interface IDeprecatedApi : IDeprecatedApiSync, IDeprecatedApiAsync
     {
 
     }
@@ -418,29 +474,29 @@ namespace VRChat.API.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class PropsApi : IDisposable, IPropsApi
+    public partial class DeprecatedApi : IDisposable, IDeprecatedApi
     {
         private VRChat.API.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropsApi"/> class.
+        /// Initializes a new instance of the <see cref="DeprecatedApi"/> class.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
-        public PropsApi() : this((string)null)
+        public DeprecatedApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropsApi"/> class.
+        /// Initializes a new instance of the <see cref="DeprecatedApi"/> class.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="basePath">The target service's base path in URL format.</param>
         /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
-        public PropsApi(string basePath)
+        public DeprecatedApi(string basePath)
         {
             this.Configuration = VRChat.API.Client.Configuration.MergeConfigurations(
                 VRChat.API.Client.GlobalConfiguration.Instance,
@@ -453,14 +509,14 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="DeprecatedApi"/> class using Configuration object.
         /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
         /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <param name="configuration">An instance of Configuration.</param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public PropsApi(VRChat.API.Client.Configuration configuration)
+        public DeprecatedApi(VRChat.API.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -475,7 +531,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropsApi"/> class.
+        /// Initializes a new instance of the <see cref="DeprecatedApi"/> class.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
@@ -485,12 +541,12 @@ namespace VRChat.API.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PropsApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        public DeprecatedApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropsApi"/> class.
+        /// Initializes a new instance of the <see cref="DeprecatedApi"/> class.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="basePath">The target service's base path in URL format.</param>
@@ -502,7 +558,7 @@ namespace VRChat.API.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PropsApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        public DeprecatedApi(HttpClient client, string basePath, HttpClientHandler handler = null)
         {
             if (client == null) throw new ArgumentNullException("client");
 
@@ -517,7 +573,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropsApi"/> class using Configuration object.
+        /// Initializes a new instance of the <see cref="DeprecatedApi"/> class using Configuration object.
         /// </summary>
         /// <param name="client">An instance of HttpClient.</param>
         /// <param name="configuration">An instance of Configuration.</param>
@@ -528,7 +584,7 @@ namespace VRChat.API.Api
         /// Some configuration settings will not be applied without passing an HttpClientHandler.
         /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
         /// </remarks>
-        public PropsApi(HttpClient client, VRChat.API.Client.Configuration configuration, HttpClientHandler handler = null)
+        public DeprecatedApi(HttpClient client, VRChat.API.Client.Configuration configuration, HttpClientHandler handler = null)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
             if (client == null) throw new ArgumentNullException("client");
@@ -544,14 +600,14 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PropsApi"/> class
+        /// Initializes a new instance of the <see cref="DeprecatedApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public PropsApi(VRChat.API.Client.ISynchronousClient client, VRChat.API.Client.IAsynchronousClient asyncClient, VRChat.API.Client.IReadableConfiguration configuration)
+        public DeprecatedApi(VRChat.API.Client.ISynchronousClient client, VRChat.API.Client.IAsynchronousClient asyncClient, VRChat.API.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -618,17 +674,18 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Create Prop Create a Prop and return the new Prop object.
+        /// Get Balance Earnings Return the user&#39;s balance from earnings.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createPropRequest"></param>
-        /// <returns>Prop</returns>
-        public Prop CreateProp(CreatePropRequest createPropRequest)
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>Balance</returns>
+        [Obsolete]
+        public Balance GetBalanceEarnings(string userId)
         {
-            VRChat.API.Client.ApiResponse<Prop> localVarResponse = CreatePropWithHttpInfo(createPropRequest);
+            VRChat.API.Client.ApiResponse<Balance> localVarResponse = GetBalanceEarningsWithHttpInfo(userId);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateProp", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetBalanceEarnings", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -638,21 +695,21 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Create Prop Create a Prop and return the new Prop object.
+        /// Get Balance Earnings Return the user&#39;s balance from earnings.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createPropRequest"></param>
-        /// <returns>ApiResponse of Prop</returns>
-        public VRChat.API.Client.ApiResponse<Prop> CreatePropWithHttpInfo(CreatePropRequest createPropRequest)
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of Balance</returns>
+        [Obsolete]
+        public VRChat.API.Client.ApiResponse<Balance> GetBalanceEarningsWithHttpInfo(string userId)
         {
-            // verify the required parameter 'createPropRequest' is set
-            if (createPropRequest == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createPropRequest' when calling PropsApi->CreateProp");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling DeprecatedApi->GetBalanceEarnings");
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
-                "application/json"
             };
 
             // to determine the Accept header
@@ -666,7 +723,7 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = createPropRequest;
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -678,29 +735,30 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Post<Prop>("/props", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<Balance>("/user/{userId}/balance/earnings", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Prop>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Balance>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Balance), ex.Message);
             }
         }
 
         /// <summary>
-        /// Create Prop Create a Prop and return the new Prop object.
+        /// Get Balance Earnings Return the user&#39;s balance from earnings.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createPropRequest"></param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Prop</returns>
-        public async System.Threading.Tasks.Task<Prop> CreatePropAsync(CreatePropRequest createPropRequest, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of Balance</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<Balance> GetBalanceEarningsAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Prop> localVarResponse = await CreatePropWithHttpInfoAsync(createPropRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Balance> localVarResponse = await GetBalanceEarningsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateProp", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetBalanceEarnings", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -710,160 +768,18 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Create Prop Create a Prop and return the new Prop object.
+        /// Get Balance Earnings Return the user&#39;s balance from earnings.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createPropRequest"></param>
+        /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Prop)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Prop>> CreatePropWithHttpInfoAsync(CreatePropRequest createPropRequest, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (Balance)</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Balance>> GetBalanceEarningsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'createPropRequest' is set
-            if (createPropRequest == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createPropRequest' when calling PropsApi->CreateProp");
-
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.Data = createPropRequest;
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
-            }
-
-            // make the HTTP request
-            try
-            {
-                var localVarResponse = await this.AsynchronousClient.PostAsync<Prop>("/props", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-                return localVarResponse;
-            }
-            catch (VRChat.API.Client.ApiException ex)
-            {
-                // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Prop>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Delete Prop Delete a Prop.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns></returns>
-        public void DeleteProp(string propId)
-        {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = DeletePropWithHttpInfo(propId);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteProp", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Delete Prop Delete a Prop.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> DeletePropWithHttpInfo(string propId)
-        {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->DeleteProp");
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
-            }
-
-            // make the HTTP request
-            try
-            {
-                var localVarResponse = this.Client.Delete<Object>("/props/{propId}", localVarRequestOptions, this.Configuration);
-                return localVarResponse;
-            }
-            catch (VRChat.API.Client.ApiException ex)
-            {
-                // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Delete Prop Delete a Prop.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeletePropAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
-        {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = await DeletePropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("DeleteProp", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Delete Prop Delete a Prop.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeletePropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
-        {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->DeleteProp");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling DeprecatedApi->GetBalanceEarnings");
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -883,7 +799,7 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -895,157 +811,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/props/{propId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Balance>("/user/{userId}/balance/earnings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Get Prop Returns a Prop object.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>Prop</returns>
-        public Prop GetProp(string propId)
-        {
-            VRChat.API.Client.ApiResponse<Prop> localVarResponse = GetPropWithHttpInfo(propId);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetProp", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Prop Returns a Prop object.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>ApiResponse of Prop</returns>
-        public VRChat.API.Client.ApiResponse<Prop> GetPropWithHttpInfo(string propId)
-        {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->GetProp");
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
-            }
-
-            // make the HTTP request
-            try
-            {
-                var localVarResponse = this.Client.Get<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration);
-                return localVarResponse;
-            }
-            catch (VRChat.API.Client.ApiException ex)
-            {
-                // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Prop>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Get Prop Returns a Prop object.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Prop</returns>
-        public async System.Threading.Tasks.Task<Prop> GetPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
-        {
-            VRChat.API.Client.ApiResponse<Prop> localVarResponse = await GetPropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetProp", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Prop Returns a Prop object.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Prop)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Prop>> GetPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
-        {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->GetProp");
-
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
-            }
-
-            // make the HTTP request
-            try
-            {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-                return localVarResponse;
-            }
-            catch (VRChat.API.Client.ApiException ex)
-            {
-                // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Prop>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Balance>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Balance), ex.Message);
             }
         }
 
@@ -1081,7 +853,7 @@ namespace VRChat.API.Api
         {
             // verify the required parameter 'propId' is set
             if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->GetPropPublishStatus");
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling DeprecatedApi->GetPropPublishStatus");
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1155,7 +927,7 @@ namespace VRChat.API.Api
         {
             // verify the required parameter 'propId' is set
             if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->GetPropPublishStatus");
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling DeprecatedApi->GetPropPublishStatus");
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1198,19 +970,17 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// List Props Returns a list Prop objects.
+        /// Get Seller Eligibility Return the current user&#39;s eligibility to become a seller.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="authorId">Must be a valid user ID. (optional)</param>
-        /// <returns>List&lt;Prop&gt;</returns>
-        public List<Prop> ListProps(int? n = default, int? offset = default, string? authorId = default)
+        /// <returns>SellerEligibility</returns>
+        [Obsolete]
+        public SellerEligibility GetSellerEligibility()
         {
-            VRChat.API.Client.ApiResponse<List<Prop>> localVarResponse = ListPropsWithHttpInfo(n, offset, authorId);
+            VRChat.API.Client.ApiResponse<SellerEligibility> localVarResponse = GetSellerEligibilityWithHttpInfo();
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListProps", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetSellerEligibility", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1220,14 +990,12 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// List Props Returns a list Prop objects.
+        /// Get Seller Eligibility Return the current user&#39;s eligibility to become a seller.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="authorId">Must be a valid user ID. (optional)</param>
-        /// <returns>ApiResponse of List&lt;Prop&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Prop>> ListPropsWithHttpInfo(int? n = default, int? offset = default, string? authorId = default)
+        /// <returns>ApiResponse of SellerEligibility</returns>
+        [Obsolete]
+        public VRChat.API.Client.ApiResponse<SellerEligibility> GetSellerEligibilityWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1245,18 +1013,6 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (n != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
-            }
-            if (offset != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
-            }
-            if (authorId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "authorId", authorId));
-            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1268,31 +1024,29 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<List<Prop>>("/props", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<SellerEligibility>("/economy/seller/eligibility", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<List<Prop>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Prop>), ex.Message);
+                return new VRChat.API.Client.ApiResponse<SellerEligibility>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SellerEligibility), ex.Message);
             }
         }
 
         /// <summary>
-        /// List Props Returns a list Prop objects.
+        /// Get Seller Eligibility Return the current user&#39;s eligibility to become a seller.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Prop&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Prop>> ListPropsAsync(int? n = default, int? offset = default, string? authorId = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of SellerEligibility</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<SellerEligibility> GetSellerEligibilityAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<Prop>> localVarResponse = await ListPropsWithHttpInfoAsync(n, offset, authorId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<SellerEligibility> localVarResponse = await GetSellerEligibilityWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListProps", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetSellerEligibility", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1302,15 +1056,13 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// List Props Returns a list Prop objects.
+        /// Get Seller Eligibility Return the current user&#39;s eligibility to become a seller.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
-        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
-        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Prop&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Prop>>> ListPropsWithHttpInfoAsync(int? n = default, int? offset = default, string? authorId = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SellerEligibility)</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SellerEligibility>> GetSellerEligibilityWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1330,18 +1082,6 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (n != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
-            }
-            if (offset != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
-            }
-            if (authorId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "authorId", authorId));
-            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1353,13 +1093,457 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Prop>>("/props", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<SellerEligibility>("/economy/seller/eligibility", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<List<Prop>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Prop>), ex.Message);
+                return new VRChat.API.Client.ApiResponse<SellerEligibility>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SellerEligibility), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Tilia Status Return the Tilia integration status.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>TiliaStatus</returns>
+        [Obsolete]
+        public TiliaStatus GetTiliaStatus()
+        {
+            VRChat.API.Client.ApiResponse<TiliaStatus> localVarResponse = GetTiliaStatusWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTiliaStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Tilia Status Return the Tilia integration status.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of TiliaStatus</returns>
+        [Obsolete]
+        public VRChat.API.Client.ApiResponse<TiliaStatus> GetTiliaStatusWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<TiliaStatus>("/tilia/status", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<TiliaStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TiliaStatus), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Tilia Status Return the Tilia integration status.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TiliaStatus</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<TiliaStatus> GetTiliaStatusAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<TiliaStatus> localVarResponse = await GetTiliaStatusWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTiliaStatus", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Tilia Status Return the Tilia integration status.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TiliaStatus)</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<TiliaStatus>> GetTiliaStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<TiliaStatus>("/tilia/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<TiliaStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TiliaStatus), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Tilia TOS Agreement Status Return the user&#39;s Tilia TOS agreement status.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>TiliaTOS</returns>
+        [Obsolete]
+        public TiliaTOS GetTiliaTos(string userId)
+        {
+            VRChat.API.Client.ApiResponse<TiliaTOS> localVarResponse = GetTiliaTosWithHttpInfo(userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTiliaTos", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Tilia TOS Agreement Status Return the user&#39;s Tilia TOS agreement status.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of TiliaTOS</returns>
+        [Obsolete]
+        public VRChat.API.Client.ApiResponse<TiliaTOS> GetTiliaTosWithHttpInfo(string userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling DeprecatedApi->GetTiliaTos");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<TiliaTOS>("/user/{userId}/tilia/tos", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<TiliaTOS>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TiliaTOS), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Tilia TOS Agreement Status Return the user&#39;s Tilia TOS agreement status.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TiliaTOS</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<TiliaTOS> GetTiliaTosAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<TiliaTOS> localVarResponse = await GetTiliaTosWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetTiliaTos", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Tilia TOS Agreement Status Return the user&#39;s Tilia TOS agreement status.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TiliaTOS)</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<TiliaTOS>> GetTiliaTosWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling DeprecatedApi->GetTiliaTos");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<TiliaTOS>("/user/{userId}/tilia/tos", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<TiliaTOS>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(TiliaTOS), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get User Credits Eligibility Return the user&#39;s subscription credit eligibility.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <returns>UserCreditsEligible</returns>
+        [Obsolete]
+        public UserCreditsEligible GetUserCreditsEligible(string userId, string subscriptionId)
+        {
+            VRChat.API.Client.ApiResponse<UserCreditsEligible> localVarResponse = GetUserCreditsEligibleWithHttpInfo(userId, subscriptionId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserCreditsEligible", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get User Credits Eligibility Return the user&#39;s subscription credit eligibility.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <returns>ApiResponse of UserCreditsEligible</returns>
+        [Obsolete]
+        public VRChat.API.Client.ApiResponse<UserCreditsEligible> GetUserCreditsEligibleWithHttpInfo(string userId, string subscriptionId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling DeprecatedApi->GetUserCreditsEligible");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling DeprecatedApi->GetUserCreditsEligible");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "subscriptionId", subscriptionId));
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<UserCreditsEligible>("/users/{userId}/credits/eligible", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<UserCreditsEligible>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserCreditsEligible), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get User Credits Eligibility Return the user&#39;s subscription credit eligibility.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of UserCreditsEligible</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<UserCreditsEligible> GetUserCreditsEligibleAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<UserCreditsEligible> localVarResponse = await GetUserCreditsEligibleWithHttpInfoAsync(userId, subscriptionId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserCreditsEligible", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get User Credits Eligibility Return the user&#39;s subscription credit eligibility.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="subscriptionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (UserCreditsEligible)</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UserCreditsEligible>> GetUserCreditsEligibleWithHttpInfoAsync(string userId, string subscriptionId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling DeprecatedApi->GetUserCreditsEligible");
+
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'subscriptionId' when calling DeprecatedApi->GetUserCreditsEligible");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "subscriptionId", subscriptionId));
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<UserCreditsEligible>("/users/{userId}/credits/eligible", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<UserCreditsEligible>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserCreditsEligible), ex.Message);
             }
         }
 
@@ -1395,7 +1579,7 @@ namespace VRChat.API.Api
         {
             // verify the required parameter 'propId' is set
             if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->PublishProp");
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling DeprecatedApi->PublishProp");
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1469,7 +1653,7 @@ namespace VRChat.API.Api
         {
             // verify the required parameter 'propId' is set
             if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->PublishProp");
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling DeprecatedApi->PublishProp");
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1543,7 +1727,7 @@ namespace VRChat.API.Api
         {
             // verify the required parameter 'propId' is set
             if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->UnpublishProp");
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling DeprecatedApi->UnpublishProp");
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1617,7 +1801,7 @@ namespace VRChat.API.Api
         {
             // verify the required parameter 'propId' is set
             if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->UnpublishProp");
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling DeprecatedApi->UnpublishProp");
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1660,18 +1844,19 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Prop Updates a Prop and returns the updated Prop object. When updating the asset bundle, all of &#x60;name&#x60;, &#x60;assetUrl&#x60;, &#x60;platform&#x60;, &#x60;unityVersion&#x60;, &#x60;assetVersion&#x60;, &#x60;spawnType&#x60;, and &#x60;worldPlacementMask&#x60; must be present, as well as &#x60;propSignature&#x60; if this value is not blank.
+        /// Update Tilia TOS Agreement Status Update the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="updatePropRequest"></param>
-        /// <returns>Prop</returns>
-        public Prop UpdateProp(string propId, UpdatePropRequest updatePropRequest)
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <returns>Object</returns>
+        [Obsolete]
+        public Object UpdateTiliaTos(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default)
         {
-            VRChat.API.Client.ApiResponse<Prop> localVarResponse = UpdatePropWithHttpInfo(propId, updatePropRequest);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = UpdateTiliaTosWithHttpInfo(userId, updateTiliaTOSRequest);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateProp", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateTiliaTos", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1681,21 +1866,18 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Prop Updates a Prop and returns the updated Prop object. When updating the asset bundle, all of &#x60;name&#x60;, &#x60;assetUrl&#x60;, &#x60;platform&#x60;, &#x60;unityVersion&#x60;, &#x60;assetVersion&#x60;, &#x60;spawnType&#x60;, and &#x60;worldPlacementMask&#x60; must be present, as well as &#x60;propSignature&#x60; if this value is not blank.
+        /// Update Tilia TOS Agreement Status Update the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="updatePropRequest"></param>
-        /// <returns>ApiResponse of Prop</returns>
-        public VRChat.API.Client.ApiResponse<Prop> UpdatePropWithHttpInfo(string propId, UpdatePropRequest updatePropRequest)
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object</returns>
+        [Obsolete]
+        public VRChat.API.Client.ApiResponse<Object> UpdateTiliaTosWithHttpInfo(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default)
         {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->UpdateProp");
-
-            // verify the required parameter 'updatePropRequest' is set
-            if (updatePropRequest == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updatePropRequest' when calling PropsApi->UpdateProp");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling DeprecatedApi->UpdateTiliaTos");
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1714,8 +1896,8 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-            localVarRequestOptions.Data = updatePropRequest;
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.Data = updateTiliaTOSRequest;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1727,30 +1909,31 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Put<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Put<Object>("/user/{userId}/tilia/tos", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Prop>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
             }
         }
 
         /// <summary>
-        /// Update Prop Updates a Prop and returns the updated Prop object. When updating the asset bundle, all of &#x60;name&#x60;, &#x60;assetUrl&#x60;, &#x60;platform&#x60;, &#x60;unityVersion&#x60;, &#x60;assetVersion&#x60;, &#x60;spawnType&#x60;, and &#x60;worldPlacementMask&#x60; must be present, as well as &#x60;propSignature&#x60; if this value is not blank.
+        /// Update Tilia TOS Agreement Status Update the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="updatePropRequest"></param>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Prop</returns>
-        public async System.Threading.Tasks.Task<Prop> UpdatePropAsync(string propId, UpdatePropRequest updatePropRequest, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of Object</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<Object> UpdateTiliaTosAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Prop> localVarResponse = await UpdatePropWithHttpInfoAsync(propId, updatePropRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await UpdateTiliaTosWithHttpInfoAsync(userId, updateTiliaTOSRequest, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateProp", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateTiliaTos", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1760,22 +1943,19 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Prop Updates a Prop and returns the updated Prop object. When updating the asset bundle, all of &#x60;name&#x60;, &#x60;assetUrl&#x60;, &#x60;platform&#x60;, &#x60;unityVersion&#x60;, &#x60;assetVersion&#x60;, &#x60;spawnType&#x60;, and &#x60;worldPlacementMask&#x60; must be present, as well as &#x60;propSignature&#x60; if this value is not blank.
+        /// Update Tilia TOS Agreement Status Update the user&#39;s Tilia TOS agreement status.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="updatePropRequest"></param>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="updateTiliaTOSRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Prop)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Prop>> UpdatePropWithHttpInfoAsync(string propId, UpdatePropRequest updatePropRequest, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (Object)</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> UpdateTiliaTosWithHttpInfoAsync(string userId, UpdateTiliaTOSRequest? updateTiliaTOSRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->UpdateProp");
-
-            // verify the required parameter 'updatePropRequest' is set
-            if (updatePropRequest == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updatePropRequest' when calling PropsApi->UpdateProp");
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling DeprecatedApi->UpdateTiliaTos");
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1796,8 +1976,8 @@ namespace VRChat.API.Api
             var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-            localVarRequestOptions.Data = updatePropRequest;
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.Data = updateTiliaTOSRequest;
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1809,13 +1989,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.PutAsync<Prop>("/props/{propId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/user/{userId}/tilia/tos", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Prop>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Prop), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
             }
         }
 

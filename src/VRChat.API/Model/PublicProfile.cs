@@ -42,13 +42,13 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="ageVerificationStatus">ageVerificationStatus.</param>
         /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+)..</param>
-        /// <param name="backgroundGradientBottom">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
-        /// <param name="backgroundGradientTop">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="backgroundGradientBottom">Hex colour without a leading &#x60;#&#x60;..</param>
+        /// <param name="backgroundGradientTop">Hex colour without a leading &#x60;#&#x60;..</param>
         /// <param name="backgroundTemplateId">backgroundTemplateId.</param>
         /// <param name="backgroundTextureId">backgroundTextureId.</param>
         /// <param name="backgroundType">backgroundType.</param>
         /// <param name="badges">badges.</param>
-        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="bannerColor">bannerColor.</param>
         /// <param name="bannerCustomUrl">bannerCustomUrl.</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
@@ -76,10 +76,10 @@ namespace VRChat.API.Model
         /// <param name="representedGroup">representedGroup.</param>
         /// <param name="status">status.</param>
         /// <param name="statusDescription">statusDescription.</param>
-        /// <param name="themeButtonColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
-        /// <param name="themeIconColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="themeButtonColor">Hex colour without a leading &#x60;#&#x60;..</param>
+        /// <param name="themeIconColor">Hex colour without a leading &#x60;#&#x60;..</param>
         /// <param name="themeId">themeId.</param>
-        /// <param name="themeSubtextColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="themeSubtextColor">Hex colour without a leading &#x60;#&#x60;..</param>
         /// <param name="themes">themes.</param>
         /// <param name="totalPublicWorldsCount">totalPublicWorldsCount.</param>
         /// <param name="trustTags">trustTags.</param>
@@ -142,22 +142,16 @@ namespace VRChat.API.Model
         public bool AgeVerified { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Hex colour without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
+        /// <value>Hex colour without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "backgroundGradientBottom", EmitDefaultValue = false)]
         public string BackgroundGradientBottom { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Hex colour without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
+        /// <value>Hex colour without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "backgroundGradientTop", EmitDefaultValue = false)]
         public string BackgroundGradientTop { get; set; }
 
@@ -186,12 +180,8 @@ namespace VRChat.API.Model
         public List<Badge> Badges { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Gets or Sets BannerColor
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
@@ -367,22 +357,16 @@ namespace VRChat.API.Model
         public string StatusDescription { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Hex colour without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
+        /// <value>Hex colour without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "themeButtonColor", EmitDefaultValue = false)]
         public string ThemeButtonColor { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Hex colour without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
+        /// <value>Hex colour without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "themeIconColor", EmitDefaultValue = false)]
         public string ThemeIconColor { get; set; }
 
@@ -393,12 +377,9 @@ namespace VRChat.API.Model
         public string ThemeId { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Hex colour without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
+        /// <value>Hex colour without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "themeSubtextColor", EmitDefaultValue = false)]
         public string ThemeSubtextColor { get; set; }
 

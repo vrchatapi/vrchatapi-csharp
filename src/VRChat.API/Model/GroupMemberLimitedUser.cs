@@ -28,7 +28,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupMemberLimitedUser" /> class.
         /// </summary>
-        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="bannerColor">bannerColor.</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
         /// <param name="displayName">displayName.</param>
@@ -51,12 +51,8 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Gets or Sets BannerColor
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 

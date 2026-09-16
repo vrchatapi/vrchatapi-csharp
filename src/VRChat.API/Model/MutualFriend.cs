@@ -39,7 +39,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MutualFriend" /> class.
         /// </summary>
-        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="bannerColor">Hex colour without a leading &#x60;#&#x60;..</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
         /// <param name="displayName">displayName (required).</param>
@@ -69,9 +69,9 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Hex colour without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Hex colour without a leading &#x60;#&#x60;.</value>
         /*
         <example>3cc92c</example>
         */

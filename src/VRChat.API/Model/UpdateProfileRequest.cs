@@ -98,7 +98,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="backgroundTextureId">backgroundTextureId.</param>
         /// <param name="backgroundType">backgroundType.</param>
-        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="bannerColor">Hex colour without a leading &#x60;#&#x60;..</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bio">bio.</param>
         /// <param name="bioLinks">bioLinks.</param>
@@ -131,12 +131,9 @@ namespace VRChat.API.Model
         public string BackgroundTextureId { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Hex colour without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
+        /// <value>Hex colour without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 

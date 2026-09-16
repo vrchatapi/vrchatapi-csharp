@@ -28,7 +28,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserNoteTargetUser" /> class.
         /// </summary>
-        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="id">id.</param>
         /// <param name="displayName">displayName.</param>
         public UserNoteTargetUser(string id = default, string displayName = default)
         {
@@ -37,11 +37,10 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
         /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        <example>unt_e9074848-d107-4019-b4aa-bbd19e67660d</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
