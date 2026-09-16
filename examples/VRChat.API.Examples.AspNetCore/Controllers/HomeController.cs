@@ -25,14 +25,18 @@ public class HomeController : Controller
     {
         var user = await _vrchat.Authentication.GetCurrentUserAsync();
 
+        // Profile fields (bio, bio links, badges, ...) are no longer part of CurrentUser.
+        // They live behind getPublicProfile; asSelf includes the owner-only view.
+        var profile = await _vrchat.Users.GetPublicProfileAsync(user.Id, asSelf: true);
+
         return Ok(new
         {
             user.Id,
             user.DisplayName,
             user.CurrentAvatarImageUrl,
-            user.Badges,
-            user.Bio,
-            user.BioLinks,
+            profile.Badges,
+            profile.Bio,
+            profile.BioLinks,
             user.Tags
         });
     }
@@ -43,14 +47,18 @@ public class HomeController : Controller
     {
         var user = await _vrchat.Users.GetUserAsync(id);
 
+        // User no longer carries the profile or current-avatar fields; fetch them from the
+        // public profile instead.
+        var profile = await _vrchat.Users.GetPublicProfileAsync(id);
+
         return Ok(new
         {
             user.Id,
             user.DisplayName,
-            user.CurrentAvatarImageUrl,
-            user.Badges,
-            user.Bio,
-            user.BioLinks,
+            profile.CurrentAvatarImageUrl,
+            profile.Badges,
+            profile.Bio,
+            profile.BioLinks,
             user.Tags
         });
     }
