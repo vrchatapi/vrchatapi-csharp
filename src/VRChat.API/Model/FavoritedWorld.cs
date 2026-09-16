@@ -46,22 +46,24 @@ namespace VRChat.API.Model
         /// <param name="defaultContentSettings">defaultContentSettings.</param>
         /// <param name="description">description.</param>
         /// <param name="disabledPropAbilities">disabledPropAbilities.</param>
-        /// <param name="favoriteGroup">favoriteGroup (required).</param>
-        /// <param name="favoriteId">favoriteId (required).</param>
+        /// <param name="favoriteGroup">favoriteGroup.</param>
+        /// <param name="favoriteId">favoriteId.</param>
         /// <param name="favorites">favorites (default to 0).</param>
         /// <param name="featured">featured (default to false).</param>
         /// <param name="heat">heat (default to 0).</param>
         /// <param name="id">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
         /// <param name="imageUrl">imageUrl (required).</param>
+        /// <param name="isHypeTrainEligible">isHypeTrainEligible.</param>
         /// <param name="labsPublicationDate">labsPublicationDate.</param>
         /// <param name="name">name (required).</param>
-        /// <param name="occupants">occupants (required) (default to 0).</param>
+        /// <param name="occupants">occupants (default to 0).</param>
         /// <param name="organization">organization (default to &quot;vrchat&quot;).</param>
         /// <param name="popularity">popularity (default to 0).</param>
         /// <param name="previewYoutubeId">previewYoutubeId.</param>
         /// <param name="publicationDate">publicationDate.</param>
         /// <param name="recommendedCapacity">recommendedCapacity.</param>
         /// <param name="releaseStatus">releaseStatus (required).</param>
+        /// <param name="storeId">storeId.</param>
         /// <param name="tags"> .</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
         /// <param name="udonProducts">udonProducts.</param>
@@ -70,22 +72,17 @@ namespace VRChat.API.Model
         /// <param name="urlList">urlList.</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="visits">visits (default to 0).</param>
-        public FavoritedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, List<Object> disabledPropAbilities = default, string favoriteGroup = default, string favoriteId = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = default, int visits = 0)
+        public FavoritedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, List<Object> disabledPropAbilities = default, string favoriteGroup = default, string favoriteId = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, bool isHypeTrainEligible = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = default, int visits = 0)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorName = authorName;
             this.Capacity = capacity;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.FavoriteGroup = favoriteGroup;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.FavoriteId = favoriteId;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
-            this.Occupants = occupants;
             this.ReleaseStatus = releaseStatus;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ThumbnailImageUrl = thumbnailImageUrl;
@@ -94,16 +91,21 @@ namespace VRChat.API.Model
             this.DefaultContentSettings = defaultContentSettings;
             this.Description = description;
             this.DisabledPropAbilities = disabledPropAbilities;
+            this.FavoriteGroup = favoriteGroup;
+            this.FavoriteId = favoriteId;
             this.Favorites = favorites;
             this.Featured = featured;
             this.Heat = heat;
+            this.IsHypeTrainEligible = isHypeTrainEligible;
             this.LabsPublicationDate = labsPublicationDate;
+            this.Occupants = occupants;
             // use default value if no "organization" provided
             this.Organization = organization ?? @"vrchat";
             this.Popularity = popularity;
             this.PreviewYoutubeId = previewYoutubeId;
             this.PublicationDate = publicationDate;
             this.RecommendedCapacity = recommendedCapacity;
+            this.StoreId = storeId;
             this.Tags = tags;
             this.UdonProducts = udonProducts;
             this.UnityPackages = unityPackages;
@@ -165,7 +167,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets FavoriteGroup
         /// </summary>
-        [DataMember(Name = "favoriteGroup", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "favoriteGroup", EmitDefaultValue = false)]
         public string FavoriteGroup { get; set; }
 
         /// <summary>
@@ -174,7 +176,7 @@ namespace VRChat.API.Model
         /*
         <example>fvrt_9568d189-8776-44a5-a8c8-defc981e44de</example>
         */
-        [DataMember(Name = "favoriteId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "favoriteId", EmitDefaultValue = false)]
         public string FavoriteId { get; set; }
 
         /// <summary>
@@ -218,6 +220,12 @@ namespace VRChat.API.Model
         public string ImageUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsHypeTrainEligible
+        /// </summary>
+        [DataMember(Name = "isHypeTrainEligible", EmitDefaultValue = true)]
+        public bool IsHypeTrainEligible { get; set; }
+
+        /// <summary>
         /// Gets or Sets LabsPublicationDate
         /// </summary>
         /*
@@ -238,7 +246,7 @@ namespace VRChat.API.Model
         /*
         <example>47</example>
         */
-        [DataMember(Name = "occupants", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "occupants", EmitDefaultValue = false)]
         public int Occupants { get; set; }
 
         /// <summary>
@@ -279,6 +287,15 @@ namespace VRChat.API.Model
         */
         [DataMember(Name = "recommendedCapacity", EmitDefaultValue = false)]
         public int RecommendedCapacity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StoreId
+        /// </summary>
+        /*
+        <example>esto_713b247d-2b5d-41a0-bba3-50db28dc1498</example>
+        */
+        [DataMember(Name = "storeId", EmitDefaultValue = false)]
+        public string StoreId { get; set; }
 
         /// <summary>
         ///  
@@ -355,6 +372,7 @@ namespace VRChat.API.Model
             sb.Append("  Heat: ").Append(Heat).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+            sb.Append("  IsHypeTrainEligible: ").Append(IsHypeTrainEligible).Append("\n");
             sb.Append("  LabsPublicationDate: ").Append(LabsPublicationDate).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Occupants: ").Append(Occupants).Append("\n");
@@ -364,6 +382,7 @@ namespace VRChat.API.Model
             sb.Append("  PublicationDate: ").Append(PublicationDate).Append("\n");
             sb.Append("  RecommendedCapacity: ").Append(RecommendedCapacity).Append("\n");
             sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
+            sb.Append("  StoreId: ").Append(StoreId).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  ThumbnailImageUrl: ").Append(ThumbnailImageUrl).Append("\n");
             sb.Append("  UdonProducts: ").Append(UdonProducts).Append("\n");
@@ -474,6 +493,10 @@ namespace VRChat.API.Model
                     this.ImageUrl.Equals(input.ImageUrl))
                 ) && 
                 (
+                    this.IsHypeTrainEligible == input.IsHypeTrainEligible ||
+                    this.IsHypeTrainEligible.Equals(input.IsHypeTrainEligible)
+                ) && 
+                (
                     this.LabsPublicationDate == input.LabsPublicationDate ||
                     (this.LabsPublicationDate != null &&
                     this.LabsPublicationDate.Equals(input.LabsPublicationDate))
@@ -513,6 +536,11 @@ namespace VRChat.API.Model
                 (
                     this.ReleaseStatus == input.ReleaseStatus ||
                     this.ReleaseStatus.Equals(input.ReleaseStatus)
+                ) && 
+                (
+                    this.StoreId == input.StoreId ||
+                    (this.StoreId != null &&
+                    this.StoreId.Equals(input.StoreId))
                 ) && 
                 (
                     this.Tags == input.Tags ||
@@ -607,6 +635,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsHypeTrainEligible.GetHashCode();
                 if (this.LabsPublicationDate != null)
                 {
                     hashCode = (hashCode * 59) + this.LabsPublicationDate.GetHashCode();
@@ -631,6 +660,10 @@ namespace VRChat.API.Model
                 }
                 hashCode = (hashCode * 59) + this.RecommendedCapacity.GetHashCode();
                 hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
+                if (this.StoreId != null)
+                {
+                    hashCode = (hashCode * 59) + this.StoreId.GetHashCode();
+                }
                 if (this.Tags != null)
                 {
                     hashCode = (hashCode * 59) + this.Tags.GetHashCode();
@@ -672,9 +705,9 @@ namespace VRChat.API.Model
             }
 
             // Description (string) minLength
-            if (this.Description != null && this.Description.Length < 1)
+            if (this.Description != null && this.Description.Length < 0)
             {
-                yield return new ValidationResult("Invalid value for Description, length must be greater than 1.", new [] { "Description" });
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
 
             // FavoriteGroup (string) minLength
@@ -708,9 +741,9 @@ namespace VRChat.API.Model
             }
 
             // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            if (this.Name != null && this.Name.Length < 0)
             {
-                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
             }
 
             // Occupants (int) minimum

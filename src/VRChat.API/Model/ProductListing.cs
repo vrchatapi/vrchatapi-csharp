@@ -79,12 +79,12 @@ namespace VRChat.API.Model
         /// <param name="purchaseCountQuantity">purchaseCountQuantity.</param>
         /// <param name="quantifiable">quantifiable.</param>
         /// <param name="recurrable">recurrable (required).</param>
-        /// <param name="refundable">refundable (required).</param>
+        /// <param name="refundable">refundable.</param>
         /// <param name="sellerDisplayName">sellerDisplayName (required).</param>
         /// <param name="sellerId">sellerId (required).</param>
         /// <param name="soldByVrc">soldByVrc.</param>
         /// <param name="stackable">stackable (required).</param>
-        /// <param name="storeIds">storeIds (required).</param>
+        /// <param name="storeIds">storeIds.</param>
         /// <param name="subtitle">subtitle.</param>
         /// <param name="tags">tags.</param>
         /// <param name="updated">updated.</param>
@@ -110,14 +110,11 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Products = products;
             this.Recurrable = recurrable;
-            this.Refundable = refundable;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerDisplayName = sellerDisplayName;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerId = sellerId;
             this.Stackable = stackable;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.StoreIds = storeIds;
             this.Archived = archived;
             this.Attribution = attribution;
             this.CollabUserDisplayName = collabUserDisplayName;
@@ -139,7 +136,9 @@ namespace VRChat.API.Model
             this.PurchaseCount = purchaseCount;
             this.PurchaseCountQuantity = purchaseCountQuantity;
             this.Quantifiable = quantifiable;
+            this.Refundable = refundable;
             this.SoldByVrc = soldByVrc;
+            this.StoreIds = storeIds;
             this.Subtitle = subtitle;
             this.Tags = tags;
             this.Updated = updated;
@@ -359,7 +358,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Refundable
         /// </summary>
-        [DataMember(Name = "refundable", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "refundable", EmitDefaultValue = true)]
         public bool Refundable { get; set; }
 
         /// <summary>
@@ -389,7 +388,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets StoreIds
         /// </summary>
-        [DataMember(Name = "storeIds", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "storeIds", EmitDefaultValue = false)]
         public List<string> StoreIds { get; set; }
 
         /// <summary>

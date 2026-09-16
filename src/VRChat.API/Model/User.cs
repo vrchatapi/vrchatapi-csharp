@@ -65,15 +65,9 @@ namespace VRChat.API.Model
         /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+). (required).</param>
         /// <param name="allowAvatarCopying">allowAvatarCopying (required) (default to true).</param>
         /// <param name="appleDetails">appleDetails.</param>
-        /// <param name="badges"> .</param>
-        /// <param name="bannerColor">bannerColor.</param>
+        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
-        /// <param name="bio">bio (required).</param>
-        /// <param name="bioLinks">bioLinks (required).</param>
-        /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
-        /// <param name="currentAvatarTags">currentAvatarTags (required).</param>
-        /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
         /// <param name="dateJoined">dateJoined (required).</param>
         /// <param name="developerType">developerType (required).</param>
         /// <param name="displayName">A users visual display name. This is what shows up in-game, and can different from their &#x60;username&#x60;. Changing display name is restricted to a cooldown period. (required).</param>
@@ -94,8 +88,6 @@ namespace VRChat.API.Model
         /// <param name="note">note.</param>
         /// <param name="platform">platform.</param>
         /// <param name="profileEffect">profileEffect.</param>
-        /// <param name="profilePicOverride">profilePicOverride (required).</param>
-        /// <param name="profilePicOverrideThumbnail">profilePicOverrideThumbnail (required).</param>
         /// <param name="pronouns">pronouns (required).</param>
         /// <param name="state">state (required).</param>
         /// <param name="status">status (required).</param>
@@ -104,23 +96,12 @@ namespace VRChat.API.Model
         /// <param name="travelingToInstance">travelingToInstance.</param>
         /// <param name="travelingToLocation">travelingToLocation.</param>
         /// <param name="travelingToWorld">travelingToWorld.</param>
-        /// <param name="userIcon">userIcon (required).</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public User(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = true, Dictionary<string, Object> appleDetails = default, List<Badge> badges = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, string bio = default, List<string> bioLinks = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, string lastActivity = default, string lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string profilePicOverride = default, string profilePicOverrideThumbnail = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string userIcon = default, string worldId = default)
+        public User(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = true, Dictionary<string, Object> appleDetails = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, string lastActivity = default, string lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
         {
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
             this.AllowAvatarCopying = allowAvatarCopying;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Bio = bio;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.BioLinks = bioLinks;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.CurrentAvatarImageUrl = currentAvatarImageUrl;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.CurrentAvatarTags = currentAvatarTags;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
             this.DateJoined = dateJoined;
             this.DeveloperType = developerType;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -137,10 +118,6 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastPlatform = lastPlatform;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.ProfilePicOverride = profilePicOverride;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.ProfilePicOverrideThumbnail = profilePicOverrideThumbnail;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Pronouns = pronouns;
             this.State = state;
             this.Status = status;
@@ -148,14 +125,11 @@ namespace VRChat.API.Model
             this.StatusDescription = statusDescription;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.UserIcon = userIcon;
             this.AcceptedPrivacyVersion = acceptedPrivacyVersion;
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.AccountDeletionDate = accountDeletionDate;
             this.AccountDeletionLog = accountDeletionLog;
             this.AppleDetails = appleDetails;
-            this.Badges = badges;
             this.BannerColor = bannerColor;
             this.BannerType = bannerType;
             this.BannerUrl = bannerUrl;
@@ -220,15 +194,12 @@ namespace VRChat.API.Model
         public Dictionary<string, Object> AppleDetails { get; set; }
 
         /// <summary>
-        ///  
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
-        /// <value> </value>
-        [DataMember(Name = "badges", EmitDefaultValue = false)]
-        public List<Badge> Badges { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BannerColor
-        /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /*
+        <example>3cc92c</example>
+        */
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
@@ -243,44 +214,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "bannerUrl", EmitDefaultValue = false)]
         public string BannerUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Bio
-        /// </summary>
-        [DataMember(Name = "bio", IsRequired = true, EmitDefaultValue = true)]
-        public string Bio { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BioLinks
-        /// </summary>
-        [DataMember(Name = "bioLinks", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> BioLinks { get; set; }
-
-        /// <summary>
-        /// When profilePicOverride is not empty, use it instead.
-        /// </summary>
-        /// <value>When profilePicOverride is not empty, use it instead.</value>
-        /*
-        <example>https://api.vrchat.cloud/api/1/file/file_ae46d521-7281-4b38-b365-804b32a1d6a7/1/file</example>
-        */
-        [DataMember(Name = "currentAvatarImageUrl", IsRequired = true, EmitDefaultValue = true)]
-        public string CurrentAvatarImageUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CurrentAvatarTags
-        /// </summary>
-        [DataMember(Name = "currentAvatarTags", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> CurrentAvatarTags { get; set; }
-
-        /// <summary>
-        /// When profilePicOverride is not empty, use it instead.
-        /// </summary>
-        /// <value>When profilePicOverride is not empty, use it instead.</value>
-        /*
-        <example>https://api.vrchat.cloud/api/1/image/file_aae83ed9-d42d-4d72-9f4b-9f1e41ed17e1/1/256</example>
-        */
-        [DataMember(Name = "currentAvatarThumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
-        public string CurrentAvatarThumbnailImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets DateJoined
@@ -421,18 +354,6 @@ namespace VRChat.API.Model
         public string ProfileEffect { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProfilePicOverride
-        /// </summary>
-        [DataMember(Name = "profilePicOverride", IsRequired = true, EmitDefaultValue = true)]
-        public string ProfilePicOverride { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProfilePicOverrideThumbnail
-        /// </summary>
-        [DataMember(Name = "profilePicOverrideThumbnail", IsRequired = true, EmitDefaultValue = true)]
-        public string ProfilePicOverrideThumbnail { get; set; }
-
-        /// <summary>
         /// Gets or Sets Pronouns
         /// </summary>
         [DataMember(Name = "pronouns", IsRequired = true, EmitDefaultValue = true)]
@@ -470,12 +391,6 @@ namespace VRChat.API.Model
         public string TravelingToWorld { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserIcon
-        /// </summary>
-        [DataMember(Name = "userIcon", IsRequired = true, EmitDefaultValue = true)]
-        public string UserIcon { get; set; }
-
-        /// <summary>
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
@@ -501,15 +416,9 @@ namespace VRChat.API.Model
             sb.Append("  AgeVerified: ").Append(AgeVerified).Append("\n");
             sb.Append("  AllowAvatarCopying: ").Append(AllowAvatarCopying).Append("\n");
             sb.Append("  AppleDetails: ").Append(AppleDetails).Append("\n");
-            sb.Append("  Badges: ").Append(Badges).Append("\n");
             sb.Append("  BannerColor: ").Append(BannerColor).Append("\n");
             sb.Append("  BannerType: ").Append(BannerType).Append("\n");
             sb.Append("  BannerUrl: ").Append(BannerUrl).Append("\n");
-            sb.Append("  Bio: ").Append(Bio).Append("\n");
-            sb.Append("  BioLinks: ").Append(BioLinks).Append("\n");
-            sb.Append("  CurrentAvatarImageUrl: ").Append(CurrentAvatarImageUrl).Append("\n");
-            sb.Append("  CurrentAvatarTags: ").Append(CurrentAvatarTags).Append("\n");
-            sb.Append("  CurrentAvatarThumbnailImageUrl: ").Append(CurrentAvatarThumbnailImageUrl).Append("\n");
             sb.Append("  DateJoined: ").Append(DateJoined).Append("\n");
             sb.Append("  DeveloperType: ").Append(DeveloperType).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
@@ -530,8 +439,6 @@ namespace VRChat.API.Model
             sb.Append("  Note: ").Append(Note).Append("\n");
             sb.Append("  Platform: ").Append(Platform).Append("\n");
             sb.Append("  ProfileEffect: ").Append(ProfileEffect).Append("\n");
-            sb.Append("  ProfilePicOverride: ").Append(ProfilePicOverride).Append("\n");
-            sb.Append("  ProfilePicOverrideThumbnail: ").Append(ProfilePicOverrideThumbnail).Append("\n");
             sb.Append("  Pronouns: ").Append(Pronouns).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -540,7 +447,6 @@ namespace VRChat.API.Model
             sb.Append("  TravelingToInstance: ").Append(TravelingToInstance).Append("\n");
             sb.Append("  TravelingToLocation: ").Append(TravelingToLocation).Append("\n");
             sb.Append("  TravelingToWorld: ").Append(TravelingToWorld).Append("\n");
-            sb.Append("  UserIcon: ").Append(UserIcon).Append("\n");
             sb.Append("  WorldId: ").Append(WorldId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -615,12 +521,6 @@ namespace VRChat.API.Model
                     this.AppleDetails.SequenceEqual(input.AppleDetails)
                 ) && 
                 (
-                    this.Badges == input.Badges ||
-                    this.Badges != null &&
-                    input.Badges != null &&
-                    this.Badges.SequenceEqual(input.Badges)
-                ) && 
-                (
                     this.BannerColor == input.BannerColor ||
                     (this.BannerColor != null &&
                     this.BannerColor.Equals(input.BannerColor))
@@ -634,33 +534,6 @@ namespace VRChat.API.Model
                     this.BannerUrl == input.BannerUrl ||
                     (this.BannerUrl != null &&
                     this.BannerUrl.Equals(input.BannerUrl))
-                ) && 
-                (
-                    this.Bio == input.Bio ||
-                    (this.Bio != null &&
-                    this.Bio.Equals(input.Bio))
-                ) && 
-                (
-                    this.BioLinks == input.BioLinks ||
-                    this.BioLinks != null &&
-                    input.BioLinks != null &&
-                    this.BioLinks.SequenceEqual(input.BioLinks)
-                ) && 
-                (
-                    this.CurrentAvatarImageUrl == input.CurrentAvatarImageUrl ||
-                    (this.CurrentAvatarImageUrl != null &&
-                    this.CurrentAvatarImageUrl.Equals(input.CurrentAvatarImageUrl))
-                ) && 
-                (
-                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
-                    this.CurrentAvatarTags != null &&
-                    input.CurrentAvatarTags != null &&
-                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
-                ) && 
-                (
-                    this.CurrentAvatarThumbnailImageUrl == input.CurrentAvatarThumbnailImageUrl ||
-                    (this.CurrentAvatarThumbnailImageUrl != null &&
-                    this.CurrentAvatarThumbnailImageUrl.Equals(input.CurrentAvatarThumbnailImageUrl))
                 ) && 
                 (
                     this.DateJoined == input.DateJoined ||
@@ -759,16 +632,6 @@ namespace VRChat.API.Model
                     this.ProfileEffect.Equals(input.ProfileEffect))
                 ) && 
                 (
-                    this.ProfilePicOverride == input.ProfilePicOverride ||
-                    (this.ProfilePicOverride != null &&
-                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
-                ) && 
-                (
-                    this.ProfilePicOverrideThumbnail == input.ProfilePicOverrideThumbnail ||
-                    (this.ProfilePicOverrideThumbnail != null &&
-                    this.ProfilePicOverrideThumbnail.Equals(input.ProfilePicOverrideThumbnail))
-                ) && 
-                (
                     this.Pronouns == input.Pronouns ||
                     (this.Pronouns != null &&
                     this.Pronouns.Equals(input.Pronouns))
@@ -808,11 +671,6 @@ namespace VRChat.API.Model
                     this.TravelingToWorld.Equals(input.TravelingToWorld))
                 ) && 
                 (
-                    this.UserIcon == input.UserIcon ||
-                    (this.UserIcon != null &&
-                    this.UserIcon.Equals(input.UserIcon))
-                ) && 
-                (
                     this.WorldId == input.WorldId ||
                     (this.WorldId != null &&
                     this.WorldId.Equals(input.WorldId))
@@ -845,10 +703,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.AppleDetails.GetHashCode();
                 }
-                if (this.Badges != null)
-                {
-                    hashCode = (hashCode * 59) + this.Badges.GetHashCode();
-                }
                 if (this.BannerColor != null)
                 {
                     hashCode = (hashCode * 59) + this.BannerColor.GetHashCode();
@@ -860,26 +714,6 @@ namespace VRChat.API.Model
                 if (this.BannerUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();
-                }
-                if (this.Bio != null)
-                {
-                    hashCode = (hashCode * 59) + this.Bio.GetHashCode();
-                }
-                if (this.BioLinks != null)
-                {
-                    hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
-                }
-                if (this.CurrentAvatarImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarImageUrl.GetHashCode();
-                }
-                if (this.CurrentAvatarTags != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
-                }
-                if (this.CurrentAvatarThumbnailImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.DateJoined.GetHashCode();
                 hashCode = (hashCode * 59) + this.DeveloperType.GetHashCode();
@@ -949,14 +783,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ProfileEffect.GetHashCode();
                 }
-                if (this.ProfilePicOverride != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
-                }
-                if (this.ProfilePicOverrideThumbnail != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfilePicOverrideThumbnail.GetHashCode();
-                }
                 if (this.Pronouns != null)
                 {
                     hashCode = (hashCode * 59) + this.Pronouns.GetHashCode();
@@ -983,10 +809,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.TravelingToWorld.GetHashCode();
                 }
-                if (this.UserIcon != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
-                }
                 if (this.WorldId != null)
                 {
                     hashCode = (hashCode * 59) + this.WorldId.GetHashCode();
@@ -1002,18 +824,6 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Bio (string) maxLength
-            if (this.Bio != null && this.Bio.Length > 512)
-            {
-                yield return new ValidationResult("Invalid value for Bio, length must be less than 512.", new [] { "Bio" });
-            }
-
-            // Bio (string) minLength
-            if (this.Bio != null && this.Bio.Length < 0)
-            {
-                yield return new ValidationResult("Invalid value for Bio, length must be greater than 0.", new [] { "Bio" });
-            }
-
             yield break;
         }
     }

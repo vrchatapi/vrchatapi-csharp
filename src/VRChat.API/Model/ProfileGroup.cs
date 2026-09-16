@@ -20,41 +20,44 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Attribution shown alongside a listing.
+    /// ProfileGroup
     /// </summary>
-    [DataContract(Name = "ProductListingAttribution")]
-    public partial class ProductListingAttribution : IEquatable<ProductListingAttribution>, IValidatableObject
+    [DataContract(Name = "ProfileGroup")]
+    public partial class ProfileGroup : IEquatable<ProfileGroup>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProductListingAttribution" /> class.
+        /// Initializes a new instance of the <see cref="ProfileGroup" /> class.
         /// </summary>
-        /// <param name="collaborationId">collaborationId.</param>
-        /// <param name="creator">creator.</param>
-        /// <param name="publisher">publisher.</param>
-        public ProductListingAttribution(string collaborationId = default, ProductListingAttributionCreator creator = default, ProductListingAttributionCreator publisher = default)
+        /// <param name="iconUrl">iconUrl.</param>
+        /// <param name="id">id.</param>
+        /// <param name="name">name.</param>
+        public ProfileGroup(string iconUrl = default, string id = default, string name = default)
         {
-            this.CollaborationId = collaborationId;
-            this.Creator = creator;
-            this.Publisher = publisher;
+            this.IconUrl = iconUrl;
+            this.Id = id;
+            this.Name = name;
         }
 
         /// <summary>
-        /// Gets or Sets CollaborationId
+        /// Gets or Sets IconUrl
         /// </summary>
-        [DataMember(Name = "collaborationId", EmitDefaultValue = false)]
-        public string CollaborationId { get; set; }
+        [DataMember(Name = "iconUrl", EmitDefaultValue = false)]
+        public string IconUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets Creator
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "creator", EmitDefaultValue = false)]
-        public ProductListingAttributionCreator Creator { get; set; }
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Publisher
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "publisher", EmitDefaultValue = false)]
-        public ProductListingAttributionCreator Publisher { get; set; }
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,10 +66,10 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ProductListingAttribution {\n");
-            sb.Append("  CollaborationId: ").Append(CollaborationId).Append("\n");
-            sb.Append("  Creator: ").Append(Creator).Append("\n");
-            sb.Append("  Publisher: ").Append(Publisher).Append("\n");
+            sb.Append("class ProfileGroup {\n");
+            sb.Append("  IconUrl: ").Append(IconUrl).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,15 +90,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProductListingAttribution);
+            return this.Equals(input as ProfileGroup);
         }
 
         /// <summary>
-        /// Returns true if ProductListingAttribution instances are equal
+        /// Returns true if ProfileGroup instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProductListingAttribution to be compared</param>
+        /// <param name="input">Instance of ProfileGroup to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProductListingAttribution input)
+        public bool Equals(ProfileGroup input)
         {
             if (input == null)
             {
@@ -103,19 +106,19 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.CollaborationId == input.CollaborationId ||
-                    (this.CollaborationId != null &&
-                    this.CollaborationId.Equals(input.CollaborationId))
+                    this.IconUrl == input.IconUrl ||
+                    (this.IconUrl != null &&
+                    this.IconUrl.Equals(input.IconUrl))
                 ) && 
                 (
-                    this.Creator == input.Creator ||
-                    (this.Creator != null &&
-                    this.Creator.Equals(input.Creator))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Publisher == input.Publisher ||
-                    (this.Publisher != null &&
-                    this.Publisher.Equals(input.Publisher))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -128,17 +131,17 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CollaborationId != null)
+                if (this.IconUrl != null)
                 {
-                    hashCode = (hashCode * 59) + this.CollaborationId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
                 }
-                if (this.Creator != null)
+                if (this.Id != null)
                 {
-                    hashCode = (hashCode * 59) + this.Creator.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Publisher != null)
+                if (this.Name != null)
                 {
-                    hashCode = (hashCode * 59) + this.Publisher.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 return hashCode;
             }

@@ -78,10 +78,11 @@ namespace VRChat.API.Model
         /// <param name="roles">Only returned if ?includeRoles&#x3D;true is specified..</param>
         /// <param name="rules">rules.</param>
         /// <param name="shortCode">shortCode.</param>
+        /// <param name="storeId">storeId.</param>
         /// <param name="tags">tags.</param>
         /// <param name="transferTargetId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public Group(string ageVerificationBetaCode = default, decimal ageVerificationBetaSlots = default, bool ageVerificationSlotsAvailable = default, bool allowGroupJoinPrompt = default, List<string> badges = default, string bannerId = default, string bannerUrl = default, DateTime createdAt = default, string description = default, string discriminator = default, List<GroupGallery> galleries = default, string iconId = default, string iconUrl = default, string id = default, bool isVerified = false, GroupJoinState? joinState = default, List<string> languages = default, DateTime? lastPostCreatedAt = default, List<string> links = default, int memberCount = default, DateTime memberCountSyncedAt = default, GroupMemberStatus? membershipStatus = default, GroupMyMember myMember = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, int onlineMemberCount = default, string ownerId = default, GroupPrivacy? privacy = default, List<GroupRole> roles = default, string rules = default, string shortCode = default, List<string> tags = default, string transferTargetId = default, DateTime updatedAt = default)
+        public Group(string ageVerificationBetaCode = default, decimal ageVerificationBetaSlots = default, bool ageVerificationSlotsAvailable = default, bool allowGroupJoinPrompt = default, List<string> badges = default, string bannerId = default, string bannerUrl = default, DateTime createdAt = default, string description = default, string discriminator = default, List<GroupGallery> galleries = default, string iconId = default, string iconUrl = default, string id = default, bool isVerified = false, GroupJoinState? joinState = default, List<string> languages = default, DateTime? lastPostCreatedAt = default, List<string> links = default, int memberCount = default, DateTime memberCountSyncedAt = default, GroupMemberStatus? membershipStatus = default, GroupMyMember myMember = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, int onlineMemberCount = default, string ownerId = default, GroupPrivacy? privacy = default, List<GroupRole> roles = default, string rules = default, string shortCode = default, string storeId = default, List<string> tags = default, string transferTargetId = default, DateTime updatedAt = default)
         {
             this.AgeVerificationBetaCode = ageVerificationBetaCode;
             this.AgeVerificationBetaSlots = ageVerificationBetaSlots;
@@ -115,6 +116,7 @@ namespace VRChat.API.Model
             this.Roles = roles;
             this.Rules = rules;
             this.ShortCode = shortCode;
+            this.StoreId = storeId;
             this.Tags = tags;
             this.TransferTargetId = transferTargetId;
             this.UpdatedAt = updatedAt;
@@ -315,6 +317,15 @@ namespace VRChat.API.Model
         public string ShortCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets StoreId
+        /// </summary>
+        /*
+        <example>esto_713b247d-2b5d-41a0-bba3-50db28dc1498</example>
+        */
+        [DataMember(Name = "storeId", EmitDefaultValue = false)]
+        public string StoreId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Tags
         /// </summary>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
@@ -376,6 +387,7 @@ namespace VRChat.API.Model
             sb.Append("  Roles: ").Append(Roles).Append("\n");
             sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
+            sb.Append("  StoreId: ").Append(StoreId).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  TransferTargetId: ").Append(TransferTargetId).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
@@ -569,6 +581,11 @@ namespace VRChat.API.Model
                     this.ShortCode.Equals(input.ShortCode))
                 ) && 
                 (
+                    this.StoreId == input.StoreId ||
+                    (this.StoreId != null &&
+                    this.StoreId.Equals(input.StoreId))
+                ) && 
+                (
                     this.Tags == input.Tags ||
                     this.Tags != null &&
                     input.Tags != null &&
@@ -688,6 +705,10 @@ namespace VRChat.API.Model
                 if (this.ShortCode != null)
                 {
                     hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
+                }
+                if (this.StoreId != null)
+                {
+                    hashCode = (hashCode * 59) + this.StoreId.GetHashCode();
                 }
                 if (this.Tags != null)
                 {

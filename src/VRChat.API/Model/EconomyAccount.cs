@@ -41,12 +41,13 @@ namespace VRChat.API.Model
         /// <param name="canEarn">canEarn.</param>
         /// <param name="canPayout">canPayout.</param>
         /// <param name="canSpend">canSpend (required).</param>
+        /// <param name="limits">limits.</param>
         /// <param name="skrillEmail">skrillEmail.</param>
         /// <param name="source">source (required).</param>
         /// <param name="tiliaId">tiliaId.</param>
         /// <param name="tiliaType">tiliaType.</param>
         /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        public EconomyAccount(DateTime? accountActivatedOn = default, string accountId = default, DateTime? accountSellerRegisteredOn = default, string accountSellerStatus = default, bool blocked = default, bool canEarn = default, bool canPayout = default, bool canSpend = default, string skrillEmail = default, string source = default, string tiliaId = default, string tiliaType = default, string userId = default)
+        public EconomyAccount(DateTime? accountActivatedOn = default, int? accountId = default, DateTime? accountSellerRegisteredOn = default, string accountSellerStatus = default, bool blocked = default, bool canEarn = default, bool canPayout = default, bool canSpend = default, EconomyAccountLimits limits = default, string skrillEmail = default, string source = default, string tiliaId = default, string tiliaType = default, string userId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AccountActivatedOn = accountActivatedOn;
@@ -62,6 +63,7 @@ namespace VRChat.API.Model
             this.AccountSellerStatus = accountSellerStatus;
             this.CanEarn = canEarn;
             this.CanPayout = canPayout;
+            this.Limits = limits;
             this.SkrillEmail = skrillEmail;
             this.TiliaId = tiliaId;
             this.TiliaType = tiliaType;
@@ -77,7 +79,7 @@ namespace VRChat.API.Model
         /// Gets or Sets AccountId
         /// </summary>
         [DataMember(Name = "accountId", IsRequired = true, EmitDefaultValue = true)]
-        public string AccountId { get; set; }
+        public int? AccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets AccountSellerRegisteredOn
@@ -114,6 +116,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "canSpend", IsRequired = true, EmitDefaultValue = true)]
         public bool CanSpend { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Limits
+        /// </summary>
+        [DataMember(Name = "limits", EmitDefaultValue = false)]
+        public EconomyAccountLimits Limits { get; set; }
 
         /// <summary>
         /// Gets or Sets SkrillEmail
@@ -165,6 +173,7 @@ namespace VRChat.API.Model
             sb.Append("  CanEarn: ").Append(CanEarn).Append("\n");
             sb.Append("  CanPayout: ").Append(CanPayout).Append("\n");
             sb.Append("  CanSpend: ").Append(CanSpend).Append("\n");
+            sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  SkrillEmail: ").Append(SkrillEmail).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  TiliaId: ").Append(TiliaId).Append("\n");
@@ -242,6 +251,11 @@ namespace VRChat.API.Model
                     this.CanSpend.Equals(input.CanSpend)
                 ) && 
                 (
+                    this.Limits == input.Limits ||
+                    (this.Limits != null &&
+                    this.Limits.Equals(input.Limits))
+                ) && 
+                (
                     this.SkrillEmail == input.SkrillEmail ||
                     (this.SkrillEmail != null &&
                     this.SkrillEmail.Equals(input.SkrillEmail))
@@ -297,6 +311,10 @@ namespace VRChat.API.Model
                 hashCode = (hashCode * 59) + this.CanEarn.GetHashCode();
                 hashCode = (hashCode * 59) + this.CanPayout.GetHashCode();
                 hashCode = (hashCode * 59) + this.CanSpend.GetHashCode();
+                if (this.Limits != null)
+                {
+                    hashCode = (hashCode * 59) + this.Limits.GetHashCode();
+                }
                 if (this.SkrillEmail != null)
                 {
                     hashCode = (hashCode * 59) + this.SkrillEmail.GetHashCode();

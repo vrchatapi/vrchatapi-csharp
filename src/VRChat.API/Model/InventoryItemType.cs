@@ -44,28 +44,46 @@ namespace VRChat.API.Model
         Emoji = 3,
 
         /// <summary>
+        /// Enum IconFrame for value: iconFrame
+        /// </summary>
+        [EnumMember(Value = "iconFrame")]
+        IconFrame = 4,
+
+        /// <summary>
+        /// Enum NameplateEffect for value: nameplateEffect
+        /// </summary>
+        [EnumMember(Value = "nameplateEffect")]
+        NameplateEffect = 5,
+
+        /// <summary>
         /// Enum Portalskin for value: portalskin
         /// </summary>
         [EnumMember(Value = "portalskin")]
-        Portalskin = 4,
+        Portalskin = 6,
+
+        /// <summary>
+        /// Enum ProfileEffect for value: profileEffect
+        /// </summary>
+        [EnumMember(Value = "profileEffect")]
+        ProfileEffect = 7,
 
         /// <summary>
         /// Enum Prop for value: prop
         /// </summary>
         [EnumMember(Value = "prop")]
-        Prop = 5,
+        Prop = 8,
 
         /// <summary>
         /// Enum Sticker for value: sticker
         /// </summary>
         [EnumMember(Value = "sticker")]
-        Sticker = 6,
+        Sticker = 9,
 
         /// <summary>
         /// Enum Warpeffect for value: warpeffect
         /// </summary>
         [EnumMember(Value = "warpeffect")]
-        Warpeffect = 7
+        Warpeffect = 10
     }
 
 }

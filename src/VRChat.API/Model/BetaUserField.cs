@@ -20,47 +20,46 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// PastDisplayName
+    /// BetaUserField
     /// </summary>
-    [DataContract(Name = "PastDisplayName")]
-    public partial class PastDisplayName : IEquatable<PastDisplayName>, IValidatableObject
+    [DataContract(Name = "BetaUserField")]
+    public partial class BetaUserField : IEquatable<BetaUserField>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
+        /// Initializes a new instance of the <see cref="BetaUserField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PastDisplayName() { }
+        protected BetaUserField() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
+        /// Initializes a new instance of the <see cref="BetaUserField" /> class.
         /// </summary>
-        /// <param name="displayName">displayName (required).</param>
-        /// <param name="reverted">reverted (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
-        public PastDisplayName(string displayName = default, bool reverted = default, DateTime updatedAt = default)
+        /// <param name="allowedValues">allowedValues.</param>
+        /// <param name="excludeFromAnalytics">excludeFromAnalytics.</param>
+        /// <param name="required">required (required).</param>
+        public BetaUserField(List<string> allowedValues = default, bool excludeFromAnalytics = default, bool required = default)
         {
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.DisplayName = displayName;
-            this.Reverted = reverted;
-            this.UpdatedAt = updatedAt;
+            this.Required = required;
+            this.AllowedValues = allowedValues;
+            this.ExcludeFromAnalytics = excludeFromAnalytics;
         }
 
         /// <summary>
-        /// Gets or Sets DisplayName
+        /// Gets or Sets AllowedValues
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
-        public string DisplayName { get; set; }
+        [DataMember(Name = "allowedValues", EmitDefaultValue = false)]
+        public List<string> AllowedValues { get; set; }
 
         /// <summary>
-        /// Gets or Sets Reverted
+        /// Gets or Sets ExcludeFromAnalytics
         /// </summary>
-        [DataMember(Name = "reverted", IsRequired = true, EmitDefaultValue = true)]
-        public bool Reverted { get; set; }
+        [DataMember(Name = "excludeFromAnalytics", EmitDefaultValue = true)]
+        public bool ExcludeFromAnalytics { get; set; }
 
         /// <summary>
-        /// Gets or Sets UpdatedAt
+        /// Gets or Sets Required
         /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime UpdatedAt { get; set; }
+        [DataMember(Name = "required", IsRequired = true, EmitDefaultValue = true)]
+        public bool Required { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,10 +68,10 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PastDisplayName {\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Reverted: ").Append(Reverted).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("class BetaUserField {\n");
+            sb.Append("  AllowedValues: ").Append(AllowedValues).Append("\n");
+            sb.Append("  ExcludeFromAnalytics: ").Append(ExcludeFromAnalytics).Append("\n");
+            sb.Append("  Required: ").Append(Required).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,15 +92,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PastDisplayName);
+            return this.Equals(input as BetaUserField);
         }
 
         /// <summary>
-        /// Returns true if PastDisplayName instances are equal
+        /// Returns true if BetaUserField instances are equal
         /// </summary>
-        /// <param name="input">Instance of PastDisplayName to be compared</param>
+        /// <param name="input">Instance of BetaUserField to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PastDisplayName input)
+        public bool Equals(BetaUserField input)
         {
             if (input == null)
             {
@@ -109,17 +108,18 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.AllowedValues == input.AllowedValues ||
+                    this.AllowedValues != null &&
+                    input.AllowedValues != null &&
+                    this.AllowedValues.SequenceEqual(input.AllowedValues)
                 ) && 
                 (
-                    this.Reverted == input.Reverted ||
-                    this.Reverted.Equals(input.Reverted)
+                    this.ExcludeFromAnalytics == input.ExcludeFromAnalytics ||
+                    this.ExcludeFromAnalytics.Equals(input.ExcludeFromAnalytics)
                 ) && 
                 (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    this.UpdatedAt.Equals(input.UpdatedAt)
+                    this.Required == input.Required ||
+                    this.Required.Equals(input.Required)
                 );
         }
 
@@ -132,12 +132,12 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DisplayName != null)
+                if (this.AllowedValues != null)
                 {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AllowedValues.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Reverted.GetHashCode();
-                hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                hashCode = (hashCode * 59) + this.ExcludeFromAnalytics.GetHashCode();
+                hashCode = (hashCode * 59) + this.Required.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,12 +149,6 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // DisplayName (string) minLength
-            if (this.DisplayName != null && this.DisplayName.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
-            }
-
             yield break;
         }
     }

@@ -55,7 +55,7 @@ namespace VRChat.API.Model
         /// <param name="unityVersion">unityVersion (required) (default to &quot;5.3.4p1&quot;).</param>
         /// <param name="variant">variant.</param>
         /// <param name="worldSignature">worldSignature.</param>
-        public UnityPackage(string assetUrl = default, Object assetUrlObject = default, int assetVersion = default, DateTime createdAt = default, string id = default, string impostorUrl = default, string impostorizerVersion = default, PerformanceRatings? performanceRating = default, string platform = default, string pluginUrl = default, Object pluginUrlObject = default, string scanStatus = default, long unitySortNumber = default, string unityVersion = @"5.3.4p1", string variant = default, string worldSignature = default)
+        public UnityPackage(string assetUrl = default, Object assetUrlObject = default, int assetVersion = default, DateTime? createdAt = default, string id = default, string impostorUrl = default, string impostorizerVersion = default, PerformanceRatings? performanceRating = default, string platform = default, string pluginUrl = default, Object pluginUrlObject = default, string scanStatus = default, long unitySortNumber = default, string unityVersion = @"5.3.4p1", string variant = default, string worldSignature = default)
         {
             this.AssetVersion = assetVersion;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -111,8 +111,8 @@ namespace VRChat.API.Model
         /*
         <example>2020-09-10T06:13:27.777Z</example>
         */
-        [DataMember(Name = "created_at", EmitDefaultValue = false)]
-        public DateTime CreatedAt { get; set; }
+        [DataMember(Name = "created_at", EmitDefaultValue = true)]
+        public DateTime? CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -277,7 +277,8 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.CreatedAt == input.CreatedAt ||
-                    this.CreatedAt.Equals(input.CreatedAt)
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -357,7 +358,10 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.AssetUrlObject.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.AssetVersion.GetHashCode();
-                hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                if (this.CreatedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();

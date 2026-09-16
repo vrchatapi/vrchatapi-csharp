@@ -39,10 +39,11 @@ namespace VRChat.API.Model
         /// <param name="name">name.</param>
         /// <param name="order">order.</param>
         /// <param name="permissions">permissions.</param>
+        /// <param name="productId">productId.</param>
         /// <param name="requiresPurchase">requiresPurchase (default to false).</param>
         /// <param name="requiresTwoFactor">requiresTwoFactor (default to false).</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public GroupRole(DateTime createdAt = default, bool defaultRole = false, string description = default, string groupId = default, string id = default, bool isAddedOnJoin = false, bool isManagementRole = false, bool isSelfAssignable = false, string name = default, int order = default, List<GroupPermissions> permissions = default, bool requiresPurchase = false, bool requiresTwoFactor = false, DateTime updatedAt = default)
+        public GroupRole(DateTime createdAt = default, bool defaultRole = false, string description = default, string groupId = default, string id = default, bool isAddedOnJoin = false, bool isManagementRole = false, bool isSelfAssignable = false, string name = default, int order = default, List<GroupPermissions> permissions = default, string productId = default, bool requiresPurchase = false, bool requiresTwoFactor = false, DateTime updatedAt = default)
         {
             this.CreatedAt = createdAt;
             this.DefaultRole = defaultRole;
@@ -55,6 +56,7 @@ namespace VRChat.API.Model
             this.Name = name;
             this.Order = order;
             this.Permissions = permissions;
+            this.ProductId = productId;
             this.RequiresPurchase = requiresPurchase;
             this.RequiresTwoFactor = requiresTwoFactor;
             this.UpdatedAt = updatedAt;
@@ -133,6 +135,15 @@ namespace VRChat.API.Model
         public List<GroupPermissions> Permissions { get; set; }
 
         /// <summary>
+        /// Gets or Sets ProductId
+        /// </summary>
+        /*
+        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
+        */
+        [DataMember(Name = "productId", EmitDefaultValue = false)]
+        public string ProductId { get; set; }
+
+        /// <summary>
         /// Gets or Sets RequiresPurchase
         /// </summary>
         [DataMember(Name = "requiresPurchase", EmitDefaultValue = true)]
@@ -169,6 +180,7 @@ namespace VRChat.API.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  Permissions: ").Append(Permissions).Append("\n");
+            sb.Append("  ProductId: ").Append(ProductId).Append("\n");
             sb.Append("  RequiresPurchase: ").Append(RequiresPurchase).Append("\n");
             sb.Append("  RequiresTwoFactor: ").Append(RequiresTwoFactor).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
@@ -258,6 +270,11 @@ namespace VRChat.API.Model
                     this.Permissions.SequenceEqual(input.Permissions)
                 ) && 
                 (
+                    this.ProductId == input.ProductId ||
+                    (this.ProductId != null &&
+                    this.ProductId.Equals(input.ProductId))
+                ) && 
+                (
                     this.RequiresPurchase == input.RequiresPurchase ||
                     this.RequiresPurchase.Equals(input.RequiresPurchase)
                 ) && 
@@ -305,6 +322,10 @@ namespace VRChat.API.Model
                 if (this.Permissions != null)
                 {
                     hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
+                }
+                if (this.ProductId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProductId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.RequiresPurchase.GetHashCode();
                 hashCode = (hashCode * 59) + this.RequiresTwoFactor.GetHashCode();

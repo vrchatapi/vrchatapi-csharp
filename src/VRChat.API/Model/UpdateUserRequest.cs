@@ -35,8 +35,6 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="UpdateUserRequest" /> class.
         /// </summary>
         /// <param name="acceptedTOSVersion">acceptedTOSVersion.</param>
-        /// <param name="bio">bio.</param>
-        /// <param name="bioLinks">bioLinks.</param>
         /// <param name="birthday">birthday.</param>
         /// <param name="contentFilters">These tags begin with &#x60;content_&#x60; and control content gating.</param>
         /// <param name="currentPassword">currentPassword.</param>
@@ -52,12 +50,9 @@ namespace VRChat.API.Model
         /// <param name="statusDescription">statusDescription.</param>
         /// <param name="tags"> .</param>
         /// <param name="unsubscribe">unsubscribe.</param>
-        /// <param name="userIcon">MUST be a valid VRChat /file/ url..</param>
-        public UpdateUserRequest(int acceptedTOSVersion = default, string bio = default, List<string> bioLinks = default, DateOnly birthday = default, List<ContentFilter> contentFilters = default, string currentPassword = default, string displayName = default, string email = default, bool hasDiscordFriendsOptOut = default, bool hasSharedConnectionsOptOut = default, bool isBoopingEnabled = default, string password = default, string pronouns = default, bool revertDisplayName = default, UserStatus? status = default, string statusDescription = default, List<string> tags = default, bool unsubscribe = default, string userIcon = default)
+        public UpdateUserRequest(int acceptedTOSVersion = default, DateOnly birthday = default, List<ContentFilter> contentFilters = default, string currentPassword = default, string displayName = default, string email = default, bool hasDiscordFriendsOptOut = default, bool hasSharedConnectionsOptOut = default, bool isBoopingEnabled = default, string password = default, string pronouns = default, bool revertDisplayName = default, UserStatus? status = default, string statusDescription = default, List<string> tags = default, bool unsubscribe = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
-            this.Bio = bio;
-            this.BioLinks = bioLinks;
             this.Birthday = birthday;
             this.ContentFilters = contentFilters;
             this.CurrentPassword = currentPassword;
@@ -73,7 +68,6 @@ namespace VRChat.API.Model
             this.StatusDescription = statusDescription;
             this.Tags = tags;
             this.Unsubscribe = unsubscribe;
-            this.UserIcon = userIcon;
         }
 
         /// <summary>
@@ -81,18 +75,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "acceptedTOSVersion", EmitDefaultValue = false)]
         public int AcceptedTOSVersion { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Bio
-        /// </summary>
-        [DataMember(Name = "bio", EmitDefaultValue = false)]
-        public string Bio { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BioLinks
-        /// </summary>
-        [DataMember(Name = "bioLinks", EmitDefaultValue = false)]
-        public List<string> BioLinks { get; set; }
 
         /// <summary>
         /// Gets or Sets Birthday
@@ -186,16 +168,6 @@ namespace VRChat.API.Model
         public bool Unsubscribe { get; set; }
 
         /// <summary>
-        /// MUST be a valid VRChat /file/ url.
-        /// </summary>
-        /// <value>MUST be a valid VRChat /file/ url.</value>
-        /*
-        <example>https://api.vrchat.cloud/api/1/file/file_76dc2964-0ce8-41df-b2e7-8edf994fee31/1</example>
-        */
-        [DataMember(Name = "userIcon", EmitDefaultValue = false)]
-        public string UserIcon { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -204,8 +176,6 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateUserRequest {\n");
             sb.Append("  AcceptedTOSVersion: ").Append(AcceptedTOSVersion).Append("\n");
-            sb.Append("  Bio: ").Append(Bio).Append("\n");
-            sb.Append("  BioLinks: ").Append(BioLinks).Append("\n");
             sb.Append("  Birthday: ").Append(Birthday).Append("\n");
             sb.Append("  ContentFilters: ").Append(ContentFilters).Append("\n");
             sb.Append("  CurrentPassword: ").Append(CurrentPassword).Append("\n");
@@ -221,7 +191,6 @@ namespace VRChat.API.Model
             sb.Append("  StatusDescription: ").Append(StatusDescription).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Unsubscribe: ").Append(Unsubscribe).Append("\n");
-            sb.Append("  UserIcon: ").Append(UserIcon).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -260,17 +229,6 @@ namespace VRChat.API.Model
                 (
                     this.AcceptedTOSVersion == input.AcceptedTOSVersion ||
                     this.AcceptedTOSVersion.Equals(input.AcceptedTOSVersion)
-                ) && 
-                (
-                    this.Bio == input.Bio ||
-                    (this.Bio != null &&
-                    this.Bio.Equals(input.Bio))
-                ) && 
-                (
-                    this.BioLinks == input.BioLinks ||
-                    this.BioLinks != null &&
-                    input.BioLinks != null &&
-                    this.BioLinks.SequenceEqual(input.BioLinks)
                 ) && 
                 (
                     this.Birthday == input.Birthday ||
@@ -341,11 +299,6 @@ namespace VRChat.API.Model
                 (
                     this.Unsubscribe == input.Unsubscribe ||
                     this.Unsubscribe.Equals(input.Unsubscribe)
-                ) && 
-                (
-                    this.UserIcon == input.UserIcon ||
-                    (this.UserIcon != null &&
-                    this.UserIcon.Equals(input.UserIcon))
                 );
         }
 
@@ -359,14 +312,6 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
-                if (this.Bio != null)
-                {
-                    hashCode = (hashCode * 59) + this.Bio.GetHashCode();
-                }
-                if (this.BioLinks != null)
-                {
-                    hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
-                }
                 hashCode = (hashCode * 59) + this.Birthday.GetHashCode();
                 if (this.ContentFilters != null)
                 {
@@ -406,10 +351,6 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.Tags.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Unsubscribe.GetHashCode();
-                if (this.UserIcon != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
-                }
                 return hashCode;
             }
         }
@@ -421,12 +362,6 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Bio (string) minLength
-            if (this.Bio != null && this.Bio.Length < 0)
-            {
-                yield return new ValidationResult("Invalid value for Bio, length must be greater than 0.", new [] { "Bio" });
-            }
-
             // Pronouns (string) maxLength
             if (this.Pronouns != null && this.Pronouns.Length > 32)
             {
@@ -437,12 +372,6 @@ namespace VRChat.API.Model
             if (this.Pronouns != null && this.Pronouns.Length < 0)
             {
                 yield return new ValidationResult("Invalid value for Pronouns, length must be greater than 0.", new [] { "Pronouns" });
-            }
-
-            // UserIcon (string) minLength
-            if (this.UserIcon != null && this.UserIcon.Length < 0)
-            {
-                yield return new ValidationResult("Invalid value for UserIcon, length must be greater than 0.", new [] { "UserIcon" });
             }
 
             yield break;

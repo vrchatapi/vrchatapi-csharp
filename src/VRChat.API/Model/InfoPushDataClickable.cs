@@ -89,7 +89,19 @@ namespace VRChat.API.Model
             /// Enum OpenWorldDetails for value: OpenWorldDetails
             /// </summary>
             [EnumMember(Value = "OpenWorldDetails")]
-            OpenWorldDetails = 10
+            OpenWorldDetails = 10,
+
+            /// <summary>
+            /// Enum OpenWorldsMenu for value: OpenWorldsMenu
+            /// </summary>
+            [EnumMember(Value = "OpenWorldsMenu")]
+            OpenWorldsMenu = 11,
+
+            /// <summary>
+            /// Enum ScrollToShelf for value: scrollToShelf
+            /// </summary>
+            [EnumMember(Value = "scrollToShelf")]
+            ScrollToShelf = 12
         }
 
 

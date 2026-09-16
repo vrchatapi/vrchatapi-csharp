@@ -52,6 +52,7 @@ namespace VRChat.API.Model
         /// <param name="id">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
         /// <param name="imageUrl">imageUrl (required).</param>
         /// <param name="instances">Will always be an empty list when unauthenticated..</param>
+        /// <param name="isHypeTrainEligible">isHypeTrainEligible.</param>
         /// <param name="labsPublicationDate">labsPublicationDate (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="varNamespace">varNamespace.</param>
@@ -74,7 +75,7 @@ namespace VRChat.API.Model
         /// <param name="urlList">urlList.</param>
         /// <param name="varVersion">varVersion (required) (default to 0).</param>
         /// <param name="visits">visits (required) (default to 0).</param>
-        public World(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, List<Object> disabledPropAbilities = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, List<List<Object>> instances = default, string labsPublicationDate = default, string name = default, string varNamespace = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, List<Object> slimInstances = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = 0, int visits = 0)
+        public World(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, List<Object> disabledPropAbilities = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, List<List<Object>> instances = default, bool isHypeTrainEligible = default, string labsPublicationDate = default, string name = default, string varNamespace = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, List<Object> slimInstances = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = 0, int visits = 0)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -112,6 +113,7 @@ namespace VRChat.API.Model
             this.DisabledPropAbilities = disabledPropAbilities;
             this.Favorites = favorites;
             this.Instances = instances;
+            this.IsHypeTrainEligible = isHypeTrainEligible;
             this.Namespace = varNamespace;
             this.Occupants = occupants;
             this.PreviewYoutubeId = previewYoutubeId;
@@ -219,6 +221,12 @@ namespace VRChat.API.Model
         /// <value>Will always be an empty list when unauthenticated.</value>
         [DataMember(Name = "instances", EmitDefaultValue = false)]
         public List<List<Object>> Instances { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsHypeTrainEligible
+        /// </summary>
+        [DataMember(Name = "isHypeTrainEligible", EmitDefaultValue = true)]
+        public bool IsHypeTrainEligible { get; set; }
 
         /// <summary>
         /// Gets or Sets LabsPublicationDate
@@ -402,6 +410,7 @@ namespace VRChat.API.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
             sb.Append("  Instances: ").Append(Instances).Append("\n");
+            sb.Append("  IsHypeTrainEligible: ").Append(IsHypeTrainEligible).Append("\n");
             sb.Append("  LabsPublicationDate: ").Append(LabsPublicationDate).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Namespace: ").Append(Namespace).Append("\n");
@@ -520,6 +529,10 @@ namespace VRChat.API.Model
                     this.Instances != null &&
                     input.Instances != null &&
                     this.Instances.SequenceEqual(input.Instances)
+                ) && 
+                (
+                    this.IsHypeTrainEligible == input.IsHypeTrainEligible ||
+                    this.IsHypeTrainEligible.Equals(input.IsHypeTrainEligible)
                 ) && 
                 (
                     this.LabsPublicationDate == input.LabsPublicationDate ||
@@ -675,6 +688,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Instances.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsHypeTrainEligible.GetHashCode();
                 if (this.LabsPublicationDate != null)
                 {
                     hashCode = (hashCode * 59) + this.LabsPublicationDate.GetHashCode();

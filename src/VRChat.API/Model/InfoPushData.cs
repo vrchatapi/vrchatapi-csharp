@@ -40,6 +40,7 @@ namespace VRChat.API.Model
         /// <param name="domainList">domainList.</param>
         /// <param name="featuredAvatarCategoryId">featuredAvatarCategoryId.</param>
         /// <param name="finalName">finalName.</param>
+        /// <param name="hoverToJoin">hoverToJoin.</param>
         /// <param name="iconImageUrl">iconImageUrl.</param>
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="ipsQuery">ipsQuery.</param>
@@ -57,7 +58,7 @@ namespace VRChat.API.Model
         /// <param name="varVersion">varVersion.</param>
         /// <param name="weight">weight.</param>
         /// <param name="worldTag">worldTag.</param>
-        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, string description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, string iconImageUrl = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, int? rows = default, InfoPushDataSearch search = default, string shortName = default, string template = default, string thumbnailImageUrl = default, string tooltipDescription = default, string varVersion = default, int weight = default, string worldTag = default)
+        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, string description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, int? rows = default, InfoPushDataSearch search = default, string shortName = default, string template = default, string thumbnailImageUrl = default, string tooltipDescription = default, string varVersion = default, int weight = default, string worldTag = default)
         {
             this.Article = article;
             this.AuthorName = authorName;
@@ -71,6 +72,7 @@ namespace VRChat.API.Model
             this.DomainList = domainList;
             this.FeaturedAvatarCategoryId = featuredAvatarCategoryId;
             this.FinalName = finalName;
+            this.HoverToJoin = hoverToJoin;
             this.IconImageUrl = iconImageUrl;
             this.ImageUrl = imageUrl;
             this.IpsQuery = ipsQuery;
@@ -164,6 +166,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "finalName", EmitDefaultValue = false)]
         public string FinalName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HoverToJoin
+        /// </summary>
+        [DataMember(Name = "hoverToJoin", EmitDefaultValue = true)]
+        public bool HoverToJoin { get; set; }
 
         /// <summary>
         /// Gets or Sets IconImageUrl
@@ -291,6 +299,7 @@ namespace VRChat.API.Model
             sb.Append("  DomainList: ").Append(DomainList).Append("\n");
             sb.Append("  FeaturedAvatarCategoryId: ").Append(FeaturedAvatarCategoryId).Append("\n");
             sb.Append("  FinalName: ").Append(FinalName).Append("\n");
+            sb.Append("  HoverToJoin: ").Append(HoverToJoin).Append("\n");
             sb.Append("  IconImageUrl: ").Append(IconImageUrl).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
             sb.Append("  IpsQuery: ").Append(IpsQuery).Append("\n");
@@ -404,6 +413,10 @@ namespace VRChat.API.Model
                     this.FinalName == input.FinalName ||
                     (this.FinalName != null &&
                     this.FinalName.Equals(input.FinalName))
+                ) && 
+                (
+                    this.HoverToJoin == input.HoverToJoin ||
+                    this.HoverToJoin.Equals(input.HoverToJoin)
                 ) && 
                 (
                     this.IconImageUrl == input.IconImageUrl ||
@@ -548,6 +561,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.FinalName.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.HoverToJoin.GetHashCode();
                 if (this.IconImageUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.IconImageUrl.GetHashCode();

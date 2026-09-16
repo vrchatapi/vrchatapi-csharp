@@ -85,6 +85,27 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of InventoryItem</returns>
         ApiResponse<InventoryItem> EquipOwnInventoryItemWithHttpInfo(string inventoryItemId, EquipInventoryItemRequest? equipInventoryItemRequest = default);
         /// <summary>
+        /// List Cosmetics
+        /// </summary>
+        /// <remarks>
+        /// List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemType">The kind of cosmetic to list.</param>
+        /// <returns>List&lt;InventoryTemplate&gt;</returns>
+        List<InventoryTemplate> GetCosmeticIndex(string itemType);
+
+        /// <summary>
+        /// List Cosmetics
+        /// </summary>
+        /// <remarks>
+        /// List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemType">The kind of cosmetic to list.</param>
+        /// <returns>ApiResponse of List&lt;InventoryTemplate&gt;</returns>
+        ApiResponse<List<InventoryTemplate>> GetCosmeticIndexWithHttpInfo(string itemType);
+        /// <summary>
         /// Get Inventory
         /// </summary>
         /// <remarks>
@@ -102,8 +123,10 @@ namespace VRChat.API.Api
         /// <param name="notTypes">Filter out types for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
+        /// <param name="seen"> (optional)</param>
+        /// <param name="isNavBar"> (optional)</param>
         /// <returns>Inventory</returns>
-        Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default);
+        Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default);
 
         /// <summary>
         /// Get Inventory
@@ -123,8 +146,10 @@ namespace VRChat.API.Api
         /// <param name="notTypes">Filter out types for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
+        /// <param name="seen"> (optional)</param>
+        /// <param name="isNavBar"> (optional)</param>
         /// <returns>ApiResponse of Inventory</returns>
-        ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default);
+        ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default);
         /// <summary>
         /// List Inventory Collections
         /// </summary>
@@ -207,6 +232,27 @@ namespace VRChat.API.Api
         /// <param name="inventoryItemId">Must be a valid inventory item ID.</param>
         /// <returns>ApiResponse of InventoryItem</returns>
         ApiResponse<InventoryItem> GetOwnInventoryItemWithHttpInfo(string inventoryItemId);
+        /// <summary>
+        /// List User Cosmetics
+        /// </summary>
+        /// <remarks>
+        /// List the cosmetics a user holds.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>List&lt;UserCosmetic&gt;</returns>
+        List<UserCosmetic> GetUserCosmetics(string userId);
+
+        /// <summary>
+        /// List User Cosmetics
+        /// </summary>
+        /// <remarks>
+        /// List the cosmetics a user holds.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of List&lt;UserCosmetic&gt;</returns>
+        ApiResponse<List<UserCosmetic>> GetUserCosmeticsWithHttpInfo(string userId);
         /// <summary>
         /// Get User Inventory Item
         /// </summary>
@@ -445,6 +491,29 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (InventoryItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<InventoryItem>> EquipOwnInventoryItemWithHttpInfoAsync(string inventoryItemId, EquipInventoryItemRequest? equipInventoryItemRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// List Cosmetics
+        /// </summary>
+        /// <remarks>
+        /// List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemType">The kind of cosmetic to list.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;InventoryTemplate&gt;</returns>
+        System.Threading.Tasks.Task<List<InventoryTemplate>> GetCosmeticIndexAsync(string itemType, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// List Cosmetics
+        /// </summary>
+        /// <remarks>
+        /// List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemType">The kind of cosmetic to list.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;InventoryTemplate&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<InventoryTemplate>>> GetCosmeticIndexWithHttpInfoAsync(string itemType, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get Inventory
         /// </summary>
         /// <remarks>
@@ -462,9 +531,11 @@ namespace VRChat.API.Api
         /// <param name="notTypes">Filter out types for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
+        /// <param name="seen"> (optional)</param>
+        /// <param name="isNavBar"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Inventory</returns>
-        System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Inventory
@@ -484,9 +555,11 @@ namespace VRChat.API.Api
         /// <param name="notTypes">Filter out types for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
+        /// <param name="seen"> (optional)</param>
+        /// <param name="isNavBar"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Inventory)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Inventory Collections
         /// </summary>
@@ -577,6 +650,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InventoryItem)</returns>
         System.Threading.Tasks.Task<ApiResponse<InventoryItem>> GetOwnInventoryItemWithHttpInfoAsync(string inventoryItemId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// List User Cosmetics
+        /// </summary>
+        /// <remarks>
+        /// List the cosmetics a user holds.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;UserCosmetic&gt;</returns>
+        System.Threading.Tasks.Task<List<UserCosmetic>> GetUserCosmeticsAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// List User Cosmetics
+        /// </summary>
+        /// <remarks>
+        /// List the cosmetics a user holds.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;UserCosmetic&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<UserCosmetic>>> GetUserCosmeticsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get User Inventory Item
         /// </summary>
@@ -1402,6 +1498,150 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// List Cosmetics List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemType">The kind of cosmetic to list.</param>
+        /// <returns>List&lt;InventoryTemplate&gt;</returns>
+        public List<InventoryTemplate> GetCosmeticIndex(string itemType)
+        {
+            VRChat.API.Client.ApiResponse<List<InventoryTemplate>> localVarResponse = GetCosmeticIndexWithHttpInfo(itemType);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCosmeticIndex", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Cosmetics List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemType">The kind of cosmetic to list.</param>
+        /// <returns>ApiResponse of List&lt;InventoryTemplate&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<InventoryTemplate>> GetCosmeticIndexWithHttpInfo(string itemType)
+        {
+            // verify the required parameter 'itemType' is set
+            if (itemType == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'itemType' when calling InventoryApi->GetCosmeticIndex");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("itemType", VRChat.API.Client.ClientUtils.ParameterToString(itemType)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<List<InventoryTemplate>>("/cosmetics/index/{itemType}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<InventoryTemplate>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<InventoryTemplate>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Cosmetics List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemType">The kind of cosmetic to list.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;InventoryTemplate&gt;</returns>
+        public async System.Threading.Tasks.Task<List<InventoryTemplate>> GetCosmeticIndexAsync(string itemType, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<InventoryTemplate>> localVarResponse = await GetCosmeticIndexWithHttpInfoAsync(itemType, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCosmeticIndex", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Cosmetics List every cosmetic of a kind that VRChat has published, whether or not the caller owns it.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="itemType">The kind of cosmetic to list.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;InventoryTemplate&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InventoryTemplate>>> GetCosmeticIndexWithHttpInfoAsync(string itemType, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'itemType' is set
+            if (itemType == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'itemType' when calling InventoryApi->GetCosmeticIndex");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("itemType", VRChat.API.Client.ClientUtils.ParameterToString(itemType)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<InventoryTemplate>>("/cosmetics/index/{itemType}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<InventoryTemplate>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<InventoryTemplate>), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Get Inventory Returns an Inventory object.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1416,10 +1656,12 @@ namespace VRChat.API.Api
         /// <param name="notTypes">Filter out types for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
+        /// <param name="seen"> (optional)</param>
+        /// <param name="isNavBar"> (optional)</param>
         /// <returns>Inventory</returns>
-        public Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default)
+        public Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default)
         {
-            VRChat.API.Client.ApiResponse<Inventory> localVarResponse = GetInventoryWithHttpInfo(n, offset, holderId, equipSlot, order, tags, types, flags, notTypes, notFlags, archived);
+            VRChat.API.Client.ApiResponse<Inventory> localVarResponse = GetInventoryWithHttpInfo(n, offset, holderId, equipSlot, order, tags, types, flags, notTypes, notFlags, archived, seen, isNavBar);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInventory", localVarResponse);
@@ -1446,8 +1688,10 @@ namespace VRChat.API.Api
         /// <param name="notTypes">Filter out types for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
+        /// <param name="seen"> (optional)</param>
+        /// <param name="isNavBar"> (optional)</param>
         /// <returns>ApiResponse of Inventory</returns>
-        public VRChat.API.Client.ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default)
+        public VRChat.API.Client.ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1508,6 +1752,14 @@ namespace VRChat.API.Api
             if (archived != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "archived", archived));
+            }
+            if (seen != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "seen", seen));
+            }
+            if (isNavBar != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "isNavBar", isNavBar));
             }
 
             // authentication (authCookie) required
@@ -1545,11 +1797,13 @@ namespace VRChat.API.Api
         /// <param name="notTypes">Filter out types for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
+        /// <param name="seen"> (optional)</param>
+        /// <param name="isNavBar"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Inventory</returns>
-        public async System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Inventory> localVarResponse = await GetInventoryWithHttpInfoAsync(n, offset, holderId, equipSlot, order, tags, types, flags, notTypes, notFlags, archived, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Inventory> localVarResponse = await GetInventoryWithHttpInfoAsync(n, offset, holderId, equipSlot, order, tags, types, flags, notTypes, notFlags, archived, seen, isNavBar, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInventory", localVarResponse);
@@ -1576,9 +1830,11 @@ namespace VRChat.API.Api
         /// <param name="notTypes">Filter out types for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="notFlags">Filter out flags for inventory retrieval (comma-separated). (optional)</param>
         /// <param name="archived">Filter archived status for inventory retrieval. (optional)</param>
+        /// <param name="seen"> (optional)</param>
+        /// <param name="isNavBar"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Inventory)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1641,6 +1897,14 @@ namespace VRChat.API.Api
             if (archived != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "archived", archived));
+            }
+            if (seen != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "seen", seen));
+            }
+            if (isNavBar != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "isNavBar", isNavBar));
             }
 
             // authentication (authCookie) required
@@ -2220,6 +2484,150 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<InventoryItem>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InventoryItem), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List User Cosmetics List the cosmetics a user holds.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>List&lt;UserCosmetic&gt;</returns>
+        public List<UserCosmetic> GetUserCosmetics(string userId)
+        {
+            VRChat.API.Client.ApiResponse<List<UserCosmetic>> localVarResponse = GetUserCosmeticsWithHttpInfo(userId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserCosmetics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List User Cosmetics List the cosmetics a user holds.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <returns>ApiResponse of List&lt;UserCosmetic&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<UserCosmetic>> GetUserCosmeticsWithHttpInfo(string userId)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InventoryApi->GetUserCosmetics");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<List<UserCosmetic>>("/user/{userId}/cosmetics", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<UserCosmetic>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<UserCosmetic>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List User Cosmetics List the cosmetics a user holds.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;UserCosmetic&gt;</returns>
+        public async System.Threading.Tasks.Task<List<UserCosmetic>> GetUserCosmeticsAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<UserCosmetic>> localVarResponse = await GetUserCosmeticsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetUserCosmetics", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List User Cosmetics List the cosmetics a user holds.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;UserCosmetic&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<UserCosmetic>>> GetUserCosmeticsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling InventoryApi->GetUserCosmetics");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<UserCosmetic>>("/user/{userId}/cosmetics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<UserCosmetic>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<UserCosmetic>), ex.Message);
             }
         }
 

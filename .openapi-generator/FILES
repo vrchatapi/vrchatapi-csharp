@@ -2,7 +2,6 @@
 src/VRChat.API/Api/AuthenticationApi.cs
 src/VRChat.API/Api/AvatarsApi.cs
 src/VRChat.API/Api/CalendarApi.cs
-src/VRChat.API/Api/DeprecatedApi.cs
 src/VRChat.API/Api/EconomyApi.cs
 src/VRChat.API/Api/FavoritesApi.cs
 src/VRChat.API/Api/FilesApi.cs
@@ -66,6 +65,7 @@ src/VRChat.API/Model/AddGroupGalleryImageRequest.cs
 src/VRChat.API/Model/AdminAssetBundle.cs
 src/VRChat.API/Model/AdminUnityPackage.cs
 src/VRChat.API/Model/AgeVerificationStatus.cs
+src/VRChat.API/Model/AgeVerificationStatusResult.cs
 src/VRChat.API/Model/Agreement.cs
 src/VRChat.API/Model/AgreementCode.cs
 src/VRChat.API/Model/AgreementRequest.cs
@@ -83,6 +83,9 @@ src/VRChat.API/Model/Badge.cs
 src/VRChat.API/Model/Balance.cs
 src/VRChat.API/Model/BanGroupMemberRequest.cs
 src/VRChat.API/Model/BareError.cs
+src/VRChat.API/Model/Beta.cs
+src/VRChat.API/Model/BetaRegistrationNotFoundError.cs
+src/VRChat.API/Model/BetaUserField.cs
 src/VRChat.API/Model/BoopRequest.cs
 src/VRChat.API/Model/CalendarDayOfWeek.cs
 src/VRChat.API/Model/CalendarEvent.cs
@@ -129,16 +132,23 @@ src/VRChat.API/Model/DynamicContentRow.cs
 src/VRChat.API/Model/EarningsMetrics.cs
 src/VRChat.API/Model/EarningsMetricsTotals.cs
 src/VRChat.API/Model/EconomyAccount.cs
+src/VRChat.API/Model/EconomyAccountLimits.cs
 src/VRChat.API/Model/EconomyBalances.cs
 src/VRChat.API/Model/EconomyPayout.cs
 src/VRChat.API/Model/EconomyPayoutEligibility.cs
 src/VRChat.API/Model/EconomyPayoutList.cs
 src/VRChat.API/Model/EconomyPayoutStatus.cs
+src/VRChat.API/Model/EconomyStatus.cs
 src/VRChat.API/Model/EquipInventoryItemRequest.cs
 src/VRChat.API/Model/Error.cs
 src/VRChat.API/Model/Favorite.cs
 src/VRChat.API/Model/FavoriteGroup.cs
+src/VRChat.API/Model/FavoriteGroupContents.cs
+src/VRChat.API/Model/FavoriteGroupContentsEntry.cs
+src/VRChat.API/Model/FavoriteGroupContentsEntryWorld.cs
 src/VRChat.API/Model/FavoriteGroupLimits.cs
+src/VRChat.API/Model/FavoriteGroupList.cs
+src/VRChat.API/Model/FavoriteGroupSummary.cs
 src/VRChat.API/Model/FavoriteGroupVisibility.cs
 src/VRChat.API/Model/FavoriteLimits.cs
 src/VRChat.API/Model/FavoriteType.cs
@@ -155,6 +165,7 @@ src/VRChat.API/Model/FileVersionUploadStatus.cs
 src/VRChat.API/Model/FinishFileDataUploadRequest.cs
 src/VRChat.API/Model/FollowCalendarEventRequest.cs
 src/VRChat.API/Model/FriendStatus.cs
+src/VRChat.API/Model/GetGroupGalleryImages200Response.cs
 src/VRChat.API/Model/GetGroupPosts200Response.cs
 src/VRChat.API/Model/GetUserGroupInstances200Response.cs
 src/VRChat.API/Model/Group.cs
@@ -165,6 +176,7 @@ src/VRChat.API/Model/GroupGallery.cs
 src/VRChat.API/Model/GroupGalleryFileOrder.cs
 src/VRChat.API/Model/GroupGalleryFileOrderRequest.cs
 src/VRChat.API/Model/GroupGalleryImage.cs
+src/VRChat.API/Model/GroupGalleryImageList.cs
 src/VRChat.API/Model/GroupInstance.cs
 src/VRChat.API/Model/GroupJoinRequestAction.cs
 src/VRChat.API/Model/GroupJoinState.cs
@@ -209,6 +221,7 @@ src/VRChat.API/Model/InstanceShortNameResponse.cs
 src/VRChat.API/Model/InstanceType.cs
 src/VRChat.API/Model/InstanceVibe.cs
 src/VRChat.API/Model/Inventory.cs
+src/VRChat.API/Model/InventoryAsset.cs
 src/VRChat.API/Model/InventoryConsumptionResults.cs
 src/VRChat.API/Model/InventoryDefaultAttributesValue.cs
 src/VRChat.API/Model/InventoryDefaultAttributesValueValidator.cs
@@ -291,6 +304,8 @@ src/VRChat.API/Model/ProductPurchaseProduct.cs
 src/VRChat.API/Model/ProductPurchasePurchaseContext.cs
 src/VRChat.API/Model/ProductPurchaseRecord.cs
 src/VRChat.API/Model/ProductType.cs
+src/VRChat.API/Model/ProfileGroup.cs
+src/VRChat.API/Model/ProfileGroups.cs
 src/VRChat.API/Model/ProfileRepresentedGroup.cs
 src/VRChat.API/Model/Prop.cs
 src/VRChat.API/Model/PropPublishStatus.cs
@@ -350,6 +365,7 @@ src/VRChat.API/Model/TwoFactorAuthCode.cs
 src/VRChat.API/Model/TwoFactorEmailCode.cs
 src/VRChat.API/Model/TwoFactorRecoveryCodes.cs
 src/VRChat.API/Model/TwoFactorRecoveryCodesOtpInner.cs
+src/VRChat.API/Model/UnavailableWorld.cs
 src/VRChat.API/Model/UnityPackage.cs
 src/VRChat.API/Model/UpdateAssetReviewNotesRequest.cs
 src/VRChat.API/Model/UpdateAvatarRequest.cs
@@ -364,13 +380,17 @@ src/VRChat.API/Model/UpdateInventoryItemRequest.cs
 src/VRChat.API/Model/UpdateInviteMessageRequest.cs
 src/VRChat.API/Model/UpdateListingRequest.cs
 src/VRChat.API/Model/UpdateProductRequest.cs
+src/VRChat.API/Model/UpdateProfileRequest.cs
 src/VRChat.API/Model/UpdatePropRequest.cs
 src/VRChat.API/Model/UpdateTiliaTOSRequest.cs
 src/VRChat.API/Model/UpdateUserBadgeRequest.cs
+src/VRChat.API/Model/UpdateUserClientConfigRequest.cs
 src/VRChat.API/Model/UpdateUserNoteRequest.cs
 src/VRChat.API/Model/UpdateUserRequest.cs
 src/VRChat.API/Model/UpdateWorldRequest.cs
 src/VRChat.API/Model/User.cs
+src/VRChat.API/Model/UserClientConfig.cs
+src/VRChat.API/Model/UserCosmetic.cs
 src/VRChat.API/Model/UserCreditsEligible.cs
 src/VRChat.API/Model/UserExists.cs
 src/VRChat.API/Model/UserNote.cs
@@ -383,6 +403,7 @@ src/VRChat.API/Model/Verify2FAEmailCodeResult.cs
 src/VRChat.API/Model/Verify2FAResult.cs
 src/VRChat.API/Model/VerifyAuthTokenResult.cs
 src/VRChat.API/Model/World.cs
+src/VRChat.API/Model/WorldFavoriteList.cs
 src/VRChat.API/Model/WorldMetadata.cs
 src/VRChat.API/Model/WorldPublishStatus.cs
 src/VRChat.API/VRChat.API.csproj

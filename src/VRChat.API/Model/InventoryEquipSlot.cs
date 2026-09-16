@@ -38,16 +38,34 @@ namespace VRChat.API.Model
         Drone = 2,
 
         /// <summary>
+        /// Enum IconFrame for value: iconFrame
+        /// </summary>
+        [EnumMember(Value = "iconFrame")]
+        IconFrame = 3,
+
+        /// <summary>
+        /// Enum NameplateEffect for value: nameplateEffect
+        /// </summary>
+        [EnumMember(Value = "nameplateEffect")]
+        NameplateEffect = 4,
+
+        /// <summary>
         /// Enum Portal for value: portal
         /// </summary>
         [EnumMember(Value = "portal")]
-        Portal = 3,
+        Portal = 5,
+
+        /// <summary>
+        /// Enum ProfileEffect for value: profileEffect
+        /// </summary>
+        [EnumMember(Value = "profileEffect")]
+        ProfileEffect = 6,
 
         /// <summary>
         /// Enum Warp for value: warp
         /// </summary>
         [EnumMember(Value = "warp")]
-        Warp = 4
+        Warp = 7
     }
 
 }

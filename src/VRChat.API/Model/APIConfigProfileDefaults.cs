@@ -28,11 +28,11 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigProfileDefaults" /> class.
         /// </summary>
-        /// <param name="backgroundGradientBottom">backgroundGradientBottom.</param>
-        /// <param name="backgroundGradientTop">backgroundGradientTop.</param>
-        /// <param name="themeButtonColor">themeButtonColor.</param>
-        /// <param name="themeIconColor">themeIconColor.</param>
-        /// <param name="themeSubtextColor">themeSubtextColor.</param>
+        /// <param name="backgroundGradientBottom">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="backgroundGradientTop">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="themeButtonColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="themeIconColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="themeSubtextColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
         public APIConfigProfileDefaults(string backgroundGradientBottom = default, string backgroundGradientTop = default, string themeButtonColor = default, string themeIconColor = default, string themeSubtextColor = default)
         {
             this.BackgroundGradientBottom = backgroundGradientBottom;
@@ -43,46 +43,51 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets BackgroundGradientBottom
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
         /*
-        <example>9933FF</example>
+        <example>3cc92c</example>
         */
         [DataMember(Name = "backgroundGradientBottom", EmitDefaultValue = false)]
         public string BackgroundGradientBottom { get; set; }
 
         /// <summary>
-        /// Gets or Sets BackgroundGradientTop
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
         /*
-        <example>00C48A</example>
+        <example>3cc92c</example>
         */
         [DataMember(Name = "backgroundGradientTop", EmitDefaultValue = false)]
         public string BackgroundGradientTop { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThemeButtonColor
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
         /*
-        <example>009599</example>
+        <example>3cc92c</example>
         */
         [DataMember(Name = "themeButtonColor", EmitDefaultValue = false)]
         public string ThemeButtonColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThemeIconColor
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
         /*
-        <example>6BE4FA</example>
+        <example>3cc92c</example>
         */
         [DataMember(Name = "themeIconColor", EmitDefaultValue = false)]
         public string ThemeIconColor { get; set; }
 
         /// <summary>
-        /// Gets or Sets ThemeSubtextColor
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
         /*
-        <example>A9A9A9</example>
+        <example>3cc92c</example>
         */
         [DataMember(Name = "themeSubtextColor", EmitDefaultValue = false)]
         public string ThemeSubtextColor { get; set; }

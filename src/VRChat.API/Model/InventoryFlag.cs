@@ -50,28 +50,46 @@ namespace VRChat.API.Model
         Equippable = 4,
 
         /// <summary>
+        /// Enum Global for value: global
+        /// </summary>
+        [EnumMember(Value = "global")]
+        Global = 5,
+
+        /// <summary>
+        /// Enum GlobalVisible for value: global_visible
+        /// </summary>
+        [EnumMember(Value = "global_visible")]
+        GlobalVisible = 6,
+
+        /// <summary>
         /// Enum Instantiatable for value: instantiatable
         /// </summary>
         [EnumMember(Value = "instantiatable")]
-        Instantiatable = 5,
+        Instantiatable = 7,
 
         /// <summary>
         /// Enum Trashable for value: trashable
         /// </summary>
         [EnumMember(Value = "trashable")]
-        Trashable = 6,
+        Trashable = 8,
 
         /// <summary>
         /// Enum Ugc for value: ugc
         /// </summary>
         [EnumMember(Value = "ugc")]
-        Ugc = 7,
+        Ugc = 9,
 
         /// <summary>
         /// Enum Unique for value: unique
         /// </summary>
         [EnumMember(Value = "unique")]
-        Unique = 8
+        Unique = 10,
+
+        /// <summary>
+        /// Enum VrcPlusExclusive for value: vrc_plus_exclusive
+        /// </summary>
+        [EnumMember(Value = "vrc_plus_exclusive")]
+        VrcPlusExclusive = 11
     }
 
 }

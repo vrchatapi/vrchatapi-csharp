@@ -39,6 +39,48 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of List&lt;Permission&gt;</returns>
         ApiResponse<List<Permission>> GetAssignedPermissionsWithHttpInfo();
         /// <summary>
+        /// Get Beta Program
+        /// </summary>
+        /// <remarks>
+        /// Get a beta program and the fields a registration must supply.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <returns>Beta</returns>
+        Beta GetBeta(string betaName);
+
+        /// <summary>
+        /// Get Beta Program
+        /// </summary>
+        /// <remarks>
+        /// Get a beta program and the fields a registration must supply.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <returns>ApiResponse of Beta</returns>
+        ApiResponse<Beta> GetBetaWithHttpInfo(string betaName);
+        /// <summary>
+        /// Get Beta Registration
+        /// </summary>
+        /// <remarks>
+        /// Get the currently authenticated user&#39;s registration for a beta program.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <returns></returns>
+        void GetBetaRegistration(string betaName);
+
+        /// <summary>
+        /// Get Beta Registration
+        /// </summary>
+        /// <remarks>
+        /// Get the currently authenticated user&#39;s registration for a beta program.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> GetBetaRegistrationWithHttpInfo(string betaName);
+        /// <summary>
         /// Download CSS
         /// </summary>
         /// <remarks>
@@ -99,6 +141,25 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of int</returns>
         ApiResponse<int> GetCurrentOnlineUsersWithHttpInfo();
+        /// <summary>
+        /// List Frontend Branches
+        /// </summary>
+        /// <remarks>
+        /// List the frontend branches the currently authenticated user may switch to.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;Object&gt;</returns>
+        List<Object> GetFrontendBranches();
+
+        /// <summary>
+        /// List Frontend Branches
+        /// </summary>
+        /// <remarks>
+        /// List the frontend branches the currently authenticated user may switch to.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        ApiResponse<List<Object>> GetFrontendBranchesWithHttpInfo();
         /// <summary>
         /// Check API Health
         /// </summary>
@@ -237,6 +298,52 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (List&lt;Permission&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Permission>>> GetAssignedPermissionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get Beta Program
+        /// </summary>
+        /// <remarks>
+        /// Get a beta program and the fields a registration must supply.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Beta</returns>
+        System.Threading.Tasks.Task<Beta> GetBetaAsync(string betaName, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Beta Program
+        /// </summary>
+        /// <remarks>
+        /// Get a beta program and the fields a registration must supply.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Beta)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Beta>> GetBetaWithHttpInfoAsync(string betaName, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Beta Registration
+        /// </summary>
+        /// <remarks>
+        /// Get the currently authenticated user&#39;s registration for a beta program.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task GetBetaRegistrationAsync(string betaName, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Beta Registration
+        /// </summary>
+        /// <remarks>
+        /// Get the currently authenticated user&#39;s registration for a beta program.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetBetaRegistrationWithHttpInfoAsync(string betaName, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Download CSS
         /// </summary>
         /// <remarks>
@@ -303,6 +410,27 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (int)</returns>
         System.Threading.Tasks.Task<ApiResponse<int>> GetCurrentOnlineUsersWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// List Frontend Branches
+        /// </summary>
+        /// <remarks>
+        /// List the frontend branches the currently authenticated user may switch to.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Object&gt;</returns>
+        System.Threading.Tasks.Task<List<Object>> GetFrontendBranchesAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// List Frontend Branches
+        /// </summary>
+        /// <remarks>
+        /// List the frontend branches the currently authenticated user may switch to.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Object>>> GetFrontendBranchesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Check API Health
         /// </summary>
@@ -764,6 +892,280 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Get Beta Program Get a beta program and the fields a registration must supply.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <returns>Beta</returns>
+        public Beta GetBeta(string betaName)
+        {
+            VRChat.API.Client.ApiResponse<Beta> localVarResponse = GetBetaWithHttpInfo(betaName);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBeta", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Beta Program Get a beta program and the fields a registration must supply.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <returns>ApiResponse of Beta</returns>
+        public VRChat.API.Client.ApiResponse<Beta> GetBetaWithHttpInfo(string betaName)
+        {
+            // verify the required parameter 'betaName' is set
+            if (betaName == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'betaName' when calling MiscellaneousApi->GetBeta");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("betaName", VRChat.API.Client.ClientUtils.ParameterToString(betaName)); // path parameter
+
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<Beta>("/beta/{betaName}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Beta>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Beta), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Beta Program Get a beta program and the fields a registration must supply.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Beta</returns>
+        public async System.Threading.Tasks.Task<Beta> GetBetaAsync(string betaName, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Beta> localVarResponse = await GetBetaWithHttpInfoAsync(betaName, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBeta", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Beta Program Get a beta program and the fields a registration must supply.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Beta)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Beta>> GetBetaWithHttpInfoAsync(string betaName, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'betaName' is set
+            if (betaName == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'betaName' when calling MiscellaneousApi->GetBeta");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("betaName", VRChat.API.Client.ClientUtils.ParameterToString(betaName)); // path parameter
+
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Beta>("/beta/{betaName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Beta>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Beta), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Beta Registration Get the currently authenticated user&#39;s registration for a beta program.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <returns></returns>
+        public void GetBetaRegistration(string betaName)
+        {
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = GetBetaRegistrationWithHttpInfo(betaName);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBetaRegistration", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get Beta Registration Get the currently authenticated user&#39;s registration for a beta program.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public VRChat.API.Client.ApiResponse<Object> GetBetaRegistrationWithHttpInfo(string betaName)
+        {
+            // verify the required parameter 'betaName' is set
+            if (betaName == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'betaName' when calling MiscellaneousApi->GetBetaRegistration");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("betaName", VRChat.API.Client.ClientUtils.ParameterToString(betaName)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<Object>("/beta/{betaName}/register", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Beta Registration Get the currently authenticated user&#39;s registration for a beta program.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task GetBetaRegistrationAsync(string betaName, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await GetBetaRegistrationWithHttpInfoAsync(betaName, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBetaRegistration", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get Beta Registration Get the currently authenticated user&#39;s registration for a beta program.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="betaName">The name of a beta program.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> GetBetaRegistrationWithHttpInfoAsync(string betaName, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'betaName' is set
+            if (betaName == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'betaName' when calling MiscellaneousApi->GetBetaRegistration");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("betaName", VRChat.API.Client.ClientUtils.ParameterToString(betaName)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/beta/{betaName}/register", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Download CSS Fetches the CSS code to the frontend React website.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1140,6 +1542,136 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<int>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(int), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Frontend Branches List the frontend branches the currently authenticated user may switch to.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>List&lt;Object&gt;</returns>
+        public List<Object> GetFrontendBranches()
+        {
+            VRChat.API.Client.ApiResponse<List<Object>> localVarResponse = GetFrontendBranchesWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFrontendBranches", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Frontend Branches List the frontend branches the currently authenticated user may switch to.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<Object>> GetFrontendBranchesWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<List<Object>>("/frontend/branches", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Object>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Object>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Frontend Branches List the frontend branches the currently authenticated user may switch to.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Object&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Object>> GetFrontendBranchesAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Object>> localVarResponse = await GetFrontendBranchesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFrontendBranches", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Frontend Branches List the frontend branches the currently authenticated user may switch to.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Object>>> GetFrontendBranchesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Object>>("/frontend/branches", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Object>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Object>), ex.Message);
             }
         }
 

@@ -83,40 +83,17 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Prop</returns>
         ApiResponse<Prop> GetPropWithHttpInfo(string propId);
         /// <summary>
-        /// Get Prop Publish Status
-        /// </summary>
-        /// <remarks>
-        /// Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>PropPublishStatus</returns>
-        [Obsolete]
-        PropPublishStatus GetPropPublishStatus(string propId);
-
-        /// <summary>
-        /// Get Prop Publish Status
-        /// </summary>
-        /// <remarks>
-        /// Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
-        ApiResponse<PropPublishStatus> GetPropPublishStatusWithHttpInfo(string propId);
-        /// <summary>
         /// List Props
         /// </summary>
         /// <remarks>
         /// Returns a list Prop objects.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorId">Must be a valid user ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <returns>List&lt;Prop&gt;</returns>
-        List<Prop> ListProps(string authorId, int? n = default, int? offset = default);
+        List<Prop> ListProps(int? n = default, int? offset = default, string? authorId = default);
 
         /// <summary>
         /// List Props
@@ -125,57 +102,11 @@ namespace VRChat.API.Api
         /// Returns a list Prop objects.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorId">Must be a valid user ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <returns>ApiResponse of List&lt;Prop&gt;</returns>
-        ApiResponse<List<Prop>> ListPropsWithHttpInfo(string authorId, int? n = default, int? offset = default);
-        /// <summary>
-        /// Publish Prop
-        /// </summary>
-        /// <remarks>
-        /// Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>PropPublishStatus</returns>
-        [Obsolete]
-        PropPublishStatus PublishProp(string propId);
-
-        /// <summary>
-        /// Publish Prop
-        /// </summary>
-        /// <remarks>
-        /// Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
-        ApiResponse<PropPublishStatus> PublishPropWithHttpInfo(string propId);
-        /// <summary>
-        /// Unpublish Prop
-        /// </summary>
-        /// <remarks>
-        /// Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>PropPublishStatus</returns>
-        [Obsolete]
-        PropPublishStatus UnpublishProp(string propId);
-
-        /// <summary>
-        /// Unpublish Prop
-        /// </summary>
-        /// <remarks>
-        /// Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
-        ApiResponse<PropPublishStatus> UnpublishPropWithHttpInfo(string propId);
+        ApiResponse<List<Prop>> ListPropsWithHttpInfo(int? n = default, int? offset = default, string? authorId = default);
         /// <summary>
         /// Update Prop
         /// </summary>
@@ -278,43 +209,18 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (Prop)</returns>
         System.Threading.Tasks.Task<ApiResponse<Prop>> GetPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get Prop Publish Status
-        /// </summary>
-        /// <remarks>
-        /// Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<PropPublishStatus> GetPropPublishStatusAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Get Prop Publish Status
-        /// </summary>
-        /// <remarks>
-        /// Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<PropPublishStatus>> GetPropPublishStatusWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
-        /// <summary>
         /// List Props
         /// </summary>
         /// <remarks>
         /// Returns a list Prop objects.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorId">Must be a valid user ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Prop&gt;</returns>
-        System.Threading.Tasks.Task<List<Prop>> ListPropsAsync(string authorId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<Prop>> ListPropsAsync(int? n = default, int? offset = default, string? authorId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Props
@@ -323,62 +229,12 @@ namespace VRChat.API.Api
         /// Returns a list Prop objects.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorId">Must be a valid user ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Prop&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Prop>>> ListPropsWithHttpInfoAsync(string authorId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
-        /// <summary>
-        /// Publish Prop
-        /// </summary>
-        /// <remarks>
-        /// Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<PropPublishStatus> PublishPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Publish Prop
-        /// </summary>
-        /// <remarks>
-        /// Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<PropPublishStatus>> PublishPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
-        /// <summary>
-        /// Unpublish Prop
-        /// </summary>
-        /// <remarks>
-        /// Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<PropPublishStatus> UnpublishPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Unpublish Prop
-        /// </summary>
-        /// <remarks>
-        /// Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </remarks>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<PropPublishStatus>> UnpublishPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<Prop>>> ListPropsWithHttpInfoAsync(int? n = default, int? offset = default, string? authorId = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Prop
         /// </summary>
@@ -1050,164 +906,16 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get Prop Publish Status Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>PropPublishStatus</returns>
-        [Obsolete]
-        public PropPublishStatus GetPropPublishStatus(string propId)
-        {
-            VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = GetPropPublishStatusWithHttpInfo(propId);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetPropPublishStatus", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Prop Publish Status Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
-        public VRChat.API.Client.ApiResponse<PropPublishStatus> GetPropPublishStatusWithHttpInfo(string propId)
-        {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->GetPropPublishStatus");
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
-            }
-
-            // make the HTTP request
-            try
-            {
-                var localVarResponse = this.Client.Get<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration);
-                return localVarResponse;
-            }
-            catch (VRChat.API.Client.ApiException ex)
-            {
-                // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PropPublishStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Get Prop Publish Status Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<PropPublishStatus> GetPropPublishStatusAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
-        {
-            VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = await GetPropPublishStatusWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetPropPublishStatus", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Prop Publish Status Return the PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PropPublishStatus>> GetPropPublishStatusWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
-        {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->GetPropPublishStatus");
-
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
-            }
-
-            // make the HTTP request
-            try
-            {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-                return localVarResponse;
-            }
-            catch (VRChat.API.Client.ApiException ex)
-            {
-                // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PropPublishStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
-            }
-        }
-
-        /// <summary>
         /// List Props Returns a list Prop objects.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorId">Must be a valid user ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <returns>List&lt;Prop&gt;</returns>
-        public List<Prop> ListProps(string authorId, int? n = default, int? offset = default)
+        public List<Prop> ListProps(int? n = default, int? offset = default, string? authorId = default)
         {
-            VRChat.API.Client.ApiResponse<List<Prop>> localVarResponse = ListPropsWithHttpInfo(authorId, n, offset);
+            VRChat.API.Client.ApiResponse<List<Prop>> localVarResponse = ListPropsWithHttpInfo(n, offset, authorId);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListProps", localVarResponse);
@@ -1223,16 +931,12 @@ namespace VRChat.API.Api
         /// List Props Returns a list Prop objects.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorId">Must be a valid user ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <returns>ApiResponse of List&lt;Prop&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Prop>> ListPropsWithHttpInfo(string authorId, int? n = default, int? offset = default)
+        public VRChat.API.Client.ApiResponse<List<Prop>> ListPropsWithHttpInfo(int? n = default, int? offset = default, string? authorId = default)
         {
-            // verify the required parameter 'authorId' is set
-            if (authorId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'authorId' when calling PropsApi->ListProps");
-
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -1257,7 +961,10 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
-            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "authorId", authorId));
+            if (authorId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "authorId", authorId));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1283,14 +990,14 @@ namespace VRChat.API.Api
         /// List Props Returns a list Prop objects.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorId">Must be a valid user ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Prop&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Prop>> ListPropsAsync(string authorId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<Prop>> ListPropsAsync(int? n = default, int? offset = default, string? authorId = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<Prop>> localVarResponse = await ListPropsWithHttpInfoAsync(authorId, n, offset, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<Prop>> localVarResponse = await ListPropsWithHttpInfoAsync(n, offset, authorId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListProps", localVarResponse);
@@ -1306,17 +1013,13 @@ namespace VRChat.API.Api
         /// List Props Returns a list Prop objects.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorId">Must be a valid user ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="authorId">Must be a valid user ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Prop&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Prop>>> ListPropsWithHttpInfoAsync(string authorId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Prop>>> ListPropsWithHttpInfoAsync(int? n = default, int? offset = default, string? authorId = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'authorId' is set
-            if (authorId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'authorId' when calling PropsApi->ListProps");
-
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1343,7 +1046,10 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
-            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "authorId", authorId));
+            if (authorId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "authorId", authorId));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -1362,302 +1068,6 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<List<Prop>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Prop>), ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Publish Prop Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>PropPublishStatus</returns>
-        [Obsolete]
-        public PropPublishStatus PublishProp(string propId)
-        {
-            VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = PublishPropWithHttpInfo(propId);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PublishProp", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Publish Prop Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
-        public VRChat.API.Client.ApiResponse<PropPublishStatus> PublishPropWithHttpInfo(string propId)
-        {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->PublishProp");
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
-            }
-
-            // make the HTTP request
-            try
-            {
-                var localVarResponse = this.Client.Put<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration);
-                return localVarResponse;
-            }
-            catch (VRChat.API.Client.ApiException ex)
-            {
-                // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PropPublishStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Publish Prop Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<PropPublishStatus> PublishPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
-        {
-            VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = await PublishPropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PublishProp", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Publish Prop Publish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PropPublishStatus>> PublishPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
-        {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->PublishProp");
-
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
-            }
-
-            // make the HTTP request
-            try
-            {
-                var localVarResponse = await this.AsynchronousClient.PutAsync<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-                return localVarResponse;
-            }
-            catch (VRChat.API.Client.ApiException ex)
-            {
-                // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PropPublishStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Unpublish Prop Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>PropPublishStatus</returns>
-        [Obsolete]
-        public PropPublishStatus UnpublishProp(string propId)
-        {
-            VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = UnpublishPropWithHttpInfo(propId);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UnpublishProp", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Unpublish Prop Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <returns>ApiResponse of PropPublishStatus</returns>
-        [Obsolete]
-        public VRChat.API.Client.ApiResponse<PropPublishStatus> UnpublishPropWithHttpInfo(string propId)
-        {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->UnpublishProp");
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
-            }
-
-            // make the HTTP request
-            try
-            {
-                var localVarResponse = this.Client.Delete<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration);
-                return localVarResponse;
-            }
-            catch (VRChat.API.Client.ApiException ex)
-            {
-                // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PropPublishStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Unpublish Prop Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PropPublishStatus</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<PropPublishStatus> UnpublishPropAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
-        {
-            VRChat.API.Client.ApiResponse<PropPublishStatus> localVarResponse = await UnpublishPropWithHttpInfoAsync(propId, cancellationToken).ConfigureAwait(false);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UnpublishProp", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Unpublish Prop Unpublish a prop and return the updated PropPublishStatus object. &#x60;/props/{propId}&#x60; is still served.
-        /// </summary>
-        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="propId">Prop ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PropPublishStatus)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PropPublishStatus>> UnpublishPropWithHttpInfoAsync(string propId, System.Threading.CancellationToken cancellationToken = default)
-        {
-            // verify the required parameter 'propId' is set
-            if (propId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'propId' when calling PropsApi->UnpublishProp");
-
-
-            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("propId", VRChat.API.Client.ClientUtils.ParameterToString(propId)); // path parameter
-
-            // authentication (authCookie) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
-            }
-
-            // make the HTTP request
-            try
-            {
-                var localVarResponse = await this.AsynchronousClient.DeleteAsync<PropPublishStatus>("/props/{propId}/publish", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-                return localVarResponse;
-            }
-            catch (VRChat.API.Client.ApiException ex)
-            {
-                // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PropPublishStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PropPublishStatus), ex.Message);
             }
         }
 

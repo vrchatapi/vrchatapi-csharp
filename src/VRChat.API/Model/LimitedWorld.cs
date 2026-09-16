@@ -49,10 +49,12 @@ namespace VRChat.API.Model
         /// <param name="heat">heat (required) (default to 0).</param>
         /// <param name="id">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
         /// <param name="imageUrl">imageUrl (required).</param>
+        /// <param name="isHypeTrainEligible">isHypeTrainEligible.</param>
         /// <param name="labsPublicationDate">labsPublicationDate (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="occupants">occupants (required) (default to 0).</param>
         /// <param name="organization">organization (required) (default to &quot;vrchat&quot;).</param>
+        /// <param name="pendingUpload">pendingUpload.</param>
         /// <param name="popularity">popularity (required) (default to 0).</param>
         /// <param name="previewYoutubeId">previewYoutubeId.</param>
         /// <param name="publicationDate">publicationDate (required).</param>
@@ -65,7 +67,7 @@ namespace VRChat.API.Model
         /// <param name="unityPackages">  (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="visits">visits (default to 0).</param>
-        public LimitedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, List<Object> disabledPropAbilities = default, int favorites = 0, int heat = 0, string id = default, string imageUrl = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<LimitedUnityPackage> unityPackages = default, DateTime updatedAt = default, int visits = 0)
+        public LimitedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, List<Object> disabledPropAbilities = default, int favorites = 0, int heat = 0, string id = default, string imageUrl = default, bool isHypeTrainEligible = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", bool pendingUpload = default, int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<LimitedUnityPackage> unityPackages = default, DateTime updatedAt = default, int visits = 0)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -99,6 +101,8 @@ namespace VRChat.API.Model
             this.UpdatedAt = updatedAt;
             this.DefaultContentSettings = defaultContentSettings;
             this.DisabledPropAbilities = disabledPropAbilities;
+            this.IsHypeTrainEligible = isHypeTrainEligible;
+            this.PendingUpload = pendingUpload;
             this.PreviewYoutubeId = previewYoutubeId;
             this.RecommendedCapacity = recommendedCapacity;
             this.StoreId = storeId;
@@ -184,6 +188,12 @@ namespace VRChat.API.Model
         public string ImageUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsHypeTrainEligible
+        /// </summary>
+        [DataMember(Name = "isHypeTrainEligible", EmitDefaultValue = true)]
+        public bool IsHypeTrainEligible { get; set; }
+
+        /// <summary>
         /// Gets or Sets LabsPublicationDate
         /// </summary>
         /*
@@ -212,6 +222,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "organization", IsRequired = true, EmitDefaultValue = true)]
         public string Organization { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PendingUpload
+        /// </summary>
+        [DataMember(Name = "pendingUpload", EmitDefaultValue = true)]
+        public bool PendingUpload { get; set; }
 
         /// <summary>
         /// Gets or Sets Popularity
@@ -314,10 +330,12 @@ namespace VRChat.API.Model
             sb.Append("  Heat: ").Append(Heat).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+            sb.Append("  IsHypeTrainEligible: ").Append(IsHypeTrainEligible).Append("\n");
             sb.Append("  LabsPublicationDate: ").Append(LabsPublicationDate).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Occupants: ").Append(Occupants).Append("\n");
             sb.Append("  Organization: ").Append(Organization).Append("\n");
+            sb.Append("  PendingUpload: ").Append(PendingUpload).Append("\n");
             sb.Append("  Popularity: ").Append(Popularity).Append("\n");
             sb.Append("  PreviewYoutubeId: ").Append(PreviewYoutubeId).Append("\n");
             sb.Append("  PublicationDate: ").Append(PublicationDate).Append("\n");
@@ -413,6 +431,10 @@ namespace VRChat.API.Model
                     this.ImageUrl.Equals(input.ImageUrl))
                 ) && 
                 (
+                    this.IsHypeTrainEligible == input.IsHypeTrainEligible ||
+                    this.IsHypeTrainEligible.Equals(input.IsHypeTrainEligible)
+                ) && 
+                (
                     this.LabsPublicationDate == input.LabsPublicationDate ||
                     (this.LabsPublicationDate != null &&
                     this.LabsPublicationDate.Equals(input.LabsPublicationDate))
@@ -430,6 +452,10 @@ namespace VRChat.API.Model
                     this.Organization == input.Organization ||
                     (this.Organization != null &&
                     this.Organization.Equals(input.Organization))
+                ) && 
+                (
+                    this.PendingUpload == input.PendingUpload ||
+                    this.PendingUpload.Equals(input.PendingUpload)
                 ) && 
                 (
                     this.Popularity == input.Popularity ||
@@ -528,6 +554,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsHypeTrainEligible.GetHashCode();
                 if (this.LabsPublicationDate != null)
                 {
                     hashCode = (hashCode * 59) + this.LabsPublicationDate.GetHashCode();
@@ -541,6 +568,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Organization.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.PendingUpload.GetHashCode();
                 hashCode = (hashCode * 59) + this.Popularity.GetHashCode();
                 if (this.PreviewYoutubeId != null)
                 {

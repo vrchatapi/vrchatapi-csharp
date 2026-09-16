@@ -31,11 +31,15 @@ namespace VRChat.API.Model
         /// <param name="avatarImageUrl">avatarImageUrl.</param>
         /// <param name="avatarThumbnail">avatarThumbnail.</param>
         /// <param name="banner">banner.</param>
+        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="bannerType">bannerType.</param>
+        /// <param name="bannerUrl">bannerUrl.</param>
         /// <param name="currentAvatarTags">currentAvatarTags.</param>
         /// <param name="debugflag">debugflag.</param>
         /// <param name="displayName">displayName.</param>
         /// <param name="groups">groups.</param>
         /// <param name="iconFrame">iconFrame.</param>
+        /// <param name="iconUrl">iconUrl.</param>
         /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="instance">instance.</param>
         /// <param name="instanceType">either an InstanceType or an empty string.</param>
@@ -49,16 +53,20 @@ namespace VRChat.API.Model
         /// <param name="travelingToWorld">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list..</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="world">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUserPresence(string avatarImageUrl = default, string avatarThumbnail = default, string banner = default, List<string> currentAvatarTags = default, string debugflag = default, string displayName = default, List<string> groups = default, string iconFrame = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string nameplateEffect = default, string platform = default, string profileEffect = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
+        public CurrentUserPresence(string avatarImageUrl = default, string avatarThumbnail = default, string banner = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, string currentAvatarTags = default, string debugflag = default, string displayName = default, List<string> groups = default, string iconFrame = default, string iconUrl = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string nameplateEffect = default, string platform = default, string profileEffect = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
         {
             this.AvatarImageUrl = avatarImageUrl;
             this.AvatarThumbnail = avatarThumbnail;
             this.Banner = banner;
+            this.BannerColor = bannerColor;
+            this.BannerType = bannerType;
+            this.BannerUrl = bannerUrl;
             this.CurrentAvatarTags = currentAvatarTags;
             this.Debugflag = debugflag;
             this.DisplayName = displayName;
             this.Groups = groups;
             this.IconFrame = iconFrame;
+            this.IconUrl = iconUrl;
             this.Id = id;
             this.Instance = instance;
             this.InstanceType = instanceType;
@@ -93,10 +101,32 @@ namespace VRChat.API.Model
         public string Banner { get; set; }
 
         /// <summary>
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /*
+        <example>3cc92c</example>
+        */
+        [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
+        public string BannerColor { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BannerType
+        /// </summary>
+        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
+        public string BannerType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BannerUrl
+        /// </summary>
+        [DataMember(Name = "bannerUrl", EmitDefaultValue = false)]
+        public string BannerUrl { get; set; }
+
+        /// <summary>
         /// Gets or Sets CurrentAvatarTags
         /// </summary>
         [DataMember(Name = "currentAvatarTags", EmitDefaultValue = false)]
-        public List<string> CurrentAvatarTags { get; set; }
+        public string CurrentAvatarTags { get; set; }
 
         /// <summary>
         /// Gets or Sets Debugflag
@@ -121,6 +151,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "iconFrame", EmitDefaultValue = false)]
         public string IconFrame { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IconUrl
+        /// </summary>
+        [DataMember(Name = "iconUrl", EmitDefaultValue = false)]
+        public string IconUrl { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -229,11 +265,15 @@ namespace VRChat.API.Model
             sb.Append("  AvatarImageUrl: ").Append(AvatarImageUrl).Append("\n");
             sb.Append("  AvatarThumbnail: ").Append(AvatarThumbnail).Append("\n");
             sb.Append("  Banner: ").Append(Banner).Append("\n");
+            sb.Append("  BannerColor: ").Append(BannerColor).Append("\n");
+            sb.Append("  BannerType: ").Append(BannerType).Append("\n");
+            sb.Append("  BannerUrl: ").Append(BannerUrl).Append("\n");
             sb.Append("  CurrentAvatarTags: ").Append(CurrentAvatarTags).Append("\n");
             sb.Append("  Debugflag: ").Append(Debugflag).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  IconFrame: ").Append(IconFrame).Append("\n");
+            sb.Append("  IconUrl: ").Append(IconUrl).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Instance: ").Append(Instance).Append("\n");
             sb.Append("  InstanceType: ").Append(InstanceType).Append("\n");
@@ -298,10 +338,24 @@ namespace VRChat.API.Model
                     this.Banner.Equals(input.Banner))
                 ) && 
                 (
+                    this.BannerColor == input.BannerColor ||
+                    (this.BannerColor != null &&
+                    this.BannerColor.Equals(input.BannerColor))
+                ) && 
+                (
+                    this.BannerType == input.BannerType ||
+                    (this.BannerType != null &&
+                    this.BannerType.Equals(input.BannerType))
+                ) && 
+                (
+                    this.BannerUrl == input.BannerUrl ||
+                    (this.BannerUrl != null &&
+                    this.BannerUrl.Equals(input.BannerUrl))
+                ) && 
+                (
                     this.CurrentAvatarTags == input.CurrentAvatarTags ||
-                    this.CurrentAvatarTags != null &&
-                    input.CurrentAvatarTags != null &&
-                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
+                    (this.CurrentAvatarTags != null &&
+                    this.CurrentAvatarTags.Equals(input.CurrentAvatarTags))
                 ) && 
                 (
                     this.Debugflag == input.Debugflag ||
@@ -323,6 +377,11 @@ namespace VRChat.API.Model
                     this.IconFrame == input.IconFrame ||
                     (this.IconFrame != null &&
                     this.IconFrame.Equals(input.IconFrame))
+                ) && 
+                (
+                    this.IconUrl == input.IconUrl ||
+                    (this.IconUrl != null &&
+                    this.IconUrl.Equals(input.IconUrl))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -412,6 +471,18 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Banner.GetHashCode();
                 }
+                if (this.BannerColor != null)
+                {
+                    hashCode = (hashCode * 59) + this.BannerColor.GetHashCode();
+                }
+                if (this.BannerType != null)
+                {
+                    hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
+                }
+                if (this.BannerUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();
+                }
                 if (this.CurrentAvatarTags != null)
                 {
                     hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
@@ -431,6 +502,10 @@ namespace VRChat.API.Model
                 if (this.IconFrame != null)
                 {
                     hashCode = (hashCode * 59) + this.IconFrame.GetHashCode();
+                }
+                if (this.IconUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.IconUrl.GetHashCode();
                 }
                 if (this.Id != null)
                 {

@@ -39,6 +39,7 @@ namespace VRChat.API.Model
         /// <param name="bannersTag">bannersTag.</param>
         /// <param name="categories">categories.</param>
         /// <param name="featuredResults">featuredResults.</param>
+        /// <param name="groupPool">groupPool.</param>
         /// <param name="index">index.</param>
         /// <param name="marketplace">marketplace.</param>
         /// <param name="maxPrice">maxPrice.</param>
@@ -65,7 +66,8 @@ namespace VRChat.API.Model
         /// <param name="tags">tags.</param>
         /// <param name="type">Type is not present if it is a world..</param>
         /// <param name="upcomingOffsetMinutes">upcomingOffsetMinutes.</param>
-        public DynamicContentRow(List<string> anyStyle = default, List<string> anyTag = default, bool avatarSpecific = default, string bannersTag = default, List<string> categories = default, string featuredResults = default, int index = default, string marketplace = default, int maxPrice = default, int minOccupants = default, int minPrice = default, int minimumInterestCount = default, int minimumRemainingMinutes = default, string mode = default, int n = default, string name = default, string nonFeaturedResults = default, List<string> notag = default, Dictionary<string, Object> varParams = default, string personalizedResults = default, string platform = default, string region = default, string scope = default, string shortName = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string style = default, string tag = default, List<string> tags = default, string type = default, int upcomingOffsetMinutes = default)
+        /// <param name="worldPool">worldPool.</param>
+        public DynamicContentRow(List<string> anyStyle = default, List<string> anyTag = default, bool avatarSpecific = default, string bannersTag = default, List<string> categories = default, string featuredResults = default, string groupPool = default, int index = default, string marketplace = default, int maxPrice = default, int minOccupants = default, int minPrice = default, int minimumInterestCount = default, int minimumRemainingMinutes = default, string mode = default, int n = default, string name = default, string nonFeaturedResults = default, List<string> notag = default, Dictionary<string, Object> varParams = default, string personalizedResults = default, string platform = default, string region = default, string scope = default, string shortName = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string style = default, string tag = default, List<string> tags = default, string type = default, int upcomingOffsetMinutes = default, string worldPool = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
@@ -77,6 +79,7 @@ namespace VRChat.API.Model
             this.BannersTag = bannersTag;
             this.Categories = categories;
             this.FeaturedResults = featuredResults;
+            this.GroupPool = groupPool;
             this.Index = index;
             this.Marketplace = marketplace;
             this.MaxPrice = maxPrice;
@@ -101,6 +104,7 @@ namespace VRChat.API.Model
             this.Tags = tags;
             this.Type = type;
             this.UpcomingOffsetMinutes = upcomingOffsetMinutes;
+            this.WorldPool = worldPool;
         }
 
         /// <summary>
@@ -138,6 +142,15 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "featuredResults", EmitDefaultValue = false)]
         public string FeaturedResults { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GroupPool
+        /// </summary>
+        /*
+        <example>mine</example>
+        */
+        [DataMember(Name = "groupPool", EmitDefaultValue = false)]
+        public string GroupPool { get; set; }
 
         /// <summary>
         /// Gets or Sets Index
@@ -317,6 +330,15 @@ namespace VRChat.API.Model
         public int UpcomingOffsetMinutes { get; set; }
 
         /// <summary>
+        /// Gets or Sets WorldPool
+        /// </summary>
+        /*
+        <example>trending</example>
+        */
+        [DataMember(Name = "worldPool", EmitDefaultValue = false)]
+        public string WorldPool { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -330,6 +352,7 @@ namespace VRChat.API.Model
             sb.Append("  BannersTag: ").Append(BannersTag).Append("\n");
             sb.Append("  Categories: ").Append(Categories).Append("\n");
             sb.Append("  FeaturedResults: ").Append(FeaturedResults).Append("\n");
+            sb.Append("  GroupPool: ").Append(GroupPool).Append("\n");
             sb.Append("  Index: ").Append(Index).Append("\n");
             sb.Append("  Marketplace: ").Append(Marketplace).Append("\n");
             sb.Append("  MaxPrice: ").Append(MaxPrice).Append("\n");
@@ -356,6 +379,7 @@ namespace VRChat.API.Model
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  UpcomingOffsetMinutes: ").Append(UpcomingOffsetMinutes).Append("\n");
+            sb.Append("  WorldPool: ").Append(WorldPool).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -422,6 +446,11 @@ namespace VRChat.API.Model
                     this.FeaturedResults == input.FeaturedResults ||
                     (this.FeaturedResults != null &&
                     this.FeaturedResults.Equals(input.FeaturedResults))
+                ) && 
+                (
+                    this.GroupPool == input.GroupPool ||
+                    (this.GroupPool != null &&
+                    this.GroupPool.Equals(input.GroupPool))
                 ) && 
                 (
                     this.Index == input.Index ||
@@ -547,6 +576,11 @@ namespace VRChat.API.Model
                 (
                     this.UpcomingOffsetMinutes == input.UpcomingOffsetMinutes ||
                     this.UpcomingOffsetMinutes.Equals(input.UpcomingOffsetMinutes)
+                ) && 
+                (
+                    this.WorldPool == input.WorldPool ||
+                    (this.WorldPool != null &&
+                    this.WorldPool.Equals(input.WorldPool))
                 );
         }
 
@@ -579,6 +613,10 @@ namespace VRChat.API.Model
                 if (this.FeaturedResults != null)
                 {
                     hashCode = (hashCode * 59) + this.FeaturedResults.GetHashCode();
+                }
+                if (this.GroupPool != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupPool.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Index.GetHashCode();
                 if (this.Marketplace != null)
@@ -660,6 +698,10 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.UpcomingOffsetMinutes.GetHashCode();
+                if (this.WorldPool != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorldPool.GetHashCode();
+                }
                 return hashCode;
             }
         }

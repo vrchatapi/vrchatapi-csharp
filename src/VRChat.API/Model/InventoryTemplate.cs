@@ -50,16 +50,19 @@ namespace VRChat.API.Model
         /// <param name="flags">flags (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="imageUrl">imageUrl (required).</param>
+        /// <param name="initialToggleState">initialToggleState.</param>
         /// <param name="itemType">itemType (required).</param>
         /// <param name="itemTypeLabel">itemTypeLabel (required).</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="name">name (required).</param>
         /// <param name="notificationDetails">notificationDetails.</param>
+        /// <param name="productId">productId.</param>
+        /// <param name="publishedListings">publishedListings.</param>
         /// <param name="status">status.</param>
         /// <param name="tags">tags (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="validateUserAttributes">validateUserAttributes (required).</param>
-        public InventoryTemplate(Object attribution = default, string authorId = default, List<string> collections = default, DateTime createdAt = default, Object defaultAttributes = default, string description = default, string dropStatus = default, List<string> equipSlots = default, List<string> flags = default, string id = default, string imageUrl = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, InventoryNotificationDetails notificationDetails = default, string status = default, List<string> tags = default, DateTime updatedAt = default, bool validateUserAttributes = default)
+        public InventoryTemplate(Object attribution = default, string authorId = default, List<string> collections = default, DateTime createdAt = default, Object defaultAttributes = default, string description = default, string dropStatus = default, List<string> equipSlots = default, List<string> flags = default, string id = default, string imageUrl = default, bool initialToggleState = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, InventoryNotificationDetails notificationDetails = default, string productId = default, List<string> publishedListings = default, string status = default, List<string> tags = default, DateTime updatedAt = default, bool validateUserAttributes = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -89,8 +92,11 @@ namespace VRChat.API.Model
             this.ValidateUserAttributes = validateUserAttributes;
             this.Attribution = attribution;
             this.DropStatus = dropStatus;
+            this.InitialToggleState = initialToggleState;
             this.Metadata = metadata;
             this.NotificationDetails = notificationDetails;
+            this.ProductId = productId;
+            this.PublishedListings = publishedListings;
             this.Status = status;
         }
 
@@ -171,6 +177,12 @@ namespace VRChat.API.Model
         public string ImageUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets InitialToggleState
+        /// </summary>
+        [DataMember(Name = "initialToggleState", EmitDefaultValue = true)]
+        public bool InitialToggleState { get; set; }
+
+        /// <summary>
         /// Gets or Sets ItemTypeLabel
         /// </summary>
         [DataMember(Name = "itemTypeLabel", IsRequired = true, EmitDefaultValue = true)]
@@ -193,6 +205,21 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "notificationDetails", EmitDefaultValue = false)]
         public InventoryNotificationDetails NotificationDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ProductId
+        /// </summary>
+        /*
+        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
+        */
+        [DataMember(Name = "productId", EmitDefaultValue = false)]
+        public string ProductId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PublishedListings
+        /// </summary>
+        [DataMember(Name = "publishedListings", EmitDefaultValue = false)]
+        public List<string> PublishedListings { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
@@ -243,11 +270,14 @@ namespace VRChat.API.Model
             sb.Append("  Flags: ").Append(Flags).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+            sb.Append("  InitialToggleState: ").Append(InitialToggleState).Append("\n");
             sb.Append("  ItemType: ").Append(ItemType).Append("\n");
             sb.Append("  ItemTypeLabel: ").Append(ItemTypeLabel).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  NotificationDetails: ").Append(NotificationDetails).Append("\n");
+            sb.Append("  ProductId: ").Append(ProductId).Append("\n");
+            sb.Append("  PublishedListings: ").Append(PublishedListings).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
@@ -345,6 +375,10 @@ namespace VRChat.API.Model
                     this.ImageUrl.Equals(input.ImageUrl))
                 ) && 
                 (
+                    this.InitialToggleState == input.InitialToggleState ||
+                    this.InitialToggleState.Equals(input.InitialToggleState)
+                ) && 
+                (
                     this.ItemType == input.ItemType ||
                     this.ItemType.Equals(input.ItemType)
                 ) && 
@@ -367,6 +401,17 @@ namespace VRChat.API.Model
                     this.NotificationDetails == input.NotificationDetails ||
                     (this.NotificationDetails != null &&
                     this.NotificationDetails.Equals(input.NotificationDetails))
+                ) && 
+                (
+                    this.ProductId == input.ProductId ||
+                    (this.ProductId != null &&
+                    this.ProductId.Equals(input.ProductId))
+                ) && 
+                (
+                    this.PublishedListings == input.PublishedListings ||
+                    this.PublishedListings != null &&
+                    input.PublishedListings != null &&
+                    this.PublishedListings.SequenceEqual(input.PublishedListings)
                 ) && 
                 (
                     this.Status == input.Status ||
@@ -439,6 +484,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.InitialToggleState.GetHashCode();
                 hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
                 if (this.ItemTypeLabel != null)
                 {
@@ -455,6 +501,14 @@ namespace VRChat.API.Model
                 if (this.NotificationDetails != null)
                 {
                     hashCode = (hashCode * 59) + this.NotificationDetails.GetHashCode();
+                }
+                if (this.ProductId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProductId.GetHashCode();
+                }
+                if (this.PublishedListings != null)
+                {
+                    hashCode = (hashCode * 59) + this.PublishedListings.GetHashCode();
                 }
                 if (this.Status != null)
                 {

@@ -20,37 +20,38 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// UserNoteTargetUser
+    /// Whether the economy is accepting requests.
     /// </summary>
-    [DataContract(Name = "UserNote_targetUser")]
-    public partial class UserNoteTargetUser : IEquatable<UserNoteTargetUser>, IValidatableObject
+    [DataContract(Name = "EconomyStatus")]
+    public partial class EconomyStatus : IEquatable<EconomyStatus>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserNoteTargetUser" /> class.
+        /// Initializes a new instance of the <see cref="EconomyStatus" /> class.
         /// </summary>
-        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
-        /// <param name="displayName">displayName.</param>
-        public UserNoteTargetUser(string id = default, string displayName = default)
+        [JsonConstructorAttribute]
+        protected EconomyStatus() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EconomyStatus" /> class.
+        /// </summary>
+        /// <param name="economyOnline">economyOnline (required).</param>
+        /// <param name="economyState">economyState (required).</param>
+        public EconomyStatus(bool economyOnline = default, int economyState = default)
         {
-            this.Id = id;
-            this.DisplayName = displayName;
+            this.EconomyOnline = economyOnline;
+            this.EconomyState = economyState;
         }
 
         /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// Gets or Sets EconomyOnline
         /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
+        [DataMember(Name = "economyOnline", IsRequired = true, EmitDefaultValue = true)]
+        public bool EconomyOnline { get; set; }
 
         /// <summary>
-        /// Gets or Sets DisplayName
+        /// Gets or Sets EconomyState
         /// </summary>
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
-        public string DisplayName { get; set; }
+        [DataMember(Name = "economyState", IsRequired = true, EmitDefaultValue = true)]
+        public int EconomyState { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,9 +60,9 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UserNoteTargetUser {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("class EconomyStatus {\n");
+            sb.Append("  EconomyOnline: ").Append(EconomyOnline).Append("\n");
+            sb.Append("  EconomyState: ").Append(EconomyState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +83,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UserNoteTargetUser);
+            return this.Equals(input as EconomyStatus);
         }
 
         /// <summary>
-        /// Returns true if UserNoteTargetUser instances are equal
+        /// Returns true if EconomyStatus instances are equal
         /// </summary>
-        /// <param name="input">Instance of UserNoteTargetUser to be compared</param>
+        /// <param name="input">Instance of EconomyStatus to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserNoteTargetUser input)
+        public bool Equals(EconomyStatus input)
         {
             if (input == null)
             {
@@ -98,14 +99,12 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.EconomyOnline == input.EconomyOnline ||
+                    this.EconomyOnline.Equals(input.EconomyOnline)
                 ) && 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.EconomyState == input.EconomyState ||
+                    this.EconomyState.Equals(input.EconomyState)
                 );
         }
 
@@ -118,14 +117,8 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.EconomyOnline.GetHashCode();
+                hashCode = (hashCode * 59) + this.EconomyState.GetHashCode();
                 return hashCode;
             }
         }

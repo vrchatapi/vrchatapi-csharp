@@ -20,47 +20,39 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// PastDisplayName
+    /// UserClientConfig
     /// </summary>
-    [DataContract(Name = "PastDisplayName")]
-    public partial class PastDisplayName : IEquatable<PastDisplayName>, IValidatableObject
+    [DataContract(Name = "UserClientConfig")]
+    public partial class UserClientConfig : IEquatable<UserClientConfig>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
+        /// Initializes a new instance of the <see cref="UserClientConfig" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PastDisplayName() { }
+        protected UserClientConfig() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
+        /// Initializes a new instance of the <see cref="UserClientConfig" /> class.
         /// </summary>
-        /// <param name="displayName">displayName (required).</param>
-        /// <param name="reverted">reverted (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
-        public PastDisplayName(string displayName = default, bool reverted = default, DateTime updatedAt = default)
+        /// <param name="accessReduceDecorAnim">accessReduceDecorAnim (required).</param>
+        /// <param name="configString">configString (required).</param>
+        public UserClientConfig(bool accessReduceDecorAnim = default, string configString = default)
         {
+            this.AccessReduceDecorAnim = accessReduceDecorAnim;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.DisplayName = displayName;
-            this.Reverted = reverted;
-            this.UpdatedAt = updatedAt;
+            this.ConfigString = configString;
         }
 
         /// <summary>
-        /// Gets or Sets DisplayName
+        /// Gets or Sets AccessReduceDecorAnim
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
-        public string DisplayName { get; set; }
+        [DataMember(Name = "accessReduceDecorAnim", IsRequired = true, EmitDefaultValue = true)]
+        public bool AccessReduceDecorAnim { get; set; }
 
         /// <summary>
-        /// Gets or Sets Reverted
+        /// Gets or Sets ConfigString
         /// </summary>
-        [DataMember(Name = "reverted", IsRequired = true, EmitDefaultValue = true)]
-        public bool Reverted { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UpdatedAt
-        /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime UpdatedAt { get; set; }
+        [DataMember(Name = "configString", IsRequired = true, EmitDefaultValue = true)]
+        public string ConfigString { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,10 +61,9 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PastDisplayName {\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Reverted: ").Append(Reverted).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("class UserClientConfig {\n");
+            sb.Append("  AccessReduceDecorAnim: ").Append(AccessReduceDecorAnim).Append("\n");
+            sb.Append("  ConfigString: ").Append(ConfigString).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,15 +84,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PastDisplayName);
+            return this.Equals(input as UserClientConfig);
         }
 
         /// <summary>
-        /// Returns true if PastDisplayName instances are equal
+        /// Returns true if UserClientConfig instances are equal
         /// </summary>
-        /// <param name="input">Instance of PastDisplayName to be compared</param>
+        /// <param name="input">Instance of UserClientConfig to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PastDisplayName input)
+        public bool Equals(UserClientConfig input)
         {
             if (input == null)
             {
@@ -109,17 +100,13 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.AccessReduceDecorAnim == input.AccessReduceDecorAnim ||
+                    this.AccessReduceDecorAnim.Equals(input.AccessReduceDecorAnim)
                 ) && 
                 (
-                    this.Reverted == input.Reverted ||
-                    this.Reverted.Equals(input.Reverted)
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    this.UpdatedAt.Equals(input.UpdatedAt)
+                    this.ConfigString == input.ConfigString ||
+                    (this.ConfigString != null &&
+                    this.ConfigString.Equals(input.ConfigString))
                 );
         }
 
@@ -132,12 +119,11 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DisplayName != null)
+                hashCode = (hashCode * 59) + this.AccessReduceDecorAnim.GetHashCode();
+                if (this.ConfigString != null)
                 {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ConfigString.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Reverted.GetHashCode();
-                hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,12 +135,6 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // DisplayName (string) minLength
-            if (this.DisplayName != null && this.DisplayName.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
-            }
-
             yield break;
         }
     }

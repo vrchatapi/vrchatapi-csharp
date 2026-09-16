@@ -45,14 +45,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LimitedUserSearch" /> class.
         /// </summary>
-        /// <param name="bannerColor">bannerColor.</param>
+        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
-        /// <param name="bio">bio.</param>
-        /// <param name="bioLinks"> .</param>
-        /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
-        /// <param name="currentAvatarTags">currentAvatarTags (required).</param>
-        /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
         /// <param name="developerType">developerType (required).</param>
         /// <param name="displayName">displayName (required).</param>
         /// <param name="iconFrame">iconFrame.</param>
@@ -62,20 +57,12 @@ namespace VRChat.API.Model
         /// <param name="lastPlatform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
         /// <param name="nameplateEffect">nameplateEffect.</param>
         /// <param name="profileEffect">profileEffect.</param>
-        /// <param name="profilePicOverride">profilePicOverride.</param>
         /// <param name="pronouns">pronouns.</param>
         /// <param name="status">status (required).</param>
         /// <param name="statusDescription">statusDescription (required).</param>
         /// <param name="tags">&lt;- Always empty. (required).</param>
-        /// <param name="userIcon">userIcon.</param>
-        public LimitedUserSearch(string bannerColor = default, string bannerType = default, string bannerUrl = default, string bio = default, List<string> bioLinks = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DeveloperType developerType = default, string displayName = default, string iconFrame = default, string iconUrl = default, string id = default, bool isFriend = default, string lastPlatform = default, string nameplateEffect = default, string profileEffect = default, string profilePicOverride = default, string pronouns = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string userIcon = default)
+        public LimitedUserSearch(string bannerColor = default, string bannerType = default, string bannerUrl = default, DeveloperType developerType = default, string displayName = default, string iconFrame = default, string iconUrl = default, string id = default, bool isFriend = default, string lastPlatform = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, UserStatus status = default, string statusDescription = default, List<string> tags = default)
         {
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.CurrentAvatarImageUrl = currentAvatarImageUrl;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.CurrentAvatarTags = currentAvatarTags;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
             this.DeveloperType = developerType;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
@@ -92,20 +79,20 @@ namespace VRChat.API.Model
             this.BannerColor = bannerColor;
             this.BannerType = bannerType;
             this.BannerUrl = bannerUrl;
-            this.Bio = bio;
-            this.BioLinks = bioLinks;
             this.IconFrame = iconFrame;
             this.IconUrl = iconUrl;
             this.NameplateEffect = nameplateEffect;
             this.ProfileEffect = profileEffect;
-            this.ProfilePicOverride = profilePicOverride;
             this.Pronouns = pronouns;
-            this.UserIcon = userIcon;
         }
 
         /// <summary>
-        /// Gets or Sets BannerColor
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /*
+        <example>3cc92c</example>
+        */
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
@@ -120,45 +107,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "bannerUrl", EmitDefaultValue = false)]
         public string BannerUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Bio
-        /// </summary>
-        [DataMember(Name = "bio", EmitDefaultValue = false)]
-        public string Bio { get; set; }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <value> </value>
-        [DataMember(Name = "bioLinks", EmitDefaultValue = false)]
-        public List<string> BioLinks { get; set; }
-
-        /// <summary>
-        /// When profilePicOverride is not empty, use it instead.
-        /// </summary>
-        /// <value>When profilePicOverride is not empty, use it instead.</value>
-        /*
-        <example>https://api.vrchat.cloud/api/1/file/file_ae46d521-7281-4b38-b365-804b32a1d6a7/1/file</example>
-        */
-        [DataMember(Name = "currentAvatarImageUrl", IsRequired = true, EmitDefaultValue = true)]
-        public string CurrentAvatarImageUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CurrentAvatarTags
-        /// </summary>
-        [DataMember(Name = "currentAvatarTags", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> CurrentAvatarTags { get; set; }
-
-        /// <summary>
-        /// When profilePicOverride is not empty, use it instead.
-        /// </summary>
-        /// <value>When profilePicOverride is not empty, use it instead.</value>
-        /*
-        <example>https://api.vrchat.cloud/api/1/image/file_aae83ed9-d42d-4d72-9f4b-9f1e41ed17e1/1/256</example>
-        */
-        [DataMember(Name = "currentAvatarThumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
-        public string CurrentAvatarThumbnailImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
@@ -217,12 +165,6 @@ namespace VRChat.API.Model
         public string ProfileEffect { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProfilePicOverride
-        /// </summary>
-        [DataMember(Name = "profilePicOverride", EmitDefaultValue = false)]
-        public string ProfilePicOverride { get; set; }
-
-        /// <summary>
         /// Gets or Sets Pronouns
         /// </summary>
         [DataMember(Name = "pronouns", EmitDefaultValue = false)]
@@ -242,12 +184,6 @@ namespace VRChat.API.Model
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserIcon
-        /// </summary>
-        [DataMember(Name = "userIcon", EmitDefaultValue = false)]
-        public string UserIcon { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -258,11 +194,6 @@ namespace VRChat.API.Model
             sb.Append("  BannerColor: ").Append(BannerColor).Append("\n");
             sb.Append("  BannerType: ").Append(BannerType).Append("\n");
             sb.Append("  BannerUrl: ").Append(BannerUrl).Append("\n");
-            sb.Append("  Bio: ").Append(Bio).Append("\n");
-            sb.Append("  BioLinks: ").Append(BioLinks).Append("\n");
-            sb.Append("  CurrentAvatarImageUrl: ").Append(CurrentAvatarImageUrl).Append("\n");
-            sb.Append("  CurrentAvatarTags: ").Append(CurrentAvatarTags).Append("\n");
-            sb.Append("  CurrentAvatarThumbnailImageUrl: ").Append(CurrentAvatarThumbnailImageUrl).Append("\n");
             sb.Append("  DeveloperType: ").Append(DeveloperType).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  IconFrame: ").Append(IconFrame).Append("\n");
@@ -272,12 +203,10 @@ namespace VRChat.API.Model
             sb.Append("  LastPlatform: ").Append(LastPlatform).Append("\n");
             sb.Append("  NameplateEffect: ").Append(NameplateEffect).Append("\n");
             sb.Append("  ProfileEffect: ").Append(ProfileEffect).Append("\n");
-            sb.Append("  ProfilePicOverride: ").Append(ProfilePicOverride).Append("\n");
             sb.Append("  Pronouns: ").Append(Pronouns).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusDescription: ").Append(StatusDescription).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  UserIcon: ").Append(UserIcon).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -329,33 +258,6 @@ namespace VRChat.API.Model
                     this.BannerUrl.Equals(input.BannerUrl))
                 ) && 
                 (
-                    this.Bio == input.Bio ||
-                    (this.Bio != null &&
-                    this.Bio.Equals(input.Bio))
-                ) && 
-                (
-                    this.BioLinks == input.BioLinks ||
-                    this.BioLinks != null &&
-                    input.BioLinks != null &&
-                    this.BioLinks.SequenceEqual(input.BioLinks)
-                ) && 
-                (
-                    this.CurrentAvatarImageUrl == input.CurrentAvatarImageUrl ||
-                    (this.CurrentAvatarImageUrl != null &&
-                    this.CurrentAvatarImageUrl.Equals(input.CurrentAvatarImageUrl))
-                ) && 
-                (
-                    this.CurrentAvatarTags == input.CurrentAvatarTags ||
-                    this.CurrentAvatarTags != null &&
-                    input.CurrentAvatarTags != null &&
-                    this.CurrentAvatarTags.SequenceEqual(input.CurrentAvatarTags)
-                ) && 
-                (
-                    this.CurrentAvatarThumbnailImageUrl == input.CurrentAvatarThumbnailImageUrl ||
-                    (this.CurrentAvatarThumbnailImageUrl != null &&
-                    this.CurrentAvatarThumbnailImageUrl.Equals(input.CurrentAvatarThumbnailImageUrl))
-                ) && 
-                (
                     this.DeveloperType == input.DeveloperType ||
                     this.DeveloperType.Equals(input.DeveloperType)
                 ) && 
@@ -399,11 +301,6 @@ namespace VRChat.API.Model
                     this.ProfileEffect.Equals(input.ProfileEffect))
                 ) && 
                 (
-                    this.ProfilePicOverride == input.ProfilePicOverride ||
-                    (this.ProfilePicOverride != null &&
-                    this.ProfilePicOverride.Equals(input.ProfilePicOverride))
-                ) && 
-                (
                     this.Pronouns == input.Pronouns ||
                     (this.Pronouns != null &&
                     this.Pronouns.Equals(input.Pronouns))
@@ -422,11 +319,6 @@ namespace VRChat.API.Model
                     this.Tags != null &&
                     input.Tags != null &&
                     this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.UserIcon == input.UserIcon ||
-                    (this.UserIcon != null &&
-                    this.UserIcon.Equals(input.UserIcon))
                 );
         }
 
@@ -450,26 +342,6 @@ namespace VRChat.API.Model
                 if (this.BannerUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();
-                }
-                if (this.Bio != null)
-                {
-                    hashCode = (hashCode * 59) + this.Bio.GetHashCode();
-                }
-                if (this.BioLinks != null)
-                {
-                    hashCode = (hashCode * 59) + this.BioLinks.GetHashCode();
-                }
-                if (this.CurrentAvatarImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarImageUrl.GetHashCode();
-                }
-                if (this.CurrentAvatarTags != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarTags.GetHashCode();
-                }
-                if (this.CurrentAvatarThumbnailImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.CurrentAvatarThumbnailImageUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.DeveloperType.GetHashCode();
                 if (this.DisplayName != null)
@@ -501,10 +373,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ProfileEffect.GetHashCode();
                 }
-                if (this.ProfilePicOverride != null)
-                {
-                    hashCode = (hashCode * 59) + this.ProfilePicOverride.GetHashCode();
-                }
                 if (this.Pronouns != null)
                 {
                     hashCode = (hashCode * 59) + this.Pronouns.GetHashCode();
@@ -517,10 +385,6 @@ namespace VRChat.API.Model
                 if (this.Tags != null)
                 {
                     hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.UserIcon != null)
-                {
-                    hashCode = (hashCode * 59) + this.UserIcon.GetHashCode();
                 }
                 return hashCode;
             }

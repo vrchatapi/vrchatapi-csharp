@@ -263,8 +263,11 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="limit">The maximum number of entries to get. (optional)</param>
+        /// <param name="after">Only return events starting after this date. (optional)</param>
+        /// <param name="sort"> (optional)</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        PaginatedCalendarEventList GetGroupCalendarEvents(string groupId, DateTime? date = default, int? n = default, int? offset = default);
+        PaginatedCalendarEventList GetGroupCalendarEvents(string groupId, DateTime? date = default, int? n = default, int? offset = default, int? limit = default, DateTime? after = default, string? sort = default);
 
         /// <summary>
         /// List a group&#39;s calendar events
@@ -277,8 +280,11 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="limit">The maximum number of entries to get. (optional)</param>
+        /// <param name="after">Only return events starting after this date. (optional)</param>
+        /// <param name="sort"> (optional)</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        ApiResponse<PaginatedCalendarEventList> GetGroupCalendarEventsWithHttpInfo(string groupId, DateTime? date = default, int? n = default, int? offset = default);
+        ApiResponse<PaginatedCalendarEventList> GetGroupCalendarEventsWithHttpInfo(string groupId, DateTime? date = default, int? n = default, int? offset = default, int? limit = default, DateTime? after = default, string? sort = default);
         /// <summary>
         /// Get next calendar event
         /// </summary>
@@ -625,9 +631,12 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="limit">The maximum number of entries to get. (optional)</param>
+        /// <param name="after">Only return events starting after this date. (optional)</param>
+        /// <param name="sort"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        System.Threading.Tasks.Task<PaginatedCalendarEventList> GetGroupCalendarEventsAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<PaginatedCalendarEventList> GetGroupCalendarEventsAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, int? limit = default, DateTime? after = default, string? sort = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List a group&#39;s calendar events
@@ -640,9 +649,12 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="limit">The maximum number of entries to get. (optional)</param>
+        /// <param name="after">Only return events starting after this date. (optional)</param>
+        /// <param name="sort"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> GetGroupCalendarEventsWithHttpInfoAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<PaginatedCalendarEventList>> GetGroupCalendarEventsWithHttpInfoAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, int? limit = default, DateTime? after = default, string? sort = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get next calendar event
         /// </summary>
@@ -2503,10 +2515,13 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="limit">The maximum number of entries to get. (optional)</param>
+        /// <param name="after">Only return events starting after this date. (optional)</param>
+        /// <param name="sort"> (optional)</param>
         /// <returns>PaginatedCalendarEventList</returns>
-        public PaginatedCalendarEventList GetGroupCalendarEvents(string groupId, DateTime? date = default, int? n = default, int? offset = default)
+        public PaginatedCalendarEventList GetGroupCalendarEvents(string groupId, DateTime? date = default, int? n = default, int? offset = default, int? limit = default, DateTime? after = default, string? sort = default)
         {
-            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = GetGroupCalendarEventsWithHttpInfo(groupId, date, n, offset);
+            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = GetGroupCalendarEventsWithHttpInfo(groupId, date, n, offset, limit, after, sort);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupCalendarEvents", localVarResponse);
@@ -2526,8 +2541,11 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="limit">The maximum number of entries to get. (optional)</param>
+        /// <param name="after">Only return events starting after this date. (optional)</param>
+        /// <param name="sort"> (optional)</param>
         /// <returns>ApiResponse of PaginatedCalendarEventList</returns>
-        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> GetGroupCalendarEventsWithHttpInfo(string groupId, DateTime? date = default, int? n = default, int? offset = default)
+        public VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> GetGroupCalendarEventsWithHttpInfo(string groupId, DateTime? date = default, int? n = default, int? offset = default, int? limit = default, DateTime? after = default, string? sort = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2561,6 +2579,18 @@ namespace VRChat.API.Api
             if (offset != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
             // authentication (authCookie) required
@@ -2591,11 +2621,14 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="limit">The maximum number of entries to get. (optional)</param>
+        /// <param name="after">Only return events starting after this date. (optional)</param>
+        /// <param name="sort"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PaginatedCalendarEventList</returns>
-        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetGroupCalendarEventsAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<PaginatedCalendarEventList> GetGroupCalendarEventsAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, int? limit = default, DateTime? after = default, string? sort = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetGroupCalendarEventsWithHttpInfoAsync(groupId, date, n, offset, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<PaginatedCalendarEventList> localVarResponse = await GetGroupCalendarEventsWithHttpInfoAsync(groupId, date, n, offset, limit, after, sort, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupCalendarEvents", localVarResponse);
@@ -2615,9 +2648,12 @@ namespace VRChat.API.Api
         /// <param name="date">The month to search in. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="limit">The maximum number of entries to get. (optional)</param>
+        /// <param name="after">Only return events starting after this date. (optional)</param>
+        /// <param name="sort"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PaginatedCalendarEventList)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> GetGroupCalendarEventsWithHttpInfoAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedCalendarEventList>> GetGroupCalendarEventsWithHttpInfoAsync(string groupId, DateTime? date = default, int? n = default, int? offset = default, int? limit = default, DateTime? after = default, string? sort = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2653,6 +2689,18 @@ namespace VRChat.API.Api
             if (offset != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
             // authentication (authCookie) required

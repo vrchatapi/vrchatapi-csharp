@@ -29,8 +29,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets MembershipStatus
         /// </summary>
-        [DataMember(Name = "membershipStatus", IsRequired = true, EmitDefaultValue = true)]
-        public GroupMemberStatus MembershipStatus { get; set; }
+        [DataMember(Name = "membershipStatus", EmitDefaultValue = false)]
+        public GroupMemberStatus? MembershipStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupMember" /> class.
         /// </summary>
@@ -47,46 +47,43 @@ namespace VRChat.API.Model
         /// <param name="hasJoinedFromPurchase">Missing when explicitly fetching own user, or when group isn&#39;t linked to a purchase..</param>
         /// <param name="id">id (required).</param>
         /// <param name="isRepresenting">Whether the user is representing the group. This makes the group show up above the name tag in-game. (required) (default to false).</param>
-        /// <param name="isSubscribedToAnnouncements">isSubscribedToAnnouncements (required) (default to false).</param>
+        /// <param name="isSubscribedToAnnouncements">isSubscribedToAnnouncements (default to false).</param>
         /// <param name="isSubscribedToEventAnnouncements">Only missing when explicitly fetching own user..</param>
-        /// <param name="joinedAt">joinedAt (required).</param>
-        /// <param name="lastPostReadAt">lastPostReadAt (required).</param>
+        /// <param name="joinedAt">joinedAt.</param>
+        /// <param name="lastPostReadAt">lastPostReadAt.</param>
         /// <param name="mRoleIds">mRoleIds (required).</param>
         /// <param name="managerNotes">Only missing when explicitly fetching own user..</param>
-        /// <param name="membershipStatus">membershipStatus (required).</param>
+        /// <param name="membershipStatus">membershipStatus.</param>
         /// <param name="roleIds">roleIds (required).</param>
         /// <param name="user">user.</param>
         /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="visibility">visibility (required).</param>
-        public GroupMember(string acceptedByDisplayName = default, string acceptedById = default, DateTime? bannedAt = default, DateTime? createdAt = default, string groupId = default, bool hasJoinedFromPurchase = default, string id = default, bool isRepresenting = false, bool isSubscribedToAnnouncements = false, bool isSubscribedToEventAnnouncements = default, DateTime? joinedAt = default, DateTime? lastPostReadAt = default, List<string> mRoleIds = default, string managerNotes = default, GroupMemberStatus membershipStatus = default, List<string> roleIds = default, GroupMemberLimitedUser user = default, string userId = default, string visibility = default)
+        /// <param name="visibility">visibility.</param>
+        public GroupMember(string acceptedByDisplayName = default, string acceptedById = default, DateTime? bannedAt = default, DateTime? createdAt = default, string groupId = default, bool hasJoinedFromPurchase = default, string id = default, bool isRepresenting = false, bool isSubscribedToAnnouncements = false, bool isSubscribedToEventAnnouncements = default, DateTime? joinedAt = default, DateTime? lastPostReadAt = default, List<string> mRoleIds = default, string managerNotes = default, GroupMemberStatus? membershipStatus = default, List<string> roleIds = default, GroupMemberLimitedUser user = default, string userId = default, string visibility = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.GroupId = groupId;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.IsRepresenting = isRepresenting;
-            this.IsSubscribedToAnnouncements = isSubscribedToAnnouncements;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.JoinedAt = joinedAt;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.LastPostReadAt = lastPostReadAt;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.MRoleIds = mRoleIds;
-            this.MembershipStatus = membershipStatus;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.RoleIds = roleIds;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.UserId = userId;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Visibility = visibility;
             this.AcceptedByDisplayName = acceptedByDisplayName;
             this.AcceptedById = acceptedById;
             this.BannedAt = bannedAt;
             this.CreatedAt = createdAt;
             this.HasJoinedFromPurchase = hasJoinedFromPurchase;
+            this.IsSubscribedToAnnouncements = isSubscribedToAnnouncements;
             this.IsSubscribedToEventAnnouncements = isSubscribedToEventAnnouncements;
+            this.JoinedAt = joinedAt;
+            this.LastPostReadAt = lastPostReadAt;
             this.ManagerNotes = managerNotes;
+            this.MembershipStatus = membershipStatus;
             this.User = user;
+            this.Visibility = visibility;
         }
 
         /// <summary>
@@ -155,7 +152,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets IsSubscribedToAnnouncements
         /// </summary>
-        [DataMember(Name = "isSubscribedToAnnouncements", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isSubscribedToAnnouncements", EmitDefaultValue = true)]
         public bool IsSubscribedToAnnouncements { get; set; }
 
         /// <summary>
@@ -168,13 +165,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets JoinedAt
         /// </summary>
-        [DataMember(Name = "joinedAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "joinedAt", EmitDefaultValue = true)]
         public DateTime? JoinedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets LastPostReadAt
         /// </summary>
-        [DataMember(Name = "lastPostReadAt", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "lastPostReadAt", EmitDefaultValue = true)]
         public DateTime? LastPostReadAt { get; set; }
 
         /// <summary>
@@ -218,7 +215,7 @@ namespace VRChat.API.Model
         /*
         <example>visible</example>
         */
-        [DataMember(Name = "visibility", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "visibility", EmitDefaultValue = false)]
         public string Visibility { get; set; }
 
         /// <summary>

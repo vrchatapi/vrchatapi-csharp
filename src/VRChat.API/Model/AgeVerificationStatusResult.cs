@@ -20,37 +20,31 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// UserNoteTargetUser
+    /// The caller&#39;s age verification status.
     /// </summary>
-    [DataContract(Name = "UserNote_targetUser")]
-    public partial class UserNoteTargetUser : IEquatable<UserNoteTargetUser>, IValidatableObject
+    [DataContract(Name = "AgeVerificationStatusResult")]
+    public partial class AgeVerificationStatusResult : IEquatable<AgeVerificationStatusResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserNoteTargetUser" /> class.
+        /// Initializes a new instance of the <see cref="AgeVerificationStatusResult" /> class.
         /// </summary>
-        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
-        /// <param name="displayName">displayName.</param>
-        public UserNoteTargetUser(string id = default, string displayName = default)
+        [JsonConstructorAttribute]
+        protected AgeVerificationStatusResult() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AgeVerificationStatusResult" /> class.
+        /// </summary>
+        /// <param name="status">status (required).</param>
+        public AgeVerificationStatusResult(string status = default)
         {
-            this.Id = id;
-            this.DisplayName = displayName;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Status = status;
         }
 
         /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// Gets or Sets Status
         /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DisplayName
-        /// </summary>
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
-        public string DisplayName { get; set; }
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,9 +53,8 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class UserNoteTargetUser {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("class AgeVerificationStatusResult {\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +75,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UserNoteTargetUser);
+            return this.Equals(input as AgeVerificationStatusResult);
         }
 
         /// <summary>
-        /// Returns true if UserNoteTargetUser instances are equal
+        /// Returns true if AgeVerificationStatusResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of UserNoteTargetUser to be compared</param>
+        /// <param name="input">Instance of AgeVerificationStatusResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserNoteTargetUser input)
+        public bool Equals(AgeVerificationStatusResult input)
         {
             if (input == null)
             {
@@ -98,14 +91,9 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -118,13 +106,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
+                if (this.Status != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.DisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
                 return hashCode;
             }

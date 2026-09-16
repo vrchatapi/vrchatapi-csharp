@@ -91,6 +91,31 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of FavoriteGroup</returns>
         ApiResponse<FavoriteGroup> GetFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId);
         /// <summary>
+        /// List Favorite Group Contents
+        /// </summary>
+        /// <remarks>
+        /// List the favorites in a group, each alongside the object it points at.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
+        /// <param name="ownerId">The user whose favorite group to return. Must be a user ID. (optional)</param>
+        /// <returns>FavoriteGroupContents</returns>
+        FavoriteGroupContents GetFavoriteGroupContents(FavoriteType favoriteGroupType, string favoriteGroupName, string? ownerId = default);
+
+        /// <summary>
+        /// List Favorite Group Contents
+        /// </summary>
+        /// <remarks>
+        /// List the favorites in a group, each alongside the object it points at.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
+        /// <param name="ownerId">The user whose favorite group to return. Must be a user ID. (optional)</param>
+        /// <returns>ApiResponse of FavoriteGroupContents</returns>
+        ApiResponse<FavoriteGroupContents> GetFavoriteGroupContentsWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string? ownerId = default);
+        /// <summary>
         /// List Favorite Groups
         /// </summary>
         /// <remarks>
@@ -119,6 +144,29 @@ namespace VRChat.API.Api
         /// <param name="ownerId">The user whose favorite groups to return. Must be a user ID. (optional)</param>
         /// <returns>ApiResponse of List&lt;FavoriteGroup&gt;</returns>
         ApiResponse<List<FavoriteGroup>> GetFavoriteGroupsWithHttpInfo(int? n = default, int? offset = default, FavoriteType? type = default, string? userId = default, string? ownerId = default);
+        /// <summary>
+        /// List Favorite Groups By Type
+        /// </summary>
+        /// <remarks>
+        /// List a user&#39;s favorite groups of one type.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="ownerId">The user whose favorite groups to return. Must be a user ID. (optional)</param>
+        /// <returns>FavoriteGroupList</returns>
+        FavoriteGroupList GetFavoriteGroupsByType(FavoriteType favoriteGroupType, string? ownerId = default);
+
+        /// <summary>
+        /// List Favorite Groups By Type
+        /// </summary>
+        /// <remarks>
+        /// List a user&#39;s favorite groups of one type.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="ownerId">The user whose favorite groups to return. Must be a user ID. (optional)</param>
+        /// <returns>ApiResponse of FavoriteGroupList</returns>
+        ApiResponse<FavoriteGroupList> GetFavoriteGroupsByTypeWithHttpInfo(FavoriteType favoriteGroupType, string? ownerId = default);
         /// <summary>
         /// Get Favorite Limits
         /// </summary>
@@ -300,6 +348,33 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (FavoriteGroup)</returns>
         System.Threading.Tasks.Task<ApiResponse<FavoriteGroup>> GetFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// List Favorite Group Contents
+        /// </summary>
+        /// <remarks>
+        /// List the favorites in a group, each alongside the object it points at.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
+        /// <param name="ownerId">The user whose favorite group to return. Must be a user ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FavoriteGroupContents</returns>
+        System.Threading.Tasks.Task<FavoriteGroupContents> GetFavoriteGroupContentsAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// List Favorite Group Contents
+        /// </summary>
+        /// <remarks>
+        /// List the favorites in a group, each alongside the object it points at.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
+        /// <param name="ownerId">The user whose favorite group to return. Must be a user ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FavoriteGroupContents)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FavoriteGroupContents>> GetFavoriteGroupContentsWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// List Favorite Groups
         /// </summary>
         /// <remarks>
@@ -330,6 +405,31 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;FavoriteGroup&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<FavoriteGroup>>> GetFavoriteGroupsWithHttpInfoAsync(int? n = default, int? offset = default, FavoriteType? type = default, string? userId = default, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// List Favorite Groups By Type
+        /// </summary>
+        /// <remarks>
+        /// List a user&#39;s favorite groups of one type.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="ownerId">The user whose favorite groups to return. Must be a user ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FavoriteGroupList</returns>
+        System.Threading.Tasks.Task<FavoriteGroupList> GetFavoriteGroupsByTypeAsync(FavoriteType favoriteGroupType, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// List Favorite Groups By Type
+        /// </summary>
+        /// <remarks>
+        /// List a user&#39;s favorite groups of one type.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="ownerId">The user whose favorite groups to return. Must be a user ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FavoriteGroupList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FavoriteGroupList>> GetFavoriteGroupsByTypeWithHttpInfoAsync(FavoriteType favoriteGroupType, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Favorite Limits
         /// </summary>
@@ -1112,6 +1212,168 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// List Favorite Group Contents List the favorites in a group, each alongside the object it points at.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
+        /// <param name="ownerId">The user whose favorite group to return. Must be a user ID. (optional)</param>
+        /// <returns>FavoriteGroupContents</returns>
+        public FavoriteGroupContents GetFavoriteGroupContents(FavoriteType favoriteGroupType, string favoriteGroupName, string? ownerId = default)
+        {
+            VRChat.API.Client.ApiResponse<FavoriteGroupContents> localVarResponse = GetFavoriteGroupContentsWithHttpInfo(favoriteGroupType, favoriteGroupName, ownerId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavoriteGroupContents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Favorite Group Contents List the favorites in a group, each alongside the object it points at.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
+        /// <param name="ownerId">The user whose favorite group to return. Must be a user ID. (optional)</param>
+        /// <returns>ApiResponse of FavoriteGroupContents</returns>
+        public VRChat.API.Client.ApiResponse<FavoriteGroupContents> GetFavoriteGroupContentsWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string? ownerId = default)
+        {
+            // verify the required parameter 'favoriteGroupName' is set
+            if (favoriteGroupName == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupName' when calling FavoritesApi->GetFavoriteGroupContents");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("favoriteGroupType", VRChat.API.Client.ClientUtils.ParameterToString(favoriteGroupType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("favoriteGroupName", VRChat.API.Client.ClientUtils.ParameterToString(favoriteGroupName)); // path parameter
+            if (ownerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "ownerId", ownerId));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<FavoriteGroupContents>("/favorites/groups/{favoriteGroupType}/{favoriteGroupName}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FavoriteGroupContents>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FavoriteGroupContents), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Favorite Group Contents List the favorites in a group, each alongside the object it points at.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
+        /// <param name="ownerId">The user whose favorite group to return. Must be a user ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FavoriteGroupContents</returns>
+        public async System.Threading.Tasks.Task<FavoriteGroupContents> GetFavoriteGroupContentsAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<FavoriteGroupContents> localVarResponse = await GetFavoriteGroupContentsWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, ownerId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavoriteGroupContents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Favorite Group Contents List the favorites in a group, each alongside the object it points at.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
+        /// <param name="ownerId">The user whose favorite group to return. Must be a user ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FavoriteGroupContents)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FavoriteGroupContents>> GetFavoriteGroupContentsWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'favoriteGroupName' is set
+            if (favoriteGroupName == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'favoriteGroupName' when calling FavoritesApi->GetFavoriteGroupContents");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("favoriteGroupType", VRChat.API.Client.ClientUtils.ParameterToString(favoriteGroupType)); // path parameter
+            localVarRequestOptions.PathParameters.Add("favoriteGroupName", VRChat.API.Client.ClientUtils.ParameterToString(favoriteGroupName)); // path parameter
+            if (ownerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "ownerId", ownerId));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<FavoriteGroupContents>("/favorites/groups/{favoriteGroupType}/{favoriteGroupName}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FavoriteGroupContents>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FavoriteGroupContents), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// List Favorite Groups Return a list of favorite groups owned by a user. Returns the same information as &#x60;getFavoriteGroups&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1298,6 +1560,154 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<List<FavoriteGroup>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<FavoriteGroup>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Favorite Groups By Type List a user&#39;s favorite groups of one type.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="ownerId">The user whose favorite groups to return. Must be a user ID. (optional)</param>
+        /// <returns>FavoriteGroupList</returns>
+        public FavoriteGroupList GetFavoriteGroupsByType(FavoriteType favoriteGroupType, string? ownerId = default)
+        {
+            VRChat.API.Client.ApiResponse<FavoriteGroupList> localVarResponse = GetFavoriteGroupsByTypeWithHttpInfo(favoriteGroupType, ownerId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavoriteGroupsByType", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Favorite Groups By Type List a user&#39;s favorite groups of one type.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="ownerId">The user whose favorite groups to return. Must be a user ID. (optional)</param>
+        /// <returns>ApiResponse of FavoriteGroupList</returns>
+        public VRChat.API.Client.ApiResponse<FavoriteGroupList> GetFavoriteGroupsByTypeWithHttpInfo(FavoriteType favoriteGroupType, string? ownerId = default)
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("favoriteGroupType", VRChat.API.Client.ClientUtils.ParameterToString(favoriteGroupType)); // path parameter
+            if (ownerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "ownerId", ownerId));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<FavoriteGroupList>("/favorites/groups/{favoriteGroupType}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FavoriteGroupList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FavoriteGroupList), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Favorite Groups By Type List a user&#39;s favorite groups of one type.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="ownerId">The user whose favorite groups to return. Must be a user ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FavoriteGroupList</returns>
+        public async System.Threading.Tasks.Task<FavoriteGroupList> GetFavoriteGroupsByTypeAsync(FavoriteType favoriteGroupType, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<FavoriteGroupList> localVarResponse = await GetFavoriteGroupsByTypeWithHttpInfoAsync(favoriteGroupType, ownerId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFavoriteGroupsByType", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Favorite Groups By Type List a user&#39;s favorite groups of one type.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="favoriteGroupType">The type of group to fetch, must be a valid FavoriteType.</param>
+        /// <param name="ownerId">The user whose favorite groups to return. Must be a user ID. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FavoriteGroupList)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FavoriteGroupList>> GetFavoriteGroupsByTypeWithHttpInfoAsync(FavoriteType favoriteGroupType, string? ownerId = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("favoriteGroupType", VRChat.API.Client.ClientUtils.ParameterToString(favoriteGroupType)); // path parameter
+            if (ownerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "ownerId", ownerId));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<FavoriteGroupList>("/favorites/groups/{favoriteGroupType}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<FavoriteGroupList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(FavoriteGroupList), ex.Message);
             }
         }
 

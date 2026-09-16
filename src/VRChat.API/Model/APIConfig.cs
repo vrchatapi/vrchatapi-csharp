@@ -107,7 +107,7 @@ namespace VRChat.API.Model
         /// <param name="downloadLinkWindows">Download link for game on the Oculus Rift website. (required).</param>
         /// <param name="downloadUrls">downloadUrls (required).</param>
         /// <param name="dynamicWorldRows">Array of DynamicWorldRow objects, used by the game to display the list of world rows (required).</param>
-        /// <param name="economyLedgerBackfill">Unknown (required).</param>
+        /// <param name="economyLedgerBackfill">Unknown.</param>
         /// <param name="economyLedgerMigrationStop">Unknown.</param>
         /// <param name="economyLedgerMode">Unknown (required).</param>
         /// <param name="economyPauseEnd">Unknown (required).</param>
@@ -256,7 +256,6 @@ namespace VRChat.API.Model
             this.DownloadUrls = downloadUrls;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.DynamicWorldRows = dynamicWorldRows;
-            this.EconomyLedgerBackfill = economyLedgerBackfill;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.EconomyLedgerMode = economyLedgerMode;
             this.EconomyPauseEnd = economyPauseEnd;
@@ -365,6 +364,7 @@ namespace VRChat.API.Model
             this.DevLanguageCodes = devLanguageCodes;
             this.DisableAVProInProton = disableAVProInProton;
             this.DisableCaptcha = disableCaptcha;
+            this.EconomyLedgerBackfill = economyLedgerBackfill;
             this.EconomyLedgerMigrationStop = economyLedgerMigrationStop;
             this.EnableVRCPlusWorldLists = enableVRCPlusWorldLists;
             this.EventShelfCampaigns = eventShelfCampaigns;
@@ -882,7 +882,7 @@ namespace VRChat.API.Model
         /// Unknown
         /// </summary>
         /// <value>Unknown</value>
-        [DataMember(Name = "economyLedgerBackfill", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "economyLedgerBackfill", EmitDefaultValue = true)]
         public bool EconomyLedgerBackfill { get; set; }
 
         /// <summary>

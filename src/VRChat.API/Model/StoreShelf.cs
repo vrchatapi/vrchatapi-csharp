@@ -39,13 +39,17 @@ namespace VRChat.API.Model
         /// <param name="listingIds">listingIds (required).</param>
         /// <param name="listings">listings.</param>
         /// <param name="shelfBackgroundImageId">shelfBackgroundImageId.</param>
+        /// <param name="shelfClientBannerImageId">shelfClientBannerImageId.</param>
         /// <param name="shelfDescription">shelfDescription (required).</param>
         /// <param name="shelfIconImageId">shelfIconImageId.</param>
         /// <param name="shelfLayout">shelfLayout (required).</param>
+        /// <param name="shelfMobileHeroBannerImageId">shelfMobileHeroBannerImageId.</param>
+        /// <param name="shelfMobileLogoImageId">shelfMobileLogoImageId.</param>
+        /// <param name="shelfMobileSecondaryBannerImageId">shelfMobileSecondaryBannerImageId.</param>
         /// <param name="shelfTabBackgroundImageId">shelfTabBackgroundImageId.</param>
         /// <param name="shelfTitle">shelfTitle (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public StoreShelf(ProductListing highlightListing = default, string highlightListingId = default, string id = default, List<string> listingIds = default, List<ProductListing> listings = default, string shelfBackgroundImageId = default, string shelfDescription = default, string shelfIconImageId = default, string shelfLayout = default, string shelfTabBackgroundImageId = default, string shelfTitle = default, DateTime updatedAt = default)
+        public StoreShelf(ProductListing highlightListing = default, string highlightListingId = default, string id = default, List<string> listingIds = default, List<ProductListing> listings = default, string shelfBackgroundImageId = default, string shelfClientBannerImageId = default, string shelfDescription = default, string shelfIconImageId = default, string shelfLayout = default, string shelfMobileHeroBannerImageId = default, string shelfMobileLogoImageId = default, string shelfMobileSecondaryBannerImageId = default, string shelfTabBackgroundImageId = default, string shelfTitle = default, DateTime updatedAt = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
@@ -62,7 +66,11 @@ namespace VRChat.API.Model
             this.HighlightListingId = highlightListingId;
             this.Listings = listings;
             this.ShelfBackgroundImageId = shelfBackgroundImageId;
+            this.ShelfClientBannerImageId = shelfClientBannerImageId;
             this.ShelfIconImageId = shelfIconImageId;
+            this.ShelfMobileHeroBannerImageId = shelfMobileHeroBannerImageId;
+            this.ShelfMobileLogoImageId = shelfMobileLogoImageId;
+            this.ShelfMobileSecondaryBannerImageId = shelfMobileSecondaryBannerImageId;
             this.ShelfTabBackgroundImageId = shelfTabBackgroundImageId;
         }
 
@@ -112,6 +120,15 @@ namespace VRChat.API.Model
         public string ShelfBackgroundImageId { get; set; }
 
         /// <summary>
+        /// Gets or Sets ShelfClientBannerImageId
+        /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
+        [DataMember(Name = "shelfClientBannerImageId", EmitDefaultValue = false)]
+        public string ShelfClientBannerImageId { get; set; }
+
+        /// <summary>
         /// Gets or Sets ShelfDescription
         /// </summary>
         [DataMember(Name = "shelfDescription", IsRequired = true, EmitDefaultValue = true)]
@@ -131,6 +148,33 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "shelfLayout", IsRequired = true, EmitDefaultValue = true)]
         public string ShelfLayout { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShelfMobileHeroBannerImageId
+        /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
+        [DataMember(Name = "shelfMobileHeroBannerImageId", EmitDefaultValue = false)]
+        public string ShelfMobileHeroBannerImageId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShelfMobileLogoImageId
+        /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
+        [DataMember(Name = "shelfMobileLogoImageId", EmitDefaultValue = false)]
+        public string ShelfMobileLogoImageId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ShelfMobileSecondaryBannerImageId
+        /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
+        [DataMember(Name = "shelfMobileSecondaryBannerImageId", EmitDefaultValue = false)]
+        public string ShelfMobileSecondaryBannerImageId { get; set; }
 
         /// <summary>
         /// Gets or Sets ShelfTabBackgroundImageId
@@ -167,9 +211,13 @@ namespace VRChat.API.Model
             sb.Append("  ListingIds: ").Append(ListingIds).Append("\n");
             sb.Append("  Listings: ").Append(Listings).Append("\n");
             sb.Append("  ShelfBackgroundImageId: ").Append(ShelfBackgroundImageId).Append("\n");
+            sb.Append("  ShelfClientBannerImageId: ").Append(ShelfClientBannerImageId).Append("\n");
             sb.Append("  ShelfDescription: ").Append(ShelfDescription).Append("\n");
             sb.Append("  ShelfIconImageId: ").Append(ShelfIconImageId).Append("\n");
             sb.Append("  ShelfLayout: ").Append(ShelfLayout).Append("\n");
+            sb.Append("  ShelfMobileHeroBannerImageId: ").Append(ShelfMobileHeroBannerImageId).Append("\n");
+            sb.Append("  ShelfMobileLogoImageId: ").Append(ShelfMobileLogoImageId).Append("\n");
+            sb.Append("  ShelfMobileSecondaryBannerImageId: ").Append(ShelfMobileSecondaryBannerImageId).Append("\n");
             sb.Append("  ShelfTabBackgroundImageId: ").Append(ShelfTabBackgroundImageId).Append("\n");
             sb.Append("  ShelfTitle: ").Append(ShelfTitle).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
@@ -241,6 +289,11 @@ namespace VRChat.API.Model
                     this.ShelfBackgroundImageId.Equals(input.ShelfBackgroundImageId))
                 ) && 
                 (
+                    this.ShelfClientBannerImageId == input.ShelfClientBannerImageId ||
+                    (this.ShelfClientBannerImageId != null &&
+                    this.ShelfClientBannerImageId.Equals(input.ShelfClientBannerImageId))
+                ) && 
+                (
                     this.ShelfDescription == input.ShelfDescription ||
                     (this.ShelfDescription != null &&
                     this.ShelfDescription.Equals(input.ShelfDescription))
@@ -254,6 +307,21 @@ namespace VRChat.API.Model
                     this.ShelfLayout == input.ShelfLayout ||
                     (this.ShelfLayout != null &&
                     this.ShelfLayout.Equals(input.ShelfLayout))
+                ) && 
+                (
+                    this.ShelfMobileHeroBannerImageId == input.ShelfMobileHeroBannerImageId ||
+                    (this.ShelfMobileHeroBannerImageId != null &&
+                    this.ShelfMobileHeroBannerImageId.Equals(input.ShelfMobileHeroBannerImageId))
+                ) && 
+                (
+                    this.ShelfMobileLogoImageId == input.ShelfMobileLogoImageId ||
+                    (this.ShelfMobileLogoImageId != null &&
+                    this.ShelfMobileLogoImageId.Equals(input.ShelfMobileLogoImageId))
+                ) && 
+                (
+                    this.ShelfMobileSecondaryBannerImageId == input.ShelfMobileSecondaryBannerImageId ||
+                    (this.ShelfMobileSecondaryBannerImageId != null &&
+                    this.ShelfMobileSecondaryBannerImageId.Equals(input.ShelfMobileSecondaryBannerImageId))
                 ) && 
                 (
                     this.ShelfTabBackgroundImageId == input.ShelfTabBackgroundImageId ||
@@ -304,6 +372,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ShelfBackgroundImageId.GetHashCode();
                 }
+                if (this.ShelfClientBannerImageId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShelfClientBannerImageId.GetHashCode();
+                }
                 if (this.ShelfDescription != null)
                 {
                     hashCode = (hashCode * 59) + this.ShelfDescription.GetHashCode();
@@ -315,6 +387,18 @@ namespace VRChat.API.Model
                 if (this.ShelfLayout != null)
                 {
                     hashCode = (hashCode * 59) + this.ShelfLayout.GetHashCode();
+                }
+                if (this.ShelfMobileHeroBannerImageId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShelfMobileHeroBannerImageId.GetHashCode();
+                }
+                if (this.ShelfMobileLogoImageId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShelfMobileLogoImageId.GetHashCode();
+                }
+                if (this.ShelfMobileSecondaryBannerImageId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShelfMobileSecondaryBannerImageId.GetHashCode();
                 }
                 if (this.ShelfTabBackgroundImageId != null)
                 {

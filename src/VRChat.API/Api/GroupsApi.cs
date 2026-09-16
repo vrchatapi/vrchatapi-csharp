@@ -484,8 +484,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
+        /// <param name="purpose"> (optional)</param>
         /// <returns>Group</returns>
-        Group GetGroup(string groupId, bool? includeRoles = default);
+        Group GetGroup(string groupId, bool? includeRoles = default, string? purpose = default);
 
         /// <summary>
         /// Get Group by ID
@@ -496,8 +497,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
+        /// <param name="purpose"> (optional)</param>
         /// <returns>ApiResponse of Group</returns>
-        ApiResponse<Group> GetGroupWithHttpInfo(string groupId, bool? includeRoles = default);
+        ApiResponse<Group> GetGroupWithHttpInfo(string groupId, bool? includeRoles = default, string? purpose = default);
         /// <summary>
         /// Get Group Announcement
         /// </summary>
@@ -611,9 +613,10 @@ namespace VRChat.API.Api
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <returns>List&lt;GroupGalleryImage&gt;</returns>
-        List<GroupGalleryImage> GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default);
+        /// <returns>GetGroupGalleryImages200Response</returns>
+        GetGroupGalleryImages200Response GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default);
 
         /// <summary>
         /// Get Group Gallery Images
@@ -626,9 +629,10 @@ namespace VRChat.API.Api
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <returns>ApiResponse of List&lt;GroupGalleryImage&gt;</returns>
-        ApiResponse<List<GroupGalleryImage>> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default);
+        /// <returns>ApiResponse of GetGroupGalleryImages200Response</returns>
+        ApiResponse<GetGroupGalleryImages200Response> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default);
         /// <summary>
         /// Get Group Instances
         /// </summary>
@@ -1742,9 +1746,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
+        /// <param name="purpose"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, bool? includeRoles = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, bool? includeRoles = default, string? purpose = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group by ID
@@ -1755,9 +1760,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
+        /// <param name="purpose"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, bool? includeRoles = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, bool? includeRoles = default, string? purpose = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Announcement
         /// </summary>
@@ -1879,10 +1885,11 @@ namespace VRChat.API.Api
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;GroupGalleryImage&gt;</returns>
-        System.Threading.Tasks.Task<List<GroupGalleryImage>> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of GetGroupGalleryImages200Response</returns>
+        System.Threading.Tasks.Task<GetGroupGalleryImages200Response> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Gallery Images
@@ -1895,10 +1902,11 @@ namespace VRChat.API.Api
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;GroupGalleryImage&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupGalleryImage>>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (GetGroupGalleryImages200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetGroupGalleryImages200Response>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Instances
         /// </summary>
@@ -5901,10 +5909,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
+        /// <param name="purpose"> (optional)</param>
         /// <returns>Group</returns>
-        public Group GetGroup(string groupId, bool? includeRoles = default)
+        public Group GetGroup(string groupId, bool? includeRoles = default, string? purpose = default)
         {
-            VRChat.API.Client.ApiResponse<Group> localVarResponse = GetGroupWithHttpInfo(groupId, includeRoles);
+            VRChat.API.Client.ApiResponse<Group> localVarResponse = GetGroupWithHttpInfo(groupId, includeRoles, purpose);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
@@ -5922,8 +5931,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
+        /// <param name="purpose"> (optional)</param>
         /// <returns>ApiResponse of Group</returns>
-        public VRChat.API.Client.ApiResponse<Group> GetGroupWithHttpInfo(string groupId, bool? includeRoles = default)
+        public VRChat.API.Client.ApiResponse<Group> GetGroupWithHttpInfo(string groupId, bool? includeRoles = default, string? purpose = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -5949,6 +5959,10 @@ namespace VRChat.API.Api
             if (includeRoles != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "includeRoles", includeRoles));
+            }
+            if (purpose != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "purpose", purpose));
             }
 
             // authentication (authCookie) required
@@ -5977,11 +5991,12 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
+        /// <param name="purpose"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Group</returns>
-        public async System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, bool? includeRoles = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, bool? includeRoles = default, string? purpose = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Group> localVarResponse = await GetGroupWithHttpInfoAsync(groupId, includeRoles, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Group> localVarResponse = await GetGroupWithHttpInfoAsync(groupId, includeRoles, purpose, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroup", localVarResponse);
@@ -5999,9 +6014,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="includeRoles">Include roles for the Group object. Defaults to false. (optional)</param>
+        /// <param name="purpose"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Group)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, bool? includeRoles = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, bool? includeRoles = default, string? purpose = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -6029,6 +6045,10 @@ namespace VRChat.API.Api
             if (includeRoles != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "includeRoles", includeRoles));
+            }
+            if (purpose != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "purpose", purpose));
             }
 
             // authentication (authCookie) required
@@ -6743,11 +6763,12 @@ namespace VRChat.API.Api
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <returns>List&lt;GroupGalleryImage&gt;</returns>
-        public List<GroupGalleryImage> GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default)
+        /// <returns>GetGroupGalleryImages200Response</returns>
+        public GetGroupGalleryImages200Response GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupGalleryImage>> localVarResponse = GetGroupGalleryImagesWithHttpInfo(groupId, groupGalleryId, n, offset, approved);
+            VRChat.API.Client.ApiResponse<GetGroupGalleryImages200Response> localVarResponse = GetGroupGalleryImagesWithHttpInfo(groupId, groupGalleryId, n, offset, v, approved);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupGalleryImages", localVarResponse);
@@ -6767,9 +6788,10 @@ namespace VRChat.API.Api
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <returns>ApiResponse of List&lt;GroupGalleryImage&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<GroupGalleryImage>> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default)
+        /// <returns>ApiResponse of GetGroupGalleryImages200Response</returns>
+        public VRChat.API.Client.ApiResponse<GetGroupGalleryImages200Response> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -6805,6 +6827,10 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+            if (v != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "v", v));
+            }
             if (approved != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "approved", approved));
@@ -6820,13 +6846,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<List<GroupGalleryImage>>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<GetGroupGalleryImages200Response>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<List<GroupGalleryImage>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupGalleryImage>), ex.Message);
+                return new VRChat.API.Client.ApiResponse<GetGroupGalleryImages200Response>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GetGroupGalleryImages200Response), ex.Message);
             }
         }
 
@@ -6838,12 +6864,13 @@ namespace VRChat.API.Api
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;GroupGalleryImage&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GroupGalleryImage>> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of GetGroupGalleryImages200Response</returns>
+        public async System.Threading.Tasks.Task<GetGroupGalleryImages200Response> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<GroupGalleryImage>> localVarResponse = await GetGroupGalleryImagesWithHttpInfoAsync(groupId, groupGalleryId, n, offset, approved, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GetGroupGalleryImages200Response> localVarResponse = await GetGroupGalleryImagesWithHttpInfoAsync(groupId, groupGalleryId, n, offset, v, approved, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupGalleryImages", localVarResponse);
@@ -6863,10 +6890,11 @@ namespace VRChat.API.Api
         /// <param name="groupGalleryId">Must be a valid group gallery ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;GroupGalleryImage&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<GroupGalleryImage>>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (GetGroupGalleryImages200Response)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GetGroupGalleryImages200Response>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -6904,6 +6932,10 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
             }
+            if (v != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "v", v));
+            }
             if (approved != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "approved", approved));
@@ -6919,13 +6951,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupGalleryImage>>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<GetGroupGalleryImages200Response>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<List<GroupGalleryImage>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<GroupGalleryImage>), ex.Message);
+                return new VRChat.API.Client.ApiResponse<GetGroupGalleryImages200Response>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GetGroupGalleryImages200Response), ex.Message);
             }
         }
 

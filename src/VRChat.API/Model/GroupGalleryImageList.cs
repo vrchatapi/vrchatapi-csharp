@@ -20,47 +20,39 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// PastDisplayName
+    /// A page of a group gallery&#39;s images.
     /// </summary>
-    [DataContract(Name = "PastDisplayName")]
-    public partial class PastDisplayName : IEquatable<PastDisplayName>, IValidatableObject
+    [DataContract(Name = "GroupGalleryImageList")]
+    public partial class GroupGalleryImageList : IEquatable<GroupGalleryImageList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
+        /// Initializes a new instance of the <see cref="GroupGalleryImageList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PastDisplayName() { }
+        protected GroupGalleryImageList() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PastDisplayName" /> class.
+        /// Initializes a new instance of the <see cref="GroupGalleryImageList" /> class.
         /// </summary>
-        /// <param name="displayName">displayName (required).</param>
-        /// <param name="reverted">reverted (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
-        public PastDisplayName(string displayName = default, bool reverted = default, DateTime updatedAt = default)
+        /// <param name="results">results (required).</param>
+        /// <param name="totalCount">totalCount (required).</param>
+        public GroupGalleryImageList(List<GroupGalleryImage> results = default, int totalCount = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.DisplayName = displayName;
-            this.Reverted = reverted;
-            this.UpdatedAt = updatedAt;
+            this.Results = results;
+            this.TotalCount = totalCount;
         }
 
         /// <summary>
-        /// Gets or Sets DisplayName
+        /// Gets or Sets Results
         /// </summary>
-        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
-        public string DisplayName { get; set; }
+        [DataMember(Name = "results", IsRequired = true, EmitDefaultValue = true)]
+        public List<GroupGalleryImage> Results { get; set; }
 
         /// <summary>
-        /// Gets or Sets Reverted
+        /// Gets or Sets TotalCount
         /// </summary>
-        [DataMember(Name = "reverted", IsRequired = true, EmitDefaultValue = true)]
-        public bool Reverted { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UpdatedAt
-        /// </summary>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime UpdatedAt { get; set; }
+        [DataMember(Name = "totalCount", IsRequired = true, EmitDefaultValue = true)]
+        public int TotalCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,10 +61,9 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PastDisplayName {\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Reverted: ").Append(Reverted).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("class GroupGalleryImageList {\n");
+            sb.Append("  Results: ").Append(Results).Append("\n");
+            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,15 +84,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PastDisplayName);
+            return this.Equals(input as GroupGalleryImageList);
         }
 
         /// <summary>
-        /// Returns true if PastDisplayName instances are equal
+        /// Returns true if GroupGalleryImageList instances are equal
         /// </summary>
-        /// <param name="input">Instance of PastDisplayName to be compared</param>
+        /// <param name="input">Instance of GroupGalleryImageList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PastDisplayName input)
+        public bool Equals(GroupGalleryImageList input)
         {
             if (input == null)
             {
@@ -109,17 +100,14 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.DisplayName == input.DisplayName ||
-                    (this.DisplayName != null &&
-                    this.DisplayName.Equals(input.DisplayName))
+                    this.Results == input.Results ||
+                    this.Results != null &&
+                    input.Results != null &&
+                    this.Results.SequenceEqual(input.Results)
                 ) && 
                 (
-                    this.Reverted == input.Reverted ||
-                    this.Reverted.Equals(input.Reverted)
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    this.UpdatedAt.Equals(input.UpdatedAt)
+                    this.TotalCount == input.TotalCount ||
+                    this.TotalCount.Equals(input.TotalCount)
                 );
         }
 
@@ -132,12 +120,11 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DisplayName != null)
+                if (this.Results != null)
                 {
-                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Results.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Reverted.GetHashCode();
-                hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,10 +136,10 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // DisplayName (string) minLength
-            if (this.DisplayName != null && this.DisplayName.Length < 1)
+            // TotalCount (int) minimum
+            if (this.TotalCount < (int)0)
             {
-                yield return new ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+                yield return new ValidationResult("Invalid value for TotalCount, must be a value greater than or equal to 0.", new [] { "TotalCount" });
             }
 
             yield break;
