@@ -41,10 +41,11 @@ namespace VRChat.API.Model
         /// <param name="languages">3 letter language code.</param>
         /// <param name="links">links.</param>
         /// <param name="name">name.</param>
+        /// <param name="nameplateId">nameplateId.</param>
         /// <param name="rules">rules.</param>
         /// <param name="shortCode">shortCode.</param>
         /// <param name="tags"> .</param>
-        public UpdateGroupRequest(string bannerId = default, string description = default, string iconId = default, GroupJoinState? joinState = default, List<string> languages = default, List<string> links = default, string name = default, string rules = default, string shortCode = default, List<string> tags = default)
+        public UpdateGroupRequest(string bannerId = default, string description = default, string iconId = default, GroupJoinState? joinState = default, List<string> languages = default, List<string> links = default, string name = default, string nameplateId = default, string rules = default, string shortCode = default, List<string> tags = default)
         {
             this.BannerId = bannerId;
             this.Description = description;
@@ -53,6 +54,7 @@ namespace VRChat.API.Model
             this.Languages = languages;
             this.Links = links;
             this.Name = name;
+            this.NameplateId = nameplateId;
             this.Rules = rules;
             this.ShortCode = shortCode;
             this.Tags = tags;
@@ -96,6 +98,12 @@ namespace VRChat.API.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or Sets NameplateId
+        /// </summary>
+        [DataMember(Name = "nameplateId", EmitDefaultValue = true)]
+        public string NameplateId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Rules
         /// </summary>
         [DataMember(Name = "rules", EmitDefaultValue = false)]
@@ -129,6 +137,7 @@ namespace VRChat.API.Model
             sb.Append("  Languages: ").Append(Languages).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  NameplateId: ").Append(NameplateId).Append("\n");
             sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
@@ -204,6 +213,11 @@ namespace VRChat.API.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.NameplateId == input.NameplateId ||
+                    (this.NameplateId != null &&
+                    this.NameplateId.Equals(input.NameplateId))
+                ) && 
+                (
                     this.Rules == input.Rules ||
                     (this.Rules != null &&
                     this.Rules.Equals(input.Rules))
@@ -254,6 +268,10 @@ namespace VRChat.API.Model
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.NameplateId != null)
+                {
+                    hashCode = (hashCode * 59) + this.NameplateId.GetHashCode();
                 }
                 if (this.Rules != null)
                 {

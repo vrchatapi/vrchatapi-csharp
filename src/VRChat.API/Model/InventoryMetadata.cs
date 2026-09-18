@@ -33,8 +33,8 @@ namespace VRChat.API.Model
         /// <param name="assetBundleId">assetBundleId.</param>
         /// <param name="assets">assets.</param>
         /// <param name="fileId">fileId.</param>
-        /// <param name="gradientEnd">Hex colour without a leading &#x60;#&#x60;..</param>
-        /// <param name="gradientStart">Hex colour without a leading &#x60;#&#x60;..</param>
+        /// <param name="gradientEnd">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="gradientStart">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="inventoryItemsToInstantiate">Only in bundles.</param>
         /// <param name="maskTag">maskTag.</param>
@@ -89,16 +89,22 @@ namespace VRChat.API.Model
         public string FileId { get; set; }
 
         /// <summary>
-        /// Hex colour without a leading &#x60;#&#x60;.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
-        /// <value>Hex colour without a leading &#x60;#&#x60;.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /*
+        <example>3cc92c</example>
+        */
         [DataMember(Name = "gradientEnd", EmitDefaultValue = false)]
         public string GradientEnd { get; set; }
 
         /// <summary>
-        /// Hex colour without a leading &#x60;#&#x60;.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
-        /// <value>Hex colour without a leading &#x60;#&#x60;.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /*
+        <example>3cc92c</example>
+        */
         [DataMember(Name = "gradientStart", EmitDefaultValue = false)]
         public string GradientStart { get; set; }
 

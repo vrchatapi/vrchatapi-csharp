@@ -2,7 +2,6 @@
 src/VRChat.API/Api/AuthenticationApi.cs
 src/VRChat.API/Api/AvatarsApi.cs
 src/VRChat.API/Api/CalendarApi.cs
-src/VRChat.API/Api/DeprecatedApi.cs
 src/VRChat.API/Api/EconomyApi.cs
 src/VRChat.API/Api/FavoritesApi.cs
 src/VRChat.API/Api/FilesApi.cs

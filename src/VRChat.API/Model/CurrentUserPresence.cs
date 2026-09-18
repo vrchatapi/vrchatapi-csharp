@@ -31,7 +31,7 @@ namespace VRChat.API.Model
         /// <param name="avatarImageUrl">avatarImageUrl.</param>
         /// <param name="avatarThumbnail">avatarThumbnail.</param>
         /// <param name="banner">banner.</param>
-        /// <param name="bannerColor">bannerColor.</param>
+        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
         /// <param name="currentAvatarTags">currentAvatarTags.</param>
@@ -101,8 +101,12 @@ namespace VRChat.API.Model
         public string Banner { get; set; }
 
         /// <summary>
-        /// Gets or Sets BannerColor
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /*
+        <example>3cc92c</example>
+        */
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
