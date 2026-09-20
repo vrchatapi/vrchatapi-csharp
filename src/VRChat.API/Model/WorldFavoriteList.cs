@@ -20,7 +20,7 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// A world favorite group summarised for a public profile, with a sample of its worlds&#39; thumbnails.
+    /// A world favorite group as a public profile lists it, with a sample of its worlds&#39; thumbnails.
     /// </summary>
     [DataContract(Name = "WorldFavoriteList")]
     public partial class WorldFavoriteList : IEquatable<WorldFavoriteList>, IValidatableObject

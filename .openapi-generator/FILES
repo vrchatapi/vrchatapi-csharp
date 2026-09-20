@@ -122,7 +122,6 @@ src/VRChat.API/Model/CreateProductRequest.cs
 src/VRChat.API/Model/CreatePropRequest.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
 src/VRChat.API/Model/CurrentUser.cs
-src/VRChat.API/Model/CurrentUserPlatformHistoryInner.cs
 src/VRChat.API/Model/CurrentUserPresence.cs
 src/VRChat.API/Model/DeclineGroupInviteRequest.cs
 src/VRChat.API/Model/DeveloperType.cs
@@ -285,6 +284,7 @@ src/VRChat.API/Model/PerformanceRatings.cs
 src/VRChat.API/Model/Permission.cs
 src/VRChat.API/Model/PermissionData.cs
 src/VRChat.API/Model/PlatformBuildInfo.cs
+src/VRChat.API/Model/PlatformHistoryEntry.cs
 src/VRChat.API/Model/PlayerModeration.cs
 src/VRChat.API/Model/PlayerModerationType.cs
 src/VRChat.API/Model/Print.cs

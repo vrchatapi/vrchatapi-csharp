@@ -65,7 +65,7 @@ namespace VRChat.API.Model
         /// <param name="ageVerificationStatus">ageVerificationStatus (required).</param>
         /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+). (required).</param>
         /// <param name="allowAvatarCopying">allowAvatarCopying (required).</param>
-        /// <param name="appleDetails">appleDetails.</param>
+        /// <param name="appleDetails">Details of an account on another service linked to this one..</param>
         /// <param name="appleId">appleId.</param>
         /// <param name="authToken">The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register).</param>
         /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
@@ -88,7 +88,7 @@ namespace VRChat.API.Model
         /// <param name="friendKey">friendKey (required).</param>
         /// <param name="friendRequestStatus">State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;..</param>
         /// <param name="friends">friends (required).</param>
-        /// <param name="googleDetails">googleDetails.</param>
+        /// <param name="googleDetails">Details of an account on another service linked to this one..</param>
         /// <param name="googleId">googleId.</param>
         /// <param name="hasBirthday">hasBirthday (required).</param>
         /// <param name="hasDiscordFriendsOptOut">hasDiscordFriendsOptOut.</param>
@@ -135,14 +135,14 @@ namespace VRChat.API.Model
         /// <param name="statusDescription">statusDescription (required).</param>
         /// <param name="statusFirstTime">statusFirstTime (required).</param>
         /// <param name="statusHistory">statusHistory (required).</param>
-        /// <param name="steamDetails">steamDetails (required).</param>
+        /// <param name="steamDetails">Details of an account on another service linked to this one. (required).</param>
         /// <param name="steamId">steamId (required).</param>
         /// <param name="tags">tags (required).</param>
         /// <param name="temporaryExpiryDate">temporaryExpiryDate.</param>
         /// <param name="travelingToInstance">travelingToInstance.</param>
         /// <param name="travelingToLocation">travelingToLocation.</param>
         /// <param name="travelingToWorld">travelingToWorld.</param>
-        /// <param name="twitchDetails">twitchDetails.</param>
+        /// <param name="twitchDetails">Details of an account on another service linked to this one..</param>
         /// <param name="twitchId">twitchId.</param>
         /// <param name="twoFactorAuthEnabled">twoFactorAuthEnabled (required).</param>
         /// <param name="twoFactorAuthEnabledDate">twoFactorAuthEnabledDate.</param>
@@ -154,7 +154,7 @@ namespace VRChat.API.Model
         /// <param name="usesGeneratedPassword">usesGeneratedPassword (required).</param>
         /// <param name="viveId">viveId.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, Object appleDetails = default, string appleId = default, string authToken = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, string friendRequestStatus = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isAdult = default, bool isBoopingEnabled = true, bool isEconomyCreator = false, bool isFriend = false, bool isTemporary = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, string platform = default, List<CurrentUserPlatformHistoryInner> platformHistory = default, CurrentUserPresence presence = default, string profileEffect = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, Object temporaryExpiryDate = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default, string worldId = default)
+        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, Object appleDetails = default, string appleId = default, string authToken = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, string friendRequestStatus = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isAdult = default, bool isBoopingEnabled = true, bool isEconomyCreator = false, bool isFriend = false, bool isTemporary = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, string platform = default, List<PlatformHistoryEntry> platformHistory = default, CurrentUserPresence presence = default, string profileEffect = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, Object temporaryExpiryDate = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default, string worldId = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.AgeVerificationStatus = ageVerificationStatus;
@@ -330,8 +330,9 @@ namespace VRChat.API.Model
         public bool AllowAvatarCopying { get; set; }
 
         /// <summary>
-        /// Gets or Sets AppleDetails
+        /// Details of an account on another service linked to this one.
         /// </summary>
+        /// <value>Details of an account on another service linked to this one.</value>
         [DataMember(Name = "appleDetails", EmitDefaultValue = false)]
         public Object AppleDetails { get; set; }
 
@@ -492,8 +493,9 @@ namespace VRChat.API.Model
         public List<string> Friends { get; set; }
 
         /// <summary>
-        /// Gets or Sets GoogleDetails
+        /// Details of an account on another service linked to this one.
         /// </summary>
+        /// <value>Details of an account on another service linked to this one.</value>
         [DataMember(Name = "googleDetails", EmitDefaultValue = false)]
         public Object GoogleDetails { get; set; }
 
@@ -726,7 +728,7 @@ namespace VRChat.API.Model
         /// Gets or Sets PlatformHistory
         /// </summary>
         [DataMember(Name = "platform_history", EmitDefaultValue = false)]
-        public List<CurrentUserPlatformHistoryInner> PlatformHistory { get; set; }
+        public List<PlatformHistoryEntry> PlatformHistory { get; set; }
 
         /// <summary>
         /// Gets or Sets Presence
@@ -783,8 +785,9 @@ namespace VRChat.API.Model
         public List<string> StatusHistory { get; set; }
 
         /// <summary>
-        /// Gets or Sets SteamDetails
+        /// Details of an account on another service linked to this one.
         /// </summary>
+        /// <value>Details of an account on another service linked to this one.</value>
         [DataMember(Name = "steamDetails", IsRequired = false, EmitDefaultValue = true)]
         public Object SteamDetails { get; set; }
 
@@ -825,8 +828,9 @@ namespace VRChat.API.Model
         public string TravelingToWorld { get; set; }
 
         /// <summary>
-        /// Gets or Sets TwitchDetails
+        /// Details of an account on another service linked to this one.
         /// </summary>
+        /// <value>Details of an account on another service linked to this one.</value>
         [DataMember(Name = "twitchDetails", EmitDefaultValue = false)]
         public Object TwitchDetails { get; set; }
 

@@ -64,7 +64,7 @@ namespace VRChat.API.Model
         /// <param name="ageVerificationStatus">ageVerificationStatus (required).</param>
         /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+). (required).</param>
         /// <param name="allowAvatarCopying">allowAvatarCopying (required) (default to true).</param>
-        /// <param name="appleDetails">appleDetails.</param>
+        /// <param name="appleDetails">Details of an account on another service linked to this one..</param>
         /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
@@ -97,7 +97,7 @@ namespace VRChat.API.Model
         /// <param name="travelingToLocation">travelingToLocation.</param>
         /// <param name="travelingToWorld">travelingToWorld.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public User(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = true, Dictionary<string, Object> appleDetails = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, string lastActivity = default, string lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
+        public User(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = true, Object appleDetails = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, string lastActivity = default, string lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
         {
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
@@ -188,10 +188,11 @@ namespace VRChat.API.Model
         public bool AllowAvatarCopying { get; set; }
 
         /// <summary>
-        /// Gets or Sets AppleDetails
+        /// Details of an account on another service linked to this one.
         /// </summary>
+        /// <value>Details of an account on another service linked to this one.</value>
         [DataMember(Name = "appleDetails", EmitDefaultValue = false)]
-        public Dictionary<string, Object> AppleDetails { get; set; }
+        public Object AppleDetails { get; set; }
 
         /// <summary>
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
@@ -516,9 +517,8 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.AppleDetails == input.AppleDetails ||
-                    this.AppleDetails != null &&
-                    input.AppleDetails != null &&
-                    this.AppleDetails.SequenceEqual(input.AppleDetails)
+                    (this.AppleDetails != null &&
+                    this.AppleDetails.Equals(input.AppleDetails))
                 ) && 
                 (
                     this.BannerColor == input.BannerColor ||

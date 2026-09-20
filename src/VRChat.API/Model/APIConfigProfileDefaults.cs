@@ -20,7 +20,7 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Default profile theme colours, each a hex RGB triplet without a leading &#x60;#&#x60;.
+    /// Default profile theme colors.
     /// </summary>
     [DataContract(Name = "APIConfigProfileDefaults")]
     public partial class APIConfigProfileDefaults : IEquatable<APIConfigProfileDefaults>, IValidatableObject

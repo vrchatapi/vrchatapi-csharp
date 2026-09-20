@@ -20,18 +20,18 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// CurrentUserPlatformHistoryInner
+    /// A platform the user was recorded on, and when.
     /// </summary>
-    [DataContract(Name = "CurrentUser_platform_history_inner")]
-    public partial class CurrentUserPlatformHistoryInner : IEquatable<CurrentUserPlatformHistoryInner>, IValidatableObject
+    [DataContract(Name = "PlatformHistoryEntry")]
+    public partial class PlatformHistoryEntry : IEquatable<PlatformHistoryEntry>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserPlatformHistoryInner" /> class.
+        /// Initializes a new instance of the <see cref="PlatformHistoryEntry" /> class.
         /// </summary>
         /// <param name="isMobile">isMobile.</param>
         /// <param name="platform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
         /// <param name="recorded">recorded.</param>
-        public CurrentUserPlatformHistoryInner(bool isMobile = default, string platform = default, DateTime recorded = default)
+        public PlatformHistoryEntry(bool isMobile = default, string platform = default, DateTime recorded = default)
         {
             this.IsMobile = isMobile;
             this.Platform = platform;
@@ -67,7 +67,7 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CurrentUserPlatformHistoryInner {\n");
+            sb.Append("class PlatformHistoryEntry {\n");
             sb.Append("  IsMobile: ").Append(IsMobile).Append("\n");
             sb.Append("  Platform: ").Append(Platform).Append("\n");
             sb.Append("  Recorded: ").Append(Recorded).Append("\n");
@@ -91,15 +91,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CurrentUserPlatformHistoryInner);
+            return this.Equals(input as PlatformHistoryEntry);
         }
 
         /// <summary>
-        /// Returns true if CurrentUserPlatformHistoryInner instances are equal
+        /// Returns true if PlatformHistoryEntry instances are equal
         /// </summary>
-        /// <param name="input">Instance of CurrentUserPlatformHistoryInner to be compared</param>
+        /// <param name="input">Instance of PlatformHistoryEntry to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserPlatformHistoryInner input)
+        public bool Equals(PlatformHistoryEntry input)
         {
             if (input == null)
             {
