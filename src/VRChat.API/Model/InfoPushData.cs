@@ -32,9 +32,12 @@ namespace VRChat.API.Model
         /// <param name="authorName">authorName.</param>
         /// <param name="avatarId">avatarId.</param>
         /// <param name="bannerImageUrl">bannerImageUrl.</param>
+        /// <param name="body">body.</param>
         /// <param name="categories">categories.</param>
         /// <param name="category">category.</param>
         /// <param name="contentList">contentList.</param>
+        /// <param name="cta">cta.</param>
+        /// <param name="deliveryBehavior">deliveryBehavior.</param>
         /// <param name="description">description.</param>
         /// <param name="disclaimerText">disclaimerText.</param>
         /// <param name="domainList">domainList.</param>
@@ -42,31 +45,40 @@ namespace VRChat.API.Model
         /// <param name="finalName">finalName.</param>
         /// <param name="hoverToJoin">hoverToJoin.</param>
         /// <param name="iconImageUrl">iconImageUrl.</param>
+        /// <param name="imageFileId">imageFileId.</param>
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="ipsQuery">ipsQuery.</param>
         /// <param name="isNew">isNew.</param>
         /// <param name="listingIds">listingIds.</param>
+        /// <param name="mediaType">mediaType.</param>
         /// <param name="name">name.</param>
         /// <param name="onPressed">onPressed.</param>
         /// <param name="overrideName">overrideName.</param>
         /// <param name="rows">Number of rows to render..</param>
         /// <param name="search">search.</param>
         /// <param name="shortName">shortName.</param>
+        /// <param name="showInWorldIds">showInWorldIds.</param>
         /// <param name="template">template.</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl.</param>
+        /// <param name="title">title.</param>
         /// <param name="tooltipDescription">tooltipDescription.</param>
         /// <param name="varVersion">varVersion.</param>
+        /// <param name="videoFileId">videoFileId.</param>
+        /// <param name="videoUrl">videoUrl.</param>
         /// <param name="weight">weight.</param>
         /// <param name="worldTag">worldTag.</param>
-        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, string description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, int? rows = default, InfoPushDataSearch search = default, string shortName = default, string template = default, string thumbnailImageUrl = default, string tooltipDescription = default, string varVersion = default, int weight = default, string worldTag = default)
+        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, string body = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, InfoPushDataCallToAction cta = default, InfoPushDataDeliveryBehavior deliveryBehavior = default, string description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageFileId = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string mediaType = default, string name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, int? rows = default, InfoPushDataSearch search = default, string shortName = default, Object showInWorldIds = default, string template = default, string thumbnailImageUrl = default, string title = default, string tooltipDescription = default, string varVersion = default, string videoFileId = default, string videoUrl = default, int weight = default, string worldTag = default)
         {
             this.Article = article;
             this.AuthorName = authorName;
             this.AvatarId = avatarId;
             this.BannerImageUrl = bannerImageUrl;
+            this.Body = body;
             this.Categories = categories;
             this.Category = category;
             this.ContentList = contentList;
+            this.Cta = cta;
+            this.DeliveryBehavior = deliveryBehavior;
             this.Description = description;
             this.DisclaimerText = disclaimerText;
             this.DomainList = domainList;
@@ -74,20 +86,26 @@ namespace VRChat.API.Model
             this.FinalName = finalName;
             this.HoverToJoin = hoverToJoin;
             this.IconImageUrl = iconImageUrl;
+            this.ImageFileId = imageFileId;
             this.ImageUrl = imageUrl;
             this.IpsQuery = ipsQuery;
             this.IsNew = isNew;
             this.ListingIds = listingIds;
+            this.MediaType = mediaType;
             this.Name = name;
             this.OnPressed = onPressed;
             this.OverrideName = overrideName;
             this.Rows = rows;
             this.Search = search;
             this.ShortName = shortName;
+            this.ShowInWorldIds = showInWorldIds;
             this.Template = template;
             this.ThumbnailImageUrl = thumbnailImageUrl;
+            this.Title = title;
             this.TooltipDescription = tooltipDescription;
             this.VarVersion = varVersion;
+            this.VideoFileId = videoFileId;
+            this.VideoUrl = videoUrl;
             this.Weight = weight;
             this.WorldTag = worldTag;
         }
@@ -120,6 +138,12 @@ namespace VRChat.API.Model
         public string BannerImageUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets Body
+        /// </summary>
+        [DataMember(Name = "body", EmitDefaultValue = false)]
+        public string Body { get; set; }
+
+        /// <summary>
         /// Gets or Sets Categories
         /// </summary>
         [DataMember(Name = "categories", EmitDefaultValue = false)]
@@ -136,6 +160,18 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "contentList", EmitDefaultValue = false)]
         public DynamicContentRow ContentList { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Cta
+        /// </summary>
+        [DataMember(Name = "cta", EmitDefaultValue = false)]
+        public InfoPushDataCallToAction Cta { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DeliveryBehavior
+        /// </summary>
+        [DataMember(Name = "deliveryBehavior", EmitDefaultValue = false)]
+        public InfoPushDataDeliveryBehavior DeliveryBehavior { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
@@ -180,6 +216,15 @@ namespace VRChat.API.Model
         public string IconImageUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets ImageFileId
+        /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
+        [DataMember(Name = "imageFileId", EmitDefaultValue = false)]
+        public string ImageFileId { get; set; }
+
+        /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
         [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
@@ -202,6 +247,15 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "listingIds", EmitDefaultValue = false)]
         public List<string> ListingIds { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MediaType
+        /// </summary>
+        /*
+        <example>video</example>
+        */
+        [DataMember(Name = "mediaType", EmitDefaultValue = false)]
+        public string MediaType { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -241,6 +295,12 @@ namespace VRChat.API.Model
         public string ShortName { get; set; }
 
         /// <summary>
+        /// Gets or Sets ShowInWorldIds
+        /// </summary>
+        [DataMember(Name = "showInWorldIds", EmitDefaultValue = true)]
+        public Object ShowInWorldIds { get; set; }
+
+        /// <summary>
         /// Gets or Sets Template
         /// </summary>
         [DataMember(Name = "template", EmitDefaultValue = false)]
@@ -251,6 +311,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "thumbnailImageUrl", EmitDefaultValue = true)]
         public string ThumbnailImageUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Title
+        /// </summary>
+        [DataMember(Name = "title", EmitDefaultValue = false)]
+        public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets TooltipDescription
@@ -266,6 +332,21 @@ namespace VRChat.API.Model
         */
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public string VarVersion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VideoFileId
+        /// </summary>
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
+        [DataMember(Name = "videoFileId", EmitDefaultValue = false)]
+        public string VideoFileId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VideoUrl
+        /// </summary>
+        [DataMember(Name = "videoUrl", EmitDefaultValue = false)]
+        public string VideoUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Weight
@@ -291,9 +372,12 @@ namespace VRChat.API.Model
             sb.Append("  AuthorName: ").Append(AuthorName).Append("\n");
             sb.Append("  AvatarId: ").Append(AvatarId).Append("\n");
             sb.Append("  BannerImageUrl: ").Append(BannerImageUrl).Append("\n");
+            sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  Categories: ").Append(Categories).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  ContentList: ").Append(ContentList).Append("\n");
+            sb.Append("  Cta: ").Append(Cta).Append("\n");
+            sb.Append("  DeliveryBehavior: ").Append(DeliveryBehavior).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DisclaimerText: ").Append(DisclaimerText).Append("\n");
             sb.Append("  DomainList: ").Append(DomainList).Append("\n");
@@ -301,20 +385,26 @@ namespace VRChat.API.Model
             sb.Append("  FinalName: ").Append(FinalName).Append("\n");
             sb.Append("  HoverToJoin: ").Append(HoverToJoin).Append("\n");
             sb.Append("  IconImageUrl: ").Append(IconImageUrl).Append("\n");
+            sb.Append("  ImageFileId: ").Append(ImageFileId).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
             sb.Append("  IpsQuery: ").Append(IpsQuery).Append("\n");
             sb.Append("  IsNew: ").Append(IsNew).Append("\n");
             sb.Append("  ListingIds: ").Append(ListingIds).Append("\n");
+            sb.Append("  MediaType: ").Append(MediaType).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OnPressed: ").Append(OnPressed).Append("\n");
             sb.Append("  OverrideName: ").Append(OverrideName).Append("\n");
             sb.Append("  Rows: ").Append(Rows).Append("\n");
             sb.Append("  Search: ").Append(Search).Append("\n");
             sb.Append("  ShortName: ").Append(ShortName).Append("\n");
+            sb.Append("  ShowInWorldIds: ").Append(ShowInWorldIds).Append("\n");
             sb.Append("  Template: ").Append(Template).Append("\n");
             sb.Append("  ThumbnailImageUrl: ").Append(ThumbnailImageUrl).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  TooltipDescription: ").Append(TooltipDescription).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  VideoFileId: ").Append(VideoFileId).Append("\n");
+            sb.Append("  VideoUrl: ").Append(VideoUrl).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  WorldTag: ").Append(WorldTag).Append("\n");
             sb.Append("}\n");
@@ -373,6 +463,11 @@ namespace VRChat.API.Model
                     this.BannerImageUrl.Equals(input.BannerImageUrl))
                 ) && 
                 (
+                    this.Body == input.Body ||
+                    (this.Body != null &&
+                    this.Body.Equals(input.Body))
+                ) && 
+                (
                     this.Categories == input.Categories ||
                     this.Categories != null &&
                     input.Categories != null &&
@@ -387,6 +482,16 @@ namespace VRChat.API.Model
                     this.ContentList == input.ContentList ||
                     (this.ContentList != null &&
                     this.ContentList.Equals(input.ContentList))
+                ) && 
+                (
+                    this.Cta == input.Cta ||
+                    (this.Cta != null &&
+                    this.Cta.Equals(input.Cta))
+                ) && 
+                (
+                    this.DeliveryBehavior == input.DeliveryBehavior ||
+                    (this.DeliveryBehavior != null &&
+                    this.DeliveryBehavior.Equals(input.DeliveryBehavior))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -424,6 +529,11 @@ namespace VRChat.API.Model
                     this.IconImageUrl.Equals(input.IconImageUrl))
                 ) && 
                 (
+                    this.ImageFileId == input.ImageFileId ||
+                    (this.ImageFileId != null &&
+                    this.ImageFileId.Equals(input.ImageFileId))
+                ) && 
+                (
                     this.ImageUrl == input.ImageUrl ||
                     (this.ImageUrl != null &&
                     this.ImageUrl.Equals(input.ImageUrl))
@@ -442,6 +552,11 @@ namespace VRChat.API.Model
                     this.ListingIds != null &&
                     input.ListingIds != null &&
                     this.ListingIds.SequenceEqual(input.ListingIds)
+                ) && 
+                (
+                    this.MediaType == input.MediaType ||
+                    (this.MediaType != null &&
+                    this.MediaType.Equals(input.MediaType))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -474,6 +589,11 @@ namespace VRChat.API.Model
                     this.ShortName.Equals(input.ShortName))
                 ) && 
                 (
+                    this.ShowInWorldIds == input.ShowInWorldIds ||
+                    (this.ShowInWorldIds != null &&
+                    this.ShowInWorldIds.Equals(input.ShowInWorldIds))
+                ) && 
+                (
                     this.Template == input.Template ||
                     (this.Template != null &&
                     this.Template.Equals(input.Template))
@@ -484,6 +604,11 @@ namespace VRChat.API.Model
                     this.ThumbnailImageUrl.Equals(input.ThumbnailImageUrl))
                 ) && 
                 (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
                     this.TooltipDescription == input.TooltipDescription ||
                     (this.TooltipDescription != null &&
                     this.TooltipDescription.Equals(input.TooltipDescription))
@@ -492,6 +617,16 @@ namespace VRChat.API.Model
                     this.VarVersion == input.VarVersion ||
                     (this.VarVersion != null &&
                     this.VarVersion.Equals(input.VarVersion))
+                ) && 
+                (
+                    this.VideoFileId == input.VideoFileId ||
+                    (this.VideoFileId != null &&
+                    this.VideoFileId.Equals(input.VideoFileId))
+                ) && 
+                (
+                    this.VideoUrl == input.VideoUrl ||
+                    (this.VideoUrl != null &&
+                    this.VideoUrl.Equals(input.VideoUrl))
                 ) && 
                 (
                     this.Weight == input.Weight ||
@@ -529,6 +664,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.BannerImageUrl.GetHashCode();
                 }
+                if (this.Body != null)
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
                 if (this.Categories != null)
                 {
                     hashCode = (hashCode * 59) + this.Categories.GetHashCode();
@@ -540,6 +679,14 @@ namespace VRChat.API.Model
                 if (this.ContentList != null)
                 {
                     hashCode = (hashCode * 59) + this.ContentList.GetHashCode();
+                }
+                if (this.Cta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Cta.GetHashCode();
+                }
+                if (this.DeliveryBehavior != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeliveryBehavior.GetHashCode();
                 }
                 if (this.Description != null)
                 {
@@ -566,6 +713,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.IconImageUrl.GetHashCode();
                 }
+                if (this.ImageFileId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageFileId.GetHashCode();
+                }
                 if (this.ImageUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
@@ -578,6 +729,10 @@ namespace VRChat.API.Model
                 if (this.ListingIds != null)
                 {
                     hashCode = (hashCode * 59) + this.ListingIds.GetHashCode();
+                }
+                if (this.MediaType != null)
+                {
+                    hashCode = (hashCode * 59) + this.MediaType.GetHashCode();
                 }
                 if (this.Name != null)
                 {
@@ -603,6 +758,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
                 }
+                if (this.ShowInWorldIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShowInWorldIds.GetHashCode();
+                }
                 if (this.Template != null)
                 {
                     hashCode = (hashCode * 59) + this.Template.GetHashCode();
@@ -611,6 +770,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
                 }
+                if (this.Title != null)
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 if (this.TooltipDescription != null)
                 {
                     hashCode = (hashCode * 59) + this.TooltipDescription.GetHashCode();
@@ -618,6 +781,14 @@ namespace VRChat.API.Model
                 if (this.VarVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                }
+                if (this.VideoFileId != null)
+                {
+                    hashCode = (hashCode * 59) + this.VideoFileId.GetHashCode();
+                }
+                if (this.VideoUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.VideoUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Weight.GetHashCode();
                 if (this.WorldTag != null)

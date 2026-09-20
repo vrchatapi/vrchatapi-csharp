@@ -48,6 +48,7 @@ namespace VRChat.API.Model
         /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
+        /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead..</param>
         /// <param name="developerType">developerType (required).</param>
         /// <param name="discordId">https://discord.com/developers/docs/reference#snowflakes.</param>
         /// <param name="displayName">displayName (required).</param>
@@ -67,7 +68,7 @@ namespace VRChat.API.Model
         /// <param name="status">status (required).</param>
         /// <param name="statusDescription">statusDescription (required).</param>
         /// <param name="tags">&lt;- Always empty. (required).</param>
-        public LimitedUserFriend(string bannerColor = default, string bannerType = default, string bannerUrl = default, DeveloperType developerType = default, string discordId = default, string displayName = default, string friendKey = default, string iconFrame = default, string iconUrl = default, string id = default, bool isFriend = default, DateTime? lastActivity = default, DateTime? lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string platform = default, string profileEffect = default, UserStatus status = default, string statusDescription = default, List<string> tags = default)
+        public LimitedUserFriend(string bannerColor = default, string bannerType = default, string bannerUrl = default, string currentAvatarImageUrl = default, DeveloperType developerType = default, string discordId = default, string displayName = default, string friendKey = default, string iconFrame = default, string iconUrl = default, string id = default, bool isFriend = default, DateTime? lastActivity = default, DateTime? lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string platform = default, string profileEffect = default, UserStatus status = default, string statusDescription = default, List<string> tags = default)
         {
             this.DeveloperType = developerType;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -97,6 +98,7 @@ namespace VRChat.API.Model
             this.BannerColor = bannerColor;
             this.BannerType = bannerType;
             this.BannerUrl = bannerUrl;
+            this.CurrentAvatarImageUrl = currentAvatarImageUrl;
             this.DiscordId = discordId;
             this.IconFrame = iconFrame;
             this.IconUrl = iconUrl;
@@ -125,6 +127,16 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "bannerUrl", EmitDefaultValue = false)]
         public string BannerUrl { get; set; }
+
+        /// <summary>
+        /// When profilePicOverride is not empty, use it instead.
+        /// </summary>
+        /// <value>When profilePicOverride is not empty, use it instead.</value>
+        /*
+        <example>https://api.vrchat.cloud/api/1/file/file_ae46d521-7281-4b38-b365-804b32a1d6a7/1/file</example>
+        */
+        [DataMember(Name = "currentAvatarImageUrl", EmitDefaultValue = false)]
+        public string CurrentAvatarImageUrl { get; set; }
 
         /// <summary>
         /// https://discord.com/developers/docs/reference#snowflakes
@@ -252,6 +264,7 @@ namespace VRChat.API.Model
             sb.Append("  BannerColor: ").Append(BannerColor).Append("\n");
             sb.Append("  BannerType: ").Append(BannerType).Append("\n");
             sb.Append("  BannerUrl: ").Append(BannerUrl).Append("\n");
+            sb.Append("  CurrentAvatarImageUrl: ").Append(CurrentAvatarImageUrl).Append("\n");
             sb.Append("  DeveloperType: ").Append(DeveloperType).Append("\n");
             sb.Append("  DiscordId: ").Append(DiscordId).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
@@ -320,6 +333,11 @@ namespace VRChat.API.Model
                     this.BannerUrl == input.BannerUrl ||
                     (this.BannerUrl != null &&
                     this.BannerUrl.Equals(input.BannerUrl))
+                ) && 
+                (
+                    this.CurrentAvatarImageUrl == input.CurrentAvatarImageUrl ||
+                    (this.CurrentAvatarImageUrl != null &&
+                    this.CurrentAvatarImageUrl.Equals(input.CurrentAvatarImageUrl))
                 ) && 
                 (
                     this.DeveloperType == input.DeveloperType ||
@@ -436,6 +454,10 @@ namespace VRChat.API.Model
                 if (this.BannerUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();
+                }
+                if (this.CurrentAvatarImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.CurrentAvatarImageUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.DeveloperType.GetHashCode();
                 if (this.DiscordId != null)

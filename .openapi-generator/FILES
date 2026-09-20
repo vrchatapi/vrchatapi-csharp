@@ -204,8 +204,10 @@ src/VRChat.API/Model/InfoPush.cs
 src/VRChat.API/Model/InfoPushData.cs
 src/VRChat.API/Model/InfoPushDataArticle.cs
 src/VRChat.API/Model/InfoPushDataArticleContent.cs
+src/VRChat.API/Model/InfoPushDataCallToAction.cs
 src/VRChat.API/Model/InfoPushDataCategory.cs
 src/VRChat.API/Model/InfoPushDataClickable.cs
+src/VRChat.API/Model/InfoPushDataDeliveryBehavior.cs
 src/VRChat.API/Model/InfoPushDataDomainListInner.cs
 src/VRChat.API/Model/InfoPushDataSearch.cs
 src/VRChat.API/Model/InfoPushEmbeddedLink.cs
