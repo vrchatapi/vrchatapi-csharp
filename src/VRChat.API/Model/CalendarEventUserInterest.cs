@@ -20,9 +20,9 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// CalendarEventUserInterest
+    /// The currently logged in user&#39;s interest in an event.
     /// </summary>
-    [DataContract(Name = "CalendarEvent_userInterest")]
+    [DataContract(Name = "CalendarEventUserInterest")]
     public partial class CalendarEventUserInterest : IEquatable<CalendarEventUserInterest>, IValidatableObject
     {
         /// <summary>

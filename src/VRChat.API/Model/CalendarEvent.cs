@@ -74,7 +74,7 @@ namespace VRChat.API.Model
         /// <param name="platforms">platforms.</param>
         /// <param name="recurrence">recurrence.</param>
         /// <param name="roleIds">Group roles that may join this event.</param>
-        /// <param name="seriesId">So far unused, always \&quot;null\&quot;.</param>
+        /// <param name="seriesId">seriesId.</param>
         /// <param name="startsAt">startsAt (required).</param>
         /// <param name="tags">Custom tags for this event.</param>
         /// <param name="title">title (required).</param>
@@ -82,7 +82,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="userInterest">userInterest.</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
-        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, long durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, CalendarEventOccurrenceKind? occurrenceKind = default, bool? occurrenceModified = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
+        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, long durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, CalendarEventOccurrenceKind? occurrenceKind = default, bool occurrenceModified = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
         {
             this.AccessType = accessType;
             this.Category = category;
@@ -195,7 +195,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
-        [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "imageUrl", EmitDefaultValue = false)]
         public string ImageUrl { get; set; }
 
         /// <summary>
@@ -221,7 +221,7 @@ namespace VRChat.API.Model
         /// Gets or Sets OccurrenceModified
         /// </summary>
         [DataMember(Name = "occurrenceModified", EmitDefaultValue = true)]
-        public bool? OccurrenceModified { get; set; }
+        public bool OccurrenceModified { get; set; }
 
         /// <summary>
         /// Gets or Sets OwnerId
@@ -252,10 +252,12 @@ namespace VRChat.API.Model
         public List<string> RoleIds { get; set; }
 
         /// <summary>
-        /// So far unused, always \&quot;null\&quot;
+        /// Gets or Sets SeriesId
         /// </summary>
-        /// <value>So far unused, always \&quot;null\&quot;</value>
-        [DataMember(Name = "seriesId", EmitDefaultValue = true)]
+        /*
+        <example>cal_6b182f0c-61ef-4bdf-97fe-94f63bcba27b</example>
+        */
+        [DataMember(Name = "seriesId", EmitDefaultValue = false)]
         public string SeriesId { get; set; }
 
         /// <summary>
@@ -459,8 +461,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.OccurrenceModified == input.OccurrenceModified ||
-                    (this.OccurrenceModified != null &&
-                    this.OccurrenceModified.Equals(input.OccurrenceModified))
+                    this.OccurrenceModified.Equals(input.OccurrenceModified)
                 ) && 
                 (
                     this.OwnerId == input.OwnerId ||
@@ -569,10 +570,7 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.Languages.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.OccurrenceKind.GetHashCode();
-                if (this.OccurrenceModified != null)
-                {
-                    hashCode = (hashCode * 59) + this.OccurrenceModified.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.OccurrenceModified.GetHashCode();
                 if (this.OwnerId != null)
                 {
                     hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
