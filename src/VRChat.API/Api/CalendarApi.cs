@@ -2417,6 +2417,12 @@ namespace VRChat.API.Api
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
 
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
 
             // make the HTTP request
             try
@@ -2493,6 +2499,12 @@ namespace VRChat.API.Api
             localVarRequestOptions.PathParameters.Add("groupId", VRChat.API.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("calendarId", VRChat.API.Client.ClientUtils.ParameterToString(calendarId)); // path parameter
 
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
 
             // make the HTTP request
             try
