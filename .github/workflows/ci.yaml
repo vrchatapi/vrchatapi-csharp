@@ -45,20 +45,20 @@ jobs:
 
       - uses: vrchatapi/specification/.github/actions/download@main
         with:
-          bundle: openapi-legacy.yaml
+          bundle: openapi-3.0.yaml
 
       # The SDK is a major version ahead of the specification.
       - id: version
         run: |
-          version="${PASSED_VERSION:-$(yq -r '.info.version' openapi-legacy.yaml)}"
+          version="${PASSED_VERSION:-$(yq -r '.info.version' openapi-3.0.yaml)}"
           version="$(( ${version%%.*} + 1 )).${version#*.}${VERSION_POSTPEND}"
 
           echo "version=${version}" >> $GITHUB_OUTPUT
 
       - if: env.VERSION_POSTPEND != ''
-        run: yq '--inplace' ".info.version |= \"${{ steps.version.outputs.version }}\"" openapi-legacy.yaml
+        run: yq '--inplace' ".info.version |= \"${{ steps.version.outputs.version }}\"" openapi-3.0.yaml
 
-      - run: bash ./generate.sh openapi-legacy.yaml "${{ steps.version.outputs.version }}"
+      - run: bash ./generate.sh openapi-3.0.yaml "${{ steps.version.outputs.version }}"
 
       - run: cp README.md src/
 
@@ -104,7 +104,7 @@ jobs:
         with:
           name: csharp-generated
 
-      - run: rm -f openapi-legacy.yaml
+      - run: rm -f openapi-3.0.yaml
 
       - uses: NuGet/setup-nuget@v4.0
 
